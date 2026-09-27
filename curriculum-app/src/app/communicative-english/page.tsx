@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { curriculumDataEnglish as curriculumData, WeekData } from '@/data/curriculum-english';
-import { Search, Loader2, Sparkles, Sun, Moon, BookOpen, GraduationCap, LayoutDashboard, ChevronRight, Users, RotateCcw, Menu, FileText } from \'lucide-react\';
-import SlideViewer from \'@/components/SlideViewer\';
-import NotesTemplate from \'@/components/NotesTemplate\';
+import { Search, Loader2, Sparkles, Sun, Moon, BookOpen, GraduationCap, LayoutDashboard, ChevronRight, Users, RotateCcw, Menu, FileText } from 'lucide-react';
+import SlideViewer from '@/components/SlideViewer';
+import NotesTemplate from '@/components/NotesTemplate';
 import WelcomeScreen from '@/components/WelcomeScreen';
 
 export default function CommunicativeEnglishApp() {
