@@ -496,7 +496,7 @@ export default function CommunicativeEnglishApp() {
                               style={{ background: 'transparent', padding: '8px 16px', border: '1px solid var(--border-sidebar)', borderRadius: '8px', cursor: 'pointer', color: 'var(--text-secondary)', margin: 0 }}
                               onClick={(e) => { e.stopPropagation(); setActiveNotesLesson(week); }}
                             >
-                              <span>Generate Notes</span>
+                              <span>Notes</span>
                               <FileText size={16} />
                             </div>
                           </div>

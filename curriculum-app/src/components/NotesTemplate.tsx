@@ -39,7 +39,10 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
   const feedbackUrl = `https://thecareerbreweries.onrender.com/notes-feedback?course=${encodeURIComponent(courseName)}&session=${encodeURIComponent(sessionName)}`;
 
   const handlePrint = () => {
+    const originalTitle = document.title;
+    document.title = `${courseName}_${sessionName}_NotesbySD`.replace(/[^a-zA-Z0-9_]/g, '_');
     window.print();
+    document.title = originalTitle;
   };
 
   return (
@@ -51,10 +54,14 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
     }}>
       <style dangerouslySetInnerHTML={{__html: `
         @media print {
+          @page { margin: 15mm; }
           body * { visibility: hidden; }
           .printable-notes-container, .printable-notes-container * { visibility: visible; }
           .printable-notes-container { position: absolute; left: 0; top: 0; width: 100%; box-shadow: none !important; margin: 0 !important; padding: 0 !important; }
           .no-print { display: none !important; }
+          section { page-break-inside: avoid; margin-bottom: 2rem; }
+          h1, h2, h3 { page-break-after: avoid; }
+          .definition-box { page-break-inside: avoid; }
         }
       `}} />
       
@@ -69,7 +76,7 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
           display: 'flex', justifyContent: 'space-between', alignItems: 'center',
           padding: '1rem 1.5rem', borderBottom: '1px solid #e5e7eb', background: '#f8fafc'
         }}>
-          <h2 style={{ margin: 0, color: '#1e293b', fontSize: '1.2rem' }}>Generate Notes: {sessionName}</h2>
+          <h2 style={{ margin: 0, color: '#1e293b', fontSize: '1.2rem' }}>Notes: {sessionName}</h2>
           <div style={{ display: 'flex', gap: '1rem' }}>
             <button onClick={handlePrint} disabled={loading} style={{
               display: 'flex', alignItems: 'center', gap: '6px', padding: '6px 12px',
@@ -128,7 +135,7 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
                 <h2 style={{ color: '#4f46e5', fontSize: '1.4rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.5rem' }}>2. Definitions</h2>
                 <div style={{ display: 'grid', gap: '1rem', marginTop: '1rem' }}>
                   {data?.definitions?.map((defn: any, i: number) => (
-                    <div key={i} style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px', borderLeft: '4px solid #94a3b8' }}>
+                    <div key={i} className="definition-box" style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px', borderLeft: '4px solid #94a3b8' }}>
                       <strong>{defn.term}:</strong> {defn.definition}
                     </div>
                   )) || (
@@ -206,6 +213,13 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
               </section>
             </>
           )}
+
+          {/* Author Signature */}
+          <section className="no-break" style={{ marginTop: '2rem', marginBottom: '2rem', padding: '1.5rem', background: '#f8fafc', borderLeft: '4px solid #4f46e5', borderRadius: '0 8px 8px 0', pageBreakInside: 'avoid' }}>
+            <p style={{ margin: 0, fontWeight: 'bold', fontSize: '1.2rem', color: '#1e293b' }}>S D Sandarsh</p>
+            <p style={{ margin: '0.25rem 0', color: '#475569', fontSize: '0.95rem' }}>Communicative English, Soft Skills & Employability Trainer</p>
+            <p style={{ margin: 0, color: '#475569', fontSize: '0.95rem' }}>+91 97437 11584</p>
+          </section>
 
           {/* 6. Feedback QR Code */}
           <section style={{ 
