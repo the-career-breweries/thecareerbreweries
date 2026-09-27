@@ -51,7 +51,7 @@
         },
         {
           "title": "Types of Sentences",
-          "explanation": "The four main sentence structures (Declarative, Interrogative, Imperative, Exclamatory) used to convey different intentions and tones in communication."
+          "explanation": "The structural classification of sentences based on the number and type of clauses they contain: Simple, Compound, Complex, and Compound-Complex."
         },
         {
           "title": "Tenses",
@@ -96,20 +96,20 @@
           "definition": "An abrupt remark, made especially as an aside or interruption (e.g., Ah!, Wow!, Oh!)."
         },
         {
-          "term": "Declarative Sentence",
-          "definition": "A sentence that makes a statement and ends with a period."
+          "term": "Simple Sentence",
+          "definition": "A sentence consisting of only one independent clause, with a single subject and predicate."
         },
         {
-          "term": "Interrogative Sentence",
-          "definition": "A sentence that asks a question and ends with a question mark."
+          "term": "Compound Sentence",
+          "definition": "A sentence containing two or more independent clauses joined by a coordinating conjunction (e.g., for, and, nor, but, or, yet, so)."
         },
         {
-          "term": "Imperative Sentence",
-          "definition": "A sentence that gives a command or makes a request, ending with a period or exclamation mark."
+          "term": "Complex Sentence",
+          "definition": "A sentence containing one independent clause and at least one dependent (subordinate) clause."
         },
         {
-          "term": "Exclamatory Sentence",
-          "definition": "A sentence that expresses strong feeling and ends with an exclamation mark."
+          "term": "Compound-Complex Sentence",
+          "definition": "A sentence having two or more independent clauses and one or more dependent clauses."
         },
         {
           "term": "Subject-Verb Agreement",
