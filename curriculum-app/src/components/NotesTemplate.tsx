@@ -55,13 +55,71 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
       <style dangerouslySetInnerHTML={{__html: `
         @media print {
           @page { margin: 15mm; }
+          
+          /* Force all containers to expand fully and remove scrollbars/clipping */
+          html, body, main, div {
+            height: auto !important;
+            max-height: none !important;
+            overflow: visible !important;
+            position: static !important;
+            display: block !important;
+          }
+          
           body * { visibility: hidden; }
-          .printable-notes-container, .printable-notes-container * { visibility: visible; }
-          .printable-notes-container { position: absolute; left: 0; top: 0; width: 100%; box-shadow: none !important; margin: 0 !important; padding: 0 !important; }
-          .no-print { display: none !important; }
+          
+          .notes-modal-overlay,
+          .notes-modal-overlay *,
+          .printable-notes-container, 
+          .printable-notes-container * { 
+            visibility: visible; 
+          }
+          
+          .notes-modal-overlay {
+            position: absolute !important;
+            left: 0 !important;
+            top: 0 !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            background: none !important;
+            width: 100% !important;
+          }
+          
+          .printable-notes-container {
+            padding: 0 !important;
+            margin: 0 !important;
+            width: 100% !important;
+          }
+
+          .no-print, .no-print * { display: none !important; }
+          
           section { page-break-inside: avoid; margin-bottom: 2rem; }
           h1, h2, h3 { page-break-after: avoid; }
           .definition-box { page-break-inside: avoid; }
+          
+          .print-watermark {
+            display: flex !important;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: fixed !important;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            color: rgba(15, 23, 42, 0.08) !important;
+            z-index: -1;
+            pointer-events: none;
+            text-align: center;
+            width: 100%;
+            visibility: visible !important;
+          }
+          
+          .print-watermark * {
+            visibility: visible !important;
+          }
+        }
+        
+        @media screen {
+          .print-watermark { display: none; }
         }
       `}} />
       
@@ -96,6 +154,13 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
         <div className="printable-notes-container" style={{
           flex: 1, overflowY: 'auto', padding: '3rem', color: '#1e293b', background: 'white'
         }}>
+          {/* Watermark for Print */}
+          <div className="print-watermark">
+            <p style={{ fontWeight: 'bold', fontSize: '48px', margin: 0, textTransform: 'uppercase', letterSpacing: '2px' }}>S D Sandarsh</p>
+            <p style={{ fontSize: '24px', margin: '15px 0', fontWeight: '500' }}>Communicative English, Soft Skills & Employability Trainer</p>
+            <p style={{ fontSize: '24px', margin: 0, fontWeight: '500' }}>+91 97437 11584</p>
+          </div>
+
           {/* Header */}
           <div style={{ borderBottom: '2px solid #4f46e5', paddingBottom: '1rem', marginBottom: '2rem' }}>
             <h1 style={{ margin: '0 0 0.5rem 0', color: '#0f172a', fontSize: '2.2rem' }}>{theme}</h1>
@@ -213,13 +278,6 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
               </section>
             </>
           )}
-
-          {/* Author Signature */}
-          <section className="no-break" style={{ marginTop: '2rem', marginBottom: '2rem', padding: '1.5rem', background: '#f8fafc', borderLeft: '4px solid #4f46e5', borderRadius: '0 8px 8px 0', pageBreakInside: 'avoid' }}>
-            <p style={{ margin: 0, fontWeight: 'bold', fontSize: '1.2rem', color: '#1e293b' }}>S D Sandarsh</p>
-            <p style={{ margin: '0.25rem 0', color: '#475569', fontSize: '0.95rem' }}>Communicative English, Soft Skills & Employability Trainer</p>
-            <p style={{ margin: 0, color: '#475569', fontSize: '0.95rem' }}>+91 97437 11584</p>
-          </section>
 
           {/* 6. Feedback QR Code */}
           <section style={{ 
