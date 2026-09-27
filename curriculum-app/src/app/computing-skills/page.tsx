@@ -520,6 +520,7 @@ export default function CommunicativeEnglishApp() {
               theme={activeNotesLesson.theme}
               focus={activeNotesLesson.focus}
               onClose={() => setActiveNotesLesson(null)}
+              weekNumber={activeNotesLesson.week}
             />
           )}
 

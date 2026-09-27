@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
-import { X, Printer, Download } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X, Printer, Download, Loader2 } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 
 interface NotesTemplateProps {
@@ -10,9 +10,32 @@ interface NotesTemplateProps {
   theme: string;
   focus: string;
   onClose: () => void;
+  weekNumber?: number | string; // pass this from parent so we know exactly which session to fetch
 }
 
-export default function NotesTemplate({ courseName, sessionName, theme, focus, onClose }: NotesTemplateProps) {
+export default function NotesTemplate({ courseName, sessionName, theme, focus, onClose, weekNumber }: NotesTemplateProps) {
+  const [data, setData] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  
+  // Extract a clean session ID number (e.g., "1" from week 1)
+  const sessionIdentifier = typeof weekNumber !== 'undefined' ? weekNumber.toString() : '1';
+
+  useEffect(() => {
+    // We fetch the dynamic content from our generated JSON
+    fetch(`/api/notes?course=${encodeURIComponent(courseName)}&session=${encodeURIComponent(sessionIdentifier)}`)
+      .then(res => res.json())
+      .then(json => {
+        if (!json.error) {
+          setData(json);
+        }
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Failed to load notes data:', err);
+        setLoading(false);
+      });
+  }, [courseName, sessionIdentifier]);
+
   const feedbackUrl = `https://thecareerbreweries.onrender.com/notes-feedback?course=${encodeURIComponent(courseName)}&session=${encodeURIComponent(sessionName)}`;
 
   const handlePrint = () => {
@@ -48,9 +71,9 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
         }}>
           <h2 style={{ margin: 0, color: '#1e293b', fontSize: '1.2rem' }}>Generate Notes: {sessionName}</h2>
           <div style={{ display: 'flex', gap: '1rem' }}>
-            <button onClick={handlePrint} style={{
+            <button onClick={handlePrint} disabled={loading} style={{
               display: 'flex', alignItems: 'center', gap: '6px', padding: '6px 12px',
-              background: '#4f46e5', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer'
+              background: loading ? '#94a3b8' : '#4f46e5', color: 'white', border: 'none', borderRadius: '6px', cursor: loading ? 'not-allowed' : 'pointer'
             }}>
               <Printer size={16} /> Print / PDF
             </button>
@@ -75,91 +98,114 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
             </div>
           </div>
 
-          {/* 1. Key Concepts */}
-          <section style={{ marginBottom: '2rem' }}>
-            <h2 style={{ color: '#4f46e5', fontSize: '1.4rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.5rem' }}>1. Key Concepts Covered</h2>
-            <ul style={{ paddingLeft: '1.5rem', lineHeight: '1.8' }}>
-              <li><strong>{focus.split(',')[0] || focus}</strong>: [Detailed explanation to be inserted here]</li>
-              {focus.split(',').slice(1).map((concept, i) => (
-                <li key={i}><strong>{concept.trim()}</strong>: [Detailed explanation to be inserted here]</li>
-              ))}
-              <li>[Additional Concept]: [Explanation]</li>
-            </ul>
-          </section>
+          {loading ? (
+             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '4rem', color: '#64748b' }}>
+               <Loader2 className="lucide-spin" size={48} style={{ animation: 'spin 2s linear infinite', marginBottom: '1rem' }} />
+               <p>Generating AI Content...</p>
+               <style dangerouslySetInnerHTML={{__html: `@keyframes spin { 100% { transform: rotate(360deg); } }`}} />
+             </div>
+          ) : (
+            <>
+              {/* 1. Key Concepts */}
+              <section style={{ marginBottom: '2rem' }}>
+                <h2 style={{ color: '#4f46e5', fontSize: '1.4rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.5rem' }}>1. Key Concepts Covered</h2>
+                <ul style={{ paddingLeft: '1.5rem', lineHeight: '1.8' }}>
+                  {data?.keyConcepts?.map((concept: any, i: number) => (
+                    <li key={i}><strong>{concept.title}</strong>: {concept.explanation}</li>
+                  )) || (
+                    <>
+                      <li><strong>{focus.split(',')[0] || focus}</strong>: [Detailed explanation to be inserted here]</li>
+                      {focus.split(',').slice(1).map((concept, i) => (
+                        <li key={i}><strong>{concept.trim()}</strong>: [Detailed explanation to be inserted here]</li>
+                      ))}
+                    </>
+                  )}
+                </ul>
+              </section>
 
-          {/* 2. Definitions */}
-          <section style={{ marginBottom: '2rem' }}>
-            <h2 style={{ color: '#4f46e5', fontSize: '1.4rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.5rem' }}>2. Definitions</h2>
-            <div style={{ display: 'grid', gap: '1rem', marginTop: '1rem' }}>
-              <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px', borderLeft: '4px solid #94a3b8' }}>
-                <strong>[Term 1]:</strong> A clear, concise definition of the term as prescribed in the syllabus.
-              </div>
-              <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px', borderLeft: '4px solid #94a3b8' }}>
-                <strong>[Term 2]:</strong> A clear, concise definition of the term as prescribed in the syllabus.
-              </div>
-            </div>
-          </section>
+              {/* 2. Definitions */}
+              <section style={{ marginBottom: '2rem' }}>
+                <h2 style={{ color: '#4f46e5', fontSize: '1.4rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.5rem' }}>2. Definitions</h2>
+                <div style={{ display: 'grid', gap: '1rem', marginTop: '1rem' }}>
+                  {data?.definitions?.map((defn: any, i: number) => (
+                    <div key={i} style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px', borderLeft: '4px solid #94a3b8' }}>
+                      <strong>{defn.term}:</strong> {defn.definition}
+                    </div>
+                  )) || (
+                    <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px', borderLeft: '4px solid #94a3b8' }}>
+                      <strong>[Term 1]:</strong> A clear, concise definition of the term as prescribed in the syllabus.
+                    </div>
+                  )}
+                </div>
+              </section>
 
-          {/* 3. Mnemonics */}
-          <section style={{ marginBottom: '2rem' }}>
-            <h2 style={{ color: '#4f46e5', fontSize: '1.4rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.5rem' }}>3. Mnemonics to Remember</h2>
-            <div style={{ background: '#fef2f2', border: '1px solid #fecaca', padding: '1rem', borderRadius: '8px', color: '#991b1b' }}>
-              <p style={{ margin: '0 0 0.5rem 0' }}><strong>Example Mnemonic:</strong> [ACRONYM]</p>
-              <ul style={{ margin: 0, paddingLeft: '1.5rem' }}>
-                <li><strong>A</strong> - [Concept A]</li>
-                <li><strong>C</strong> - [Concept C]</li>
-                <li>...</li>
-              </ul>
-            </div>
-          </section>
+              {/* 3. Mnemonics */}
+              <section style={{ marginBottom: '2rem' }}>
+                <h2 style={{ color: '#4f46e5', fontSize: '1.4rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.5rem' }}>3. Mnemonics to Remember</h2>
+                <div style={{ background: '#fef2f2', border: '1px solid #fecaca', padding: '1rem', borderRadius: '8px', color: '#991b1b' }}>
+                  <p style={{ margin: '0 0 0.5rem 0' }}><strong>Mnemonic:</strong> {data?.mnemonic?.acronym || '[ACRONYM]'}</p>
+                  <ul style={{ margin: 0, paddingLeft: '1.5rem' }}>
+                    {data?.mnemonic?.points?.map((pt: string, i: number) => (
+                      <li key={i}><strong>{pt[0]}</strong>{pt.slice(1)}</li>
+                    )) || (
+                      <>
+                        <li><strong>A</strong> - [Concept A]</li>
+                        <li><strong>C</strong> - [Concept C]</li>
+                      </>
+                    )}
+                  </ul>
+                </div>
+              </section>
 
-          {/* 4. Format of Questions (BTL) */}
-          <section style={{ marginBottom: '2rem' }}>
-            <h2 style={{ color: '#4f46e5', fontSize: '1.4rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.5rem' }}>4. Expected Exam Questions (Bloom's Taxonomy)</h2>
-            <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '1rem' }}>
-              <thead>
-                <tr style={{ background: '#f1f5f9' }}>
-                  <th style={{ padding: '0.75rem', border: '1px solid #cbd5e1', textAlign: 'left', width: '25%' }}>BTL Level</th>
-                  <th style={{ padding: '0.75rem', border: '1px solid #cbd5e1', textAlign: 'left' }}>Question Format</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Remember (BTL 1)</strong></td>
-                  <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>Define / List / State [Concept].</td>
-                </tr>
-                <tr>
-                  <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Understand (BTL 2)</strong></td>
-                  <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>Explain the difference between [A] and [B].</td>
-                </tr>
-                <tr>
-                  <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Apply (BTL 3)</strong></td>
-                  <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>Demonstrate how to use [Concept] in a given scenario.</td>
-                </tr>
-                <tr>
-                  <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Analyze (BTL 4)</strong></td>
-                  <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>Examine the causes and effects of [Scenario].</td>
-                </tr>
-                <tr>
-                  <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Evaluate (BTL 5)</strong></td>
-                  <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>Assess the effectiveness of [Method].</td>
-                </tr>
-                <tr>
-                  <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Create (BTL 6)</strong></td>
-                  <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>Formulate a plan to [solve a problem using concept].</td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
+              {/* 4. Format of Questions (BTL) */}
+              <section style={{ marginBottom: '2rem' }}>
+                <h2 style={{ color: '#4f46e5', fontSize: '1.4rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.5rem' }}>4. Expected Exam Questions (Bloom's Taxonomy)</h2>
+                <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '1rem' }}>
+                  <thead>
+                    <tr style={{ background: '#f1f5f9' }}>
+                      <th style={{ padding: '0.75rem', border: '1px solid #cbd5e1', textAlign: 'left', width: '25%' }}>BTL Level</th>
+                      <th style={{ padding: '0.75rem', border: '1px solid #cbd5e1', textAlign: 'left' }}>Sample Question Format</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Remember (BTL 1)</strong></td>
+                      <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>{data?.btlQuestions?.Remember || "Define / List / State [Concept]."}</td>
+                    </tr>
+                    <tr>
+                      <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Understand (BTL 2)</strong></td>
+                      <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>{data?.btlQuestions?.Understand || "Explain the difference between [A] and [B]."}</td>
+                    </tr>
+                    <tr>
+                      <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Apply (BTL 3)</strong></td>
+                      <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>{data?.btlQuestions?.Apply || "Demonstrate how to use [Concept] in a given scenario."}</td>
+                    </tr>
+                    <tr>
+                      <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Analyze (BTL 4)</strong></td>
+                      <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>{data?.btlQuestions?.Analyze || "Examine the causes and effects of [Scenario]."}</td>
+                    </tr>
+                    <tr>
+                      <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Evaluate (BTL 5)</strong></td>
+                      <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>{data?.btlQuestions?.Evaluate || "Assess the effectiveness of [Method]."}</td>
+                    </tr>
+                    <tr>
+                      <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Create (BTL 6)</strong></td>
+                      <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>{data?.btlQuestions?.Create || "Formulate a plan to [solve a problem using concept]."}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </section>
 
-          {/* 5. Reference Material */}
-          <section style={{ marginBottom: '2rem' }}>
-            <h2 style={{ color: '#4f46e5', fontSize: '1.4rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.5rem' }}>5. Prescribed Reference Material</h2>
-            <ul style={{ paddingLeft: '1.5rem', lineHeight: '1.8' }}>
-              <li><strong>Primary Textbook:</strong> [Title, Author, Chapter X]</li>
-              <li><strong>Further Reading:</strong> [Article / Resource Link]</li>
-            </ul>
-          </section>
+              {/* 5. Reference Material */}
+              <section style={{ marginBottom: '2rem' }}>
+                <h2 style={{ color: '#4f46e5', fontSize: '1.4rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.5rem' }}>5. Prescribed Reference Material</h2>
+                <ul style={{ paddingLeft: '1.5rem', lineHeight: '1.8' }}>
+                  <li><strong>Primary Textbook:</strong> {data?.referenceMaterial?.primary || "[Title, Author, Chapter X]"}</li>
+                  <li><strong>Further Reading:</strong> {data?.referenceMaterial?.further || "[Article / Resource Link]"}</li>
+                </ul>
+              </section>
+            </>
+          )}
 
           {/* 6. Feedback QR Code */}
           <section style={{ 
