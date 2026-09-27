@@ -105,8 +105,11 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
             top: 45%;
             left: 50%;
             transform: translate(-50%, -50%) rotate(-30deg);
-            color: rgba(15, 23, 42, 0.08) !important;
-            z-index: -1;
+            color: rgba(0, 0, 0, 0.15) !important;
+            z-index: 1000;
+              pointer-events: none;
+              text-align: center;
+              width: 100%;
             pointer-events: none;
             text-align: center;
             width: 100%;
@@ -164,10 +167,10 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
           {/* Header */}
           <div style={{ borderBottom: '2px solid #4f46e5', paddingBottom: '1rem', marginBottom: '2rem' }}>
             <h1 style={{ margin: '0 0 0.5rem 0', color: '#0f172a', fontSize: '2.2rem' }}>{theme}</h1>
-            <div style={{ display: 'flex', justifyContent: 'space-between', color: '#64748b', fontSize: '1rem' }}>
-              <span><strong>Course:</strong> {courseName}</span>
-              <span><strong>Session:</strong> {sessionName}</span>
-            </div>
+            <div style={{ color: '#64748b', fontSize: '1.2rem' }}>
+                <div style={{ marginBottom: '0.25rem' }}><strong>Course:</strong> {courseName}</div>
+                <div><strong>Session:</strong> {sessionName}</div>
+              </div>
           </div>
 
           {loading ? (
