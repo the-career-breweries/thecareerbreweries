@@ -164,417 +164,566 @@
     "3": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "Synonyms & Antonyms",
+          "explanation": "Words with similar and opposite meanings, used to enhance vocabulary and avoid repetition."
+        },
+        {
+          "title": "Aviation Technical Vocab",
+          "explanation": "Industry-specific terminology critical for precise and safe communication in aviation."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Synonym",
+          "definition": "A word or phrase that means exactly or nearly the same as another word or phrase."
+        },
+        {
+          "term": "Antonym",
+          "definition": "A word opposite in meaning to another."
+        },
+        {
+          "term": "Jargon",
+          "definition": "Special words or expressions that are used by a particular profession or group and are difficult for others to understand."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "VAC",
         "points": [
-          "P - Pending"
+          "V - Vocabulary",
+          "A - Accuracy",
+          "C - Context"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "Define synonym and antonym.",
+        "Understand": "Explain why standard phraseology is important in aviation.",
+        "Apply": "Use three aviation terms correctly in a sentence.",
+        "Analyze": "Differentiate between general English and aviation English.",
+        "Evaluate": "Assess the impact of misinterpreting technical jargon.",
+        "Create": "Draft a short radio transmission using correct aviation vocabulary."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "Aviation English by Henry Emery & Andy Roberts",
+        "further": "Wren & Martin, Chapter on Vocabulary"
       }
     },
     "4": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "Skimming",
+          "explanation": "Reading rapidly in order to get a general overview of the material."
+        },
+        {
+          "title": "Scanning",
+          "explanation": "Reading rapidly in order to find specific facts or keywords."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Comprehension",
+          "definition": "The action or capability of understanding something read or heard."
+        },
+        {
+          "term": "Inference",
+          "definition": "A conclusion reached on the basis of evidence and reasoning from the text."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "SQ3R",
         "points": [
-          "P - Pending"
+          "S - Survey",
+          "Q - Question",
+          "R - Read",
+          "R - Recite",
+          "R - Review"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "List the steps of the SQ3R method.",
+        "Understand": "Explain the difference between skimming and scanning.",
+        "Apply": "Skim a provided METAR report to find the general weather condition.",
+        "Analyze": "Identify the author's tone in a given passage.",
+        "Evaluate": "Determine the reliability of a given technical bulletin.",
+        "Create": "Formulate three comprehension questions for a text."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "Wren & Martin, Comprehension Section",
+        "further": "Aviation Safety Reports for practical reading"
       }
     },
     "5": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "Professional Formatting",
+          "explanation": "The standard layout and structure expected in business communications (emails, letters, reports)."
+        },
+        {
+          "title": "Tone & Register",
+          "explanation": "The level of formality and attitude conveyed through word choice in writing."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Salutation",
+          "definition": "A standard formula of words used in a letter to address the person being written to."
+        },
+        {
+          "term": "Sign-off",
+          "definition": "The concluding phrase of an email or letter (e.g., Yours sincerely)."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "KISS",
         "points": [
-          "P - Pending"
+          "K - Keep",
+          "I - It",
+          "S - Short &",
+          "S - Simple"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "State the standard components of a professional email.",
+        "Understand": "Explain when to use 'Yours faithfully' vs 'Yours sincerely'.",
+        "Apply": "Draft an email requesting sick leave.",
+        "Analyze": "Identify the tonal errors in a poorly written business letter.",
+        "Evaluate": "Critique a peer's incident report for clarity.",
+        "Create": "Write a formal incident report regarding a baggage delay."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "Oxford Guide to Effective Writing and Speaking",
+        "further": "Wren & Martin, Composition Section"
       }
     },
     "6": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "Pronunciation & Enunciation",
+          "explanation": "The correct articulation of words to ensure clarity, especially over radio or PA systems."
+        },
+        {
+          "title": "Active Listening",
+          "explanation": "Fully concentrating, understanding, responding, and remembering what is being said."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Articulation",
+          "definition": "The formation of clear and distinct sounds in speech."
+        },
+        {
+          "term": "Intonation",
+          "definition": "The rise and fall of the voice in speaking, conveying emotion or grammatical structure."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "HEAR",
         "points": [
-          "P - Pending"
+          "H - Hear the message",
+          "E - Empathize",
+          "A - Analyze",
+          "R - Respond"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "Define active listening.",
+        "Understand": "Explain how intonation changes the meaning of a sentence.",
+        "Apply": "Demonstrate a PA announcement with clear articulation.",
+        "Analyze": "Identify barriers to effective listening in a noisy environment.",
+        "Evaluate": "Assess a role-play partner's clarity and pronunciation.",
+        "Create": "Design a role-play script for handling a passenger complaint."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "Aviation English",
+        "further": "TED Talks on Effective Speaking"
       }
     },
     "7": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "The 7 Cs of Communication",
+          "explanation": "Principles for effective communication: Clear, Concise, Concrete, Correct, Coherent, Complete, Courteous."
+        },
+        {
+          "title": "Barriers to Communication",
+          "explanation": "Obstacles (physical, psychological, semantic) that prevent accurate transmission of messages."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Semantic Barrier",
+          "definition": "Misunderstanding arising from the different meanings that words can have."
+        },
+        {
+          "term": "Conciseness",
+          "definition": "Giving a lot of information clearly and in a few words; brief but comprehensive."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "7 Cs",
         "points": [
-          "P - Pending"
+          "C - Clear",
+          "C - Concise",
+          "C - Concrete",
+          "C - Correct",
+          "C - Coherent",
+          "C - Complete",
+          "C - Courteous"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "List the 7 Cs of communication.",
+        "Understand": "Explain what constitutes a psychological barrier.",
+        "Apply": "Rewrite a wordy email to be concise.",
+        "Analyze": "Determine which of the 7 Cs is missing in a given vague message.",
+        "Evaluate": "Argue the importance of courtesy in crisis communication.",
+        "Create": "Develop a checklist for overcoming physical barriers in an airport."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "Business Communication Today",
+        "further": "Soft Skills Manual"
       }
     },
     "8": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "Body Language (Kinesics)",
+          "explanation": "The conscious and unconscious movements and postures by which attitudes and feelings are communicated."
+        },
+        {
+          "title": "Eye Contact & Posture",
+          "explanation": "Critical non-verbal cues that establish trust, confidence, and professionalism."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Kinesics",
+          "definition": "The study of the way in which certain body movements and gestures serve as a form of non-verbal communication."
+        },
+        {
+          "term": "Proxemics",
+          "definition": "The study of human use of space and the effects that population density has on behavior, communication, and social interaction."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "SOFTEN",
         "points": [
-          "P - Pending"
+          "S - Smile",
+          "O - Open posture",
+          "F - Forward lean",
+          "T - Touch (handshake)",
+          "E - Eye contact",
+          "N - Nod"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "Define proxemics.",
+        "Understand": "Explain how crossed arms can be interpreted by a passenger.",
+        "Apply": "Demonstrate the SOFTEN technique in a greeting.",
+        "Analyze": "Contrast the body language of confidence vs defensive behavior.",
+        "Evaluate": "Critique a silent role-play based solely on non-verbal cues.",
+        "Create": "Design a training module for ground staff on approachable posture."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "The Definitive Book of Body Language",
+        "further": "Aviation Customer Service guidelines"
       }
     },
     "9": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "Consolidated Grammar & Vocab",
+          "explanation": "A comprehensive review of the foundational language structures covered in the first half of the semester."
+        },
+        {
+          "title": "Application of Skills",
+          "explanation": "Integrating reading, writing, and speaking skills into practical communication tasks."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Revision",
+          "definition": "The act of reviewing previously studied material to reinforce learning."
+        },
+        {
+          "term": "Integration",
+          "definition": "The combination of multiple linguistic skills (e.g., listening and writing simultaneously)."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "CAP",
         "points": [
-          "P - Pending"
+          "C - Comprehension",
+          "A - Accuracy",
+          "P - Practice"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "Recall the 8 parts of speech.",
+        "Understand": "Summarize the key differences between skimming and scanning.",
+        "Apply": "Apply grammar rules to correct a series of mixed-error sentences.",
+        "Analyze": "Analyze your own progress and identify areas needing improvement.",
+        "Evaluate": "Assess the effectiveness of different revision techniques.",
+        "Create": "Formulate a personalized study plan for the finals."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "Course Notes Sessions 1-8",
+        "further": "Previous quizzes and worksheets"
       }
     },
     "10": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "Turn-Taking & Moderation",
+          "explanation": "The polite and structured flow of conversation in a group setting, ensuring all voices are heard."
+        },
+        {
+          "title": "Summarization",
+          "explanation": "The ability to accurately synthesize the group's diverse points into a cohesive conclusion."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Group Discussion (GD)",
+          "definition": "A communicative situation that allows its participants to share their views and opinions with other participants."
+        },
+        {
+          "term": "Moderator",
+          "definition": "A person who presides over a discussion and ensures it stays on topic."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "LEAD",
         "points": [
-          "P - Pending"
+          "L - Listen actively",
+          "E - Encourage others",
+          "A - Assert your points politely",
+          "D - Drive to a conclusion"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "State the role of a moderator in a GD.",
+        "Understand": "Explain why turn-taking is critical in a professional discussion.",
+        "Apply": "Use a polite phrase to interrupt a dominating speaker.",
+        "Analyze": "Identify the distinct roles naturally assumed by participants in a GD.",
+        "Evaluate": "Critique a mock GD for its adherence to constructive debate.",
+        "Create": "Formulate an opening statement for a GD on aviation sustainability."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "Soft Skills Manual - GD Strategies",
+        "further": "Mock GD evaluation sheets"
       }
     },
     "11": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "Structuring a Presentation",
+          "explanation": "Organizing content logically using an Introduction, Body, and Conclusion."
+        },
+        {
+          "title": "Visual Aids",
+          "explanation": "Using slides, charts, or props effectively without them overshadowing the speaker."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Hook",
+          "definition": "An engaging opening statement designed to capture the audience's attention immediately."
+        },
+        {
+          "term": "Transition",
+          "definition": "A word, phrase, or sentence that smoothly connects one topic or slide to the next."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "PREP",
         "points": [
-          "P - Pending"
+          "P - Point",
+          "R - Reason",
+          "E - Example",
+          "P - Point (reiterate)"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "List the three main sections of a presentation.",
+        "Understand": "Explain the rule of 6x6 for presentation slides.",
+        "Apply": "Draft a 'hook' for a presentation on airport security.",
+        "Analyze": "Compare a highly textual slide vs a highly visual slide.",
+        "Evaluate": "Assess the effectiveness of a peer's use of visual aids.",
+        "Create": "Design a 3-minute mini-presentation on a technical topic."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "Presentation Zen by Garr Reynolds",
+        "further": "Toastmasters International Guide"
       }
     },
     "12": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "Overcoming Stage Fright",
+          "explanation": "Techniques such as deep breathing, preparation, and positive visualization to manage public speaking anxiety."
+        },
+        {
+          "title": "Audience Engagement",
+          "explanation": "Using eye contact, rhetorical questions, and modulation to keep the audience interested."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Extempore",
+          "definition": "Spoken or done without preparation; impromptu."
+        },
+        {
+          "term": "Modulation",
+          "definition": "Variation in the strength, tone, or pitch of one's voice."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "BEE",
         "points": [
-          "P - Pending"
+          "B - Breathe",
+          "E - Eye contact",
+          "E - Engage"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "Name two physical symptoms of stage fright.",
+        "Understand": "Explain how preparation reduces speech anxiety.",
+        "Apply": "Deliver a 1-minute extempore speech on a random topic.",
+        "Analyze": "Determine which vocal modulations emphasize key points.",
+        "Evaluate": "Review a recorded speech and critique the speaker's engagement.",
+        "Create": "Develop a personal routine to calm nerves before speaking."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "Talk Like TED by Carmine Gallo",
+        "further": "Public Speaking workshops"
       }
     },
     "13": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "Global Awareness",
+          "explanation": "Understanding and respecting cultural differences in communication styles, norms, and taboos."
+        },
+        {
+          "title": "Sensitivity & Adaptability",
+          "explanation": "Modifying one's communication approach to be inclusive and easily understood by diverse nationalities."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Ethnocentrism",
+          "definition": "Evaluation of other cultures according to preconceptions originating in the standards and customs of one's own culture."
+        },
+        {
+          "term": "High-Context Culture",
+          "definition": "Cultures that rely heavily on non-verbal and subtle situational cues in communication."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "RICE",
         "points": [
-          "P - Pending"
+          "R - Respect",
+          "I - Inquire",
+          "C - Communicate clearly",
+          "E - Empathize"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "Define a high-context culture.",
+        "Understand": "Explain why idiomatic expressions should be avoided in cross-cultural communication.",
+        "Apply": "Adapt a standard airline greeting for an international flight.",
+        "Analyze": "Analyze a scenario where a cultural misunderstanding led to a service failure.",
+        "Evaluate": "Assess your own cultural biases.",
+        "Create": "Design a brief cultural sensitivity guide for new cabin crew."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "The Culture Map by Erin Meyer",
+        "further": "Aviation Cross-Cultural manuals"
       }
     },
     "14": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "Self-Introduction",
+          "explanation": "Crafting a concise, professional summary of one's background, skills, and goals (the 'Elevator Pitch')."
+        },
+        {
+          "title": "Common Interview Questions",
+          "explanation": "Preparing structured answers for behavioral and situational questions."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "STAR Method",
+          "definition": "A technique to answer behavioral questions by detailing the Situation, Task, Action, and Result."
+        },
+        {
+          "term": "Elevator Pitch",
+          "definition": "A short description of an idea, product, or company that explains the concept in a way such that any listener can understand it in a short period of time."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "STAR",
         "points": [
-          "P - Pending"
+          "S - Situation",
+          "T - Task",
+          "A - Action",
+          "R - Result"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "What does STAR stand for?",
+        "Understand": "Explain the purpose of the 'Tell me about yourself' question.",
+        "Apply": "Use the STAR method to answer: 'Describe a time you solved a problem'.",
+        "Analyze": "Deconstruct a job description to anticipate likely interview questions.",
+        "Evaluate": "Critique a peer's self-introduction for relevance and impact.",
+        "Create": "Draft a comprehensive 60-second self-introduction."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "Cracking the Interview",
+        "further": "Career Services handouts"
       }
     },
     "15": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "Real-Time Practice",
+          "explanation": "Simulating the pressure and environment of a real interview to test preparation and reflexes."
+        },
+        {
+          "title": "Constructive Feedback",
+          "explanation": "Receiving and applying critiques on body language, content, and delivery."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Mock Interview",
+          "definition": "An emulation of a job interview used for training purposes."
+        },
+        {
+          "term": "Constructive Criticism",
+          "definition": "Providing well-reasoned opinions about the work of others, usually in a friendly and positive manner."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "ACT",
         "points": [
-          "P - Pending"
+          "A - Assess",
+          "C - Correct",
+          "T - Try again"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "List three areas typically evaluated in an interview.",
+        "Understand": "Explain how to professionally accept constructive criticism.",
+        "Apply": "Participate in a peer-to-peer mock interview.",
+        "Analyze": "Identify your primary weak point during the mock session.",
+        "Evaluate": "Grade a peer's interview performance using a standard rubric.",
+        "Create": "Formulate a personalized action plan to improve interview skills before graduation."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "Mock Interview Rubric",
+        "further": "Recorded interview sessions for self-review"
       }
     }
   },
@@ -668,385 +817,512 @@
     "3": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "File System Organization",
+          "explanation": "The logical structuring of files into directories and subdirectories for easy retrieval."
+        },
+        {
+          "title": "File Explorer Search",
+          "explanation": "Using built-in search tools to locate files quickly."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Folder/Directory",
+          "definition": "A storage space where many files can be placed into groups and organize the computer."
+        },
+        {
+          "term": "File Extension",
+          "definition": "The suffix at the end of a filename (e.g., .docx, .pdf) that indicates the file type."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "COPS",
         "points": [
-          "P - Pending"
+          "C - Create",
+          "O - Organize",
+          "P - Protect",
+          "S - Search"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "What is the purpose of a file extension?",
+        "Understand": "Explain the difference between 'Save' and 'Save As'.",
+        "Apply": "Create a nested folder structure for a given set of files.",
+        "Analyze": "Analyze why a file might not open if its extension is changed.",
+        "Evaluate": "Assess the benefits of cloud storage vs local storage for organization.",
+        "Create": "Design a standard naming convention for your project files."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "Windows 11 File Management Guide",
+        "further": "Microsoft Support"
       }
     },
     "4": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "Document Creation",
+          "explanation": "The fundamentals of opening, typing, editing, and saving a document in Microsoft Word."
+        },
+        {
+          "title": "Word UI Elements",
+          "explanation": "Navigating the Ribbon, Quick Access Toolbar, and Status Bar."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Ribbon",
+          "definition": "The strip of buttons and icons located above the work area in MS Office applications."
+        },
+        {
+          "term": "Cursor",
+          "definition": "The flashing vertical line that indicates where text will be inserted."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "TOS",
         "points": [
-          "P - Pending"
+          "T - Type",
+          "O - Organize",
+          "S - Save"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "Identify the Ribbon in MS Word.",
+        "Understand": "Explain the function of the Quick Access Toolbar.",
+        "Apply": "Open a new blank document and type a paragraph.",
+        "Analyze": "Compare the 'Home' tab with the 'Insert' tab features.",
+        "Evaluate": "Determine the best file format to save a document for sharing.",
+        "Create": "Draft a short introductory letter in Word."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "MS Word 2021 Step by Step",
+        "further": "Office Training Center"
       }
     },
     "5": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "Text Formatting",
+          "explanation": "Applying styles like bold, italics, underline, and changing fonts and colors to emphasize text."
+        },
+        {
+          "title": "Paragraph Formatting",
+          "explanation": "Adjusting alignment, line spacing, and indentation for readability."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Alignment",
+          "definition": "The positioning of text relative to the margins (left, center, right, justified)."
+        },
+        {
+          "term": "Line Spacing",
+          "definition": "The vertical distance between lines of text in a paragraph."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "FAS",
         "points": [
-          "P - Pending"
+          "F - Font",
+          "A - Alignment",
+          "S - Spacing"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "List the four types of text alignment.",
+        "Understand": "Explain why justified alignment is often used in newspapers.",
+        "Apply": "Format a provided text block to have 1.5 line spacing.",
+        "Analyze": "Identify the formatting errors in a poorly structured document.",
+        "Evaluate": "Critique the readability of a document based on its font choice.",
+        "Create": "Format a professional resume template using distinct styles."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "MS Word 2021 Step by Step",
+        "further": "Typography Basics"
       }
     },
     "6": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "Inserting Tables",
+          "explanation": "Organizing data into rows and columns within a Word document."
+        },
+        {
+          "title": "Report Structure",
+          "explanation": "Using headers, footers, page numbers, and a table of contents."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Header/Footer",
+          "definition": "Areas in the top and bottom margins of a page where you can insert text or graphics."
+        },
+        {
+          "term": "Table of Contents",
+          "definition": "An organized list of the parts of a book or document."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "THP",
         "points": [
-          "P - Pending"
+          "T - Table",
+          "H - Header",
+          "P - Page Number"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "How do you insert a basic 3x3 table in Word?",
+        "Understand": "Explain the benefit of using automated page numbers.",
+        "Apply": "Build a basic tabular report for an inventory list.",
+        "Analyze": "Differentiate between table borders and shading.",
+        "Evaluate": "Review a report to ensure consistent header formatting.",
+        "Create": "Construct a multi-page report complete with a Table of Contents."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "MS Word Advanced Features",
+        "further": "Academic Writing Formatting Guidelines"
       }
     },
     "7": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "Spreadsheet Basics",
+          "explanation": "Understanding the grid structure of rows, columns, and cells."
+        },
+        {
+          "title": "Basic Operators & Formulas",
+          "explanation": "Using mathematical operators (+, -, *, /) to perform calculations."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Cell",
+          "definition": "The intersection of a row and a column in a spreadsheet."
+        },
+        {
+          "term": "Formula",
+          "definition": "An expression that operates on values in a range of cells."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "BODMAS",
         "points": [
-          "P - Pending"
+          "B - Brackets",
+          "O - Order",
+          "D - Division",
+          "M - Multiplication",
+          "A - Addition",
+          "S - Subtraction (Excel follows this)"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "What symbol must every Excel formula begin with?",
+        "Understand": "Explain the difference between a row and a column.",
+        "Apply": "Calculate the total cost of items using basic math operators.",
+        "Analyze": "Identify why a formula is returning an error (e.g., #DIV/0!).",
+        "Evaluate": "Compare the efficiency of manual calculation vs Excel formulas.",
+        "Create": "Design a basic personal budget spreadsheet."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "Excel 2021 Formulas",
+        "further": "Microsoft Support"
       }
     },
     "8": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "Core Functions",
+          "explanation": "Using pre-built formulas like SUM, AVERAGE, MIN, and MAX to analyze data rapidly."
+        },
+        {
+          "title": "Logical Functions",
+          "explanation": "Using IF statements to perform conditional evaluations."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Function",
+          "definition": "A predefined formula that performs calculations using specific values in a particular order."
+        },
+        {
+          "term": "Syntax",
+          "definition": "The specific layout and order of elements in a function."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "SAMI",
         "points": [
-          "P - Pending"
+          "S - SUM",
+          "A - AVERAGE",
+          "M - MIN/MAX",
+          "I - IF"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "List three common Excel functions.",
+        "Understand": "Explain the three arguments required in an IF function.",
+        "Apply": "Apply the AVERAGE function to a student's grade dataset.",
+        "Analyze": "Deconstruct a nested IF statement.",
+        "Evaluate": "Determine the best function to find the lowest sales figure in a year.",
+        "Create": "Build a grading sheet that automatically assigns Pass/Fail using IF."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "Excel Data Analysis",
+        "further": "ExcelJet Function Guide"
       }
     },
     "9": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "Data Visualization",
+          "explanation": "Representing numerical data graphically using charts."
+        },
+        {
+          "title": "Chart Types",
+          "explanation": "Choosing the appropriate chart (Pie, Line, Column) based on the data type."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Chart",
+          "definition": "A graphical representation of data."
+        },
+        {
+          "term": "Legend",
+          "definition": "A key that explains the colors, symbols, or patterns used in a chart."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "PLC",
         "points": [
-          "P - Pending"
+          "P - Pie (Parts of a whole)",
+          "L - Line (Trends over time)",
+          "C - Column (Comparisons)"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "Identify the purpose of a Pie chart.",
+        "Understand": "Explain when a Line chart is more appropriate than a Column chart.",
+        "Apply": "Visualize a monthly sales dataset with a Column chart.",
+        "Analyze": "Interpret a provided chart to find the highest performing month.",
+        "Evaluate": "Critique a chart that uses misleading scales.",
+        "Create": "Design a dashboard with three different chart types."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "Storytelling with Data",
+        "further": "Excel Chart formatting guide"
       }
     },
     "10": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "Sorting & Filtering",
+          "explanation": "Organizing and narrowing down large datasets to find specific information."
+        },
+        {
+          "title": "Conditional Formatting",
+          "explanation": "Applying specific formatting to cells that meet certain criteria to highlight trends."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Sorting",
+          "definition": "Arranging data in a specified order (alphabetical, numerical, chronological)."
+        },
+        {
+          "term": "Filtering",
+          "definition": "Hiding rows of data that do not meet specified criteria."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "SFC",
         "points": [
-          "P - Pending"
+          "S - Sort",
+          "F - Filter",
+          "C - Condition"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "Define Conditional Formatting.",
+        "Understand": "Explain how filtering differs from deleting data.",
+        "Apply": "Filter a dataset to show only sales above $1000.",
+        "Analyze": "Analyze the impact of applying multiple filters to a large table.",
+        "Evaluate": "Determine the best conditional formatting rule to highlight failing grades.",
+        "Create": "Construct a dynamic inventory sheet that highlights low stock automatically."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "Excel Advanced Data Management",
+        "further": "Data Analysis basics"
       }
     },
     "11": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "Presentation Fundamentals",
+          "explanation": "The basics of creating slides, choosing layouts, and adding text and images."
+        },
+        {
+          "title": "Design Principles",
+          "explanation": "Keeping slides uncluttered, highly readable, and visually appealing."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Slide Layout",
+          "definition": "The arrangement of placeholders for text, images, and other objects on a slide."
+        },
+        {
+          "term": "Placeholder",
+          "definition": "A pre-formatted container on a slide into which content is placed."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "KISS",
         "points": [
-          "P - Pending"
+          "K - Keep",
+          "I - It",
+          "S - Short &",
+          "S - Simple"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "How do you add a new slide in PowerPoint?",
+        "Understand": "Explain why text contrast is important in presentation design.",
+        "Apply": "Create a 3-slide presentation introducing yourself.",
+        "Analyze": "Identify design flaws in a crowded, text-heavy slide.",
+        "Evaluate": "Critique the balance of text vs images in a provided presentation.",
+        "Create": "Design a visually compelling title slide for an aviation pitch."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "PowerPoint 2021 Basics",
+        "further": "Presentation Zen"
       }
     },
     "12": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "Themes and Master Slide",
+          "explanation": "Applying consistent branding, fonts, and colors across all slides automatically."
+        },
+        {
+          "title": "Professional Consistency",
+          "explanation": "Ensuring headers, logos, and footers remain strictly aligned throughout the deck."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Theme",
+          "definition": "A predefined set of colors, fonts, and visual effects that you apply to your slides."
+        },
+        {
+          "term": "Slide Master",
+          "definition": "The top slide in a hierarchy that stores information about the theme and slide layouts."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "TMC",
         "points": [
-          "P - Pending"
+          "T - Theme",
+          "M - Master",
+          "C - Consistency"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "What is the Slide Master?",
+        "Understand": "Explain the benefit of editing the Slide Master instead of individual slides.",
+        "Apply": "Apply a global logo to the bottom right corner of all slides using the Master.",
+        "Analyze": "Compare a presentation with a cohesive theme vs one without.",
+        "Evaluate": "Assess how brand consistency impacts audience perception.",
+        "Create": "Develop a custom corporate theme for a mock airline."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "PowerPoint Advanced Design",
+        "further": "Corporate Branding Guidelines"
       }
     },
     "13": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "Internet Navigation",
+          "explanation": "Using web browsers effectively, utilizing bookmarks, and understanding URLs."
+        },
+        {
+          "title": "Cloud Storage & Email",
+          "explanation": "Storing files online (Google Drive, OneDrive) and basic professional email usage."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Cloud Storage",
+          "definition": "A model of computer data storage in which digital data is stored in logical pools on multiple servers."
+        },
+        {
+          "term": "Bookmark",
+          "definition": "A saved shortcut that directs your browser to a specific webpage."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "WEB",
         "points": [
-          "P - Pending"
+          "W - World Wide Web",
+          "E - Email",
+          "B - Browser"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "Name two popular cloud storage providers.",
+        "Understand": "Explain the difference between CC and BCC in an email.",
+        "Apply": "Navigate to a specific aviation authority website and bookmark it.",
+        "Analyze": "Analyze the advantages of cloud storage over a USB drive.",
+        "Evaluate": "Determine the most professional way to attach a large file to an email.",
+        "Create": "Compose a professional email sharing a link to a cloud-stored document."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "Digital Literacy Fundamentals",
+        "further": "Google Workspace Guide"
       }
     },
     "14": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "Cyber Safety",
+          "explanation": "Protecting digital identity, recognizing phishing attempts, and maintaining strong passwords."
+        },
+        {
+          "title": "Digital Etiquette",
+          "explanation": "Professionalism and appropriate behavior when communicating online."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Phishing",
+          "definition": "The fraudulent practice of sending emails purporting to be from reputable companies to induce individuals to reveal personal info."
+        },
+        {
+          "term": "Malware",
+          "definition": "Software that is specifically designed to disrupt, damage, or gain unauthorized access to a computer system."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "STOP",
         "points": [
-          "P - Pending"
+          "S - Stop",
+          "T - Think",
+          "O - Observe",
+          "P - Proceed safely"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "Define malware.",
+        "Understand": "Explain how a strong password differs from a weak one.",
+        "Apply": "Identify the signs of a phishing attempt in a provided sample email.",
+        "Analyze": "Deconstruct a URL to determine if a website is secure (HTTPS vs HTTP).",
+        "Evaluate": "Assess the risks of using public Wi-Fi without a VPN.",
+        "Create": "Develop a set of cyber safety rules for a small office."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "Cybersecurity Basics",
+        "further": "CISA Guidelines"
       }
     },
     "15": {
@@ -1079,6 +1355,47 @@
       "referenceMaterial": {
         "primary": "Syllabus textbook",
         "further": "Online resources"
+      }
+    },
+    "Mid-Sem": {
+      "keyConcepts": [
+        {
+          "title": "Hardware & OS Revision",
+          "explanation": "Reviewing core components of a PC and Windows navigation."
+        },
+        {
+          "title": "Word Processing Mastery",
+          "explanation": "Ensuring competence in creating, formatting, and structuring Word documents."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Recap",
+          "definition": "To state again the main points of what has been taught."
+        },
+        {
+          "term": "Competence",
+          "definition": "The ability to do something successfully or efficiently."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "R&R",
+        "points": [
+          "R - Review",
+          "R - Reinforce"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Recall the steps to save a Word document as a PDF.",
+        "Understand": "Summarize the difference between hardware and software.",
+        "Apply": "Complete an interactive quiz on OS navigation.",
+        "Analyze": "Analyze your common errors when formatting tables.",
+        "Evaluate": "Assess your readiness for the practical examination.",
+        "Create": "Develop a quick-reference cheat sheet for Word shortcuts."
+      },
+      "referenceMaterial": {
+        "primary": "Session 1-6 Notes",
+        "further": "Practice Quizzes"
       }
     }
   }
