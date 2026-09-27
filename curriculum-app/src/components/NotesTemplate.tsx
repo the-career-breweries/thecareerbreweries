@@ -159,10 +159,14 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
         }}>
           {/* Watermark for Print */}
           <div className="print-watermark">
-            <p style={{ fontWeight: 'bold', fontSize: '48px', margin: 0, textTransform: 'uppercase', letterSpacing: '2px' }}>S D Sandarsh</p>
-            <p style={{ fontSize: '24px', margin: '15px 0', fontWeight: '500' }}>Communicative English, Soft Skills & Employability Trainer</p>
-            <p style={{ fontSize: '24px', margin: 0, fontWeight: '500' }}>+91 97437 11584</p>
-          </div>
+              <p style={{ fontWeight: 'bold', fontSize: '48px', margin: 0, textTransform: 'uppercase', letterSpacing: '2px' }}>S D Sandarsh</p>
+              <p style={{ fontSize: '24px', margin: '15px 0', fontWeight: '500', lineHeight: '1.4' }}>
+                Communicative English Trainer,<br />
+                Soft Skills Trainer,<br />
+                & Employability Coach
+              </p>
+              <p style={{ fontSize: '24px', margin: 0, fontWeight: '500' }}>+91 97437 11584</p>
+            </div>
 
           {/* Header */}
           <div style={{ borderBottom: '2px solid #4f46e5', paddingBottom: '1rem', marginBottom: '2rem' }}>
