@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { curriculumDataEnglish as curriculumData, WeekData } from '@/data/curriculum-english';
-import { Search, Loader2, Sparkles, Sun, Moon, BookOpen, GraduationCap, LayoutDashboard, ChevronRight, Users, RotateCcw, Menu } from 'lucide-react';
-import SlideViewer from '@/components/SlideViewer';
+import { Search, Loader2, Sparkles, Sun, Moon, BookOpen, GraduationCap, LayoutDashboard, ChevronRight, Users, RotateCcw, Menu, FileText } from \'lucide-react\';
+import SlideViewer from \'@/components/SlideViewer\';
+import NotesTemplate from \'@/components/NotesTemplate\';
 import WelcomeScreen from '@/components/WelcomeScreen';
 
 export default function CommunicativeEnglishApp() {
@@ -48,6 +49,7 @@ export default function CommunicativeEnglishApp() {
 
   // Active Lesson State
   const [activeLesson, setActiveLesson] = useState<WeekData | null>(null);
+  const [activeNotesLesson, setActiveNotesLesson] = useState<WeekData | null>(null);
 
   // Section Tracking State
   const SECTIONS = selectedStream.includes('B.Sc') ? ['Section A', 'Section B'] : ['Global Cohort'];
@@ -474,21 +476,35 @@ export default function CommunicativeEnglishApp() {
 
                   <div className="modules-grid">
                     {activeWeeks.map((week) => (
-                      <div key={week.week} className="module-card" style={{ position: "relative", overflow: "hidden" }} style={{ position: "relative", overflow: "hidden" }} style={{ position: "relative", overflow: "hidden" }} onClick={() => setActiveLesson(week)}>
+                      <div key={week.week} className="module-card" style={{ position: "relative", overflow: "hidden" }}>
                         <div className="module-card-header">
                           <span className="week-badge">{week.label || `Session ${week.week}`}</span>
                         </div>
                         <h3>{week.theme}</h3>
                         <p className="module-focus">{week.focus}</p>
-                        <div className="module-card-footer">
-                          <span>Begin Module</span>
-                          <ChevronRight size={16} />
-                        </div>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '1rem', marginBottom: '1rem' }}>
+                            <div 
+                              className="module-card-footer" 
+                              style={{ background: 'var(--bg-secondary)', padding: '12px 16px', borderRadius: '8px', cursor: 'pointer', margin: 0 }}
+                              onClick={() => setActiveLesson(week)}
+                            >
+                              <span>Begin Module</span>
+                              <ChevronRight size={16} />
+                            </div>
+                            <div 
+                              className="module-card-footer" 
+                              style={{ background: 'transparent', padding: '8px 16px', border: '1px solid var(--border-sidebar)', borderRadius: '8px', cursor: 'pointer', color: 'var(--text-secondary)', margin: 0 }}
+                              onClick={(e) => { e.stopPropagation(); setActiveNotesLesson(week); }}
+                            >
+                              <span>Generate Notes</span>
+                              <FileText size={16} />
+                            </div>
+                          </div>
                           {/* Progress Bar inside module card */}
                           <div style={{ width: '100%', height: '4px', background: 'var(--border-sidebar)', position: 'absolute', bottom: 0, left: 0 }}>
                              <div style={{ width: `${sessionProgress[week.week] || 0}%`, height: '100%', background: 'var(--accent-primary)', transition: 'width 0.3s' }} />
                           </div>
-                      </div>
+                        </div>
                     ))}
                   </div>
                 </div>
@@ -496,6 +512,17 @@ export default function CommunicativeEnglishApp() {
           </div>
 
           {/* Presentation Slide Viewer Modal */}
+                    {/* Notes Template Modal */}
+          {activeNotesLesson && (
+            <NotesTemplate
+              courseName='Communicative English'
+              sessionName={activeNotesLesson.theme}
+              theme={activeNotesLesson.theme}
+              focus={activeNotesLesson.focus}
+              onClose={() => setActiveNotesLesson(null)}
+            />
+          )}
+
           {activeLesson && (
             <SlideViewer
               weekData={activeLesson}
