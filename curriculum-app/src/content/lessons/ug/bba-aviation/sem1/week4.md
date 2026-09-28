@@ -21,7 +21,7 @@
 
 ---
 
-<!-- CINEMATIC_BG: https://res.cloudinary.com/l4eozknq/image/upload/v1790578142/ufv9fmgr0fjnxtcbpq90.jpg -->
+<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1920&q=80 -->
 
 # THE STAR APPROACH
 *How to tell a story that wins arguments.*
