@@ -9,8 +9,7 @@ Welcome to college! You are starting a brand new chapter of your life.
 
 <!-- CINEMATIC_BG: https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1920&q=80 -->
 
-# THE STAKES
-*Why are we doing this?*
+# Why are we doing this?
 
 **The Hidden Metric:** Emotional Intelligence (EQ), Coachability, and Self-Regulation.
 

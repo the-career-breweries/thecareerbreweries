@@ -524,10 +524,11 @@ export default function SlideViewer
                 {cinematicBgUrls.map((url, i) => {
                    const isVideo = url.endsWith('.mp4') || url.endsWith('.webm');
                    const width = `${100 / cinematicBgUrls.length}%`;
+                   const objFit = url.includes('cloudinary') ? 'contain' : 'cover';
                    return isVideo ? (
-                      <video key={`sharp-${i}`} src={url} autoPlay loop muted playsInline style={{ height: '100%', width, objectFit: 'cover' }} />
+                      <video key={`sharp-${i}`} src={url} autoPlay loop muted playsInline style={{ height: '100%', width, objectFit: objFit }} />
                    ) : (
-                      <img key={`sharp-${i}`} src={url} alt="Cinematic Background" style={{ height: '100%', width, objectFit: 'cover' }} />
+                      <img key={`sharp-${i}`} src={url} alt="Cinematic Background" style={{ height: '100%', width, objectFit: objFit }} />
                    );
                 })}
             </div>

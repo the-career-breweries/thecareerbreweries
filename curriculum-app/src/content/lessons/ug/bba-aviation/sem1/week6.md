@@ -10,8 +10,7 @@
 
 <!-- CINEMATIC_BG: https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80 -->
 
-# THE STAKES
-*Why are we doing this?*
+# Why are we doing this?
 
 **The Hidden Metric:** Non-Verbal Congruence, Spatial Awareness, and Implicit Trust Building.
 

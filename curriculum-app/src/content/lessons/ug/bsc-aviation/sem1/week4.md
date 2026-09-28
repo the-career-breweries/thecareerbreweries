@@ -10,8 +10,7 @@
 
 <!-- CINEMATIC_BG: https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1920&q=80 -->
 
-# THE STAKES
-*Why are we doing this?*
+# Why are we doing this?
 
 **The Hidden Metric:** Logical Structuring, Conflict De-escalation, and Analytical Reasoning.
 

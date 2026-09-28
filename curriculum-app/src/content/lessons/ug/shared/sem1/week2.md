@@ -9,8 +9,7 @@ Welcome back! Last week we looked inward. This week, we focus on how you absorb 
 
 <!-- CINEMATIC_BG: https://images.unsplash.com/photo-1556761175-5973dc0f32b7?auto=format&fit=crop&w=1920&q=80 -->
 
-# THE STAKES
-*Why are we doing this?*
+# Why are we doing this?
 
 **The Hidden Metric:** Command Presence, Authority Projection, and Stress Tolerance.
 

@@ -10,8 +10,7 @@
 
 <!-- CINEMATIC_BG: https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=1920&q=80 -->
 
-# THE STAKES
-*Why are we doing this?*
+# Why are we doing this?
 
 **The Hidden Metric:** Crisis Management, Empathy, Boundary Setting, and Emotional Endurance.
 
