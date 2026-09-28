@@ -1,19 +1,16 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
-
-// Define the path to our local JSON file for storing feedback
-const dataFilePath = path.join(process.cwd(), 'src', 'data', 'feedback.json');
+import { adminDb } from '@/lib/firebase/firebaseAdmin';
 
 export async function GET() {
   try {
-    if (!fs.existsSync(dataFilePath)) {
-      return NextResponse.json([]);
-    }
-    const data = fs.readFileSync(dataFilePath, 'utf8');
-    return NextResponse.json(JSON.parse(data));
+    const snapshot = await adminDb.collection('feedbacks').orderBy('createdAt', 'desc').get();
+    const feedbacks = snapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+    return NextResponse.json(feedbacks);
   } catch (error) {
-    console.error('Error reading feedback data:', error);
+    console.error('Error reading feedback from Firebase:', error);
     return NextResponse.json([]);
   }
 }
@@ -22,36 +19,18 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
     
-    // Create new feedback entry
+    // Create new feedback entry mapping expected fields
     const newFeedback = {
-      id: Date.now().toString(),
       ...body,
-      submittedAt: new Date().toISOString()
+      createdAt: new Date().toISOString()
     };
     
-    let currentData = [];
-    if (fs.existsSync(dataFilePath)) {
-      const fileData = fs.readFileSync(dataFilePath, 'utf8');
-      if (fileData) {
-        currentData = JSON.parse(fileData);
-      }
-    } else {
-        // Create directory if it doesn't exist
-        const dir = path.dirname(dataFilePath);
-        if (!fs.existsSync(dir)) {
-            fs.mkdirSync(dir, { recursive: true });
-        }
-    }
+    // Save to Firebase directly to ensure permanence across deployments
+    const docRef = await adminDb.collection('feedbacks').add(newFeedback);
     
-    // Add to top of list
-    currentData.unshift(newFeedback);
-    
-    // Write back to file
-    fs.writeFileSync(dataFilePath, JSON.stringify(currentData, null, 2));
-    
-    return NextResponse.json({ success: true, feedback: newFeedback });
+    return NextResponse.json({ success: true, id: docRef.id, feedback: newFeedback });
   } catch (error) {
-    console.error('Error saving feedback:', error);
+    console.error('Error saving feedback to Firebase:', error);
     return NextResponse.json({ success: false, error: 'Failed to save feedback' }, { status: 500 });
   }
 }
