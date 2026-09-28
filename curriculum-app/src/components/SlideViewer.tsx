@@ -169,9 +169,14 @@ const AssetUploadModal = ({ isOpen, onClose, onSlidesGenerated }: { isOpen: bool
                 ✨ Magic Action: Slides generated and permanently saved to the codebase!
               </div>
             
-            <button onClick={handleReset} style={{ backgroundColor: '#2563eb', color: 'white', border: 'none', padding: '12px 24px', borderRadius: '8px', fontWeight: '600', fontSize: '1rem', cursor: 'pointer', marginTop: '8px' }}>
-              Upload More Assets
-            </button>
+            <div style={{ display: 'flex', gap: '12px', marginTop: '8px', width: '100%' }}>
+              <button onClick={handleFullClose} style={{ flex: 1, backgroundColor: '#10b981', color: 'white', border: 'none', padding: '12px 24px', borderRadius: '8px', fontWeight: '600', fontSize: '1rem', cursor: 'pointer' }}>
+                View Slides
+              </button>
+              <button onClick={handleReset} style={{ flex: 1, backgroundColor: '#f3f4f6', color: '#374151', border: '1px solid #d1d5db', padding: '12px 24px', borderRadius: '8px', fontWeight: '600', fontSize: '1rem', cursor: 'pointer' }}>
+                Upload More
+              </button>
+            </div>
           </div>
         ) : !assetType ? (
           <div>
@@ -1088,8 +1093,10 @@ export default function SlideViewer
                
                if (updatedSlides[currentSlide] === "# New Slide\n\nAdd content here...") {
                    updatedSlides.splice(currentSlide, 1, ...newSlides);
+                   setCurrentSlide(currentSlide);
                } else {
                    updatedSlides.splice(currentSlide + 1, 0, ...newSlides);
+                   setCurrentSlide(currentSlide + 1);
                }
                
                setSlides(updatedSlides);
