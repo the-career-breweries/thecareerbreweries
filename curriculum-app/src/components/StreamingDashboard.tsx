@@ -208,9 +208,7 @@ export default function StreamingDashboard({ program, streamName, semester, week
 
       {/* Carousels Container */}
       <div style={{ position: 'relative', zIndex: 3, marginTop: '-5vh', paddingBottom: '5rem' }}>
-        <Carousel title="Continue Watching" lessons={continueWatching} startIndex={0} />
-        <Carousel title={`Trending in ${streamName}`} lessons={trending} startIndex={3} />
-        <Carousel title="Critically Acclaimed Skills" lessons={criticallyAcclaimed} startIndex={8} />
+        <Carousel title={`Semester ${semester} Episodes`} lessons={weeks} startIndex={0} />
       </div>
 
     </div>
