@@ -1,113 +1,124 @@
-# Welcome to Aviation Management Soft Skills
-### The Ground Starts Here
+# Welcome to Week 2
+## Learning Habits & Active Listening
 
-Welcome to Semester 1. In Aviation Management, you are the face of the airline, the brain behind ground operations, and the problem-solvers when things go wrong.
+![Active Listening](/images/slides/ug_week2.jpg)
 
-Today, we focus on management presence, overcoming hesitation, and structuring your thoughts.
-
-```qrcode
-scan
-```
+Welcome back! Last week we looked inward. This week, we focus on how you absorb information from the world around you.
 
 ---
 
-<!-- CINEMATIC_BG: /images/slides/manager_presence.jpg -->
-# The Manager's Presence
-### Authority, Empathy, and Demeanor
+<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1556761175-5973dc0f32b7?auto=format&fit=crop&w=1920&q=80 -->
+
+# THE STAKES
+*Why are we doing this?*
+
+**The Hidden Metric:** Command Presence, Authority Projection, and Stress Tolerance.
+
+**The Arena:** 
+*   **Cabin Crew Final Panel Interviews:** Judging your "room entry" and posture.
+*   **Pilot Board Interviews:** Assessing if you command respect naturally.
+*   **Corporate Networking Events:** First impressions and elevator pitches.
+*   **IELTS Speaking Part 1:** Baseline confidence and introduction delivery.
+
+*Before you finish your first sentence, recruiters have already graded your presence.*
 
 ---
 
-```anatomy-widget
-image: /images/slides/manager_presence.jpg
-hotspot1_x: 68
-hotspot1_y: 38
-hotspot1_title: Confident Posture
-hotspot1_desc: Keep your shoulders back and chest open. Never cross your arms defensively.
-hotspot2_x: 63
-hotspot2_y: 25
-hotspot2_title: Active Empathy
-hotspot2_desc: Nod and maintain steady eye contact to show you are listening to passenger concerns.
-hotspot3_x: 62
-hotspot3_y: 55
-hotspot3_title: The Demeanor
-hotspot3_desc: Firm but empathetic tone. You must project control, especially during delays.
-```
+# The Myth of "Multitasking"
+
+
+
+Let's clear the air: **Multitasking is a myth.** Rapid context-switching destroys your ability to retain deep information.
 
 ---
 
-# The PREP Method
-### For Crisp, Unambiguous Business Communication
+# The Real Value of Deep Focus
 
-Whether briefing your ground team or de-escalating a passenger issue, you must be clear and structured.
 
----
 
-<!-- CINEMATIC_BG: /images/slides/angry_passengers.jpg -->
-# Ground Operations Scenario
+* **Practical Application:** When you are in a lecture, close the extraneous tabs on your laptop. When you are studying for an exam, put your phone in another room.
+* **The ROI (Return on Investment):** If you invest 1 hour of deep, uninterrupted effort, you will retain the same amount of information as 3 hours of distracted studying. Your return is **2 extra hours of free time**.
 
 ---
 
-```crisis-simulator
-question: Flight 405 to Mumbai is delayed by 3 hours due to thunderstorms. You must brief the angry passengers at the gate. How do you start your announcement?
-choice1: "Ladies and gentlemen, Flight 405 to Mumbai is currently delayed by three hours."
-isCorrect1: true
-reason1: Correct! This follows the 'Point' rule. State the main point clearly and upfront.
-choice2: "Hi everyone, I know you are frustrated, but the weather is really bad and ATC won't let us fly..."
-isCorrect2: false
-reason2: Incorrect. This starts with an excuse and apologetic rambling. Always start with the Point.
-```
+# Hearing vs. Listening
+
+
+
+Hearing is a biological function. Listening is a conscious choice.
+
+**Passive Listening:** Waiting for your turn to speak.
+**Active Listening:** Listening to understand the underlying intent of the speaker.
 
 ---
 
-```crisis-simulator
-question: Now that you've given the Point, what is your next sentence (The Reason)?
-choice1: "This is because our plane is stuck in traffic and the pilots are waiting."
-isCorrect1: false
-reason1: Incorrect. Do not blame internal teams or use unprofessional phrasing.
-choice2: "This is due to severe thunderstorms over the destination airport making it unsafe to land."
-isCorrect2: true
-reason2: Correct! A clear, factual Reason that explains the Point without shifting blame unprofessionally.
-```
+# How to prove you are actively listening:
+
+
+
+1. Maintain eye contact (without staring).
+2. Nod and use non-verbal cues.
+3. **Paraphrase:** Summarize what they said in your own words. 
+   * *"So what I'm hearing is..."*
+   * *"If I understand you correctly..."*
+   * *"It sounds like your main concern is..."*
+   * *"Let me make sure I've got this right: you're saying..."*
 
 ---
 
-<!-- CINEMATIC_BG: /images/slides/empty_boardroom.jpg -->
-# 1 MINUTE SOLO
-### THINK ON YOUR FEET
+# Activity: The Listening Drill
+
+
+
+We are going to do a rapid-fire listening drill.
+
+1. Get into pairs.
+2. **Person A** speaks for 2 minutes straight about a challenge they faced this week. **Person B** cannot speak, only listen.
+3. At the end of 2 minutes, **Person B** must summarize Person A's challenge in exactly 3 sentences.
+4. Swap roles.
 
 ---
 
-# The Boardroom: Impromptu Speaking
-### Take the Floor
+# Today's Learning Task
+## The Personal Learning Plan
 
-Let's test your ability to think on your feet and communicate a stance clearly.
-Volunteers! You have 60 seconds to speak on the topic below.
 
-*Pro-tip: Use the PREP method to structure your argument.*
 
-```topic-generator
-Should passengers be allowed to recline their seats on short flights?
-Should airlines ban crying babies from First Class?
-Is being a flight attendant more stressful than being a pilot?
-Should the middle seat passenger get both armrests?
-Is it fair for airlines to charge extra for basic food and water?
-Should mobile phone calls be allowed during flights?
-Is traveling by plane better than traveling by train?
-Should passengers be required to dress smartly when flying?
-Is it okay to clap when the plane lands?
-Should airports have completely silent terminals with no announcements?
-```
+<!-- PRINT: LearningPlan -->
+
+It's time to build your personal learning plan. You need to design a practical, realistic routine for how you will tackle your coursework this semester.
+
+Fill out the form to explicitly define:
+* Your designated "Deep Work" hours.
+* The specific environment where you study best.
+* How you will eliminate your top 2 distractions.
 
 ---
 
-# Debrief & Wrap Up
+# Evaluation Rubric
 
-Great start to the semester! Remember:
-1. **Demeanor:** As a manager, your calm behavior is contagious.
-2. **Structure:** Use PREP whenever you need to explain something complex quickly.
 
-Before you leave, ensure you have submitted the attendance and feedback form from the start of class!
 
-```qrcode
-scan
-```
+
+Your learning plan will be evaluated on:
+* **Practicality:** Is this a routine you can actually stick to, or is it overly ambitious?
+* **Attention to Detail:** Did you clearly identify your distractions and provide a concrete solution for them?
+
+
+
+
+
+---
+
+## Interpersonal Skills Focus: The First 4 C's of Effective Communication
+
+
+
+To be highly effective in your studies and future career, every message must adhere to these standards:
+1.  **Clarity**: Simple, precise language tailored to your audience.
+2.  **Correctness**: Grammatically flawless and factually accurate.
+3.  **Conciseness**: Brief and crisp. Avoid padding out assignments just to hit a word count.
+4.  **Courtesy**: Genuine politeness and respect toward peers and faculty. "Politeness costs nothing and gains everything."
+
+<!-- PRINT_SLIDE -->
+

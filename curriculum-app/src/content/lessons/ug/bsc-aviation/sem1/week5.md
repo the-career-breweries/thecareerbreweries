@@ -8,6 +8,22 @@
 
 ---
 
+<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=1920&q=80 -->
+
+# THE STAKES
+*Why are we doing this?*
+
+**The Hidden Metric:** Crisis Management, Empathy, Boundary Setting, and Emotional Endurance.
+
+**The Arena:** 
+*   **Situational Judgment Tests (SJT):** Multiple-choice tests on handling irate customers.
+*   **Airline Ground Staff Screening:** Live simulations of delayed flights and lost baggage.
+*   **Behavioral Questions:** "Tell me about a time you had to say NO to a client."
+
+*Aviation is an industry of disruptions. Your career ceiling is determined by how well you handle angry people.*
+
+---
+
 <!-- CINEMATIC_BG: https://images.unsplash.com/photo-1580436541285-b1a13b52d9a6?auto=format&fit=crop&w=1920&q=80 -->
 
 # THE INEVITABLE CRISIS

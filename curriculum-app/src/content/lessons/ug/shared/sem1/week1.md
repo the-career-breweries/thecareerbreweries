@@ -7,6 +7,22 @@ Welcome to college! You are starting a brand new chapter of your life.
 
 ---
 
+<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1920&q=80 -->
+
+# THE STAKES
+*Why are we doing this?*
+
+**The Hidden Metric:** Emotional Intelligence (EQ), Coachability, and Self-Regulation.
+
+**The Arena:** 
+*   **Behavioral Interviews:** "Tell me about a time you failed or received negative feedback."
+*   **Psychometric Profiling:** Assessing your capacity for growth.
+*   **Management Trainee Screenings:** Testing if you can handle constructive criticism.
+
+*Aviation recruiters don't just hire for skills; they hire people who are self-aware enough to admit their blind spots.*
+
+---
+
 # Phase 1: Welcome & Self-Discovery
 
 *   **Superpowers & Secret Fears:** 

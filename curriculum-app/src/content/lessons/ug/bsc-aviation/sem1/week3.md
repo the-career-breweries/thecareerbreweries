@@ -1,30 +1,91 @@
-# The Absurd & Abstract
-*Session 3: Art Interpretation*
+# Welcome to Week 3
+## Speaking Comfort & Voice Confidence
+
+![Speaking Comfort](/images/slides/ug_week3.jpg)
+
+Welcome to Week 3! Now that we've covered how to listen, it's time to focus on how to speak.
 
 ---
 
-<!-- CINEMATIC_BG: https://res.cloudinary.com/l4eozknq/image/upload/v1790361041/ojoztxo2hnsxddwmwaje.jpg -->
+<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1499557407026-6f8f78082695?auto=format&fit=crop&w=1920&q=80 -->
+
+# THE STAKES
+*Why are we doing this?*
+
+**The Hidden Metric:** Cognitive Flexibility, Pattern Recognition, and Non-Verbal Reasoning under pressure.
+
+**The Arena:** 
+*   **Picture Perception and Discussion Test (SSB):** Interpreting ambiguous scenes.
+*   **Cabin Crew Screening:** The dreaded "Random Card / Extempore" round.
+*   **Design Exams & Architecture Admissions:** Thematic apperception and spatial reasoning.
+*   **IELTS Speaking Part 2:** Unscripted speaking on unexpected abstract topics.
+
+*This session trains your brain to find logic in chaos—a critical skill for emergency aviation scenarios.*
 
 ---
 
-<!-- CINEMATIC_BG: https://res.cloudinary.com/l4eozknq/image/upload/v1790361044/mgareg1phpc94vmb4pyo.jpg -->
+# The Fear of Public Speaking
+
+
+
+Glossophobia (the fear of public speaking) is one of the most common fears in the world. 
+
+It is completely natural to feel anxious when all eyes are on you. Our goal today is not to make you a master orator, but simply to help you build **comfort** and **confidence** when speaking up.
 
 ---
 
-<!-- CINEMATIC_BG: https://res.cloudinary.com/l4eozknq/image/upload/v1790361047/owv6jxia5skiwq4zwjmp.jpg -->
+# The Mechanics of Voice Confidence
+
+
+
+Confidence is not just about what you say, it's about how you deliver it.
+
+1. **Volume:** Speak 10% louder than you think you need to.
+2. **Pacing:** When we are nervous, we rush. Force yourself to slow down.
+3. **Pausing:** Silence is powerful. Use a 2-second pause instead of saying "um" or "like".
+
+---
+
+# Activity: Pair Talk & Short Response
+
+
+
+<!-- PRINT: SpeakingComfort -->
+
+We are going to practice short, low-stakes sharing.
+
+1. Pair up with a new partner.
+2. Review the prompts on your worksheet.
+3. Take turns answering the prompts. Focus purely on volume, pacing, and pausing.
+4. Give each other constructive feedback on the mechanics of your delivery.
+
+---
+
+# Evaluation Rubric
+
+
+
+Your participation today will be evaluated on:
+
+* **Fluency:** Did you manage to reduce the use of filler words (um, like)?
+* **Confidence:** Did you speak at an appropriate volume and maintain a steady pace?
+
+
+
 
 
 ---
 
-<!-- CINEMATIC_BG: https://res.cloudinary.com/l4eozknq/image/upload/v1790366015/taeis50ouxp80ugsaqaj.jpg -->
+## Interpersonal Skills Focus: The Final 3 C's of Effective Communication
 
 
-<!-- CINEMATIC_BG: https://res.cloudinary.com/l4eozknq/image/upload/v1790397980/fsvykbf2ylntfy5y2ijg.jpg -->
 
+5.  **Concreteness**: Specific facts and active voice. Avoid vagueness in your presentations.
+6.  **Consideration**: The "You Attitude"—designing messages from the receiver's point of view. How will the examiner or recruiter read your work?
+7.  **Completeness**: Providing all necessary context in your emails so your professors or teammates don't have to guess what you mean.
 
----
+<!-- PRINT_SLIDE -->
 
-<!-- CINEMATIC_BG: https://res.cloudinary.com/l4eozknq/image/upload/v1790398360/zgoihbvjqb0bsxki0spi.jpg -->
 
 ---
 

@@ -8,6 +8,23 @@
 
 ---
 
+<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1920&q=80 -->
+
+# THE STAKES
+*Why are we doing this?*
+
+**The Hidden Metric:** Logical Structuring, Conflict De-escalation, and Analytical Reasoning.
+
+**The Arena:** 
+*   **Group Discussions (GD):** Dominating a conversation without being aggressive.
+*   **Assessment Center Roleplays:** Defending a business decision against a panel.
+*   **Case Study Interviews:** Separating the "idea" from the "person" in high-stress debates.
+*   **IELTS Speaking Part 3:** Structuring complex, multi-layered arguments.
+
+*Knowing how to argue cleanly is how you lead teams through disagreements without destroying morale.*
+
+---
+
 <!-- CINEMATIC_BG: https://images.unsplash.com/photo-1540845511934-7721dd7adec3?auto=format&fit=crop&w=1920&q=80 -->
         
 # THE RULES OF ENGAGEMENT

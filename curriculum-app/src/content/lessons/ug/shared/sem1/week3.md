@@ -7,6 +7,23 @@ Welcome to Week 3! Now that we've covered how to listen, it's time to focus on h
 
 ---
 
+<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1499557407026-6f8f78082695?auto=format&fit=crop&w=1920&q=80 -->
+
+# THE STAKES
+*Why are we doing this?*
+
+**The Hidden Metric:** Cognitive Flexibility, Pattern Recognition, and Non-Verbal Reasoning under pressure.
+
+**The Arena:** 
+*   **Picture Perception and Discussion Test (SSB):** Interpreting ambiguous scenes.
+*   **Cabin Crew Screening:** The dreaded "Random Card / Extempore" round.
+*   **Design Exams & Architecture Admissions:** Thematic apperception and spatial reasoning.
+*   **IELTS Speaking Part 2:** Unscripted speaking on unexpected abstract topics.
+
+*This session trains your brain to find logic in chaos—a critical skill for emergency aviation scenarios.*
+
+---
+
 # The Fear of Public Speaking
 
 

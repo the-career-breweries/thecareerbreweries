@@ -8,6 +8,22 @@
 
 ---
 
+<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80 -->
+
+# THE STAKES
+*Why are we doing this?*
+
+**The Hidden Metric:** Non-Verbal Congruence, Spatial Awareness, and Implicit Trust Building.
+
+**The Arena:** 
+*   **Group Discussion Observer Grading:** Recruiters watch your body language when you *arent* speaking.
+*   **Video Interviews (HireVue/AI):** Algorithms literally track your eye movement, posture, and micro-expressions.
+*   **Every Face-to-Face Interview:** Subconscious signaling of dominance vs. submissiveness.
+
+*Your words might say "I am confident," but if your shoulders are hunched, no one will believe you.*
+
+---
+
 <!-- CINEMATIC_BG: https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1920&q=80 -->
 
 # THE 7% RULE
