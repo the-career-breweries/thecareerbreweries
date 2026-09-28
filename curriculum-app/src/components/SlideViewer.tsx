@@ -499,6 +499,8 @@ export default function SlideViewer
     const currentSlideContent = slides[currentSlide] || '';
     const cinematicBgMatches = Array.from(currentSlideContent.matchAll(/<!-- CINEMATIC_BG: (.*?) -->/g));
     const cinematicBgUrls = cinematicBgMatches.map(m => m[1].trim());
+    const contentWithoutBgTags = currentSlideContent.replace(/<!-- CINEMATIC_BG:.*?-->/g, '').trim();
+    const hasText = contentWithoutBgTags.length > 0;
 
   return (
     <div className={`slide-modal-overlay ${isPrintingSlide ? 'is-printing-slide' : ''} ${course === 'soft-skills' ? 'video-player-mode' : ''}`}>
@@ -517,7 +519,7 @@ export default function SlideViewer
                })}
             </div>
             
-            <div className="cinematic-bg-overlay" style={{ zIndex: 1, background: 'rgba(0,0,0,0.2)' }} />
+            <div className="cinematic-bg-overlay" style={{ zIndex: hasText ? 3 : 1, background: hasText ? 'rgba(0,0,0,0.65)' : 'rgba(0,0,0,0.2)' }} />
 
             {/* Sharp Foreground Images */}
             <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', gap: '0', padding: '0', zIndex: 2, justifyContent: 'center', alignItems: 'center' }}>
