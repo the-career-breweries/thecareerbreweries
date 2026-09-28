@@ -165,14 +165,24 @@ const AssetUploadModal = ({ isOpen, onClose, onSlidesGenerated }: { isOpen: bool
             </div>
             <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#111827', margin: 0 }}>Upload Successful!</h3>
             <p style={{ color: '#4b5563', margin: 0 }}>{uploadedUrls.length} file(s) safely stored in Cloudinary.</p>
-              <div style={{ backgroundColor: '#ecfdf5', color: '#065f46', padding: '12px', borderRadius: '8px', border: '1px solid #10b981', width: '100%', fontSize: '0.9rem', fontWeight: '500' }}>
-                ✨ Magic Action: Slides generated and permanently saved to the codebase!
-              </div>
-            
-            <div style={{ display: 'flex', gap: '12px', marginTop: '8px', width: '100%' }}>
-              <button onClick={handleFullClose} style={{ flex: 1, backgroundColor: '#10b981', color: 'white', border: 'none', padding: '12px 24px', borderRadius: '8px', fontWeight: '600', fontSize: '1rem', cursor: 'pointer' }}>
-                View Slides
+
+            <div style={{ width: '100%', textAlign: 'left' }}>
+              <p style={{ fontWeight: '600', color: '#374151', marginBottom: '8px', fontSize: '0.9rem' }}>📋 Copy these links and paste them in the chat:</p>
+              <textarea
+                readOnly
+                value={uploadedUrls.join('\n')}
+                onClick={(e) => (e.target as HTMLTextAreaElement).select()}
+                style={{ width: '100%', height: `${Math.min(uploadedUrls.length * 40 + 20, 180)}px`, padding: '10px', fontFamily: 'monospace', fontSize: '0.75rem', backgroundColor: '#0f172a', color: '#7dd3fc', border: '1px solid #334155', borderRadius: '8px', resize: 'none', cursor: 'text', lineHeight: '1.6' }}
+              />
+              <button
+                onClick={() => navigator.clipboard.writeText(uploadedUrls.join('\n'))}
+                style={{ marginTop: '6px', padding: '6px 14px', fontSize: '0.8rem', backgroundColor: '#2563eb', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: '600' }}
+              >
+                Copy All Links
               </button>
+            </div>
+
+            <div style={{ display: 'flex', gap: '12px', width: '100%' }}>
               <button onClick={handleReset} style={{ flex: 1, backgroundColor: '#f3f4f6', color: '#374151', border: '1px solid #d1d5db', padding: '12px 24px', borderRadius: '8px', fontWeight: '600', fontSize: '1rem', cursor: 'pointer' }}>
                 Upload More
               </button>
