@@ -1,80 +1,67 @@
-# Welcome to Week 4
-## Professional Presence & Soft Skills Basics
+<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?auto=format&fit=crop&w=1920&q=80 -->
 
-![Title](/images/slides/ug_week4.jpg)
+# SEASON 1 • EPISODE 4
+## The Ultimate Debate
+*Putting PREP and STAR to the Test*
 
-Welcome to the final week of Semester 1! We've covered self-awareness, active listening, and speaking comfort. Now, we pull it all together into how you present yourself to the world.
-
----
-
-# What is Professional Presence?
-
-
-
-Professional presence is the combination of **how you look, how you act, and how you communicate**. 
-
-It is the subtle signal you send to employers, professors, and peers that says, *"I take myself seriously, and you should too."*
+▶ **PLAY EPISODE**
 
 ---
 
-# The 3 Pillars of Presence
+<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1920&q=80 -->
 
+### PREVIOUSLY ON AVIATION MANAGEMENT...
 
+*   **The Johari Window:** You mapped your blind spots.
+*   **The PREP Method:** You learned to structure your logic.
+*   **The Absurd:** You embraced the uncomfortable.
 
-1. **Grooming & Attire:** Dressing appropriately for the context (classroom vs. interview).
-2. **Body Language & Etiquette:** Eye contact, posture, a firm handshake, and punctuality.
-3. **Digital Etiquette:** Professional emails, mindful social media presence, and virtual meeting behavior.
-
----
-
-# Activity: The Soft-Skills Peer Review
-
-
-
-<!-- PRINT: SoftSkillsChecklist -->
-
-We are going to conduct a real-time peer audit of your professional presence.
-
-1. Pair up with someone you trust.
-2. Review the checklist criteria on your worksheet.
-3. Conduct a 3-minute mock "professional introduction" scenario.
-4. Exchange worksheets and anonymously score each other on the checklist criteria.
-5. Provide one piece of constructive, actionable feedback at the bottom.
+Now, it's time to put your communication toolkit to the ultimate test under pressure.
 
 ---
 
-# Evaluation Rubric
+<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1540845511934-7721dd7adec3?auto=format&fit=crop&w=1920&q=80 -->
+        
+# THE RULES OF ENGAGEMENT
+        
+1. **Two Factions:** The class is divided into **FOR** and **AGAINST**.
+2. **The Clock:** You have exactly 2 minutes to brainstorm with your team.
+3. **The Weapon:** You **must** use the PREP method to structure your argument.
+4. **The Rule:** Attack the *idea*, never the *person*.
 
-
-
-This week is about practical application. You will be evaluated on:
-
-* **Awareness:** Your ability to accurately assess your partner's professional presence.
-* **Professionalism:** Taking the mock introduction seriously and demonstrating the 3 pillars of presence.
-
-
-
-
+*May the best argument win.*
 
 ---
 
-## Interpersonal Skills Focus: Communication & Campus Placements
-The P21 Framework identifies Communication as one of the **Four C's** of 21st Century Learning. 
+<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1517436073-3b1b1b5185c7?auto=format&fit=crop&w=1920&q=80 -->
 
-```mermaid
-mindmap
-  root((P21 Skills))
-    Communication
-    Collaboration
-    Critical Thinking
-    Creativity
+# LET THE DEBATES BEGIN
+
+```topic-generator
+Should passengers be allowed to recline their seats on short flights?
+Should airlines ban crying babies from First Class?
+Is being a flight attendant more stressful than being a pilot?
+Should the middle seat passenger get both armrests?
+Is it fair for airlines to charge extra for basic food and water?
+Should mobile phone calls be allowed during flights?
+Is traveling by plane better than traveling by train?
+Should passengers be required to dress smartly when flying?
+Is it okay to clap when the plane lands?
+Should airports have completely silent terminals with no announcements?
 ```
 
-Recruiters at campus placements specifically seek students who can:
-*   Identify desired outcomes before speaking in group discussions.
-*   Craft clear, confident messages during interviews.
-*   Model others' minds (accounting for the recruiter's expectations).
-*   Employ deep reading and active listening.
+---
 
-<!-- PRINT_SLIDE -->
+<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?auto=format&fit=crop&w=1920&q=80 -->
 
+### DEBRIEF & CREDITS
+
+*   Did using a **STAR** story inside of a **PREP** argument make your point undeniable?
+*   How did your self-awareness (Johari) help you handle the pressure of public speaking today?
+
+**Fantastic work.** You are already speaking like aviation professionals.
+
+*Next Episode: The Art of the Apology...*
+
+```qrcode
+```

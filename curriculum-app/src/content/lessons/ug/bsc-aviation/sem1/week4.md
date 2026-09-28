@@ -1,33 +1,41 @@
-# The Ultimate Debate
+<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?auto=format&fit=crop&w=1920&q=80 -->
+
+# SEASON 1 • EPISODE 4
+## The Ultimate Debate
 *Putting PREP and STAR to the Test*
 
-
-![Week 4 Illustration](/images/slides/aviation_soft_skills_w4_1790220275731.jpg)
-
----
-
-# Reviewing Your Arsenal
-
-Over the past three weeks, you have built your communication toolkit:
-1. **Johari Window:** You know your strengths and blind spots.
-2. **PREP Method:** (Point, Reason, Example, Point) - How to structure a logical argument.
-3. **STAR Method:** (Situation, Task, Action, Result) - How to tell a compelling story to prove your point.
-
-Today, we combine them all.
+▶ **PLAY EPISODE**
 
 ---
 
-# The Rules of Engagement
+<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1920&q=80 -->
 
-1. The class will be divided into two sides: **FOR** and **AGAINST**.
-2. A topic will be spun on the wheel. You will have 2 minutes to brainstorm with your team.
-3. When you speak, you **must** use the PREP method to structure your argument.
-4. For maximum impact, use a real-life STAR story as your "Example" (the 'E' in PREP)!
-5. Respect the speaker. Attack the idea, not the person.
+### PREVIOUSLY ON AVIATION MANAGEMENT...
+
+*   **The Johari Window:** You mapped your blind spots.
+*   **The PREP Method:** You learned to structure your logic.
+*   **The Absurd:** You embraced the uncomfortable.
+
+Now, it's time to put your communication toolkit to the ultimate test under pressure.
 
 ---
 
-# Let the Debates Begin!
+<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1540845511934-7721dd7adec3?auto=format&fit=crop&w=1920&q=80 -->
+        
+# THE RULES OF ENGAGEMENT
+        
+1. **Two Factions:** The class is divided into **FOR** and **AGAINST**.
+2. **The Clock:** You have exactly 2 minutes to brainstorm with your team.
+3. **The Weapon:** You **must** use the PREP method to structure your argument.
+4. **The Rule:** Attack the *idea*, never the *person*.
+
+*May the best argument win.*
+
+---
+
+<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1517436073-3b1b1b5185c7?auto=format&fit=crop&w=1920&q=80 -->
+
+# LET THE DEBATES BEGIN
 
 ```topic-generator
 Should passengers be allowed to recline their seats on short flights?
@@ -44,13 +52,16 @@ Should airports have completely silent terminals with no announcements?
 
 ---
 
-# Debrief & Wrap Up
+<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?auto=format&fit=crop&w=1920&q=80 -->
 
-*   Did using STAR inside of a PREP argument make your point undeniable?
+### DEBRIEF & CREDITS
+
+*   Did using a **STAR** story inside of a **PREP** argument make your point undeniable?
 *   How did your self-awareness (Johari) help you handle the pressure of public speaking today?
 
-**Fantastic work this month!** You are already speaking like aviation professionals.
+**Fantastic work.** You are already speaking like aviation professionals.
 
+*Next Episode: The Art of the Apology...*
 
 ```qrcode
 ```
