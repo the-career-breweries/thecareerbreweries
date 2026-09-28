@@ -60,8 +60,7 @@ export default function StreamingDashboard({ program, streamName, semester, week
           gap: '12px',
           overflowX: 'auto',
           padding: '10px 4%',
-          scrollSnapType: 'x mandatory',
-          scrollbarWidth: 'none',
+          WebkitOverflowScrolling: 'touch',
         }}>
           {lessons.map((lesson, idx) => (
             <div
@@ -77,7 +76,6 @@ export default function StreamingDashboard({ program, streamName, semester, week
                 overflow: 'hidden',
                 position: 'relative',
                 cursor: 'pointer',
-                scrollSnapAlign: 'start',
                 transition: 'transform 0.3s ease, border-color 0.3s',
                 boxShadow: '0 4px 6px rgba(0,0,0,0.3)',
                 borderColor: hoveredLesson?.lesson.week === lesson.week ? 'var(--accent-primary)' : 'transparent'

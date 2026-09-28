@@ -463,7 +463,7 @@ export default function CurriculumApp({ isAdmin = false }: { isAdmin?: boolean }
             </div>
           </header>
 
-          <main style={{ width: '100vw', minHeight: '100vh', paddingTop: activeLesson ? '70px' : '0' }}>
+          <main style={{ width: '100%', minHeight: '100vh', paddingTop: activeLesson ? '70px' : '0' }}>
             {activeLesson ? (
               <SlideViewer isAdmin={isAdmin}
                 weekData={activeLesson}
