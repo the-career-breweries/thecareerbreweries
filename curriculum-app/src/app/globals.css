@@ -2151,15 +2151,14 @@ kbd {
 .subtitle-mode p, 
 .subtitle-mode li {
   color: white !important;
-  font-family: 'Oswald', 'Arial Black', sans-serif !important;
-  text-transform: uppercase;
   text-align: center !important;
-  text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 0 4px 20px rgba(0,0,0,0.9) !important;
-  letter-spacing: 1px;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.8), 0 2px 4px rgba(0,0,0,0.8) !important;
+  list-style-position: inside;
 }
-.subtitle-mode h1 { font-size: 4rem !important; line-height: 1.1; margin-bottom: 1rem; }
-.subtitle-mode h2 { font-size: 3rem !important; line-height: 1.2; margin-bottom: 1rem; }
-.subtitle-mode p, .subtitle-mode li { font-size: 2.5rem !important; line-height: 1.3; font-weight: 700; }
+.subtitle-mode h1 { font-size: 3rem !important; line-height: 1.2; margin-bottom: 1rem; }
+.subtitle-mode h2 { font-size: 2.5rem !important; line-height: 1.2; margin-bottom: 1rem; color: #ef4444 !important; }
+.subtitle-mode h3 { font-size: 2rem !important; line-height: 1.3; margin-bottom: 1rem; }
+.subtitle-mode p, .subtitle-mode li { font-size: 1.5rem !important; line-height: 1.6; font-weight: 500; }
 
 .cinematic-bg-container {
   position: fixed;
