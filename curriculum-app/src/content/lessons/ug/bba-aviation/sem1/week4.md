@@ -4,19 +4,7 @@
 ## The Ultimate Debate
 *Putting PREP and STAR to the Test*
 
-▶ **PLAY EPISODE**
-
----
-
-<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1920&q=80 -->
-
-### PREVIOUSLY ON AVIATION MANAGEMENT...
-
-*   **The Johari Window:** You mapped your blind spots.
-*   **The PREP Method:** You learned to structure your logic.
-*   **The Absurd:** You embraced the uncomfortable.
-
-Now, it's time to put your communication toolkit to the ultimate test under pressure.
+▶  **PLAY EPISODE**
 
 ---
 
@@ -33,35 +21,40 @@ Now, it's time to put your communication toolkit to the ultimate test under pres
 
 ---
 
-<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1517436073-3b1b1b5185c7?auto=format&fit=crop&w=1920&q=80 -->
+<!-- CINEMATIC_BG: https://res.cloudinary.com/l4eozknq/image/upload/v1790578142/ufv9fmgr0fjnxtcbpq90.jpg -->
+
+# THE STAR APPROACH
+*How to tell a story that wins arguments.*
+
+*   **S - Situation:** Set the scene and provide context.
+*   **T - Task:** Describe your responsibility or the challenge.
+*   **A - Action:** Explain exactly what *you* did.
+*   **R - Result:** Share the outcome and what you achieved.
+
+**Example in an Interview:** 
+"During a delayed flight (**S**), passengers were frustrated (**T**). I proactively offered water and updates (**A**), which calmed the cabin and resulted in a smooth boarding process (**R**)."
+
+---
+
+<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1920&q=80 -->
 
 # LET THE DEBATES BEGIN
 
 ```topic-generator
-Should passengers be allowed to recline their seats on short flights?
-Should airlines ban crying babies from First Class?
-Is being a flight attendant more stressful than being a pilot?
-Should the middle seat passenger get both armrests?
-Is it fair for airlines to charge extra for basic food and water?
-Should mobile phone calls be allowed during flights?
-Is traveling by plane better than traveling by train?
-Should passengers be required to dress smartly when flying?
-Is it okay to clap when the plane lands?
-Should airports have completely silent terminals with no announcements?
+[Insert Custom Topic 1 Here]
+[Insert Custom Topic 2 Here]
+[Insert Custom Topic 3 Here]
+[Insert Custom Topic 4 Here]
+[Insert Custom Topic 5 Here]
 ```
 
 ---
 
 <!-- CINEMATIC_BG: https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?auto=format&fit=crop&w=1920&q=80 -->
 
-### DEBRIEF & CREDITS
-
-*   Did using a **STAR** story inside of a **PREP** argument make your point undeniable?
-*   How did your self-awareness (Johari) help you handle the pressure of public speaking today?
-
-**Fantastic work.** You are already speaking like aviation professionals.
+# END OF EPISODE
 
 *Next Episode: The Art of the Apology...*
 
-```qrcode
-```
+`qrcode
+`

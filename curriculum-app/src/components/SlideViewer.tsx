@@ -504,7 +504,7 @@ export default function SlideViewer
     <div className={`slide-modal-overlay ${isPrintingSlide ? 'is-printing-slide' : ''} ${course === 'soft-skills' ? 'video-player-mode' : ''}`}>
       
         {cinematicBgUrls.length > 0 && (
-          <div className="cinematic-bg-container" style={{ display: 'flex', width: '100vw', height: '100vh', gap: '0', padding: '0' }}>
+          <div className="cinematic-bg-container" style={{ position: 'absolute', top: 0, left: 0, display: 'flex', width: '100vw', height: '100vh', gap: '0', padding: '0', zIndex: 0 }}>
             {/* Ambient Glows */}
             <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', display: 'flex', zIndex: 0, overflow: 'hidden' }}>
                {cinematicBgUrls.map((url, i) => {
@@ -520,14 +520,14 @@ export default function SlideViewer
             <div className="cinematic-bg-overlay" style={{ zIndex: 1, background: 'rgba(0,0,0,0.2)' }} />
 
             {/* Sharp Foreground Images */}
-            <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', gap: '2rem', padding: '2rem', zIndex: 2, justifyContent: 'center', alignItems: 'center' }}>
+            <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', gap: '0', padding: '0', zIndex: 2, justifyContent: 'center', alignItems: 'center' }}>
                 {cinematicBgUrls.map((url, i) => {
                    const isVideo = url.endsWith('.mp4') || url.endsWith('.webm');
-                   const maxWidth = `calc(${100 / cinematicBgUrls.length}% - 2rem)`;
+                   const width = `${100 / cinematicBgUrls.length}%`;
                    return isVideo ? (
-                      <video key={`sharp-${i}`} src={url} autoPlay loop muted playsInline style={{ maxHeight: '100%', maxWidth, objectFit: 'contain', filter: 'drop-shadow(0 25px 25px rgba(0,0,0,0.5))' }} />
+                      <video key={`sharp-${i}`} src={url} autoPlay loop muted playsInline style={{ height: '100%', width, objectFit: 'cover' }} />
                    ) : (
-                      <img key={`sharp-${i}`} src={url} alt="Cinematic Background" style={{ maxHeight: '100%', maxWidth, objectFit: 'contain', filter: 'drop-shadow(0 25px 25px rgba(0,0,0,0.5))' }} />
+                      <img key={`sharp-${i}`} src={url} alt="Cinematic Background" style={{ height: '100%', width, objectFit: 'cover' }} />
                    );
                 })}
             </div>
