@@ -75,7 +75,96 @@ interface SlideViewerProps {
 
 
 
+
+const WritingTopicActivity = ({ data }: { data: string }) => {
+  const lines = data.trim().split('\n');
+  const getVal = (key: string) => lines.find(l => l.startsWith(key + ':'))?.replace(key + ':', '').trim() || '';
+
+  const title = getVal('title');
+  const type = getVal('type');
+  const rawTopics = lines.filter(l => l.startsWith('- "')).map(l => l.replace(/^- "/, '').replace(/"$/, ''));
+  const rawInstructions = lines.filter(l => l.startsWith('* ')).map(l => l.replace(/^\* /, ''));
+
+  const [topicIdx, setTopicIdx] = useState(0);
+  const [isSpinning, setIsSpinning] = useState(false);
+  const [customTopic, setCustomTopic] = useState('');
+  const [isEditing, setIsEditing] = useState(false);
+
+  const currentTopic = customTopic || rawTopics[topicIdx] || '';
+
+  const spin = () => {
+    setCustomTopic('');
+    setIsSpinning(true);
+    let count = 0;
+    const total = 12;
+    const interval = setInterval(() => {
+      setTopicIdx(prev => (prev + 1) % rawTopics.length);
+      count++;
+      if (count >= total) {
+        clearInterval(interval);
+        setIsSpinning(false);
+      }
+    }, 80);
+  };
+
+  const typeIcons: Record<string, string> = {
+    paragraph: '✍️', letter: '📝', report: '📋', email: '✉️'
+  };
+
+  return (
+    <div style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%)', border: '2px solid #bfdbfe', borderRadius: '16px', padding: '2rem', margin: '1.5rem 0', textAlign: 'center' }}>
+      <h2 style={{ fontSize: '1.8rem', fontWeight: '800', color: '#1e40af', marginBottom: '0.25rem' }}>
+        {typeIcons[type] || '✍️'} {title || `Activity: Write a ${type || 'Paragraph'}`}
+      </h2>
+
+      <p style={{ fontWeight: '700', color: '#1d4ed8', fontSize: '1rem', marginBottom: '0.5rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Your Topic:</p>
+
+      {isEditing ? (
+        <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', marginBottom: '1rem' }}>
+          <input
+            autoFocus
+            value={customTopic}
+            onChange={e => setCustomTopic(e.target.value)}
+            placeholder="Type a custom topic..."
+            style={{ padding: '10px 16px', fontSize: '1rem', border: '2px solid #3b82f6', borderRadius: '8px', width: '100%', maxWidth: '480px', outline: 'none' }}
+          />
+          <button onClick={() => setIsEditing(false)} style={{ padding: '10px 16px', background: '#1d4ed8', color: 'white', border: 'none', borderRadius: '8px', fontWeight: '700', cursor: 'pointer' }}>✓ Set</button>
+        </div>
+      ) : (
+        <div
+          style={{ background: '#1d4ed8', color: 'white', borderRadius: '10px', padding: '14px 24px', fontSize: '1.15rem', fontStyle: 'italic', fontWeight: '600', marginBottom: '1rem', transition: 'all 0.15s', opacity: isSpinning ? 0.6 : 1, cursor: 'pointer' }}
+          onDoubleClick={() => setIsEditing(true)}
+          title="Double-click to type a custom topic"
+        >
+          "{currentTopic}"
+        </div>
+      )}
+
+      <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
+        <button onClick={spin} disabled={isSpinning || rawTopics.length < 2} style={{ display: 'flex', alignItems: 'center', gap: '6px', background: '#1d4ed8', color: 'white', border: 'none', padding: '10px 20px', borderRadius: '50px', fontWeight: '700', cursor: isSpinning ? 'not-allowed' : 'pointer', opacity: isSpinning ? 0.7 : 1, transition: 'all 0.2s' }}>
+          🎲 {isSpinning ? 'Spinning...' : 'Spin New Topic'}
+        </button>
+        <button onClick={() => { setCustomTopic(''); setIsEditing(true); }} style={{ display: 'flex', alignItems: 'center', gap: '6px', background: 'white', color: '#1d4ed8', border: '2px solid #1d4ed8', padding: '10px 20px', borderRadius: '50px', fontWeight: '700', cursor: 'pointer' }}>
+          ✏️ Custom Topic
+        </button>
+      </div>
+
+      {rawInstructions.length > 0 && (
+        <div style={{ textAlign: 'left', background: 'white', borderRadius: '10px', padding: '1rem 1.5rem', border: '1px solid #bfdbfe' }}>
+          <p style={{ fontWeight: '700', color: '#1d4ed8', marginBottom: '0.5rem' }}>Instructions:</p>
+          <ol style={{ paddingLeft: '1.2rem', margin: 0 }}>
+            {rawInstructions.map((inst, i) => (
+              <li key={i} style={{ color: '#374151', marginBottom: '4px' }} dangerouslySetInnerHTML={{ __html: inst.replace(/\*\*(.*?)\*\*/g, '<strong style="color:#1d4ed8">$1</strong>') }} />
+            ))}
+          </ol>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const AssetUploadModal = ({ isOpen, onClose, onSlidesGenerated }: { isOpen: boolean, onClose: () => void, onSlidesGenerated: (slides: string[]) => void }) => {
+
   const [assetType, setAssetType] = useState<'image' | 'video' | 'gif' | 'other' | null>(null);
   const [files, setFiles] = useState<File[]>([]);
   const [assetsPerSlide, setAssetsPerSlide] = useState<number>(1);
@@ -784,6 +873,9 @@ export default function SlideViewer
                         }
                         if (!inline && match && match[1] === 'sentence-activity') {
                           return <SentenceActivity data={String(children)} />;
+                        }
+                        if (!inline && match && match[1] === 'writing-activity') {
+                          return <WritingTopicActivity data={String(children)} />;
                         }
                         if (!inline && match && match[1] === 'mermaid') {
                           return (

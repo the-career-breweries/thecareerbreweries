@@ -58,15 +58,21 @@ Every good paragraph has **three components:**
 
 ---
 
-# Activity: Write a Paragraph ✍️
-
-**Your Topic:**
-> *"My first impression of this aviation programme."*
-
-**Instructions:**
-1. Write **5–7 sentences** as a structured paragraph.
-2. Use the **Topic → Supporting → Concluding** template.
-3. You have **8 minutes.**
+```writing-activity
+title: Write a Paragraph
+type: paragraph
+- "My first impression of this aviation programme."
+- "The most important safety rule in aviation."
+- "Why teamwork matters in a flight crew."
+- "A day in the life of a ground handling officer."
+- "How technology has transformed modern aviation."
+- "The biggest challenge I faced in my first week of college."
+- "Why communication is a pilot's most important skill."
+- "What makes a great cabin crew member?"
+* Write **5–7 sentences** as a structured paragraph.
+* Use the **Topic → Supporting → Concluding** template.
+* You have **8 minutes.**
+```
 
 ---
 
@@ -160,15 +166,19 @@ Yours sincerely,
 
 ---
 
-# Activity: Write a Letter ✍️
-
-**Your Scenario:**
-> *You are a first-year aviation student. Write a formal letter to the Head of Department requesting a rescheduling of the upcoming test, as it clashes with a mandatory airline familiarisation visit.*
-
-**Instructions:**
-1. Follow the **full formal letter format.**
-2. Keep it to **3 paragraphs** (opening, body, closing).
-3. You have **10 minutes.**
+```writing-activity
+title: Write a Letter
+type: letter
+- "You are a first-year aviation student requesting a test rescheduling as it clashes with a mandatory airline familiarisation visit."
+- "Write to the airline's HR department expressing interest in a summer internship in ground operations."
+- "You are a ground staff officer writing to the airport authority requesting maintenance for a faulty baggage belt."
+- "Write a letter of appreciation to a cabin crew trainer who helped you improve your communication skills."
+- "You are a student leader writing to the Dean requesting a change of venue for the annual aviation symposium."
+- "Write to a prospective aviation employer, introducing yourself and requesting a campus visit."
+* Follow the **full formal letter format** (address, date, subject, body, sign-off).
+* Keep it to **3 paragraphs** (opening, body, closing).
+* You have **10 minutes.**
+```
 
 ---
 
@@ -266,14 +276,19 @@ While no collision occurred, this incident highlights systemic gaps in ramp safe
 
 ---
 
-# Activity: Write a Report ✍️
-
-**Your Scenario:**
-> *You are an aviation management student who observed that the college canteen near the departure simulation lab does not follow noise control guidelines during practical sessions. Write a short report to the Head of the Department.*
-
-**Use the 6-section structure. Keep it factual and objective.**
-
-You have **12 minutes.**
+```writing-activity
+title: Write a Report
+type: report
+- "The college canteen near the simulation lab does not follow noise control guidelines during practical sessions."
+- "Report on irregular attendance patterns observed in your class over the past month."
+- "A fire exit door in the aviation block has been found blocked for three consecutive days."
+- "Report on the outcome and learnings from an industry guest lecture conducted last week."
+- "A ramp safety drill was conducted at the airport simulation facility — document your observations."
+- "Report on poor Wi-Fi connectivity affecting online learning in your classroom."
+* Use the **6-section structure** (Objective, Background, Findings, Analysis, Recommendations, Conclusion).
+* Keep it **factual and objective** — third person only.
+* You have **12 minutes.**
+```
 
 ---
 
@@ -310,15 +325,19 @@ An email is a **letter in digital format** — but it demands even more economy 
 
 ---
 
-# Email Activity: Your Turn ✍️
-
-**Scenario:**
-> *You missed a class last week due to a medical emergency. Write a professional email to your subject faculty member, informing them of your absence, apologising, and requesting the notes or any missed assignment details.*
-
-**Constraints:**
-*   Maximum **150 words.**
-*   Must include: a clear subject line, formal greeting, 3 focused paragraphs, formal sign-off.
-*   You have **8 minutes.**
+```writing-activity
+title: Write a Professional Email
+type: email
+- "You missed a class due to a medical emergency — inform your faculty and request missed notes."
+- "Write to your HOD requesting permission to attend an airline career fair next week."
+- "Email your project team members with an update on your group assignment progress."
+- "Apologise to a faculty member for submitting an assignment two days late."
+- "Request a meeting with your academic advisor to discuss your course options for next semester."
+- "Email a classmate who is unwell, sharing a summary of what they missed in today's class."
+* Maximum **150 words.**
+* Include: a clear **subject line**, formal **greeting**, **3 focused paragraphs**, formal **sign-off**.
+* You have **8 minutes.**
+```
 
 ---
 
