@@ -93,15 +93,24 @@ const WritingTopicActivity = ({ data }: { data: string }) => {
   const currentTopic = customTopic || rawTopics[topicIdx] || '';
 
   const spin = () => {
+    if (rawTopics.length < 2) return;
     setCustomTopic('');
     setIsSpinning(true);
     let count = 0;
-    const total = 12;
+    const total = 14;
     const interval = setInterval(() => {
       setTopicIdx(prev => (prev + 1) % rawTopics.length);
       count++;
       if (count >= total) {
         clearInterval(interval);
+        // Force-land on a random index that is DIFFERENT from current
+        setTopicIdx(prev => {
+          let next = Math.floor(Math.random() * rawTopics.length);
+          while (next === prev) {
+            next = Math.floor(Math.random() * rawTopics.length);
+          }
+          return next;
+        });
         setIsSpinning(false);
       }
     }, 80);
