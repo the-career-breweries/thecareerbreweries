@@ -513,7 +513,12 @@ export default function SlideViewer
         }
 
         // Split markdown by '---' on its own line
-        const contentBlocks = data.content.split(/(?:\r?\n|^)---(?:\r?\n|$)/).map((block: string) => block.trim()).filter(Boolean);
+        // Note: filter(Boolean) would drop slides that contain ONLY a <!-- CINEMATIC_BG --> comment
+        // because after trim() the comment itself is non-empty — but use explicit length check to be safe
+        const contentBlocks = data.content
+          .split(/(?:\r?\n|^)---(?:\r?\n|$)/)
+          .map((block: string) => block.trim())
+          .filter((block: string) => block.length > 0);
         setSlides(contentBlocks);
       } catch (err: any) {
         // Fallback to basic curriculum metadata if markdown file doesn't exist
