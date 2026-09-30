@@ -61,14 +61,18 @@ Every good paragraph has **three components:**
 ```writing-activity
 title: Write a Paragraph
 type: paragraph
-- "My first impression of this aviation programme."
-- "The most important safety rule in aviation."
-- "Why teamwork matters in a flight crew."
-- "A day in the life of a ground handling officer."
-- "How technology has transformed modern aviation."
-- "The biggest challenge I faced in my first week of college."
-- "Why communication is a pilot's most important skill."
-- "What makes a great cabin crew member?"
+- "The one habit that has genuinely improved my life."
+- "My favourite meal — and why food is never just about food."
+- "The best piece of advice I have ever received."
+- "What I wish I had known before starting college."
+- "The last time I was surprised by how wrong my first impression was."
+- "A place I have visited that I think about often."
+- "The difference between being alone and being lonely."
+- "Something I am better at than most people think."
+- "What I would do with a completely free, unplanned day."
+- "The person in my life who changed how I see the world."
+- "Why saying 'I don't know' takes more courage than pretending to know."
+- "The thing I find hardest to explain to people who don't know me well."
 * Write **5–7 sentences** as a structured paragraph.
 * Use the **Topic → Supporting → Concluding** template.
 * You have **8 minutes.**
@@ -169,12 +173,16 @@ Yours sincerely,
 ```writing-activity
 title: Write a Letter
 type: letter
-- "You are a first-year aviation student requesting a test rescheduling as it clashes with a mandatory airline familiarisation visit."
-- "Write to the airline's HR department expressing interest in a summer internship in ground operations."
-- "You are a ground staff officer writing to the airport authority requesting maintenance for a faulty baggage belt."
-- "Write a letter of appreciation to a cabin crew trainer who helped you improve your communication skills."
-- "You are a student leader writing to the Dean requesting a change of venue for the annual aviation symposium."
-- "Write to a prospective aviation employer, introducing yourself and requesting a campus visit."
+- "Request your college library to extend its working hours during exam season."
+- "Write to your landlord about a recurring water supply issue in your accommodation."
+- "Thank a teacher from school who made a lasting difference to how you think."
+- "Request your college to organise a student mental health awareness workshop."
+- "Write to a local newspaper responding to an article you felt was inaccurate."
+- "Request a leave of absence from college due to a family event you cannot postpone."
+- "Write to a company requesting permission to visit their workplace for a study project."
+- "Nominate a classmate for a 'Student of the Month' award, explaining your reasons."
+- "Write to the college canteen management requesting healthier food options."
+- "Formally request your HOD to introduce a guest speaker series this semester."
 * Follow the **full formal letter format** (address, date, subject, body, sign-off).
 * Keep it to **3 paragraphs** (opening, body, closing).
 * You have **10 minutes.**
@@ -279,12 +287,16 @@ While no collision occurred, this incident highlights systemic gaps in ramp safe
 ```writing-activity
 title: Write a Report
 type: report
-- "The college canteen near the simulation lab does not follow noise control guidelines during practical sessions."
+- "The college canteen does not follow hygiene standards — document your observations."
 - "Report on irregular attendance patterns observed in your class over the past month."
-- "A fire exit door in the aviation block has been found blocked for three consecutive days."
-- "Report on the outcome and learnings from an industry guest lecture conducted last week."
-- "A ramp safety drill was conducted at the airport simulation facility — document your observations."
+- "A fire exit door in the college building has been found blocked for three consecutive days."
+- "Report on the outcome and key learnings from a guest lecture you attended."
 - "Report on poor Wi-Fi connectivity affecting online learning in your classroom."
+- "The college parking area is causing safety concerns — investigate and report."
+- "Report on the results of a class survey on preferred learning methods."
+- "Document observations from a community event or college fest you participated in."
+- "Report on a noise or cleanliness issue in a shared college space (library, lab, canteen)."
+- "A student safety concern was raised during a hostel fire drill — write a formal report."
 * Use the **6-section structure** (Objective, Background, Findings, Analysis, Recommendations, Conclusion).
 * Keep it **factual and objective** — third person only.
 * You have **12 minutes.**
@@ -328,12 +340,16 @@ An email is a **letter in digital format** — but it demands even more economy 
 ```writing-activity
 title: Write a Professional Email
 type: email
-- "You missed a class due to a medical emergency — inform your faculty and request missed notes."
-- "Write to your HOD requesting permission to attend an airline career fair next week."
-- "Email your project team members with an update on your group assignment progress."
+- "You missed a class due to a family emergency — inform your faculty and request the notes you missed."
+- "Email your project group members with an update on your individual progress for the assignment."
 - "Apologise to a faculty member for submitting an assignment two days late."
-- "Request a meeting with your academic advisor to discuss your course options for next semester."
+- "Request a meeting with your academic advisor to discuss your workload this semester."
 - "Email a classmate who is unwell, sharing a summary of what they missed in today's class."
+- "Write to your college's student services team requesting information about a scholarship."
+- "Inform your subject teacher that the projector in your classroom has not been working for a week."
+- "Email a teacher requesting an extension on a submission deadline, with a genuine reason."
+- "Write to your college sports coordinator to register interest in joining a club or team."
+- "Email a faculty member to thank them for a session that genuinely helped you understand something better."
 * Maximum **150 words.**
 * Include: a clear **subject line**, formal **greeting**, **3 focused paragraphs**, formal **sign-off**.
 * You have **8 minutes.**
