@@ -731,18 +731,8 @@ export default function SlideViewer
              )}
              <div className="slide-body" style={{ position: 'relative' }}>
                                   
-      <style dangerouslySetInnerHTML={{__html: `
-        .markdown-content-container h1,
-        .markdown-content-container h2,
-        .markdown-content-container h3,
-        .markdown-content-container p,
-        .markdown-content-container li {
-          text-align: center;
-        }
-      `}} />
-      
       {slides.length > 0 && (
-                    <div className={`markdown-content-container ${(cinematicBgUrls.length > 0) ? 'subtitle-mode' : ''}`} style={{ position: 'relative', width: '100%', minHeight: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: (cinematicBgUrls.length > 0) ? 'flex-end' : 'flex-start', paddingTop: '2rem', paddingBottom: '4rem', zIndex: 1, textAlign: 'center' }}>
+                    <div className={`markdown-content-container ${(cinematicBgUrls.length > 0) ? 'subtitle-mode' : ''}`} style={{ position: 'relative', width: '100%', minHeight: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: (cinematicBgUrls.length > 0) ? 'flex-end' : 'flex-start', paddingTop: '2rem', paddingBottom: '4rem', zIndex: 1 }}>
                       {isEditing ? (
                         <div style={{ width: '100%', height: '60vh', background: 'rgba(0,0,0,0.8)', padding: '2rem', borderRadius: '1rem', zIndex: 60, position: 'relative' }}>
                           <textarea 
