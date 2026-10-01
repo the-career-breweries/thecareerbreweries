@@ -12,28 +12,28 @@ export default function QRCodeForm() {
       alignItems: 'center',
       justifyContent: 'center',
       padding: '2rem',
-      background: 'rgba(255, 255, 255, 0.05)',
-      borderRadius: '16px',
-      border: '1px solid rgba(255, 255, 255, 0.1)',
       margin: '2rem auto',
-      textAlign: 'center',
       width: '100%',
       maxWidth: '600px'
     }}>
-      <h2 style={{ fontSize: '2.2rem', margin: '0 0 1rem 0', background: 'linear-gradient(90deg, #60a5fa, #a78bfa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-        Feedback
-      </h2>
-      <p style={{ fontSize: '1.2rem', color: '#cbd5e1', marginBottom: '2rem', marginTop: 0 }}>
-        Your thoughts help us improve future sessions!
-      </p>
-      
       <div style={{
         background: '#ffffff',
-        padding: '1rem',
-        borderRadius: '12px',
-        display: 'inline-block',
-        margin: '0 auto'
+        padding: '2rem',
+        borderRadius: '16px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        boxShadow: '0 10px 25px rgba(0,0,0,0.5)',
+        color: '#1e293b'
       }}>
+        <h2 style={{ fontSize: '1.8rem', fontWeight: 'bold', margin: '0 0 0.5rem 0', color: '#0f172a' }}>
+          Session Feedback
+        </h2>
+        <p style={{ fontSize: '1.1rem', color: '#475569', marginBottom: '1.5rem', textAlign: 'center', fontWeight: '500' }}>
+          Your thoughts help us improve future sessions!<br/>
+          Point your phone camera here to begin.
+        </p>
+        
         <img 
           src={qrImageUrl} 
           alt="Feedback QR Code" 
@@ -41,16 +41,12 @@ export default function QRCodeForm() {
             width: '200px', 
             height: '200px', 
             display: 'block',
-            margin: 0,
-            padding: 0,
-            boxSizing: 'border-box'
+            margin: '0 auto',
+            border: '4px solid #f1f5f9',
+            borderRadius: '8px'
           }} 
         />
       </div>
-      
-      <p style={{ marginTop: '1.5rem', marginBottom: 0, fontSize: '1rem', color: '#64748b' }}>
-        Point your phone camera here to begin.
-      </p>
     </div>
   );
 }
