@@ -731,7 +731,7 @@ export default function SlideViewer
              )}
              <div className="slide-body" style={{ position: 'relative' }}>
                                   {slides.length > 0 && (
-                    <div className={`markdown-content-container ${(cinematicBgUrls.length > 0) ? 'subtitle-mode' : ''}`} style={{ position: 'relative', width: '100%', minHeight: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: (cinematicBgUrls.length > 0) ? 'flex-end' : 'flex-start', paddingTop: '2rem', paddingBottom: '4rem', zIndex: 1 }}>
+                    <div className={`markdown-content-container ${(cinematicBgUrls.length > 0) ? 'subtitle-mode' : ''}`} style={{ position: 'relative', width: '100%', minHeight: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: (cinematicBgUrls.length > 0) ? 'flex-end' : 'flex-start', paddingTop: '2rem', paddingBottom: '4rem', zIndex: 1, textAlign: 'center' }}>
                       {isEditing ? (
                         <div style={{ width: '100%', height: '60vh', background: 'rgba(0,0,0,0.8)', padding: '2rem', borderRadius: '1rem', zIndex: 60, position: 'relative' }}>
                           <textarea 

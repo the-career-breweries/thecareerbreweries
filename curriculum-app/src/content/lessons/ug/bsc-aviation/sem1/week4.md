@@ -57,11 +57,12 @@
 # LET THE DEBATES BEGIN
 
 ```topic-generator
-[Insert Custom Topic 1 Here]
-[Insert Custom Topic 2 Here]
-[Insert Custom Topic 3 Here]
-[Insert Custom Topic 4 Here]
-[Insert Custom Topic 5 Here]
+AELP VS RTR
+Conventional flying vs Auto pilot
+LCC VS FSC
+Sustainable fuel vs Turbine fuel
+Sector flying vs Layovers
+Airlines take ancillary fees then why not give any perks when flight delays are there.
 ```
 
 ---
@@ -72,5 +73,5 @@
 
 *Next Episode: The Art of the Apology...*
 
-`qrcode
-`
+```qrcode
+```
