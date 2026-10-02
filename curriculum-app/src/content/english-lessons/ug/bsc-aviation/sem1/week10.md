@@ -1,7 +1,6 @@
 # Group Discussions
 Welcome to Week 10. Today we cover Initiation, summarization, turn-taking.
 
-![Week 10 Illustration](/images/english/placeholder.jpg)
 
 ---
 

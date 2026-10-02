@@ -1,7 +1,6 @@
 # Listening & Speaking
 Welcome to Week 6. Today we cover Pronunciation, Conversation, Role Play.
 
-![Week 6 Illustration](/images/english/placeholder.jpg)
 
 ---
 

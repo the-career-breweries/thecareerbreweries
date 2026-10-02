@@ -1,7 +1,6 @@
 # Mid-Semester Recap
 Welcome to Week 9. Today we cover Grammar, Vocab, Reading, Writing.
 
-![Week 9 Illustration](/images/english/placeholder.jpg)
 
 ---
 

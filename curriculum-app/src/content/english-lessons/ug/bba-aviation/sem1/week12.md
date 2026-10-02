@@ -1,7 +1,6 @@
 # Public Speaking
 Welcome to Week 12. Today we cover Overcoming stage fright, engagement.
 
-![Week 12 Illustration](/images/english/placeholder.jpg)
 
 ---
 

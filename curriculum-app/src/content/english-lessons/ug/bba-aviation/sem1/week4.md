@@ -1,7 +1,6 @@
 # Reading Skills
 Welcome to Week 4. Today we cover Comprehension, Skimming, Scanning.
 
-![Week 4 Illustration](/images/english/placeholder.jpg)
 
 ---
 

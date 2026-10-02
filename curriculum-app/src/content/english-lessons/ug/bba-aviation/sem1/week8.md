@@ -1,7 +1,6 @@
 # Non-Verbal Communication
 Welcome to Week 8. Today we cover Body language, eye contact, posture.
 
-![Week 8 Illustration](/images/english/placeholder.jpg)
 
 ---
 

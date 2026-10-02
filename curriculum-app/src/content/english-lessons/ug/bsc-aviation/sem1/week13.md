@@ -1,7 +1,6 @@
 # Cross-Cultural Communication
 Welcome to Week 13. Today we cover Global awareness, sensitivity.
 
-![Week 13 Illustration](/images/english/placeholder.jpg)
 
 ---
 

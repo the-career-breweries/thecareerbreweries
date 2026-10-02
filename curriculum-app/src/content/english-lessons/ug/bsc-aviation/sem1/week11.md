@@ -1,7 +1,6 @@
 # Presentation Skills
 Welcome to Week 11. Today we cover Structuring content, visual aids.
 
-![Week 11 Illustration](/images/english/placeholder.jpg)
 
 ---
 

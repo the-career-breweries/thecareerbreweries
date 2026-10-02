@@ -1,7 +1,6 @@
 # Mock Interviews
 Welcome to Week 15. Today we cover Real-time practice, feedback.
 
-![Week 15 Illustration](/images/english/placeholder.jpg)
 
 ---
 

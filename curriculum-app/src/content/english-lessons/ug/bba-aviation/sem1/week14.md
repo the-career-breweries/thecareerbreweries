@@ -1,7 +1,6 @@
 # Interview Preparation
 Welcome to Week 14. Today we cover Self-introduction, common questions.
 
-![Week 14 Illustration](/images/english/placeholder.jpg)
 
 ---
 

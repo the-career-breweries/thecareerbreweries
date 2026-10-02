@@ -1,7 +1,6 @@
 # Effective Communication
 Welcome to Week 7. Today we cover 7 Cs of Communication, Barriers.
 
-![Week 7 Illustration](/images/english/placeholder.jpg)
 
 ---
 

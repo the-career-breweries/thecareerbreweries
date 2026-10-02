@@ -1,7 +1,6 @@
 # Vocabulary Development
 Welcome to Week 3. Today we cover Synonyms, Antonyms, Aviation Technical Vocab.
 
-![Week 3 Illustration](/images/english/placeholder.jpg)
 
 ---
 
