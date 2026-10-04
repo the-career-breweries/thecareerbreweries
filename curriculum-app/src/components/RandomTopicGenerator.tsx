@@ -55,17 +55,21 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
   const [selectedVoiceURI, setSelectedVoiceURI] = useState<string>('');
   const [isSlowMode, setIsSlowMode] = useState<boolean>(false);
+  const [isSpeaking, setIsSpeaking] = useState<boolean>(false);
 
   useEffect(() => {
     if (typeof window !== 'undefined' && window.speechSynthesis) {
       const loadVoices = () => {
-        const availableVoices = window.speechSynthesis.getVoices().filter(v => v.lang.startsWith('en'));
-        setVoices(availableVoices);
-        if (availableVoices.length > 0 && !selectedVoiceURI) {
-          // Default to an Indian English voice if available, else standard UK or US
-          const defaultVoice = availableVoices.find(v => v.lang === 'en-IN') || availableVoices.find(v => v.lang === 'en-GB') || availableVoices[0];
-          if (defaultVoice) setSelectedVoiceURI(defaultVoice.voiceURI);
-        }
+        const allVoices = window.speechSynthesis.getVoices().filter(v => v.lang.startsWith('en'));
+          const usVoice = allVoices.find(v => v.lang === 'en-US' && v.name.includes('Google')) || allVoices.find(v => v.lang === 'en-US');
+          const gbVoice = allVoices.find(v => v.lang === 'en-GB' && v.name.includes('Google')) || allVoices.find(v => v.lang === 'en-GB');
+          const inVoice = allVoices.find(v => v.lang === 'en-IN' && v.name.includes('Google')) || allVoices.find(v => v.lang === 'en-IN');
+          const uniqueVoices = [usVoice, gbVoice, inVoice].filter(Boolean) as SpeechSynthesisVoice[];
+          setVoices(uniqueVoices);
+          if (uniqueVoices.length > 0 && !selectedVoiceURI) {
+            const defaultVoice = inVoice || gbVoice || usVoice;
+            if (defaultVoice) setSelectedVoiceURI(defaultVoice.voiceURI);
+          }
       };
       
       loadVoices();
@@ -88,7 +92,10 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
     }
     
     utterance.rate = isSlowMode ? 0.5 : 1.0;
-    window.speechSynthesis.speak(utterance);
+      utterance.onstart = () => setIsSpeaking(true);
+      utterance.onend = () => setIsSpeaking(false);
+      utterance.onerror = () => setIsSpeaking(false);
+      window.speechSynthesis.speak(utterance);
   };
 
   const activeTopics = customTopics && customTopics.length > 0 && customTopics[0] !== 'spin' ? customTopics : TOPICS;
@@ -367,7 +374,7 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
                   <svg width="120" height="120" viewBox="0 0 120 120" style={{ position: 'absolute' }}>
                     <path d="M 10 50 Q 60 110 110 50" fill="none" stroke="#1a73e8" strokeWidth="1.5" />
                     <path d="M 45 40 Q 60 55 75 40" fill="none" stroke="#1a73e8" strokeWidth="2" />
-                    <path d="M 30 65 Q 60 75 90 65 Q 60 85 30 65" fill="white" stroke="#202124" strokeWidth="2" />
+                    <path className={isSpeaking ? "speaking-mouth" : ""} d="M 30 65 Q 60 75 90 65 Q 60 85 30 65" fill={isSpeaking ? "#202124" : "white"} stroke="#202124" strokeWidth="2" />
                     <path d="M 50 85 Q 60 90 70 85" fill="none" stroke="#8ab4f8" strokeWidth="2" />
                   </svg>
                 </div>
@@ -381,6 +388,14 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(10px); }
           to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes talkMouth {
+          0% { transform: scaleY(1); }
+          100% { transform: scaleY(3.5); }
+        }
+        .speaking-mouth {
+          animation: talkMouth 0.15s infinite alternate ease-in-out;
+          transform-origin: 60px 65px;
         }
       `}} />
     </div>
