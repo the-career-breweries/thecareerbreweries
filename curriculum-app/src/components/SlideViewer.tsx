@@ -702,8 +702,7 @@ export default function SlideViewer
                           />
                         );
                       }
-                    }
-  }), []);
+                    }), []);
 
   const currentSlideContent = slides[currentSlide] || '';
     const cinematicBgMatches = Array.from(currentSlideContent.matchAll(/<!-- CINEMATIC_BG: (.*?) -->/g));
