@@ -1,18 +1,14 @@
 import re
 
-with open('curriculum-app/src/components/SlideViewer.tsx', 'r', encoding='utf-8') as f:
+with open('slideviewer_copy.txt', 'r', encoding='utf-8') as f:
     content = f.read()
 
 start_idx = content.find("components={{")
-if start_idx == -1:
-    print("Could not find components={{")
-    exit(1)
-
 brace_count = 0
-end_idx = -1
 in_string = False
 string_char = ''
 escape = False
+end_idx = -1
 
 for i in range(start_idx + 11, len(content)):
     c = content[i]
@@ -39,14 +35,14 @@ for i in range(start_idx + 11, len(content)):
             end_idx = i
             break
 
-components_content = content[start_idx + 12:end_idx] # This is just the inner fields: \n code(...) { ... } ... \n
+components_object = content[start_idx + 12 : end_idx] # EXCLUDING THE OUTER BRACES.
+# So components_object is exactly what goes inside the React components object, e.g. `code() { ... }`
 
-# Strip out the inline components object from ReactMarkdown
 new_content = content[:start_idx] + "components={markdownComponents}" + content[end_idx + 1:]
 
 usememo_decl = f"""
   const markdownComponents = React.useMemo(() => ({{
-    {components_content}
+    {components_object}
   }}), []);
 """
 
@@ -57,5 +53,3 @@ final_content = new_content[:insert_idx] + usememo_decl + "\n  " + new_content[i
 
 with open('curriculum-app/src/components/SlideViewer.tsx', 'w', encoding='utf-8') as f:
     f.write(final_content)
-
-print("SlideViewer patched successfully")
