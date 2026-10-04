@@ -133,10 +133,10 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
       padding: '2rem',
       background: mode === 'debate' ? 'rgba(30, 41, 59, 0.7)' : 'transparent',
       borderRadius: '24px',
-      margin: '1rem auto',
+      margin: '0 auto',
       width: '100%',
       maxWidth: '800px',
-      minHeight: '400px'
+      height: mode === 'pronunciation' ? '450px' : 'auto'
     }}>
       
       {/* Spin Button - Always present at the top */}
@@ -157,8 +157,6 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
           transform: isSpinning ? 'scale(0.95)' : 'scale(1)',
           marginBottom: '2rem'
         }}
-        onMouseOver={(e) => { if (!isSpinning) e.currentTarget.style.transform = 'scale(1.05)'; }}
-        onMouseOut={(e) => { if (!isSpinning) e.currentTarget.style.transform = 'scale(1)'; }}
       >
         {isSpinning ? 'Spinning...' : 'Spin the Wheel'}
       </button>
@@ -188,7 +186,7 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
 
       {/* Mode Pronunciation Render */}
       {mode === "pronunciation" && (
-        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', minHeight: '200px' }}>
+        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', height: '300px', justifyContent: 'center' }}>
           
           {/* Phase: Spinning or Just Completed (No Card Yet) */}
           {(!showCard && (isSpinning || spinComplete)) && (
