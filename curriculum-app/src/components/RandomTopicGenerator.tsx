@@ -64,10 +64,20 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
           const usVoice = allVoices.find(v => v.lang === 'en-US' && v.name.includes('Google')) || allVoices.find(v => v.lang === 'en-US');
           const gbVoice = allVoices.find(v => v.lang === 'en-GB' && v.name.includes('Google')) || allVoices.find(v => v.lang === 'en-GB');
           const inVoice = allVoices.find(v => v.lang === 'en-IN' && v.name.includes('Google')) || allVoices.find(v => v.lang === 'en-IN');
-          const uniqueVoices = [usVoice, gbVoice, inVoice].filter(Boolean) as SpeechSynthesisVoice[];
+          
+          const uniqueVoices = [];
+          if (usVoice) uniqueVoices.push(usVoice);
+          else uniqueVoices.push({ voiceURI: 'fallback-us', lang: 'en-US', name: 'American English pronunciation' } as any);
+          
+          if (gbVoice) uniqueVoices.push(gbVoice);
+          else uniqueVoices.push({ voiceURI: 'fallback-gb', lang: 'en-GB', name: 'British English pronunciation' } as any);
+          
+          if (inVoice) uniqueVoices.push(inVoice);
+          else uniqueVoices.push({ voiceURI: 'fallback-in', lang: 'en-IN', name: 'Indian English pronunciation' } as any);
+          
           setVoices(uniqueVoices);
           if (uniqueVoices.length > 0 && !selectedVoiceURI) {
-            const defaultVoice = inVoice || gbVoice || usVoice;
+            const defaultVoice = inVoice || gbVoice || usVoice || uniqueVoices[0];
             if (defaultVoice) setSelectedVoiceURI(defaultVoice.voiceURI);
           }
       };
@@ -81,15 +91,17 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
     if (!window.speechSynthesis) return;
     const utterance = new SpeechSynthesisUtterance(currentTopic);
     
-    if (selectedVoiceURI) {
-      const voice = voices.find(v => v.voiceURI === selectedVoiceURI);
-      if (voice) {
-        utterance.voice = voice;
-        utterance.lang = voice.lang;
+          if (selectedVoiceURI) {
+        const voice = voices.find(v => v.voiceURI === selectedVoiceURI);
+        if (voice) {
+          if (!voice.voiceURI.startsWith('fallback-')) {
+            utterance.voice = voice as SpeechSynthesisVoice;
+          }
+          utterance.lang = voice.lang;
+        }
+      } else {
+        utterance.lang = 'en-IN'; 
       }
-    } else {
-      utterance.lang = 'en-IN'; 
-    }
     
     utterance.rate = isSlowMode ? 0.5 : 1.0;
       utterance.onstart = () => setIsSpeaking(true);

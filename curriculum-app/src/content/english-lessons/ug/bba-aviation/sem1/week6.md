@@ -27,13 +27,13 @@ Let's break down the foundational aspects of this topic.
 Pronunciation mistakes can range from slightly embarrassing to entirely changing the meaning of a critical message. Watch these examples:
 
 <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
-  <div style="flex: 1; min-width: 300px; max-width: 560px;">
-    <h3 style="text-align: center; color: white;">The Classic Coastguard Mishap</h3>
-    <iframe width="100%" height="315" src="https://www.youtube.com/embed/yR0lWICH3rY?rel=0" title="Berlitz German Coastguard" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <div style="flex: 1; min-width: 300px; max-width: 800px;">
+    <h3 style="text-align: center; color: #3c4043;">The Classic Coastguard Mishap</h3>
+    <iframe width="100%" height="450" src="https://www.youtube.com/embed/yR0lWICH3rY?rel=0" title="Berlitz German Coastguard" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
-  <div style="flex: 1; min-width: 300px; max-width: 560px;">
-    <h3 style="text-align: center; color: white;">Pronunciation in Context</h3>
-    <iframe width="100%" height="315" src="https://www.youtube.com/embed/5QE76OkYA4k?si=2s4h37OAFrkXrbrx&amp;start=118" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <div style="flex: 1; min-width: 300px; max-width: 800px;">
+    <h3 style="text-align: center; color: #3c4043;">Pronunciation in Context</h3>
+    <iframe width="100%" height="450" src="https://www.youtube.com/embed/5QE76OkYA4k?si=2s4h37OAFrkXrbrx&amp;start=118" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </div>
 </div>
 
