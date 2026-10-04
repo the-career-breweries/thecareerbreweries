@@ -3,6 +3,7 @@ import { WeekData } from '@/data/curriculum';
 import { X, ChevronLeft, ChevronRight, Loader2, Printer, ZoomIn, ZoomOut, QrCode, Sparkles, Upload, Image as ImageIcon, Video, FileQuestion, UploadCloud, LayoutDashboard, Play, Pause , Plus, Shuffle, Edit } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import mermaid from 'mermaid';
 import PrintTemplates from './PrintTemplates';
 import RandomTopicGenerator from './RandomTopicGenerator';
@@ -885,6 +886,7 @@ export default function SlideViewer
                       ) : (
                         <ReactMarkdown  
                     remarkPlugins={[remarkGfm]}
+                      rehypePlugins={[rehypeRaw]}
                     components={markdownComponents}
                   >
                     {slides[currentSlide]
