@@ -820,7 +820,11 @@ export default function SlideViewer
                           }
                           if (!inline && match && match[1] === 'topic-generator') {
                           const customTopics = String(children).trim().split('\n').map(t => t.trim()).filter(t => t.length > 0);
-                          return <RandomTopicGenerator customTopics={customTopics} />;
+                          return <RandomTopicGenerator customTopics={customTopics} mode="debate" />;
+                        }
+                        if (!inline && match && match[1] === 'pronunciation-wheel') {
+                          const customTopics = String(children).trim().split('\n').map(t => t.trim()).filter(t => t.length > 0);
+                          return <RandomTopicGenerator customTopics={customTopics} mode="pronunciation" />;
                         }
                         if (!inline && match && match[1] === 'sentence-activity') {
                           return <SentenceActivity data={String(children)} />;
