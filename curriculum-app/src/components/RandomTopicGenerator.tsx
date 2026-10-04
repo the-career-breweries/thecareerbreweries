@@ -13,14 +13,42 @@ const TOPICS = [
   "Should practical internships replace the final year of college?"
 ];
 
+const PHONETICS: Record<string, string> = {
+  "Entrepreneur": "ahn·truh·pruh·nur",
+  "Rendezvous": "ron·day·voo",
+  "Itinerary": "ai·ti·nuh·reh·ree",
+  "Faux pas": "foe pah",
+  "Quinoa": "keen·waa",
+  "Mischievous": "mis·chuh·vus",
+  "Epitome": "uh·pi·tuh·mee",
+  "Colonel": "kur·nl",
+  "Draught": "draft",
+  "Hyperbole": "hai·pur·buh·lee",
+  "Cache": "kash",
+  "Almond": "aa·mund",
+  "Aisle": "ail",
+  "Asthma": "az·muh",
+  "Boutique": "boo·teek",
+  "Chassis": "cha·see",
+  "Facade": "fuh·saad",
+  "Gauge": "gayj",
+  "Hierarchy": "hai·ruh·raa·kee",
+  "Lingerie": "laan·zhuh·ray",
+  "Niche": "neesh",
+  "Queue": "kyoo",
+  "Suite": "sweet",
+  "Yacht": "yaat"
+};
+
 interface RandomTopicGeneratorProps {
   customTopics?: string[];
   mode?: "debate" | "pronunciation";
 }
 
 export default function RandomTopicGenerator({ customTopics, mode = "debate" }: RandomTopicGeneratorProps = {}) {
-  const [currentTopic, setCurrentTopic] = useState("Click 'Spin' to Generate a Topic");
+  const [currentTopic, setCurrentTopic] = useState("Click 'Spin'");
   const [isSpinning, setIsSpinning] = useState(false);
+  const [hasSpun, setHasSpun] = useState(false);
 
   // New States for voice and speed
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
@@ -30,7 +58,6 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
   useEffect(() => {
     if (typeof window !== 'undefined' && window.speechSynthesis) {
       const loadVoices = () => {
-        // Filter for English voices only
         const availableVoices = window.speechSynthesis.getVoices().filter(v => v.lang.startsWith('en'));
         setVoices(availableVoices);
         if (availableVoices.length > 0 && !selectedVoiceURI) {
@@ -56,12 +83,10 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
         utterance.lang = voice.lang;
       }
     } else {
-      utterance.lang = 'en-IN'; // fallback
+      utterance.lang = 'en-IN'; 
     }
     
-    // Slow down if selected
     utterance.rate = isSlowMode ? 0.5 : 1.0;
-    
     window.speechSynthesis.speak(utterance);
   };
 
@@ -70,6 +95,7 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
   const spinTopic = () => {
     if (isSpinning) return;
     setIsSpinning(true);
+    setHasSpun(true);
     
     let spins = 0;
     const maxSpins = 15;
@@ -81,9 +107,18 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
       if (spins >= maxSpins) {
         clearInterval(interval);
         setIsSpinning(false);
+        // If mode is pronunciation, auto-play when it stops
+        if (mode === 'pronunciation') {
+            setTimeout(() => {
+                const button = document.getElementById('pronounce-audio-btn');
+                if (button) button.click();
+            }, 300);
+        }
       }
     }, 100);
   };
+
+  const phonetic = PHONETICS[currentTopic] || currentTopic.toLowerCase();
 
   return (
     <div style={{
@@ -91,39 +126,15 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '3rem',
-      background: 'rgba(30, 41, 59, 0.7)',
+      padding: '2rem',
+      background: mode === 'debate' ? 'rgba(30, 41, 59, 0.7)' : 'transparent',
       borderRadius: '24px',
-      border: '2px solid rgba(148, 163, 184, 0.2)',
-      margin: '2rem auto',
-      textAlign: 'center',
+      margin: '1rem auto',
       width: '100%',
       maxWidth: '800px',
-      boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.2)'
     }}>
-      <div style={{
-        minHeight: '120px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginBottom: '2rem'
-      }}>
-        <h3 style={{ 
-          fontSize: currentTopic.length > 50 ? '2rem' : (currentTopic.length > 35 ? '2.5rem' : '3rem'), 
-          fontWeight: 800, 
-          color: isSpinning ? '#cbd5e1' : '#38bdf8',
-          marginBottom: '3rem',
-          lineHeight: 1.3,
-          transition: 'color 0.3s ease',
-          textShadow: isSpinning ? 'none' : '0 0 20px rgba(56, 189, 248, 0.4)',
-          whiteSpace: 'normal',
-          wordWrap: 'break-word',
-          padding: '0 1rem'
-        }}>
-          {currentTopic}
-        </h3>
-      </div>
       
+      {/* Spin Button */}
       <button 
         onClick={spinTopic}
         disabled={isSpinning}
@@ -138,105 +149,175 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
           cursor: isSpinning ? 'not-allowed' : 'pointer',
           boxShadow: isSpinning ? 'none' : '0 10px 15px -3px rgba(59, 130, 246, 0.4)',
           transition: 'all 0.2s ease',
-          transform: isSpinning ? 'scale(0.95)' : 'scale(1)'
+          transform: isSpinning ? 'scale(0.95)' : 'scale(1)',
+          marginBottom: '2rem'
         }}
         onMouseOver={(e) => { if (!isSpinning) e.currentTarget.style.transform = 'scale(1.05)'; }}
         onMouseOut={(e) => { if (!isSpinning) e.currentTarget.style.transform = 'scale(1)'; }}
       >
         {isSpinning ? 'Selecting...' : 'Spin the Wheel'}
       </button>
-      
-      {mode === "debate" ? (
-        <div style={{ marginTop: '1.5rem', display: 'flex', gap: '2rem', color: '#94a3b8', fontSize: '1.2rem', fontWeight: 'bold' }}>
-          <span style={{ color: '#ef4444' }}>FOR</span>
-          <span>VS</span>
-          <span style={{ color: '#22c55e' }}>AGAINST</span>
-        </div>
-      ) : (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem', marginTop: '1.5rem' }}>
-          <button 
-            onClick={playPronunciation}
-            disabled={isSpinning || currentTopic.includes("Click")}
-            style={{
-              background: 'white',
-              color: '#1f2937',
-              border: '2px solid #e5e7eb',
-              padding: '0.75rem 2rem',
-              fontSize: '1.2rem',
-              fontWeight: 'bold',
-              borderRadius: '50px',
-              cursor: (isSpinning || currentTopic.includes("Click")) ? 'not-allowed' : 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px',
-              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-              opacity: (isSpinning || currentTopic.includes("Click")) ? 0.5 : 1,
-              transition: 'all 0.2s ease'
-            }}
-            onMouseOver={(e) => { if (!isSpinning && !currentTopic.includes("Click")) e.currentTarget.style.transform = 'scale(1.05)'; }}
-            onMouseOut={(e) => { if (!isSpinning && !currentTopic.includes("Click")) e.currentTarget.style.transform = 'scale(1)'; }}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
-            Pronounce Word
-          </button>
-          
-          <div style={{ 
-            display: 'flex', 
-            gap: '1.5rem', 
-            alignItems: 'center', 
-            justifyContent: 'center', 
-            flexWrap: 'wrap',
-            opacity: (isSpinning || currentTopic.includes("Click")) ? 0.5 : 1,
-            transition: 'opacity 0.2s ease'
-          }}>
-            {/* Toggle Slow Mode */}
-            <label style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              color: 'white',
-              fontSize: '1rem',
-              cursor: (isSpinning || currentTopic.includes("Click")) ? 'not-allowed' : 'pointer',
-              fontWeight: 500
-            }}>
-              <input 
-                type="checkbox" 
-                checked={isSlowMode} 
-                onChange={(e) => setIsSlowMode(e.target.checked)}
-                disabled={isSpinning || currentTopic.includes("Click")}
-                style={{ width: '18px', height: '18px', cursor: 'inherit', accentColor: '#3b82f6' }}
-              />
-              Slow
-            </label>
 
-            {/* Dialect Selector */}
+      {/* Mode Debate Render */}
+      {mode === "debate" && (
+        <>
+          <div style={{ minHeight: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <h3 style={{ 
+              fontSize: currentTopic.length > 50 ? '2rem' : (currentTopic.length > 35 ? '2.5rem' : '3rem'), 
+              fontWeight: 800, 
+              color: isSpinning ? '#cbd5e1' : '#38bdf8',
+              lineHeight: 1.3,
+              textShadow: isSpinning ? 'none' : '0 0 20px rgba(56, 189, 248, 0.4)',
+              textAlign: 'center'
+            }}>
+              {currentTopic}
+            </h3>
+          </div>
+          <div style={{ marginTop: '1.5rem', display: 'flex', gap: '2rem', color: '#94a3b8', fontSize: '1.2rem', fontWeight: 'bold' }}>
+            <span style={{ color: '#ef4444' }}>FOR</span>
+            <span>VS</span>
+            <span style={{ color: '#22c55e' }}>AGAINST</span>
+          </div>
+        </>
+      )}
+
+      {/* Mode Pronunciation Render (Google Clone) */}
+      {mode === "pronunciation" && hasSpun && (
+        <div style={{
+          background: '#ffffff',
+          borderRadius: '12px',
+          border: '1px solid #dadce0',
+          padding: '1.2rem 1.5rem',
+          width: '100%',
+          maxWidth: '650px',
+          color: '#202124',
+          fontFamily: 'Arial, sans-serif',
+          textAlign: 'left',
+          boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
+          opacity: isSpinning ? 0.5 : 1,
+          transition: 'opacity 0.2s ease'
+        }}>
+          
+          {/* Top Row: Word & Dialect Dropdown */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #ebebeb', paddingBottom: '0.8rem', marginBottom: '1.2rem' }}>
+            <div style={{ fontSize: '1.2rem', color: '#202124' }}>
+              {currentTopic}
+            </div>
             <select 
               value={selectedVoiceURI} 
               onChange={(e) => setSelectedVoiceURI(e.target.value)}
-              disabled={isSpinning || currentTopic.includes("Click")}
+              disabled={isSpinning}
               style={{
-                padding: '0.5rem 1rem',
-                borderRadius: '8px',
-                background: 'rgba(255, 255, 255, 0.1)',
-                color: 'white',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                fontSize: '0.95rem',
+                border: 'none',
+                background: 'transparent',
+                color: '#5f6368',
+                fontSize: '0.9rem',
                 outline: 'none',
-                cursor: (isSpinning || currentTopic.includes("Click")) ? 'not-allowed' : 'pointer',
-                maxWidth: '250px'
+                cursor: 'pointer',
+                textAlign: 'right'
               }}
             >
               {voices.length === 0 ? (
-                <option style={{ color: 'black' }}>Loading voices...</option>
+                <option>Loading voices...</option>
               ) : (
                 voices.map(v => (
-                  <option key={v.voiceURI} value={v.voiceURI} style={{ color: 'black' }}>
-                    {v.name.replace('Google ', '')} ({v.lang})
+                  <option key={v.voiceURI} value={v.voiceURI}>
+                    {v.name.includes('India') || v.lang === 'en-IN' ? 'Indian English pronunciation' : 
+                     v.name.includes('UK') || v.lang === 'en-GB' ? 'British English pronunciation' :
+                     v.name.includes('US') || v.lang === 'en-US' ? 'American English pronunciation' : 
+                     v.name.replace('Google ', '')}
                   </option>
                 ))
               )}
             </select>
           </div>
+
+          {/* Middle Row: Phonetics & Face */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <div>
+              <div style={{ fontSize: '0.85rem', color: '#70757a', marginBottom: '0.5rem' }}>Sounds like</div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span style={{ fontSize: '2.5rem', fontWeight: 'bold', letterSpacing: '-0.5px', color: '#202124' }}>
+                  {phonetic}
+                </span>
+                <button 
+                  id="pronounce-audio-btn"
+                  onClick={playPronunciation} 
+                  disabled={isSpinning}
+                  style={{
+                    background: 'transparent',
+                    border: 'none',
+                    cursor: isSpinning ? 'default' : 'pointer',
+                    padding: '8px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#1a73e8'
+                  }}
+                  title="Listen"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                </button>
+              </div>
+              
+              {/* Bottom Row inside left col: Toggle Switch */}
+              <div style={{ marginTop: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+                <label style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', position: 'relative' }}>
+                  <input 
+                    type="checkbox" 
+                    checked={isSlowMode} 
+                    onChange={(e) => setIsSlowMode(e.target.checked)}
+                    style={{ opacity: 0, width: 0, height: 0, position: 'absolute' }}
+                  />
+                  <div style={{
+                    width: '36px',
+                    height: '20px',
+                    background: isSlowMode ? '#1a73e8' : '#b9b9b9',
+                    borderRadius: '34px',
+                    position: 'relative',
+                    transition: '0.2s',
+                    boxShadow: 'inset 0 0 2px rgba(0,0,0,0.2)'
+                  }}>
+                    <div style={{
+                      position: 'absolute',
+                      top: '2px',
+                      left: isSlowMode ? '18px' : '2px',
+                      width: '16px',
+                      height: '16px',
+                      background: 'white',
+                      borderRadius: '50%',
+                      transition: '0.2s',
+                      boxShadow: '0 1px 3px rgba(0,0,0,0.4)'
+                    }} />
+                  </div>
+                  <span style={{ marginLeft: '10px', fontSize: '0.95rem', color: '#3c4043' }}>Slow</span>
+                </label>
+              </div>
+            </div>
+
+            {/* Right Face Graphic (Static CSS drawing) */}
+            <div style={{ 
+              width: '120px', 
+              height: '120px', 
+              background: '#d2e3fc', 
+              borderRadius: '8px', 
+              display: 'flex', 
+              flexDirection: 'column',
+              alignItems: 'center', 
+              justifyContent: 'center',
+              position: 'relative',
+              overflow: 'hidden'
+            }}>
+              {/* Face contour */}
+              <svg width="120" height="120" viewBox="0 0 120 120" style={{ position: 'absolute' }}>
+                <path d="M 10 50 Q 60 110 110 50" fill="none" stroke="#1a73e8" strokeWidth="1.5" />
+                <path d="M 45 40 Q 60 55 75 40" fill="none" stroke="#1a73e8" strokeWidth="2" />
+                <path d="M 30 65 Q 60 75 90 65 Q 60 85 30 65" fill={isSpinning ? "none" : "white"} stroke="#202124" strokeWidth="2" />
+                <path d="M 50 85 Q 60 90 70 85" fill="none" stroke="#8ab4f8" strokeWidth="2" />
+              </svg>
+            </div>
+          </div>
+          
         </div>
       )}
     </div>
