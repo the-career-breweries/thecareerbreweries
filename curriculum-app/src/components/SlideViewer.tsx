@@ -576,7 +576,136 @@ export default function SlideViewer
 
 
   // Extract Cinematic Background URLs
-    const currentSlideContent = slides[currentSlide] || '';
+    
+  const markdownComponents = React.useMemo(() => ({
+                      code({ node, inline, className, children, ...props }: any) {
+                        const match = /language-(.+)/.exec(className || '');
+                        if (!inline && match && match[1] === 'download') { const filename = String(children).trim(); const downloadUrl = `/downloads/computing/${filename}`; return <div style={{ marginTop: '2rem', marginBottom: '2rem', display: 'flex', justifyContent: 'center' }}><a href={downloadUrl} download={filename} style={{ display: 'flex', alignItems: 'center', gap: '12px', backgroundColor: 'var(--accent-primary)', color: 'white', padding: '16px 32px', borderRadius: '12px', textDecoration: 'none', fontWeight: '600', fontSize: '1.2rem', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'><path d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/><polyline points='7 10 12 15 17 10'/><line x1='12' x2='12' y1='15' y2='3'/></svg>Download Lab File: {filename}</a></div>; } if (!inline && match && match[1] === 'absurd-abstract') {
+                            const lines = String(children).trim().split('\n');
+                            const image = lines.find((l: string) => l.startsWith('image:'))?.replace('image:', '').trim() || '';
+                            const question = lines.find((l: string) => l.startsWith('question:'))?.replace('question:', '').trim() || '';
+                            const revealText = lines.find((l: string) => l.startsWith('reveal:'))?.replace('reveal:', '').trim() || '';
+                            return <AbsurdAbstract image={image} question={question} revealText={revealText} />;
+                        }
+                                                      if (!inline && match && match[1] === 'crisis-simulator') {
+                              const lines = String(children).trim().split('\n');
+                              const question = lines.find((l: string) => l.startsWith('question:'))?.replace('question:', '').trim() || '';
+                              const choices: any[] = [];
+                              let currentChoice: any = {};
+                              
+                              lines.forEach((l: string) => {
+                                if (l.startsWith('choice')) {
+                                  if (currentChoice.text) choices.push(currentChoice);
+                                  currentChoice = { text: l.substring(l.indexOf(':') + 1).trim() };
+                                } else if (l.startsWith('isCorrect')) {
+                                  currentChoice.isCorrect = l.substring(l.indexOf(':') + 1).trim() === 'true';
+                                } else if (l.startsWith('reason')) {
+                                  currentChoice.reason = l.substring(l.indexOf(':') + 1).trim();
+                                }
+                              });
+                              if (currentChoice.text) choices.push(currentChoice);
+
+                              return <CrisisSimulator question={question} choices={choices} />;
+                            }
+                            if (!inline && match && match[1] === 'anatomy-widget') {
+                              const lines = String(children).trim().split('\n');
+                              const image = lines.find((l: string) => l.startsWith('image:'))?.replace('image:', '').trim() || '';
+                              const hotspots: any[] = [];
+                              
+                              const hotspotMap: any = {};
+                              lines.forEach((l: string) => {
+                                const m = l.match(/^hotspot(\d+)_(x|y|title|desc):\s*(.*)$/);
+                                if (m) {
+                                  const id = m[1];
+                                  const key = m[2];
+                                  const val = m[3];
+                                  if (!hotspotMap[id]) hotspotMap[id] = {};
+                                  if (key === 'x' || key === 'y') hotspotMap[id][key] = parseFloat(val);
+                                  else hotspotMap[id][key] = val;
+                                }
+                              });
+                              Object.values(hotspotMap).forEach(hs => hotspots.push(hs));
+
+                              return <AnatomyWidget image={image} hotspots={hotspots} />;
+                            }
+                            if (!inline && match && match[1] === 'qrcode') {
+                          return <QRCodeForm />;
+                        }
+                        
+                          if (!inline && match && match[1] === 'computing-quiz') {
+                            return <ComputingQuiz />;
+                          }
+                          if (!inline && match && match[1] === 'block-diagram') {
+                            return <BlockDiagramInteractive />;
+                          }
+                          if (!inline && match && match[1] === 'topic-generator') {
+                          const customTopics = String(children).trim().split('\n').map(t => t.trim()).filter(t => t.length > 0);
+                          return <RandomTopicGenerator customTopics={customTopics} mode="debate" />;
+                        }
+                        if (!inline && match && match[1] === 'pronunciation-wheel') {
+                          const customTopics = String(children).trim().split('\n').map(t => t.trim()).filter(t => t.length > 0);
+                          return <RandomTopicGenerator customTopics={customTopics} mode="pronunciation" />;
+                        }
+                        if (!inline && match && match[1] === 'sentence-activity') {
+                          return <SentenceActivity data={String(children)} />;
+                        }
+                        if (!inline && match && match[1] === 'writing-activity') {
+                          return <WritingTopicActivity data={String(children)} />;
+                        }
+                        if (!inline && match && match[1] === 'mermaid') {
+                          return (
+                            <>
+                              <div className="mermaid-screen">
+                                <Mermaid chart={String(children).replace(/\n$/, '')} theme={theme} />
+                              </div>
+                              <div className="mermaid-print">
+                                <Mermaid chart={String(children).replace(/\n$/, '')} theme="light" />
+                              </div>
+                            </>
+                          );
+                        }
+                        return (
+                          <code className={className} {...props}>
+                            {children}
+                          </code>
+                        );
+                      },
+                      a({ node, children, href, ...props }: any) {
+                        return (
+                          <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
+                            {children}
+                          </a>
+                        );
+                      },
+                      p({ node, children, ...props }: any) {
+                        // If paragraph contains multiple images, display them as flex
+                        const hasMultipleImages = node?.children?.filter((c: any) => c.tagName === 'img').length > 1;
+                        if (hasMultipleImages) {
+                          return <p style={{ display: 'flex', gap: '2%', justifyContent: 'center', alignItems: 'flex-start' }} {...props}>{children}</p>;
+                        }
+                        return <p {...props}>{children}</p>;
+                      },
+                      img({ node, alt, src, ...props }: any) {
+                        if (src?.includes('notoemoji')) {
+                          return <img src={src} alt={alt} style={{ width: '1.2em', height: '1.2em', verticalAlign: 'middle', display: 'inline-block', margin: '0 0.1em', mixBlendMode: 'multiply' }} {...props} />;
+                        }
+                        return (
+                          <img 
+                            src={src} 
+                            alt={alt} 
+                            onClick={() => {
+                              setZoomedImage(src);
+                              setZoomLevel(1);
+                            }}
+                            style={{ cursor: 'zoom-in' }}
+                            {...props} 
+                          />
+                        );
+                      }
+                    }
+  }), []);
+
+  const currentSlideContent = slides[currentSlide] || '';
     const cinematicBgMatches = Array.from(currentSlideContent.matchAll(/<!-- CINEMATIC_BG: (.*?) -->/g));
     const cinematicBgUrls = cinematicBgMatches.map(m => m[1].trim());
     const contentWithoutBgTags = currentSlideContent.replace(/<!-- CINEMATIC_BG:.*?-->/g, '').trim();
@@ -757,132 +886,7 @@ export default function SlideViewer
                       ) : (
                         <ReactMarkdown  
                     remarkPlugins={[remarkGfm]}
-                    components={{
-                      code({ node, inline, className, children, ...props }: any) {
-                        const match = /language-(.+)/.exec(className || '');
-                        if (!inline && match && match[1] === 'download') { const filename = String(children).trim(); const downloadUrl = `/downloads/computing/${filename}`; return <div style={{ marginTop: '2rem', marginBottom: '2rem', display: 'flex', justifyContent: 'center' }}><a href={downloadUrl} download={filename} style={{ display: 'flex', alignItems: 'center', gap: '12px', backgroundColor: 'var(--accent-primary)', color: 'white', padding: '16px 32px', borderRadius: '12px', textDecoration: 'none', fontWeight: '600', fontSize: '1.2rem', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'><path d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/><polyline points='7 10 12 15 17 10'/><line x1='12' x2='12' y1='15' y2='3'/></svg>Download Lab File: {filename}</a></div>; } if (!inline && match && match[1] === 'absurd-abstract') {
-                            const lines = String(children).trim().split('\n');
-                            const image = lines.find((l: string) => l.startsWith('image:'))?.replace('image:', '').trim() || '';
-                            const question = lines.find((l: string) => l.startsWith('question:'))?.replace('question:', '').trim() || '';
-                            const revealText = lines.find((l: string) => l.startsWith('reveal:'))?.replace('reveal:', '').trim() || '';
-                            return <AbsurdAbstract image={image} question={question} revealText={revealText} />;
-                        }
-                                                      if (!inline && match && match[1] === 'crisis-simulator') {
-                              const lines = String(children).trim().split('\n');
-                              const question = lines.find((l: string) => l.startsWith('question:'))?.replace('question:', '').trim() || '';
-                              const choices: any[] = [];
-                              let currentChoice: any = {};
-                              
-                              lines.forEach((l: string) => {
-                                if (l.startsWith('choice')) {
-                                  if (currentChoice.text) choices.push(currentChoice);
-                                  currentChoice = { text: l.substring(l.indexOf(':') + 1).trim() };
-                                } else if (l.startsWith('isCorrect')) {
-                                  currentChoice.isCorrect = l.substring(l.indexOf(':') + 1).trim() === 'true';
-                                } else if (l.startsWith('reason')) {
-                                  currentChoice.reason = l.substring(l.indexOf(':') + 1).trim();
-                                }
-                              });
-                              if (currentChoice.text) choices.push(currentChoice);
-
-                              return <CrisisSimulator question={question} choices={choices} />;
-                            }
-                            if (!inline && match && match[1] === 'anatomy-widget') {
-                              const lines = String(children).trim().split('\n');
-                              const image = lines.find((l: string) => l.startsWith('image:'))?.replace('image:', '').trim() || '';
-                              const hotspots: any[] = [];
-                              
-                              const hotspotMap: any = {};
-                              lines.forEach((l: string) => {
-                                const m = l.match(/^hotspot(\d+)_(x|y|title|desc):\s*(.*)$/);
-                                if (m) {
-                                  const id = m[1];
-                                  const key = m[2];
-                                  const val = m[3];
-                                  if (!hotspotMap[id]) hotspotMap[id] = {};
-                                  if (key === 'x' || key === 'y') hotspotMap[id][key] = parseFloat(val);
-                                  else hotspotMap[id][key] = val;
-                                }
-                              });
-                              Object.values(hotspotMap).forEach(hs => hotspots.push(hs));
-
-                              return <AnatomyWidget image={image} hotspots={hotspots} />;
-                            }
-                            if (!inline && match && match[1] === 'qrcode') {
-                          return <QRCodeForm />;
-                        }
-                        
-                          if (!inline && match && match[1] === 'computing-quiz') {
-                            return <ComputingQuiz />;
-                          }
-                          if (!inline && match && match[1] === 'block-diagram') {
-                            return <BlockDiagramInteractive />;
-                          }
-                          if (!inline && match && match[1] === 'topic-generator') {
-                          const customTopics = String(children).trim().split('\n').map(t => t.trim()).filter(t => t.length > 0);
-                          return <RandomTopicGenerator customTopics={customTopics} mode="debate" />;
-                        }
-                        if (!inline && match && match[1] === 'pronunciation-wheel') {
-                          const customTopics = String(children).trim().split('\n').map(t => t.trim()).filter(t => t.length > 0);
-                          return <RandomTopicGenerator customTopics={customTopics} mode="pronunciation" />;
-                        }
-                        if (!inline && match && match[1] === 'sentence-activity') {
-                          return <SentenceActivity data={String(children)} />;
-                        }
-                        if (!inline && match && match[1] === 'writing-activity') {
-                          return <WritingTopicActivity data={String(children)} />;
-                        }
-                        if (!inline && match && match[1] === 'mermaid') {
-                          return (
-                            <>
-                              <div className="mermaid-screen">
-                                <Mermaid chart={String(children).replace(/\n$/, '')} theme={theme} />
-                              </div>
-                              <div className="mermaid-print">
-                                <Mermaid chart={String(children).replace(/\n$/, '')} theme="light" />
-                              </div>
-                            </>
-                          );
-                        }
-                        return (
-                          <code className={className} {...props}>
-                            {children}
-                          </code>
-                        );
-                      },
-                      a({ node, children, href, ...props }: any) {
-                        return (
-                          <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
-                            {children}
-                          </a>
-                        );
-                      },
-                      p({ node, children, ...props }: any) {
-                        // If paragraph contains multiple images, display them as flex
-                        const hasMultipleImages = node?.children?.filter((c: any) => c.tagName === 'img').length > 1;
-                        if (hasMultipleImages) {
-                          return <p style={{ display: 'flex', gap: '2%', justifyContent: 'center', alignItems: 'flex-start' }} {...props}>{children}</p>;
-                        }
-                        return <p {...props}>{children}</p>;
-                      },
-                      img({ node, alt, src, ...props }: any) {
-                        if (src?.includes('notoemoji')) {
-                          return <img src={src} alt={alt} style={{ width: '1.2em', height: '1.2em', verticalAlign: 'middle', display: 'inline-block', margin: '0 0.1em', mixBlendMode: 'multiply' }} {...props} />;
-                        }
-                        return (
-                          <img 
-                            src={src} 
-                            alt={alt} 
-                            onClick={() => {
-                              setZoomedImage(src);
-                              setZoomLevel(1);
-                            }}
-                            style={{ cursor: 'zoom-in' }}
-                            {...props} 
-                          />
-                        );
-                      }
-                    }}
+                    components={markdownComponents}
                   >
                     {slides[currentSlide]
                       .replace(/<!-- PRINT: (.*?) -->/g, '')
