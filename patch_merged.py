@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import re
+
+with open('curriculum-app/src/components/RandomTopicGenerator.tsx', 'r', encoding='utf-8') as f:
+    content = f.read()
+
+# Create the full file
+new_content = """import React, { useState, useEffect, useRef } from 'react';
 
 const DEBATE_TOPICS = [
   "Is AI making students lazier?",
@@ -538,3 +544,7 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
     </div>
   );
 }
+"""
+
+with open('curriculum-app/src/components/RandomTopicGenerator.tsx', 'w', encoding='utf-8') as f:
+    f.write(new_content)
