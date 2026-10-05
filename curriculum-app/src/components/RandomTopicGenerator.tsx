@@ -10,7 +10,7 @@ const TOPICS = [
   "Ostentatious", "Paradigm", "Pedantic", "Quintessential", "Quixotic",
   "Recalcitrant", "Resilience", "Sycophant", "Tangential", "Ubiquitous",
   "Unprecedented", "Vacillate", "Vehement", "Vicarious", "Zealous",
-  "Almond", "Athlete", "Cache", "Candidate", "Chaos", 
+  "Almond", "Athlete", "Boutique", "Cache", "Candidate", "Chaos", 
   "Choir", "Colonel", "Draught", "Epitome", "Faux pas", 
   "Gauge", "Hierarchy", "Ignominious", "Library", "Mischievous", 
   "Niche", "Often", "Paradigm", "Picture", "Prestigious", 
@@ -26,7 +26,6 @@ interface RandomTopicGeneratorProps {
 export default function RandomTopicGenerator({ customTopics, mode = "debate" }: RandomTopicGeneratorProps = {}) {
   const [currentTopic, setCurrentTopic] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
-  const [isSpinning, setIsSpinning] = useState(false);
   const [showCard, setShowCard] = useState(false);
 
   // States for voice and speed
@@ -81,9 +80,16 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
     setPhonetic("");
     setImages([]);
 
+    // 1. Fetch Dictionary Data (with timeout to prevent hanging)
     try {
-      // 1. Fetch Dictionary Data
-      const dictRes = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`);
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 4000); // 4 second timeout
+      
+      const dictRes = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`, {
+        signal: controller.signal
+      });
+      clearTimeout(timeoutId);
+
       if (dictRes.ok) {
         const data = await dictRes.json();
         const entry = data[0];
@@ -97,9 +103,20 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
             example: firstMeaning.definitions[0]?.example
           });
         }
+      } else if (dictRes.status === 404) {
+        setErrorMsg("Word definition not found in dictionary.");
       }
+    } catch (err: any) {
+      console.error("Dictionary API Error:", err);
+      if (err.name === 'AbortError') {
+         setErrorMsg("Dictionary API is taking too long to respond right now.");
+      } else {
+         setErrorMsg("Dictionary API is currently unavailable.");
+      }
+    }
 
-      // 2. Fetch Google Images if API key is present
+    // 2. Fetch Google Images (Independent from dictionary so it doesn't break if dict fails)
+    try {
       const apiKey = process.env.NEXT_PUBLIC_GOOGLE_SEARCH_API_KEY;
       const cx = process.env.NEXT_PUBLIC_GOOGLE_SEARCH_CX;
       
@@ -110,37 +127,28 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
           if (imgData.items) {
             setImages(imgData.items.map((item: any) => item.link));
           }
+        } else {
+           console.error("Google Image API returned:", imgRes.status);
+           if (!errorMsg) setErrorMsg("Google Image search failed (check API keys or quotas).");
         }
       }
     } catch (err) {
-      console.error("Error fetching word data:", err);
-      setErrorMsg("Failed to load word data.");
-    } finally {
-      setIsLoading(false);
+      console.error("Image API Error:", err);
     }
+
+    setIsLoading(false);
   };
 
   const spinTopic = () => {
-    if (isSpinning) return;
-    setIsSpinning(true);
     setShowCard(false);
     setSearchQuery("");
-
-    let spins = 0;
-    const maxSpins = 20;
-    const interval = setInterval(() => {
-      const randomIndex = Math.floor(Math.random() * activeTopics.length);
-      setCurrentTopic(activeTopics[randomIndex]);
-      spins++;
-
-      if (spins >= maxSpins) {
-        clearInterval(interval);
-        setIsSpinning(false);
-        const finalWord = activeTopics[randomIndex];
-        setCurrentTopic(finalWord);
-        fetchWordData(finalWord).then(() => setShowCard(true));
-      }
-    }, 50);
+    
+    // Remove the visual spinning animation and fetch instantly
+    const randomIndex = Math.floor(Math.random() * activeTopics.length);
+    const finalWord = activeTopics[randomIndex];
+    setCurrentTopic(finalWord);
+    
+    fetchWordData(finalWord).then(() => setShowCard(true));
   };
 
   const handleSearch = (e: React.FormEvent) => {
@@ -220,7 +228,7 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
         
         <button 
           onClick={spinTopic}
-          disabled={isSpinning}
+          disabled={isLoading}
           style={{
             background: 'linear-gradient(135deg, #4285f4, #8b5cf6)',
             color: 'white',
@@ -229,31 +237,18 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
             borderRadius: '24px',
             fontSize: '1.1rem',
             fontWeight: 'bold',
-            cursor: isSpinning ? 'default' : 'pointer',
-            opacity: isSpinning ? 0.7 : 1,
+            cursor: isLoading ? 'default' : 'pointer',
+            opacity: isLoading ? 0.7 : 1,
             boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
             whiteSpace: 'nowrap'
           }}
         >
-          {isSpinning ? 'Spinning...' : 'Spin Random'}
+          {isLoading ? 'Loading...' : 'Random Word'}
         </button>
       </div>
 
-      {/* Spinning Display */}
-      {isSpinning && (
-        <div style={{
-          fontSize: '3rem',
-          fontWeight: 'bold',
-          color: '#1a73e8',
-          margin: '2rem 0',
-          fontFamily: 'monospace'
-        }}>
-          {currentTopic}
-        </div>
-      )}
-
       {/* Loading State */}
-      {isLoading && !isSpinning && (
+      {isLoading && (
         <div style={{ margin: '2rem 0', color: '#5f6368' }}>Fetching dictionary and images...</div>
       )}
 
@@ -452,7 +447,7 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
           )}
 
           {errorMsg && (
-            <div style={{ marginTop: '1.5rem', paddingTop: '1rem', borderTop: '1px solid #ebebeb', color: '#d93025' }}>
+            <div style={{ marginTop: '1.5rem', paddingTop: '1rem', borderTop: '1px solid #ebebeb', color: '#d93025', fontSize: '0.9rem' }}>
               {errorMsg}
             </div>
           )}
