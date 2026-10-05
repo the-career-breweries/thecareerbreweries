@@ -32,14 +32,16 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
   const [selectedVoiceURI, setSelectedVoiceURI] = useState<string>('');
   const [isSlowMode, setIsSlowMode] = useState<boolean>(false);
-  const [isSpeaking, setIsSpeaking] = useState<boolean>(false);
 
   // States for API data
   const [phonetic, setPhonetic] = useState("");
   const [meaning, setMeaning] = useState<any>(null);
   const [images, setImages] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [errorMsg, setErrorMsg] = useState("");
+  
+  // Independent errors
+  const [dictError, setDictError] = useState("");
+  const [imgError, setImgError] = useState("");
 
   useEffect(() => {
     if (typeof window !== 'undefined' && window.speechSynthesis) {
@@ -75,15 +77,16 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
 
   const fetchWordData = async (word: string) => {
     setIsLoading(true);
-    setErrorMsg("");
+    setDictError("");
+    setImgError("");
     setMeaning(null);
     setPhonetic("");
     setImages([]);
 
-    // 1. Fetch Dictionary Data (with timeout to prevent hanging)
+    // 1. Fetch Dictionary Data
     try {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 4000); // 4 second timeout
+      const timeoutId = setTimeout(() => controller.abort(), 4000); 
       
       const dictRes = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`, {
         signal: controller.signal
@@ -104,18 +107,20 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
           });
         }
       } else if (dictRes.status === 404) {
-        setErrorMsg("Word definition not found in dictionary.");
+        setDictError("Word definition not found in dictionary.");
+      } else {
+        setDictError(`Dictionary API returned status ${dictRes.status}.`);
       }
     } catch (err: any) {
       console.error("Dictionary API Error:", err);
       if (err.name === 'AbortError') {
-         setErrorMsg("Dictionary API is taking too long to respond right now.");
+         setDictError("Dictionary API is taking too long to respond right now.");
       } else {
-         setErrorMsg("Dictionary API is currently unavailable.");
+         setDictError("Dictionary API is currently unavailable (network error).");
       }
     }
 
-    // 2. Fetch Google Images (Independent from dictionary so it doesn't break if dict fails)
+    // 2. Fetch Google Images
     try {
       const apiKey = process.env.NEXT_PUBLIC_GOOGLE_SEARCH_API_KEY;
       const cx = process.env.NEXT_PUBLIC_GOOGLE_SEARCH_CX;
@@ -126,14 +131,20 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
           const imgData = await imgRes.json();
           if (imgData.items) {
             setImages(imgData.items.map((item: any) => item.link));
+          } else {
+            setImgError("Google returned no images for this word.");
           }
         } else {
-           console.error("Google Image API returned:", imgRes.status);
-           if (!errorMsg) setErrorMsg("Google Image search failed (check API keys or quotas).");
+           const errData = await imgRes.json().catch(() => ({}));
+           console.error("Google Image API Error:", errData);
+           setImgError(`Image API Failed (${imgRes.status}): ${errData?.error?.message || 'Unknown error'}`);
         }
+      } else {
+        setImgError("Google API Keys are missing in the environment variables.");
       }
     } catch (err) {
       console.error("Image API Error:", err);
+      setImgError("Network error while trying to reach Google Images.");
     }
 
     setIsLoading(false);
@@ -143,7 +154,6 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
     setShowCard(false);
     setSearchQuery("");
     
-    // Remove the visual spinning animation and fetch instantly
     const randomIndex = Math.floor(Math.random() * activeTopics.length);
     const finalWord = activeTopics[randomIndex];
     setCurrentTopic(finalWord);
@@ -176,9 +186,6 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
     }
     
     utterance.rate = isSlowMode ? 0.5 : 1.0;
-    utterance.onstart = () => setIsSpeaking(true);
-    utterance.onend = () => setIsSpeaking(false);
-    utterance.onerror = () => setIsSpeaking(false);
     window.speechSynthesis.speak(utterance);
   };
 
@@ -369,7 +376,7 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
               </div>
             </div>
 
-            {/* Right Face Graphic (Google Style) */}
+            {/* Right Face Graphic (Google Style - STATIC) */}
             <div style={{ 
               width: '120px', 
               height: '120px', 
@@ -384,15 +391,15 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
               flexShrink: 0
             }}>
               <svg width="120" height="120" viewBox="0 0 120 120" style={{ position: 'absolute' }}>
-                {/* Nose / upper lip contour */}
+                {/* Nose */}
                 <path d="M 50 45 Q 60 55 70 45" fill="none" stroke="#1a73e8" strokeWidth="2" strokeLinecap="round" />
                 
-                {/* Lips */}
-                <path d="M 30 65 Q 60 75 90 65 Q 60 85 30 65" fill={isSpeaking ? "#202124" : "white"} stroke="#202124" strokeWidth="2" strokeLinejoin="round" />
+                {/* Static Lips */}
+                <path d="M 35 65 Q 60 72 85 65" fill="none" stroke="#202124" strokeWidth="2.5" strokeLinecap="round" />
                 
-                {/* Chin */}
-                <path d="M 50 85 Q 60 90 70 85" fill="none" stroke="#8ab4f8" strokeWidth="2" strokeLinecap="round" />
-                <path d="M 15 65 Q 60 125 105 65" fill="none" stroke="#8ab4f8" strokeWidth="1.5" />
+                {/* Chin contours */}
+                <path d="M 50 82 Q 60 88 70 82" fill="none" stroke="#8ab4f8" strokeWidth="2" strokeLinecap="round" />
+                <path d="M 15 62 Q 60 120 105 62" fill="none" stroke="#8ab4f8" strokeWidth="1.5" />
               </svg>
             </div>
           </div>
@@ -446,9 +453,11 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
             </div>
           )}
 
-          {errorMsg && (
+          {/* Independent Error States */}
+          {(dictError || imgError) && (
             <div style={{ marginTop: '1.5rem', paddingTop: '1rem', borderTop: '1px solid #ebebeb', color: '#d93025', fontSize: '0.9rem' }}>
-              {errorMsg}
+              {dictError && <div style={{ marginBottom: '0.5rem' }}>{dictError}</div>}
+              {imgError && <div>{imgError}</div>}
             </div>
           )}
 
