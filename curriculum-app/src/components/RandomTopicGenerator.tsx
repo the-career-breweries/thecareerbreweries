@@ -1,11 +1,37 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const DEBATE_TOPICS = [
+const DEBATE_TOPICS_SILLY = [
+  "Is a hot dog a sandwich?",
+  "Does pineapple belong on pizza?",
+  "Would you rather fight one horse-sized duck or 100 duck-sized horses?",
+  "Is cereal technically soup?",
+  "Should we legally ban the snooze button on alarms?",
+  "If you drop food on the floor and pick it up in 5 seconds, is it safe to eat?",
+  "Are aliens currently hiding on Earth?",
+  "Should everyone be forced to wear a uniform every day?",
+  "Should we abolish morning classes before 10 AM?",
+  "Is water actually wet?"
+];
+
+const DEBATE_TOPICS_AVIATION = [
+  "Will AI and automation eventually replace human pilots entirely?",
+  "Should airlines completely ban reclining seats?",
+  "Is the budget airline model destroying the luxury and dignity of flying?",
+  "Should airlines charge passengers based on their body weight?",
+  "Are frequent flyer programs basically a scam?",
+  "Should in-flight Wi-Fi be legally required to be free?",
+  "Is supersonic travel (like the Concorde) worth bringing back despite the environmental cost?",
+  "Should governments bail out failing national airlines?",
+  "Is working as cabin crew a glamorous job or just high-altitude hospitality?",
+  "Should passengers be banned from bringing hot food onto planes?"
+];
+
+const DEBATE_TOPICS_CAREER = [
   "Is AI making students lazier?",
   "Should college attendance be mandatory?",
-  "Is a B.Com degree enough in 2026?",
+  "Is a degree enough to get a job in 2026?",
   "Should companies ban remote work for entry-level roles?",
-  "Are traditional resumes dead?",
+  "Are traditional resumes completely dead?",
   "Is social media a net positive for career growth?",
   "Should the gig economy replace traditional employment?",
   "Is the 4-day workweek viable in India?",
@@ -36,11 +62,15 @@ interface RandomTopicGeneratorProps {
   mode?: "debate" | "vocabulary" | "pronunciation";
 }
 
+type DebateCategory = "silly" | "career" | "aviation";
+
 export default function RandomTopicGenerator({ customTopics, mode = "debate" }: RandomTopicGeneratorProps = {}) {
   const [currentTopic, setCurrentTopic] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [showCard, setShowCard] = useState(false);
   const [isSpinning, setIsSpinning] = useState(false);
+  
+  const [debateCategory, setDebateCategory] = useState<DebateCategory>("silly");
 
   // States for voice and speed
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
@@ -87,7 +117,15 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
     }
   }, [selectedVoiceURI, mode]);
 
-  const activeTopics = customTopics && customTopics.length > 0 && customTopics[0] !== 'spin' ? customTopics : (mode === 'debate' ? DEBATE_TOPICS : VOCAB_TOPICS);
+  const getActiveDebateTopics = () => {
+    if (debateCategory === "silly") return DEBATE_TOPICS_SILLY;
+    if (debateCategory === "aviation") return DEBATE_TOPICS_AVIATION;
+    return DEBATE_TOPICS_CAREER;
+  };
+
+  const activeTopics = customTopics && customTopics.length > 0 && customTopics[0] !== 'spin' 
+    ? customTopics 
+    : (mode === 'debate' ? getActiveDebateTopics() : VOCAB_TOPICS);
 
   const fetchWordData = async (word: string) => {
     setIsLoading(true);
@@ -171,8 +209,9 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
     let spins = 0;
     const maxSpins = 20;
     const interval = setInterval(() => {
-      const randomIndex = Math.floor(Math.random() * activeTopics.length);
-      setCurrentTopic(activeTopics[randomIndex]);
+      const topics = getActiveDebateTopics();
+      const randomIndex = Math.floor(Math.random() * topics.length);
+      setCurrentTopic(topics[randomIndex]);
       spins++;
 
       if (spins >= maxSpins) {
@@ -235,17 +274,49 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
         alignItems: 'center',
         justifyContent: 'flex-start',
         padding: '2rem',
-        background: 'rgba(30, 41, 59, 0.7)',
+        background: 'rgba(30, 41, 59, 0.8)',
         borderRadius: '24px',
         margin: '0 auto',
         width: '100%',
-        maxWidth: '800px'
+        maxWidth: '900px',
+        backdropFilter: 'blur(10px)',
+        border: '1px solid rgba(255,255,255,0.1)'
       }}>
+        {/* Topic Category Selectors */}
+        <div style={{ display: 'flex', gap: '10px', marginBottom: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+          {[
+            { id: 'silly', label: '🤪 Silly Warmups' },
+            { id: 'aviation', label: '✈️ Aviation Topics' },
+            { id: 'career', label: '💼 Career & Gen Z' }
+          ].map(cat => (
+            <button
+              key={cat.id}
+              onClick={() => {
+                setDebateCategory(cat.id as DebateCategory);
+                setCurrentTopic("");
+              }}
+              style={{
+                background: debateCategory === cat.id ? 'rgba(56, 189, 248, 0.2)' : 'rgba(255, 255, 255, 0.05)',
+                color: debateCategory === cat.id ? '#38bdf8' : '#94a3b8',
+                border: `1px solid ${debateCategory === cat.id ? '#38bdf8' : 'rgba(255,255,255,0.1)'}`,
+                padding: '8px 16px',
+                borderRadius: '20px',
+                fontSize: '0.9rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+                transition: 'all 0.2s'
+              }}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
         <button 
           onClick={spinTopic}
           disabled={isSpinning}
           style={{
-            background: 'linear-gradient(135deg, #4285f4, #8b5cf6)',
+            background: 'linear-gradient(135deg, #38bdf8, #8b5cf6)',
             color: 'white',
             border: 'none',
             padding: '16px 40px',
@@ -253,31 +324,39 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
             fontSize: '1.2rem',
             fontWeight: 'bold',
             cursor: isSpinning ? 'default' : 'pointer',
-            opacity: isSpinning ? 0.7 : 1,
-            boxShadow: '0 4px 6px rgba(0,0,0,0.3)',
-            marginBottom: '3rem'
+            opacity: isSpinning ? 0.8 : 1,
+            boxShadow: '0 4px 15px rgba(56, 189, 248, 0.3)',
+            marginBottom: '3rem',
+            transition: 'transform 0.1s'
           }}
+          onMouseDown={e => e.currentTarget.style.transform = 'scale(0.95)'}
+          onMouseUp={e => e.currentTarget.style.transform = 'scale(1)'}
+          onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
         >
-          {isSpinning ? 'SPINNING...' : 'SPIN TOPIC'}
+          {isSpinning ? 'SPINNING...' : 'SPIN THE TOPIC'}
         </button>
 
-        <div style={{ minHeight: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ minHeight: '140px', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
           <h3 style={{ 
             fontSize: (!currentTopic || currentTopic.length > 50) ? '2rem' : (currentTopic.length > 35 ? '2.5rem' : '3rem'), 
             fontWeight: 800, 
-            color: isSpinning ? '#cbd5e1' : '#38bdf8',
+            color: isSpinning ? '#cbd5e1' : '#ffffff',
             lineHeight: 1.3,
-            textShadow: isSpinning ? 'none' : '0 0 20px rgba(56, 189, 248, 0.4)',
-            textAlign: 'center'
+            textShadow: isSpinning ? 'none' : '0 0 20px rgba(255, 255, 255, 0.5)',
+            textAlign: 'center',
+            transition: 'color 0.1s'
           }}>
-            {currentTopic || "Click 'Spin' to Generate a Topic"}
+            {currentTopic || "Select a category and click 'Spin'!"}
           </h3>
         </div>
-        <div style={{ marginTop: '1.5rem', display: 'flex', gap: '2rem', color: '#94a3b8', fontSize: '1.2rem', fontWeight: 'bold' }}>
-          <span style={{ color: '#ef4444' }}>FOR</span>
-          <span>VS</span>
-          <span style={{ color: '#22c55e' }}>AGAINST</span>
-        </div>
+        
+        {currentTopic && !isSpinning && (
+          <div style={{ marginTop: '2rem', display: 'flex', gap: '3rem', color: '#94a3b8', fontSize: '1.5rem', fontWeight: '900', animation: 'fadeIn 0.5s' }}>
+            <span style={{ color: '#ef4444', textShadow: '0 0 10px rgba(239, 68, 68, 0.4)' }}>FOR</span>
+            <span>VS</span>
+            <span style={{ color: '#22c55e', textShadow: '0 0 10px rgba(34, 197, 94, 0.4)' }}>AGAINST</span>
+          </div>
+        )}
       </div>
     );
   }
