@@ -114,9 +114,9 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
     } catch (err: any) {
       console.error("Dictionary API Error:", err);
       if (err.name === 'AbortError') {
-         setDictError("Dictionary API is taking too long to respond right now.");
+         console.warn("Dictionary API is taking too long to respond right now.");
       } else {
-         setDictError("Dictionary API is currently unavailable (network error).");
+         console.warn("Dictionary API is currently unavailable (network error).");
       }
     }
 
@@ -376,32 +376,7 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
               </div>
             </div>
 
-            {/* Right Face Graphic (Google Style - STATIC) */}
-            <div style={{ 
-              width: '120px', 
-              height: '120px', 
-              background: '#d2e3fc', 
-              borderRadius: '8px', 
-              display: 'flex', 
-              flexDirection: 'column',
-              alignItems: 'center', 
-              justifyContent: 'center',
-              position: 'relative',
-              overflow: 'hidden',
-              flexShrink: 0
-            }}>
-              <svg width="120" height="120" viewBox="0 0 120 120" style={{ position: 'absolute' }}>
-                {/* Nose */}
-                <path d="M 50 45 Q 60 55 70 45" fill="none" stroke="#1a73e8" strokeWidth="2" strokeLinecap="round" />
-                
-                {/* Static Lips */}
-                <path d="M 35 65 Q 60 72 85 65" fill="none" stroke="#202124" strokeWidth="2.5" strokeLinecap="round" />
-                
-                {/* Chin contours */}
-                <path d="M 50 82 Q 60 88 70 82" fill="none" stroke="#8ab4f8" strokeWidth="2" strokeLinecap="round" />
-                <path d="M 15 62 Q 60 120 105 62" fill="none" stroke="#8ab4f8" strokeWidth="1.5" />
-              </svg>
-            </div>
+            
           </div>
 
           {/* Dictionary & Image Section */}
