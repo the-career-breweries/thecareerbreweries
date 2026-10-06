@@ -1,72 +1,81 @@
-<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?auto=format&fit=crop&w=1920&q=80 -->
-
 # SEASON 1 • EPISODE 4
 ## The Ultimate Debate
-*Putting PREP and A.R.E. to the Test*
+*Arguing to Win (Without Losing Your Cool)*
 
-▶  **PLAY EPISODE**
-
----
-
-<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1920&q=80 -->
-
-# Why are we doing this?
-
-**The Hidden Metric:** Logical Structuring, Conflict De-escalation, and Analytical Reasoning.
-
-**The Arena:** 
-*   **Group Discussions (GD):** Dominating a conversation without being aggressive.
-*   **Assessment Center Roleplays:** Defending a business decision against a panel.
-*   **Case Study Interviews:** Separating the "idea" from the "person" in high-stress debates.
-*   **IELTS Speaking Part 3:** Structuring complex, multi-layered arguments.
-
-*Knowing how to argue cleanly is how you lead teams through disagreements without destroying morale.*
+▶   **PLAY EPISODE**
 
 ---
 
-<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1540845511934-7721dd7adec3?auto=format&fit=crop&w=1920&q=80 -->
-        
-# THE RULES OF ENGAGEMENT
-        
-1. **Two Factions:** The class is divided into **FOR** and **AGAINST**.
-2. **The Clock:** You have exactly 2 minutes to brainstorm with your team.
-3. **The Weapon:** You **must** use the PREP method to structure your argument.
-4. **The Rule:** Attack the *idea*, never the *person*.
+# Phase 1: The Hook & The Stakes
+*We are jumping straight in.*
 
-*May the best argument win.*
+**The Goal:** 
+You have 10 minutes to prepare a 2-minute opening statement that will completely dismantle your opponent's side.
 
----
+**The Rules:**
+- There are no rules on how you structure it. 
+- Just convince the room.
+- Attack the *idea*, never the *person*.
 
-<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1920&q=80 -->
-
-# THE A.R.E. FRAMEWORK
-*How to construct an unbreakable argument.*
-
-*   **A - Assertion:** State your claim clearly. (What are you arguing?)
-*   **R - Reasoning:** Explain the "Because". (Why is your claim true?)
-*   **E - Evidence:** Provide proof. (Data, facts, or real-world examples).
-
-**Example in a Debate:** 
-"Airlines should ban reclining seats (**Assertion**), because it prevents physical altercations in cramped cabins (**Reasoning**). According to the FAA, air rage incidents involving seat space have risen 300% since 2019 (**Evidence**)."
+*Rely on your gut instinct.*
 
 ---
 
-<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1920&q=80 -->
+# Phase 2: The Raw Debate
+*The Task Cycle*
 
-# LET THE DEBATES BEGIN
+**The Format:**
+1. **Team A:** Speaks for 2 minutes.
+2. **Team B:** Speaks for 2 minutes.
+3. **Cross-Talk:** 1 minute of open, unmoderated rebuttal.
+
+**Trainer’s Role:** Strict observation. We are looking for:
+- *Ad hominem attacks (attacking the person, not the idea).*
+- *Rambling without a clear point.*
+- *Getting emotional or defensive.*
+- *Making bold claims with zero evidence.*
 
 ```topic-generator
-AELP VS RTR
-Conventional flying vs Auto pilot
-LCC VS FSC
-Sustainable fuel vs Turbine fuel
-Sector flying vs Layovers
-Airlines take ancillary fees then why not give any perks when flight delays are there.
+mode:debate
 ```
 
 ---
 
-<!-- CINEMATIC_BG: https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?auto=format&fit=crop&w=1920&q=80 -->
+# Phase 3: The Review & "Aha!" Moment
+*How did that feel?*
+
+What was the hardest part about proving your point or defending against the attack?
+- Was it hard to organize thoughts under pressure?
+- Was it difficult to counter the other team effectively?
+
+*Let's look at a framework to solve exactly these problems.*
+
+---
+
+# The AREA Framework
+*How to construct an unbreakable argument.*
+
+*   **A - Assertion:** The claim. (What are you arguing?)
+*   **R - Reasoning:** The "why". (Why is your claim true?)
+*   **E - Evidence:** The proof. (Data, facts, or real-world examples).
+*   **A - Action/Impact:** Why it matters. (The "So what?")
+
+**Example:** 
+"Airlines should ban reclining seats (**Assertion**), because it prevents physical altercations in cramped cabins (**Reasoning**). According to the FAA, air rage incidents involving seat space have risen 300% since 2019 (**Evidence**). This ensures a safer, stress-free environment for both crew and passengers (**Action/Impact**)."
+
+---
+
+# The 4-Step Rebuttal
+*How to dismantle an opponent's argument.*
+
+1. **"They said..."** (Acknowledge their exact claim).
+2. **"But we say..."** (State your counter-claim).
+3. **"Because..."** (Provide your reasoning and evidence).
+4. **"Therefore..."** (Conclude why your point is stronger).
+
+**The Application:** Let's rebuild one of our failed arguments on the whiteboard using this exact framework.
+
+---
 
 # END OF EPISODE
 

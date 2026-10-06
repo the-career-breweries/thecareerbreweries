@@ -135,6 +135,29 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
   
   const [debateCategory, setDebateCategory] = useState<DebateCategory>("silly");
   const [vocabCategory, setVocabCategory] = useState<VocabCategory>("gen-freq");
+  
+  const [debateTopics, setDebateTopics] = useState<Record<DebateCategory, string[]>>({
+    silly: DEBATE_TOPICS_SILLY,
+    aviation: DEBATE_TOPICS_AVIATION,
+    career: DEBATE_TOPICS_CAREER
+  });
+  const [usedTopics, setUsedTopics] = useState<Set<string>>(new Set());
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('tcb_debate_topics');
+    if (saved) {
+      try { setDebateTopics(JSON.parse(saved)); } catch (e) {}
+    }
+  }, []);
+
+  const handleSaveTopics = (text: string) => {
+    const newTopics = text.split('\n').map(t => t.trim()).filter(t => t.length > 0);
+    const updated = { ...debateTopics, [debateCategory]: newTopics };
+    setDebateTopics(updated);
+    localStorage.setItem('tcb_debate_topics', JSON.stringify(updated));
+    setUsedTopics(new Set()); // Reset used topics when modifying list
+  };
 
   // States for voice and speed
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
@@ -146,6 +169,7 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
   const [meaning, setMeaning] = useState<any>(null);
   const [images, setImages] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
   
   // Independent errors
   const [dictError, setDictError] = useState("");
@@ -194,6 +218,7 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
     setMeaning(null);
     setPhonetic("");
     setImages([]);
+    setShowDetails(false);
 
     // 1. Check local dictionary first
     const localEntry = VOCAB_DICTIONARY.find(w => w.word.toLowerCase() === word.toLowerCase());
@@ -277,16 +302,33 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
     if (isSpinning) return;
     setIsSpinning(true);
 
+    const allTopics = debateTopics[debateCategory];
+    if (!allTopics || allTopics.length === 0) {
+      setCurrentTopic("Please add topics in Admin mode.");
+      setIsSpinning(false);
+      return;
+    }
+
+    let availableTopics = allTopics.filter(t => !usedTopics.has(t));
+    if (availableTopics.length === 0) {
+      // Reset if all used
+      setUsedTopics(new Set());
+      availableTopics = allTopics;
+    }
+
+    const finalTopic = availableTopics[Math.floor(Math.random() * availableTopics.length)];
+
     let spins = 0;
     const maxSpins = 20;
     const interval = setInterval(() => {
-      const topics = getActiveDebateTopics();
-      const randomIndex = Math.floor(Math.random() * topics.length);
-      setCurrentTopic(topics[randomIndex]);
+      const randomVisualIndex = Math.floor(Math.random() * allTopics.length);
+      setCurrentTopic(allTopics[randomVisualIndex]);
       spins++;
 
       if (spins >= maxSpins) {
         clearInterval(interval);
+        setCurrentTopic(finalTopic);
+        setUsedTopics(prev => new Set(prev).add(finalTopic));
         setIsSpinning(false);
       }
     }, 50);
@@ -369,6 +411,7 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
               onClick={() => {
                 setDebateCategory(cat.id as DebateCategory);
                 setCurrentTopic("");
+                setUsedTopics(new Set());
               }}
               style={{
                 background: debateCategory === cat.id ? 'rgba(56, 189, 248, 0.2)' : 'rgba(255, 255, 255, 0.05)',
@@ -425,13 +468,61 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
           </h3>
         </div>
         
-        {currentTopic && !isSpinning && (
+        {currentTopic && !isSpinning && currentTopic !== "Please add topics in Admin mode." && (
           <div style={{ marginTop: '2rem', display: 'flex', gap: '3rem', color: '#94a3b8', fontSize: '1.5rem', fontWeight: '900', animation: 'fadeIn 0.5s' }}>
             <span style={{ color: '#ef4444', textShadow: '0 0 10px rgba(239, 68, 68, 0.4)' }}>FOR</span>
             <span>VS</span>
             <span style={{ color: '#22c55e', textShadow: '0 0 10px rgba(34, 197, 94, 0.4)' }}>AGAINST</span>
           </div>
         )}
+
+        {/* Admin Section */}
+        <div style={{ width: '100%', marginTop: '3rem', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '1rem' }}>
+          <button
+            onClick={() => setIsAdmin(!isAdmin)}
+            style={{
+              background: 'transparent',
+              color: '#94a3b8',
+              border: 'none',
+              cursor: 'pointer',
+              fontSize: '0.9rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '5px',
+              opacity: 0.7
+            }}
+          >
+            ⚙️ {isAdmin ? 'Close Admin' : 'Admin: Edit Topics'}
+          </button>
+          
+          {isAdmin && (
+            <div style={{ marginTop: '1rem', width: '100%', animation: 'fadeIn 0.3s' }}>
+              <div style={{ color: '#cbd5e1', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
+                Editing topics for: <strong>{debateCategory.toUpperCase()}</strong> (One per line)
+              </div>
+              <textarea 
+                value={debateTopics[debateCategory]?.join('\n') || ""}
+                onChange={(e) => handleSaveTopics(e.target.value)}
+                style={{
+                  width: '100%',
+                  height: '150px',
+                  background: 'rgba(15, 23, 42, 0.6)',
+                  color: '#f8fafc',
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  borderRadius: '12px',
+                  padding: '12px',
+                  fontFamily: 'inherit',
+                  fontSize: '0.95rem',
+                  resize: 'vertical',
+                  outline: 'none'
+                }}
+              />
+              <div style={{ color: '#64748b', fontSize: '0.8rem', marginTop: '0.5rem' }}>
+                Topics auto-save. Current count: {debateTopics[debateCategory]?.length || 0}. Used so far: {usedTopics.size}.
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     );
   }
@@ -552,43 +643,67 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
         }}>
           
           {/* Top Row: Word & Dialect Dropdown */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #ebebeb', paddingBottom: '0.8rem', marginBottom: '1.2rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: showDetails ? '1px solid #ebebeb' : 'none', paddingBottom: showDetails ? '0.8rem' : '0', marginBottom: showDetails ? '1.2rem' : '0' }}>
             <div style={{ fontSize: '1.5rem', color: '#202124', fontWeight: 400, textTransform: 'capitalize' }}>
               {currentTopic}
             </div>
-            <select 
-              value={selectedVoiceURI} 
-              onChange={(e) => {
-                setSelectedVoiceURI(e.target.value);
-                setTimeout(() => playPronunciation(), 100);
-              }}
-              style={{
-                border: 'none',
-                background: 'transparent',
-                color: '#5f6368',
-                fontSize: '0.95rem',
-                outline: 'none',
-                cursor: 'pointer',
-                textAlign: 'right'
-              }}
-            >
-              {voices.length === 0 ? (
-                <option>Loading voices...</option>
-              ) : (
-                voices.map(v => (
-                  <option key={v.voiceURI} value={v.voiceURI}>
-                    {v.name.includes('India') || v.lang === 'en-IN' ? 'Indian English pronunciation' : 
-                     v.name.includes('UK') || v.lang === 'en-GB' ? 'British English pronunciation' :
-                     v.name.includes('US') || v.lang === 'en-US' ? 'American English pronunciation' : 
-                     v.name.replace('Google ', '')}
-                  </option>
-                ))
-              )}
-            </select>
+            
+            {!showDetails ? (
+              <button 
+                onClick={() => {
+                  setShowDetails(true);
+                  setTimeout(() => playPronunciation(), 100);
+                }}
+                style={{
+                  background: '#1a73e8',
+                  color: 'white',
+                  border: 'none',
+                  padding: '8px 16px',
+                  borderRadius: '16px',
+                  fontSize: '0.9rem',
+                  fontWeight: 500,
+                  cursor: 'pointer'
+                }}
+              >
+                Pronounce
+              </button>
+            ) : (
+              <select 
+                value={selectedVoiceURI} 
+                onChange={(e) => {
+                  setSelectedVoiceURI(e.target.value);
+                  setTimeout(() => playPronunciation(), 100);
+                }}
+                style={{
+                  border: 'none',
+                  background: 'transparent',
+                  color: '#5f6368',
+                  fontSize: '0.95rem',
+                  outline: 'none',
+                  cursor: 'pointer',
+                  textAlign: 'right'
+                }}
+              >
+                {voices.length === 0 ? (
+                  <option>Loading voices...</option>
+                ) : (
+                  voices.map(v => (
+                    <option key={v.voiceURI} value={v.voiceURI}>
+                      {v.name.includes('India') || v.lang === 'en-IN' ? 'Indian English pronunciation' : 
+                       v.name.includes('UK') || v.lang === 'en-GB' ? 'British English pronunciation' :
+                       v.name.includes('US') || v.lang === 'en-US' ? 'American English pronunciation' : 
+                       v.name.replace('Google ', '')}
+                    </option>
+                  ))
+                )}
+              </select>
+            )}
           </div>
 
-          {/* Middle Row: Phonetics & Face */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+          {showDetails && (
+            <>
+              {/* Middle Row: Phonetics & Face */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
             <div>
               <div style={{ fontSize: '0.9rem', color: '#70757a', marginBottom: '0.5rem' }}>Sounds like</div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -707,6 +822,8 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
             <div style={{ marginTop: '1.5rem', paddingTop: '1rem', borderTop: '1px solid #ebebeb', color: '#d93025', fontSize: '0.9rem' }}>
               {imgError && <div>{imgError}</div>}
             </div>
+          )}
+            </>
           )}
 
         </div>
