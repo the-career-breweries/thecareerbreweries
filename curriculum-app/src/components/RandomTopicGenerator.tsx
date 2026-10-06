@@ -54,22 +54,69 @@ const DEBATE_TOPICS_CAREER = [
   "Should practical internships replace the final year of college?"
 ];
 
-const VOCAB_TOPICS = [
-  "Abysmal", "Acquiesce", "Albeit", "Amalgamate", "Anachronism",
-  "Bourgeois", "Cacophony", "Capricious", "Colloquial", "Convalesce",
-  "Dichotomy", "Eclectic", "Epitome", "Esoteric", "Exacerbate",
-  "Facetious", "Fastidious", "Grandiloquent", "Gregarious", "Hegemony",
-  "Iconoclast", "Idiosyncrasy", "Innocuous", "Juxtaposition", "Lackadaisical",
-  "Lethargic", "Mellifluous", "Misanthrope", "Nefarious", "Obfuscate",
-  "Ostentatious", "Paradigm", "Pedantic", "Quintessential", "Quixotic",
-  "Recalcitrant", "Resilience", "Sycophant", "Tangential", "Ubiquitous",
-  "Unprecedented", "Vacillate", "Vehement", "Vicarious", "Zealous",
-  "Almond", "Athlete", "Boutique", "Cache", "Candidate", "Chaos", 
-  "Choir", "Colonel", "Draught", "Epitome", "Faux pas", 
-  "Gauge", "Hierarchy", "Ignominious", "Library", "Mischievous", 
-  "Niche", "Often", "Paradigm", "Picture", "Prestigious", 
-  "Pronunciation", "Quinoa", "Receipt", "Schedule", "Specific", 
-  "Subtle", "Suite", "Syllable", "Womb", "Yacht"
+const VOCAB_DICTIONARY = [
+  // Generic Frequent
+  { word: "Entrepreneur", phonetic: "ahn·truh·pruh·nur", partOfSpeech: "noun", meaning: "A person who organizes and operates a business.", category: "gen-freq" },
+  { word: "Rendezvous", phonetic: "ron·day·voo", partOfSpeech: "noun", meaning: "A meeting at an agreed time and place.", category: "gen-freq" },
+  { word: "Itinerary", phonetic: "ai·ti·nuh·reh·ree", partOfSpeech: "noun", meaning: "A planned route or journey.", category: "gen-freq" },
+  { word: "Faux pas", phonetic: "foe pah", partOfSpeech: "noun", meaning: "An embarrassing or tactless act or remark in a social situation.", category: "gen-freq" },
+  { word: "Quinoa", phonetic: "keen·waa", partOfSpeech: "noun", meaning: "A goosefoot plant grown as a crop primarily for its edible seeds.", category: "gen-freq" },
+  { word: "Mischievous", phonetic: "mis·chuh·vus", partOfSpeech: "adjective", meaning: "Causing or showing a fondness for causing trouble in a playful way.", category: "gen-freq" },
+  { word: "Epitome", phonetic: "uh·pi·tuh·mee", partOfSpeech: "noun", meaning: "A person or thing that is a perfect example of a particular quality or type.", category: "gen-freq" },
+  { word: "Colonel", phonetic: "kur·nl", partOfSpeech: "noun", meaning: "An army officer of high rank.", category: "gen-freq" },
+  { word: "Draught", phonetic: "draft", partOfSpeech: "noun", meaning: "A current of unpleasantly cold air blowing through a room.", category: "gen-freq" },
+  { word: "Almond", phonetic: "aa·mund", partOfSpeech: "noun", meaning: "The oval nut-like seed (kernel) of the almond tree.", category: "gen-freq" },
+  { word: "Niche", phonetic: "neesh", partOfSpeech: "noun", meaning: "A comfortable or suitable position in life or employment.", category: "gen-freq" },
+  { word: "Suite", phonetic: "sweet", partOfSpeech: "noun", meaning: "A set of rooms designated for one person's or family's use.", category: "gen-freq" },
+  { word: "Yacht", phonetic: "yaat", partOfSpeech: "noun", meaning: "A medium-sized sailboat equipped for cruising or racing.", category: "gen-freq" },
+  { word: "Paradigm", phonetic: "pa·ruh·daim", partOfSpeech: "noun", meaning: "A typical example or pattern of something; a model.", category: "gen-freq" },
+  { word: "Subtle", phonetic: "suh·tl", partOfSpeech: "adjective", meaning: "So delicate or precise as to be difficult to analyze or describe.", category: "gen-freq" },
+  { word: "Choir", phonetic: "kwai·ur", partOfSpeech: "noun", meaning: "An organized group of singers, typically one that takes part in church services.", category: "gen-freq" },
+
+  // Generic Rare
+  { word: "Sycophant", phonetic: "si·kuh·fuhnt", partOfSpeech: "noun", meaning: "A person who acts obsequiously toward someone important in order to gain advantage.", category: "gen-rare" },
+  { word: "Obfuscate", phonetic: "ob·fuh·skayt", partOfSpeech: "verb", meaning: "Render obscure, unclear, or unintelligible.", category: "gen-rare" },
+  { word: "Cacophony", phonetic: "kuh·ko·fuh·nee", partOfSpeech: "noun", meaning: "A harsh, discordant mixture of sounds.", category: "gen-rare" },
+  { word: "Grandiloquent", phonetic: "gran·di·luh·kwuhnt", partOfSpeech: "adjective", meaning: "Pompous or extravagant in language, style, or manner.", category: "gen-rare" },
+  { word: "Hegemony", phonetic: "huh·jeh·muh·nee", partOfSpeech: "noun", meaning: "Leadership or dominance, especially by one country or social group over others.", category: "gen-rare" },
+  { word: "Idiosyncrasy", phonetic: "i·dee·uh·sing·kruh·see", partOfSpeech: "noun", meaning: "A mode of behavior or way of thought peculiar to an individual.", category: "gen-rare" },
+  { word: "Mellifluous", phonetic: "muh·li·floo·us", partOfSpeech: "adjective", meaning: "Sweet or musical; pleasant to hear.", category: "gen-rare" },
+  { word: "Ostentatious", phonetic: "o·sten·tay·shus", partOfSpeech: "adjective", meaning: "Characterized by vulgar or pretentious display; designed to impress or attract notice.", category: "gen-rare" },
+  { word: "Quixotic", phonetic: "kwik·so·tik", partOfSpeech: "adjective", meaning: "Exceedingly idealistic; unrealistic and impractical.", category: "gen-rare" },
+  { word: "Esoteric", phonetic: "e·suh·teh·rik", partOfSpeech: "adjective", meaning: "Intended for or likely to be understood by only a small number of people.", category: "gen-rare" },
+  { word: "Anachronism", phonetic: "uh·na·kruh·ni·zum", partOfSpeech: "noun", meaning: "A thing belonging or appropriate to a period other than that in which it exists.", category: "gen-rare" },
+  { word: "Ephemeral", phonetic: "uh·feh·muh·rul", partOfSpeech: "adjective", meaning: "Lasting for a very short time.", category: "gen-rare" },
+  { word: "Ineffable", phonetic: "in·eh·fuh·bul", partOfSpeech: "adjective", meaning: "Too great or extreme to be expressed or described in words.", category: "gen-rare" },
+  { word: "Fastidious", phonetic: "fa·sti·dee·us", partOfSpeech: "adjective", meaning: "Very attentive to and concerned about accuracy and detail.", category: "gen-rare" },
+  { word: "Recalcitrant", phonetic: "ri·kal·si·trunt", partOfSpeech: "adjective", meaning: "Having an obstinately uncooperative attitude toward authority or discipline.", category: "gen-rare" },
+
+  // Aviation Frequent
+  { word: "Fuselage", phonetic: "fyoo·zuh·laazh", partOfSpeech: "noun", meaning: "The main body of an aircraft.", category: "av-freq" },
+  { word: "Aileron", phonetic: "ay·luh·ron", partOfSpeech: "noun", meaning: "A hinged surface in the trailing edge of an airplane wing, used to control the roll of the aircraft.", category: "av-freq" },
+  { word: "Empennage", phonetic: "em·puh·naazh", partOfSpeech: "noun", meaning: "The tail assembly of an aircraft, including the horizontal and vertical stabilizers.", category: "av-freq" },
+  { word: "Altimeter", phonetic: "al·ti·mee·tur", partOfSpeech: "noun", meaning: "An instrument used to measure the altitude of an object above a fixed level.", category: "av-freq" },
+  { word: "Turboprop", phonetic: "tur·bow·prop", partOfSpeech: "noun", meaning: "A jet engine in which a turbine is used to drive a propeller.", category: "av-freq" },
+  { word: "Nacelle", phonetic: "nuh·sel", partOfSpeech: "noun", meaning: "A streamlined housing or enclosure, typically for an aircraft engine.", category: "av-freq" },
+  { word: "Avionics", phonetic: "ay·vee·o·niks", partOfSpeech: "noun", meaning: "The electronic systems used on aircraft, artificial satellites, and spacecraft.", category: "av-freq" },
+  { word: "Taxiway", phonetic: "tak·see·way", partOfSpeech: "noun", meaning: "A path for aircraft at an airport connecting runways with aprons, hangars, and terminals.", category: "av-freq" },
+  { word: "Meteorology", phonetic: "mee·tee·uh·ro·luh·jee", partOfSpeech: "noun", meaning: "The branch of science concerned with the processes and phenomena of the atmosphere.", category: "av-freq" },
+  { word: "Aerodynamic", phonetic: "air·oh·dai·na·mik", partOfSpeech: "adjective", meaning: "Relating to the study of the properties of moving air, and especially of the interaction between the air and solid bodies.", category: "av-freq" },
+  { word: "Turbulence", phonetic: "tur·byuh·luhns", partOfSpeech: "noun", meaning: "Violent or unsteady movement of air or water, or of some other fluid.", category: "av-freq" },
+  { word: "Concierge", phonetic: "kon·see·erzh", partOfSpeech: "noun", meaning: "A resident caretaker of a block of flats or a small hotel.", category: "av-freq" },
+  { word: "Carousel", phonetic: "ka·ruh·sel", partOfSpeech: "noun", meaning: "A continuous moving strip on which passengers' bags are placed for collection at an airport.", category: "av-freq" },
+  { word: "Tarmac", phonetic: "taar·mak", partOfSpeech: "noun", meaning: "A runway, apron, or taxiway on an airport.", category: "av-freq" },
+
+  // Aviation Rare
+  { word: "Pitot", phonetic: "pee·toe", partOfSpeech: "noun", meaning: "A tube pointing into the flow of a fluid to measure its pressure, used on aircraft to determine airspeed.", category: "av-rare" },
+  { word: "Dihedral", phonetic: "dai·hee·drul", partOfSpeech: "noun", meaning: "The upward angle of an aircraft's wings from the horizontal.", category: "av-rare" },
+  { word: "Anhedral", phonetic: "an·hee·drul", partOfSpeech: "noun", meaning: "The downward angle of an aircraft's wings from the horizontal.", category: "av-rare" },
+  { word: "Gyroscopic", phonetic: "jai·ruh·sko·pik", partOfSpeech: "adjective", meaning: "Relating to a gyroscope, maintaining orientation based on the principle of conservation of angular momentum.", category: "av-rare" },
+  { word: "Ephemeris", phonetic: "i·feh·muh·ris", partOfSpeech: "noun", meaning: "A table or data file giving the calculated positions of a celestial object at regular intervals.", category: "av-rare" },
+  { word: "Aerofoil", phonetic: "air·oh·foyl", partOfSpeech: "noun", meaning: "A structure with curved surfaces designed to give the most favorable ratio of lift to drag in flight.", category: "av-rare" },
+  { word: "Altimetry", phonetic: "al·ti·mi·tree", partOfSpeech: "noun", meaning: "The measurement of altitude.", category: "av-rare" },
+  { word: "Isogonic", phonetic: "ai·suh·go·nik", partOfSpeech: "adjective", meaning: "Relating to or denoting lines on a map connecting points of equal magnetic variation.", category: "av-rare" },
+  { word: "Hypoxia", phonetic: "hai·pok·see·uh", partOfSpeech: "noun", meaning: "Deficiency in the amount of oxygen reaching the tissues, a critical risk at high altitudes.", category: "av-rare" },
+  { word: "Barotrauma", phonetic: "ba·row·traw·muh", partOfSpeech: "noun", meaning: "Injury caused by a change in air pressure, typically affecting the ear or lung.", category: "av-rare" }
 ];
 
 interface RandomTopicGeneratorProps {
@@ -78,6 +125,7 @@ interface RandomTopicGeneratorProps {
 }
 
 type DebateCategory = "silly" | "career" | "aviation";
+type VocabCategory = "gen-freq" | "gen-rare" | "av-freq" | "av-rare";
 
 export default function RandomTopicGenerator({ customTopics, mode = "debate" }: RandomTopicGeneratorProps = {}) {
   const [currentTopic, setCurrentTopic] = useState("");
@@ -86,6 +134,7 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
   const [isSpinning, setIsSpinning] = useState(false);
   
   const [debateCategory, setDebateCategory] = useState<DebateCategory>("silly");
+  const [vocabCategory, setVocabCategory] = useState<VocabCategory>("gen-freq");
 
   // States for voice and speed
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
@@ -138,10 +187,6 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
     return DEBATE_TOPICS_CAREER;
   };
 
-  const activeTopics = customTopics && customTopics.length > 0 && customTopics[0] !== 'spin' 
-    ? customTopics 
-    : (mode === 'debate' ? getActiveDebateTopics() : VOCAB_TOPICS);
-
   const fetchWordData = async (word: string) => {
     setIsLoading(true);
     setDictError("");
@@ -150,40 +195,51 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
     setPhonetic("");
     setImages([]);
 
-    // 1. Fetch Dictionary Data
-    try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 4000); 
-      
-      const dictRes = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`, {
-        signal: controller.signal
+    // 1. Check local dictionary first
+    const localEntry = VOCAB_DICTIONARY.find(w => w.word.toLowerCase() === word.toLowerCase());
+    if (localEntry) {
+      setPhonetic(localEntry.phonetic);
+      setMeaning({
+        partOfSpeech: localEntry.partOfSpeech,
+        definition: localEntry.meaning,
+        example: ""
       });
-      clearTimeout(timeoutId);
-
-      if (dictRes.ok) {
-        const data = await dictRes.json();
-        const entry = data[0];
-        setPhonetic(entry.phonetic || entry.phonetics?.find((p: any) => p.text)?.text || "");
+    } else {
+      // Fallback to Free Dictionary API
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 4000); 
         
-        const firstMeaning = entry.meanings?.[0];
-        if (firstMeaning) {
-          setMeaning({
-            partOfSpeech: firstMeaning.partOfSpeech,
-            definition: firstMeaning.definitions[0]?.definition,
-            example: firstMeaning.definitions[0]?.example
-          });
+        const dictRes = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`, {
+          signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+
+        if (dictRes.ok) {
+          const data = await dictRes.json();
+          const entry = data[0];
+          setPhonetic(entry.phonetic || entry.phonetics?.find((p: any) => p.text)?.text || "");
+          
+          const firstMeaning = entry.meanings?.[0];
+          if (firstMeaning) {
+            setMeaning({
+              partOfSpeech: firstMeaning.partOfSpeech,
+              definition: firstMeaning.definitions[0]?.definition,
+              example: firstMeaning.definitions[0]?.example
+            });
+          }
+        } else if (dictRes.status === 404) {
+          setDictError("Word definition not found in dictionary.");
+        } else {
+          setDictError(`Dictionary API returned status ${dictRes.status}.`);
         }
-      } else if (dictRes.status === 404) {
-        setDictError("Word definition not found in dictionary.");
-      } else {
-        setDictError(`Dictionary API returned status ${dictRes.status}.`);
-      }
-    } catch (err: any) {
-      console.error("Dictionary API Error:", err);
-      if (err.name === 'AbortError') {
-         console.warn("Dictionary API is taking too long to respond right now.");
-      } else {
-         console.warn("Dictionary API is currently unavailable (network error).");
+      } catch (err: any) {
+        console.error("Dictionary API Error:", err);
+        if (err.name === 'AbortError') {
+           console.warn("Dictionary API is taking too long to respond right now.");
+        } else {
+           console.warn("Dictionary API is currently unavailable (network error).");
+        }
       }
     }
 
@@ -239,8 +295,12 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
   const spinTopicVocab = () => {
     setShowCard(false);
     setSearchQuery("");
-    const randomIndex = Math.floor(Math.random() * activeTopics.length);
-    const finalWord = activeTopics[randomIndex];
+    
+    // Pick from the selected category
+    const categoryWords = VOCAB_DICTIONARY.filter(w => w.category === vocabCategory);
+    const randomIndex = Math.floor(Math.random() * categoryWords.length);
+    const finalWord = categoryWords[randomIndex].word;
+    
     setCurrentTopic(finalWord);
     fetchWordData(finalWord).then(() => setShowCard(true));
   };
@@ -387,7 +447,7 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
     }}>
       
       {/* Search & Spin Controls */}
-      <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem', width: '100%', maxWidth: '650px', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem', width: '100%', maxWidth: '650px', flexWrap: 'wrap' }}>
         <form onSubmit={handleSearch} style={{ display: 'flex', flex: 1, minWidth: '250px' }}>
           <input 
             type="text" 
@@ -440,6 +500,34 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
         >
           {isLoading ? 'Loading...' : 'Random Word'}
         </button>
+      </div>
+
+      {/* Vocab Categories Toggle */}
+      <div style={{ display: 'flex', gap: '10px', marginBottom: '2rem', width: '100%', maxWidth: '650px', flexWrap: 'wrap', justifyContent: 'center' }}>
+          {[
+            { id: 'gen-freq', label: '🌍 Generic (Frequent)' },
+            { id: 'gen-rare', label: '🧠 Generic (Rare)' },
+            { id: 'av-freq', label: '✈️ Aviation (Frequent)' },
+            { id: 'av-rare', label: '👨‍✈️ Aviation (Rare)' }
+          ].map(cat => (
+            <button
+              key={cat.id}
+              onClick={() => setVocabCategory(cat.id as VocabCategory)}
+              style={{
+                background: vocabCategory === cat.id ? '#e8f0fe' : 'transparent',
+                color: vocabCategory === cat.id ? '#1a73e8' : '#5f6368',
+                border: `1px solid ${vocabCategory === cat.id ? '#1a73e8' : '#dadce0'}`,
+                padding: '6px 14px',
+                borderRadius: '16px',
+                fontSize: '0.85rem',
+                fontWeight: 500,
+                cursor: 'pointer',
+                transition: 'all 0.2s'
+              }}
+            >
+              {cat.label}
+            </button>
+          ))}
       </div>
 
       {/* Loading State */}
