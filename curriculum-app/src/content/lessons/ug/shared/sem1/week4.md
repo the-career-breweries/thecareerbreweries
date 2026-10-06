@@ -2,7 +2,7 @@
 
 # SEASON 1 • EPISODE 4
 ## The Ultimate Debate
-*Putting PREP and STAR to the Test*
+*Putting PREP and A.R.E. to the Test*
 
 ▶  **PLAY EPISODE**
 
@@ -39,16 +39,15 @@
 
 <!-- CINEMATIC_BG: https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1920&q=80 -->
 
-# THE STAR APPROACH
-*How to tell a story that wins arguments.*
+# THE A.R.E. FRAMEWORK
+*How to construct an unbreakable argument.*
 
-*   **S - Situation:** Set the scene and provide context.
-*   **T - Task:** Describe your responsibility or the challenge.
-*   **A - Action:** Explain exactly what *you* did.
-*   **R - Result:** Share the outcome and what you achieved.
+*   **A - Assertion:** State your claim clearly. (What are you arguing?)
+*   **R - Reasoning:** Explain the "Because". (Why is your claim true?)
+*   **E - Evidence:** Provide proof. (Data, facts, or real-world examples).
 
-**Example in an Interview:** 
-"During a delayed flight (**S**), passengers were frustrated (**T**). I proactively offered water and updates (**A**), which calmed the cabin and resulted in a smooth boarding process (**R**)."
+**Example in a Debate:** 
+"Airlines should ban reclining seats (**Assertion**), because it prevents physical altercations in cramped cabins (**Reasoning**). According to the FAA, air rage incidents involving seat space have risen 300% since 2019 (**Evidence**)."
 
 ---
 
