@@ -10,7 +10,22 @@ const DEBATE_TOPICS_SILLY = [
   "Are aliens currently hiding on Earth?",
   "Should everyone be forced to wear a uniform every day?",
   "Should we abolish morning classes before 10 AM?",
-  "Is water actually wet?"
+  "Is water actually wet?",
+  "Does a straw have one hole or two?",
+  "If a tomato is a fruit, is ketchup a smoothie?",
+  "Is Die Hard a Christmas movie?",
+  "Should it be a crime to put milk in the bowl before the cereal?",
+  "Are hot dogs just American tacos?",
+  "Should toilet paper hang over or under the roll?",
+  "Is it acceptable to wear socks with sandals?",
+  "Should brushing your teeth be done before or after breakfast?",
+  "Is Batman actually a superhero if he has no superpowers?",
+  "Are ghosts real or just bad eyesight?",
+  "Which is a superior pet: a dog that acts like a cat, or a cat that acts like a dog?",
+  "Should we permanently replace handshakes with fist bumps?",
+  "Do fish get thirsty?",
+  "Is a thumb technically a finger?",
+  "Should humans sleep in pods instead of beds?"
 ];
 
 const DEBATE_TOPICS_AVIATION = [
