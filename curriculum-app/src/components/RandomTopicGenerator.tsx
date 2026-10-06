@@ -462,7 +462,12 @@ export default function RandomTopicGenerator({ customTopics, mode = "debate" }: 
             lineHeight: 1.3,
             textShadow: isSpinning ? 'none' : '0 0 20px rgba(255, 255, 255, 0.5)',
             textAlign: 'center',
-            transition: 'color 0.1s'
+            transition: 'color 0.1s',
+            whiteSpace: 'normal',
+            wordWrap: 'break-word',
+            maxWidth: '100%',
+            padding: '0 10px',
+            margin: 0
           }}>
             {currentTopic || "Select a category and click 'Spin'!"}
           </h3>
