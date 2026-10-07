@@ -1,381 +1,230 @@
-# Writing Skills
-**Week 5 · Communicative English**
-
-*Today we move from understanding grammar to **using it** — in structured, professional written form.*
+# Unit 4: Writing Skills
+*Paragraphs, Letters, Reports, and Emails*
 
 ---
 
-# Agenda for Today
+# Class 1: Principles of Paragraph Writing
+*Methodology: Guided Discovery*
 
-*   **Topic 1:** Paragraphs — Structure, Template, Example, Activity
-*   **Topic 2:** Letters — Format, Types, Example, Activity
-*   **Topic 3:** Reports — Structure, Tone, Example, Activity
-*   **Final Activity:** Drafting Professional Emails
+**Lead-in:** Look at the two texts below. Which one is easier to read? Why?
 
----
+*   **Text A:** Aviation is a fast-growing industry. Many people want to be pilots. It requires a lot of training. The planes are very expensive. I like flying. Airports are busy places.
+*   **Text B:** The aviation industry has experienced rapid growth over the past decade, driven by increased global connectivity. To meet this demand, airlines are investing heavily in new fleets and advanced crew training. Consequently, airports are expanding their infrastructure to handle the surge in daily passengers.
 
-# Topic 1: What is a Paragraph?
-
-A paragraph is a **group of sentences that develops one single idea**.
-
-Every good paragraph has **three components:**
-
-| Component | Role | Analogy |
-|---|---|---|
-| **Topic Sentence** | States the main idea | The captain announces the destination |
-| **Supporting Sentences** | Evidence, examples, details | The flight route and checkpoints |
-| **Concluding Sentence** | Wraps up or transitions | Landing announcement |
-
-> **The rule:** One paragraph = One idea. The moment you shift to a new idea, you start a new paragraph.
+**Guiding Questions:**
+1. What is the central idea of Text B? Where is it stated?
+2. How do the sentences in Text B connect to each other?
 
 ---
 
-# Paragraph: The Template
+# The Anatomy of a Paragraph
 
-```
-[Topic Sentence — state the main idea clearly]
+Through our comparison, we discovered the three essential parts of a structured paragraph:
 
-[Supporting Sentence 1 — first point or evidence]
-[Supporting Sentence 2 — second point or elaboration]
-[Supporting Sentence 3 — example or detail]
+1.  **The Topic Sentence:** States the main idea (usually the first sentence).
+2.  **Supporting Sentences:** Provide facts, reasons, or examples to develop the main idea.
+3.  **The Concluding Sentence:** Summarizes the paragraph or transitions to the next topic.
 
-[Concluding Sentence — summarise or link to the next idea]
-```
-
-**Grammar Nuances to Remember:**
-*   Use **varied sentence types** — mix simple, compound, and complex.
-*   Avoid starting every sentence with "I" or the same word.
-*   Use **transition words**: *Furthermore, However, As a result, In addition, Therefore.*
-*   **Tense consistency** — if you start in past tense, stay in past tense throughout.
+**Concept Check:** Read the following sentence. Is it a Topic Sentence or a Supporting Sentence?
+*"For instance, the Boeing 787 utilizes lightweight composite materials to reduce fuel consumption."*
 
 ---
 
-# Paragraph: Aviation Example
+# Cohesion and Transition Words
 
-> **Topic:** Why communication is critical in aviation.
+To make your sentences flow logically (like Text B), you need transition words.
 
-**The ability to communicate clearly is the most important non-technical skill in aviation.** In high-pressure situations, a single misunderstood instruction can lead to catastrophic consequences. For example, the 1977 Tenerife airport disaster — the deadliest in aviation history — was caused partly by a breakdown in radio communication between the cockpit crew and air traffic control. Furthermore, everyday operations such as crew briefings, passenger announcements, and handover reports all depend on precise, unambiguous language. **Therefore, every aviation professional must treat written and spoken communication not as a soft skill, but as a core operational competency.**
+*   **To add information:** Furthermore, Additionally, Moreover.
+*   **To show contrast:** However, On the other hand, Conversely.
+*   **To show cause/effect:** Consequently, Therefore, As a result.
 
----
-
-```writing-activity
-title: Write a Paragraph
-type: paragraph
-- "The one habit that has genuinely improved my life."
-- "My favourite meal — and why food is never just about food."
-- "The best piece of advice I have ever received."
-- "What I wish I had known before starting college."
-- "The last time I was surprised by how wrong my first impression was."
-- "A place I have visited that I think about often."
-- "The difference between being alone and being lonely."
-- "Something I am better at than most people think."
-- "What I would do with a completely free, unplanned day."
-- "The person in my life who changed how I see the world."
-- "Why saying 'I don't know' takes more courage than pretending to know."
-- "The thing I find hardest to explain to people who don't know me well."
-* Write **5–7 sentences** as a structured paragraph.
-* Use the **Topic → Supporting → Concluding** template.
-* You have **8 minutes.**
-```
+**Activity:** Take 5 minutes to rewrite "Text A" from the first slide, using proper structure and at least two transition words.
 
 ---
 
-# Activity: Grammar Analysis — Your Paragraph
+# Class 2: Formal and Informal Letter Writing
+*Methodology: TTT (Test, Teach, Test)*
 
-After writing, go back through your paragraph and identify:
+**Test 1 (5 mins):** 
+Write a short letter (3-4 sentences) to a friend apologising for missing their birthday party.
+*Now,* write a short letter to your college principal apologising for missing a mandatory examination.
 
-*   📌 **Parts of Speech** — underline one example each of: Noun, Pronoun, Verb, Adjective, Adverb, Preposition, Conjunction, Interjection.
-*   🔗 **Sentence Types** — label each sentence: Simple / Compound / Complex / Compound-Complex.
-*   🔄 **Verbs** — list every verb used. Write its **V2** and **V3** form.
-*   ✅ **V3 Usage** — highlight any sentence where you used a V3 (past participle with *has/have/had*).
-
----
-
-# Topic 2: What is a Letter?
-
-A **formal letter** is a structured written document addressed to a specific person or organisation for a specific purpose.
-
-**Three types you must know:**
-
-| Type | Purpose | Aviation Context |
-|---|---|---|
-| **Formal Letter** | Official, institutional communication | Leave application, complaint to airline |
-| **Semi-Formal** | Professional but personal tone | Thanking a mentor, referral request |
-| **Informal** | Personal, conversational | Congratulating a colleague |
-
-> In aviation management and hospitality, you will almost always write **formal or semi-formal** letters.
+**Review:** What changed? The tone, the vocabulary, and the structure.
 
 ---
 
-# Letter: The Format (Formal)
+# Teach: The Formal Business Letter
 
-```
-Your Name
-Your Address
-Date
+In professional settings, letters follow a strict standard format.
 
-Recipient's Name & Designation
-Organisation Name
-Organisation Address
+**Standard Format (Block Style):**
+1. **Sender's Details** (Top left)
+2. **Date**
+3. **Recipient's Details**
+4. **Salutation:** *Dear Mr. Sharma,* or *To Whom It May Concern,*
+5. **Body Paragraphs:** Introduction (Purpose), Body (Details), Conclusion (Action required).
+6. **Sign-off:** *Yours sincerely,* (if you know the name), *Yours faithfully,* (if you don't).
 
-Subject: [One clear line — what is this letter about?]
-
-Dear [Mr./Ms./Dr. Last Name],
-
-[Opening Paragraph — state purpose directly]
-
-[Body Paragraph 1 — main point / context]
-[Body Paragraph 2 — details / evidence / request]
-
-[Closing Paragraph — action required or next step]
-
-Yours sincerely,
-[Your Signature]
-[Your Name]
-```
-
-**Grammar Nuances to Remember:**
-*   Use **formal vocabulary** — avoid contractions (*don't → do not, I'm → I am*).
-*   Subject line must be **short and factual** — not a sentence.
-*   "Yours sincerely" — when you know the name. "Yours faithfully" — when you don't.
-*   Every paragraph should have **one clear purpose.**
+**Tone & Style:** Formal, objective, no contractions (e.g., use *do not* instead of *don't*), and polite.
 
 ---
 
-# Letter: Aviation Example
+# Test 2: Writing an Inquiry Letter
 
-**Scenario:** A ground handling manager writing to the airport authority requesting a change in shift timings.
+**The Task:**
+You are a Ground Handling Executive at a major airport. Write a formal letter to a supplier (AeroTech Supplies) inquiring about the delayed delivery of 5 baggage tugs that were ordered last month.
 
----
+*   Use the Block Style format.
+*   Apply formal tone and style.
+*   You have 15 minutes.
 
-*Riya Sharma*
-*Ground Operations Manager, SkyLine Handling Services*
-*29 September 2026*
-
-*Airport Authority of India*
-*Kempegowda International Airport, Bengaluru*
-
-**Subject: Request for Revision of Ground Crew Shift Timings**
-
-*Dear Sir/Madam,*
-
-*I am writing on behalf of SkyLine Handling Services to formally request a revision in the approved shift timings for our ground crew personnel at Terminal 2.*
-
-*Currently, our crew operates on a 06:00–14:00 and 14:00–22:00 split. However, due to the recent addition of three international red-eye flights scheduled between 02:00 and 05:00, this arrangement leaves a critical operational gap. We respectfully request that a third shift window of 22:00–06:00 be approved to ensure seamless turnaround support.*
-
-*We are happy to submit a revised staffing plan and conduct a joint review at your earliest convenience. I can be reached at riya.sharma@skyline.co.in.*
-
-*Yours sincerely,*
-*Riya Sharma*
+*Peer Review: Swap with a partner. Did they include a clear Call to Action in the conclusion?*
 
 ---
 
-```writing-activity
-title: Write a Letter
-type: letter
-- "Request your college library to extend its working hours during exam season."
-- "Write to your landlord about a recurring water supply issue in your accommodation."
-- "Thank a teacher from school who made a lasting difference to how you think."
-- "Request your college to organise a student mental health awareness workshop."
-- "Write to a local newspaper responding to an article you felt was inaccurate."
-- "Request a leave of absence from college due to a family event you cannot postpone."
-- "Write to a company requesting permission to visit their workplace for a study project."
-- "Nominate a classmate for a 'Student of the Month' award, explaining your reasons."
-- "Write to the college canteen management requesting healthier food options."
-- "Formally request your HOD to introduce a guest speaker series this semester."
-* Follow the **full formal letter format** (address, date, subject, body, sign-off).
-* Keep it to **3 paragraphs** (opening, body, closing).
-* You have **10 minutes.**
-```
+# Class 3: Professional Email Writing
+*Methodology: Task-Based Learning (TBL)*
 
----
-
-# Activity: Grammar Analysis — Your Letter
-
-After writing, analyse your letter:
-
-*   📌 **Parts of Speech** — identify at least **2 examples each** of: Noun, Verb, Adjective, Adverb, Conjunction, Preposition.
-*   🔗 **Sentence Types** — can you find one Complex sentence in your letter? If not, revise one sentence to make it complex.
-*   🔄 **Verbs** — list all verbs. Write their V2 and V3 forms.
-*   ✅ **V3 Usage** — did you use any perfect tense? (*has been, have requested, had confirmed*) If not, revise one sentence to include it.
-
----
-
-# Topic 3: What is a Report?
-
-A **report** is a formal document that **presents findings, analysis, and recommendations** based on observed facts or data.
-
-Unlike a letter (which asks or informs), a report **investigates and evaluates.**
-
-**Common types in aviation:**
-
-| Report Type | Purpose |
-|---|---|
-| **Incident Report** | Document a safety event or near-miss |
-| **Inspection Report** | Record findings of an audit or check |
-| **Progress Report** | Update on a project or training programme |
-| **Analytical Report** | Examine a problem and suggest solutions |
-
----
-
-# Report: The Structure
-
-```
-TITLE: [Clear, factual title]
-DATE: [Date of report]
-PREPARED BY: [Your name and designation]
-SUBMITTED TO: [Recipient's name and designation]
-
-1. OBJECTIVE / PURPOSE
-   [Why was this report written? One or two sentences.]
-
-2. BACKGROUND / CONTEXT
-   [What situation or event led to this report?]
-
-3. FINDINGS / OBSERVATIONS
-   [What was observed, measured, or discovered? Use bullet points for clarity.]
-
-4. ANALYSIS
-   [What do the findings mean? Patterns, causes, implications.]
-
-5. RECOMMENDATIONS
-   [What should be done next? Be specific.]
-
-6. CONCLUSION
-   [One paragraph summarising the report's key message.]
-```
-
-**Grammar Nuances to Remember:**
-*   Reports are written in the **third person** — never "I think." Use: *"It is recommended," "The data suggests," "The committee observed."*
-*   Use **passive voice** for objectivity: *"The inspection was conducted," not "I conducted the inspection."*
-*   Headings must be **numbered and bold.**
-*   Be **specific** — use numbers, dates, and names wherever possible.
-
----
-
-# Report: Aviation Example
-
-**INCIDENT REPORT**
-**Date:** 15 September 2026
-**Prepared by:** Arjun Mehta, Ramp Safety Officer
-**Submitted to:** Head of Ground Safety, Bengaluru Hub
-
-**1. Objective**
-This report documents a near-miss incident involving a baggage tug and a parked narrow-body aircraft on the eastern apron of Terminal 1.
-
-**2. Background**
-At approximately 14:35 IST, a baggage tug (Unit BT-07) was observed moving at excess speed in Taxiway Delta. The adjacent aircraft (Flight 6E-401) had not yet completed its pushback, and its tail section was partially within the tug's path.
-
-**3. Findings**
-*   The tug was travelling at an estimated 18 km/h in a zone marked 10 km/h.
-*   The tug operator had not received the updated aircraft positioning notice.
-*   No ground marshal was present in the immediate vicinity at the time.
-
-**4. Analysis**
-The incident resulted from a combination of inadequate speed compliance and a communication gap in the pre-movement briefing. The absence of a visible marshal further reduced the safety margin.
-
-**5. Recommendations**
-*   Mandatory speed compliance checks must be implemented via tug telemetry.
-*   Pre-movement briefings must include real-time aircraft positioning updates.
-*   A minimum of one certified marshal must be stationed in Taxiway Delta during peak hours.
-
-**6. Conclusion**
-While no collision occurred, this incident highlights systemic gaps in ramp safety communication. Immediate corrective action is recommended to prevent recurrence.
-
----
-
-```writing-activity
-title: Write a Report
-type: report
-- "The college canteen does not follow hygiene standards — document your observations."
-- "Report on irregular attendance patterns observed in your class over the past month."
-- "A fire exit door in the college building has been found blocked for three consecutive days."
-- "Report on the outcome and key learnings from a guest lecture you attended."
-- "Report on poor Wi-Fi connectivity affecting online learning in your classroom."
-- "The college parking area is causing safety concerns — investigate and report."
-- "Report on the results of a class survey on preferred learning methods."
-- "Document observations from a community event or college fest you participated in."
-- "Report on a noise or cleanliness issue in a shared college space (library, lab, canteen)."
-- "A student safety concern was raised during a hostel fire drill — write a formal report."
-* Use the **6-section structure** (Objective, Background, Findings, Analysis, Recommendations, Conclusion).
-* Keep it **factual and objective** — third person only.
-* You have **12 minutes.**
-```
-
----
-
-# Activity: Grammar Analysis — Your Report
-
-After writing your report:
-
-*   📌 **Parts of Speech** — Find examples of a **Proper Noun, a Group Noun, an Adverb, and a Preposition** in your report.
-*   🔗 **Sentence Types** — Reports should use complex sentences. Identify **2 complex sentences** in your report.
-*   🔄 **Verbs** — Were any verbs used in **passive voice?** List them. *(e.g., "was observed," "were informed")*
-*   ✅ **V3 Usage** — Circle every V3 (past participle) in your report. Which "family" does each belong to?
-
----
-
-# Final Activity: Professional Email ✉️
-
-An email is a **letter in digital format** — but it demands even more economy of words.
+**Pre-task (3 mins):** 
+An email is a digital letter, but it demands even more economy of words. What is the most important part of an email that determines if it gets opened? *(Answer: The Subject Line)*
 
 **The Email Formula:**
-
-| Part | What to Write |
-|---|---|
-| **Subject Line** | Specific + brief. Not "Important" — but "Request: Rescheduling of Practical Exam — Section B" |
-| **Greeting** | "Dear [Name]," — never "Hey" or no greeting |
-| **Opening Line** | State purpose immediately. No small talk. |
-| **Body** | 2–3 focused sentences per point. |
-| **Call to Action** | What do you need them to do? Be explicit. |
-| **Sign-off** | "Best regards," / "Yours sincerely," + Full name |
-
-**Grammar Nuances:**
-*   One idea per email. If you have two separate requests — write two emails.
-*   Avoid **exclamation marks** and **emojis** in formal email.
-*   Always **proofread** before sending — spell check misses homophones *(their/there, affect/effect)*.
+*   **Subject Line:** Specific + brief. (e.g., "Request: Rescheduling of Practical Exam")
+*   **Opening Line:** State purpose immediately.
+*   **Body:** 2–3 focused sentences per point. Bullet points are encouraged.
+*   **Call to Action:** What do you need them to do?
 
 ---
+
+# Task Cycle: Email Application
 
 ```writing-activity
 title: Write a Professional Email
 type: email
 - "You missed a class due to a family emergency — inform your faculty and request the notes you missed."
 - "Email your project group members with an update on your individual progress for the assignment."
-- "Apologise to a faculty member for submitting an assignment two days late."
+- "Apologize to a faculty member for submitting an assignment two days late."
 - "Request a meeting with your academic advisor to discuss your workload this semester."
-- "Email a classmate who is unwell, sharing a summary of what they missed in today's class."
-- "Write to your college's student services team requesting information about a scholarship."
 - "Inform your subject teacher that the projector in your classroom has not been working for a week."
-- "Email a teacher requesting an extension on a submission deadline, with a genuine reason."
-- "Write to your college sports coordinator to register interest in joining a club or team."
-- "Email a faculty member to thank them for a session that genuinely helped you understand something better."
 * Maximum **150 words.**
 * Include: a clear **subject line**, formal **greeting**, **3 focused paragraphs**, formal **sign-off**.
-* You have **8 minutes.**
+* You have **15 minutes.**
 ```
 
 ---
 
-# Grammar Analysis: Email Edition
+# Review: Grammar and Nuance
 
-Once your email is written:
-
-*   📌 **Parts of Speech** — identify the **conjunction** and **preposition(s)** you used.
-*   🔗 **Sentence Types** — Is your opening line a Simple sentence? Could you improve it to a Complex sentence?
-*   🔄 **Verbs** — List all verbs. Categorise: Regular or Irregular? Write V2 and V3.
-*   ✅ **V3 Usage** — Did you write "I have attached," "I have informed," "I had missed"? These are perfect tense constructions using V3. Find them.
+*   **One idea per email:** If you have two separate requests, write two emails.
+*   **Proofread:** Spell check misses homophones *(their/there, affect/effect)*.
+*   **Grammar Check:** Identify the verbs in your email. Are they in the correct tense? Did you use V3 correctly (e.g., "I have attached")?
 
 ---
 
-# Wrap-Up: The Writing Checklist
+# Class 4: Advanced Email Scenarios
+*Methodology: Task-Based Learning (TBL)*
 
-Before you submit any piece of writing, run through this:
+**Pre-task:** 
+How do you write an email when you have to deliver bad news, or when the customer is irate? 
 
-*   ☐ **Purpose is clear** — the reader knows exactly what this is about within the first sentence.
-*   ☐ **One idea per paragraph** — no topic-hopping mid-paragraph.
-*   ☐ **Tense is consistent** — no random shifts from past to present.
-*   ☐ **Formal vocabulary** — no contractions, no slang.
-*   ☐ **Subject-verb agreement** — especially watch group nouns.
-*   ☐ **V3 correctly placed** — always after a helper verb (*has, have, had, been*).
-*   ☐ **Proofread once** — out loud if possible. Your ear catches what your eye misses.
+**The Strategy:**
+1. **Acknowledge & Validate:** "We received your complaint regarding the delayed flight."
+2. **Explain objectively:** "Due to severe weather, air traffic control grounded all outbound flights."
+3. **Offer a solution/alternative:** "We have rebooked you on the earliest available flight."
+
+---
+
+# Task Cycle: The Crisis Email
+
+```writing-activity
+title: Advanced Email Scenarios
+type: email
+- "A passenger is furious that their premium baggage was damaged. Write an email offering a compensation claim form."
+- "Write an email to a vendor cancelling a large catering order due to a sudden drop in flight bookings."
+- "Persuade your manager to approve your leave request during the busiest week of the holiday season."
+* Maintain a **calm, professional tone.**
+* Do not place blame; focus on the solution.
+* You have **15 minutes.**
+```
+
+---
+
+# Review: Analyzing Tone
+
+Let's review a few submissions on the projector.
+*   Did the email sound defensive? 
+*   Was the bad news hidden at the bottom, or stated clearly?
+*   Did the sender take ownership of the solution?
+
+---
+
+# Class 5: Fundamentals of Report Writing
+*Methodology: Guided Discovery*
+
+**Lead-in:** Look at the sample report provided. What makes this different from an essay or a letter?
+
+**INCIDENT REPORT**
+**Date:** 15 September 2026
+**Prepared by:** Arjun Mehta, Ramp Safety Officer
+**Submitted to:** Head of Ground Safety
+
+**1. Objective:** This report documents a near-miss incident involving a baggage tug...
+**2. Background:** At approximately 14:35 IST, a baggage tug was observed...
+**3. Findings:** The tug was travelling at an estimated 18 km/h...
+**4. Analysis:** The incident resulted from inadequate speed compliance...
+**5. Recommendations:** Mandatory speed compliance checks must be implemented...
+
+**Guiding Questions:**
+1. What tense is used?
+2. Are there any personal opinions ("I think")?
+
+---
+
+# The Rules of Report Writing
+
+Through our discovery, we found the key rules:
+*   Reports are written in the **third person** — never "I think." Use: *"It is recommended," "The data suggests."*
+*   Use **passive voice** for objectivity: *"The inspection was conducted," not "I conducted the inspection."*
+*   Headings must be **numbered and bold.**
+*   Be **specific** — use numbers, dates, and names.
+
+---
+
+# Practice: Passive Voice Conversion
+
+Convert these subjective, active sentences into objective, passive report sentences:
+
+1. "I saw the catering truck hit the aircraft wing."
+2. "We need to fix the broken seatbelt in row 12."
+3. "The pilot told me the weather was too bad to fly."
+
+---
+
+# Class 6: Report Application & Exam Prep
+*Methodology: TBL + Assessment Review*
+
+**The Application Task:**
+
+```writing-activity
+title: Write an Incident Report
+type: report
+- "The college canteen does not follow hygiene standards — document your observations."
+- "Report on a noise or cleanliness issue in a shared college space (library, lab, canteen)."
+- "A fire exit door in the college building has been found blocked for three consecutive days."
+* Use the **6-section structure** (Objective, Background, Findings, Analysis, Recommendations, Conclusion).
+* Keep it **factual and objective** — third person only.
+* You have **20 minutes.**
+```
+
+---
+
+# Exam Preparation: Writing Skills
+
+**How you will be assessed in the Internal Assessment & Semester End Exam:**
+
+1.  **Format & Structure (30%):** Did you use the correct block format for letters? Does your report have all 6 sections?
+2.  **Clarity & Conciseness (30%):** Are your sentences direct? Is there a clear topic sentence in your paragraphs?
+3.  **Grammar & Mechanics (20%):** Proper use of passive voice in reports, correct tenses, subject-verb agreement.
+4.  **Tone & Vocabulary (20%):** Is it appropriately formal? Did you avoid slang and contractions?
+
+**Top Exam Tip:** Always spend 2 minutes outlining your points before you start writing, and 2 minutes proofreading before you submit.
