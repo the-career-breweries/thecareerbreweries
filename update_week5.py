@@ -1,4 +1,6 @@
-# SEASON 1 • EPISODE 5
+import os
+
+content = """# SEASON 1 • EPISODE 5
 ## The Fundamentals of Active Listening
 *Hearing vs. Listening in the Aviation Industry*
 
@@ -89,3 +91,18 @@ Your Task: Use S.O.F.T.E.N. and the H.E.A.R.T. model to de-escalate. Practice pa
 
 ```qrcode
 ```
+"""
+
+files = [
+    r"curriculum-app\src\content\lessons\pg\mba\sem1\week5.md",
+    r"curriculum-app\src\content\lessons\pg\mcom\sem1\week5.md",
+    r"curriculum-app\src\content\lessons\ug\bba-aviation\sem1\week5.md",
+    r"curriculum-app\src\content\lessons\ug\bsc-aviation\sem1\week5.md",
+    r"curriculum-app\src\content\lessons\ug\shared\sem1\week5.md"
+]
+
+for f in files:
+    if os.path.exists(f):
+        with open(f, 'w', encoding='utf-8') as out:
+            out.write(content)
+        print(f"Updated {f}")
