@@ -1,28 +1,35 @@
-# Listening & Speaking
-Welcome to Week 6. Today we focus heavily on **Pronunciation**, the foundation of clear communication, especially in high-stakes environments like aviation.
+# Listening & Speaking Skills
+*Pronunciation, Conversation, and Active Listening*
 
 ---
 
 # Agenda for Today
 
-*   **Topic 1:** Introduction to Pronunciation
-*   **Topic 2:** The Impact of Mispronunciation
-*   **Activity:** Pronunciation Roulette (Spin the Wheel)
-*   **Topic 3:** Conversation & Role Play
+*   **Part 1:** Fundamentals of Active Listening
+*   **Part 2:** Phonetics and Pronunciation
+*   **Activity:** Pronunciation Roulette
+*   **Part 3:** Professional Speaking in Aviation
+*   **Part 4:** Role Play & Conflict Resolution
 
 ---
 
-# Introduction to Pronunciation
+# Part 1: Fundamentals of Active Listening
 
-Let's break down the foundational aspects of this topic.
+Listening is a psychological choice, whereas hearing is just a biological function.
 
-*   **What is it?** This is a critical skill for professional communication.
-*   **Why does it matter?** In the aviation industry, clarity and precision are non-negotiable.
-*   **How do we use it?** We apply these principles in daily operational tasks.
+**The S.O.F.T.E.N. Technique for Active Listening:**
+*   **S**mile (When appropriate)
+*   **O**pen posture (No crossed arms)
+*   **F**orward lean
+*   **T**ouch (A professional handshake)
+*   **E**ye Contact
+*   **N**od (Validate you are listening)
+
+*Focus on paraphrasing and summarizing to confirm understanding when a passenger speaks to you.*
 
 ---
 
-# The Impact of Mispronunciation
+# Part 2: The Impact of Mispronunciation
 
 Pronunciation mistakes can range from slightly embarrassing to entirely changing the meaning of a critical message. Watch these examples:
 
@@ -40,6 +47,7 @@ Pronunciation mistakes can range from slightly embarrassing to entirely changing
 ---
 
 # LET THE PRACTICE BEGIN
+*Focus on vowel and consonant sounds, sentence intonation, and fixing common pronunciation errors.*
 
 ```pronunciation-wheel
 Entrepreneur
@@ -70,23 +78,25 @@ Yacht
 
 ---
 
-# Deep Dive: Conversation
+# Part 3: Everyday Conversation & Professional Speaking
 
-Here we explore the nuances that differentiate good communicators from great ones.
+**Small Talk and Building Rapport:**
+*   Professional greetings and introductions set the tone.
+*   Use open-ended questions to build rapport, and closed questions for quick facts.
 
-*   **Tailor the Message:** Always ensure your message is adapted to your audience (e.g., passenger vs. ATC).
-*   **Avoid Pitfalls:** Avoid jargon when speaking to the general public.
-*   **Pro Tip:** Practice consistently to build muscle memory in your communication style.
+**Professional Aviation Speaking:**
+*   **PA Announcements:** Require clear voice modulation, steady pacing, and absolute clarity.
+*   **High-Noise Environments:** Enunciate and project your voice without shouting.
 
 ---
 
-# Activity: Role Play Scenarios
+# Part 4: Customer Service Role Play
 
-**Instructions:** Work with a partner. Take turns playing the role of the Aviation Professional and the Passenger. Focus strictly on **clear pronunciation** and **tone**.
+**Instructions:** Work with a partner. Take turns playing the Aviation Professional and the Passenger. Focus on **active listening**, **clear pronunciation**, and **de-escalation techniques**.
 
 **Scenario 1: The Frustrated Flyer**
 A passenger is upset because their flight has been delayed by 3 hours due to technical issues.
-*   **Professional:** Explain the delay calmly, enunciate clearly, and offer a refreshment voucher.
+*   **Professional:** Explain the delay calmly, enunciate clearly, use the S.O.F.T.E.N technique, and offer a refreshment voucher.
 *   **Passenger:** Express frustration and ask about connecting flights.
 
 **Scenario 2: The Lost Baggage**
@@ -94,4 +104,4 @@ A passenger has arrived at the destination, but their baggage is missing.
 *   **Professional:** Ask for flight details and baggage tags. Guide them through the PIR (Property Irregularity Report) process using clear instructions.
 *   **Passenger:** You are stressed and speaking very quickly.
 
-*   *Remember:* The goal is progress, not perfection. Take 10 minutes to complete this exercise.
+---

@@ -1,4 +1,6 @@
-# Listening & Speaking Skills
+import os
+
+content = """# Listening & Speaking Skills
 *Pronunciation, Conversation, and Active Listening*
 
 ---
@@ -105,3 +107,15 @@ A passenger has arrived at the destination, but their baggage is missing.
 *   **Passenger:** You are stressed and speaking very quickly.
 
 ---
+"""
+
+files = [
+    r"curriculum-app\src\content\english-lessons\ug\bba-aviation\sem1\week6.md",
+    r"curriculum-app\src\content\english-lessons\ug\bsc-aviation\sem1\week6.md"
+]
+
+for f in files:
+    if os.path.exists(f):
+        with open(f, 'w', encoding='utf-8') as out:
+            out.write(content)
+        print(f"Updated {f}")

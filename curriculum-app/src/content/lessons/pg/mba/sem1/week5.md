@@ -1,91 +1,61 @@
-# SEASON 1 • EPISODE 5
-## The Fundamentals of Active Listening
-*Hearing vs. Listening in the Aviation Industry*
+# MBA Semester 1: Professional Speaking & Executive Presence
 
-▶   **PLAY EPISODE**
 
----
 
-# Why are we doing this?
 
-**The Hidden Metric:** Crisis Management, Empathy, and Information Accuracy.
-
-**The Arena:** 
-*   **Customer Service Scenarios:** De-escalating an irate passenger who missed a flight.
-*   **Operational Briefings:** Catching critical safety details in a noisy briefing room.
-*   **Interviews:** Demonstrating emotional intelligence and situational awareness.
-
-*Aviation is an industry of disruptions. Your career ceiling is determined by how well you truly listen to others.*
+Executive presence is the aura of confidence, poise, and authenticity that commands respect in a room. It is not about being the loudest; it is about being the most impactful.
 
 ---
 
-# Hearing vs. Listening
+## 1. The Components of Executive Presence
 
-**Hearing** is a biological function. It happens automatically. 
-**Listening** is a psychological choice. It requires effort and focus.
+*   **Gravitas:** How you act. Can you project confidence under pressure? Do you remain calm in a crisis?
+*   **Communication:** How you speak. Do you speak with clarity? Do you use pregnant pauses effectively? Are you concise?
+*   **Appearance:** How you look. This goes beyond wearing a suit; it is about posture, eye contact, and grooming.
 
-**Barriers to Effective Listening in Aviation:**
-1. **Physical Noise:** Jet engines, terminal announcements, radios.
-2. **Mental Distractions:** Stress about turnaround times, personal issues.
-3. **Prejudice:** Judging the passenger before they finish speaking.
-4. **Formulating:** Thinking about your reply instead of listening to their problem.
-
----
-
-# The S.O.F.T.E.N. Technique
-*Active listening isn't just about your ears; it's about your body language.*
-
-*   **S**mile (When appropriate, not during a tragedy)
-*   **O**pen posture (No crossed arms, no hiding hands behind your back)
-*   **F**orward lean (Shows you are engaged and listening)
-*   **T**ouch (A firm handshake to build instant trust)
-*   **E**ye Contact (Steady, but break it naturally every few seconds)
-*   **N**od (Validates that you hear them without interrupting)
-
----
-
-# The H.E.A.R.T. Model
-*How to listen and respond when things go wrong.*
-
-*   **H**ear: Listen without interrupting. Let them vent the pressure.
-*   **E**mpathize: Acknowledge their tone and emotional cues. *"I can see why this is so frustrating."*
-*   **A**pologize: Say sorry for the *situation*, even if it's not your fault. 
-*   **R**esolve: Paraphrase their issue to confirm understanding, then offer options.
-*   **T**hank: Thank them for their patience.
-
----
-
-# Paraphrasing to Confirm
-
-**The Strategy:** Don't just parrot back what they said. Summarize the core issue and the emotion.
-
-**Passenger:** "I've been waiting for an hour! No one is telling me anything about my connecting flight to Dubai, and if I miss my meeting, I'm going to lose my job!"
-
-**Poor Response:** "Calm down, sir. The flight is delayed."
-**Active Listening Response:** "So if I understand correctly, you're incredibly anxious because the lack of updates is risking your crucial meeting in Dubai. Is that right? Let me check the exact status for you."
-
----
-
-# LIVE SIMULATION
-
-```sentence-activity
-Scenario: A Platinum member is highly agitated because their gate was changed at the last minute and they almost missed the flight. 
-Your Task: Use S.O.F.T.E.N. and the H.E.A.R.T. model to de-escalate. Practice paraphrasing their frustration.
+### The Communication Pyramid
+```mermaid
+flowchart LR
+    A[The Core Message] --> B[Supporting Data & Logic]
+    B --> C[Vocal Tone & Pacing]
+    C --> D[Body Language & Posture]
 ```
 
-**Actor 1:** The Furious Passenger
-**Actor 2:** The Ground Manager
+---
 
-*Action!*
+## 2. Voice Modulation and Pacing
+
+
+
+
+A monotone voice puts boardrooms to sleep. 
+*   **Pacing:** Speak slower than you think you should. Silence is powerful.
+*   **Pitch:** Avoid "up-talk" (ending statements like questions).
+*   **Volume:** Project from your diaphragm, not your throat.
 
 ---
 
-### END CREDITS
+## Activity: The Structured Oral Brief
 
-*   Did you formulate your reply while they were still speaking?
-*   Did your body language match your words?
 
-*Next Episode: Phonetics and Pronunciation...*
 
-```qrcode
-```
+
+Deliver a 2-minute, highly structured oral brief on a complex business topic to the class, focusing on executive presence.
+
+<!-- PRINT: PG_OralBrief -->
+
+
+
+
+
+---
+
+## Executive Interpersonal Skills: Advanced Conflict Resolution
+
+
+
+Conflict in high-level research teams or intensive PG projects is not inherently bad; *constructive* conflict generates creative problem-solving. *Destructive* conflict polarizes the cohort.
+*   **The Win-Win Strategy**: Requires absolute belief that cooperation trumps competition, and that prior academic status does not entitle one student to impose solutions on the group.
+
+<!-- PRINT_SLIDE -->
+
