@@ -4,7 +4,6 @@
 ---
 
 # Class 1: Principles of Paragraph Writing
-*Methodology: Guided Discovery*
 
 **Lead-in:** Look at the two texts below. Which one is easier to read? Why?
 
@@ -43,7 +42,6 @@ To make your sentences flow logically (like Text B), you need transition words.
 ---
 
 # Class 2: Formal and Informal Letter Writing
-*Methodology: TTT (Test, Teach, Test)*
 
 **Test 1 (5 mins):** 
 Write a short letter (3-4 sentences) to a friend apologising for missing their birthday party.
@@ -83,7 +81,6 @@ You are a Ground Handling Executive at a major airport. Write a formal letter to
 ---
 
 # Class 3: Professional Email Writing
-*Methodology: Task-Based Learning (TBL)*
 
 **Pre-task (3 mins):** 
 An email is a digital letter, but it demands even more economy of words. What is the most important part of an email that determines if it gets opened? *(Answer: The Subject Line)*
@@ -122,7 +119,6 @@ type: email
 ---
 
 # Class 4: Advanced Email Scenarios
-*Methodology: Task-Based Learning (TBL)*
 
 **Pre-task:** 
 How do you write an email when you have to deliver bad news, or when the customer is irate? 
@@ -159,7 +155,6 @@ Let's review a few submissions on the projector.
 ---
 
 # Class 5: Fundamentals of Report Writing
-*Methodology: Guided Discovery*
 
 **Lead-in:** Look at the sample report provided. What makes this different from an essay or a letter?
 
@@ -201,7 +196,6 @@ Convert these subjective, active sentences into objective, passive report senten
 ---
 
 # Class 6: Report Application & Exam Prep
-*Methodology: TBL + Assessment Review*
 
 **The Application Task:**
 

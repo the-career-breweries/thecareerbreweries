@@ -4,7 +4,6 @@
 ---
 
 # Class 1: Fundamentals of Active Listening
-*Methodology: Receptive Skills Framework*
 
 **Lead-in:** Have you ever spoken to someone who was looking at their phone and saying "Uh-huh"? Were they hearing you, or listening to you?
 
@@ -41,7 +40,6 @@ Active listening isn't just about your ears; it's about your body language.
 ---
 
 # Class 2: Phonetics & Pronunciation
-*Methodology: Task-Based Learning (TBL)*
 
 **Pre-task:** Pronunciation mistakes can range from slightly embarrassing to entirely changing the meaning of a critical message. Watch this example:
 
@@ -99,7 +97,6 @@ Yacht
 ---
 
 # Class 3: Everyday Conversation Practice
-*Methodology: Guided Discovery*
 
 **Lead-in:** Think about a time a stranger made small talk with you. What made it comfortable or awkward?
 
@@ -125,7 +122,6 @@ In professional settings, you will often need to disagree or say no.
 ---
 
 # Class 4: Professional Speaking in Aviation
-*Methodology: TTT (Test, Teach, Test)*
 
 **Test 1 (5 mins):** 
 Read this PA announcement to the class as fast and loud as you can: 
@@ -149,7 +145,6 @@ Read this PA announcement to the class as fast and loud as you can:
 ---
 
 # Class 5: Customer Service Role Play
-*Methodology: Task-Based Learning (TBL)*
 
 **Pre-task:** We are combining Active Listening (S.O.F.T.E.N, Paraphrasing) with Professional Speaking (Tone, Pacing). 
 
@@ -179,7 +174,6 @@ A passenger's baggage is missing.
 ---
 
 # Class 6: Conflict Resolution & Exam Prep
-*Methodology: Assessment Review*
 
 **Application:** Live Role Play Grading
 Volunteers will perform their roleplay in front of the class. The class will grade them based on:
