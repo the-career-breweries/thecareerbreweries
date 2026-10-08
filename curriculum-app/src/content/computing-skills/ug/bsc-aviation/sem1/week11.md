@@ -17,7 +17,7 @@ Welcome to Session 11. Today we will be covering the following topics:
 
 # 3.1.1 MS Excel interface: Workbooks and Worksheets
 
-![Blank Excel Workbook](/images/excel-blank-workbook.png)
+![Labelled Excel Workbook](/images/excel-labelled-workbook.png)
 
 * **The Ribbon:** The tabbed toolbar at the top (File, Home, Insert, etc.) containing all commands.
 * **Name Box (Address Bar):** Located top-left. Shows the active cell's address (e.g., `A1`). When selecting multiple cells, it briefly shows the dimensions, like `3R x 3C` (3 Rows by 3 Columns).
