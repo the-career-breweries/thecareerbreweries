@@ -1,46 +1,28 @@
-# Presentation Skills
-Welcome to Week 11. Today we cover Structuring content, visual aids.
-
+# Session 11: Technical Vocabulary - Passenger Handling
 
 ---
 
-# Agenda for Today
+# Overview
 
-*   **Topic 1:** Structuring content
-*   **Topic 2:** visual aids
-*   **Topic 3:** Practical Application
-*   **Activity:** 3-Minute Mini Presentation
+Welcome to Session 11. Today we will be covering **Technical Vocabulary - Passenger Handling**.
 
 ---
 
-# Introduction to Structuring content
+# 2.5.1 Core Concept
 
-Let's break down the foundational aspects of this topic.
-
-*   **What is it?** This is a critical skill for professional communication.
-*   **Why does it matter?** In the aviation industry, clarity and precision are non-negotiable.
-*   **How do we use it?** We apply these principles in daily operational tasks.
+Instructor will guide you through this concept.
 
 ---
 
-# Deep Dive: visual aids
+# 2.5.2 Application
 
-Here we explore the nuances that differentiate good communicators from great ones.
-
-*   **Key Aspect A:** Always ensure your message is tailored to your audience.
-*   **Key Aspect B:** Avoid common pitfalls and barriers.
-*   **Pro Tip:** Practice consistently to build muscle memory in your communication style.
+Instructor will guide you through this concept.
 
 ---
 
-# Activity: 3-Minute Mini Presentation
+# 2.5.3 Practice
 
-```sentence-activity
-Instructions:
-Read the provided scenario carefully.
-Apply the concepts we just discussed.
-Work with your partner to complete the task.
-```
+Complete the exercises provided by the instructor.
 
-*   *Remember:* The goal is progress, not perfection.
-*   Take 10 minutes to complete this exercise.
+---
+

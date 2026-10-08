@@ -1,46 +1,28 @@
-# Vocabulary Development
-Welcome to Week 3. Today we cover Synonyms, Antonyms, Aviation Technical Vocab.
-
+# Session 3: Present Tenses
 
 ---
 
-# Agenda for Today
+# Overview
 
-*   **Topic 1:** Synonyms
-*   **Topic 2:** Antonyms
-*   **Topic 3:** Aviation Technical Vocab
-*   **Activity:** Vocabulary Quizzes
+Welcome to Session 3. Today we will be covering **Present Tenses**.
 
 ---
 
-# Introduction to Synonyms
+# 1.3.1 Core Concept
 
-Let's break down the foundational aspects of this topic.
-
-*   **What is it?** This is a critical skill for professional communication.
-*   **Why does it matter?** In the aviation industry, clarity and precision are non-negotiable.
-*   **How do we use it?** We apply these principles in daily operational tasks.
+Instructor will guide you through this concept.
 
 ---
 
-# Deep Dive: Antonyms
+# 1.3.2 Application
 
-Here we explore the nuances that differentiate good communicators from great ones.
-
-*   **Key Aspect A:** Always ensure your message is tailored to your audience.
-*   **Key Aspect B:** Avoid common pitfalls and barriers.
-*   **Pro Tip:** Practice consistently to build muscle memory in your communication style.
+Instructor will guide you through this concept.
 
 ---
 
-# Activity: Vocabulary Quizzes
+# 1.3.3 Practice
 
-```sentence-activity
-Instructions:
-Read the provided scenario carefully.
-Apply the concepts we just discussed.
-Work with your partner to complete the task.
-```
+Complete the exercises provided by the instructor.
 
-*   *Remember:* The goal is progress, not perfection.
-*   Take 10 minutes to complete this exercise.
+---
+

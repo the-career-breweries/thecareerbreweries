@@ -3,737 +3,661 @@
     "1": {
       "keyConcepts": [
         {
-          "title": "Orientation & Roadmap",
-          "explanation": "Understanding the journey of the course, setting expectations, and identifying personal communication goals."
-        },
-        {
-          "title": "The Communication Process",
-          "explanation": "The fundamental cycle involving a sender, message, channel, receiver, and feedback."
+          "title": "Introduction to Nouns, Pronouns, and Adjectives",
+          "explanation": "Grammar Basics"
         }
       ],
       "definitions": [
         {
-          "term": "Communication",
-          "definition": "The imparting or exchanging of information by speaking, writing, or using some other medium."
-        },
-        {
-          "term": "Feedback",
-          "definition": "Information about reactions to a product or a person's performance of a task, used as a basis for improvement."
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
         }
       ],
-      "mnemonic": {
-        "acronym": "SEND",
-        "points": [
-          "S - Sender (initiates)",
-          "E - Encode (translates to message)",
-          "N - Network (channel of communication)",
-          "D - Decode (receiver understands)"
-        ]
-      },
+      "mnemonic": "N/A",
       "btlQuestions": {
-        "Remember": "Define the term 'Communication' in your own words.",
-        "Understand": "Explain the role of feedback in the communication cycle.",
-        "Apply": "Provide an example of non-verbal communication in a workplace setting.",
-        "Analyze": "Compare and contrast verbal and non-verbal communication.",
-        "Evaluate": "Assess the importance of active listening in effective communication.",
-        "Create": "Design a communication model for a remote aviation team."
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
       },
       "referenceMaterial": {
-        "primary": "Wren & Martin High School English Grammar and Composition, Chapter 1",
-        "further": "Oxford Guide to Effective Writing and Speaking"
+        "primary": "Aviation Communication Handouts"
       }
     },
     "2": {
       "keyConcepts": [
         {
-          "title": "The 8 Parts of Speech",
-          "explanation": "The fundamental building blocks of the English language that determine how words function in meaning as well as grammatically within the sentence."
-        },
-        {
-          "title": "Types of Sentences",
-          "explanation": "The structural classification of sentences based on the number and type of clauses they contain: Simple, Compound, Complex, and Compound-Complex."
-        },
-        {
-          "title": "Tenses",
-          "explanation": "Grammatical forms that indicate the time of an action or event (past, present, future), allowing for accurate chronological storytelling and reporting."
-        },
-        {
-          "title": "Subject-Verb Agreement (SVA)",
-          "explanation": "The critical grammatical rule ensuring that singular subjects pair with singular verbs, and plural subjects pair with plural verbs, maintaining sentence clarity."
+          "title": "Verbs, Adverbs, Prepositions, & Conjunctions",
+          "explanation": "Action & Linking words"
         }
       ],
       "definitions": [
         {
-          "term": "Noun",
-          "definition": "A word used to identify any of a class of people, places, or things (e.g., Pilot, Airport, Happiness)."
-        },
-        {
-          "term": "Pronoun",
-          "definition": "A word that can function by itself as a noun phrase and that refers either to the participants in the discourse (e.g., I, you) or to someone or something mentioned elsewhere (e.g., she, it, this)."
-        },
-        {
-          "term": "Verb",
-          "definition": "A word used to describe an action, state, or occurrence (e.g., Fly, Communicate, Is)."
-        },
-        {
-          "term": "Adjective",
-          "definition": "A word or phrase naming an attribute, added to or grammatically related to a noun to modify or describe it (e.g., Clear, Professional, Huge)."
-        },
-        {
-          "term": "Adverb",
-          "definition": "A word or phrase that modifies or qualifies an adjective, verb, or other adverb, expressing a relation of place, time, circumstance, manner, cause, degree, etc. (e.g., Quickly, Very, Well)."
-        },
-        {
-          "term": "Preposition",
-          "definition": "A word governing, and usually preceding, a noun or pronoun and expressing a relation to another word (e.g., On, In, At)."
-        },
-        {
-          "term": "Conjunction",
-          "definition": "A word used to connect clauses or sentences or to coordinate words in the same clause (e.g., And, But, If)."
-        },
-        {
-          "term": "Interjection",
-          "definition": "An abrupt remark, made especially as an aside or interruption (e.g., Ah!, Wow!, Oh!)."
-        },
-        {
-          "term": "Simple Sentence",
-          "definition": "A sentence consisting of only one independent clause, with a single subject and predicate."
-        },
-        {
-          "term": "Compound Sentence",
-          "definition": "A sentence containing two or more independent clauses joined by a coordinating conjunction (e.g., for, and, nor, but, or, yet, so)."
-        },
-        {
-          "term": "Complex Sentence",
-          "definition": "A sentence containing one independent clause and at least one dependent (subordinate) clause."
-        },
-        {
-          "term": "Compound-Complex Sentence",
-          "definition": "A sentence having two or more independent clauses and one or more dependent clauses."
-        },
-        {
-          "term": "Subject-Verb Agreement",
-          "definition": "The grammatical rule stating that the subject and verb must agree in number. A singular subject takes a singular verb, and a plural subject takes a plural verb."
-        },
-        {
-          "term": "Simple Present Tense",
-          "definition": "Used to describe habits, unchanging situations, general truths, and fixed arrangements."
-        },
-        {
-          "term": "Present Continuous Tense",
-          "definition": "Used to describe an action that is happening right now or in the near future."
-        },
-        {
-          "term": "Present Perfect Tense",
-          "definition": "Used to describe an action that happened at an unspecified time in the past or began in the past and continues to the present."
-        },
-        {
-          "term": "Simple Past Tense",
-          "definition": "Used to talk about a completed action in a time before now."
-        },
-        {
-          "term": "Simple Future Tense",
-          "definition": "Used to talk about things that haven't happened yet."
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
         }
       ],
-      "mnemonic": {
-        "acronym": "FANBOYS",
-        "points": [
-          "F - For",
-          "A - And",
-          "N - Nor",
-          "B - But",
-          "O - Or",
-          "Y - Yet",
-          "S - So"
-        ]
-      },
+      "mnemonic": "N/A",
       "btlQuestions": {
-        "Remember": "List the eight parts of speech.",
-        "Understand": "Explain the difference between a common noun and a proper noun.",
-        "Apply": "Identify the verbs in a given paragraph.",
-        "Analyze": "Break down a complex sentence into its subject, verb, and object.",
-        "Evaluate": "Critique a given text for grammatical accuracy.",
-        "Create": "Construct a paragraph using all eight parts of speech."
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
       },
       "referenceMaterial": {
-        "primary": "Wren & Martin High School English Grammar and Composition, Chapters 2-10",
-        "further": "Cambridge English Grammar in Use"
+        "primary": "Aviation Communication Handouts"
       }
     },
     "3": {
       "keyConcepts": [
         {
-          "title": "Synonyms & Antonyms",
-          "explanation": "Words with similar and opposite meanings, used to enhance vocabulary and avoid repetition."
-        },
-        {
-          "title": "Aviation Technical Vocab",
-          "explanation": "Industry-specific terminology critical for precise and safe communication in aviation."
+          "title": "Present Tenses",
+          "explanation": "Rules and usage"
         }
       ],
       "definitions": [
         {
-          "term": "Synonym",
-          "definition": "A word or phrase that means exactly or nearly the same as another word or phrase."
-        },
-        {
-          "term": "Antonym",
-          "definition": "A word opposite in meaning to another."
-        },
-        {
-          "term": "Jargon",
-          "definition": "Special words or expressions that are used by a particular profession or group and are difficult for others to understand."
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
         }
       ],
-      "mnemonic": {
-        "acronym": "VAC",
-        "points": [
-          "V - Vocabulary",
-          "A - Accuracy",
-          "C - Context"
-        ]
-      },
+      "mnemonic": "N/A",
       "btlQuestions": {
-        "Remember": "Define synonym and antonym.",
-        "Understand": "Explain why standard phraseology is important in aviation.",
-        "Apply": "Use three aviation terms correctly in a sentence.",
-        "Analyze": "Differentiate between general English and aviation English.",
-        "Evaluate": "Assess the impact of misinterpreting technical jargon.",
-        "Create": "Draft a short radio transmission using correct aviation vocabulary."
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
       },
       "referenceMaterial": {
-        "primary": "Aviation English by Henry Emery & Andy Roberts",
-        "further": "Wren & Martin, Chapter on Vocabulary"
+        "primary": "Aviation Communication Handouts"
       }
     },
     "4": {
       "keyConcepts": [
         {
-          "title": "Skimming",
-          "explanation": "Reading rapidly in order to get a general overview of the material."
-        },
-        {
-          "title": "Scanning",
-          "explanation": "Reading rapidly in order to find specific facts or keywords."
+          "title": "Past and Future Tenses",
+          "explanation": "Simple, Continuous, Perfect"
         }
       ],
       "definitions": [
         {
-          "term": "Comprehension",
-          "definition": "The action or capability of understanding something read or heard."
-        },
-        {
-          "term": "Inference",
-          "definition": "A conclusion reached on the basis of evidence and reasoning from the text."
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
         }
       ],
-      "mnemonic": {
-        "acronym": "SQ3R",
-        "points": [
-          "S - Survey",
-          "Q - Question",
-          "R - Read",
-          "R - Recite",
-          "R - Review"
-        ]
-      },
+      "mnemonic": "N/A",
       "btlQuestions": {
-        "Remember": "List the steps of the SQ3R method.",
-        "Understand": "Explain the difference between skimming and scanning.",
-        "Apply": "Skim a provided METAR report to find the general weather condition.",
-        "Analyze": "Identify the author's tone in a given passage.",
-        "Evaluate": "Determine the reliability of a given technical bulletin.",
-        "Create": "Formulate three comprehension questions for a text."
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
       },
       "referenceMaterial": {
-        "primary": "Wren & Martin, Comprehension Section",
-        "further": "Aviation Safety Reports for practical reading"
+        "primary": "Aviation Communication Handouts"
       }
     },
     "5": {
       "keyConcepts": [
         {
-          "title": "The Anatomy of a Paragraph",
-          "explanation": "A structured paragraph consists of a Topic Sentence, Supporting Sentences, and a Concluding Sentence."
-        },
-        {
-          "title": "The Email Formula",
-          "explanation": "Professional emails require a specific Subject Line, Greeting, focused Body, Call to Action, and formal Sign-off."
-        },
-        {
-          "title": "Objective Report Writing",
-          "explanation": "Reports must be written in the third person and utilize passive voice to maintain factual objectivity."
+          "title": "Sentence Structure Basics",
+          "explanation": "SVO model, Phrases, Clauses"
         }
       ],
       "definitions": [
         {
-          "term": "Cohesion",
-          "definition": "The logical flow and connection of ideas within a paragraph using transition words."
-        },
-        {
-          "term": "Passive Voice",
-          "definition": "A grammatical construction where the subject receives the action (e.g., 'The inspection was conducted') commonly used in incident reports."
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
         }
       ],
-      "mnemonic": {
-        "acronym": "EMAIL",
-        "points": [
-          "E - Exact Subject",
-          "M - Meaningful Greeting",
-          "A - Actionable Body",
-          "I - Indicate Deadline (Call to Action)",
-          "L - Leave a Professional Sign-off"
-        ]
-      },
+      "mnemonic": "N/A",
       "btlQuestions": {
-        "Remember": "What are the three main components of a structured paragraph?",
-        "Understand": "Why is passive voice preferred in aviation incident reports?",
-        "Apply": "Draft a short, formal email apologizing to your manager for a delayed submission.",
-        "Analyze": "Compare the structure of a formal business letter to an informal letter to a friend.",
-        "Evaluate": "Review a poorly written paragraph and explain how transition words would improve its cohesion.",
-        "Create": "Write a complete 6-section incident report documenting a safety hazard observed in the lab."
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
       },
       "referenceMaterial": {
-        "primary": "Wren & Martin High School English Grammar and Composition, Chapter on Letter Writing",
-        "further": "Oxford Guide to Effective Writing and Speaking"
+        "primary": "Aviation Communication Handouts"
       }
     },
     "6": {
       "keyConcepts": [
         {
-          "title": "Hearing vs. Listening",
-          "explanation": "Hearing is a biological, automatic function. Listening is an active, psychological choice requiring effort."
-        },
-        {
-          "title": "The S.O.F.T.E.N. Technique",
-          "explanation": "A framework for active listening body language: Smile, Open posture, Forward lean, Touch, Eye contact, Nod."
-        },
-        {
-          "title": "The Positive-Negative-Positive Sandwich",
-          "explanation": "A communication strategy for polite disagreement: Validate, State boundary, Offer alternative."
+          "title": "Sentence Types and Review",
+          "explanation": "Simple, Compound, Complex"
         }
       ],
       "definitions": [
         {
-          "term": "Paraphrasing",
-          "definition": "Summarizing the core issue and emotion of a speaker to confirm understanding, rather than just repeating their words."
-        },
-        {
-          "term": "Sentence Intonation",
-          "definition": "The rise and fall of voice pitch during speech, which can change statements into questions."
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
         }
       ],
-      "mnemonic": {
-        "acronym": "HEART",
-        "points": [
-          "H - Hear without interrupting",
-          "E - Empathize with their feelings",
-          "A - Apologize for the situation",
-          "R - Resolve by offering options",
-          "T - Thank them for their patience"
-        ]
-      },
+      "mnemonic": "N/A",
       "btlQuestions": {
-        "Remember": "What does the acronym S.O.F.T.E.N. stand for?",
-        "Understand": "Explain the difference between open and closed questions when building rapport.",
-        "Apply": "Paraphrase this statement: 'I've been waiting 3 hours and I'm going to miss my connection!'",
-        "Analyze": "How does speaking in a high-noise environment change the way you must modulate your voice?",
-        "Evaluate": "Watch a customer service roleplay and grade the employee's use of the H.E.A.R.T model.",
-        "Create": "Perform a mock PA announcement incorporating appropriate pacing, clarity, and modulation."
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
       },
       "referenceMaterial": {
-        "primary": "Effective Communication Skills by MTD Training",
-        "further": "Aviation English by Macmillan Education"
+        "primary": "Aviation Communication Handouts"
       }
     },
     "7": {
       "keyConcepts": [
         {
-          "title": "The 7 Cs of Communication",
-          "explanation": "Principles for effective communication: Clear, Concise, Concrete, Correct, Coherent, Complete, Courteous."
-        },
-        {
-          "title": "Barriers to Communication",
-          "explanation": "Obstacles (physical, psychological, semantic) that prevent accurate transmission of messages."
+          "title": "Introduction to Vocabulary Building",
+          "explanation": "Active vs Passive vocabulary"
         }
       ],
       "definitions": [
         {
-          "term": "Semantic Barrier",
-          "definition": "Misunderstanding arising from the different meanings that words can have."
-        },
-        {
-          "term": "Conciseness",
-          "definition": "Giving a lot of information clearly and in a few words; brief but comprehensive."
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
         }
       ],
-      "mnemonic": {
-        "acronym": "7 Cs",
-        "points": [
-          "C - Clear",
-          "C - Concise",
-          "C - Concrete",
-          "C - Correct",
-          "C - Coherent",
-          "C - Complete",
-          "C - Courteous"
-        ]
-      },
+      "mnemonic": "N/A",
       "btlQuestions": {
-        "Remember": "List the 7 Cs of communication.",
-        "Understand": "Explain what constitutes a psychological barrier.",
-        "Apply": "Rewrite a wordy email to be concise.",
-        "Analyze": "Determine which of the 7 Cs is missing in a given vague message.",
-        "Evaluate": "Argue the importance of courtesy in crisis communication.",
-        "Create": "Develop a checklist for overcoming physical barriers in an airport."
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
       },
       "referenceMaterial": {
-        "primary": "Business Communication Today",
-        "further": "Soft Skills Manual"
+        "primary": "Aviation Communication Handouts"
       }
     },
     "8": {
       "keyConcepts": [
         {
-          "title": "Body Language (Kinesics)",
-          "explanation": "The conscious and unconscious movements and postures by which attitudes and feelings are communicated."
-        },
-        {
-          "title": "Eye Contact & Posture",
-          "explanation": "Critical non-verbal cues that establish trust, confidence, and professionalism."
+          "title": "Prefixes, Suffixes, Synonyms, & Antonyms",
+          "explanation": "Word roots and meanings"
         }
       ],
       "definitions": [
         {
-          "term": "Kinesics",
-          "definition": "The study of the way in which certain body movements and gestures serve as a form of non-verbal communication."
-        },
-        {
-          "term": "Proxemics",
-          "definition": "The study of human use of space and the effects that population density has on behavior, communication, and social interaction."
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
         }
       ],
-      "mnemonic": {
-        "acronym": "SOFTEN",
-        "points": [
-          "S - Smile",
-          "O - Open posture",
-          "F - Forward lean",
-          "T - Touch (handshake)",
-          "E - Eye contact",
-          "N - Nod"
-        ]
-      },
+      "mnemonic": "N/A",
       "btlQuestions": {
-        "Remember": "Define proxemics.",
-        "Understand": "Explain how crossed arms can be interpreted by a passenger.",
-        "Apply": "Demonstrate the SOFTEN technique in a greeting.",
-        "Analyze": "Contrast the body language of confidence vs defensive behavior.",
-        "Evaluate": "Critique a silent role-play based solely on non-verbal cues.",
-        "Create": "Design a training module for ground staff on approachable posture."
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
       },
       "referenceMaterial": {
-        "primary": "The Definitive Book of Body Language",
-        "further": "Aviation Customer Service guidelines"
+        "primary": "Aviation Communication Handouts"
       }
     },
     "9": {
       "keyConcepts": [
         {
-          "title": "Consolidated Grammar & Vocab",
-          "explanation": "A comprehensive review of the foundational language structures covered in the first half of the semester."
-        },
-        {
-          "title": "Application of Skills",
-          "explanation": "Integrating reading, writing, and speaking skills into practical communication tasks."
+          "title": "Technical Vocabulary - Aircraft & Infrastructure",
+          "explanation": "Aviation terms"
         }
       ],
       "definitions": [
         {
-          "term": "Revision",
-          "definition": "The act of reviewing previously studied material to reinforce learning."
-        },
-        {
-          "term": "Integration",
-          "definition": "The combination of multiple linguistic skills (e.g., listening and writing simultaneously)."
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
         }
       ],
-      "mnemonic": {
-        "acronym": "CAP",
-        "points": [
-          "C - Comprehension",
-          "A - Accuracy",
-          "P - Practice"
-        ]
-      },
+      "mnemonic": "N/A",
       "btlQuestions": {
-        "Remember": "Recall the 8 parts of speech.",
-        "Understand": "Summarize the key differences between skimming and scanning.",
-        "Apply": "Apply grammar rules to correct a series of mixed-error sentences.",
-        "Analyze": "Analyze your own progress and identify areas needing improvement.",
-        "Evaluate": "Assess the effectiveness of different revision techniques.",
-        "Create": "Formulate a personalized study plan for the finals."
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
       },
       "referenceMaterial": {
-        "primary": "Course Notes Sessions 1-8",
-        "further": "Previous quizzes and worksheets"
+        "primary": "Aviation Communication Handouts"
       }
     },
     "10": {
       "keyConcepts": [
         {
-          "title": "Turn-Taking & Moderation",
-          "explanation": "The polite and structured flow of conversation in a group setting, ensuring all voices are heard."
-        },
-        {
-          "title": "Summarization",
-          "explanation": "The ability to accurately synthesize the group's diverse points into a cohesive conclusion."
+          "title": "Technical Vocabulary - Flight Ops & ATC",
+          "explanation": "ATC terms, Phonetic alphabet"
         }
       ],
       "definitions": [
         {
-          "term": "Group Discussion (GD)",
-          "definition": "A communicative situation that allows its participants to share their views and opinions with other participants."
-        },
-        {
-          "term": "Moderator",
-          "definition": "A person who presides over a discussion and ensures it stays on topic."
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
         }
       ],
-      "mnemonic": {
-        "acronym": "LEAD",
-        "points": [
-          "L - Listen actively",
-          "E - Encourage others",
-          "A - Assert your points politely",
-          "D - Drive to a conclusion"
-        ]
-      },
+      "mnemonic": "N/A",
       "btlQuestions": {
-        "Remember": "State the role of a moderator in a GD.",
-        "Understand": "Explain why turn-taking is critical in a professional discussion.",
-        "Apply": "Use a polite phrase to interrupt a dominating speaker.",
-        "Analyze": "Identify the distinct roles naturally assumed by participants in a GD.",
-        "Evaluate": "Critique a mock GD for its adherence to constructive debate.",
-        "Create": "Formulate an opening statement for a GD on aviation sustainability."
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
       },
       "referenceMaterial": {
-        "primary": "Soft Skills Manual - GD Strategies",
-        "further": "Mock GD evaluation sheets"
+        "primary": "Aviation Communication Handouts"
       }
     },
     "11": {
       "keyConcepts": [
         {
-          "title": "Structuring a Presentation",
-          "explanation": "Organizing content logically using an Introduction, Body, and Conclusion."
-        },
-        {
-          "title": "Visual Aids",
-          "explanation": "Using slides, charts, or props effectively without them overshadowing the speaker."
+          "title": "Technical Vocabulary - Passenger Handling",
+          "explanation": "Ticketing, Baggage, Safety"
         }
       ],
       "definitions": [
         {
-          "term": "Hook",
-          "definition": "An engaging opening statement designed to capture the audience's attention immediately."
-        },
-        {
-          "term": "Transition",
-          "definition": "A word, phrase, or sentence that smoothly connects one topic or slide to the next."
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
         }
       ],
-      "mnemonic": {
-        "acronym": "PREP",
-        "points": [
-          "P - Point",
-          "R - Reason",
-          "E - Example",
-          "P - Point (reiterate)"
-        ]
-      },
+      "mnemonic": "N/A",
       "btlQuestions": {
-        "Remember": "List the three main sections of a presentation.",
-        "Understand": "Explain the rule of 6x6 for presentation slides.",
-        "Apply": "Draft a 'hook' for a presentation on airport security.",
-        "Analyze": "Compare a highly textual slide vs a highly visual slide.",
-        "Evaluate": "Assess the effectiveness of a peer's use of visual aids.",
-        "Create": "Design a 3-minute mini-presentation on a technical topic."
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
       },
       "referenceMaterial": {
-        "primary": "Presentation Zen by Garr Reynolds",
-        "further": "Toastmasters International Guide"
+        "primary": "Aviation Communication Handouts"
       }
     },
     "12": {
       "keyConcepts": [
         {
-          "title": "Overcoming Stage Fright",
-          "explanation": "Techniques such as deep breathing, preparation, and positive visualization to manage public speaking anxiety."
-        },
-        {
-          "title": "Audience Engagement",
-          "explanation": "Using eye contact, rhetorical questions, and modulation to keep the audience interested."
+          "title": "Vocabulary Application and Review",
+          "explanation": "Acronyms, Integration"
         }
       ],
       "definitions": [
         {
-          "term": "Extempore",
-          "definition": "Spoken or done without preparation; impromptu."
-        },
-        {
-          "term": "Modulation",
-          "definition": "Variation in the strength, tone, or pitch of one's voice."
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
         }
       ],
-      "mnemonic": {
-        "acronym": "BEE",
-        "points": [
-          "B - Breathe",
-          "E - Eye contact",
-          "E - Engage"
-        ]
-      },
+      "mnemonic": "N/A",
       "btlQuestions": {
-        "Remember": "Name two physical symptoms of stage fright.",
-        "Understand": "Explain how preparation reduces speech anxiety.",
-        "Apply": "Deliver a 1-minute extempore speech on a random topic.",
-        "Analyze": "Determine which vocal modulations emphasize key points.",
-        "Evaluate": "Review a recorded speech and critique the speaker's engagement.",
-        "Create": "Develop a personal routine to calm nerves before speaking."
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
       },
       "referenceMaterial": {
-        "primary": "Talk Like TED by Carmine Gallo",
-        "further": "Public Speaking workshops"
+        "primary": "Aviation Communication Handouts"
       }
     },
     "13": {
       "keyConcepts": [
         {
-          "title": "Global Awareness",
-          "explanation": "Understanding and respecting cultural differences in communication styles, norms, and taboos."
-        },
-        {
-          "title": "Sensitivity & Adaptability",
-          "explanation": "Modifying one's communication approach to be inclusive and easily understood by diverse nationalities."
+          "title": "Introduction to Reading Comprehension",
+          "explanation": "Active vs Passive reading"
         }
       ],
       "definitions": [
         {
-          "term": "Ethnocentrism",
-          "definition": "Evaluation of other cultures according to preconceptions originating in the standards and customs of one's own culture."
-        },
-        {
-          "term": "High-Context Culture",
-          "definition": "Cultures that rely heavily on non-verbal and subtle situational cues in communication."
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
         }
       ],
-      "mnemonic": {
-        "acronym": "RICE",
-        "points": [
-          "R - Respect",
-          "I - Inquire",
-          "C - Communicate clearly",
-          "E - Empathize"
-        ]
-      },
+      "mnemonic": "N/A",
       "btlQuestions": {
-        "Remember": "Define a high-context culture.",
-        "Understand": "Explain why idiomatic expressions should be avoided in cross-cultural communication.",
-        "Apply": "Adapt a standard airline greeting for an international flight.",
-        "Analyze": "Analyze a scenario where a cultural misunderstanding led to a service failure.",
-        "Evaluate": "Assess your own cultural biases.",
-        "Create": "Design a brief cultural sensitivity guide for new cabin crew."
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
       },
       "referenceMaterial": {
-        "primary": "The Culture Map by Erin Meyer",
-        "further": "Aviation Cross-Cultural manuals"
+        "primary": "Aviation Communication Handouts"
       }
     },
     "14": {
       "keyConcepts": [
         {
-          "title": "Self-Introduction",
-          "explanation": "Crafting a concise, professional summary of one's background, skills, and goals (the 'Elevator Pitch')."
-        },
-        {
-          "title": "Common Interview Questions",
-          "explanation": "Preparing structured answers for behavioral and situational questions."
+          "title": "Skimming Techniques",
+          "explanation": "Titles, headings, gist"
         }
       ],
       "definitions": [
         {
-          "term": "STAR Method",
-          "definition": "A technique to answer behavioral questions by detailing the Situation, Task, Action, and Result."
-        },
-        {
-          "term": "Elevator Pitch",
-          "definition": "A short description of an idea, product, or company that explains the concept in a way such that any listener can understand it in a short period of time."
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
         }
       ],
-      "mnemonic": {
-        "acronym": "STAR",
-        "points": [
-          "S - Situation",
-          "T - Task",
-          "A - Action",
-          "R - Result"
-        ]
-      },
+      "mnemonic": "N/A",
       "btlQuestions": {
-        "Remember": "What does STAR stand for?",
-        "Understand": "Explain the purpose of the 'Tell me about yourself' question.",
-        "Apply": "Use the STAR method to answer: 'Describe a time you solved a problem'.",
-        "Analyze": "Deconstruct a job description to anticipate likely interview questions.",
-        "Evaluate": "Critique a peer's self-introduction for relevance and impact.",
-        "Create": "Draft a comprehensive 60-second self-introduction."
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
       },
       "referenceMaterial": {
-        "primary": "Cracking the Interview",
-        "further": "Career Services handouts"
+        "primary": "Aviation Communication Handouts"
       }
     },
     "15": {
       "keyConcepts": [
         {
-          "title": "Real-Time Practice",
-          "explanation": "Simulating the pressure and environment of a real interview to test preparation and reflexes."
-        },
-        {
-          "title": "Constructive Feedback",
-          "explanation": "Receiving and applying critiques on body language, content, and delivery."
+          "title": "Scanning Techniques",
+          "explanation": "Visual cues, keywords"
         }
       ],
       "definitions": [
         {
-          "term": "Mock Interview",
-          "definition": "An emulation of a job interview used for training purposes."
-        },
-        {
-          "term": "Constructive Criticism",
-          "definition": "Providing well-reasoned opinions about the work of others, usually in a friendly and positive manner."
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
         }
       ],
-      "mnemonic": {
-        "acronym": "ACT",
-        "points": [
-          "A - Assess",
-          "C - Correct",
-          "T - Try again"
-        ]
-      },
+      "mnemonic": "N/A",
       "btlQuestions": {
-        "Remember": "List three areas typically evaluated in an interview.",
-        "Understand": "Explain how to professionally accept constructive criticism.",
-        "Apply": "Participate in a peer-to-peer mock interview.",
-        "Analyze": "Identify your primary weak point during the mock session.",
-        "Evaluate": "Grade a peer's interview performance using a standard rubric.",
-        "Create": "Formulate a personalized action plan to improve interview skills before graduation."
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
       },
       "referenceMaterial": {
-        "primary": "Mock Interview Rubric",
-        "further": "Recorded interview sessions for self-review"
+        "primary": "Aviation Communication Handouts"
+      }
+    },
+    "16": {
+      "keyConcepts": [
+        {
+          "title": "Reading Technical and Aviation Documents",
+          "explanation": "CARs, SOPs, Briefing cards"
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
+        }
+      ],
+      "mnemonic": "N/A",
+      "btlQuestions": {
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
+      },
+      "referenceMaterial": {
+        "primary": "Aviation Communication Handouts"
+      }
+    },
+    "17": {
+      "keyConcepts": [
+        {
+          "title": "Interpretation and Critical Reading",
+          "explanation": "Inferences, Fact vs Opinion"
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
+        }
+      ],
+      "mnemonic": "N/A",
+      "btlQuestions": {
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
+      },
+      "referenceMaterial": {
+        "primary": "Aviation Communication Handouts"
+      }
+    },
+    "18": {
+      "keyConcepts": [
+        {
+          "title": "Comprehensive Reading Practice & Review",
+          "explanation": "Timed reading test"
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
+        }
+      ],
+      "mnemonic": "N/A",
+      "btlQuestions": {
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
+      },
+      "referenceMaterial": {
+        "primary": "Aviation Communication Handouts"
+      }
+    },
+    "19": {
+      "keyConcepts": [
+        {
+          "title": "Principles of Paragraph Writing",
+          "explanation": "Topic and supporting sentences"
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
+        }
+      ],
+      "mnemonic": "N/A",
+      "btlQuestions": {
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
+      },
+      "referenceMaterial": {
+        "primary": "Aviation Communication Handouts"
+      }
+    },
+    "20": {
+      "keyConcepts": [
+        {
+          "title": "Formal and Informal Letter Writing",
+          "explanation": "Business formats, Tone"
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
+        }
+      ],
+      "mnemonic": "N/A",
+      "btlQuestions": {
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
+      },
+      "referenceMaterial": {
+        "primary": "Aviation Communication Handouts"
+      }
+    },
+    "21": {
+      "keyConcepts": [
+        {
+          "title": "Professional Email Writing",
+          "explanation": "Subject lines, Salutations"
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
+        }
+      ],
+      "mnemonic": "N/A",
+      "btlQuestions": {
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
+      },
+      "referenceMaterial": {
+        "primary": "Aviation Communication Handouts"
+      }
+    },
+    "22": {
+      "keyConcepts": [
+        {
+          "title": "Advanced Email Scenarios",
+          "explanation": "Persuasion, Bad news, Irate customers"
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
+        }
+      ],
+      "mnemonic": "N/A",
+      "btlQuestions": {
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
+      },
+      "referenceMaterial": {
+        "primary": "Aviation Communication Handouts"
+      }
+    },
+    "23": {
+      "keyConcepts": [
+        {
+          "title": "Fundamentals of Report Writing",
+          "explanation": "Executive summaries, findings"
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
+        }
+      ],
+      "mnemonic": "N/A",
+      "btlQuestions": {
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
+      },
+      "referenceMaterial": {
+        "primary": "Aviation Communication Handouts"
+      }
+    },
+    "24": {
+      "keyConcepts": [
+        {
+          "title": "Report Writing Application & Review",
+          "explanation": "Operational shift reports"
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
+        }
+      ],
+      "mnemonic": "N/A",
+      "btlQuestions": {
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
+      },
+      "referenceMaterial": {
+        "primary": "Aviation Communication Handouts"
+      }
+    },
+    "25": {
+      "keyConcepts": [
+        {
+          "title": "Fundamentals of Active Listening",
+          "explanation": "Hearing vs Listening, Barriers"
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
+        }
+      ],
+      "mnemonic": "N/A",
+      "btlQuestions": {
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
+      },
+      "referenceMaterial": {
+        "primary": "Aviation Communication Handouts"
+      }
+    },
+    "26": {
+      "keyConcepts": [
+        {
+          "title": "Phonetics and Pronunciation",
+          "explanation": "Vowels, Consonants, Intonation"
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
+        }
+      ],
+      "mnemonic": "N/A",
+      "btlQuestions": {
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
+      },
+      "referenceMaterial": {
+        "primary": "Aviation Communication Handouts"
+      }
+    },
+    "27": {
+      "keyConcepts": [
+        {
+          "title": "Everyday Conversation Practice",
+          "explanation": "Small talk, open-ended questions"
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
+        }
+      ],
+      "mnemonic": "N/A",
+      "btlQuestions": {
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
+      },
+      "referenceMaterial": {
+        "primary": "Aviation Communication Handouts"
+      }
+    },
+    "28": {
+      "keyConcepts": [
+        {
+          "title": "Professional Speaking in Aviation",
+          "explanation": "PA Announcements, Briefings"
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
+        }
+      ],
+      "mnemonic": "N/A",
+      "btlQuestions": {
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
+      },
+      "referenceMaterial": {
+        "primary": "Aviation Communication Handouts"
+      }
+    },
+    "29": {
+      "keyConcepts": [
+        {
+          "title": "Role Play: Customer Service Scenarios",
+          "explanation": "Handling inquiries, delays, irate passengers"
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
+        }
+      ],
+      "mnemonic": "N/A",
+      "btlQuestions": {
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
+      },
+      "referenceMaterial": {
+        "primary": "Aviation Communication Handouts"
+      }
+    },
+    "30": {
+      "keyConcepts": [
+        {
+          "title": "Role Play: Conflict Resolution & Review",
+          "explanation": "De-escalation techniques"
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Concept",
+          "definition": "To be discussed in class."
+        }
+      ],
+      "mnemonic": "N/A",
+      "btlQuestions": {
+        "Remember": "Recall the main points.",
+        "Understand": "Explain the concept in your own words."
+      },
+      "referenceMaterial": {
+        "primary": "Aviation Communication Handouts"
       }
     }
   },

@@ -1,46 +1,28 @@
-# Reading Skills
-Welcome to Week 4. Today we cover Comprehension, Skimming, Scanning.
-
+# Session 4: Past and Future Tenses
 
 ---
 
-# Agenda for Today
+# Overview
 
-*   **Topic 1:** Comprehension
-*   **Topic 2:** Skimming
-*   **Topic 3:** Scanning
-*   **Activity:** Reading Analysis
+Welcome to Session 4. Today we will be covering **Past and Future Tenses**.
 
 ---
 
-# Introduction to Comprehension
+# 1.4.1 Core Concept
 
-Let's break down the foundational aspects of this topic.
-
-*   **What is it?** This is a critical skill for professional communication.
-*   **Why does it matter?** In the aviation industry, clarity and precision are non-negotiable.
-*   **How do we use it?** We apply these principles in daily operational tasks.
+Instructor will guide you through this concept.
 
 ---
 
-# Deep Dive: Skimming
+# 1.4.2 Application
 
-Here we explore the nuances that differentiate good communicators from great ones.
-
-*   **Key Aspect A:** Always ensure your message is tailored to your audience.
-*   **Key Aspect B:** Avoid common pitfalls and barriers.
-*   **Pro Tip:** Practice consistently to build muscle memory in your communication style.
+Instructor will guide you through this concept.
 
 ---
 
-# Activity: Reading Analysis
+# 1.4.3 Practice
 
-```sentence-activity
-Instructions:
-Read the provided scenario carefully.
-Apply the concepts we just discussed.
-Work with your partner to complete the task.
-```
+Complete the exercises provided by the instructor.
 
-*   *Remember:* The goal is progress, not perfection.
-*   Take 10 minutes to complete this exercise.
+---
+

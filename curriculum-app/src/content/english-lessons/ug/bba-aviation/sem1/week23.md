@@ -1,26 +1,26 @@
-# Session 5: Sentence Structure Basics
+# Session 23: Fundamentals of Report Writing
 
 ---
 
 # Overview
 
-Welcome to Session 5. Today we will be covering **Sentence Structure Basics**.
+Welcome to Session 23. Today we will be covering **Fundamentals of Report Writing**.
 
 ---
 
-# 1.5.1 Core Concept
+# 4.5.1 Core Concept
 
 Instructor will guide you through this concept.
 
 ---
 
-# 1.5.2 Application
+# 4.5.2 Application
 
 Instructor will guide you through this concept.
 
 ---
 
-# 1.5.3 Practice
+# 4.5.3 Practice
 
 Complete the exercises provided by the instructor.
 

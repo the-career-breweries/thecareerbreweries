@@ -1,26 +1,26 @@
-# Session 5: Sentence Structure Basics
+# Session 21: Professional Email Writing
 
 ---
 
 # Overview
 
-Welcome to Session 5. Today we will be covering **Sentence Structure Basics**.
+Welcome to Session 21. Today we will be covering **Professional Email Writing**.
 
 ---
 
-# 1.5.1 Core Concept
+# 4.3.1 Core Concept
 
 Instructor will guide you through this concept.
 
 ---
 
-# 1.5.2 Application
+# 4.3.2 Application
 
 Instructor will guide you through this concept.
 
 ---
 
-# 1.5.3 Practice
+# 4.3.3 Practice
 
 Complete the exercises provided by the instructor.
 

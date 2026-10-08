@@ -1,46 +1,28 @@
-# Mid-Semester Recap
-Welcome to Week 9. Today we cover Grammar, Vocab, Reading, Writing.
-
+# Session 9: Technical Vocabulary - Aircraft & Infrastructure
 
 ---
 
-# Agenda for Today
+# Overview
 
-*   **Topic 1:** Grammar
-*   **Topic 2:** Vocab
-*   **Topic 3:** Reading
-*   **Activity:** Interactive Quiz & Revision
+Welcome to Session 9. Today we will be covering **Technical Vocabulary - Aircraft & Infrastructure**.
 
 ---
 
-# Introduction to Grammar
+# 2.3.1 Core Concept
 
-Let's break down the foundational aspects of this topic.
-
-*   **What is it?** This is a critical skill for professional communication.
-*   **Why does it matter?** In the aviation industry, clarity and precision are non-negotiable.
-*   **How do we use it?** We apply these principles in daily operational tasks.
+Instructor will guide you through this concept.
 
 ---
 
-# Deep Dive: Vocab
+# 2.3.2 Application
 
-Here we explore the nuances that differentiate good communicators from great ones.
-
-*   **Key Aspect A:** Always ensure your message is tailored to your audience.
-*   **Key Aspect B:** Avoid common pitfalls and barriers.
-*   **Pro Tip:** Practice consistently to build muscle memory in your communication style.
+Instructor will guide you through this concept.
 
 ---
 
-# Activity: Interactive Quiz & Revision
+# 2.3.3 Practice
 
-```sentence-activity
-Instructions:
-Read the provided scenario carefully.
-Apply the concepts we just discussed.
-Work with your partner to complete the task.
-```
+Complete the exercises provided by the instructor.
 
-*   *Remember:* The goal is progress, not perfection.
-*   Take 10 minutes to complete this exercise.
+---
+

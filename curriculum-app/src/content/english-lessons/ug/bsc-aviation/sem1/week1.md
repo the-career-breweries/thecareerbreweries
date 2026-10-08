@@ -1,16 +1,28 @@
-# Welcome to Communicative English
-We are going to focus on professional communication, grammar, vocabulary, reading, and writing!
+# Session 1: Introduction to Nouns, Pronouns, and Adjectives
 
 ---
 
-# Course Structure
-1. Fundamentals of Grammar
-2. Vocabulary Development
-3. Reading Skills
-4. Writing Skills
-5. Listening & Speaking Skills
+# Overview
+
+Welcome to Session 1. Today we will be covering **Introduction to Nouns, Pronouns, and Adjectives**.
 
 ---
 
-# Let's get started!
-Select a module from the dashboard to begin.
+# 1.1.1 Core Concept
+
+Instructor will guide you through this concept.
+
+---
+
+# 1.1.2 Application
+
+Instructor will guide you through this concept.
+
+---
+
+# 1.1.3 Practice
+
+Complete the exercises provided by the instructor.
+
+---
+

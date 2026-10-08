@@ -1,46 +1,28 @@
-# Effective Communication
-Welcome to Week 7. Today we cover 7 Cs of Communication, Barriers.
-
+# Session 7: Introduction to Vocabulary Building
 
 ---
 
-# Agenda for Today
+# Overview
 
-*   **Topic 1:** 7 Cs of Communication
-*   **Topic 2:** Barriers
-*   **Topic 3:** Practical Application
-*   **Activity:** Case Study Analysis
+Welcome to Session 7. Today we will be covering **Introduction to Vocabulary Building**.
 
 ---
 
-# Introduction to 7 Cs of Communication
+# 2.1.1 Core Concept
 
-Let's break down the foundational aspects of this topic.
-
-*   **What is it?** This is a critical skill for professional communication.
-*   **Why does it matter?** In the aviation industry, clarity and precision are non-negotiable.
-*   **How do we use it?** We apply these principles in daily operational tasks.
+Instructor will guide you through this concept.
 
 ---
 
-# Deep Dive: Barriers
+# 2.1.2 Application
 
-Here we explore the nuances that differentiate good communicators from great ones.
-
-*   **Key Aspect A:** Always ensure your message is tailored to your audience.
-*   **Key Aspect B:** Avoid common pitfalls and barriers.
-*   **Pro Tip:** Practice consistently to build muscle memory in your communication style.
+Instructor will guide you through this concept.
 
 ---
 
-# Activity: Case Study Analysis
+# 2.1.3 Practice
 
-```sentence-activity
-Instructions:
-Read the provided scenario carefully.
-Apply the concepts we just discussed.
-Work with your partner to complete the task.
-```
+Complete the exercises provided by the instructor.
 
-*   *Remember:* The goal is progress, not perfection.
-*   Take 10 minutes to complete this exercise.
+---
+
