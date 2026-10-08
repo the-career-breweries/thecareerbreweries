@@ -219,22 +219,25 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
               </section>
 
               {/* 3. Mnemonics */}
-              <section style={{ marginBottom: '2rem' }}>
-                <h2 style={{ color: '#4f46e5', fontSize: '1.4rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.5rem' }}>3. Mnemonics to Remember</h2>
-                <div style={{ background: '#fef2f2', border: '1px solid #fecaca', padding: '1rem', borderRadius: '8px', color: '#991b1b' }}>
-                  <p style={{ margin: '0 0 0.5rem 0' }}><strong>Mnemonic:</strong> {data?.mnemonic?.acronym || '[ACRONYM]'}</p>
-                  <ul style={{ margin: 0, paddingLeft: '1.5rem' }}>
-                    {data?.mnemonic?.points?.map((pt: string, i: number) => (
-                      <li key={i}><strong>{pt[0]}</strong>{pt.slice(1)}</li>
-                    )) || (
+              {data?.mnemonic && (
+                <section style={{ marginBottom: '2rem' }}>
+                  <h2 style={{ color: '#4f46e5', fontSize: '1.4rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.5rem' }}>3. Mnemonics to Remember</h2>
+                  <div style={{ background: '#fef2f2', border: '1px solid #fecaca', padding: '1rem', borderRadius: '8px', color: '#991b1b' }}>
+                    {typeof data.mnemonic === 'string' ? (
+                      <p style={{ margin: 0 }}><strong>Mnemonic:</strong> {data.mnemonic}</p>
+                    ) : (
                       <>
-                        <li><strong>A</strong> - [Concept A]</li>
-                        <li><strong>C</strong> - [Concept C]</li>
+                        <p style={{ margin: '0 0 0.5rem 0' }}><strong>Mnemonic:</strong> {data.mnemonic.acronym || '[ACRONYM]'}</p>
+                        <ul style={{ margin: 0, paddingLeft: '1.5rem' }}>
+                          {data.mnemonic.points?.map((pt: string, i: number) => (
+                            <li key={i}><strong>{pt[0]}</strong>{pt.slice(1)}</li>
+                          ))}
+                        </ul>
                       </>
                     )}
-                  </ul>
-                </div>
-              </section>
+                  </div>
+                </section>
+              )}
 
               {/* 4. Format of Questions (BTL) */}
               <section style={{ marginBottom: '2rem' }}>
@@ -247,30 +250,42 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Remember (BTL 1)</strong></td>
-                      <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>{data?.btlQuestions?.Remember || "Define / List / State [Concept]."}</td>
-                    </tr>
-                    <tr>
-                      <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Understand (BTL 2)</strong></td>
-                      <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>{data?.btlQuestions?.Understand || "Explain the difference between [A] and [B]."}</td>
-                    </tr>
-                    <tr>
-                      <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Apply (BTL 3)</strong></td>
-                      <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>{data?.btlQuestions?.Apply || "Demonstrate how to use [Concept] in a given scenario."}</td>
-                    </tr>
-                    <tr>
-                      <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Analyze (BTL 4)</strong></td>
-                      <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>{data?.btlQuestions?.Analyze || "Examine the causes and effects of [Scenario]."}</td>
-                    </tr>
-                    <tr>
-                      <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Evaluate (BTL 5)</strong></td>
-                      <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>{data?.btlQuestions?.Evaluate || "Assess the effectiveness of [Method]."}</td>
-                    </tr>
-                    <tr>
-                      <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Create (BTL 6)</strong></td>
-                      <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>{data?.btlQuestions?.Create || "Formulate a plan to [solve a problem using concept]."}</td>
-                    </tr>
+                    {data?.btlQuestions?.Remember && (
+                      <tr>
+                        <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Remember (BTL 1)</strong></td>
+                        <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>{data.btlQuestions.Remember}</td>
+                      </tr>
+                    )}
+                    {data?.btlQuestions?.Understand && (
+                      <tr>
+                        <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Understand (BTL 2)</strong></td>
+                        <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>{data.btlQuestions.Understand}</td>
+                      </tr>
+                    )}
+                    {data?.btlQuestions?.Apply && (
+                      <tr>
+                        <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Apply (BTL 3)</strong></td>
+                        <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>{data.btlQuestions.Apply}</td>
+                      </tr>
+                    )}
+                    {data?.btlQuestions?.Analyze && (
+                      <tr>
+                        <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Analyze (BTL 4)</strong></td>
+                        <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>{data.btlQuestions.Analyze}</td>
+                      </tr>
+                    )}
+                    {data?.btlQuestions?.Evaluate && (
+                      <tr>
+                        <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Evaluate (BTL 5)</strong></td>
+                        <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>{data.btlQuestions.Evaluate}</td>
+                      </tr>
+                    )}
+                    {data?.btlQuestions?.Create && (
+                      <tr>
+                        <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Create (BTL 6)</strong></td>
+                        <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>{data.btlQuestions.Create}</td>
+                      </tr>
+                    )}
                   </tbody>
                 </table>
               </section>
@@ -279,8 +294,10 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
               <section style={{ marginBottom: '2rem' }}>
                 <h2 style={{ color: '#4f46e5', fontSize: '1.4rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.5rem' }}>5. Prescribed Reference Material</h2>
                 <ul style={{ paddingLeft: '1.5rem', lineHeight: '1.8' }}>
-                  <li><strong>Primary Textbook:</strong> {data?.referenceMaterial?.primary || "[Title, Author, Chapter X]"}</li>
-                  <li><strong>Further Reading:</strong> {data?.referenceMaterial?.further || "[Article / Resource Link]"}</li>
+                  <li><strong>Primary Textbook:</strong> {data?.referenceMaterial?.primary || "Provided in class handouts."}</li>
+                  {data?.referenceMaterial?.further && (
+                    <li><strong>Further Reading:</strong> {data.referenceMaterial.further}</li>
+                  )}
                 </ul>
               </section>
             </>
