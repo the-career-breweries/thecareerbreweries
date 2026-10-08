@@ -17,11 +17,18 @@ Welcome to Session 11. Today we will be covering the following topics:
 
 # 3.1.1 MS Excel interface: Workbooks and Worksheets
 
-* **Excel Interface:** The Ribbon, Name Box, Formula Bar, and grid.
+![Blank Excel Workbook](/images/excel-blank-workbook.png)
+
+* **The Ribbon:** The tabbed toolbar at the top (File, Home, Insert, etc.) containing all commands.
+* **Name Box (Address Bar):** Located top-left. Shows the active cell's address (e.g., `A1`). When selecting multiple cells, it briefly shows the dimensions, like `3R x 3C` (3 Rows by 3 Columns).
+* **Formula Bar:** The long white bar next to the Name Box used to view, enter, or edit data and formulas.
+* **The Grid:** The massive workspace composed of intersecting vertical columns and horizontal rows.
+  * *Column Nomenclature:* Labeled alphabetically (A, B, C... to XFD). Total = **16,384 columns**.
+  * *Row Nomenclature:* Labeled numerically (1, 2, 3...). Total = **1,048,576 rows**.
+  * *Cell Nomenclature:* Identified by Column Letter + Row Number (e.g., `C4`).
 * **Workbook vs Worksheet:**
-  * *Workbook:* The entire Excel file (`.xlsx`).
-  * *Worksheet (Sheet):* A single page or tab within the workbook.
-* **Navigation:** Click the `+` at the bottom to add new sheets. Right-click a sheet tab to rename or color-code it.
+  * *Workbook:* The entire `.xlsx` file itself.
+  * *Worksheet:* A single page/tab within the workbook (e.g., `Sheet1` at the bottom left).
 
 ---
 
