@@ -7,61 +7,89 @@ output_path = "curriculum-app/public/images/excel-fully-labelled.png"
 img = Image.open(img_path).convert("RGBA")
 draw = ImageDraw.Draw(img)
 
-# Try to load a nice font, fallback to default
+# Try to load Arial, otherwise default
 try:
-    font = ImageFont.truetype("arial.ttf", 16)
-    title_font = ImageFont.truetype("arialbd.ttf", 20)
+    font = ImageFont.truetype("arial.ttf", 18)
+    bold_font = ImageFont.truetype("arialbd.ttf", 22)
 except IOError:
     font = ImageFont.load_default()
-    title_font = font
+    bold_font = font
 
-def draw_annotation(draw, box, text, color="red"):
-    # Draw rectangle
+def draw_pointer_annotation(draw, box, text, text_pos, color="red"):
+    # Draw the bounding box around the UI element
     draw.rectangle(box, outline=color, width=3)
     
-    # Text background
-    text_bbox = draw.textbbox((0, 0), text, font=font)
-    text_w = text_bbox[2] - text_bbox[0]
-    text_h = text_bbox[3] - text_bbox[1]
+    # Calculate box center/edge for the line
+    bx_mid = (box[0] + box[2]) // 2
+    by_mid = (box[1] + box[3]) // 2
+    by_bottom = box[3]
+    bx_right = box[2]
     
-    # Put text box above or inside depending on space
-    x1, y1, x2, y2 = box
-    text_x = x1 + 5
-    text_y = y1 - text_h - 10
+    # Text background box
+    text_bbox = draw.textbbox((0, 0), text, font=bold_font)
+    tw = text_bbox[2] - text_bbox[0]
+    th = text_bbox[3] - text_bbox[1]
     
-    if text_y < 0:
-        text_y = y1 + 5 # Move inside if it goes off top
+    tx, ty = text_pos
     
-    draw.rectangle([text_x - 2, text_y - 2, text_x + text_w + 2, text_y + text_h + 2], fill=color)
-    draw.text((text_x, text_y), text, fill="white", font=font)
+    # Draw line from text center to box edge depending on relative position
+    line_start = (tx + tw//2, ty)
+    line_end = (bx_mid, by_bottom)
+    
+    if tx > box[2]: # Text is to the right
+        line_start = (tx, ty + th//2)
+        line_end = (bx_right, by_mid)
+    elif ty > box[3]: # Text is below
+        line_start = (tx + tw//2, ty)
+        line_end = (bx_mid, by_bottom)
+    elif ty < box[1]: # Text is above
+        line_start = (tx + tw//2, ty + th)
+        line_end = (bx_mid, box[1])
+    else: # Text is left
+        line_start = (tx + tw, ty + th//2)
+        line_end = (box[0], by_mid)
+
+    draw.line([line_start, line_end], fill=color, width=2)
+    
+    # Draw a little circle at the end of the line
+    r = 4
+    draw.ellipse([line_end[0]-r, line_end[1]-r, line_end[0]+r, line_end[1]+r], fill=color)
+    
+    # Draw text background
+    pad = 6
+    draw.rectangle([tx - pad, ty - pad, tx + tw + pad, ty + th + pad], fill="white", outline=color, width=2)
+    
+    # Draw text
+    draw.text((tx, ty), text, fill="black", font=bold_font)
 
 # 1. Ribbon
-draw_annotation(draw, [0, 30, 1024, 140], "The Ribbon (Commands & Tools)", "blue")
+draw_pointer_annotation(draw, [0, 30, 1024, 140], "The Ribbon", (450, 60), "blue")
 
 # 2. Name Box
-draw_annotation(draw, [5, 145, 100, 175], "Name Box (Address or e.g. 3Rx3C)", "darkorange")
+draw_pointer_annotation(draw, [10, 145, 120, 170], "Name Box", (80, 220), "darkorange")
 
 # 3. Formula Bar
-draw_annotation(draw, [150, 145, 900, 175], "Formula Bar", "purple")
+draw_pointer_annotation(draw, [150, 145, 900, 170], "Formula Bar", (400, 220), "purple")
 
 # 4. Columns
-draw_annotation(draw, [35, 175, 1000, 195], "Column Nomenclature (A, B, C...) Max: 16,384 columns", "green")
+draw_pointer_annotation(draw, [35, 175, 1000, 195], "Columns (A, B... to XFD)\nMax: 16,384", (650, 220), "green")
 
 # 5. Rows
-draw_annotation(draw, [0, 195, 35, 580], "Row Nomenclature (1, 2, 3...)\nMax: 1,048,576 rows", "darkred")
+draw_pointer_annotation(draw, [0, 195, 35, 580], "Rows (1, 2...)\nMax: 1,048,576", (100, 450), "darkred")
 
 # 6. Active Cell
-# Approximate cell D5
-draw_annotation(draw, [180, 275, 250, 295], "Cell (e.g. D5)", "magenta")
+# Box around cell D5
+draw_pointer_annotation(draw, [210, 275, 275, 295], "Active Cell (e.g. D5)", (350, 300), "magenta")
 
 # 7. Grid
-# Just write large text in the middle
 grid_text = "The Grid (Worksheet Area)"
-grid_bbox = draw.textbbox((0,0), grid_text, font=title_font)
+grid_bbox = draw.textbbox((0,0), grid_text, font=bold_font)
 gw = grid_bbox[2] - grid_bbox[0]
 gh = grid_bbox[3] - grid_bbox[1]
-draw.rectangle([400-5, 350-5, 400+gw+5, 350+gh+5], fill="gray")
-draw.text((400, 350), grid_text, fill="white", font=title_font)
+tx, ty = 400, 450
+pad = 10
+draw.rectangle([tx - pad, ty - pad, tx + gw + pad, ty + gh + pad], fill="#f0f0f0", outline="gray", width=2)
+draw.text((tx, ty), grid_text, fill="black", font=bold_font)
 
 img.save(output_path)
-print("Annotated image saved.")
+print("Cleaner annotated image saved.")
