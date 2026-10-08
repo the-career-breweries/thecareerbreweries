@@ -1,1 +1,53 @@
-# Session 2: Software Fundamentals\n\n---\n\n# Overview\n\nWelcome to Session 2. Today we will be covering the following topics:\n\n* **1.2.1 Difference between hardware and software**\n* **1.2.2 Types of software: System vs Application**\n* **1.2.3 Common application software used in aviation**\n* **1.2.4 Understanding software licenses and open-source**\n* **1.2.5 Installing and uninstalling basic applications**\n* **1.2.6 Hands-on: Exploring installed software in the lab**\n\n---\n\n# 1.2.1 Difference between hardware and software\n\nInstructor will guide you through this concept.\n\n---\n\n# 1.2.2 Types of software: System vs Application\n\nInstructor will guide you through this concept.\n\n---\n\n# 1.2.3 Common application software used in aviation\n\nInstructor will guide you through this concept.\n\n---\n\n# 1.2.4 Understanding software licenses and open-source\n\nInstructor will guide you through this concept.\n\n---\n\n# 1.2.5 Installing and uninstalling basic applications\n\nInstructor will guide you through this concept.\n\n---\n\n# 1.2.6 Hands-on: Exploring installed software in the lab\n\nFollow the instructor's demonstration in the lab to complete this exercise.\n\n---\n\n
+# Session 2: Software Fundamentals
+
+---
+
+# Overview
+
+Welcome to Session 2. Today we will be covering the following topics:
+
+* **1.2.1 Difference between hardware and software**
+* **1.2.2 Types of software: System vs Application**
+* **1.2.3 Common application software used in aviation**
+* **1.2.4 Understanding software licenses and open-source**
+* **1.2.5 Installing and uninstalling basic applications**
+* **1.2.6 Hands-on: Exploring installed software in the lab**
+
+---
+
+# 1.2.1 Difference between hardware and software
+
+Instructor will guide you through this concept.
+
+---
+
+# 1.2.2 Types of software: System vs Application
+
+Instructor will guide you through this concept.
+
+---
+
+# 1.2.3 Common application software used in aviation
+
+Instructor will guide you through this concept.
+
+---
+
+# 1.2.4 Understanding software licenses and open-source
+
+Instructor will guide you through this concept.
+
+---
+
+# 1.2.5 Installing and uninstalling basic applications
+
+Instructor will guide you through this concept.
+
+---
+
+# 1.2.6 Hands-on: Exploring installed software in the lab
+
+Follow the instructor's demonstration in the lab to complete this exercise.
+
+---
+

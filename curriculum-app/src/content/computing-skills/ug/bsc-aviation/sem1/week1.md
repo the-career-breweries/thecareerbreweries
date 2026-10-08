@@ -1,1 +1,53 @@
-# Session 1: Computer Hardware Basics\n\n---\n\n# Overview\n\nWelcome to Session 1. Today we will be covering the following topics:\n\n* **1.1.1 Introduction to computing devices and lab safety**\n* **1.1.2 Identifying central processing units (CPU) and memory**\n* **1.1.3 Exploring input devices (keyboard, mouse, scanners)**\n* **1.1.4 Exploring output devices (monitors, printers)**\n* **1.1.5 Understanding storage devices (HDD, SSD, USB)**\n* **1.1.6 Hands-on: Examining hardware components**\n\n---\n\n# 1.1.1 Introduction to computing devices and lab safety\n\nInstructor will guide you through this concept.\n\n---\n\n# 1.1.2 Identifying central processing units (CPU) and memory\n\nInstructor will guide you through this concept.\n\n---\n\n# 1.1.3 Exploring input devices (keyboard, mouse, scanners)\n\nInstructor will guide you through this concept.\n\n---\n\n# 1.1.4 Exploring output devices (monitors, printers)\n\nInstructor will guide you through this concept.\n\n---\n\n# 1.1.5 Understanding storage devices (HDD, SSD, USB)\n\nInstructor will guide you through this concept.\n\n---\n\n# 1.1.6 Hands-on: Examining hardware components\n\nFollow the instructor's demonstration in the lab to complete this exercise.\n\n---\n\n
+# Session 1: Computer Hardware Basics
+
+---
+
+# Overview
+
+Welcome to Session 1. Today we will be covering the following topics:
+
+* **1.1.1 Introduction to computing devices and lab safety**
+* **1.1.2 Identifying central processing units (CPU) and memory**
+* **1.1.3 Exploring input devices (keyboard, mouse, scanners)**
+* **1.1.4 Exploring output devices (monitors, printers)**
+* **1.1.5 Understanding storage devices (HDD, SSD, USB)**
+* **1.1.6 Hands-on: Examining hardware components**
+
+---
+
+# 1.1.1 Introduction to computing devices and lab safety
+
+Instructor will guide you through this concept.
+
+---
+
+# 1.1.2 Identifying central processing units (CPU) and memory
+
+Instructor will guide you through this concept.
+
+---
+
+# 1.1.3 Exploring input devices (keyboard, mouse, scanners)
+
+Instructor will guide you through this concept.
+
+---
+
+# 1.1.4 Exploring output devices (monitors, printers)
+
+Instructor will guide you through this concept.
+
+---
+
+# 1.1.5 Understanding storage devices (HDD, SSD, USB)
+
+Instructor will guide you through this concept.
+
+---
+
+# 1.1.6 Hands-on: Examining hardware components
+
+Follow the instructor's demonstration in the lab to complete this exercise.
+
+---
+

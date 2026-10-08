@@ -1,1 +1,53 @@
-# Session 7: Paragraph Formatting and Layout\n\n---\n\n# Overview\n\nWelcome to Session 7. Today we will be covering the following topics:\n\n* **2.2.1 Paragraph alignment and justification**\n* **2.2.2 Line spacing and paragraph spacing**\n* **2.2.3 Creating bulleted and numbered lists**\n* **2.2.4 Multilevel lists for complex documents**\n* **2.2.5 Indentations and tab stops**\n* **2.2.6 Hands-on: Formatting an employee policy document**\n\n---\n\n# 2.2.1 Paragraph alignment and justification\n\nInstructor will guide you through this concept.\n\n---\n\n# 2.2.2 Line spacing and paragraph spacing\n\nInstructor will guide you through this concept.\n\n---\n\n# 2.2.3 Creating bulleted and numbered lists\n\nInstructor will guide you through this concept.\n\n---\n\n# 2.2.4 Multilevel lists for complex documents\n\nInstructor will guide you through this concept.\n\n---\n\n# 2.2.5 Indentations and tab stops\n\nInstructor will guide you through this concept.\n\n---\n\n# 2.2.6 Hands-on: Formatting an employee policy document\n\nFollow the instructor's demonstration in the lab to complete this exercise.\n\n---\n\n
+# Session 7: Paragraph Formatting and Layout
+
+---
+
+# Overview
+
+Welcome to Session 7. Today we will be covering the following topics:
+
+* **2.2.1 Paragraph alignment and justification**
+* **2.2.2 Line spacing and paragraph spacing**
+* **2.2.3 Creating bulleted and numbered lists**
+* **2.2.4 Multilevel lists for complex documents**
+* **2.2.5 Indentations and tab stops**
+* **2.2.6 Hands-on: Formatting an employee policy document**
+
+---
+
+# 2.2.1 Paragraph alignment and justification
+
+Instructor will guide you through this concept.
+
+---
+
+# 2.2.2 Line spacing and paragraph spacing
+
+Instructor will guide you through this concept.
+
+---
+
+# 2.2.3 Creating bulleted and numbered lists
+
+Instructor will guide you through this concept.
+
+---
+
+# 2.2.4 Multilevel lists for complex documents
+
+Instructor will guide you through this concept.
+
+---
+
+# 2.2.5 Indentations and tab stops
+
+Instructor will guide you through this concept.
+
+---
+
+# 2.2.6 Hands-on: Formatting an employee policy document
+
+Follow the instructor's demonstration in the lab to complete this exercise.
+
+---
+

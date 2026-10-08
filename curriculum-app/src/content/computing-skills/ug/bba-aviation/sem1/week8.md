@@ -1,1 +1,53 @@
-# Session 8: Working with Tables and Visuals\n\n---\n\n# Overview\n\nWelcome to Session 8. Today we will be covering the following topics:\n\n* **2.3.1 Inserting and drawing tables**\n* **2.3.2 Adding/deleting rows and columns**\n* **2.3.3 Merging and splitting cells**\n* **2.3.4 Applying table styles and shading**\n* **2.3.5 Inserting images, shapes, and SmartArt**\n* **2.3.6 Hands-on: Creating a flight schedule table**\n\n---\n\n# 2.3.1 Inserting and drawing tables\n\nInstructor will guide you through this concept.\n\n---\n\n# 2.3.2 Adding/deleting rows and columns\n\nInstructor will guide you through this concept.\n\n---\n\n# 2.3.3 Merging and splitting cells\n\nInstructor will guide you through this concept.\n\n---\n\n# 2.3.4 Applying table styles and shading\n\nInstructor will guide you through this concept.\n\n---\n\n# 2.3.5 Inserting images, shapes, and SmartArt\n\nInstructor will guide you through this concept.\n\n---\n\n# 2.3.6 Hands-on: Creating a flight schedule table\n\nFollow the instructor's demonstration in the lab to complete this exercise.\n\n---\n\n
+# Session 8: Working with Tables and Visuals
+
+---
+
+# Overview
+
+Welcome to Session 8. Today we will be covering the following topics:
+
+* **2.3.1 Inserting and drawing tables**
+* **2.3.2 Adding/deleting rows and columns**
+* **2.3.3 Merging and splitting cells**
+* **2.3.4 Applying table styles and shading**
+* **2.3.5 Inserting images, shapes, and SmartArt**
+* **2.3.6 Hands-on: Creating a flight schedule table**
+
+---
+
+# 2.3.1 Inserting and drawing tables
+
+Instructor will guide you through this concept.
+
+---
+
+# 2.3.2 Adding/deleting rows and columns
+
+Instructor will guide you through this concept.
+
+---
+
+# 2.3.3 Merging and splitting cells
+
+Instructor will guide you through this concept.
+
+---
+
+# 2.3.4 Applying table styles and shading
+
+Instructor will guide you through this concept.
+
+---
+
+# 2.3.5 Inserting images, shapes, and SmartArt
+
+Instructor will guide you through this concept.
+
+---
+
+# 2.3.6 Hands-on: Creating a flight schedule table
+
+Follow the instructor's demonstration in the lab to complete this exercise.
+
+---
+

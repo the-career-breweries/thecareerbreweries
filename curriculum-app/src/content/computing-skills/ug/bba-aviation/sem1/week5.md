@@ -1,1 +1,53 @@
-# Session 5: System Maintenance & Review\n\n---\n\n# Overview\n\nWelcome to Session 5. Today we will be covering the following topics:\n\n* **1.5.1 Basic system troubleshooting (Task Manager)**\n* **1.5.2 Safely connecting and disconnecting peripherals**\n* **1.5.3 Using built-in diagnostic tools**\n* **1.5.4 Best practices for file backups**\n* **1.5.5 Unit 1 comprehensive review and Q&A**\n* **1.5.6 Practical Assessment: System navigation and file management**\n\n---\n\n# 1.5.1 Basic system troubleshooting (Task Manager)\n\nInstructor will guide you through this concept.\n\n---\n\n# 1.5.2 Safely connecting and disconnecting peripherals\n\nInstructor will guide you through this concept.\n\n---\n\n# 1.5.3 Using built-in diagnostic tools\n\nInstructor will guide you through this concept.\n\n---\n\n# 1.5.4 Best practices for file backups\n\nInstructor will guide you through this concept.\n\n---\n\n# 1.5.5 Unit 1 comprehensive review and Q&A\n\nInstructor will guide you through this concept.\n\n---\n\n# 1.5.6 Practical Assessment: System navigation and file management\n\nFollow the instructor's demonstration in the lab to complete this exercise.\n\n---\n\n
+# Session 5: System Maintenance & Review
+
+---
+
+# Overview
+
+Welcome to Session 5. Today we will be covering the following topics:
+
+* **1.5.1 Basic system troubleshooting (Task Manager)**
+* **1.5.2 Safely connecting and disconnecting peripherals**
+* **1.5.3 Using built-in diagnostic tools**
+* **1.5.4 Best practices for file backups**
+* **1.5.5 Unit 1 comprehensive review and Q&A**
+* **1.5.6 Practical Assessment: System navigation and file management**
+
+---
+
+# 1.5.1 Basic system troubleshooting (Task Manager)
+
+Instructor will guide you through this concept.
+
+---
+
+# 1.5.2 Safely connecting and disconnecting peripherals
+
+Instructor will guide you through this concept.
+
+---
+
+# 1.5.3 Using built-in diagnostic tools
+
+Instructor will guide you through this concept.
+
+---
+
+# 1.5.4 Best practices for file backups
+
+Instructor will guide you through this concept.
+
+---
+
+# 1.5.5 Unit 1 comprehensive review and Q&A
+
+Instructor will guide you through this concept.
+
+---
+
+# 1.5.6 Practical Assessment: System navigation and file management
+
+Follow the instructor's demonstration in the lab to complete this exercise.
+
+---
+

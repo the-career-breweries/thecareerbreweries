@@ -1,1 +1,53 @@
-# Session 14: Cell Referencing\n\n---\n\n# Overview\n\nWelcome to Session 14. Today we will be covering the following topics:\n\n* **3.4.1 Understanding Relative cell referencing**\n* **3.4.2 Understanding Absolute cell referencing ($)**\n* **3.4.3 Mixed cell referencing**\n* **3.4.4 Naming ranges for easier formula reading**\n* **3.4.5 Identifying and fixing formula errors (#DIV/0!, #REF!)**\n* **3.4.6 Hands-on: Calculating tax with absolute references**\n\n---\n\n# 3.4.1 Understanding Relative cell referencing\n\nInstructor will guide you through this concept.\n\n---\n\n# 3.4.2 Understanding Absolute cell referencing ($)\n\nInstructor will guide you through this concept.\n\n---\n\n# 3.4.3 Mixed cell referencing\n\nInstructor will guide you through this concept.\n\n---\n\n# 3.4.4 Naming ranges for easier formula reading\n\nInstructor will guide you through this concept.\n\n---\n\n# 3.4.5 Identifying and fixing formula errors (#DIV/0!, #REF!)\n\nInstructor will guide you through this concept.\n\n---\n\n# 3.4.6 Hands-on: Calculating tax with absolute references\n\nFollow the instructor's demonstration in the lab to complete this exercise.\n\n---\n\n
+# Session 14: Cell Referencing
+
+---
+
+# Overview
+
+Welcome to Session 14. Today we will be covering the following topics:
+
+* **3.4.1 Understanding Relative cell referencing**
+* **3.4.2 Understanding Absolute cell referencing ($)**
+* **3.4.3 Mixed cell referencing**
+* **3.4.4 Naming ranges for easier formula reading**
+* **3.4.5 Identifying and fixing formula errors (#DIV/0!, #REF!)**
+* **3.4.6 Hands-on: Calculating tax with absolute references**
+
+---
+
+# 3.4.1 Understanding Relative cell referencing
+
+Instructor will guide you through this concept.
+
+---
+
+# 3.4.2 Understanding Absolute cell referencing ($)
+
+Instructor will guide you through this concept.
+
+---
+
+# 3.4.3 Mixed cell referencing
+
+Instructor will guide you through this concept.
+
+---
+
+# 3.4.4 Naming ranges for easier formula reading
+
+Instructor will guide you through this concept.
+
+---
+
+# 3.4.5 Identifying and fixing formula errors (#DIV/0!, #REF!)
+
+Instructor will guide you through this concept.
+
+---
+
+# 3.4.6 Hands-on: Calculating tax with absolute references
+
+Follow the instructor's demonstration in the lab to complete this exercise.
+
+---
+

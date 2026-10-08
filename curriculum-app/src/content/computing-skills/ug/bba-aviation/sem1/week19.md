@@ -1,1 +1,53 @@
-# Session 19: Basic Data Analysis Tools\n\n---\n\n# Overview\n\nWelcome to Session 19. Today we will be covering the following topics:\n\n* **3.9.1 Using Conditional Formatting (Highlight cell rules)**\n* **3.9.2 Conditional Formatting (Data bars and color scales)**\n* **3.9.3 Removing duplicates from a dataset**\n* **3.9.4 Text to Columns (Splitting data)**\n* **3.9.5 Data Validation (Creating drop-down lists)**\n* **3.9.6 Hands-on: Cleaning and validating crew records**\n\n---\n\n# 3.9.1 Using Conditional Formatting (Highlight cell rules)\n\nInstructor will guide you through this concept.\n\n---\n\n# 3.9.2 Conditional Formatting (Data bars and color scales)\n\nInstructor will guide you through this concept.\n\n---\n\n# 3.9.3 Removing duplicates from a dataset\n\nInstructor will guide you through this concept.\n\n---\n\n# 3.9.4 Text to Columns (Splitting data)\n\nInstructor will guide you through this concept.\n\n---\n\n# 3.9.5 Data Validation (Creating drop-down lists)\n\nInstructor will guide you through this concept.\n\n---\n\n# 3.9.6 Hands-on: Cleaning and validating crew records\n\nFollow the instructor's demonstration in the lab to complete this exercise.\n\n---\n\n
+# Session 19: Basic Data Analysis Tools
+
+---
+
+# Overview
+
+Welcome to Session 19. Today we will be covering the following topics:
+
+* **3.9.1 Using Conditional Formatting (Highlight cell rules)**
+* **3.9.2 Conditional Formatting (Data bars and color scales)**
+* **3.9.3 Removing duplicates from a dataset**
+* **3.9.4 Text to Columns (Splitting data)**
+* **3.9.5 Data Validation (Creating drop-down lists)**
+* **3.9.6 Hands-on: Cleaning and validating crew records**
+
+---
+
+# 3.9.1 Using Conditional Formatting (Highlight cell rules)
+
+Instructor will guide you through this concept.
+
+---
+
+# 3.9.2 Conditional Formatting (Data bars and color scales)
+
+Instructor will guide you through this concept.
+
+---
+
+# 3.9.3 Removing duplicates from a dataset
+
+Instructor will guide you through this concept.
+
+---
+
+# 3.9.4 Text to Columns (Splitting data)
+
+Instructor will guide you through this concept.
+
+---
+
+# 3.9.5 Data Validation (Creating drop-down lists)
+
+Instructor will guide you through this concept.
+
+---
+
+# 3.9.6 Hands-on: Cleaning and validating crew records
+
+Follow the instructor's demonstration in the lab to complete this exercise.
+
+---
+

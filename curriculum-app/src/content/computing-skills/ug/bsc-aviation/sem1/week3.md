@@ -1,1 +1,53 @@
-# Session 3: Operating Systems - Interface & Navigation\n\n---\n\n# Overview\n\nWelcome to Session 3. Today we will be covering the following topics:\n\n* **1.3.1 Introduction to Operating Systems (Windows)**\n* **1.3.2 Navigating the desktop, taskbar, and start menu**\n* **1.3.3 Managing windows (minimize, maximize, snap)**\n* **1.3.4 Customizing system settings and display**\n* **1.3.5 Understanding user accounts and security**\n* **1.3.6 Hands-on: Personalizing the OS environment**\n\n---\n\n# 1.3.1 Introduction to Operating Systems (Windows)\n\nInstructor will guide you through this concept.\n\n---\n\n# 1.3.2 Navigating the desktop, taskbar, and start menu\n\nInstructor will guide you through this concept.\n\n---\n\n# 1.3.3 Managing windows (minimize, maximize, snap)\n\nInstructor will guide you through this concept.\n\n---\n\n# 1.3.4 Customizing system settings and display\n\nInstructor will guide you through this concept.\n\n---\n\n# 1.3.5 Understanding user accounts and security\n\nInstructor will guide you through this concept.\n\n---\n\n# 1.3.6 Hands-on: Personalizing the OS environment\n\nFollow the instructor's demonstration in the lab to complete this exercise.\n\n---\n\n
+# Session 3: Operating Systems - Interface & Navigation
+
+---
+
+# Overview
+
+Welcome to Session 3. Today we will be covering the following topics:
+
+* **1.3.1 Introduction to Operating Systems (Windows)**
+* **1.3.2 Navigating the desktop, taskbar, and start menu**
+* **1.3.3 Managing windows (minimize, maximize, snap)**
+* **1.3.4 Customizing system settings and display**
+* **1.3.5 Understanding user accounts and security**
+* **1.3.6 Hands-on: Personalizing the OS environment**
+
+---
+
+# 1.3.1 Introduction to Operating Systems (Windows)
+
+Instructor will guide you through this concept.
+
+---
+
+# 1.3.2 Navigating the desktop, taskbar, and start menu
+
+Instructor will guide you through this concept.
+
+---
+
+# 1.3.3 Managing windows (minimize, maximize, snap)
+
+Instructor will guide you through this concept.
+
+---
+
+# 1.3.4 Customizing system settings and display
+
+Instructor will guide you through this concept.
+
+---
+
+# 1.3.5 Understanding user accounts and security
+
+Instructor will guide you through this concept.
+
+---
+
+# 1.3.6 Hands-on: Personalizing the OS environment
+
+Follow the instructor's demonstration in the lab to complete this exercise.
+
+---
+

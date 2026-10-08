@@ -1,1 +1,53 @@
-# Session 11: Introduction to Spreadsheets\n\n---\n\n# Overview\n\nWelcome to Session 11. Today we will be covering the following topics:\n\n* **3.1.1 MS Excel interface: Workbooks and Worksheets**\n* **3.1.2 Navigating cells, rows, and columns**\n* **3.1.3 Data entry techniques (Text, Numbers, Dates)**\n* **3.1.4 Using AutoFill and Flash Fill**\n* **3.1.5 Selecting ranges and non-adjacent cells**\n* **3.1.6 Hands-on: Creating a basic passenger list**\n\n---\n\n# 3.1.1 MS Excel interface: Workbooks and Worksheets\n\nInstructor will guide you through this concept.\n\n---\n\n# 3.1.2 Navigating cells, rows, and columns\n\nInstructor will guide you through this concept.\n\n---\n\n# 3.1.3 Data entry techniques (Text, Numbers, Dates)\n\nInstructor will guide you through this concept.\n\n---\n\n# 3.1.4 Using AutoFill and Flash Fill\n\nInstructor will guide you through this concept.\n\n---\n\n# 3.1.5 Selecting ranges and non-adjacent cells\n\nInstructor will guide you through this concept.\n\n---\n\n# 3.1.6 Hands-on: Creating a basic passenger list\n\nFollow the instructor's demonstration in the lab to complete this exercise.\n\n---\n\n
+# Session 11: Introduction to Spreadsheets
+
+---
+
+# Overview
+
+Welcome to Session 11. Today we will be covering the following topics:
+
+* **3.1.1 MS Excel interface: Workbooks and Worksheets**
+* **3.1.2 Navigating cells, rows, and columns**
+* **3.1.3 Data entry techniques (Text, Numbers, Dates)**
+* **3.1.4 Using AutoFill and Flash Fill**
+* **3.1.5 Selecting ranges and non-adjacent cells**
+* **3.1.6 Hands-on: Creating a basic passenger list**
+
+---
+
+# 3.1.1 MS Excel interface: Workbooks and Worksheets
+
+Instructor will guide you through this concept.
+
+---
+
+# 3.1.2 Navigating cells, rows, and columns
+
+Instructor will guide you through this concept.
+
+---
+
+# 3.1.3 Data entry techniques (Text, Numbers, Dates)
+
+Instructor will guide you through this concept.
+
+---
+
+# 3.1.4 Using AutoFill and Flash Fill
+
+Instructor will guide you through this concept.
+
+---
+
+# 3.1.5 Selecting ranges and non-adjacent cells
+
+Instructor will guide you through this concept.
+
+---
+
+# 3.1.6 Hands-on: Creating a basic passenger list
+
+Follow the instructor's demonstration in the lab to complete this exercise.
+
+---
+
