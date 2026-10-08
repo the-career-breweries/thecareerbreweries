@@ -254,87 +254,97 @@
     "5": {
       "keyConcepts": [
         {
-          "title": "Professional Formatting",
-          "explanation": "The standard layout and structure expected in business communications (emails, letters, reports)."
+          "title": "The Anatomy of a Paragraph",
+          "explanation": "A structured paragraph consists of a Topic Sentence, Supporting Sentences, and a Concluding Sentence."
         },
         {
-          "title": "Tone & Register",
-          "explanation": "The level of formality and attitude conveyed through word choice in writing."
+          "title": "The Email Formula",
+          "explanation": "Professional emails require a specific Subject Line, Greeting, focused Body, Call to Action, and formal Sign-off."
+        },
+        {
+          "title": "Objective Report Writing",
+          "explanation": "Reports must be written in the third person and utilize passive voice to maintain factual objectivity."
         }
       ],
       "definitions": [
         {
-          "term": "Salutation",
-          "definition": "A standard formula of words used in a letter to address the person being written to."
+          "term": "Cohesion",
+          "definition": "The logical flow and connection of ideas within a paragraph using transition words."
         },
         {
-          "term": "Sign-off",
-          "definition": "The concluding phrase of an email or letter (e.g., Yours sincerely)."
+          "term": "Passive Voice",
+          "definition": "A grammatical construction where the subject receives the action (e.g., 'The inspection was conducted') commonly used in incident reports."
         }
       ],
       "mnemonic": {
-        "acronym": "KISS",
+        "acronym": "EMAIL",
         "points": [
-          "K - Keep",
-          "I - It",
-          "S - Short &",
-          "S - Simple"
+          "E - Exact Subject",
+          "M - Meaningful Greeting",
+          "A - Actionable Body",
+          "I - Indicate Deadline (Call to Action)",
+          "L - Leave a Professional Sign-off"
         ]
       },
       "btlQuestions": {
-        "Remember": "State the standard components of a professional email.",
-        "Understand": "Explain when to use 'Yours faithfully' vs 'Yours sincerely'.",
-        "Apply": "Draft an email requesting sick leave.",
-        "Analyze": "Identify the tonal errors in a poorly written business letter.",
-        "Evaluate": "Critique a peer's incident report for clarity.",
-        "Create": "Write a formal incident report regarding a baggage delay."
+        "Remember": "What are the three main components of a structured paragraph?",
+        "Understand": "Why is passive voice preferred in aviation incident reports?",
+        "Apply": "Draft a short, formal email apologizing to your manager for a delayed submission.",
+        "Analyze": "Compare the structure of a formal business letter to an informal letter to a friend.",
+        "Evaluate": "Review a poorly written paragraph and explain how transition words would improve its cohesion.",
+        "Create": "Write a complete 6-section incident report documenting a safety hazard observed in the lab."
       },
       "referenceMaterial": {
-        "primary": "Oxford Guide to Effective Writing and Speaking",
-        "further": "Wren & Martin, Composition Section"
+        "primary": "Wren & Martin High School English Grammar and Composition, Chapter on Letter Writing",
+        "further": "Oxford Guide to Effective Writing and Speaking"
       }
     },
     "6": {
       "keyConcepts": [
         {
-          "title": "Pronunciation & Enunciation",
-          "explanation": "The correct articulation of words to ensure clarity, especially over radio or PA systems."
+          "title": "Hearing vs. Listening",
+          "explanation": "Hearing is a biological, automatic function. Listening is an active, psychological choice requiring effort."
         },
         {
-          "title": "Active Listening",
-          "explanation": "Fully concentrating, understanding, responding, and remembering what is being said."
+          "title": "The S.O.F.T.E.N. Technique",
+          "explanation": "A framework for active listening body language: Smile, Open posture, Forward lean, Touch, Eye contact, Nod."
+        },
+        {
+          "title": "The Positive-Negative-Positive Sandwich",
+          "explanation": "A communication strategy for polite disagreement: Validate, State boundary, Offer alternative."
         }
       ],
       "definitions": [
         {
-          "term": "Articulation",
-          "definition": "The formation of clear and distinct sounds in speech."
+          "term": "Paraphrasing",
+          "definition": "Summarizing the core issue and emotion of a speaker to confirm understanding, rather than just repeating their words."
         },
         {
-          "term": "Intonation",
-          "definition": "The rise and fall of the voice in speaking, conveying emotion or grammatical structure."
+          "term": "Sentence Intonation",
+          "definition": "The rise and fall of voice pitch during speech, which can change statements into questions."
         }
       ],
       "mnemonic": {
-        "acronym": "HEAR",
+        "acronym": "HEART",
         "points": [
-          "H - Hear the message",
-          "E - Empathize",
-          "A - Analyze",
-          "R - Respond"
+          "H - Hear without interrupting",
+          "E - Empathize with their feelings",
+          "A - Apologize for the situation",
+          "R - Resolve by offering options",
+          "T - Thank them for their patience"
         ]
       },
       "btlQuestions": {
-        "Remember": "Define active listening.",
-        "Understand": "Explain how intonation changes the meaning of a sentence.",
-        "Apply": "Demonstrate a PA announcement with clear articulation.",
-        "Analyze": "Identify barriers to effective listening in a noisy environment.",
-        "Evaluate": "Assess a role-play partner's clarity and pronunciation.",
-        "Create": "Design a role-play script for handling a passenger complaint."
+        "Remember": "What does the acronym S.O.F.T.E.N. stand for?",
+        "Understand": "Explain the difference between open and closed questions when building rapport.",
+        "Apply": "Paraphrase this statement: 'I've been waiting 3 hours and I'm going to miss my connection!'",
+        "Analyze": "How does speaking in a high-noise environment change the way you must modulate your voice?",
+        "Evaluate": "Watch a customer service roleplay and grade the employee's use of the H.E.A.R.T model.",
+        "Create": "Perform a mock PA announcement incorporating appropriate pacing, clarity, and modulation."
       },
       "referenceMaterial": {
-        "primary": "Aviation English",
-        "further": "TED Talks on Effective Speaking"
+        "primary": "Effective Communication Skills by MTD Training",
+        "further": "Aviation English by Macmillan Education"
       }
     },
     "7": {
@@ -732,629 +742,630 @@
       "keyConcepts": [
         {
           "title": "Hardware vs Software",
-          "explanation": "Hardware refers to the physical components of a computer, while software refers to the programs and operating systems that run on it."
+          "explanation": "Physical parts of a computer"
         },
         {
-          "title": "Input/Output Devices",
-          "explanation": "Tools used to send data to a computer (input) and receive data from a computer (output)."
+          "title": "Applied Hardware vs Software",
+          "explanation": "Understanding how to leverage hardware vs software in a modern aviation business environment."
         }
       ],
       "definitions": [
         {
-          "term": "CPU (Central Processing Unit)",
-          "definition": "The primary component of a computer that acts as its 'brain', performing most of the processing."
+          "term": "Key Term",
+          "definition": "CPU, RAM, Storage"
         },
         {
-          "term": "RAM (Random Access Memory)",
-          "definition": "A form of computer memory that can be read and changed in any order, typically used to store working data and machine code."
+          "term": "Practical Use",
+          "definition": "Applying CPU, RAM, Storage efficiently in daily operations."
         }
       ],
       "mnemonic": {
-        "acronym": "IPOS",
+        "acronym": "ACT",
         "points": [
-          "I - Input (Keyboard, Mouse)",
-          "P - Process (CPU, RAM)",
-          "O - Output (Monitor, Printer)",
-          "S - Storage (Hard Drive, SSD)"
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
         ]
       },
       "btlQuestions": {
-        "Remember": "Name three examples of input devices.",
-        "Understand": "Describe the function of the motherboard.",
-        "Apply": "Determine which type of storage is best for backing up a large video file.",
-        "Analyze": "Differentiate between RAM and ROM.",
-        "Evaluate": "Argue why an SSD is preferred over an HDD in modern laptops.",
-        "Create": "Design a basic block diagram of a computer system."
+        "Remember": "Define the core concepts of Computer Hardware Basics.",
+        "Understand": "Explain the significance of Hardware vs Software.",
+        "Apply": "Identify internal PC components",
+        "Analyze": "Compare different methods of handling CPU, RAM, Storage.",
+        "Evaluate": "Assess the effectiveness of your approach to Computer Hardware Basics.",
+        "Create": "Design a workflow utilizing Hardware vs Software."
       },
       "referenceMaterial": {
-        "primary": "Introduction to Computers by Peter Norton, Chapter 1",
-        "further": "CompTIA IT Fundamentals+ (FC0-U61) Study Guide"
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
       }
     },
     "2": {
       "keyConcepts": [
         {
-          "title": "Operating Systems (OS)",
-          "explanation": "System software that manages computer hardware, software resources, and provides common services for computer programs."
+          "title": "System vs Application",
+          "explanation": "Programs that run hardware vs tasks"
         },
         {
-          "title": "Windows UI",
-          "explanation": "The user interface of the Windows operating system, including the desktop, taskbar, start menu, and file explorer."
+          "title": "Applied System vs Application",
+          "explanation": "Understanding how to leverage system vs application in a modern aviation business environment."
         }
       ],
       "definitions": [
         {
-          "term": "Operating System",
-          "definition": "The software that supports a computer's basic functions, such as scheduling tasks, executing applications, and controlling peripherals."
+          "term": "Key Term",
+          "definition": "OS, Utilities, Apps"
         },
         {
-          "term": "GUI (Graphical User Interface)",
-          "definition": "A visual way of interacting with a computer using items such as windows, icons, and menus."
+          "term": "Practical Use",
+          "definition": "Applying OS, Utilities, Apps efficiently in daily operations."
         }
       ],
       "mnemonic": {
-        "acronym": "WIMP",
+        "acronym": "ACT",
         "points": [
-          "W - Windows",
-          "I - Icons",
-          "M - Menus",
-          "P - Pointer"
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
         ]
       },
       "btlQuestions": {
-        "Remember": "List three popular operating systems.",
-        "Understand": "Explain the purpose of the Windows Taskbar.",
-        "Apply": "Use keyboard shortcuts to minimize all windows.",
-        "Analyze": "Compare the Windows Start Menu with the macOS Launchpad.",
-        "Evaluate": "Assess the importance of regular OS updates.",
-        "Create": "Develop a customized Windows desktop layout for optimal productivity."
+        "Remember": "Define the core concepts of Software Fundamentals.",
+        "Understand": "Explain the significance of System vs Application.",
+        "Apply": "Distinguish software types",
+        "Analyze": "Compare different methods of handling OS, Utilities, Apps.",
+        "Evaluate": "Assess the effectiveness of your approach to Software Fundamentals.",
+        "Create": "Design a workflow utilizing System vs Application."
       },
       "referenceMaterial": {
-        "primary": "Windows 11 Simplified by Paul McFedries",
-        "further": "Microsoft Official Windows Support Documentation"
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
       }
     },
     "3": {
       "keyConcepts": [
         {
-          "title": "File System Organization",
-          "explanation": "The logical structuring of files into directories and subdirectories for easy retrieval."
+          "title": "Windows UI",
+          "explanation": "GUI, Taskbar, Settings"
         },
         {
-          "title": "File Explorer Search",
-          "explanation": "Using built-in search tools to locate files quickly."
+          "title": "Applied Windows UI",
+          "explanation": "Understanding how to leverage windows ui in a modern aviation business environment."
         }
       ],
       "definitions": [
         {
-          "term": "Folder/Directory",
-          "definition": "A storage space where many files can be placed into groups and organize the computer."
+          "term": "Key Term",
+          "definition": "Desktop navigation"
         },
         {
-          "term": "File Extension",
-          "definition": "The suffix at the end of a filename (e.g., .docx, .pdf) that indicates the file type."
+          "term": "Practical Use",
+          "definition": "Applying Desktop navigation efficiently in daily operations."
         }
       ],
       "mnemonic": {
-        "acronym": "COPS",
+        "acronym": "ACT",
         "points": [
-          "C - Create",
-          "O - Organize",
-          "P - Protect",
-          "S - Search"
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
         ]
       },
       "btlQuestions": {
-        "Remember": "What is the purpose of a file extension?",
-        "Understand": "Explain the difference between 'Save' and 'Save As'.",
-        "Apply": "Create a nested folder structure for a given set of files.",
-        "Analyze": "Analyze why a file might not open if its extension is changed.",
-        "Evaluate": "Assess the benefits of cloud storage vs local storage for organization.",
-        "Create": "Design a standard naming convention for your project files."
+        "Remember": "Define the core concepts of Operating Systems - Interface & Navigation.",
+        "Understand": "Explain the significance of Windows UI.",
+        "Apply": "Personalize Windows OS",
+        "Analyze": "Compare different methods of handling Desktop navigation.",
+        "Evaluate": "Assess the effectiveness of your approach to Operating Systems - Interface & Navigation.",
+        "Create": "Design a workflow utilizing Windows UI."
       },
       "referenceMaterial": {
-        "primary": "Windows 11 File Management Guide",
-        "further": "Microsoft Support"
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
       }
     },
     "4": {
       "keyConcepts": [
         {
-          "title": "Document Creation",
-          "explanation": "The fundamentals of opening, typing, editing, and saving a document in Microsoft Word."
+          "title": "Hierarchy and Paths",
+          "explanation": "How files are stored in directories"
         },
         {
-          "title": "Word UI Elements",
-          "explanation": "Navigating the Ribbon, Quick Access Toolbar, and Status Bar."
+          "title": "Applied Hierarchy and Paths",
+          "explanation": "Understanding how to leverage hierarchy and paths in a modern aviation business environment."
         }
       ],
       "definitions": [
         {
-          "term": "Ribbon",
-          "definition": "The strip of buttons and icons located above the work area in MS Office applications."
+          "term": "Key Term",
+          "definition": "Folders, Files, Extensions"
         },
         {
-          "term": "Cursor",
-          "definition": "The flashing vertical line that indicates where text will be inserted."
+          "term": "Practical Use",
+          "definition": "Applying Folders, Files, Extensions efficiently in daily operations."
         }
       ],
       "mnemonic": {
-        "acronym": "TOS",
+        "acronym": "ACT",
         "points": [
-          "T - Type",
-          "O - Organize",
-          "S - Save"
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
         ]
       },
       "btlQuestions": {
-        "Remember": "Identify the Ribbon in MS Word.",
-        "Understand": "Explain the function of the Quick Access Toolbar.",
-        "Apply": "Open a new blank document and type a paragraph.",
-        "Analyze": "Compare the 'Home' tab with the 'Insert' tab features.",
-        "Evaluate": "Determine the best file format to save a document for sharing.",
-        "Create": "Draft a short introductory letter in Word."
+        "Remember": "Define the core concepts of File Management & Organization.",
+        "Understand": "Explain the significance of Hierarchy and Paths.",
+        "Apply": "Organize a messy directory",
+        "Analyze": "Compare different methods of handling Folders, Files, Extensions.",
+        "Evaluate": "Assess the effectiveness of your approach to File Management & Organization.",
+        "Create": "Design a workflow utilizing Hierarchy and Paths."
       },
       "referenceMaterial": {
-        "primary": "MS Word 2021 Step by Step",
-        "further": "Office Training Center"
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
       }
     },
     "5": {
       "keyConcepts": [
         {
-          "title": "Text Formatting",
-          "explanation": "Applying styles like bold, italics, underline, and changing fonts and colors to emphasize text."
+          "title": "System Diagnostics",
+          "explanation": "Task Manager, Backup protocols"
         },
         {
-          "title": "Paragraph Formatting",
-          "explanation": "Adjusting alignment, line spacing, and indentation for readability."
+          "title": "Applied System Diagnostics",
+          "explanation": "Understanding how to leverage system diagnostics in a modern aviation business environment."
         }
       ],
       "definitions": [
         {
-          "term": "Alignment",
-          "definition": "The positioning of text relative to the margins (left, center, right, justified)."
+          "term": "Key Term",
+          "definition": "Processes, Maintenance"
         },
         {
-          "term": "Line Spacing",
-          "definition": "The vertical distance between lines of text in a paragraph."
+          "term": "Practical Use",
+          "definition": "Applying Processes, Maintenance efficiently in daily operations."
         }
       ],
       "mnemonic": {
-        "acronym": "FAS",
+        "acronym": "ACT",
         "points": [
-          "F - Font",
-          "A - Alignment",
-          "S - Spacing"
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
         ]
       },
       "btlQuestions": {
-        "Remember": "List the four types of text alignment.",
-        "Understand": "Explain why justified alignment is often used in newspapers.",
-        "Apply": "Format a provided text block to have 1.5 line spacing.",
-        "Analyze": "Identify the formatting errors in a poorly structured document.",
-        "Evaluate": "Critique the readability of a document based on its font choice.",
-        "Create": "Format a professional resume template using distinct styles."
+        "Remember": "Define the core concepts of System Maintenance & Review.",
+        "Understand": "Explain the significance of System Diagnostics.",
+        "Apply": "Troubleshoot frozen applications",
+        "Analyze": "Compare different methods of handling Processes, Maintenance.",
+        "Evaluate": "Assess the effectiveness of your approach to System Maintenance & Review.",
+        "Create": "Design a workflow utilizing System Diagnostics."
       },
       "referenceMaterial": {
-        "primary": "MS Word 2021 Step by Step",
-        "further": "Typography Basics"
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
       }
     },
     "6": {
       "keyConcepts": [
         {
-          "title": "Inserting Tables",
-          "explanation": "Organizing data into rows and columns within a Word document."
+          "title": "Ribbon Interface",
+          "explanation": "UI layout for text editing tools"
         },
         {
-          "title": "Report Structure",
-          "explanation": "Using headers, footers, page numbers, and a table of contents."
+          "title": "Applied Ribbon Interface",
+          "explanation": "Understanding how to leverage ribbon interface in a modern aviation business environment."
         }
       ],
       "definitions": [
         {
-          "term": "Header/Footer",
-          "definition": "Areas in the top and bottom margins of a page where you can insert text or graphics."
+          "term": "Key Term",
+          "definition": "Font, Paragraph, Styles"
         },
         {
-          "term": "Table of Contents",
-          "definition": "An organized list of the parts of a book or document."
+          "term": "Practical Use",
+          "definition": "Applying Font, Paragraph, Styles efficiently in daily operations."
         }
       ],
       "mnemonic": {
-        "acronym": "THP",
+        "acronym": "ACT",
         "points": [
-          "T - Table",
-          "H - Header",
-          "P - Page Number"
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
         ]
       },
       "btlQuestions": {
-        "Remember": "How do you insert a basic 3x3 table in Word?",
-        "Understand": "Explain the benefit of using automated page numbers.",
-        "Apply": "Build a basic tabular report for an inventory list.",
-        "Analyze": "Differentiate between table borders and shading.",
-        "Evaluate": "Review a report to ensure consistent header formatting.",
-        "Create": "Construct a multi-page report complete with a Table of Contents."
+        "Remember": "Define the core concepts of MS Word: Document Creation and Formatting.",
+        "Understand": "Explain the significance of Ribbon Interface.",
+        "Apply": "Create and format a memo",
+        "Analyze": "Compare different methods of handling Font, Paragraph, Styles.",
+        "Evaluate": "Assess the effectiveness of your approach to MS Word: Document Creation and Formatting.",
+        "Create": "Design a workflow utilizing Ribbon Interface."
       },
       "referenceMaterial": {
-        "primary": "MS Word Advanced Features",
-        "further": "Academic Writing Formatting Guidelines"
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
       }
     },
     "7": {
       "keyConcepts": [
         {
-          "title": "Spreadsheet Basics",
-          "explanation": "Understanding the grid structure of rows, columns, and cells."
+          "title": "Alignment and Spacing",
+          "explanation": "Adjusting text flow and margins"
         },
         {
-          "title": "Basic Operators & Formulas",
-          "explanation": "Using mathematical operators (+, -, *, /) to perform calculations."
+          "title": "Applied Alignment and Spacing",
+          "explanation": "Understanding how to leverage alignment and spacing in a modern aviation business environment."
         }
       ],
       "definitions": [
         {
-          "term": "Cell",
-          "definition": "The intersection of a row and a column in a spreadsheet."
+          "term": "Key Term",
+          "definition": "Justify, Line spacing"
         },
         {
-          "term": "Formula",
-          "definition": "An expression that operates on values in a range of cells."
+          "term": "Practical Use",
+          "definition": "Applying Justify, Line spacing efficiently in daily operations."
         }
       ],
       "mnemonic": {
-        "acronym": "BODMAS",
+        "acronym": "ACT",
         "points": [
-          "B - Brackets",
-          "O - Order",
-          "D - Division",
-          "M - Multiplication",
-          "A - Addition",
-          "S - Subtraction (Excel follows this)"
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
         ]
       },
       "btlQuestions": {
-        "Remember": "What symbol must every Excel formula begin with?",
-        "Understand": "Explain the difference between a row and a column.",
-        "Apply": "Calculate the total cost of items using basic math operators.",
-        "Analyze": "Identify why a formula is returning an error (e.g., #DIV/0!).",
-        "Evaluate": "Compare the efficiency of manual calculation vs Excel formulas.",
-        "Create": "Design a basic personal budget spreadsheet."
+        "Remember": "Define the core concepts of Paragraph Formatting and Layout.",
+        "Understand": "Explain the significance of Alignment and Spacing.",
+        "Apply": "Format an employee policy",
+        "Analyze": "Compare different methods of handling Justify, Line spacing.",
+        "Evaluate": "Assess the effectiveness of your approach to Paragraph Formatting and Layout.",
+        "Create": "Design a workflow utilizing Alignment and Spacing."
       },
       "referenceMaterial": {
-        "primary": "Excel 2021 Formulas",
-        "further": "Microsoft Support"
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
       }
     },
     "8": {
       "keyConcepts": [
         {
-          "title": "Core Functions",
-          "explanation": "Using pre-built formulas like SUM, AVERAGE, MIN, and MAX to analyze data rapidly."
+          "title": "Tabular Data",
+          "explanation": "Organizing data into rows/columns"
         },
         {
-          "title": "Logical Functions",
-          "explanation": "Using IF statements to perform conditional evaluations."
+          "title": "Applied Tabular Data",
+          "explanation": "Understanding how to leverage tabular data in a modern aviation business environment."
         }
       ],
       "definitions": [
         {
-          "term": "Function",
-          "definition": "A predefined formula that performs calculations using specific values in a particular order."
+          "term": "Key Term",
+          "definition": "Insert Table, SmartArt"
         },
         {
-          "term": "Syntax",
-          "definition": "The specific layout and order of elements in a function."
+          "term": "Practical Use",
+          "definition": "Applying Insert Table, SmartArt efficiently in daily operations."
         }
       ],
       "mnemonic": {
-        "acronym": "SAMI",
+        "acronym": "ACT",
         "points": [
-          "S - SUM",
-          "A - AVERAGE",
-          "M - MIN/MAX",
-          "I - IF"
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
         ]
       },
       "btlQuestions": {
-        "Remember": "List three common Excel functions.",
-        "Understand": "Explain the three arguments required in an IF function.",
-        "Apply": "Apply the AVERAGE function to a student's grade dataset.",
-        "Analyze": "Deconstruct a nested IF statement.",
-        "Evaluate": "Determine the best function to find the lowest sales figure in a year.",
-        "Create": "Build a grading sheet that automatically assigns Pass/Fail using IF."
+        "Remember": "Define the core concepts of Working with Tables and Visuals.",
+        "Understand": "Explain the significance of Tabular Data.",
+        "Apply": "Design a flight schedule",
+        "Analyze": "Compare different methods of handling Insert Table, SmartArt.",
+        "Evaluate": "Assess the effectiveness of your approach to Working with Tables and Visuals.",
+        "Create": "Design a workflow utilizing Tabular Data."
       },
       "referenceMaterial": {
-        "primary": "Excel Data Analysis",
-        "further": "ExcelJet Function Guide"
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
       }
     },
     "9": {
       "keyConcepts": [
         {
-          "title": "Data Visualization",
-          "explanation": "Representing numerical data graphically using charts."
+          "title": "Page Formatting",
+          "explanation": "Headers, Footers, Page breaks"
         },
         {
-          "title": "Chart Types",
-          "explanation": "Choosing the appropriate chart (Pie, Line, Column) based on the data type."
+          "title": "Applied Page Formatting",
+          "explanation": "Understanding how to leverage page formatting in a modern aviation business environment."
         }
       ],
       "definitions": [
         {
-          "term": "Chart",
-          "definition": "A graphical representation of data."
+          "term": "Key Term",
+          "definition": "Margins, Orientation"
         },
         {
-          "term": "Legend",
-          "definition": "A key that explains the colors, symbols, or patterns used in a chart."
+          "term": "Practical Use",
+          "definition": "Applying Margins, Orientation efficiently in daily operations."
         }
       ],
       "mnemonic": {
-        "acronym": "PLC",
+        "acronym": "ACT",
         "points": [
-          "P - Pie (Parts of a whole)",
-          "L - Line (Trends over time)",
-          "C - Column (Comparisons)"
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
         ]
       },
       "btlQuestions": {
-        "Remember": "Identify the purpose of a Pie chart.",
-        "Understand": "Explain when a Line chart is more appropriate than a Column chart.",
-        "Apply": "Visualize a monthly sales dataset with a Column chart.",
-        "Analyze": "Interpret a provided chart to find the highest performing month.",
-        "Evaluate": "Critique a chart that uses misleading scales.",
-        "Create": "Design a dashboard with three different chart types."
+        "Remember": "Define the core concepts of Page Layout and Document Finalization.",
+        "Understand": "Explain the significance of Page Formatting.",
+        "Apply": "Finalize an incident report",
+        "Analyze": "Compare different methods of handling Margins, Orientation.",
+        "Evaluate": "Assess the effectiveness of your approach to Page Layout and Document Finalization.",
+        "Create": "Design a workflow utilizing Page Formatting."
       },
       "referenceMaterial": {
-        "primary": "Storytelling with Data",
-        "further": "Excel Chart formatting guide"
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
       }
     },
     "10": {
       "keyConcepts": [
         {
-          "title": "Sorting & Filtering",
-          "explanation": "Organizing and narrowing down large datasets to find specific information."
+          "title": "TOC and Mail Merge",
+          "explanation": "Automating document structuring"
         },
         {
-          "title": "Conditional Formatting",
-          "explanation": "Applying specific formatting to cells that meet certain criteria to highlight trends."
+          "title": "Applied TOC and Mail Merge",
+          "explanation": "Understanding how to leverage toc and mail merge in a modern aviation business environment."
         }
       ],
       "definitions": [
         {
-          "term": "Sorting",
-          "definition": "Arranging data in a specified order (alphabetical, numerical, chronological)."
+          "term": "Key Term",
+          "definition": "Styles, Mass Mailing"
         },
         {
-          "term": "Filtering",
-          "definition": "Hiding rows of data that do not meet specified criteria."
+          "term": "Practical Use",
+          "definition": "Applying Styles, Mass Mailing efficiently in daily operations."
         }
       ],
       "mnemonic": {
-        "acronym": "SFC",
+        "acronym": "ACT",
         "points": [
-          "S - Sort",
-          "F - Filter",
-          "C - Condition"
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
         ]
       },
       "btlQuestions": {
-        "Remember": "Define Conditional Formatting.",
-        "Understand": "Explain how filtering differs from deleting data.",
-        "Apply": "Filter a dataset to show only sales above $1000.",
-        "Analyze": "Analyze the impact of applying multiple filters to a large table.",
-        "Evaluate": "Determine the best conditional formatting rule to highlight failing grades.",
-        "Create": "Construct a dynamic inventory sheet that highlights low stock automatically."
+        "Remember": "Define the core concepts of Advanced Reporting & Review.",
+        "Understand": "Explain the significance of TOC and Mail Merge.",
+        "Apply": "Generate a Table of Contents",
+        "Analyze": "Compare different methods of handling Styles, Mass Mailing.",
+        "Evaluate": "Assess the effectiveness of your approach to Advanced Reporting & Review.",
+        "Create": "Design a workflow utilizing TOC and Mail Merge."
       },
       "referenceMaterial": {
-        "primary": "Excel Advanced Data Management",
-        "further": "Data Analysis basics"
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
       }
     },
     "11": {
       "keyConcepts": [
         {
-          "title": "Presentation Fundamentals",
-          "explanation": "The basics of creating slides, choosing layouts, and adding text and images."
+          "title": "Workbooks and Worksheets",
+          "explanation": "Grid-based data entry"
         },
         {
-          "title": "Design Principles",
-          "explanation": "Keeping slides uncluttered, highly readable, and visually appealing."
+          "title": "Applied Workbooks and Worksheets",
+          "explanation": "Understanding how to leverage workbooks and worksheets in a modern aviation business environment."
         }
       ],
       "definitions": [
         {
-          "term": "Slide Layout",
-          "definition": "The arrangement of placeholders for text, images, and other objects on a slide."
+          "term": "Key Term",
+          "definition": "Rows, Columns, Cells"
         },
         {
-          "term": "Placeholder",
-          "definition": "A pre-formatted container on a slide into which content is placed."
+          "term": "Practical Use",
+          "definition": "Applying Rows, Columns, Cells efficiently in daily operations."
         }
       ],
       "mnemonic": {
-        "acronym": "KISS",
+        "acronym": "ACT",
         "points": [
-          "K - Keep",
-          "I - It",
-          "S - Short &",
-          "S - Simple"
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
         ]
       },
       "btlQuestions": {
-        "Remember": "How do you add a new slide in PowerPoint?",
-        "Understand": "Explain why text contrast is important in presentation design.",
-        "Apply": "Create a 3-slide presentation introducing yourself.",
-        "Analyze": "Identify design flaws in a crowded, text-heavy slide.",
-        "Evaluate": "Critique the balance of text vs images in a provided presentation.",
-        "Create": "Design a visually compelling title slide for an aviation pitch."
+        "Remember": "Define the core concepts of Introduction to Spreadsheets.",
+        "Understand": "Explain the significance of Workbooks and Worksheets.",
+        "Apply": "Enter basic tabular data",
+        "Analyze": "Compare different methods of handling Rows, Columns, Cells.",
+        "Evaluate": "Assess the effectiveness of your approach to Introduction to Spreadsheets.",
+        "Create": "Design a workflow utilizing Workbooks and Worksheets."
       },
       "referenceMaterial": {
-        "primary": "PowerPoint 2021 Basics",
-        "further": "Presentation Zen"
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
       }
     },
     "12": {
       "keyConcepts": [
         {
-          "title": "Themes and Master Slide",
-          "explanation": "Applying consistent branding, fonts, and colors across all slides automatically."
+          "title": "Data Types",
+          "explanation": "Currency, Dates, Percentages"
         },
         {
-          "title": "Professional Consistency",
-          "explanation": "Ensuring headers, logos, and footers remain strictly aligned throughout the deck."
+          "title": "Applied Data Types",
+          "explanation": "Understanding how to leverage data types in a modern aviation business environment."
         }
       ],
       "definitions": [
         {
-          "term": "Theme",
-          "definition": "A predefined set of colors, fonts, and visual effects that you apply to your slides."
+          "term": "Key Term",
+          "definition": "Format Painter, Wrap Text"
         },
         {
-          "term": "Slide Master",
-          "definition": "The top slide in a hierarchy that stores information about the theme and slide layouts."
+          "term": "Practical Use",
+          "definition": "Applying Format Painter, Wrap Text efficiently in daily operations."
         }
       ],
       "mnemonic": {
-        "acronym": "TMC",
+        "acronym": "ACT",
         "points": [
-          "T - Theme",
-          "M - Master",
-          "C - Consistency"
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
         ]
       },
       "btlQuestions": {
-        "Remember": "What is the Slide Master?",
-        "Understand": "Explain the benefit of editing the Slide Master instead of individual slides.",
-        "Apply": "Apply a global logo to the bottom right corner of all slides using the Master.",
-        "Analyze": "Compare a presentation with a cohesive theme vs one without.",
-        "Evaluate": "Assess how brand consistency impacts audience perception.",
-        "Create": "Develop a custom corporate theme for a mock airline."
+        "Remember": "Define the core concepts of Formatting Cells and Worksheets.",
+        "Understand": "Explain the significance of Data Types.",
+        "Apply": "Format a sales report",
+        "Analyze": "Compare different methods of handling Format Painter, Wrap Text.",
+        "Evaluate": "Assess the effectiveness of your approach to Formatting Cells and Worksheets.",
+        "Create": "Design a workflow utilizing Data Types."
       },
       "referenceMaterial": {
-        "primary": "PowerPoint Advanced Design",
-        "further": "Corporate Branding Guidelines"
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
       }
     },
     "13": {
       "keyConcepts": [
         {
-          "title": "Internet Navigation",
-          "explanation": "Using web browsers effectively, utilizing bookmarks, and understanding URLs."
+          "title": "Formula Syntax",
+          "explanation": "Starting with '=' and using operators"
         },
         {
-          "title": "Cloud Storage & Email",
-          "explanation": "Storing files online (Google Drive, OneDrive) and basic professional email usage."
+          "title": "Applied Formula Syntax",
+          "explanation": "Understanding how to leverage formula syntax in a modern aviation business environment."
         }
       ],
       "definitions": [
         {
-          "term": "Cloud Storage",
-          "definition": "A model of computer data storage in which digital data is stored in logical pools on multiple servers."
+          "term": "Key Term",
+          "definition": "PEMDAS, +, -, *, /"
         },
         {
-          "term": "Bookmark",
-          "definition": "A saved shortcut that directs your browser to a specific webpage."
+          "term": "Practical Use",
+          "definition": "Applying PEMDAS, +, -, *, / efficiently in daily operations."
         }
       ],
       "mnemonic": {
-        "acronym": "WEB",
+        "acronym": "ACT",
         "points": [
-          "W - World Wide Web",
-          "E - Email",
-          "B - Browser"
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
         ]
       },
       "btlQuestions": {
-        "Remember": "Name two popular cloud storage providers.",
-        "Understand": "Explain the difference between CC and BCC in an email.",
-        "Apply": "Navigate to a specific aviation authority website and bookmark it.",
-        "Analyze": "Analyze the advantages of cloud storage over a USB drive.",
-        "Evaluate": "Determine the most professional way to attach a large file to an email.",
-        "Create": "Compose a professional email sharing a link to a cloud-stored document."
+        "Remember": "Define the core concepts of Basic Mathematical Formulas.",
+        "Understand": "Explain the significance of Formula Syntax.",
+        "Apply": "Calculate baggage totals",
+        "Analyze": "Compare different methods of handling PEMDAS, +, -, *, /.",
+        "Evaluate": "Assess the effectiveness of your approach to Basic Mathematical Formulas.",
+        "Create": "Design a workflow utilizing Formula Syntax."
       },
       "referenceMaterial": {
-        "primary": "Digital Literacy Fundamentals",
-        "further": "Google Workspace Guide"
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
       }
     },
     "14": {
       "keyConcepts": [
         {
-          "title": "Cyber Safety",
-          "explanation": "Protecting digital identity, recognizing phishing attempts, and maintaining strong passwords."
+          "title": "Absolute vs Relative",
+          "explanation": "Locking cells with $ in formulas"
         },
         {
-          "title": "Digital Etiquette",
-          "explanation": "Professionalism and appropriate behavior when communicating online."
+          "title": "Applied Absolute vs Relative",
+          "explanation": "Understanding how to leverage absolute vs relative in a modern aviation business environment."
         }
       ],
       "definitions": [
         {
-          "term": "Phishing",
-          "definition": "The fraudulent practice of sending emails purporting to be from reputable companies to induce individuals to reveal personal info."
+          "term": "Key Term",
+          "definition": "F4 key, Dragging formulas"
         },
         {
-          "term": "Malware",
-          "definition": "Software that is specifically designed to disrupt, damage, or gain unauthorized access to a computer system."
+          "term": "Practical Use",
+          "definition": "Applying F4 key, Dragging formulas efficiently in daily operations."
         }
       ],
       "mnemonic": {
-        "acronym": "STOP",
+        "acronym": "ACT",
         "points": [
-          "S - Stop",
-          "T - Think",
-          "O - Observe",
-          "P - Proceed safely"
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
         ]
       },
       "btlQuestions": {
-        "Remember": "Define malware.",
-        "Understand": "Explain how a strong password differs from a weak one.",
-        "Apply": "Identify the signs of a phishing attempt in a provided sample email.",
-        "Analyze": "Deconstruct a URL to determine if a website is secure (HTTPS vs HTTP).",
-        "Evaluate": "Assess the risks of using public Wi-Fi without a VPN.",
-        "Create": "Develop a set of cyber safety rules for a small office."
+        "Remember": "Define the core concepts of Cell Referencing.",
+        "Understand": "Explain the significance of Absolute vs Relative.",
+        "Apply": "Apply tax rates with absolute ref",
+        "Analyze": "Compare different methods of handling F4 key, Dragging formulas.",
+        "Evaluate": "Assess the effectiveness of your approach to Cell Referencing.",
+        "Create": "Design a workflow utilizing Absolute vs Relative."
       },
       "referenceMaterial": {
-        "primary": "Cybersecurity Basics",
-        "further": "CISA Guidelines"
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
       }
     },
     "15": {
       "keyConcepts": [
         {
-          "title": "Concept 1",
-          "explanation": "Explanation pending instructor input."
+          "title": "Statistical Analysis",
+          "explanation": "SUM, AVERAGE, MIN, MAX"
+        },
+        {
+          "title": "Applied Statistical Analysis",
+          "explanation": "Understanding how to leverage statistical analysis in a modern aviation business environment."
         }
       ],
       "definitions": [
         {
-          "term": "Term 1",
-          "definition": "Definition pending instructor input."
+          "term": "Key Term",
+          "definition": "Basic aggregations"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Basic aggregations efficiently in daily operations."
         }
       ],
       "mnemonic": {
-        "acronym": "PENDING",
+        "acronym": "ACT",
         "points": [
-          "P - Pending"
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
         ]
       },
       "btlQuestions": {
-        "Remember": "Question pending.",
-        "Understand": "Question pending.",
-        "Apply": "Question pending.",
-        "Analyze": "Question pending.",
-        "Evaluate": "Question pending.",
-        "Create": "Question pending."
+        "Remember": "Define the core concepts of Essential Functions (Statistical).",
+        "Understand": "Explain the significance of Statistical Analysis.",
+        "Apply": "Analyze daily passenger counts",
+        "Analyze": "Compare different methods of handling Basic aggregations.",
+        "Evaluate": "Assess the effectiveness of your approach to Essential Functions (Statistical).",
+        "Create": "Design a workflow utilizing Statistical Analysis."
       },
       "referenceMaterial": {
-        "primary": "Syllabus textbook",
-        "further": "Online resources"
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
       }
     },
     "Mid-Sem": {
@@ -1396,6 +1407,636 @@
       "referenceMaterial": {
         "primary": "Session 1-6 Notes",
         "further": "Practice Quizzes"
+      }
+    },
+    "16": {
+      "keyConcepts": [
+        {
+          "title": "Conditional Logic",
+          "explanation": "IF statements, Nested IFs"
+        },
+        {
+          "title": "Applied Conditional Logic",
+          "explanation": "Understanding how to leverage conditional logic in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "CONCATENATE, Text manipulation"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying CONCATENATE, Text manipulation efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Logical and Text Functions.",
+        "Understand": "Explain the significance of Conditional Logic.",
+        "Apply": "Evaluate logical passenger data",
+        "Analyze": "Compare different methods of handling CONCATENATE, Text manipulation.",
+        "Evaluate": "Assess the effectiveness of your approach to Logical and Text Functions.",
+        "Create": "Design a workflow utilizing Conditional Logic."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      }
+    },
+    "17": {
+      "keyConcepts": [
+        {
+          "title": "Sorting and Filtering",
+          "explanation": "Organizing large datasets"
+        },
+        {
+          "title": "Applied Sorting and Filtering",
+          "explanation": "Understanding how to leverage sorting and filtering in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Multi-level sort, AutoFilter"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Multi-level sort, AutoFilter efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Data Management and Sorting.",
+        "Understand": "Explain the significance of Sorting and Filtering.",
+        "Apply": "Filter a flight manifest",
+        "Analyze": "Compare different methods of handling Multi-level sort, AutoFilter.",
+        "Evaluate": "Assess the effectiveness of your approach to Data Management and Sorting.",
+        "Create": "Design a workflow utilizing Sorting and Filtering."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      }
+    },
+    "18": {
+      "keyConcepts": [
+        {
+          "title": "Data Visualization",
+          "explanation": "Representing numbers graphically"
+        },
+        {
+          "title": "Applied Data Visualization",
+          "explanation": "Understanding how to leverage data visualization in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Pie, Bar, Line Charts"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Pie, Bar, Line Charts efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Visualizing Data with Charts.",
+        "Understand": "Explain the significance of Data Visualization.",
+        "Apply": "Create a quarterly revenue chart",
+        "Analyze": "Compare different methods of handling Pie, Bar, Line Charts.",
+        "Evaluate": "Assess the effectiveness of your approach to Visualizing Data with Charts.",
+        "Create": "Design a workflow utilizing Data Visualization."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      }
+    },
+    "19": {
+      "keyConcepts": [
+        {
+          "title": "Data Validation",
+          "explanation": "Drop-downs, Conditional Formatting"
+        },
+        {
+          "title": "Applied Data Validation",
+          "explanation": "Understanding how to leverage data validation in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Highlight rules, Duplicates"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Highlight rules, Duplicates efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Basic Data Analysis Tools.",
+        "Understand": "Explain the significance of Data Validation.",
+        "Apply": "Clean and validate crew records",
+        "Analyze": "Compare different methods of handling Highlight rules, Duplicates.",
+        "Evaluate": "Assess the effectiveness of your approach to Basic Data Analysis Tools.",
+        "Create": "Design a workflow utilizing Data Validation."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      }
+    },
+    "20": {
+      "keyConcepts": [
+        {
+          "title": "Print Areas",
+          "explanation": "Scaling sheets for paper"
+        },
+        {
+          "title": "Applied Print Areas",
+          "explanation": "Understanding how to leverage print areas in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Page Break Preview"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Page Break Preview efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Printing and Excel Review.",
+        "Understand": "Explain the significance of Print Areas.",
+        "Apply": "Set up a large table for printing",
+        "Analyze": "Compare different methods of handling Page Break Preview.",
+        "Evaluate": "Assess the effectiveness of your approach to Printing and Excel Review.",
+        "Create": "Design a workflow utilizing Print Areas."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      }
+    },
+    "21": {
+      "keyConcepts": [
+        {
+          "title": "Slide Layouts",
+          "explanation": "Placeholders for content"
+        },
+        {
+          "title": "Applied Slide Layouts",
+          "explanation": "Understanding how to leverage slide layouts in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Title, Body, Content slides"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Title, Body, Content slides efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Introduction to PowerPoint.",
+        "Understand": "Explain the significance of Slide Layouts.",
+        "Apply": "Build a company intro deck",
+        "Analyze": "Compare different methods of handling Title, Body, Content slides.",
+        "Evaluate": "Assess the effectiveness of your approach to Introduction to PowerPoint.",
+        "Create": "Design a workflow utilizing Slide Layouts."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      }
+    },
+    "22": {
+      "keyConcepts": [
+        {
+          "title": "Slide Master",
+          "explanation": "Global presentation formatting"
+        },
+        {
+          "title": "Applied Slide Master",
+          "explanation": "Understanding how to leverage slide master in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Themes, Variants, Backgrounds"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Themes, Variants, Backgrounds efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Design Themes and Templates.",
+        "Understand": "Explain the significance of Slide Master.",
+        "Apply": "Apply corporate branding",
+        "Analyze": "Compare different methods of handling Themes, Variants, Backgrounds.",
+        "Evaluate": "Assess the effectiveness of your approach to Design Themes and Templates.",
+        "Create": "Design a workflow utilizing Slide Master."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      }
+    },
+    "23": {
+      "keyConcepts": [
+        {
+          "title": "Multimedia Integration",
+          "explanation": "Pictures, Video, Audio"
+        },
+        {
+          "title": "Applied Multimedia Integration",
+          "explanation": "Understanding how to leverage multimedia integration in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Embedding, Playback options"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Embedding, Playback options efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Inserting Media and Visuals.",
+        "Understand": "Explain the significance of Multimedia Integration.",
+        "Apply": "Create a visual safety briefing",
+        "Analyze": "Compare different methods of handling Embedding, Playback options.",
+        "Evaluate": "Assess the effectiveness of your approach to Inserting Media and Visuals.",
+        "Create": "Design a workflow utilizing Multimedia Integration."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      }
+    },
+    "24": {
+      "keyConcepts": [
+        {
+          "title": "Slide Dynamics",
+          "explanation": "Movement between and within slides"
+        },
+        {
+          "title": "Applied Slide Dynamics",
+          "explanation": "Understanding how to leverage slide dynamics in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Entrance, Emphasis, Sequencing"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Entrance, Emphasis, Sequencing efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Animations and Transitions.",
+        "Understand": "Explain the significance of Slide Dynamics.",
+        "Apply": "Animate a process flow",
+        "Analyze": "Compare different methods of handling Entrance, Emphasis, Sequencing.",
+        "Evaluate": "Assess the effectiveness of your approach to Animations and Transitions.",
+        "Create": "Design a workflow utilizing Slide Dynamics."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      }
+    },
+    "25": {
+      "keyConcepts": [
+        {
+          "title": "Presenter View",
+          "explanation": "Tools for delivering live"
+        },
+        {
+          "title": "Applied Presenter View",
+          "explanation": "Understanding how to leverage presenter view in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Speaker Notes, Export to PDF"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Speaker Notes, Export to PDF efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Presentation Delivery & Review.",
+        "Understand": "Explain the significance of Presenter View.",
+        "Apply": "Deliver a structured presentation",
+        "Analyze": "Compare different methods of handling Speaker Notes, Export to PDF.",
+        "Evaluate": "Assess the effectiveness of your approach to Presentation Delivery & Review.",
+        "Create": "Design a workflow utilizing Presenter View."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      }
+    },
+    "26": {
+      "keyConcepts": [
+        {
+          "title": "Web Navigation",
+          "explanation": "Browsers, Search Engines, URLs"
+        },
+        {
+          "title": "Applied Web Navigation",
+          "explanation": "Understanding how to leverage web navigation in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Chrome, Keywords, Domains"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Chrome, Keywords, Domains efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Internet Basics and Web Browsing.",
+        "Understand": "Explain the significance of Web Navigation.",
+        "Apply": "Research aviation trends",
+        "Analyze": "Compare different methods of handling Chrome, Keywords, Domains.",
+        "Evaluate": "Assess the effectiveness of your approach to Internet Basics and Web Browsing.",
+        "Create": "Design a workflow utilizing Web Navigation."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      }
+    },
+    "27": {
+      "keyConcepts": [
+        {
+          "title": "Email Etiquette",
+          "explanation": "CC, BCC, Attachments, Signatures"
+        },
+        {
+          "title": "Applied Email Etiquette",
+          "explanation": "Understanding how to leverage email etiquette in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Inbox organization, Folders"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Inbox organization, Folders efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Professional Email Management.",
+        "Understand": "Explain the significance of Email Etiquette.",
+        "Apply": "Draft a professional business email",
+        "Analyze": "Compare different methods of handling Inbox organization, Folders.",
+        "Evaluate": "Assess the effectiveness of your approach to Professional Email Management.",
+        "Create": "Design a workflow utilizing Email Etiquette."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      }
+    },
+    "28": {
+      "keyConcepts": [
+        {
+          "title": "Cloud Computing",
+          "explanation": "Saving files to remote servers"
+        },
+        {
+          "title": "Applied Cloud Computing",
+          "explanation": "Understanding how to leverage cloud computing in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Google Drive, Co-authoring"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Google Drive, Co-authoring efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Cloud Storage and Collaboration.",
+        "Understand": "Explain the significance of Cloud Computing.",
+        "Apply": "Collaborate live on a document",
+        "Analyze": "Compare different methods of handling Google Drive, Co-authoring.",
+        "Evaluate": "Assess the effectiveness of your approach to Cloud Storage and Collaboration.",
+        "Create": "Design a workflow utilizing Cloud Computing."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      }
+    },
+    "29": {
+      "keyConcepts": [
+        {
+          "title": "Digital Security",
+          "explanation": "Phishing, Passwords, Malware"
+        },
+        {
+          "title": "Applied Digital Security",
+          "explanation": "Understanding how to leverage digital security in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "2FA, Safe Browsing"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying 2FA, Safe Browsing efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Cyber Safety and Security Basics.",
+        "Understand": "Explain the significance of Digital Security.",
+        "Apply": "Identify a phishing email attempt",
+        "Analyze": "Compare different methods of handling 2FA, Safe Browsing.",
+        "Evaluate": "Assess the effectiveness of your approach to Cyber Safety and Security Basics.",
+        "Create": "Design a workflow utilizing Digital Security."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      }
+    },
+    "30": {
+      "keyConcepts": [
+        {
+          "title": "Virtual Meetings",
+          "explanation": "Zoom, Teams, Slack"
+        },
+        {
+          "title": "Applied Virtual Meetings",
+          "explanation": "Understanding how to leverage virtual meetings in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Screen sharing, Etiquette"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Screen sharing, Etiquette efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Digital Communication Tools & Review.",
+        "Understand": "Explain the significance of Virtual Meetings.",
+        "Apply": "Conduct a professional video call",
+        "Analyze": "Compare different methods of handling Screen sharing, Etiquette.",
+        "Evaluate": "Assess the effectiveness of your approach to Digital Communication Tools & Review.",
+        "Create": "Design a workflow utilizing Virtual Meetings."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
       }
     }
   }
