@@ -78,8 +78,7 @@ interface SlideViewerProps {
 
 
 const WritingTopicActivity = ({ data }: { data: string }) => {
-  const lines = data.trim().split('
-');
+  const lines = data.trim().split('\n');
   const getVal = (key: string) => lines.find(l => l.startsWith(key + ':'))?.replace(key + ':', '').trim() || '';
 
   const title = getVal('title');
