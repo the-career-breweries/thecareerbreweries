@@ -67,10 +67,12 @@ Sometimes, the answer is just no. (e.g., *No, you cannot board without a passpor
 
 # LIVE SIMULATION
 
-```sentence-activity
-Scenario: A Platinum member is screaming at the counter because their first-class seat was downgraded due to an aircraft swap.
-Your Task: Use the H.E.A.R.T. model to de-escalate. 
-```
+<div style="background: rgba(0,0,0,0.6); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); margin-bottom: 2rem">
+<h3 style="color: #ef4444; margin-bottom: 1rem;">Scenario</h3>
+<p style="font-size: 1.2rem; margin-bottom: 2rem;">A Platinum member is screaming at the counter because their first-class seat was downgraded due to an aircraft swap.</p>
+<h3 style="color: #10b981; margin-bottom: 1rem;">Your Task</h3>
+<p style="font-size: 1.2rem;">Use the H.E.A.R.T. model to de-escalate.</p>
+</div>
 
 **Actor 1:** The Furious Passenger
 **Actor 2:** The Ground Manager
