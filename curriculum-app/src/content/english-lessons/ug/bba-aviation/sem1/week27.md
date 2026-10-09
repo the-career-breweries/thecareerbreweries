@@ -10,19 +10,25 @@ Welcome to Session 27. Today we will be covering **Everyday Conversation Practic
 
 # 5.3.1 Core Concept
 
-Instructor will guide you through this concept.
+* **Small Talk**: The art of light, informal conversation to build rapport and fill silence.
+* **Question Types**: Open-ended questions (require elaboration) vs Closed-ended questions (Yes/No answers).
+* **Greetings & Introductions**: Professional ways to introduce yourself and others.
 
 ---
 
 # 5.3.2 Application
 
-Instructor will guide you through this concept.
+* **Customer Experience**: Creating a welcoming, hospitable environment for passengers from the moment they arrive.
+* **Team Dynamics**: Building positive relationships with colleagues and crew members during downtime.
+* **Information Gathering**: Using open-ended questions to gently extract necessary information from confused passengers.
 
 ---
 
 # 5.3.3 Practice
 
-Complete the exercises provided by the instructor.
+* **Role Play**: Role-play a conversation opening to build rapport with a nervous flyer.
+* **Convert**: Change a list of closed-ended questions into open-ended questions.
+* **Practice**: Conduct a 3-minute networking introduction with a classmate.
 
 ---
 
