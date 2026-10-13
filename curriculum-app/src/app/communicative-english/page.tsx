@@ -1,11 +1,44 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import { curriculumDataEnglish as curriculumData, WeekData } from '@/data/curriculum-english';
 import { Search, Loader2, Sparkles, Sun, Moon, BookOpen, GraduationCap, LayoutDashboard, ChevronRight, Users, RotateCcw, Menu, FileText } from 'lucide-react';
 import SlideViewer from '@/components/SlideViewer';
 import NotesTemplate from '@/components/NotesTemplate';
 import WelcomeScreen from '@/components/WelcomeScreen';
+
+const englishUnitSummaries: Record<number, { unit: number; title: string; focus: string; lastWeek: number }> = {
+  1: {
+    unit: 1,
+    title: 'Fundamentals of Grammar',
+    focus: 'Consolidated revision notes & question bank covering Nouns, Pronouns, Adjectives, Verbs, Tenses, and SVO Structures (Sessions 1–6).',
+    lastWeek: 6
+  },
+  2: {
+    unit: 2,
+    title: 'Vocabulary Building & Aviation Terms',
+    focus: 'Consolidated revision notes & question bank covering Word Roots, ICAO Alphabet, ATC Terminology, and Ground Handling Terms (Sessions 7–12).',
+    lastWeek: 12
+  },
+  3: {
+    unit: 3,
+    title: 'Reading Comprehension & Technical Docs',
+    focus: 'Consolidated revision notes & question bank covering Skimming, Scanning, SOPs, CARs, NOTAMs, and Critical Reading (Sessions 13–18).',
+    lastWeek: 18
+  },
+  4: {
+    unit: 4,
+    title: 'Professional Writing & Incident Reporting',
+    focus: 'Consolidated revision notes & question bank covering Paragraphs, Formal Letters, BLUF Emails, and Ground Safety Incident Reports (Sessions 19–24).',
+    lastWeek: 24
+  },
+  5: {
+    unit: 5,
+    title: 'Listening & Speaking Skills in Aviation',
+    focus: 'Consolidated revision notes & question bank covering Active Listening, Phonetics, PA Announcements, and Conflict De-escalation (Sessions 25–30).',
+    lastWeek: 30
+  }
+};
 
 export default function CommunicativeEnglishApp() {
   const [program, setProgram] = useState<'ug' | 'pg'>('ug');
@@ -475,37 +508,127 @@ export default function CommunicativeEnglishApp() {
                   )}
 
                   <div className="modules-grid">
-                    {activeWeeks.map((week) => (
-                      <div key={week.week} className="module-card" style={{ position: "relative", overflow: "hidden" }}>
-                        <div className="module-card-header">
-                          <span className="week-badge">{week.label || `Session ${week.week}`}</span>
-                        </div>
-                        <h3>{week.theme}</h3>
-                        <p className="module-focus">{week.focus}</p>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '1rem', marginBottom: '1rem' }}>
-                            <div 
-                              className="module-card-footer" 
-                              style={{ background: 'var(--bg-secondary)', padding: '12px 16px', borderRadius: '8px', cursor: 'pointer', margin: 0 }}
-                              onClick={() => setActiveLesson(week)}
-                            >
-                              <span>Begin Module</span>
-                              <ChevronRight size={16} />
+                    {activeWeeks.map((week) => {
+                      const unitSummary = Object.values(englishUnitSummaries).find(u => u.lastWeek === Number(week.week));
+                      return (
+                        <Fragment key={week.week}>
+                          <div className="module-card" style={{ position: "relative", overflow: "hidden" }}>
+                            <div className="module-card-header">
+                              <span className="week-badge">{week.label || `Session ${week.week}`}</span>
                             </div>
-                            <div 
-                              className="module-card-footer" 
-                              style={{ background: 'transparent', padding: '8px 16px', border: '1px solid var(--border-sidebar)', borderRadius: '8px', cursor: 'pointer', color: 'var(--text-secondary)', margin: 0 }}
-                              onClick={(e) => { e.stopPropagation(); setActiveNotesLesson(week); }}
-                            >
-                              <span>Notes</span>
-                              <FileText size={16} />
+                            <h3>{week.theme}</h3>
+                            <p className="module-focus">{week.focus}</p>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: 'auto', marginBottom: '1rem' }}>
+                              <div 
+                                className="module-card-footer" 
+                                style={{ background: 'var(--bg-secondary)', padding: '12px 16px', borderRadius: '8px', cursor: 'pointer', margin: 0 }}
+                                onClick={() => setActiveLesson(week)}
+                              >
+                                <span>Begin Module</span>
+                                <ChevronRight size={16} />
+                              </div>
+                              <div 
+                                className="module-card-footer" 
+                                style={{ background: 'transparent', padding: '8px 16px', border: '1px solid var(--border-sidebar)', borderRadius: '8px', cursor: 'pointer', color: 'var(--text-secondary)', margin: 0 }}
+                                onClick={(e) => { e.stopPropagation(); setActiveNotesLesson(week); }}
+                              >
+                                <span>Notes</span>
+                                <FileText size={16} />
+                              </div>
+                            </div>
+                            {/* Progress Bar inside module card */}
+                            <div style={{ width: '100%', height: '4px', background: 'var(--border-sidebar)', position: 'absolute', bottom: 0, left: 0 }}>
+                              <div style={{ width: `${sessionProgress[week.week] || 0}%`, height: '100%', background: 'var(--accent-primary)', transition: 'width 0.3s' }} />
                             </div>
                           </div>
-                          {/* Progress Bar inside module card */}
-                          <div style={{ width: '100%', height: '4px', background: 'var(--border-sidebar)', position: 'absolute', bottom: 0, left: 0 }}>
-                             <div style={{ width: `${sessionProgress[week.week] || 0}%`, height: '100%', background: 'var(--accent-primary)', transition: 'width 0.3s' }} />
-                          </div>
-                        </div>
-                    ))}
+
+                          {/* Consolidated Notes Card for entire unit */}
+                          {unitSummary && (
+                            <div 
+                              key={`unit-${unitSummary.unit}-consolidated`}
+                              className="module-card consolidated-notes-card" 
+                              style={{ 
+                                position: "relative", 
+                                overflow: "hidden",
+                                border: "1.5px solid #6366f1",
+                                background: "linear-gradient(180deg, var(--bg-surface) 0%, rgba(99, 102, 241, 0.05) 100%)",
+                                boxShadow: "0 4px 14px rgba(99, 102, 241, 0.08)",
+                                cursor: "pointer"
+                              }}
+                              onClick={() => {
+                                setActiveNotesLesson({
+                                  week: `unit-${unitSummary.unit}`,
+                                  semester: selectedSemester,
+                                  theme: `Unit ${unitSummary.unit}: ${unitSummary.title} (Consolidated Notes)`,
+                                  focus: unitSummary.focus,
+                                  task: `Unit ${unitSummary.unit} Revision`,
+                                  rubric: 'Mastery',
+                                  label: `Unit ${unitSummary.unit}: Consolidated Notes`
+                                });
+                              }}
+                            >
+                              <div className="module-card-header">
+                                <span 
+                                  className="week-badge"
+                                  style={{ 
+                                    background: "rgba(99, 102, 241, 0.12)", 
+                                    color: "#4f46e5", 
+                                    border: "1px solid rgba(99, 102, 241, 0.25)",
+                                    fontWeight: 700 
+                                  }}
+                                >
+                                  Unit {unitSummary.unit}: Consolidated Notes
+                                </span>
+                              </div>
+                              <h3 style={{ color: "var(--text-main)", fontWeight: 700 }}>
+                                {`Unit ${unitSummary.unit} Consolidated Notes`}
+                              </h3>
+                              <p className="module-focus" style={{ marginBottom: "1.5rem" }}>
+                                {unitSummary.focus}
+                              </p>
+                              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: 'auto', marginBottom: '1rem' }}>
+                                <div 
+                                  className="module-card-footer" 
+                                  style={{ 
+                                    background: 'linear-gradient(135deg, #4f46e5 0%, #6366f1 100%)', 
+                                    color: '#ffffff', 
+                                    padding: '12px 16px', 
+                                    borderRadius: '8px', 
+                                    cursor: 'pointer', 
+                                    margin: 0,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'space-between',
+                                    fontWeight: 600,
+                                    boxShadow: '0 2px 6px rgba(79, 70, 229, 0.25)'
+                                  }}
+                                  onClick={(e) => { 
+                                    e.stopPropagation(); 
+                                    setActiveNotesLesson({
+                                      week: `unit-${unitSummary.unit}`,
+                                      semester: selectedSemester,
+                                      theme: `Unit ${unitSummary.unit}: ${unitSummary.title} (Consolidated Notes)`,
+                                      focus: unitSummary.focus,
+                                      task: `Unit ${unitSummary.unit} Revision`,
+                                      rubric: 'Mastery',
+                                      label: `Unit ${unitSummary.unit}: Consolidated Notes`
+                                    }); 
+                                  }}
+                                >
+                                  <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                    <FileText size={16} />
+                                    <span>Consolidated Notes</span>
+                                  </span>
+                                  <ChevronRight size={16} />
+                                </div>
+                              </div>
+                              {/* Bottom decorative bar */}
+                              <div style={{ width: '100%', height: '4px', background: 'linear-gradient(90deg, #4f46e5, #06b6d4)', position: 'absolute', bottom: 0, left: 0 }} />
+                            </div>
+                          )}
+                        </Fragment>
+                      );
+                    })}
                   </div>
                 </div>
             </main>

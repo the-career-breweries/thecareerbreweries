@@ -699,6 +699,313 @@
       "referenceMaterial": {
         "primary": "Conflict Resolution Handouts"
       }
+    },
+    "unit-1": {
+      "keyConcepts": [
+        {
+          "title": "Parts of Speech Architecture",
+          "explanation": "Nouns, pronouns, and adjectives establish core identity and qualifications; verbs, adverbs, prepositions, and conjunctions drive operational action, temporal relationships, and logical connectivity in aviation communication."
+        },
+        {
+          "title": "Tense Consistency in Aviation Operations",
+          "explanation": "Present tenses denote active aircraft airworthiness, current meteorological conditions, and active procedures. Past tenses record incident chronologies and flight log narratives. Future forms project scheduled turnarounds, runway slots, and flight plans."
+        },
+        {
+          "title": "Subject-Verb-Object (SVO) Model & Agreement",
+          "explanation": "Sentences must maintain rigorous grammatical agreement between singular or plural subjects and their respective verbs, especially with collective nouns like crew, fleet, dispatch, and air traffic control."
+        },
+        {
+          "title": "Clauses, Conjunctions & Sentence Boundary Discipline",
+          "explanation": "Independent and dependent clauses must be synthesized using coordinating (FANBOYS) and subordinating conjunctions to eliminate dangerous ambiguities, run-on sentences, and fragmented instructions."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Countable vs Uncountable Nouns",
+          "definition": "Countable nouns refer to discrete items that can be pluralized (passengers, aircraft, engines); uncountable nouns refer to bulk masses or concepts with no plural form (fuel, baggage, turbulence, cargo)."
+        },
+        {
+          "term": "Auxiliary vs Modal Verbs",
+          "definition": "Auxiliary verbs (be, have, do) assist in tense construction; modal verbs (must, shall, should, may) express mandatory regulatory compliance, safety obligations, probability, or operational permission."
+        },
+        {
+          "term": "Subject-Verb Agreement",
+          "definition": "The grammatical rule stating that a singular subject requires a singular verb, while a plural subject requires a plural verb, regardless of intervening prepositional phrases."
+        },
+        {
+          "term": "Present Perfect Tense",
+          "definition": "A verb form linking a past occurrence directly to present operational conditions (e.g., 'Flight 402 has landed on Runway 09R and is taxiing to Bay 14')."
+        },
+        {
+          "term": "Independent vs Dependent Clause",
+          "definition": "An independent clause expresses a complete operational thought and can stand alone as a sentence; a dependent clause contains a subject and verb but starts with a subordinating conjunction and cannot stand alone."
+        },
+        {
+          "term": "Sentence Fragment",
+          "definition": "An incomplete sentence lacking a subject, main verb, or complete predicate, prohibited in formal flight logs and safety occurrences."
+        },
+        {
+          "term": "Run-on Sentence (Comma Splice)",
+          "definition": "Two independent clauses joined together without appropriate punctuation or coordinating conjunctions, leading to confusing or dangerous misunderstandings."
+        }
+      ],
+      "mnemonic": "SVO-FANBOYS-TENSE (Subject-Verb agreement, Coordinating conjunctions, Time & Tense consistency)",
+      "btlQuestions": {
+        "Remember": "List the eight parts of speech and define an uncountable noun with two aviation examples.",
+        "Understand": "Explain why maintaining tense consistency is crucial when drafting aviation incident and shift logs.",
+        "Apply": "Identify and rectify the subject-verb agreement and comma splice errors in a 50-word ramp status report.",
+        "Analyze": "Analyze an ambiguous passenger complaint and pinpoint the exact grammatical flaws contributing to misunderstanding.",
+        "Evaluate": "Evaluate two draft operational memos and determine which version adheres strictly to professional grammatical standards.",
+        "Create": "Draft an error-free, compound-complex briefing announcement advising passengers of a 45-minute departure hold."
+      },
+      "referenceMaterial": {
+        "primary": "Wren & Martin: High School English Grammar and Composition (Revised Edition)",
+        "further": "Cambridge English Grammar in Use (Raymond Murphy) & ICAO Doc 9835 (Language Proficiency Requirements)"
+      }
+    },
+    "unit-2": {
+      "keyConcepts": [
+        {
+          "title": "Morphological Word Formation & Root Analysis",
+          "explanation": "Expanding professional vocabulary through Greek and Latin root words, aviation prefixes (anti-, trans-, sub-, hyper-), suffixes (-tion, -able, -ment), and technical antonym pairs."
+        },
+        {
+          "title": "Airside & Landside Aviation Infrastructure Lexicon",
+          "explanation": "Rigorous distinction between airport terminal zones (landside) and secure operational movement areas including aprons, taxiways, holding points, runways, and blast pads (airside)."
+        },
+        {
+          "title": "Flight Operations & ATC Standard Phraseology",
+          "explanation": "Universal adherence to the 26-letter ICAO Phonetic Alphabet (Alfa to Zulu), standardized readback/hearback protocols, and calibrated radio telephony terminology to eliminate acoustic ambiguities."
+        },
+        {
+          "title": "Passenger Ground Services & Baggage Reconciliation Terminology",
+          "explanation": "Mastering the professional terminology of check-in, boarding gates, baggage handling, Automated Baggage Reconciliation Systems (BRS), and Passenger Name Records (PNR)."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Apron (Tarmac / Ramp)",
+          "definition": "A defined area on a land aerodrome intended to accommodate aircraft for purposes of loading or unloading passengers, mail or cargo, fueling, parking, or maintenance."
+        },
+        {
+          "term": "ICAO Aviation Phonetic Alphabet",
+          "definition": "The universally mandated radiotelephony spelling alphabet (Alfa, Bravo, Charlie, Delta, etc.) adopted globally by the International Civil Aviation Organization to ensure flawless radio transmission."
+        },
+        {
+          "term": "Air Traffic Control (ATC)",
+          "definition": "A ground-based service provided by air traffic controllers who direct aircraft on the ground and through controlled airspace to prevent collisions and organize orderly traffic flow."
+        },
+        {
+          "term": "Baggage Reconciliation System (BRS)",
+          "definition": "A mandatory security protocol and automated scanning system verifying that every piece of loaded checked baggage matches a confirmed boarded passenger on that flight."
+        },
+        {
+          "term": "Denied Boarding Compensation (DBC)",
+          "definition": "Statutory restitution and alternative travel arrangements provided to confirmed passengers involuntarily denied boarding due to airline overbooking."
+        },
+        {
+          "term": "Turnaround Time (TAT)",
+          "definition": "The precise elapsed duration an aircraft occupies a gate between arrival chocks-on and departure chocks-off, during which deplaning, cleaning, refueling, catering, and boarding occur."
+        }
+      ],
+      "mnemonic": "PHONETIC-RAMP (Precision terminology, Hearback/Readback, Operational acronyms, No ambiguity, Exact phonetics, Terminal vs Apron)",
+      "btlQuestions": {
+        "Remember": "Recite the full 26-word ICAO Aviation Phonetic Alphabet and define PNR, ETA, ETD, and METAR.",
+        "Understand": "Explain why standard aviation phraseology prohibits colloquial words like 'yeah', 'okay', or 'repeat' over radio frequencies.",
+        "Apply": "Convert a flight call sign and tail number (e.g., 'AIC402, VT-EXB, Bay 18') into exact ICAO phonetic transmission.",
+        "Analyze": "Analyze an ATC communication transcript that led to an airport runway incursion and identify phraseology deficiencies.",
+        "Evaluate": "Evaluate a ground handling customer circular for compliance with DGCA passenger service regulations.",
+        "Create": "Develop a comprehensive 10-term aviation glossary with contextual usage sentences for newly inducted airport guest service executives."
+      },
+      "referenceMaterial": {
+        "primary": "Oxford Aviation English for ICAO Compliance & Jeppesen Aviation Dictionary",
+        "further": "ICAO Doc 4444 (Air Traffic Management - Phraseology) & DGCA CAR Section 3 (Air Transport)"
+      }
+    },
+    "unit-3": {
+      "keyConcepts": [
+        {
+          "title": "Macro-Reading Architecture & Skimming",
+          "explanation": "Rapid visual assessment of aviation document hierarchies, executive summaries, bolded headings, and bullet structures to capture high-level situational awareness within seconds."
+        },
+        {
+          "title": "Micro-Data Scanning & Precision Retrieval",
+          "explanation": "Targeted visual searching for operational metrics including tail registrations, Zulu timestamps, fuel weights, METAR weather parameters, and passenger manifest counts without linear reading."
+        },
+        {
+          "title": "Navigating Technical Regulatory Frameworks (SOPs, MEL, CAR)",
+          "explanation": "Reading and cross-referencing Standard Operating Procedures (SOPs), Minimum Equipment Lists (MEL), and DGCA Civil Aviation Requirements (CAR) under strict operational constraints."
+        },
+        {
+          "title": "Critical Reading & Objective Inferences",
+          "explanation": "Differentiating verified Flight Data Recorder (FDR) telemetry and licensed engineer logs from subjective passenger statements, hearsay, and unverified assumptions."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Skimming",
+          "definition": "A speed-reading technique used to quickly preview a document's overall framework, main ideas, and general message without reading every word."
+        },
+        {
+          "term": "Scanning",
+          "definition": "A rapid searching technique where the eyes sweep across text to locate specific targeted information, numbers, codes, or keywords."
+        },
+        {
+          "term": "Standard Operating Procedure (SOP)",
+          "definition": "Mandatory step-by-step instructions compiled by an organization to guide staff in conducting complex operations safely and consistently."
+        },
+        {
+          "term": "Minimum Equipment List (MEL)",
+          "definition": "An approved regulatory document authorizing the operation of an aircraft with specific inoperative equipment under strictly defined operational conditions."
+        },
+        {
+          "term": "NOTAM (Notice to Airmen)",
+          "definition": "A notice distributed by aviation authorities to alert pilots, dispatchers, and airport staff of potential flight hazards, runway closures, or navigational aids out of service."
+        },
+        {
+          "term": "Inference in Critical Reading",
+          "definition": "Drawing a logical, verifiable conclusion based on hard evidence, context, and operational clues rather than on direct textual statements."
+        }
+      ],
+      "mnemonic": "S-C-A-N-S (Survey headings, Check metadata, Anchor keywords, Note exceptions/MEL, Synthesize findings)",
+      "btlQuestions": {
+        "Remember": "Differentiate between skimming and scanning techniques and identify when each should be deployed.",
+        "Understand": "Explain how regulatory aviation manuals use imperative sentences and bullet lists to enhance cognitive processing.",
+        "Apply": "Scan an airline passenger manifest to extract PRM (Passengers with Reduced Mobility) and international transit counts within 45 seconds.",
+        "Analyze": "Analyze an incident dossier to separate verified aircraft telemetry data from uncorroborated eyewitness recollections.",
+        "Evaluate": "Critique an airline station emergency response procedure for readability, structural clarity, and emergency accessibility.",
+        "Create": "Synthesize a 4-page DGCA monsoon operating circular into a clean, 1-page operational readiness checklist for apron managers."
+      },
+      "referenceMaterial": {
+        "primary": "Reading for Professional Purposes (Cambridge University Press)",
+        "further": "DGCA Safety Circulars & IATA Airport Handling Manual (AHM 070)"
+      }
+    },
+    "unit-4": {
+      "keyConcepts": [
+        {
+          "title": "Structural Paragraph Cohesion & The MEAL Model",
+          "explanation": "Writing clear operational paragraphs using the MEAL framework: Main topic sentence, Evidence/factual data, Analysis/operational impact, and Lead-out/action link."
+        },
+        {
+          "title": "Full-Block Formal Correspondence & Regulatory Letters",
+          "explanation": "Structuring external formal letters to regulatory bodies (BCAS, DGCA) and airport authorities using full-block margins, official reference numbers, and precise legal salutations."
+        },
+        {
+          "title": "BLUF Email Architecture for High-Stakes Operations",
+          "explanation": "Employing the Bottom Line Up Front (BLUF) standard to deliver immediate operational clarity, specific deadlines, actionable subject lines, and structured bulleted requests."
+        },
+        {
+          "title": "Empathetic Bad News & De-escalation Communication",
+          "explanation": "Applying the Positive-Negative-Positive 'Sandwich' method and written H.E.A.R.T. de-escalation protocols to resolve passenger service failures, seat reassignments, and baggage delays."
+        },
+        {
+          "title": "Aviation Incident & Shift Report Investigation",
+          "explanation": "Drafting legally sound, objective 6-part Ground Safety Incident Reports (Metadata, Executive Summary, Chronology, Findings, Root Cause Analysis, CAPA) adhering to factual neutrality."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "BLUF (Bottom Line Up Front)",
+          "definition": "A professional communication standard where the primary request, deadline, or conclusion is stated in the very first sentence to enable rapid executive decision-making."
+        },
+        {
+          "term": "Full-Block Format",
+          "definition": "A standard business letter layout where all text blocks, headings, salutations, and signatures align flush with the left margin with single-spaced text and double-spaced paragraph breaks."
+        },
+        {
+          "term": "The Sandwich Method",
+          "definition": "A diplomatic communication framework that places negative news or denials between two positive, empathetic, or solution-focused statements."
+        },
+        {
+          "term": "Executive Summary",
+          "definition": "A concise, stand-alone overview of an incident report capturing the core occurrence, operational impact, root cause, and immediate safety interventions."
+        },
+        {
+          "term": "Corrective and Preventive Actions (CAPA)",
+          "definition": "A structured, time-bound series of measurable remedial measures designed to eliminate the root causes of safety occurrences and prevent recurrence."
+        },
+        {
+          "term": "Factual Neutrality",
+          "definition": "An objective writing standard that presents verified measurements, timestamps, telemetry, and physical facts without emotional adjectives or premature blame."
+        }
+      ],
+      "mnemonic": "B-L-U-F-R (Bottom Line Up Front, Logical Chronology, Uncompromising Neutrality, Format Discipline, Remedial CAPA)",
+      "btlQuestions": {
+        "Remember": "List the six mandatory components of a standard Ground Safety Incident Report.",
+        "Understand": "Explain why emotional phrases like 'careless driver' or 'massive catastrophe' undermine the legal validity of an aviation report.",
+        "Apply": "Draft a professional BLUF email requesting emergency engineering sign-off on an A320 door seal to preserve an ATC slot.",
+        "Analyze": "Analyze an aggressive passenger complaint and outline the 5 steps of the H.E.A.R.T. model to compose a de-escalating written response.",
+        "Evaluate": "Evaluate two business proposals for ramp ground equipment and compare their executive summaries and ROI justifications.",
+        "Create": "Author a complete, 5-section Ground Safety Incident Report based on an aerobridge canopy collision scenario with full CAPA."
+      },
+      "referenceMaterial": {
+        "primary": "Model Business Letters, Emails & Other Business Documents (Shirley Taylor)",
+        "further": "ICAO Annex 13 (Aircraft Accident & Incident Investigation) & DGCA CAR Section 5 Series F"
+      }
+    },
+    "unit-5": {
+      "keyConcepts": [
+        {
+          "title": "Active Listening & Paraphrasing in High-Noise Environments",
+          "explanation": "Differentiating active listening from passive hearing; utilizing verbal confirmations, paraphrasing, clarifying questions, and positive body language on crowded aprons and gates."
+        },
+        {
+          "title": "Aviation Phonetics, Pronunciation & Articulation",
+          "explanation": "Mastering English vowel/consonant clarity, syllable stress, intonation contours, and vocal projection to avoid critical misunderstandings over radio and public address systems."
+        },
+        {
+          "title": "Professional Public Address (PA) Delivery",
+          "explanation": "Commanding voice modulation, measured cadence, professional tone, and script precision during boarding announcements, delays, weather hold-ups, and in-flight turbulence advisories."
+        },
+        {
+          "title": "Customer Service Dialogue & High-Empathy Communication",
+          "explanation": "Adhering to airline regulatory carriage conditions while projecting warm, professional customer advocacy; delivering actionable alternatives rather than blunt denials."
+        },
+        {
+          "title": "Crisis De-escalation & Conflict Resolution",
+          "explanation": "Deploying the H.E.A.R.T. (Hear, Empathize, Apologize, Resolve, Thank) model to calm agitated travelers, handle overbooking crises, and safely resolve disruptive passenger situations."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Active Listening",
+          "definition": "A structured communication technique requiring the listener to fully concentrate, understand, respond thoughtfully, and retain what the speaker is saying."
+        },
+        {
+          "term": "Paraphrasing",
+          "definition": "Restating the speaker's core message in your own words to confirm alignment, verify facts, and validate the speaker's emotional state."
+        },
+        {
+          "term": "Voice Modulation",
+          "definition": "The deliberate control of pitch, pace, volume, and timbre to project calm authority, reassurance, and clarity in public and operational speaking."
+        },
+        {
+          "term": "Public Address (PA) Announcement",
+          "definition": "An official oral communication broadcast over airport terminal gate systems or aircraft cabin public address loudspeakers to inform passengers."
+        },
+        {
+          "term": "Situational Awareness in Speaking",
+          "definition": "The cognitive ability to assess the surrounding noise, passenger stress levels, cultural sensitivities, and time pressures when speaking."
+        },
+        {
+          "term": "De-escalation",
+          "definition": "Non-confrontational communication techniques used to reduce arousal, agitation, and aggression in interpersonal conflicts."
+        }
+      ],
+      "mnemonic": "H-E-A-R-T (Hear without interruption, Empathize sincerely, Apologize for situation, Resolve with ownership, Thank for patience)",
+      "btlQuestions": {
+        "Remember": "State the five steps of the H.E.A.R.T. conflict de-escalation framework.",
+        "Understand": "Explain how vocal pitch, tempo, and modulation impact passenger panic levels during an unexpected in-flight delay announcement.",
+        "Apply": "Deliver a 45-second gate announcement explaining a 90-minute delay due to inbound airspace flow control.",
+        "Analyze": "Analyze an audio recording of a customer service dispute at the check-in desk and identify points where defensive language triggered anger.",
+        "Evaluate": "Evaluate a ground supervisor's verbal de-escalation during a severe flight cancellation scenario against empathy and assertiveness standards.",
+        "Create": "Script and role-play a comprehensive 3-minute conflict resolution interaction between an irate passenger whose baggage was left behind and a customer care lead."
+      },
+      "referenceMaterial": {
+        "primary": "English for Customer Care (Oxford Business English)",
+        "further": "IATA Passenger Ground Services Manual & ICAO Language Proficiency Guidelines"
+      }
     }
   },
   "Computing Skills": {
@@ -2001,6 +2308,273 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
+      }
+    },
+    "unit-1": {
+      "keyConcepts": [
+        {
+          "title": "Computer Hardware Architecture & Von Neumann Model",
+          "explanation": "Understanding the interplay between CPU (Control Unit, ALU, Registers), Primary Memory (RAM, ROM), Secondary Storage (SSDs, HDDs), and Input/Output peripherals in modern airport workstations."
+        },
+        {
+          "title": "Software Classification & System Licenses",
+          "explanation": "Distinguishing System Software (Operating Systems, Drivers, Utilities) from Application Software (Flight Management Tools, Reservation Software), alongside Open Source, Proprietary, and Enterprise Volume licensing models."
+        },
+        {
+          "title": "Operating Systems & Modern UI Navigation",
+          "explanation": "Navigating the Windows 11 desktop, Taskbar, Start Menu, Action Center, Settings, Task Manager, and virtual desktop workflows."
+        },
+        {
+          "title": "File System Hierarchy & Organization Discipline",
+          "explanation": "Mastering file extensions (.docx, .xlsx, .csv, .pdf), hierarchical folder paths, cloud directory synchronization, search operators, and routine system maintenance diagnostics."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Central Processing Unit (CPU)",
+          "definition": "The primary processor of a computer responsible for fetching, decoding, and executing instructions through arithmetic and logic units."
+        },
+        {
+          "term": "RAM vs ROM",
+          "definition": "RAM is high-speed, volatile temporary memory for active processes; ROM is non-volatile permanent memory containing boot instructions (BIOS/UEFI)."
+        },
+        {
+          "term": "Operating System (OS)",
+          "definition": "Core system software that manages computer hardware, system resources, file systems, and provides common services for application programs."
+        },
+        {
+          "term": "File Extension",
+          "definition": "The suffix at the end of a filename (e.g., .docx, .xlsx, .pdf) that identifies the format and tells the OS which application to open it with."
+        },
+        {
+          "term": "Task Manager",
+          "definition": "A built-in Windows utility providing real-time data on system performance, CPU/memory consumption, running processes, and startup apps."
+        }
+      ],
+      "mnemonic": "H-S-O-F-M (Hardware components, Software classifications, OS Navigation, File Organization, Maintenance diagnostics)",
+      "btlQuestions": {
+        "Remember": "Define the CPU and list three common secondary storage devices.",
+        "Understand": "Explain the difference between volatile and non-volatile memory.",
+        "Apply": "Demonstrate the creation of a multi-tiered directory structure for flight manifests on Windows 11.",
+        "Analyze": "Diagnose an unresponsive airport workstation using Task Manager to isolate resource-heavy processes.",
+        "Evaluate": "Evaluate the security and performance trade-offs between local SSD storage and enterprise cloud drives.",
+        "Create": "Design a standardized folder hierarchy and file-naming convention for an airline ground operations department."
+      },
+      "referenceMaterial": {
+        "primary": "Introduction to Computers (Peter Norton, McGraw-Hill)",
+        "further": "Computer Fundamentals: Architecture and Organization (B. Ram)"
+      }
+    },
+    "unit-2": {
+      "keyConcepts": [
+        {
+          "title": "Document Architecture & The Word Ribbon",
+          "explanation": "Navigating the Microsoft Word ribbon, Backstage view, margins, paper sizing (A4, Letter), orientation, and document saving protocols."
+        },
+        {
+          "title": "Typography, Paragraph Layout & Styles",
+          "explanation": "Applying consistent fonts, line spacing, paragraph alignment, bulleted/numbered lists, indentations, and built-in Heading Styles (H1, H2, H3)."
+        },
+        {
+          "title": "Tables, SmartArt & Visual Structuring",
+          "explanation": "Designing structured operational tables, cell borders, shading, cell alignment, formulas in tables, and inserting aviation flowcharts via SmartArt."
+        },
+        {
+          "title": "Advanced Document Automation & Mail Merge",
+          "explanation": "Generating automated Table of Contents (TOC), headers/footers with dynamic page numbering, section breaks, and executing bulk Mail Merge campaigns."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "The Ribbon",
+          "definition": "The organized strip of tabs, groups, and command buttons at the top of Microsoft Office applications."
+        },
+        {
+          "term": "Heading Styles",
+          "definition": "Standardized typographic presets in Word that enable consistent document formatting, automated Table of Contents generation, and accessibility navigation."
+        },
+        {
+          "term": "Section Break",
+          "definition": "A formatting delimiter that allows different page orientations, margins, or headers/footers within different parts of the same document."
+        },
+        {
+          "term": "Mail Merge",
+          "definition": "A Word feature that merges a standard document template with an external data source (like Excel) to generate customized letters or badges in bulk."
+        }
+      ],
+      "mnemonic": "F-L-T-S-M (Formatting fonts, Layout & breaks, Tables, Styles for TOC, Mail Merge automation)",
+      "btlQuestions": {
+        "Remember": "State the shortcut keys for Save, Cut, Copy, Paste, Undo, and Redo in Microsoft Word.",
+        "Understand": "Explain the difference between a page break and a section break in Word layout.",
+        "Apply": "Format a 2-page airline employee dress code policy using standard heading styles and bulleted checklists.",
+        "Analyze": "Examine a misaligned multi-page incident report and correct margin, spacing, and header inconsistencies.",
+        "Evaluate": "Assess the effectiveness of a flight schedule table formatted in Word for readability under low-light cockpit conditions.",
+        "Create": "Build an end-to-end formal airline incident report template with automated Table of Contents and header metadata."
+      },
+      "referenceMaterial": {
+        "primary": "Microsoft Word 2021 Step by Step (Joan Lambert, Microsoft Press)",
+        "further": "Microsoft Office 365: In Practice (Randy Nordell)"
+      }
+    },
+    "unit-3": {
+      "keyConcepts": [
+        {
+          "title": "Workbook Anatomy & Grid Fundamentals",
+          "explanation": "Navigating rows (1 to 1,048,576), columns (A to XFD), Name Box, Formula Bar, cell ranges, AutoFill, and data types (Text, Number, Date, Currency)."
+        },
+        {
+          "title": "Mathematical Formulas & Order of Operations (PEMDAS)",
+          "explanation": "Building formulas using arithmetic operators (+, -, *, /, ^) and adhering strictly to parentheses and mathematical precedence."
+        },
+        {
+          "title": "Cell Referencing Mastery (Relative, Absolute, Mixed)",
+          "explanation": "Mastering Relative referencing (A1), Absolute referencing ($A$1), and Mixed referencing ($A1, A$1) to lock tax rates, fuel constants, and tariff multipliers across large grids."
+        },
+        {
+          "title": "Essential Statistical, Logical & Text Functions",
+          "explanation": "Applying SUM, AVERAGE, MIN, MAX, COUNT, COUNTA, IF, Nested IF, AND/OR, CONCATENATE, and UPPER/LOWER for aviation operations."
+        },
+        {
+          "title": "Data Sorting, Filtering & Chart Visualization",
+          "explanation": "Multi-level data sorting, AutoFilter, conditional formatting alerts, and designing Column, Bar, Line, and Pie charts with calibrated axis formatting."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Name Box",
+          "definition": "The input box located to the left of the Formula Bar that displays the active cell address or defined named range."
+        },
+        {
+          "term": "Formula Bar",
+          "definition": "The toolbar above the worksheet grid used to enter, view, and edit formulas, numbers, or text in the active cell."
+        },
+        {
+          "term": "Absolute Cell Reference ($)",
+          "definition": "A cell reference in a formula where row and column coordinates are locked with dollar signs ($A$1) so they remain fixed when copied to other cells."
+        },
+        {
+          "term": "Conditional Formatting",
+          "definition": "A tool that automatically applies color fills, icons, or borders to cells that meet specific criteria (e.g., highlighting flight delays over 30 minutes in red)."
+        },
+        {
+          "term": "AutoFill",
+          "definition": "An Excel productivity feature that automatically populates a series of numbers, dates, formulas, or text when dragging the fill handle."
+        }
+      ],
+      "mnemonic": "F-A-R-M-C (Formulas & PEMDAS, Absolute referencing $, Ranges & AutoFill, Mathematical functions, Charts & Sorting)",
+      "btlQuestions": {
+        "Remember": "State the default number of rows and columns in an Excel worksheet and the shortcut to insert SUM.",
+        "Understand": "Explain why absolute cell referencing ($A$1) is required when calculating GST or currency exchange on a ticket sales sheet.",
+        "Apply": "Write an IF formula that flags a flight as 'DELAYED' if departure time is greater than scheduled departure time, otherwise 'ON-TIME'.",
+        "Analyze": "Troubleshoot common Excel formula errors including #DIV/0!, #VALUE!, #REF!, and #NAME? in a monthly flight cost model.",
+        "Evaluate": "Evaluate whether a Pie chart or a Clustered Column chart is better suited for visualizing quarterly airline fuel expenditure.",
+        "Create": "Build a comprehensive passenger ticketing manifest spreadsheet complete with sorting, conditional formatting, and revenue charts."
+      },
+      "referenceMaterial": {
+        "primary": "Microsoft Excel 2021 Step by Step (Curtis Frye, Microsoft Press)",
+        "further": "Excel Bible (Michael Alexander & Richard Kusleika, Wiley)"
+      }
+    },
+    "unit-4": {
+      "keyConcepts": [
+        {
+          "title": "Slide Layouts, Placeholders & The Slide Master",
+          "explanation": "Navigating the PowerPoint workspace, utilizing standard layouts (Title, Content, Two Content), and modifying the Slide Master for uniform corporate airline branding."
+        },
+        {
+          "title": "Typography, Color Themes & Visual Hierarchy",
+          "explanation": "Applying the 6x6 rule (maximum 6 bullet points per slide, 6 words per bullet), high-contrast palettes, and professional typographic hierarchy."
+        },
+        {
+          "title": "Visual Assets & Multimedia Integration",
+          "explanation": "Embedding high-resolution imagery, vector icons, shapes, SmartArt process diagrams, and audio/video files with proper aspect ratios."
+        },
+        {
+          "title": "Animations, Slide Transitions & Delivery Tools",
+          "explanation": "Implementing subtle slide transitions, entrance animations, the Animation Pane, Speaker Notes, Presenter View, and exporting decks to PDF/video."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Slide Master",
+          "definition": "The top slide in a presentation hierarchy that controls the background design, font formatting, and placeholder layout across all presentation slides."
+        },
+        {
+          "term": "Presenter View",
+          "definition": "A dual-display presentation mode allowing the speaker to view upcoming slides, timers, and private speaker notes while the audience sees only the full slide."
+        },
+        {
+          "term": "SmartArt",
+          "definition": "A visual diagram tool in Microsoft Office that converts lists into professional flowcharts, relationship matrices, and process hierarchies."
+        },
+        {
+          "term": "Slide Transition vs Animation",
+          "definition": "A transition is the visual effect that occurs when advancing from one slide to the next; an animation is the motion effect applied to specific elements on a single slide."
+        }
+      ],
+      "mnemonic": "M-A-S-T-E-R (Master slide branding, Animation subtlety, SmartArt visuals, Typography contrast, Export options, Rehearse timings)",
+      "btlQuestions": {
+        "Remember": "State the keyboard shortcut to launch a presentation from the beginning (F5) and from the current slide (Shift+F5).",
+        "Understand": "Explain the 6x6 design rule and why overcrowded slides cause cognitive overload during flight crew briefings.",
+        "Apply": "Construct a 4-step emergency evacuation flowchart using PowerPoint SmartArt tools.",
+        "Analyze": "Analyze an ineffective corporate presentation deck and identify visual distractions, font clashes, and animation overuses.",
+        "Evaluate": "Assess the effectiveness of a slide design for visibility from the back row of an airline training auditorium.",
+        "Create": "Design a 6-slide airline ground safety briefing template utilizing Slide Master branding, custom icons, and speaker notes."
+      },
+      "referenceMaterial": {
+        "primary": "Microsoft PowerPoint 2021 Step by Step (Joan Lambert, Microsoft Press)",
+        "further": "Presentation Zen: Simple Ideas on Presentation Design (Garr Reynolds)"
+      }
+    },
+    "unit-5": {
+      "keyConcepts": [
+        {
+          "title": "Web Architecture & Search Literacy",
+          "explanation": "Understanding web browsers, URLs, HTTP/HTTPS security, search engine Boolean operators (AND, OR, NOT, site:), bookmarks, and clearing cache."
+        },
+        {
+          "title": "Enterprise Email Management (Outlook & Gmail)",
+          "explanation": "Composing professional emails, effective inbox management, folders, rules, flags, calendar scheduling, meeting invites, and attachment protocols."
+        },
+        {
+          "title": "Cloud Storage & Real-Time Collaboration",
+          "explanation": "Leveraging Microsoft OneDrive and Google Drive for secure file synchronization, access permission levels (Viewer, Commenter, Editor), and simultaneous co-authoring."
+        },
+        {
+          "title": "Cyber Safety, Security Hygiene & Remote Workplace Tools",
+          "explanation": "Recognizing phishing emails, password complexity, Two-Factor Authentication (2FA), malware protection, and professional conduct on Microsoft Teams and Zoom."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "HTTPS (Hypertext Transfer Protocol Secure)",
+          "definition": "The encrypted protocol used to securely transfer data between a web browser and a website, protecting against eavesdropping and data tampering."
+        },
+        {
+          "term": "Phishing",
+          "definition": "A fraudulent social engineering attack where malicious actors impersonate legitimate organizations via email to steal credentials or financial data."
+        },
+        {
+          "term": "Two-Factor Authentication (2FA)",
+          "definition": "An identity verification method requiring two independent authentication factors (e.g., password + mobile OTP) to grant system access."
+        },
+        {
+          "term": "Cloud Storage",
+          "definition": "A cloud computing model that stores data on the Internet through a cloud provider who manages and operates data storage as a service."
+        }
+      ],
+      "mnemonic": "B-E-C-S-S (Browsing literacy, Email etiquette, Cloud collaboration, Security hygiene, Screen-sharing etiquette)",
+      "btlQuestions": {
+        "Remember": "Define phishing and identify three warning signs of a fraudulent airline email.",
+        "Understand": "Explain the difference between CC (Carbon Copy) and BCC (Blind Carbon Copy) in business email correspondence.",
+        "Apply": "Set up a shared OneDrive folder for an aviation project team with restricted 'View-only' permissions for students and 'Edit' permissions for faculty.",
+        "Analyze": "Analyze an email received by airport staff requesting employee password resets and identify the social engineering indicators.",
+        "Evaluate": "Evaluate the security and productivity benefits of enterprise cloud storage versus physical USB drives for airport staff.",
+        "Create": "Draft a 10-point Cyber Safety and Email Etiquette Code of Conduct for newly recruited airline airport personnel."
+      },
+      "referenceMaterial": {
+        "primary": "Computer Networking: A Top-Down Approach (Kurose & Ross)",
+        "further": "Cybersecurity for Beginners (Raef Meeuwisse) & Microsoft 365 Cloud Productivity Guide"
       }
     }
   }

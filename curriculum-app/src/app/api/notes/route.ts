@@ -17,8 +17,14 @@ export async function GET(req: Request) {
     const data = JSON.parse(fs.readFileSync(dataFilePath, 'utf8'));
     
     if (course && session) {
-      if (data[course] && data[course][session]) {
-        return NextResponse.json(data[course][session]);
+      if (data[course]) {
+        if (data[course][session]) {
+          return NextResponse.json(data[course][session]);
+        }
+        const normalized = session.toLowerCase().replace(/\s+/g, '-');
+        if (data[course][normalized]) {
+          return NextResponse.json(data[course][normalized]);
+        }
       }
       return NextResponse.json({ error: 'Session not found' }, { status: 404 });
     }

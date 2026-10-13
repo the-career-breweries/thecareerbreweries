@@ -173,7 +173,7 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
             <h1 style={{ margin: '0 0 0.5rem 0', color: '#0f172a', fontSize: '2.2rem' }}>{theme}</h1>
             <div style={{ color: '#64748b', fontSize: '1.2rem' }}>
                 <div style={{ marginBottom: '0.25rem' }}><strong>Course:</strong> {courseName}</div>
-                <div><strong>Session:</strong> {sessionName}</div>
+                <div><strong>{sessionIdentifier.toLowerCase().startsWith('unit') ? 'Unit:' : 'Session:'}</strong> {sessionName}</div>
               </div>
           </div>
 
