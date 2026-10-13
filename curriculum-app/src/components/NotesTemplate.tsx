@@ -56,7 +56,9 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
     const originalTitle = document.title;
     document.title = `${courseName}_${sessionName}_RevisionNotes`.replace(/[^a-zA-Z0-9_]/g, '_');
     window.print();
-    document.title = originalTitle;
+    setTimeout(() => {
+      document.title = originalTitle;
+    }, 1000);
   };
 
   return (
@@ -73,19 +75,46 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
             margin: 15mm 15mm 15mm 15mm;
           }
           
+          * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+          }
+
           html, body {
             background: #ffffff !important;
             color: #1e293b !important;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
             font-size: 10pt !important;
             line-height: 1.5 !important;
+            height: auto !important;
+            min-height: auto !important;
+            max-height: none !important;
+            overflow: visible !important;
+            margin: 0 !important;
+            padding: 0 !important;
+          }
+
+          #__next, .lms-container {
+            height: auto !important;
+            min-height: auto !important;
+            max-height: none !important;
+            overflow: visible !important;
+            display: block !important;
+            padding: 0 !important;
+            margin: 0 !important;
           }
           
           body * { visibility: hidden !important; }
           .no-print, .no-print * { display: none !important; }
 
+          .lms-topbar, .lms-layout, .welcome-container, .slide-modal-overlay {
+            display: none !important;
+          }
+
           .notes-modal-overlay,
           .notes-modal-overlay *,
+          .notes-modal-card,
+          .notes-modal-card *,
           .printable-notes-container, 
           .printable-notes-container * { 
             visibility: visible !important; 
@@ -94,10 +123,33 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
           .notes-modal-overlay {
             position: static !important;
             background: none !important;
+            backdrop-filter: none !important;
             padding: 0 !important;
             margin: 0 !important;
             width: 100% !important;
+            max-width: 100% !important;
             height: auto !important;
+            min-height: auto !important;
+            max-height: none !important;
+            overflow: visible !important;
+            display: block !important;
+            box-shadow: none !important;
+          }
+
+          .notes-modal-card {
+            position: static !important;
+            background: transparent !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto !important;
+            min-height: auto !important;
+            max-height: none !important;
+            overflow: visible !important;
+            box-shadow: none !important;
+            border: none !important;
+            border-radius: 0 !important;
             display: block !important;
           }
 
@@ -106,12 +158,21 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
             margin: 0 !important;
             width: 100% !important;
             max-width: 100% !important;
+            height: auto !important;
+            min-height: auto !important;
+            max-height: none !important;
             overflow: visible !important;
             display: block !important;
+            flex: none !important;
+          }
+
+          .printable-notes-container div {
+            overflow: visible !important;
           }
 
           h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-          table, tr, td, th { page-break-inside: avoid; break-inside: avoid; }
+          table { page-break-inside: auto; break-inside: auto; }
+          tr, td, th { page-break-inside: avoid; break-inside: avoid; }
           .callout-box, .rule-box, .worked-example-box, .memory-box, .exam-tip-box, .topic-card {
             page-break-inside: avoid;
             break-inside: avoid;
@@ -142,7 +203,7 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
         }
       `}} />
 
-      <div style={{
+      <div className="notes-modal-card" style={{
         background: '#ffffff',
         width: '100%', maxWidth: '980px', height: '100%', maxHeight: '92vh',
         borderRadius: '12px', display: 'flex', flexDirection: 'column',
