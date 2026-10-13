@@ -19,8 +19,13 @@ export default function Home() {
               <div className={`${styles.iconWrapper} ${styles.blue}`}>
                 <UsersIcon />
               </div>
-              <h2 className={styles.cardTitle}>Soft Skills</h2>
-              <p className={styles.cardDesc}>Interactive personality development & communication sessions.</p>
+              <h2 className={styles.cardTitle}>
+                Soft Skill - I
+                <span style={{ display: 'inline-block', fontSize: '0.75rem', fontWeight: 700, color: '#0284c7', background: '#e0f2fe', padding: '2px 8px', borderRadius: '4px', marginLeft: '8px', verticalAlign: 'middle', letterSpacing: '0.04em' }}>
+                  Z7AVA 26210
+                </span>
+              </h2>
+              <p className={styles.cardDesc}>Interactive personality development, professional presence & communication sessions.</p>
               
               <div className={styles.links}>
                 <Link href="/soft-skills" className={`${styles.link} ${styles.primary}`}>
@@ -46,8 +51,13 @@ export default function Home() {
               <div className={`${styles.iconWrapper} ${styles.indigo}`}>
                 <BookOpen size={24} />
               </div>
-              <h2 className={styles.cardTitle}>Communicative English</h2>
-              <p className={styles.cardDesc}>Grammar, vocabulary, and professional English modules.</p>
+              <h2 className={styles.cardTitle}>
+                Communicative English
+                <span style={{ display: 'inline-block', fontSize: '0.75rem', fontWeight: 700, color: '#4f46e5', background: '#e0e7ff', padding: '2px 8px', borderRadius: '4px', marginLeft: '8px', verticalAlign: 'middle', letterSpacing: '0.04em' }}>
+                  Z7AVB 26203
+                </span>
+              </h2>
+              <p className={styles.cardDesc}>Functional grammar, aviation phraseology, business letters & technical reporting.</p>
               
               <div className={styles.links}>
                 <Link href="/communicative-english" className={`${styles.link} ${styles.indigo}`}>
@@ -63,8 +73,13 @@ export default function Home() {
               <div className={`${styles.iconWrapper} ${styles.emerald}`}>
                 <Code size={24} />
               </div>
-              <h2 className={styles.cardTitle}>Computing Skills</h2>
-              <p className={styles.cardDesc}>Hardware, software, MS Office, and cyber security.</p>
+              <h2 className={styles.cardTitle}>
+                Introduction to Computing Skills
+                <span style={{ display: 'inline-block', fontSize: '0.75rem', fontWeight: 700, color: '#059669', background: '#d1fae5', padding: '2px 8px', borderRadius: '4px', marginLeft: '8px', verticalAlign: 'middle', letterSpacing: '0.04em' }}>
+                  Z7AVA 26209
+                </span>
+              </h2>
+              <p className={styles.cardDesc}>Hardware architecture, MS Word, Excel formulas, PowerPoint & cyber safety.</p>
               
               <div className={styles.links}>
                 <Link href="/computing-skills" className={`${styles.link} ${styles.emerald}`}>

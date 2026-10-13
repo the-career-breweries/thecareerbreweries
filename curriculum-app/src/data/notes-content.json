@@ -29,7 +29,8 @@
       },
       "referenceMaterial": {
         "primary": "Wren & Martin High School English Grammar"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "2": {
       "keyConcepts": [
@@ -55,7 +56,8 @@
       },
       "referenceMaterial": {
         "primary": "Wren & Martin High School English Grammar"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "3": {
       "keyConcepts": [
@@ -77,7 +79,8 @@
       },
       "referenceMaterial": {
         "primary": "Cambridge English Grammar in Use"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "4": {
       "keyConcepts": [
@@ -99,7 +102,8 @@
       },
       "referenceMaterial": {
         "primary": "Cambridge English Grammar in Use"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "5": {
       "keyConcepts": [
@@ -125,7 +129,8 @@
       },
       "referenceMaterial": {
         "primary": "Wren & Martin High School English Grammar"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "6": {
       "keyConcepts": [
@@ -147,7 +152,8 @@
       },
       "referenceMaterial": {
         "primary": "Wren & Martin High School English Grammar"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "7": {
       "keyConcepts": [
@@ -173,7 +179,8 @@
       },
       "referenceMaterial": {
         "primary": "Oxford Advanced Learner's Dictionary"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "8": {
       "keyConcepts": [
@@ -199,7 +206,8 @@
       },
       "referenceMaterial": {
         "primary": "Merriam-Webster Vocabulary Builder"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "9": {
       "keyConcepts": [
@@ -225,7 +233,8 @@
       },
       "referenceMaterial": {
         "primary": "Aviation English by Henry Emery"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "10": {
       "keyConcepts": [
@@ -251,7 +260,8 @@
       },
       "referenceMaterial": {
         "primary": "ICAO Standard Phraseology Guide"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "11": {
       "keyConcepts": [
@@ -277,7 +287,8 @@
       },
       "referenceMaterial": {
         "primary": "Aviation English by Henry Emery"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "12": {
       "keyConcepts": [
@@ -299,7 +310,8 @@
       },
       "referenceMaterial": {
         "primary": "Aviation English by Henry Emery"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "13": {
       "keyConcepts": [
@@ -321,7 +333,8 @@
       },
       "referenceMaterial": {
         "primary": "Oxford Guide to Effective Reading"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "14": {
       "keyConcepts": [
@@ -342,7 +355,8 @@
       },
       "referenceMaterial": {
         "primary": "Speed Reading Techniques"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "15": {
       "keyConcepts": [
@@ -363,7 +377,8 @@
       },
       "referenceMaterial": {
         "primary": "Speed Reading Techniques"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "16": {
       "keyConcepts": [
@@ -388,7 +403,8 @@
       },
       "referenceMaterial": {
         "primary": "DGCA CAR Manuals"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "17": {
       "keyConcepts": [
@@ -413,7 +429,8 @@
       },
       "referenceMaterial": {
         "primary": "Critical Thinking Skills by Stella Cottrell"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "18": {
       "keyConcepts": [
@@ -434,7 +451,8 @@
       },
       "referenceMaterial": {
         "primary": "Course Handouts"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "19": {
       "keyConcepts": [
@@ -459,10 +477,11 @@
       },
       "referenceMaterial": {
         "primary": "Oxford Guide to Effective Writing"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "20": {
-      "courseCode": "ENG 101",
+      "courseCode": "Z7AVB 26203",
       "subtitle": "Formal Business Letters: Seven-Part Block Format, Airline Complaint Replies & Regulatory Inquiries",
       "howToUse": [
         "Three rules for every topic: (1) what it means in one line, (2) the exact 7-part block layout, (3) realistic airline correspondence examples.",
@@ -661,7 +680,7 @@
       }
     },
     "21": {
-      "courseCode": "ENG 101",
+      "courseCode": "Z7AVB 26203",
       "subtitle": "Professional Email Communication: Subject Line Tagging, The BLUF Structure & Tone Calibration",
       "howToUse": [
         "Three rules for every topic: (1) what it means in one line, (2) the exact structure formula, (3) realistic airline operational email examples.",
@@ -850,7 +869,7 @@
       }
     },
     "22": {
-      "courseCode": "ENG 101",
+      "courseCode": "Z7AVB 26203",
       "subtitle": "Advanced Email Scenarios: Irregular Operations (IROP), Crisis Messaging & Multi-Stakeholder Coordination",
       "howToUse": [
         "Three rules for every topic: (1) what it means in one line, (2) the exact crisis communication framework, (3) realistic emergency and service disruption email examples.",
@@ -1047,7 +1066,8 @@
       },
       "referenceMaterial": {
         "primary": "Technical Communication by Raman & Sharma"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "24": {
       "keyConcepts": [
@@ -1068,7 +1088,8 @@
       },
       "referenceMaterial": {
         "primary": "Course Case Studies"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "25": {
       "keyConcepts": [
@@ -1093,7 +1114,8 @@
       },
       "referenceMaterial": {
         "primary": "Active Listening Techniques"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "26": {
       "keyConcepts": [
@@ -1118,7 +1140,8 @@
       },
       "referenceMaterial": {
         "primary": "English Pronunciation in Use"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "27": {
       "keyConcepts": [
@@ -1139,7 +1162,8 @@
       },
       "referenceMaterial": {
         "primary": "Conversational English Skills"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "28": {
       "keyConcepts": [
@@ -1160,7 +1184,8 @@
       },
       "referenceMaterial": {
         "primary": "Aviation Communication Guidelines"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "29": {
       "keyConcepts": [
@@ -1181,7 +1206,8 @@
       },
       "referenceMaterial": {
         "primary": "Customer Service in Aviation"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "30": {
       "keyConcepts": [
@@ -1202,10 +1228,11 @@
       },
       "referenceMaterial": {
         "primary": "Conflict Resolution Handouts"
-      }
+      },
+      "courseCode": "Z7AVB 26203"
     },
     "unit-1": {
-      "courseCode": "ENG 101",
+      "courseCode": "Z7AVB 26203",
       "subtitle": "Unit 1: Fundamentals of Grammar — Mid-Semester Revision Notes",
       "howToUse": [
         "For every rule, learn three things: (1) what it means in one line, (2) the structural formula, (3) one realistic airline operational example.",
@@ -1588,7 +1615,7 @@
       }
     },
     "unit-2": {
-      "courseCode": "ENG 101",
+      "courseCode": "Z7AVB 26203",
       "subtitle": "Unit 2: Vocabulary Building & Aviation Terms — Mid-Semester Revision Notes",
       "howToUse": [
         "For every technical term, learn three things: (1) what it means in one line, (2) whether it belongs to airside, landside, or ATC, (3) one standard operational sentence.",
@@ -1896,7 +1923,7 @@
       }
     },
     "unit-3": {
-      "courseCode": "ENG 101",
+      "courseCode": "Z7AVB 26203",
       "subtitle": "Unit 3: Reading Comprehension & Technical Documents — Revision Notes",
       "howToUse": [
         "Learn the exact difference between Skimming (macro structure/gist) and Scanning (micro data/keywords).",
@@ -2099,7 +2126,7 @@
       }
     },
     "unit-4": {
-      "courseCode": "ENG 101",
+      "courseCode": "Z7AVB 26203",
       "subtitle": "Unit 4: Professional Writing & Aviation Correspondence — Revision Notes",
       "howToUse": [
         "Master the BLUF (Bottom Line Up Front) email model: put the core ask and deadline in sentence one.",
@@ -2315,7 +2342,7 @@
       }
     },
     "unit-5": {
-      "courseCode": "ENG 101",
+      "courseCode": "Z7AVB 26203",
       "subtitle": "Unit 5: Listening & Speaking Skills in Aviation — Revision Notes",
       "howToUse": [
         "Learn the mechanics of Public Address (PA) announcements: measured cadence (100–120 wpm), vocal projection, and calm authority.",
@@ -2567,7 +2594,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "2": {
       "keyConcepts": [
@@ -2609,7 +2637,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "3": {
       "keyConcepts": [
@@ -2651,7 +2680,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "4": {
       "keyConcepts": [
@@ -2693,7 +2723,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "5": {
       "keyConcepts": [
@@ -2735,7 +2766,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "6": {
       "keyConcepts": [
@@ -2777,7 +2809,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "7": {
       "keyConcepts": [
@@ -2819,7 +2852,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "8": {
       "keyConcepts": [
@@ -2861,7 +2895,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "9": {
       "keyConcepts": [
@@ -2903,7 +2938,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "10": {
       "keyConcepts": [
@@ -2945,7 +2981,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "11": {
       "keyConcepts": [
@@ -2987,7 +3024,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "12": {
       "keyConcepts": [
@@ -3029,7 +3067,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "13": {
       "keyConcepts": [
@@ -3071,7 +3110,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "14": {
       "keyConcepts": [
@@ -3113,7 +3153,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "15": {
       "keyConcepts": [
@@ -3155,7 +3196,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "Mid-Sem": {
       "keyConcepts": [
@@ -3196,7 +3238,8 @@
       "referenceMaterial": {
         "primary": "Session 1-6 Notes",
         "further": "Practice Quizzes"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "16": {
       "keyConcepts": [
@@ -3238,7 +3281,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "17": {
       "keyConcepts": [
@@ -3280,7 +3324,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "18": {
       "keyConcepts": [
@@ -3322,7 +3367,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "19": {
       "keyConcepts": [
@@ -3364,7 +3410,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "20": {
       "keyConcepts": [
@@ -3406,7 +3453,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "21": {
       "keyConcepts": [
@@ -3448,7 +3496,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "22": {
       "keyConcepts": [
@@ -3490,7 +3539,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "23": {
       "keyConcepts": [
@@ -3532,7 +3582,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "24": {
       "keyConcepts": [
@@ -3574,7 +3625,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "25": {
       "keyConcepts": [
@@ -3616,7 +3668,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "26": {
       "keyConcepts": [
@@ -3658,7 +3711,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "27": {
       "keyConcepts": [
@@ -3700,7 +3754,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "28": {
       "keyConcepts": [
@@ -3742,7 +3797,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "29": {
       "keyConcepts": [
@@ -3784,7 +3840,8 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "30": {
       "keyConcepts": [
@@ -3826,10 +3883,11 @@
       "referenceMaterial": {
         "primary": "Fundamentals of Computers, PHI Learning",
         "further": "Microsoft 365 Fundamentals"
-      }
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "unit-1": {
-      "courseCode": "CS 101",
+      "courseCode": "Z7AVA 26209",
       "subtitle": "Computer Hardware Architecture, System Software, OS Navigation & Storage Discipline",
       "howToUse": [
         "Three rules for every topic: (1) what it means in one line, (2) the key rules or steps in order, (3) one realistic airport operational example.",
@@ -4084,7 +4142,7 @@
       }
     },
     "unit-2": {
-      "courseCode": "CS 101",
+      "courseCode": "Z7AVA 26209",
       "subtitle": "Microsoft Word: Professional Aviation Document Formatting, Tables, Layout & Automation",
       "howToUse": [
         "Three rules for every topic: (1) what it means in one line, (2) the key rules or ribbon steps, (3) one realistic airline document example.",
@@ -4347,7 +4405,7 @@
       }
     },
     "unit-3": {
-      "courseCode": "CS 101",
+      "courseCode": "Z7AVA 26209",
       "subtitle": "Microsoft Excel: Spreadsheet Architecture, Absolute Referencing, Statistical & Logical Functions, Sorting & Charts",
       "howToUse": [
         "Three rules for every topic: (1) what it means in one line, (2) the exact formula syntax, (3) one realistic airline calculation example.",
@@ -4638,7 +4696,7 @@
       }
     },
     "unit-4": {
-      "courseCode": "CS 101",
+      "courseCode": "Z7AVA 26209",
       "subtitle": "Microsoft PowerPoint: Slide Hierarchy, Master Templates, Multimedia Integration, Animations & Delivery",
       "howToUse": [
         "Three rules for every topic: (1) what it means in one line, (2) the exact ribbon commands, (3) one realistic airline presentation scenario.",
@@ -4882,7 +4940,2668 @@
       }
     },
     "unit-5": {
-      "courseCode": "CS 101",
+      "courseCode": "Z7AVA 26209",
+      "subtitle": "Internet Architecture, Professional Email Protocol, Cloud Collaboration & Aviation Cyber Safety",
+      "howToUse": [
+        "Three rules for every topic: (1) what it means in one line, (2) the exact protocols or etiquette steps, (3) one realistic airline operational scenario.",
+        "Easy marks in this paper: CC vs BCC privacy rules, identifying phishing red flags, and strong password / MFA criteria.",
+        "Operational scenarios: DGCA circular searches, Flight disruption passenger advisories, Shared crew rosters on Cloud drives, and Apron Wi-Fi security."
+      ],
+      "parts": [
+        {
+          "title": "Part A · Internet Fundamentals & Information Literacy",
+          "items": [
+            "1. Web Browsing, URLs & Secure Protocols (HTTPS)",
+            "2. Advanced Search Operators for Aviation Regulatory Portals"
+          ]
+        },
+        {
+          "title": "Part B · Enterprise Email Communication & Etiquette",
+          "items": [
+            "3. Professional Email Structure, Salutations & Tone",
+            "4. To vs CC vs BCC & Passenger Data Privacy (PII)"
+          ]
+        },
+        {
+          "title": "Part C · Cloud Drives & Aviation Cyber Safety",
+          "items": [
+            "5. Cloud Collaboration, Sharing Permissions & Co-authoring",
+            "6. Cyber Threats (Phishing, Malware), Passwords & MFA"
+          ]
+        }
+      ],
+      "topics": [
+        {
+          "partBanner": "Part A · Internet Fundamentals & Information Literacy",
+          "title": "1. Web Architecture, Secure Protocols (HTTPS) & Search Syntax",
+          "premise": "Aviation personnel access weather reports, NOTAMs (Notices to Air Missions), and regulatory mandates across web networks. Understanding URL architecture, encryption padlocks, and search operators is vital for fast, authentic information retrieval.",
+          "table": {
+            "headers": [
+              "Component / Operator",
+              "Syntax Example",
+              "Operational Function",
+              "Aviation Operational Application"
+            ],
+            "rows": [
+              [
+                "URL Structure",
+                "https://www.dgca.gov.in/rules/car.html",
+                "Protocol (https), Subdomain (www), Domain (dgca.gov.in), Path (/rules/car.html)",
+                "Identifies exact web resource location; validates official government authenticity"
+              ],
+              [
+                "HTTPS & SSL/TLS Padlock",
+                "https:// with padlock icon",
+                "Encrypts communication between user browser and web server",
+                "Guarantees passenger payment details and passport numbers cannot be intercepted in transit"
+              ],
+              [
+                "Search Operator: site:",
+                "site:dgca.gov.in 'CAR Section 3'",
+                "Restricts search results exclusively to the specified official domain",
+                "Instantly pulls official Civil Aviation Requirements without commercial blog clutter"
+              ],
+              [
+                "Search Operator: filetype:",
+                "filetype:pdf 'flight safety circular'",
+                "Filters search engine results to return only specific file formats (e.g., PDF)",
+                "Directly retrieves downloadable regulatory circulars and safety bulletin PDFs"
+              ],
+              [
+                "Search Operator: Quotes (\"\")",
+                "\"minimum equipment list\" A320",
+                "Forces exact phrase matching in the specified order",
+                "Finds exact technical regulatory phrases rather than loose disconnected keyword hits"
+              ],
+              [
+                "Browser Cache & History",
+                "Ctrl + Shift + Delete",
+                "Stores temporary web files and visited sites for fast reloading",
+                "Clearing cache resolves outdated weather radar loops and stuck flight booking portals"
+              ]
+            ]
+          },
+          "rule": {
+            "title": "The Secure Protocol Rule",
+            "text": "Never enter passenger credentials, payment card details, or flight dispatch logins on any website showing 'http://' (unsecured HTTP) or browser warning flags. Legitimate airline portals ALWAYS enforce 'https://' with a valid SSL/TLS certificate."
+          },
+          "workedExample": {
+            "title": "Worked Example: Rapid Regulatory Lookup for Station Audit",
+            "text": "A station manager needs the latest DGCA circular on baggage compensation guidelines.",
+            "steps": [
+              "Inefficient query: dgca baggage rules in india (returns 500,000 news articles and blogs).",
+              "Targeted Boolean query: site:dgca.gov.in filetype:pdf \"passenger charter\" baggage",
+              "Outcome: Result #1 is the exact official DGCA PDF circular with compensation fee tables.",
+              "Time taken: 3 seconds versus 20 minutes of filtering through irrelevant blogs."
+            ],
+            "verdict": "Advanced Boolean operators turn the search engine into an instant regulatory index."
+          },
+          "memoryTrick": "U-R-L-S: Uniform Resource Locator Security: Check Protocol, Verify Domain, Restrict with site:, Filter with filetype:.",
+          "examTip": "In a 3-mark question on web security: Explain that HTTPS uses SSL/TLS encryption to protect sensitive data from eavesdropping (Man-in-the-Middle attacks), whereas HTTP transmits plain text that can be intercepted on open Wi-Fi."
+        },
+        {
+          "partBanner": "Part B · Enterprise Email Communication & Etiquette",
+          "title": "2. Professional Email Protocol, CC vs BCC & Passenger Data Privacy",
+          "premise": "Email is the legal backbone of airline enterprise communication. Misunderstanding CC versus BCC can cause massive data privacy breaches, while poor subject lines can stall ground handling coordination.",
+          "table": {
+            "headers": [
+              "Email Field / Feature",
+              "Standard Purpose",
+              "Operational Aviation Scenario",
+              "Privacy & Legal Implication"
+            ],
+            "rows": [
+              [
+                "To Field",
+                "Primary direct recipient(s) expected to take action or respond",
+                "To: Station_Manager@skylink.com regarding ramp staffing shortfall",
+                "Recipient is directly accountable for resolving the matter"
+              ],
+              [
+                "Carbon Copy (CC)",
+                "Secondary recipient(s) included for situational awareness (no direct action required)",
+                "CC: Duty_Officer@skylink.com, Safety_Lead@skylink.com on incident report",
+                "All recipients see each other's email addresses"
+              ],
+              [
+                "Blind Carbon Copy (BCC)",
+                "Hidden recipient(s); address is completely invisible to other recipients",
+                "BCC: 180 delayed passengers when emailing flight delay advisories",
+                "MANDATORY FOR PRIVACY: Prevents catastrophic passenger email leaks (GDPR/DPDP violation)"
+              ],
+              [
+                "Subject Line",
+                "Clear, concise 5-8 word summary with flight/date/action tags",
+                "Subject: [URGENT] Flight SL-402 Delay Advisory & Gate Change - 14 Oct",
+                "Allows recipients to triage and prioritize urgent operational actions instantly"
+              ],
+              [
+                "Email Signature",
+                "Standardized block: Full Name, Official Designation, Airline, Contact Details",
+                "Rohit Verma | Duty Manager | Ground Ops | Kempegowda Intl Airport",
+                "Establishes institutional authenticity and direct telephone contact"
+              ],
+              [
+                "Attachment Hygiene",
+                "Attaching relevant compressed documentation with clean names",
+                "Attaching 'Incident_Report_AI402_14Oct.pdf' (under 10 MB)",
+                "Never attach executable files (.exe, .bat) or huge uncompressed archives"
+              ]
+            ]
+          },
+          "rule": {
+            "title": "The Strict BCC Privacy Rule",
+            "text": "When emailing multiple passengers or external vendors: NEVER put their email addresses in 'To' or 'CC'. ALWAYS use 'BCC'. Placing customer email addresses in CC exposes private contact details to strangers, violating aviation privacy laws and company data policies."
+          },
+          "workedExample": {
+            "title": "Worked Example: Drafting an Operational Delay Notice to Passengers",
+            "text": "Draft an official flight rescheduling notice for passengers of Flight 6E 902.",
+            "steps": [
+              "To: ops-notification@skylink.com (generic internal dummy address).",
+              "BCC: [List of all 160 passenger email addresses pasted here].",
+              "Subject: Operational Advisory: Flight SL 902 (BLR to DEL) Rescheduled - 14 Oct 2026.",
+              "Salutation: 'Dear Esteemed Passenger,'",
+              "Body: 'Please be advised that due to incoming airspace congestion, Flight SL 902 scheduled for departure at 14:30 hrs has been revised to 16:15 hrs. Gate open at 15:30 hrs. Refreshment vouchers are available at Counter 12.'",
+              "Sign-off: 'Sincerely, Ground Operations Team, SkyLink Airways'."
+            ],
+            "verdict": "Professional, courteous, operationally clear, and 100% compliant with privacy regulations."
+          },
+          "memoryTrick": "B-C-C-P-R-I-V-A-C-Y: Blind Carbon Copy Protects Recipient Identity & Vital Aviation Confidentiality.",
+          "examTip": "A guaranteed exam question: What is the difference between CC and BCC? Answer: CC (Carbon Copy) displays recipient email addresses to everyone on the thread; BCC (Blind Carbon Copy) hides recipient addresses, protecting recipient privacy."
+        },
+        {
+          "partBanner": "Part C · Cloud Drives & Aviation Cyber Safety",
+          "title": "3. Cloud Collaboration, Cyber Threats (Phishing/Malware) & MFA Security",
+          "premise": "Airlines store shared shift handovers and flight plans on cloud drives (OneDrive, Google Drive). Ground workstations are prime targets for cyber attacks; staff must maintain vigilance against phishing, weak passwords, and unauthorized device connections.",
+          "table": {
+            "headers": [
+              "Security Concept",
+              "Threat / Tool Description",
+              "Aviation Operational Scenario",
+              "Mitigation / Defense Best Practice"
+            ],
+            "rows": [
+              [
+                "Cloud Sharing Permissions",
+                "View Only vs Commenter vs Editor permissions",
+                "Sharing live ground crew duty roster across terminal teams",
+                "Grant 'Editor' only to Duty Supervisors; all other staff receive 'View Only'"
+              ],
+              [
+                "Phishing Attack",
+                "Fraudulent emails mimicking trusted authorities (DGCA, IT Support) to steal logins",
+                "Email pretending to be 'IT Helpdesk' demanding password reset via shady link",
+                "Never click links in unexpected emails; verify sender domain; report to Airline Cyber Security"
+              ],
+              [
+                "Malware & Ransomware",
+                "Malicious software encrypting files or locking workstations for ransom",
+                "Infected USB drive inserted into dispatch terminal encrypts flight manifests",
+                "Strict policy banning unauthorized USB flash drives; continuous antivirus definitions"
+              ],
+              [
+                "Strong Password Criteria",
+                "Minimum 12-16 characters: Uppercase, Lowercase, Numbers, and Special Symbols",
+                "Securing airline check-in terminal user accounts against brute force attacks",
+                "Use passphrase sentences (e.g., 'SkyFly#2026@BLR!Safe'); never reuse passwords"
+              ],
+              [
+                "Multi-Factor Authentication (MFA)",
+                "Requires 2+ verification factors: Password + OTP/Authenticator App prompt",
+                "Accessing airline crew scheduling portal from mobile or remote tablet",
+                "Even if password is stolen in a phishing attempt, attacker cannot log in without the physical OTP token"
+              ],
+              [
+                "Public / Apron Wi-Fi Hygiene",
+                "Unencrypted open Wi-Fi networks subject to packet sniffing and spoofing",
+                "Ground agent checking company flight schedules on airport public Wi-Fi",
+                "Always connect via corporate Virtual Private Network (VPN); never disable firewall"
+              ]
+            ]
+          },
+          "rule": {
+            "title": "The Zero-Trust USB & Password Rule",
+            "text": "1. NEVER plug personal USB pen drives into airport operational workstations. 2. NEVER share your terminal user password with colleagues or write it on sticky notes. Every agent is legally liable for actions logged under their user ID."
+          },
+          "workedExample": {
+            "title": "Worked Example: Identifying a Spear-Phishing Email Attempt",
+            "text": "A ticketing agent receives an email: 'URGENT from DGCA: Your Airport Pass has been revoked. Click here immediately to verify credentials: http://dgca-verification-portal.xyz/login'.",
+            "steps": [
+              "Red Flag 1: False urgency ('Click immediately or pass revoked').",
+              "Red Flag 2: Suspicious sender domain (dgca-verification-portal.xyz instead of official dgca.gov.in).",
+              "Red Flag 3: Unsecured HTTP link instead of official HTTPS.",
+              "Correct Action: Do NOT click the link. Take a screenshot, forward email to airline Cyber Security Ops, and notify supervisor."
+            ],
+            "verdict": "Vigilant staff response halts potential cyber intrusion into the airport reservation network."
+          },
+          "memoryTrick": "P-A-S-S-W-O-R-D: Phishing awareness, Authentication MFA, Share links with expiry, Strong passwords, Wi-Fi security, OS updates, Regular backups, Defense vigilance.",
+          "examTip": "In a 5-mark question on Cyber Threats: Define Phishing (social engineering email deception), Ransomware (malware that encrypts operational data for ransom), and MFA (two-factor authentication combining something you know + something you have)."
+        }
+      ],
+      "quickRevision": [
+        {
+          "topic": "HTTPS vs HTTP",
+          "rememberThis": "HTTPS uses SSL/TLS encryption (padlock icon) to prevent data interception; HTTP transmits plain text."
+        },
+        {
+          "topic": "Search Operators",
+          "rememberThis": "site: limits search to one domain (site:dgca.gov.in); filetype: filters format (filetype:pdf); quotes enforce exact phrase."
+        },
+        {
+          "topic": "CC vs BCC",
+          "rememberThis": "CC reveals email addresses to all recipients; BCC hides addresses to protect passenger personal privacy."
+        },
+        {
+          "topic": "Phishing Red Flags",
+          "rememberThis": "False urgency, generic greeting, mismatched sender domain, unsecure links, and grammar errors."
+        },
+        {
+          "topic": "Multi-Factor Authentication",
+          "rememberThis": "Combines 2 factors: Something you know (password) + Something you have (phone OTP/token) for secure login."
+        }
+      ],
+      "btlQuestions": {
+        "Remember": "Define URL and explain what HTTPS stands for.",
+        "Understand": "Explain why using BCC is legally mandatory when sending flight cancellation announcements to multiple passengers.",
+        "Apply": "Write an advanced Google search query to find the official DGCA PDF circular on passenger charter rights from the official website.",
+        "Analyze": "Analyze the security vulnerabilities of connecting an airport flight dispatch workstation to an unsecured public terminal Wi-Fi network.",
+        "Evaluate": "Evaluate the effectiveness of Multi-Factor Authentication (MFA) in preventing unauthorized access following a successful credential phishing attack.",
+        "Create": "Design a comprehensive Cyber Hygiene & Email Etiquette SOP for newly recruited airport customer service personnel."
+      },
+      "referenceMaterial": {
+        "primary": "Computer Networking: A Top-Down Approach (James Kurose & Keith Ross, Pearson)",
+        "further": "Cybersecurity Essentials (Charles J. Brooks et al., Sybex/Wiley)"
+      }
+    }
+  },
+  "Introduction to Computing Skills": {
+    "1": {
+      "keyConcepts": [
+        {
+          "title": "Hardware vs Software",
+          "explanation": "Physical parts of a computer"
+        },
+        {
+          "title": "Applied Hardware vs Software",
+          "explanation": "Understanding how to leverage hardware vs software in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "CPU, RAM, Storage"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying CPU, RAM, Storage efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Computer Hardware Basics.",
+        "Understand": "Explain the significance of Hardware vs Software.",
+        "Apply": "Identify internal PC components",
+        "Analyze": "Compare different methods of handling CPU, RAM, Storage.",
+        "Evaluate": "Assess the effectiveness of your approach to Computer Hardware Basics.",
+        "Create": "Design a workflow utilizing Hardware vs Software."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "2": {
+      "keyConcepts": [
+        {
+          "title": "System vs Application",
+          "explanation": "Programs that run hardware vs tasks"
+        },
+        {
+          "title": "Applied System vs Application",
+          "explanation": "Understanding how to leverage system vs application in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "OS, Utilities, Apps"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying OS, Utilities, Apps efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Software Fundamentals.",
+        "Understand": "Explain the significance of System vs Application.",
+        "Apply": "Distinguish software types",
+        "Analyze": "Compare different methods of handling OS, Utilities, Apps.",
+        "Evaluate": "Assess the effectiveness of your approach to Software Fundamentals.",
+        "Create": "Design a workflow utilizing System vs Application."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "3": {
+      "keyConcepts": [
+        {
+          "title": "Windows UI",
+          "explanation": "GUI, Taskbar, Settings"
+        },
+        {
+          "title": "Applied Windows UI",
+          "explanation": "Understanding how to leverage windows ui in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Desktop navigation"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Desktop navigation efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Operating Systems - Interface & Navigation.",
+        "Understand": "Explain the significance of Windows UI.",
+        "Apply": "Personalize Windows OS",
+        "Analyze": "Compare different methods of handling Desktop navigation.",
+        "Evaluate": "Assess the effectiveness of your approach to Operating Systems - Interface & Navigation.",
+        "Create": "Design a workflow utilizing Windows UI."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "4": {
+      "keyConcepts": [
+        {
+          "title": "Hierarchy and Paths",
+          "explanation": "How files are stored in directories"
+        },
+        {
+          "title": "Applied Hierarchy and Paths",
+          "explanation": "Understanding how to leverage hierarchy and paths in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Folders, Files, Extensions"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Folders, Files, Extensions efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of File Management & Organization.",
+        "Understand": "Explain the significance of Hierarchy and Paths.",
+        "Apply": "Organize a messy directory",
+        "Analyze": "Compare different methods of handling Folders, Files, Extensions.",
+        "Evaluate": "Assess the effectiveness of your approach to File Management & Organization.",
+        "Create": "Design a workflow utilizing Hierarchy and Paths."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "5": {
+      "keyConcepts": [
+        {
+          "title": "System Diagnostics",
+          "explanation": "Task Manager, Backup protocols"
+        },
+        {
+          "title": "Applied System Diagnostics",
+          "explanation": "Understanding how to leverage system diagnostics in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Processes, Maintenance"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Processes, Maintenance efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of System Maintenance & Review.",
+        "Understand": "Explain the significance of System Diagnostics.",
+        "Apply": "Troubleshoot frozen applications",
+        "Analyze": "Compare different methods of handling Processes, Maintenance.",
+        "Evaluate": "Assess the effectiveness of your approach to System Maintenance & Review.",
+        "Create": "Design a workflow utilizing System Diagnostics."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "6": {
+      "keyConcepts": [
+        {
+          "title": "Ribbon Interface",
+          "explanation": "UI layout for text editing tools"
+        },
+        {
+          "title": "Applied Ribbon Interface",
+          "explanation": "Understanding how to leverage ribbon interface in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Font, Paragraph, Styles"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Font, Paragraph, Styles efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of MS Word: Document Creation and Formatting.",
+        "Understand": "Explain the significance of Ribbon Interface.",
+        "Apply": "Create and format a memo",
+        "Analyze": "Compare different methods of handling Font, Paragraph, Styles.",
+        "Evaluate": "Assess the effectiveness of your approach to MS Word: Document Creation and Formatting.",
+        "Create": "Design a workflow utilizing Ribbon Interface."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "7": {
+      "keyConcepts": [
+        {
+          "title": "Alignment and Spacing",
+          "explanation": "Adjusting text flow and margins"
+        },
+        {
+          "title": "Applied Alignment and Spacing",
+          "explanation": "Understanding how to leverage alignment and spacing in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Justify, Line spacing"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Justify, Line spacing efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Paragraph Formatting and Layout.",
+        "Understand": "Explain the significance of Alignment and Spacing.",
+        "Apply": "Format an employee policy",
+        "Analyze": "Compare different methods of handling Justify, Line spacing.",
+        "Evaluate": "Assess the effectiveness of your approach to Paragraph Formatting and Layout.",
+        "Create": "Design a workflow utilizing Alignment and Spacing."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "8": {
+      "keyConcepts": [
+        {
+          "title": "Tabular Data",
+          "explanation": "Organizing data into rows/columns"
+        },
+        {
+          "title": "Applied Tabular Data",
+          "explanation": "Understanding how to leverage tabular data in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Insert Table, SmartArt"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Insert Table, SmartArt efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Working with Tables and Visuals.",
+        "Understand": "Explain the significance of Tabular Data.",
+        "Apply": "Design a flight schedule",
+        "Analyze": "Compare different methods of handling Insert Table, SmartArt.",
+        "Evaluate": "Assess the effectiveness of your approach to Working with Tables and Visuals.",
+        "Create": "Design a workflow utilizing Tabular Data."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "9": {
+      "keyConcepts": [
+        {
+          "title": "Page Formatting",
+          "explanation": "Headers, Footers, Page breaks"
+        },
+        {
+          "title": "Applied Page Formatting",
+          "explanation": "Understanding how to leverage page formatting in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Margins, Orientation"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Margins, Orientation efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Page Layout and Document Finalization.",
+        "Understand": "Explain the significance of Page Formatting.",
+        "Apply": "Finalize an incident report",
+        "Analyze": "Compare different methods of handling Margins, Orientation.",
+        "Evaluate": "Assess the effectiveness of your approach to Page Layout and Document Finalization.",
+        "Create": "Design a workflow utilizing Page Formatting."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "10": {
+      "keyConcepts": [
+        {
+          "title": "TOC and Mail Merge",
+          "explanation": "Automating document structuring"
+        },
+        {
+          "title": "Applied TOC and Mail Merge",
+          "explanation": "Understanding how to leverage toc and mail merge in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Styles, Mass Mailing"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Styles, Mass Mailing efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Advanced Reporting & Review.",
+        "Understand": "Explain the significance of TOC and Mail Merge.",
+        "Apply": "Generate a Table of Contents",
+        "Analyze": "Compare different methods of handling Styles, Mass Mailing.",
+        "Evaluate": "Assess the effectiveness of your approach to Advanced Reporting & Review.",
+        "Create": "Design a workflow utilizing TOC and Mail Merge."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "11": {
+      "keyConcepts": [
+        {
+          "title": "Workbooks and Worksheets",
+          "explanation": "Grid-based data entry"
+        },
+        {
+          "title": "Applied Workbooks and Worksheets",
+          "explanation": "Understanding how to leverage workbooks and worksheets in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Rows, Columns, Cells"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Rows, Columns, Cells efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Introduction to Spreadsheets.",
+        "Understand": "Explain the significance of Workbooks and Worksheets.",
+        "Apply": "Enter basic tabular data",
+        "Analyze": "Compare different methods of handling Rows, Columns, Cells.",
+        "Evaluate": "Assess the effectiveness of your approach to Introduction to Spreadsheets.",
+        "Create": "Design a workflow utilizing Workbooks and Worksheets."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "12": {
+      "keyConcepts": [
+        {
+          "title": "Data Types",
+          "explanation": "Currency, Dates, Percentages"
+        },
+        {
+          "title": "Applied Data Types",
+          "explanation": "Understanding how to leverage data types in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Format Painter, Wrap Text"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Format Painter, Wrap Text efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Formatting Cells and Worksheets.",
+        "Understand": "Explain the significance of Data Types.",
+        "Apply": "Format a sales report",
+        "Analyze": "Compare different methods of handling Format Painter, Wrap Text.",
+        "Evaluate": "Assess the effectiveness of your approach to Formatting Cells and Worksheets.",
+        "Create": "Design a workflow utilizing Data Types."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "13": {
+      "keyConcepts": [
+        {
+          "title": "Formula Syntax",
+          "explanation": "Starting with '=' and using operators"
+        },
+        {
+          "title": "Applied Formula Syntax",
+          "explanation": "Understanding how to leverage formula syntax in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "PEMDAS, +, -, *, /"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying PEMDAS, +, -, *, / efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Basic Mathematical Formulas.",
+        "Understand": "Explain the significance of Formula Syntax.",
+        "Apply": "Calculate baggage totals",
+        "Analyze": "Compare different methods of handling PEMDAS, +, -, *, /.",
+        "Evaluate": "Assess the effectiveness of your approach to Basic Mathematical Formulas.",
+        "Create": "Design a workflow utilizing Formula Syntax."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "14": {
+      "keyConcepts": [
+        {
+          "title": "Absolute vs Relative",
+          "explanation": "Locking cells with $ in formulas"
+        },
+        {
+          "title": "Applied Absolute vs Relative",
+          "explanation": "Understanding how to leverage absolute vs relative in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "F4 key, Dragging formulas"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying F4 key, Dragging formulas efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Cell Referencing.",
+        "Understand": "Explain the significance of Absolute vs Relative.",
+        "Apply": "Apply tax rates with absolute ref",
+        "Analyze": "Compare different methods of handling F4 key, Dragging formulas.",
+        "Evaluate": "Assess the effectiveness of your approach to Cell Referencing.",
+        "Create": "Design a workflow utilizing Absolute vs Relative."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "15": {
+      "keyConcepts": [
+        {
+          "title": "Statistical Analysis",
+          "explanation": "SUM, AVERAGE, MIN, MAX"
+        },
+        {
+          "title": "Applied Statistical Analysis",
+          "explanation": "Understanding how to leverage statistical analysis in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Basic aggregations"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Basic aggregations efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Essential Functions (Statistical).",
+        "Understand": "Explain the significance of Statistical Analysis.",
+        "Apply": "Analyze daily passenger counts",
+        "Analyze": "Compare different methods of handling Basic aggregations.",
+        "Evaluate": "Assess the effectiveness of your approach to Essential Functions (Statistical).",
+        "Create": "Design a workflow utilizing Statistical Analysis."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "Mid-Sem": {
+      "keyConcepts": [
+        {
+          "title": "Hardware & OS Revision",
+          "explanation": "Reviewing core components of a PC and Windows navigation."
+        },
+        {
+          "title": "Word Processing Mastery",
+          "explanation": "Ensuring competence in creating, formatting, and structuring Word documents."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Recap",
+          "definition": "To state again the main points of what has been taught."
+        },
+        {
+          "term": "Competence",
+          "definition": "The ability to do something successfully or efficiently."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "R&R",
+        "points": [
+          "R - Review",
+          "R - Reinforce"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Recall the steps to save a Word document as a PDF.",
+        "Understand": "Summarize the difference between hardware and software.",
+        "Apply": "Complete an interactive quiz on OS navigation.",
+        "Analyze": "Analyze your common errors when formatting tables.",
+        "Evaluate": "Assess your readiness for the practical examination.",
+        "Create": "Develop a quick-reference cheat sheet for Word shortcuts."
+      },
+      "referenceMaterial": {
+        "primary": "Session 1-6 Notes",
+        "further": "Practice Quizzes"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "16": {
+      "keyConcepts": [
+        {
+          "title": "Conditional Logic",
+          "explanation": "IF statements, Nested IFs"
+        },
+        {
+          "title": "Applied Conditional Logic",
+          "explanation": "Understanding how to leverage conditional logic in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "CONCATENATE, Text manipulation"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying CONCATENATE, Text manipulation efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Logical and Text Functions.",
+        "Understand": "Explain the significance of Conditional Logic.",
+        "Apply": "Evaluate logical passenger data",
+        "Analyze": "Compare different methods of handling CONCATENATE, Text manipulation.",
+        "Evaluate": "Assess the effectiveness of your approach to Logical and Text Functions.",
+        "Create": "Design a workflow utilizing Conditional Logic."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "17": {
+      "keyConcepts": [
+        {
+          "title": "Sorting and Filtering",
+          "explanation": "Organizing large datasets"
+        },
+        {
+          "title": "Applied Sorting and Filtering",
+          "explanation": "Understanding how to leverage sorting and filtering in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Multi-level sort, AutoFilter"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Multi-level sort, AutoFilter efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Data Management and Sorting.",
+        "Understand": "Explain the significance of Sorting and Filtering.",
+        "Apply": "Filter a flight manifest",
+        "Analyze": "Compare different methods of handling Multi-level sort, AutoFilter.",
+        "Evaluate": "Assess the effectiveness of your approach to Data Management and Sorting.",
+        "Create": "Design a workflow utilizing Sorting and Filtering."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "18": {
+      "keyConcepts": [
+        {
+          "title": "Data Visualization",
+          "explanation": "Representing numbers graphically"
+        },
+        {
+          "title": "Applied Data Visualization",
+          "explanation": "Understanding how to leverage data visualization in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Pie, Bar, Line Charts"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Pie, Bar, Line Charts efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Visualizing Data with Charts.",
+        "Understand": "Explain the significance of Data Visualization.",
+        "Apply": "Create a quarterly revenue chart",
+        "Analyze": "Compare different methods of handling Pie, Bar, Line Charts.",
+        "Evaluate": "Assess the effectiveness of your approach to Visualizing Data with Charts.",
+        "Create": "Design a workflow utilizing Data Visualization."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "19": {
+      "keyConcepts": [
+        {
+          "title": "Data Validation",
+          "explanation": "Drop-downs, Conditional Formatting"
+        },
+        {
+          "title": "Applied Data Validation",
+          "explanation": "Understanding how to leverage data validation in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Highlight rules, Duplicates"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Highlight rules, Duplicates efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Basic Data Analysis Tools.",
+        "Understand": "Explain the significance of Data Validation.",
+        "Apply": "Clean and validate crew records",
+        "Analyze": "Compare different methods of handling Highlight rules, Duplicates.",
+        "Evaluate": "Assess the effectiveness of your approach to Basic Data Analysis Tools.",
+        "Create": "Design a workflow utilizing Data Validation."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "20": {
+      "keyConcepts": [
+        {
+          "title": "Print Areas",
+          "explanation": "Scaling sheets for paper"
+        },
+        {
+          "title": "Applied Print Areas",
+          "explanation": "Understanding how to leverage print areas in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Page Break Preview"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Page Break Preview efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Printing and Excel Review.",
+        "Understand": "Explain the significance of Print Areas.",
+        "Apply": "Set up a large table for printing",
+        "Analyze": "Compare different methods of handling Page Break Preview.",
+        "Evaluate": "Assess the effectiveness of your approach to Printing and Excel Review.",
+        "Create": "Design a workflow utilizing Print Areas."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "21": {
+      "keyConcepts": [
+        {
+          "title": "Slide Layouts",
+          "explanation": "Placeholders for content"
+        },
+        {
+          "title": "Applied Slide Layouts",
+          "explanation": "Understanding how to leverage slide layouts in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Title, Body, Content slides"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Title, Body, Content slides efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Introduction to PowerPoint.",
+        "Understand": "Explain the significance of Slide Layouts.",
+        "Apply": "Build a company intro deck",
+        "Analyze": "Compare different methods of handling Title, Body, Content slides.",
+        "Evaluate": "Assess the effectiveness of your approach to Introduction to PowerPoint.",
+        "Create": "Design a workflow utilizing Slide Layouts."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "22": {
+      "keyConcepts": [
+        {
+          "title": "Slide Master",
+          "explanation": "Global presentation formatting"
+        },
+        {
+          "title": "Applied Slide Master",
+          "explanation": "Understanding how to leverage slide master in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Themes, Variants, Backgrounds"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Themes, Variants, Backgrounds efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Design Themes and Templates.",
+        "Understand": "Explain the significance of Slide Master.",
+        "Apply": "Apply corporate branding",
+        "Analyze": "Compare different methods of handling Themes, Variants, Backgrounds.",
+        "Evaluate": "Assess the effectiveness of your approach to Design Themes and Templates.",
+        "Create": "Design a workflow utilizing Slide Master."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "23": {
+      "keyConcepts": [
+        {
+          "title": "Multimedia Integration",
+          "explanation": "Pictures, Video, Audio"
+        },
+        {
+          "title": "Applied Multimedia Integration",
+          "explanation": "Understanding how to leverage multimedia integration in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Embedding, Playback options"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Embedding, Playback options efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Inserting Media and Visuals.",
+        "Understand": "Explain the significance of Multimedia Integration.",
+        "Apply": "Create a visual safety briefing",
+        "Analyze": "Compare different methods of handling Embedding, Playback options.",
+        "Evaluate": "Assess the effectiveness of your approach to Inserting Media and Visuals.",
+        "Create": "Design a workflow utilizing Multimedia Integration."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "24": {
+      "keyConcepts": [
+        {
+          "title": "Slide Dynamics",
+          "explanation": "Movement between and within slides"
+        },
+        {
+          "title": "Applied Slide Dynamics",
+          "explanation": "Understanding how to leverage slide dynamics in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Entrance, Emphasis, Sequencing"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Entrance, Emphasis, Sequencing efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Animations and Transitions.",
+        "Understand": "Explain the significance of Slide Dynamics.",
+        "Apply": "Animate a process flow",
+        "Analyze": "Compare different methods of handling Entrance, Emphasis, Sequencing.",
+        "Evaluate": "Assess the effectiveness of your approach to Animations and Transitions.",
+        "Create": "Design a workflow utilizing Slide Dynamics."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "25": {
+      "keyConcepts": [
+        {
+          "title": "Presenter View",
+          "explanation": "Tools for delivering live"
+        },
+        {
+          "title": "Applied Presenter View",
+          "explanation": "Understanding how to leverage presenter view in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Speaker Notes, Export to PDF"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Speaker Notes, Export to PDF efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Presentation Delivery & Review.",
+        "Understand": "Explain the significance of Presenter View.",
+        "Apply": "Deliver a structured presentation",
+        "Analyze": "Compare different methods of handling Speaker Notes, Export to PDF.",
+        "Evaluate": "Assess the effectiveness of your approach to Presentation Delivery & Review.",
+        "Create": "Design a workflow utilizing Presenter View."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "26": {
+      "keyConcepts": [
+        {
+          "title": "Web Navigation",
+          "explanation": "Browsers, Search Engines, URLs"
+        },
+        {
+          "title": "Applied Web Navigation",
+          "explanation": "Understanding how to leverage web navigation in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Chrome, Keywords, Domains"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Chrome, Keywords, Domains efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Internet Basics and Web Browsing.",
+        "Understand": "Explain the significance of Web Navigation.",
+        "Apply": "Research aviation trends",
+        "Analyze": "Compare different methods of handling Chrome, Keywords, Domains.",
+        "Evaluate": "Assess the effectiveness of your approach to Internet Basics and Web Browsing.",
+        "Create": "Design a workflow utilizing Web Navigation."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "27": {
+      "keyConcepts": [
+        {
+          "title": "Email Etiquette",
+          "explanation": "CC, BCC, Attachments, Signatures"
+        },
+        {
+          "title": "Applied Email Etiquette",
+          "explanation": "Understanding how to leverage email etiquette in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Inbox organization, Folders"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Inbox organization, Folders efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Professional Email Management.",
+        "Understand": "Explain the significance of Email Etiquette.",
+        "Apply": "Draft a professional business email",
+        "Analyze": "Compare different methods of handling Inbox organization, Folders.",
+        "Evaluate": "Assess the effectiveness of your approach to Professional Email Management.",
+        "Create": "Design a workflow utilizing Email Etiquette."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "28": {
+      "keyConcepts": [
+        {
+          "title": "Cloud Computing",
+          "explanation": "Saving files to remote servers"
+        },
+        {
+          "title": "Applied Cloud Computing",
+          "explanation": "Understanding how to leverage cloud computing in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Google Drive, Co-authoring"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Google Drive, Co-authoring efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Cloud Storage and Collaboration.",
+        "Understand": "Explain the significance of Cloud Computing.",
+        "Apply": "Collaborate live on a document",
+        "Analyze": "Compare different methods of handling Google Drive, Co-authoring.",
+        "Evaluate": "Assess the effectiveness of your approach to Cloud Storage and Collaboration.",
+        "Create": "Design a workflow utilizing Cloud Computing."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "29": {
+      "keyConcepts": [
+        {
+          "title": "Digital Security",
+          "explanation": "Phishing, Passwords, Malware"
+        },
+        {
+          "title": "Applied Digital Security",
+          "explanation": "Understanding how to leverage digital security in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "2FA, Safe Browsing"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying 2FA, Safe Browsing efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Cyber Safety and Security Basics.",
+        "Understand": "Explain the significance of Digital Security.",
+        "Apply": "Identify a phishing email attempt",
+        "Analyze": "Compare different methods of handling 2FA, Safe Browsing.",
+        "Evaluate": "Assess the effectiveness of your approach to Cyber Safety and Security Basics.",
+        "Create": "Design a workflow utilizing Digital Security."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "30": {
+      "keyConcepts": [
+        {
+          "title": "Virtual Meetings",
+          "explanation": "Zoom, Teams, Slack"
+        },
+        {
+          "title": "Applied Virtual Meetings",
+          "explanation": "Understanding how to leverage virtual meetings in a modern aviation business environment."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Key Term",
+          "definition": "Screen sharing, Etiquette"
+        },
+        {
+          "term": "Practical Use",
+          "definition": "Applying Screen sharing, Etiquette efficiently in daily operations."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "ACT",
+        "points": [
+          "A - Assess the task",
+          "C - Choose the right tool",
+          "T - Test the output"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Define the core concepts of Digital Communication Tools & Review.",
+        "Understand": "Explain the significance of Virtual Meetings.",
+        "Apply": "Conduct a professional video call",
+        "Analyze": "Compare different methods of handling Screen sharing, Etiquette.",
+        "Evaluate": "Assess the effectiveness of your approach to Digital Communication Tools & Review.",
+        "Create": "Design a workflow utilizing Virtual Meetings."
+      },
+      "referenceMaterial": {
+        "primary": "Fundamentals of Computers, PHI Learning",
+        "further": "Microsoft 365 Fundamentals"
+      },
+      "courseCode": "Z7AVA 26209"
+    },
+    "unit-1": {
+      "courseCode": "Z7AVA 26209",
+      "subtitle": "Computer Hardware Architecture, System Software, OS Navigation & Storage Discipline",
+      "howToUse": [
+        "Three rules for every topic: (1) what it means in one line, (2) the key rules or steps in order, (3) one realistic airport operational example.",
+        "Easy marks in this paper: correctly distinguishing RAM from ROM, accurate path notation, and Task Manager shortcuts.",
+        "Workstation examples: Kempegowda International Airport (BLR) check-in terminals and flight dispatch workstations are used as realistic operational environments."
+      ],
+      "parts": [
+        {
+          "title": "Part A · Hardware Architecture & Von Neumann Model",
+          "items": [
+            "1. CPU, Memory & Aviation Workstation Peripherals",
+            "2. Volatile RAM vs Non-Volatile Storage"
+          ]
+        },
+        {
+          "title": "Part B · Software Classification & Windows 11 Navigation",
+          "items": [
+            "3. System vs Application Software & Licensing",
+            "4. OS Interface, Shortcuts & Task Manager Diagnostics"
+          ]
+        },
+        {
+          "title": "Part C · File Systems, Hierarchy & Storage Discipline",
+          "items": [
+            "5. Directory Structures & Path Conventions",
+            "6. File Extensions & System Maintenance Hygiene"
+          ]
+        }
+      ],
+      "topics": [
+        {
+          "partBanner": "Part A · Hardware Architecture & The Von Neumann Model",
+          "title": "1. Computer Hardware Architecture & Aviation Workstation Peripherals",
+          "premise": "Modern airport check-in desks, flight dispatch consoles, and baggage sorters operate on the Von Neumann architecture: Input devices feed data to the Central Processing Unit (CPU), which coordinates with memory and storage to output flight documentation.",
+          "table": {
+            "headers": [
+              "Hardware Component",
+              "Core Function",
+              "Aviation Operational Application",
+              "Failure Consequence"
+            ],
+            "rows": [
+              [
+                "Central Processing Unit (CPU)",
+                "Fetches, decodes, and executes program instructions via ALU & Control Unit",
+                "Processes real-time radar streams, ticket validation, and weight & balance math",
+                "Workstation freeze; check-in passenger queues stall"
+              ],
+              [
+                "Primary Memory (RAM)",
+                "High-speed volatile working memory for active programs and current processes",
+                "Holds active flight manifests and passenger reservation sessions open in Amadeus/SITA",
+                "Session loss on crash; system slowness if overloaded (thrashing)"
+              ],
+              [
+                "Read-Only Memory (ROM)",
+                "Non-volatile permanent firmware storing BIOS/UEFI boot sequence",
+                "Initiates hardware checks (POST) and boots airport kiosk operating system",
+                "Terminal cannot boot or locate operating system drive"
+              ],
+              [
+                "Secondary Storage (SSD/NVMe)",
+                "Permanent high-capacity non-volatile storage for files and OS",
+                "Stores passenger PII archives, historical flight plans, and software binaries",
+                "Data corruption; inability to load flight manifests"
+              ],
+              [
+                "Input Devices (Barcode/OCR, Keyboard)",
+                "Converts human actions and physical travel docs into digital electrical signals",
+                "Passport MRZ scanners, boarding pass 2D barcode readers, baggage scale sensors",
+                "Manual data entry required; severe check-in delays"
+              ],
+              [
+                "Output Devices (Thermal Printers, FIDS)",
+                "Translates processed binary data into readable physical or visual formats",
+                "Bag-tag thermal printers, Boarding Pass printers, Flight Information Display Screens",
+                "Passengers cannot board; bags lack routing tags"
+              ]
+            ]
+          },
+          "rule": {
+            "title": "The Memory Volatility Rule",
+            "text": "RAM is VOLATILE: all unsaved flight records are wiped immediately if power cuts out. ROM and SSD/HDD are NON-VOLATILE: firmware and saved flight manifests survive reboots and power outages."
+          },
+          "workedExample": {
+            "title": "Worked Example: Airport Kiosk Memory Diagnostic",
+            "text": "A self-service check-in kiosk at Bengaluru Airport (BLR) encounters sudden lag when processing baggage tags for Flight 6E 402.",
+            "steps": [
+              "Step 1: The supervisor opens Task Manager (Ctrl + Shift + Esc).",
+              "Step 2: CPU utilization is normal at 14%, but RAM usage is pinned at 98% due to an unclosed legacy background reporting tool.",
+              "Step 3: Diagnostic: Memory leakage in RAM, not secondary storage failure.",
+              "Step 4: Remediation: Terminate the memory-hogging process in Task Manager; RAM utilization drops to 32%, restoring instant barcode printing."
+            ],
+            "verdict": "Clear distinction between RAM exhaustion and physical SSD corruption isolates the problem in 30 seconds."
+          },
+          "memoryTrick": "I-P-O-S: Input (Passport Scan) → Processing (CPU validates seat) → Output (Prints Boarding Pass) → Storage (Logs to Passenger Database).",
+          "examTip": "Never write that RAM stores files permanently. In a 3-mark question, always define RAM as volatile temporary memory and SSD/HDD as non-volatile secondary storage."
+        },
+        {
+          "partBanner": "Part B · Software Classification & Windows Navigation",
+          "title": "2. Software Classifications, Licensing & Windows 11 Enterprise Navigation",
+          "premise": "Airport operations run on a two-tier software stack: System Software manages the hardware environment and drivers, while Application Software carries out specific business and passenger handling tasks.",
+          "table": {
+            "headers": [
+              "Software Layer",
+              "Sub-Category",
+              "Primary Purpose",
+              "Aviation Operational Example"
+            ],
+            "rows": [
+              [
+                "System Software",
+                "Operating System (OS)",
+                "Manages hardware resources, file memory allocation, multitasking, and user interface",
+                "Windows 11 Enterprise, Red Hat Enterprise Linux (Radar servers)"
+              ],
+              [
+                "System Software",
+                "Device Drivers",
+                "Translates OS commands into hardware-specific language",
+                "BOCA thermal printer driver for boarding pass printing"
+              ],
+              [
+                "System Software",
+                "Utility Programs",
+                "Maintains, secures, and optimizes computer integrity",
+                "Windows Defender Antivirus, Disk Cleanup, Task Manager"
+              ],
+              [
+                "Application Software",
+                "General Purpose",
+                "Everyday productivity software for standard administrative office tasks",
+                "Microsoft Office 365 (Word, Excel, PowerPoint, Outlook)"
+              ],
+              [
+                "Application Software",
+                "Bespoke / Specialized",
+                "Custom enterprise applications engineered for aviation operational workflows",
+                "Amadeus Altea DCS, SITA BagManager, Jeppesen FliteDeck Pro"
+              ],
+              [
+                "Software Licensing",
+                "Proprietary vs Enterprise Volume",
+                "Proprietary source code protected; volume licenses deployed across thousands of airport kiosks",
+                "Microsoft Volume Licensing Key (VLK) across 250 airport terminal desks"
+              ]
+            ]
+          },
+          "rule": {
+            "title": "The Principle of Least Privilege (Security Rule)",
+            "text": "Ground operations staff and ticketing agents must only operate with Standard User OS rights. Administrative privileges are restricted to IT Engineers to prevent unauthorized software installations or security breaches."
+          },
+          "memoryTrick": "S-A-U-D: System software manages the machine; Application software solves the user task; Utility protects the system; Drivers translate hardware.",
+          "examTip": "When asked for essential Windows keyboard shortcuts in exams: Win + E opens File Explorer; Ctrl + Shift + Esc directly opens Task Manager; Win + L locks the terminal (vital when stepping away from passenger data); Alt + Tab switches active windows."
+        },
+        {
+          "partBanner": "Part C · File Systems, Hierarchy & Diagnostic Maintenance",
+          "title": "3. File Systems, Directory Hierarchy & System Diagnostic Discipline",
+          "premise": "File organization discipline prevents flight delays. Flight dispatchers must store documents within standardized folder trees with unmistakable extensions and maintain workstations using routine diagnostics.",
+          "table": {
+            "headers": [
+              "File Extension",
+              "Standard Application",
+              "Aviation Document Type",
+              "Operational Best Practice"
+            ],
+            "rows": [
+              [
+                ".docx",
+                "Microsoft Word",
+                "Standard Operating Procedures (SOPs), Incident Reports, Ground Handling Memos",
+                "Save with clear revision tags (e.g., SOP_RampSafety_v2.1.docx)"
+              ],
+              [
+                ".xlsx",
+                "Microsoft Excel",
+                "Flight Manifests, Baggage Reconciliation, Fuel Burn Logs, Overtime Sheets",
+                "Keep raw data separated from calculation summary tabs"
+              ],
+              [
+                ".csv",
+                "Plain text / Spreadsheet",
+                "Raw Passenger Name Records (PNR), Passenger Boarding Stream",
+                "Universal format for data interchange between airline systems"
+              ],
+              [
+                ".pdf",
+                "Adobe Acrobat / Web Browser",
+                "Finalized E-Tickets, Regulatory Flight Briefings, Aircraft Maintenance Logs",
+                "Non-editable standard format for legal, DGCA, and passenger distributions"
+              ],
+              [
+                ".pptx",
+                "Microsoft PowerPoint",
+                "Crew Pre-Flight Safety Briefings, Aviation Management Presentations",
+                "Embed standard fonts and airline logos directly on the Slide Master"
+              ]
+            ]
+          },
+          "rule": {
+            "title": "The Standard File Naming Convention Rule",
+            "text": "Format: [Date]_[FlightNumber]_[DocumentType]_[Version].[extension]. Example: 20261014_AI402_LoadTrimSheet_v1.0.pdf. Never use spaces, question marks, or vague names like 'Doc1.docx'."
+          },
+          "workedExample": {
+            "title": "Worked Example: Designing a Ground Operations Folder Tree",
+            "text": "Design a standardized folder hierarchy for SkyLink Airways ground operations at Bangalore Airport.",
+            "steps": [
+              "Root Drive: C:\\SkyLink_Operations\\",
+              "Tier 1 Folders: \\01_Daily_Flight_Plans\\ | \\02_Incident_Reports\\ | \\03_Ramp_Safety_SOPs\\",
+              "Tier 2 (Under Flight Plans): \\2026_October\\Flight_SL402\\",
+              "Standardized File: C:\\SkyLink_Operations\\01_Daily_Flight_Plans\\2026_October\\Flight_SL402\\20261014_SL402_Manifest_v1.xlsx"
+            ],
+            "verdict": "Any incoming shift supervisor can locate any flight document in under 5 seconds."
+          },
+          "memoryTrick": "P-A-T-H: Partition (Drive C/D) → Archive (Year/Month) → Topic (Flight/Incident) → Hierarchical File.",
+          "examTip": "Common trap: Absolute Path includes the entire route from drive letter (C:\\Aviation\\Manual.docx); Relative Path refers only to the position relative to the current working folder (..\\Manual.docx)."
+        }
+      ],
+      "quickRevision": [
+        {
+          "topic": "RAM vs ROM",
+          "rememberThis": "RAM is high-speed and volatile (lost on shutdown); ROM is permanent firmware holding BIOS/UEFI boot routines."
+        },
+        {
+          "topic": "CPU Components",
+          "rememberThis": "ALU performs calculations; Control Unit directs data traffic; Registers hold ultra-fast immediate data."
+        },
+        {
+          "topic": "System vs Application Software",
+          "rememberThis": "System software runs the machine (Windows, drivers); Application software performs user work (Excel, Amadeus DCS)."
+        },
+        {
+          "topic": "Task Manager Shortcut",
+          "rememberThis": "Ctrl + Shift + Esc opens Task Manager directly to isolate freezing processes and check RAM/CPU loads."
+        },
+        {
+          "topic": "Standard Path Rule",
+          "rememberThis": "Always follow Date_Flight_DocType_Version.ext for structured, auditable file retrieval."
+        }
+      ],
+      "btlQuestions": {
+        "Remember": "Define the CPU and distinguish between volatile and non-volatile memory.",
+        "Understand": "Explain why airport check-in workstations require both system software and bespoke application software.",
+        "Apply": "A check-in counter thermal printer stops outputting baggage tags. Outline the diagnostic troubleshooting steps using Windows Device Manager and Print Spooler.",
+        "Analyze": "Analyze the operational consequences of storing all flight dispatch manifests in a single unstructured desktop folder versus a hierarchical folder tree.",
+        "Evaluate": "Evaluate the security and business continuity trade-offs between local workstation SSD storage and centralized cloud drive synchronization in an airline terminal.",
+        "Create": "Develop a comprehensive workstation maintenance SOP for ground staff including disk cleanup, weekly restarts, and password discipline."
+      },
+      "referenceMaterial": {
+        "primary": "Introduction to Computers (Peter Norton, McGraw-Hill Education, 7th Edition)",
+        "further": "Computer Fundamentals: Architecture and Organization (B. Ram, New Age International)"
+      }
+    },
+    "unit-2": {
+      "courseCode": "Z7AVA 26209",
+      "subtitle": "Microsoft Word: Professional Aviation Document Formatting, Tables, Layout & Automation",
+      "howToUse": [
+        "Three rules for every topic: (1) what it means in one line, (2) the key rules or ribbon steps, (3) one realistic airline document example.",
+        "Easy marks in this paper: exact keyboard shortcuts (Ctrl + B, Ctrl + E, Ctrl + J), Page Break vs Section Break, and step-by-step Mail Merge.",
+        "Document examples: Flight Ground Handling Agreements, Baggage Irregularity Reports, and Passenger Delay Compensation Letters."
+      ],
+      "parts": [
+        {
+          "title": "Part A · Ribbon Interface & Paragraph Typography",
+          "items": [
+            "1. Ribbon Architecture & Font/Paragraph Formatting",
+            "2. Alignment, Line Spacing & Indentation Rules"
+          ]
+        },
+        {
+          "title": "Part B · Tables, Visuals & Multi-Page Layout",
+          "items": [
+            "3. Flight Manifest Tables & Repeating Header Rows",
+            "4. Page Setup, Margins & Section Breaks"
+          ]
+        },
+        {
+          "title": "Part C · Advanced Automation & Document Assembly",
+          "items": [
+            "5. Styles & Dynamic Table of Contents (TOC)",
+            "6. Mail Merge for Bulk Passenger Advisories"
+          ]
+        }
+      ],
+      "topics": [
+        {
+          "partBanner": "Part A · Ribbon Interface & Paragraph Typography",
+          "title": "1. Ribbon Architecture, Font Formatting & Aviation Operational Memos",
+          "premise": "All official airline memos, station notices, and safety bulletins must follow standard visual hierarchy and clean paragraph typography to ensure instant readability during high-tempo operations.",
+          "table": {
+            "headers": [
+              "Formatting Feature",
+              "Ribbon Tab / Group",
+              "Keyboard Shortcut",
+              "Aviation Document Application"
+            ],
+            "rows": [
+              [
+                "Font Family & Size",
+                "Home > Font",
+                "Ctrl + Shift + F",
+                "Standard body text: Arial / Calibri 11-12pt; Headings: 14-16pt Bold"
+              ],
+              [
+                "Bold / Italic / Underline",
+                "Home > Font",
+                "Ctrl + B / Ctrl + I / Ctrl + U",
+                "Bold for critical warnings (e.g., 'MANDATORY PPE ZONE'); Italic for aircraft names"
+              ],
+              [
+                "Format Painter",
+                "Home > Clipboard",
+                "Ctrl + Shift + C / Ctrl + Shift + V",
+                "Quickly replicates corporate font styles across sub-headings with one click"
+              ],
+              [
+                "Paragraph Alignment",
+                "Home > Paragraph",
+                "Ctrl + L (Left), Ctrl + E (Center), Ctrl + J (Justified)",
+                "Justified for formal airline contracts and manuals; Left for operational memos"
+              ],
+              [
+                "Line & Paragraph Spacing",
+                "Home > Paragraph",
+                "Alt + H + K / Line Spacing Tool",
+                "Standard 1.15 line spacing with 6pt space after paragraphs to prevent text crowding"
+              ],
+              [
+                "Bulleted & Numbered Lists",
+                "Home > Paragraph",
+                "Home > Paragraph > Bullets",
+                "Numbered for sequential emergency checklists; Bulleted for equipment lists"
+              ]
+            ]
+          },
+          "rule": {
+            "title": "The Operational Readability Rule",
+            "text": "Never use decorative or script fonts in airline operational manuals. Stick to standard clean sans-serif typography (Calibri, Arial, Segoe UI). Body text must always maintain high contrast with minimum 1.15 line spacing."
+          },
+          "workedExample": {
+            "title": "Worked Example: Formatting an Urgent Ground Safety Bulletin",
+            "text": "Draft and format a station memo on FOD (Foreign Object Debris) prevention on the apron.",
+            "steps": [
+              "Step 1: Set Margins to Normal (1 inch all sides) in Layout > Margins.",
+              "Step 2: Type header 'SKYLINK AIRWAYS · STATION SAFETY DIRECTIVE' centered in 16pt Bold.",
+              "Step 3: Insert metadata block: Date, To (All Ramp Agents), From (Station Manager), Subject (Zero Tolerance FOD Policy).",
+              "Step 4: Use a 3-step numbered list for immediate actions: 1. Conduct pre-arrival FOD sweep; 2. Secure all loose bin latches; 3. Report stray debris to Apron Control.",
+              "Step 5: Apply red accent highlight on the emergency contact line."
+            ],
+            "verdict": "Standardized visual structure ensures ramp personnel absorb critical rules in under 15 seconds."
+          },
+          "memoryTrick": "F-A-M-E: Font (11pt clean), Alignment (Justify), Margins (1 inch), Emphasis (Bold key warnings).",
+          "examTip": "In a 3-mark question asking how to copy formatting without copying text: Explain Format Painter (single click for one-time apply, double-click to apply to multiple sections)."
+        },
+        {
+          "partBanner": "Part B · Tables, Visuals & Multi-Page Layout",
+          "title": "2. Flight Tables, Section Breaks & Page Setup Finalization",
+          "premise": "Flight crew rosters, maintenance logs, and ground handling schedules require structured tables that repeat headers across multiple pages and section breaks to handle mixed portrait/landscape pages.",
+          "table": {
+            "headers": [
+              "Document Layout Feature",
+              "Path / Command",
+              "Operational Aviation Value",
+              "Common Operational Pitfall"
+            ],
+            "rows": [
+              [
+                "Insert Table",
+                "Insert > Table",
+                "Structures passenger manifests, flight schedules, and baggage tallies cleanly",
+                "Drawing tables manually creates misaligned borders"
+              ],
+              [
+                "Repeat Header Rows",
+                "Table Layout > Repeat Header Rows",
+                "Automatically displays the column titles at the top of every subsequent printed page",
+                "Omitting this makes multi-page manifests unreadable on page 2 onwards"
+              ],
+              [
+                "Page Break",
+                "Insert > Page Break (Ctrl + Enter)",
+                "Forces subsequent content onto a brand new page cleanly",
+                "Pressing Enter 20 times causes text shifting whenever edits occur"
+              ],
+              [
+                "Section Break (Next Page)",
+                "Layout > Breaks > Next Page",
+                "Enables different headers/footers, margins, or orientation (e.g., Landscape for wide rosters)",
+                "Using simple Page Break when changing orientation turns the whole file landscape"
+              ],
+              [
+                "Headers & Footers",
+                "Insert > Header & Footer",
+                "Displays Document Title, Confidentiality Notice, and dynamic 'Page X of Y' numbers",
+                "Typing page numbers manually leads to incorrect page numbering after edits"
+              ],
+              [
+                "Margins (Normal vs Narrow)",
+                "Layout > Margins",
+                "Optimizes printable area: Normal (1 inch) for letters; Narrow (0.5 inch) for wide rosters",
+                "Setting margins below 0.5 inches cuts off text on thermal/compact printers"
+              ]
+            ]
+          },
+          "rule": {
+            "title": "The Multi-Page Table Rule",
+            "text": "For every table extending past one page: Select the top header row → Navigate to Table Tools: Layout → Click 'Repeat Header Rows'. This guarantees legal and regulatory compliance on printed flight documents."
+          },
+          "memoryTrick": "R-O-S-T-E-R: Rows structured, Orientation chosen, Spacing set, Title row repeated, Exact margins, Responsive page breaks.",
+          "examTip": "Crucial exam question distinction: A Page Break only pushes text to a new page within the same section; a Section Break creates an independent section allowing independent page numbering, headers, and landscape/portrait switching."
+        },
+        {
+          "partBanner": "Part C · Advanced Automation & Document Assembly",
+          "title": "3. Styles, Automatic Table of Contents & Mail Merge",
+          "premise": "Aviation compliance manuals span hundreds of pages. Using Word Styles enables one-click Table of Contents generation, while Mail Merge enables instant mass generation of personalized passenger letters.",
+          "table": {
+            "headers": [
+              "Advanced Word Feature",
+              "Ribbon Location",
+              "How It Works",
+              "Aviation Operational Scenario"
+            ],
+            "rows": [
+              [
+                "Heading Styles (H1, H2, H3)",
+                "Home > Styles",
+                "Applies structural semantic tags to headings rather than manual cosmetic formatting",
+                "Building an Airline Ground Operations Manual with 12 standardized chapters"
+              ],
+              [
+                "Automatic Table of Contents",
+                "References > Table of Contents",
+                "Scans Heading 1, 2, 3 tags and dynamically compiles chapter titles with exact page numbers",
+                "One-click refresh (F9) updates table of contents whenever pages shift during revisions"
+              ],
+              [
+                "Mail Merge: Main Document",
+                "Mailings > Start Mail Merge",
+                "The master template containing static text and dynamic merge field placeholders",
+                "Standard Passenger Delay Compensation Letter template"
+              ],
+              [
+                "Mail Merge: Data Source",
+                "Mailings > Select Recipients",
+                "External Excel spreadsheet or database table holding unique recipient variables",
+                "Passenger manifest file: Passenger_Name, PNR, Seat_No, Delay_Hours, Voucher_Code"
+              ],
+              [
+                "Insert Merge Fields",
+                "Mailings > Insert Merge Field",
+                "Embeds dynamic column tags: «Passenger_Name», «Flight_No», «Voucher_Amount»",
+                "Customizes each letter automatically without manual copy-pasting"
+              ],
+              [
+                "Finish & Merge",
+                "Mailings > Finish & Merge",
+                "Generates individual letters or prints them in one batch process",
+                "Generating 210 personalized compensation letters in 15 seconds after a severe delay"
+              ]
+            ]
+          },
+          "rule": {
+            "title": "The Five-Step Mail Merge Sequence",
+            "text": "1. Select Document Type (Letters/Envelopes) → 2. Connect Data Source (Excel sheet) → 3. Insert Merge Fields («Name», «Seat») → 4. Preview Results (verify data mapping) → 5. Finish & Merge (Print or Edit Individual Documents)."
+          },
+          "workedExample": {
+            "title": "Worked Example: Bulk Delay Compensation Letters for Flight SL-501",
+            "text": "Generate compensation letters for 150 delayed passengers.",
+            "steps": [
+              "Step 1: In Word, create master letter: 'Dear «Title» «LastName», We regret the delay of flight «FlightNo» to «Destination»... Your compensation voucher is «VoucherCode».'",
+              "Step 2: Go to Mailings > Select Recipients > Use an Existing List → choose 'SL501_Manifest.xlsx'.",
+              "Step 3: Highlight placeholders and replace with dynamic fields: «LastName», «FlightNo», «VoucherCode».",
+              "Step 4: Click 'Preview Results' to verify that Passenger 1 reads 'Dear Mr. Sharma... voucher AIR-5000'.",
+              "Step 5: Click Finish & Merge > Edit Individual Documents to generate the complete 150-page print run."
+            ],
+            "verdict": "Reduces 3 hours of manual typing to 45 seconds of automated document generation."
+          },
+          "memoryTrick": "S-T-O-M-P: Styles applied, Table of contents generated, Orientation controlled, Mail merge executed, Print finalized.",
+          "examTip": "In a 5-mark question on Mail Merge: Always name the two essential components (Main Document and Data Source), list the 5 steps in order, and cite an airline passenger notification example."
+        }
+      ],
+      "quickRevision": [
+        {
+          "topic": "Format Painter",
+          "rememberThis": "Copies font and paragraph formatting: single click for one use, double click for continuous multi-section use."
+        },
+        {
+          "topic": "Repeat Header Rows",
+          "rememberThis": "Table Tools > Layout > Repeat Header Rows: guarantees multi-page tables repeat their header row automatically."
+        },
+        {
+          "topic": "Page vs Section Break",
+          "rememberThis": "Page Break (Ctrl+Enter) splits pages; Section Break allows different margins, orientation, and headers."
+        },
+        {
+          "topic": "Automatic Table of Contents",
+          "rememberThis": "Requires Heading Styles (H1, H2, H3). Generated under References > Table of Contents; updated with F9."
+        },
+        {
+          "topic": "Mail Merge Components",
+          "rememberThis": "Consists of (1) Main Document (letter template) + (2) Data Source (Excel passenger list)."
+        }
+      ],
+      "btlQuestions": {
+        "Remember": "State the shortcut keys for Center Alignment, Page Break, and Format Painter in MS Word.",
+        "Understand": "Explain the architectural difference between a Page Break and a Section Break with reference to page orientation.",
+        "Apply": "Demonstrate the step-by-step procedure to create a multi-page flight manifest table in Word that repeats column headings on every printed page.",
+        "Analyze": "Compare the efficiency and error rate of drafting 100 passenger delay compensation letters manually versus using MS Word Mail Merge.",
+        "Evaluate": "Evaluate the necessity of applying Heading Styles (Heading 1, Heading 2) when drafting an airline Standard Operating Procedure (SOP) manual.",
+        "Create": "Design a complete professional template for an Airline Ground Incident Report including table layout, header/footer, and corporate styling."
+      },
+      "referenceMaterial": {
+        "primary": "Microsoft Office 365: In Practice (Randy Nordell, McGraw-Hill Education)",
+        "further": "Word 2021 Inside Out (Joe Habraken, Microsoft Press)"
+      }
+    },
+    "unit-3": {
+      "courseCode": "Z7AVA 26209",
+      "subtitle": "Microsoft Excel: Spreadsheet Architecture, Absolute Referencing, Statistical & Logical Functions, Sorting & Charts",
+      "howToUse": [
+        "Three rules for every topic: (1) what it means in one line, (2) the exact formula syntax, (3) one realistic airline calculation example.",
+        "Easy marks in this paper: absolute cell referencing ($A$1), IF logic condition syntax, and calculating Passenger Load Factor (PLF).",
+        "Operational data: Aircraft seat capacities, fuel burn calculations, excess baggage tariffs, and monthly revenue summaries."
+      ],
+      "parts": [
+        {
+          "title": "Part A · Spreadsheet Grid & Mathematical Formulas",
+          "items": [
+            "1. Cells, Data Types & The PEMDAS Rule",
+            "2. Formula Syntax & Basic Aviation Arithmetic"
+          ]
+        },
+        {
+          "title": "Part B · Cell Referencing & Core Statistical Functions",
+          "items": [
+            "3. Relative, Absolute ($) & Mixed Referencing",
+            "4. SUM, AVERAGE, COUNT, MIN, MAX & Passenger Load Factor"
+          ]
+        },
+        {
+          "title": "Part C · Logical & Text Functions & Data Organization",
+          "items": [
+            "5. Logical IF, Nested IF & Text Manipulation",
+            "6. Multi-Level Sorting, Filtering & Chart Visualizations"
+          ]
+        }
+      ],
+      "topics": [
+        {
+          "partBanner": "Part A · Spreadsheet Grid & Mathematical Formulas",
+          "title": "1. Workbook Structure, Cell Addressing & Formula Operators (PEMDAS)",
+          "premise": "Excel organizes numerical aviation data into a coordinate grid of rows (numbered 1, 2, 3...) and columns (lettered A, B, C...). Every formula begins with an equals sign (=) and follows mathematical order of operations (PEMDAS).",
+          "table": {
+            "headers": [
+              "Element / Operator",
+              "Syntax / Symbol",
+              "Precedence Order",
+              "Aviation Operational Application"
+            ],
+            "rows": [
+              [
+                "Equals Sign (=)",
+                "=",
+                "Mandatory Initial Step",
+                "Tells Excel to evaluate the cell content as a formula rather than plain literal text"
+              ],
+              [
+                "Parentheses (P)",
+                "( )",
+                "1st (Highest)",
+                "=(Adult_Fares + Child_Fares) * Tax_Rate (overrides default multiplication precedence)"
+              ],
+              [
+                "Exponentiation (E)",
+                "^",
+                "2nd",
+                "Calculates compound depreciation of aircraft lease values or exponential growth curves"
+              ],
+              [
+                "Multiplication & Division (MD)",
+                "* and /",
+                "3rd (Left to Right)",
+                "=B4 * C4 (Seats Sold * Ticket Price); =Total_Pax / Total_Seats (Passenger Load Factor)"
+              ],
+              [
+                "Addition & Subtraction (AS)",
+                "+ and -",
+                "4th (Left to Right)",
+                "=D5 + E5 (Base Fare + Fuel Surcharge); =Max_Takeoff_Weight - Actual_Weight (Payload Margin)"
+              ],
+              [
+                "AutoFill Handle",
+                "Bottom-right cell corner",
+                "Drag down / double click",
+                "Instantly replicates formulas down 300 passenger rows, automatically adjusting relative coordinates"
+              ]
+            ]
+          },
+          "rule": {
+            "title": "The Formula Initialization Rule",
+            "text": "Every formula in Excel MUST begin with an equals sign (=). Without '=', typing '100+50' in cell A1 will display the literal characters '100+50' instead of calculating 150."
+          },
+          "workedExample": {
+            "title": "Worked Example: Calculating Takeoff Weight & Payload Margin",
+            "text": "Calculate payload and margin for Flight AI-802 with Max Takeoff Weight (MTOW) of 75,000 kg.",
+            "steps": [
+              "Given: Dry Operating Weight (DOW) = 42,000 kg (in B2); Fuel = 14,000 kg (in B3); Cargo = 5,500 kg (in B4); Passenger Weight = 11,200 kg (in B5).",
+              "Step 1: Calculate Total Takeoff Weight in B6: =B2 + B3 + B4 + B5 → 72,700 kg.",
+              "Step 2: In B7, calculate Available Margin: =75000 - B6 → 2,300 kg safety margin.",
+              "Step 3: Verification: Formula executes cleanly without PEMDAS ambiguity."
+            ],
+            "verdict": "Structured arithmetic proves the aircraft is 2,300 kg under MTOW and certified safe for departure."
+          },
+          "memoryTrick": "P-E-M-D-A-S: Parentheses → Exponents → Multiplication → Division → Addition → Subtraction.",
+          "examTip": "In calculation questions: Always show the exact cell formula (e.g., =SUM(B2:B5)) and the resulting numerical answer. Never write the raw answer without the formula."
+        },
+        {
+          "partBanner": "Part B · Cell Referencing & Core Statistical Functions",
+          "title": "2. Absolute Cell Referencing ($) & Statistical Aggregate Functions",
+          "premise": "Relative references adjust when copied across rows, while Absolute references ($A$1) lock a specific cell reference. Statistical functions provide instant insights into passenger volumes and revenue averages.",
+          "table": {
+            "headers": [
+              "Function / Referencing Type",
+              "Syntax Example",
+              "Behavior When Copied Down",
+              "Aviation Operational Application"
+            ],
+            "rows": [
+              [
+                "Relative Referencing",
+                "=A2 * B2",
+                "Row numbers update (A3*B3, A4*B4)",
+                "Calculating row-by-row baggage fees for individual passengers"
+              ],
+              [
+                "Absolute Referencing",
+                "=B2 * $E$1",
+                "Reference to $E$1 stays locked to cell E1",
+                "Multiplying variable ticket prices by a fixed airport tax rate locked in E1"
+              ],
+              [
+                "Mixed Referencing",
+                "=$A2 * B$1",
+                "Locks column A or row 1 only",
+                "Creating a 2-way fare lookup matrix across different cabin classes and flight zones"
+              ],
+              [
+                "SUM()",
+                "=SUM(range)",
+                "Adds all numbers in the specified cell range",
+                "=SUM(D2:D180) calculates total revenue collected on flight AI 402"
+              ],
+              [
+                "AVERAGE()",
+                "=AVERAGE(range)",
+                "Calculates mathematical mean of numeric cells",
+                "=AVERAGE(E2:E31) calculates average daily passenger check-ins for the month"
+              ],
+              [
+                "COUNT() vs COUNTA()",
+                "=COUNT() / =COUNTA()",
+                "COUNT counts numbers; COUNTA counts all non-empty cells",
+                "COUNT counts total paid fares; COUNTA counts total passenger names checked in"
+              ],
+              [
+                "MIN() and MAX()",
+                "=MIN() / =MAX()",
+                "Returns lowest and highest numeric value",
+                "=MIN(F2:F50) identifies lowest fuel burn; =MAX(F2:F50) identifies peak delay time"
+              ]
+            ]
+          },
+          "rule": {
+            "title": "The Dollar Sign ($) Anchor Rule",
+            "text": "The dollar sign ($) locks whatever follows it. $A$1 locks BOTH column A and row 1. $A1 locks column A only. A$1 locks row 1 only. Press F4 while editing a formula to quickly cycle through all reference modes."
+          },
+          "workedExample": {
+            "title": "Worked Example: Calculating Ticket Fare with 18% GST",
+            "text": "Calculate Final Fare for 3 passengers with 18% GST rate stored in cell $C$1.",
+            "steps": [
+              "Row 4: Passenger Rao, Base Fare in B4 = 5,000.",
+              "Formula for GST Amount in C4: =B4 * $C$1 → 5000 * 0.18 = 900.",
+              "Formula for Total Fare in D4: =B4 + C4 → 5,900.",
+              "When dragged to Row 5 (Base Fare = 7,000): Formula in C5 becomes =B5 * $C$1 (B5 updates to 7,000, but $C$1 remains locked to 0.18) → 1,260 GST."
+            ],
+            "verdict": "Absolute referencing prevents the dreaded '#VALUE!' or 0 error that happens when dragging relative references."
+          },
+          "memoryTrick": "F4-LOCK: Press F4 once for Absolute ($A$1), twice for Row ($A$1), thrice for Column ($A1), fourth time to reset to Relative (A1).",
+          "examTip": "Common exam trap: If asked what happens if you drag =A1*$B$1 down one row: The formula becomes =A2*$B$1. A1 changes to A2 because it is relative; $B$1 stays fixed because it is absolute."
+        },
+        {
+          "partBanner": "Part C · Logical & Text Functions & Data Organization",
+          "title": "3. Logical IF, Text Manipulation, Multi-Level Sorting & Charting",
+          "premise": "Airlines automate excess baggage billing, tier upgrades, and delay alerts using logical functions, while charts convert massive raw flight logs into immediate executive decision visuals.",
+          "table": {
+            "headers": [
+              "Function / Tool",
+              "Syntax / Path",
+              "Operational Mechanism",
+              "Aviation Operational Scenario"
+            ],
+            "rows": [
+              [
+                "Logical IF()",
+                "=IF(condition, true_val, false_val)",
+                "Tests a condition and outputs one result if True, another if False",
+                "=IF(C2>15, (C2-15)*500, 0) calculates excess baggage fees above 15kg allowance"
+              ],
+              [
+                "Nested IF()",
+                "=IF(c1, v1, IF(c2, v2, v3))",
+                "Chains multiple tests to evaluate tiered categories",
+                "Tier classification: =IF(Score>=100000, 'Platinum', IF(Score>=50000, 'Gold', 'Silver'))"
+              ],
+              [
+                "CONCATENATE / &",
+                "=CONCAT(A2, ' ', B2) or =A2 & ' ' & B2",
+                "Merges text from multiple cells into one unified string",
+                "=A2 & ' - ' & B2 combines Flight 'AI402' and Dest 'DEL' into 'AI402 - DEL'"
+              ],
+              [
+                "PROPER() / TRIM()",
+                "=PROPER(text) / =TRIM(text)",
+                "Capitalizes initial letters; removes rogue leading/trailing spaces",
+                "Cleans raw passenger names from booking APIs: '  rOHIT shARMA  ' → 'Rohit Sharma'"
+              ],
+              [
+                "Multi-Level Sort",
+                "Data > Sort > Add Level",
+                "Sorts by Primary key, then breaks ties using Secondary key",
+                "Sort flight roster first by Departure_Date (Ascending), then by Flight_Number"
+              ],
+              [
+                "Filter / AutoFilter",
+                "Data > Filter (Ctrl + Shift + L)",
+                "Displays only rows matching specified criteria",
+                "Filter flight manifest for Status = 'Delayed' and Delay_Min > 60"
+              ],
+              [
+                "Column / Bar Chart",
+                "Insert > Column / Bar Chart",
+                "Visualizes numerical comparison across discrete categories",
+                "Comparing passenger traffic across BLR, DEL, BOM, and MAA hubs"
+              ],
+              [
+                "Conditional Formatting",
+                "Home > Conditional Formatting",
+                "Applies dynamic colors based on cell value thresholds",
+                "Highlights baggage weights > 32kg in bold red (Health & Safety limit)"
+              ]
+            ]
+          },
+          "rule": {
+            "title": "The Three-Argument IF Rule",
+            "text": "Every IF statement requires three components separated by commas: =IF(Logical_Test, Value_if_True, Value_if_False). Text outcomes MUST be enclosed in quotation marks: e.g., =IF(D2>=85, 'ON-TIME', 'DELAYED')."
+          },
+          "workedExample": {
+            "title": "Worked Example: Automated Excess Baggage Surcharge Calculator",
+            "text": "A passenger on SkyLink Airways has a checked bag weighing 22 kg. Economy allowance is 15 kg; excess rate is ₹500 per kg.",
+            "steps": [
+              "Cell B2 contains Baggage Weight = 22.",
+              "Formula: =IF(B2>15, (B2-15)*500, 0)",
+              "Step 1: Excel checks condition (22 > 15) → Evaluates to TRUE.",
+              "Step 2: Excel executes True branch: (22 - 15) * 500 = 7 * 500 = ₹3,500.",
+              "If Baggage was 14 kg: condition evaluates to FALSE → outputs ₹0 fee."
+            ],
+            "verdict": "Automates instant billing at the check-in desk, eliminating manual calculation errors."
+          },
+          "memoryTrick": "I-F-T-F: If (Condition) → Then (True action) → Fail (False action).",
+          "examTip": "In Excel charting questions: Always recommend Column/Bar charts for discrete category comparisons (e.g., airline market share) and Line charts for continuous time trends (e.g., hourly flight arrivals)."
+        }
+      ],
+      "quickRevision": [
+        {
+          "topic": "Starts with Equals (=)",
+          "rememberThis": "Every formula must start with '='. Without it, Excel treats entries as static text."
+        },
+        {
+          "topic": "Absolute Reference ($)",
+          "rememberThis": "$ locks rows or columns. $A$1 stays fixed when copied or dragged across cells."
+        },
+        {
+          "topic": "SUM vs AVERAGE vs COUNT",
+          "rememberThis": "SUM adds values; AVERAGE finds the mean; COUNT tallies numeric entries; COUNTA tallies non-empty cells."
+        },
+        {
+          "topic": "IF Syntax",
+          "rememberThis": "=IF(condition, value_if_true, value_if_false). Text outputs must be wrapped in quotes."
+        },
+        {
+          "topic": "Sort vs Filter",
+          "rememberThis": "Sort reorganizes row order; Filter hides rows that don't match criteria (Ctrl+Shift+L)."
+        }
+      ],
+      "btlQuestions": {
+        "Remember": "State the difference between Relative and Absolute cell referencing in MS Excel.",
+        "Understand": "Explain why the formula =B2*C2 changes to =B3*C3 when dragged down one row, but =B2*$C$1 preserves cell $C$1.",
+        "Apply": "Write an Excel formula to calculate a 10% loyalty discount on ticket fares exceeding ₹10,000, otherwise returning 0 discount.",
+        "Analyze": "A ground coordinator mistakenly uses COUNT instead of COUNTA on a passenger boarding list column containing passenger names. What error occurs and why?",
+        "Evaluate": "Evaluate the benefits of applying Conditional Formatting to an airport terminal baggage weight column versus manual inspection.",
+        "Create": "Design a complete Flight Dispatch Fuel & Weight spreadsheet template with formulas for total weight, absolute reserve fuel percentage, and safety status using IF."
+      },
+      "referenceMaterial": {
+        "primary": "Microsoft Excel 2021 Bible (Michael Alexander & Dick Kusleika, Wiley)",
+        "further": "Excel Data Analysis For Dummies (Paul McFedries, Wiley)"
+      }
+    },
+    "unit-4": {
+      "courseCode": "Z7AVA 26209",
+      "subtitle": "Microsoft PowerPoint: Slide Hierarchy, Master Templates, Multimedia Integration, Animations & Delivery",
+      "howToUse": [
+        "Three rules for every topic: (1) what it means in one line, (2) the exact ribbon commands, (3) one realistic airline presentation scenario.",
+        "Easy marks in this paper: explaining Slide Master branding, subtle animation vs transition differences, and Presenter View.",
+        "Presentation scenarios: Cabin Crew Safety Briefings, Airline Route Expansion Pitches, and Ground Handling TAT Reviews."
+      ],
+      "parts": [
+        {
+          "title": "Part A · Slide Architecture & Slide Master Branding",
+          "items": [
+            "1. Slide Layouts, Placeholders & Presentation Hierarchy",
+            "2. Slide Master Architecture & Airline Branding"
+          ]
+        },
+        {
+          "title": "Part B · Visual Storytelling & Structured Multimedia",
+          "items": [
+            "3. SmartArt Process Diagrams & Visual Information",
+            "4. Tables, High-Resolution Images & Media Embedding"
+          ]
+        },
+        {
+          "title": "Part C · Animation, Transitions & Professional Delivery",
+          "items": [
+            "5. Slide Transitions vs Custom Object Animations",
+            "6. Presenter View, Speaker Notes & Delivery Shortcuts"
+          ]
+        }
+      ],
+      "topics": [
+        {
+          "partBanner": "Part A · Slide Architecture & Slide Master Branding",
+          "title": "1. Workspace Layout, Placeholders & Slide Master Architecture",
+          "premise": "Aviation management briefings require corporate consistency. The Slide Master defines fonts, colors, and logos at the architectural level, automatically applying them across every slide in the deck.",
+          "table": {
+            "headers": [
+              "PowerPoint Feature",
+              "Ribbon Location",
+              "Core Functionality",
+              "Aviation Presentation Application"
+            ],
+            "rows": [
+              [
+                "Slide Placeholders",
+                "Home > Layout",
+                "Pre-structured containers for titles, bullet lists, charts, and multimedia",
+                "Maintains standardized alignment across 25 briefing slides"
+              ],
+              [
+                "Slide Master",
+                "View > Slide Master",
+                "The top-level hierarchy template controlling theme colors, fonts, and background logos",
+                "Embeds airline corporate logo, confidentiality notice, and slide numbers universally"
+              ],
+              [
+                "Theme & Color Palette",
+                "Design > Themes / Variants",
+                "Applies coordinated font pairs and color swatches across all slides",
+                "Enforces airline corporate branding (e.g., Navy & Sky Blue for SkyLink Airways)"
+              ],
+              [
+                "Duplicate Slide",
+                "Ctrl + D (or Right-click slide)",
+                "Instantly creates an identical clone of the selected slide",
+                "Rapidly creating recurring flight route analysis slides with identical layouts"
+              ],
+              [
+                "Slide Sorter View",
+                "View > Slide Sorter",
+                "Displays thumbnail grid of all slides for easy reordering and sectioning",
+                "Re-sequencing a 40-slide annual ground operations performance presentation"
+              ]
+            ]
+          },
+          "rule": {
+            "title": "The Slide Master Rule",
+            "text": "Never manually paste corporate logos or headers onto individual slides one by one. Always place them on the top Slide Master in View > Slide Master. Edits made on the Slide Master automatically update every slide in the presentation."
+          },
+          "workedExample": {
+            "title": "Worked Example: Building a Standard Cabin Crew Training Template",
+            "text": "Design a corporate training presentation template for SkyLink Airways.",
+            "steps": [
+              "Step 1: Go to View > Slide Master and select the master slide at the very top of the left thumbnail pane.",
+              "Step 2: Insert the official SkyLink logo in the upper-right corner and add footer: 'CONFIDENTIAL · CREW TRAINING'.",
+              "Step 3: Set Heading font to 'Segoe UI Semibold' (Navy #0f2942) and Body font to 'Calibri' (Slate #334155).",
+              "Step 4: Close Master View. Return to Normal View.",
+              "Step 5: Every newly created slide now automatically contains the logo, fonts, and footer without manual editing."
+            ],
+            "verdict": "Saves hours of formatting and guarantees 100% brand uniformity across all flight crew modules."
+          },
+          "memoryTrick": "M-A-S-T-E-R: Master controls Margin, Alignment, Styling, Theme, Elements, and Reusability.",
+          "examTip": "In a 3-mark question asking the purpose of the Slide Master: State clearly that it eliminates repetitive manual styling by globally controlling themes, fonts, backgrounds, and placeholders across all slides."
+        },
+        {
+          "partBanner": "Part B · Visual Storytelling & Structured Multimedia",
+          "title": "2. SmartArt Process Graphics, Tables & Visual Hierarchy",
+          "premise": "High-density bullet points cause cognitive fatigue. Technical aviation checklists and airport operational sequences must be transformed into clean SmartArt process graphics and structured tables.",
+          "table": {
+            "headers": [
+              "Visual Element",
+              "Ribbon Path",
+              "Best Aviation Use Case",
+              "Design Best Practice"
+            ],
+            "rows": [
+              [
+                "SmartArt: Process",
+                "Insert > SmartArt > Process",
+                "Sequential step-by-step emergency evacuation or turnaround workflows",
+                "Keep text to 3-5 keywords per step; avoid dense paragraph dumping"
+              ],
+              [
+                "SmartArt: Hierarchy",
+                "Insert > SmartArt > Hierarchy",
+                "Airline corporate management and airport ground station reporting trees",
+                "Clarifies chain of command from Station Manager down to Ramp Agents"
+              ],
+              [
+                "Convert to SmartArt",
+                "Home > Convert to SmartArt",
+                "Converts existing raw bulleted text lists into polished visual diagrams with one click",
+                "Instantly modernizes legacy bullet-point slides into executive diagrams"
+              ],
+              [
+                "Tables",
+                "Insert > Table",
+                "Comparing aircraft specs (Range, Seating Capacity, Fuel Burn per Hour)",
+                "Apply distinct navy header row with clear cell padding and alternating shaded rows"
+              ],
+              [
+                "Shapes & Callouts",
+                "Insert > Shapes",
+                "Highlighting specific components on an aircraft exterior inspection diagram",
+                "Use arrows and callout bubbles with contrasting borders to draw attention"
+              ]
+            ]
+          },
+          "rule": {
+            "title": "The 6 × 6 Presentation Rule",
+            "text": "Never overcrowd slides: A slide should contain no more than 6 bullet points, and each bullet point should contain no more than 6 words. Slides provide visual anchors; the speaker delivers the detailed explanation."
+          },
+          "memoryTrick": "6-B-Y-6: Maximum 6 bullet lines, maximum 6 words per line. Keep it lean, visual, and impactful.",
+          "examTip": "Common exam question: Explain how to convert an existing bulleted list into a diagram in PowerPoint. Answer: Select the text box → on Home tab, click 'Convert to SmartArt Graphic' → choose the desired layout (e.g., Process or List)."
+        },
+        {
+          "partBanner": "Part C · Animation, Transitions & Professional Delivery",
+          "title": "3. Slide Transitions, Object Animations & Presenter View Delivery",
+          "premise": "Transitions control movement between slides, while animations control how individual objects appear on a slide. Professional aviation presentations demand subtle motion and smooth delivery using Presenter View.",
+          "table": {
+            "headers": [
+              "Feature / Tool",
+              "Ribbon Location",
+              "Functionality & Scope",
+              "Aviation Operational Application"
+            ],
+            "rows": [
+              [
+                "Slide Transition",
+                "Transitions tab",
+                "Controls the visual effect when navigating from one slide to the next slide",
+                "Subtle 'Push' or 'Fade' transition (0.5s duration) between presentation topics"
+              ],
+              [
+                "Custom Animation",
+                "Animations tab",
+                "Controls entry, emphasis, or exit of specific individual elements on a single slide",
+                "Revealing 5 steps of an engine restart sequence one by one on click"
+              ],
+              [
+                "Animation Pane",
+                "Animations > Animation Pane",
+                "Sidebar managing animation sequence, timing, delays, and trigger conditions",
+                "Coordinates simultaneous entrance of a radar diagram alongside its descriptive label"
+              ],
+              [
+                "Presenter View",
+                "Slide Show > Use Presenter View",
+                "Dual-monitor display showing current slide, next slide preview, and private speaker notes",
+                "Allows flight instructor to reference technical regulatory numbers without cluttering the screen"
+              ],
+              [
+                "Slide Show Shortcuts",
+                "Keyboard during show",
+                "F5 (start from beginning); Shift + F5 (start from current slide); B (black screen); W (white screen)",
+                "Pressing 'B' temporarily blanks the screen during Q&A to focus audience attention on the speaker"
+              ]
+            ]
+          },
+          "rule": {
+            "title": "The Professional Animation Restraint Rule",
+            "text": "Use subtle animations only (Fade, Appear, Wipe). Never use distracting, playful animations (Bounce, Spin, Swirl) in aviation safety briefings or executive board reviews. Motion must serve comprehension, not distraction."
+          },
+          "workedExample": {
+            "title": "Worked Example: Presenting Aircraft Turnaround Time (TAT) in Presenter View",
+            "text": "Presenting a 35-minute aircraft turnaround sequence to ground handling staff.",
+            "steps": [
+              "Step 1: In the Notes pane under Slide 4, type private bullet: 'Target: deboard in 8 min; refueling starts at min 10; boarding at min 22.'",
+              "Step 2: Connect laptop to projector. Press Win + P and choose 'Extend'.",
+              "Step 3: Press Shift + F5 to launch the presentation. Presenter View opens on laptop screen; audience sees only the clean full-screen slide.",
+              "Step 4: Use laptop screen to monitor elapsed time, read private notes, and anticipate the upcoming slide."
+            ],
+            "verdict": "Guarantees a flawless, authoritative presentation without awkward pauses or reading off slides."
+          },
+          "memoryTrick": "T-O-A-S-T: Transitions move slides; Objects get animated; Animation pane controls timing; Speaker notes guide delivery; Timing is monitored.",
+          "examTip": "Vital exam question: Distinguish between Slide Transitions and Custom Animations. Transitions affect the whole slide during page change; Animations affect individual objects (text, image, shape) within a slide."
+        }
+      ],
+      "quickRevision": [
+        {
+          "topic": "Slide Master",
+          "rememberThis": "View > Slide Master: global architectural template controlling themes, logos, and fonts across all slides."
+        },
+        {
+          "topic": "6x6 Rule",
+          "rememberThis": "Maximum 6 bullet points per slide, maximum 6 words per bullet point to prevent audience cognitive fatigue."
+        },
+        {
+          "topic": "Transition vs Animation",
+          "rememberThis": "Transitions happen BETWEEN slides; Animations happen to INDIVIDUAL elements inside a slide."
+        },
+        {
+          "topic": "Convert to SmartArt",
+          "rememberThis": "Home > Convert to SmartArt converts boring bullet points into structured visual process diagrams in one click."
+        },
+        {
+          "topic": "Presenter View",
+          "rememberThis": "Displays speaker notes, timer, and next-slide preview on the presenter screen while audience sees only the slide."
+        }
+      ],
+      "btlQuestions": {
+        "Remember": "State the shortcut keys to start a slide show from the beginning and from the current slide.",
+        "Understand": "Explain the difference between Slide Transitions and Custom Animations with appropriate aviation examples.",
+        "Apply": "Describe how to embed an airline corporate logo onto every slide of a 30-slide presentation using Slide Master.",
+        "Analyze": "Analyze the impact of using text-dense slides versus SmartArt process diagrams during an airport emergency response briefing.",
+        "Evaluate": "Evaluate the advantages of Presenter View for a flight operations manager delivering an annual safety audit.",
+        "Create": "Outline the slide layout, visual elements, and animation sequence for a 5-slide Pre-Flight Passenger Safety Briefing."
+      },
+      "referenceMaterial": {
+        "primary": "Microsoft PowerPoint 2021 Step by Step (Joan Lambert, Microsoft Press)",
+        "further": "Slide:ology: The Art and Science of Creating Great Presentations (Nancy Duarte, O'Reilly)"
+      }
+    },
+    "unit-5": {
+      "courseCode": "Z7AVA 26209",
       "subtitle": "Internet Architecture, Professional Email Protocol, Cloud Collaboration & Aviation Cyber Safety",
       "howToUse": [
         "Three rules for every topic: (1) what it means in one line, (2) the exact protocols or etiquette steps, (3) one realistic airline operational scenario.",

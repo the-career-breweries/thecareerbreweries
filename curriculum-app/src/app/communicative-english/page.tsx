@@ -329,7 +329,12 @@ export default function CommunicativeEnglishApp() {
                 <Menu size={24} className="text-gray-700 dark:text-gray-300" />
               </button>
               <div className="lms-logo"><BookOpen size={28} /></div>
-              <h1>Communicative English</h1>
+              <h1>
+                Communicative English
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#4f46e5', background: 'rgba(79, 70, 229, 0.1)', padding: '2px 8px', borderRadius: '4px', marginLeft: '10px', verticalAlign: 'middle', letterSpacing: '0.04em' }}>
+                  Z7AVB 26203
+                </span>
+              </h1>
             </div>
             
             <div className="lms-topbar-actions">

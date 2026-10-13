@@ -17,13 +17,26 @@ export async function GET(req: Request) {
     const data = JSON.parse(fs.readFileSync(dataFilePath, 'utf8'));
     
     if (course && session) {
-      if (data[course]) {
-        if (data[course][session]) {
-          return NextResponse.json(data[course][session]);
+      let courseData = data[course];
+      if (!courseData) {
+        const courseLower = course.toLowerCase();
+        const matchedKey = Object.keys(data).find(k => 
+          k.toLowerCase() === courseLower ||
+          k.toLowerCase().includes(courseLower) ||
+          courseLower.includes(k.toLowerCase())
+        );
+        if (matchedKey) {
+          courseData = data[matchedKey];
+        }
+      }
+
+      if (courseData) {
+        if (courseData[session]) {
+          return NextResponse.json(courseData[session]);
         }
         const normalized = session.toLowerCase().replace(/\s+/g, '-');
-        if (data[course][normalized]) {
-          return NextResponse.json(data[course][normalized]);
+        if (courseData[normalized]) {
+          return NextResponse.json(courseData[normalized]);
         }
       }
       return NextResponse.json({ error: 'Session not found' }, { status: 404 });

@@ -329,7 +329,12 @@ export default function CommunicativeEnglishApp() {
                 <Menu size={24} className="text-gray-700 dark:text-gray-300" />
               </button>
               <div className="lms-logo"><BookOpen size={28} /></div>
-              <h1>Computing Skills</h1>
+              <h1>
+                Introduction to Computing Skills
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#059669', background: 'rgba(16, 185, 129, 0.1)', padding: '2px 8px', borderRadius: '4px', marginLeft: '10px', verticalAlign: 'middle', letterSpacing: '0.04em' }}>
+                  Z7AVA 26209
+                </span>
+              </h1>
             </div>
             
             <div className="lms-topbar-actions">
@@ -638,7 +643,7 @@ export default function CommunicativeEnglishApp() {
                     {/* Notes Template Modal */}
           {activeNotesLesson && (
             <NotesTemplate
-              courseName='Computing Skills'
+              courseName='Introduction to Computing Skills'
               sessionName={activeNotesLesson.theme}
               theme={activeNotesLesson.theme}
               focus={activeNotesLesson.focus}

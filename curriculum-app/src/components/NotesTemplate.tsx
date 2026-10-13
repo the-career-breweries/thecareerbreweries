@@ -200,7 +200,7 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
                   margin: '0 0 0.35rem 0', color: '#0f2942', fontSize: '2.1rem', fontWeight: 800,
                   lineHeight: '1.2'
                 }}>
-                  {courseName}
+                  {courseName.toLowerCase().includes('computing') ? 'Introduction to Computing Skills' : courseName}
                 </h1>
                 <h2 style={{
                   margin: '0 0 0.6rem 0', color: '#0284c7', fontSize: '1.2rem', fontWeight: 600
@@ -210,7 +210,17 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
                 <div style={{
                   color: '#64748b', fontSize: '0.85rem', display: 'flex', gap: '0.75rem', flexWrap: 'wrap'
                 }}>
-                  <span><strong>Course Code:</strong> {data?.courseCode || (courseName.includes('Computing') ? 'CS 101' : 'ENG 101')}</span>
+                  <span><strong>Course Code:</strong> {
+                    data?.courseCode && !['ENG 101', 'CS 101'].includes(data.courseCode)
+                      ? data.courseCode
+                      : (courseName.toLowerCase().includes('computing')
+                          ? 'Z7AVA 26209'
+                          : (courseName.toLowerCase().includes('soft skill')
+                              ? 'Z7AVA 26210'
+                              : 'Z7AVB 26203'))
+                  }</span>
+                  <span>|</span>
+                  <span>Theory</span>
                   <span>|</span>
                   <span>Simple explanations · Worked examples · Memory tricks · Exam tips</span>
                 </div>
