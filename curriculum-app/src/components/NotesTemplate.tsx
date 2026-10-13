@@ -242,9 +242,9 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
                     data.howToUse.map((pt: string, idx: number) => <li key={idx}>{pt}</li>)
                   ) : (
                     <>
-                      <li><strong>Three rules for every topic:</strong> (1) what it means in one line, (2) the key rules or steps in order, (3) one realistic airline operational example.</li>
-                      <li><strong>Easy marks in this paper:</strong> standard aviation phraseology, precise grammatical structures, and zero sentence fragments.</li>
-                      <li><strong>Airline examples:</strong> Skylink Airways & Air India are used as realistic fleet examples in these notes.</li>
+                      <li><strong>Three steps for every concept:</strong> (1) Understand what it means in plain English, (2) Connect it with a familiar everyday example, (3) See how it naturally applies in an airport or airline.</li>
+                      <li><strong>Exam writing strategy:</strong> Anchor your definition in clear everyday intuition first, then provide the airline operational context to score maximum marks.</li>
+                      <li><strong>Balanced examples:</strong> We use relatable daily scenarios alongside real Indian aviation contexts (Air India, IndiGo, Akasa) to keep things simple and practical.</li>
                     </>
                   )}
                 </ul>
@@ -357,13 +357,23 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
                           {topic.workedExample.title || 'Worked Example'}
                         </h4>
                         <div style={{ color: '#0c4a6e', fontSize: '0.85rem', lineHeight: '1.55' }}>
-                          {topic.workedExample.text && <p style={{ margin: '0 0 0.35rem 0' }}>{topic.workedExample.text}</p>}
+                          {topic.workedExample.text && <p style={{ margin: '0 0 0.5rem 0' }}>{topic.workedExample.text}</p>}
+                          {topic.workedExample.everydayContext && (
+                            <div style={{ background: '#ffffff', padding: '6px 10px', borderRadius: '4px', border: '1px solid #e0f2fe', marginBottom: '6px' }}>
+                              <strong style={{ color: '#0369a1' }}>Everyday Example:</strong> {topic.workedExample.everydayContext}
+                            </div>
+                          )}
+                          {topic.workedExample.aviationContext && (
+                            <div style={{ background: '#ffffff', padding: '6px 10px', borderRadius: '4px', border: '1px solid #e0f2fe', marginBottom: '6px' }}>
+                              <strong style={{ color: '#0369a1' }}>Aviation Application:</strong> {topic.workedExample.aviationContext}
+                            </div>
+                          )}
                           {topic.workedExample.steps?.map((step: string, sIdx: number) => (
                             <div key={sIdx} style={{ marginBottom: '2px' }}>{step}</div>
                           ))}
                           {topic.workedExample.verdict && (
                             <div style={{ marginTop: '0.5rem', fontWeight: 700, color: '#0369a1' }}>
-                              Verdict: {topic.workedExample.verdict}
+                              Key Takeaway: {topic.workedExample.verdict}
                             </div>
                           )}
                         </div>
@@ -439,13 +449,15 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
                         fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.08em', textTransform: 'uppercase',
                         marginBottom: '1rem'
                       }}>
-                        Part B · High-Yield Terminology & Definitions
+                        Part B · High-Yield Concepts & Dual Examples
                       </div>
                       <table className="notes-table" style={{ width: '100%', borderCollapse: 'collapse' }}>
                         <thead>
                           <tr>
-                            <th style={{ width: '30%' }}>Term</th>
-                            <th>Aviation Operational Definition</th>
+                            <th style={{ width: '22%' }}>Term / Concept</th>
+                            <th style={{ width: '34%' }}>Plain English Meaning</th>
+                            <th style={{ width: '22%' }}>Everyday Example</th>
+                            <th style={{ width: '22%' }}>Aviation Example</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -453,10 +465,48 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
                             <tr key={i}>
                               <td><strong>{defn.term}</strong></td>
                               <td>{defn.definition}</td>
+                              <td>{defn.everydayExample || '—'}</td>
+                              <td>{defn.aviationExample || defn.example || '—'}</td>
                             </tr>
                           ))}
                         </tbody>
                       </table>
+                    </div>
+                  )}
+
+                  {/* Worked Example in Fallback Format */}
+                  {data?.workedExample && (
+                    <div className="worked-example-box" style={{
+                      background: '#f0f9ff', border: '1px solid #bae6fd', borderLeft: '4px solid #0284c7',
+                      padding: '10px 14px', borderRadius: '4px', margin: '1.5rem 0'
+                    }}>
+                      <h4 style={{
+                        margin: '0 0 0.35rem 0', color: '#0369a1', fontSize: '0.78rem', fontWeight: 800,
+                        textTransform: 'uppercase', letterSpacing: '0.06em'
+                      }}>
+                        {data.workedExample.title || 'Worked Example'}
+                      </h4>
+                      <div style={{ color: '#0c4a6e', fontSize: '0.85rem', lineHeight: '1.55' }}>
+                        {data.workedExample.text && <p style={{ margin: '0 0 0.5rem 0' }}>{data.workedExample.text}</p>}
+                        {data.workedExample.everydayContext && (
+                          <div style={{ background: '#ffffff', padding: '6px 10px', borderRadius: '4px', border: '1px solid #e0f2fe', marginBottom: '6px' }}>
+                            <strong style={{ color: '#0369a1' }}>Everyday Example:</strong> {data.workedExample.everydayContext}
+                          </div>
+                        )}
+                        {data.workedExample.aviationContext && (
+                          <div style={{ background: '#ffffff', padding: '6px 10px', borderRadius: '4px', border: '1px solid #e0f2fe', marginBottom: '6px' }}>
+                            <strong style={{ color: '#0369a1' }}>Aviation Application:</strong> {data.workedExample.aviationContext}
+                          </div>
+                        )}
+                        {data.workedExample.steps?.map((step: string, sIdx: number) => (
+                          <div key={sIdx} style={{ marginBottom: '2px' }}>{step}</div>
+                        ))}
+                        {data.workedExample.verdict && (
+                          <div style={{ marginTop: '0.5rem', fontWeight: 700, color: '#0369a1' }}>
+                            Key Takeaway: {data.workedExample.verdict}
+                          </div>
+                        )}
+                      </div>
                     </div>
                   )}
 
