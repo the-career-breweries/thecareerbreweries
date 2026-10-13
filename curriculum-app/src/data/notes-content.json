@@ -56,6 +56,10 @@
         {
           "title": "Action and Connection",
           "explanation": "Verbs drive the action, adverbs modify it, and prepositions/conjunctions link ideas together."
+        },
+        {
+          "title": "The 3 Verb Gears & The 5 Irregular Verb Families",
+          "explanation": "Regular verbs add '-ed' (board → boarded), while ancient irregular verbs follow 5 predictable pattern families across V1 (present), V2 (past), and V3 (helper participle)."
         }
       ],
       "definitions": [
@@ -82,12 +86,25 @@
           "definition": "Links two ideas logically (cause, contrast, sequence).",
           "everydayExample": "because, although, therefore",
           "aviationExample": "due to weather, however, consequently"
+        },
+        {
+          "term": "Verb Gears (V1, V2, V3)",
+          "definition": "V1 is base/present, V2 is simple past (stands alone), V3 is past participle (strictly requires helper 'has/have/had').",
+          "everydayExample": "fly (V1) → flew (V2) → flown (V3)",
+          "aviationExample": "The pilot *flew* yesterday (V2); she has *flown* 3,000 hrs (V3)."
+        },
+        {
+          "term": "The 5 Verb Families",
+          "definition": "Predictable patterns for irregular verbs: Identical (put/put/put), Twins (left/left), Boomerang (come/came/come), Vowel Shift (begin/began/begun), and -en Ending (fly/flew/flown).",
+          "everydayExample": "cut/cut/cut, catch/caught/caught, drink/drank/drunk",
+          "aviationExample": "set/set/set, leave/left/left, begin/began/begun"
         }
       ],
       "mnemonic": "VAC (Verbs, Adverbs, Conjunctions)",
       "btlQuestions": {
         "Remember": "List 5 prepositions.",
-        "Apply": "Construct a sentence using a coordinating conjunction."
+        "Apply": "Construct a sentence using a coordinating conjunction.",
+        "Evaluate": "Identify the verb family and correct form: 'The turnaround had already (began / begun).'"
       },
       "referenceMaterial": {
         "primary": "Wren & Martin High School English Grammar"
@@ -1854,21 +1871,22 @@
           "title": "Part A · Core Grammar Architecture",
           "items": [
             "1. Nouns, Pronouns & Adjectives in Action",
-            "2. Verbs, Modals & Connectors: Powering Clear Messages"
+            "2. Verbs, Modals & Connectors: Powering Clear Messages",
+            "3. The 3 Verb Gears (V1, V2, V3) & The 5 Pattern Families"
           ]
         },
         {
           "title": "Part B · Tenses & Time Sequences",
           "items": [
-            "3. Present Tenses in Daily Routine & Live Turnarounds",
-            "4. Past & Future Tenses in Incident Reporting & Scheduling"
+            "4. Present Tenses in Daily Routine & Live Turnarounds",
+            "5. Past & Future Tenses in Incident Reporting & Scheduling"
           ]
         },
         {
           "title": "Part C · Sentence Mastery & Error Fixing",
           "items": [
-            "5. The SVO Model & Subject-Verb Agreement",
-            "6. Common Sentence Traps & How to Fix Them"
+            "6. The SVO Model & Subject-Verb Agreement",
+            "7. Common Sentence Traps & How to Fix Them"
           ]
         }
       ],
@@ -2012,8 +2030,71 @@
           "examTip": "In 3-mark questions asking you to write announcements: Use 'Must' for safety rules (seatbelts, smoking ban), and 'Should' for passenger convenience suggestions."
         },
         {
+          "partBanner": "Part A · Core Grammar Architecture",
+          "title": "3. The 3 Verb Gears (V1, V2, V3) & The 5 Pattern Families of Irregular Verbs",
+          "premise": "Why do we say 'boarded' but not 'flyed'? Regular verbs simply add '-ed' in the past, but ancient high-frequency verbs survived through vowel shifts and sound patterns. Instead of memorizing random lists of hundreds of verbs, they group naturally into 5 pattern families that govern past and perfect tenses.",
+          "table": {
+            "headers": [
+              "Pattern Family",
+              "Formula & Sound Pattern",
+              "Everyday Examples (V1 / V2 / V3)",
+              "Aviation Operational Application"
+            ],
+            "rows": [
+              [
+                "Family 1: The 'All Identical' Family",
+                "V1 = V2 = V3 (Never changes shape)",
+                "Put / Put / Put\nCut / Cut / Cut\nCost / Cost / Cost\nSet / Set / Set\nHit / Hit / Hit",
+                "The ground crew *set* the wheel chocks at 06:00 (V2), and they have *set* them on all flights today (V3)."
+              ],
+              [
+                "Family 2: The 'Twins' Family",
+                "V2 = V3 (Past & Past Participle match)",
+                "Leave / Left / Left\nCatch / Caught / Caught\nBuild / Built / Built\nFind / Found / Found\nKeep / Kept / Kept\nBuy / Bought / Bought",
+                "Flight AI 502 *left* the bay on time (V2). In fact, it has *left* on schedule every morning this week (V3)."
+              ],
+              [
+                "Family 3: The 'Boomerang' Family",
+                "V1 = V3 (Returns to base form after past)",
+                "Come / Came / Come\nRun / Ran / Run\nBecome / Became / Become",
+                "The pilot *came* to the briefing room (V2). The passengers had already *come* through security (V3)."
+              ],
+              [
+                "Family 4: The 'Vowel Shift' Family",
+                "i → a → u (Inner vowel shifts by tense)",
+                "Begin / Began / Begun\nRing / Rang / Rung\nDrink / Drank / Drunk\nSing / Sang / Sung\nSink / Sank / Sunk",
+                "Boarding *began* at Gate 4 (V2). By 10:15, the turnaround had already *begun* (V3 with 'had')."
+              ],
+              [
+                "Family 5: The '-en Ending' Family",
+                "V3 ends in '-en' or '-n' sound",
+                "Take / Took / Taken\nFly / Flew / Flown\nSpeak / Spoke / Spoken\nBreak / Broke / Broken\nWrite / Wrote / Written\nDrive / Drove / Driven",
+                "The pilot *flew* to Delhi yesterday (V2). She has *flown* over 3,000 flight hours (V3 with 'has')."
+              ]
+            ]
+          },
+          "rule": {
+            "title": "The V3 Helper Rule ('V3 Never Walks Alone')",
+            "text": "V1 functions in present/future. V2 stands alone for simple past ('The aircraft landed' / 'The flight departed'). V3 is a helper participle that NEVER stands alone—it strictly requires an auxiliary verb ('has', 'have', 'had', or 'is/was' in passive voice). Never write 'The flight flown' (incorrect); write 'The flight *has flown*' or 'The flight *flew*'."
+          },
+          "workedExample": {
+            "title": "Worked Example: Spotting Verb Families and Fixing V3 Traps",
+            "text": "Scenario: Correcting grammatical verb tense errors in a ground turnaround log.",
+            "everydayContext": "Plain English: 'By the time we reached the cinema, the movie had already *begun* (Begin → Began → Begun), not *began*.'",
+            "aviationContext": "Turnaround Log: 'The ramp agent reported that refueling had already *began* and the crew had *came* aboard.'",
+            "steps": [
+              "Step 1 (Refueling): 'Begin' belongs to Family 4 (i → a → u: Begin / Began / Begun). After 'had', we must use the V3 form: 'refueling had already begun'.",
+              "Step 2 (Flight Crew): 'Come' belongs to Family 3 (Boomerang: Come / Came / Come). After 'had', we must use the V3 form: 'the crew had come aboard'.",
+              "Step 3 (Revision): 'The ramp agent reported that refueling had already BEGUN and the crew had COME aboard.'"
+            ],
+            "verdict": "Checking whether a verb needs a standalone past (V2) or a helper form (V3) instantly eliminates the most frequent tense errors in reports."
+          },
+          "memoryTrick": "I-T-B-S-E: Identical (Put/Put/Put) → Twins (Left/Left) → Boomerang (Come/Came/Come) → Shift (i-a-u: Begin/Began/Begun) → -EN (Fly/Flew/Flown).",
+          "examTip": "In 1-mark error correction and 3-mark report writing questions, examiners frequently test 'had began' (wrong → write 'had begun') and 'had came' (wrong → write 'had come'). V3 after 'has/have/had' is non-negotiable."
+        },
+        {
           "partBanner": "Part B · Tenses & Time Sequences",
-          "title": "3. Present, Past, and Future Tenses in Communication",
+          "title": "4. Present, Past, and Future Tenses in Communication",
           "premise": "Tenses simply answer the question: 'When is this happening?' Simple Present explains routines and facts, Present Continuous describes live events, Past explains completed history, and Future outlines upcoming plans.",
           "table": {
             "headers": [
@@ -2077,7 +2158,7 @@
         },
         {
           "partBanner": "Part C · Sentence Mastery & Error Fixing",
-          "title": "4. The Subject-Verb-Object (SVO) Model & Agreement",
+          "title": "5. The Subject-Verb-Object (SVO) Model & Agreement",
           "premise": "Every complete sentence has a Subject (who does it), a Verb (what happens), and an Object (who receives it). The most important golden rule: singular subjects take singular verbs; plural subjects take plural verbs.",
           "table": {
             "headers": [
@@ -2160,6 +2241,14 @@
         {
           "topic": "Incident Reporting Tense",
           "rememberThis": "Always write past events in Simple Past ('The sensor triggered an alert at 10:15 hrs')."
+        },
+        {
+          "topic": "V1, V2, V3 Verb Gears",
+          "rememberThis": "V2 stands alone for simple past (flew, began, came); V3 must have an auxiliary helper 'has/have/had' (has flown, had begun, had come)."
+        },
+        {
+          "topic": "5 Irregular Verb Families",
+          "rememberThis": "Identical (put/put/put) · Twins (left/left) · Boomerang (come/came/come) · Vowel Shift (begin/began/begun) · '-en' Ending (fly/flew/flown)."
         }
       ],
       "btlQuestions": {
