@@ -37,6 +37,21 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
 
   const feedbackUrl = `https://thecareerbreweries.onrender.com/notes-feedback?course=${encodeURIComponent(courseName)}&session=${encodeURIComponent(sessionName)}`;
 
+  const renderFormattedText = (text: any) => {
+    if (typeof text !== 'string') return text;
+    const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g);
+    if (parts.length === 1) return text;
+    return parts.map((part, i) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        return <strong key={i}>{part.slice(2, -2)}</strong>;
+      }
+      if (part.startsWith('*') && part.endsWith('*')) {
+        return <em key={i} style={{ fontStyle: 'italic', color: '#0369a1', fontWeight: 600 }}>{part.slice(1, -1)}</em>;
+      }
+      return part;
+    });
+  };
+
   const handlePrint = () => {
     const originalTitle = document.title;
     document.title = `${courseName}_${sessionName}_RevisionNotes`.replace(/[^a-zA-Z0-9_]/g, '_');
@@ -203,10 +218,17 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
                   {courseName.toLowerCase().includes('computing') ? 'Introduction to Computing Skills' : courseName}
                 </h1>
                 <h2 style={{
-                  margin: '0 0 0.6rem 0', color: '#0284c7', fontSize: '1.2rem', fontWeight: 600
+                  margin: '0 0 0.35rem 0', color: '#0284c7', fontSize: '1.25rem', fontWeight: 700
                 }}>
                   {theme}
                 </h2>
+                {data?.subtitle && (
+                  <p style={{
+                    margin: '0 0 0.65rem 0', color: '#475569', fontSize: '0.92rem', fontWeight: 500, fontStyle: 'italic'
+                  }}>
+                    {data.subtitle}
+                  </p>
+                )}
                 <div style={{
                   color: '#64748b', fontSize: '0.85rem', display: 'flex', gap: '0.75rem', flexWrap: 'wrap'
                 }}>
@@ -317,7 +339,7 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
                             {topic.table.rows?.map((r: any[], rIdx: number) => (
                               <tr key={rIdx}>
                                 {r.map((cell: any, cIdx: number) => (
-                                  <td key={cIdx}>{cell}</td>
+                                  <td key={cIdx}>{renderFormattedText(cell)}</td>
                                 ))}
                               </tr>
                             ))}
@@ -463,10 +485,10 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
                         <tbody>
                           {data.definitions.map((defn: any, i: number) => (
                             <tr key={i}>
-                              <td><strong>{defn.term}</strong></td>
-                              <td>{defn.definition}</td>
-                              <td>{defn.everydayExample || '—'}</td>
-                              <td>{defn.aviationExample || defn.example || '—'}</td>
+                              <td><strong>{renderFormattedText(defn.term)}</strong></td>
+                              <td>{renderFormattedText(defn.definition)}</td>
+                              <td>{renderFormattedText(defn.everydayExample || '—')}</td>
+                              <td>{renderFormattedText(defn.aviationExample || defn.example || '—')}</td>
                             </tr>
                           ))}
                         </tbody>
@@ -621,8 +643,8 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
                     <tbody>
                       {data.quickRevision.map((item: any, idx: number) => (
                         <tr key={idx}>
-                          <td><strong>{item.topic}</strong></td>
-                          <td>{item.rememberThis}</td>
+                          <td><strong>{renderFormattedText(item.topic)}</strong></td>
+                          <td>{renderFormattedText(item.rememberThis)}</td>
                         </tr>
                       ))}
                     </tbody>
