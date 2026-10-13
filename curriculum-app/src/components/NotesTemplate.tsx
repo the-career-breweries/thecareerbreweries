@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { X, Printer, Download, Loader2 } from 'lucide-react';
+import { X, Printer, Loader2 } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 
 interface NotesTemplateProps {
@@ -10,18 +10,17 @@ interface NotesTemplateProps {
   theme: string;
   focus: string;
   onClose: () => void;
-  weekNumber?: number | string; // pass this from parent so we know exactly which session to fetch
+  weekNumber?: number | string;
 }
 
 export default function NotesTemplate({ courseName, sessionName, theme, focus, onClose, weekNumber }: NotesTemplateProps) {
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  
-  // Extract a clean session ID number (e.g., "1" from week 1)
+
   const sessionIdentifier = typeof weekNumber !== 'undefined' ? weekNumber.toString() : '1';
+  const isUnitConsolidated = sessionIdentifier.toLowerCase().startsWith('unit');
 
   useEffect(() => {
-    // We fetch the dynamic content from our generated JSON
     fetch(`/api/notes?course=${encodeURIComponent(courseName)}&session=${encodeURIComponent(sessionIdentifier)}`)
       .then(res => res.json())
       .then(json => {
@@ -40,7 +39,7 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
 
   const handlePrint = () => {
     const originalTitle = document.title;
-    document.title = `${courseName}_${sessionName}_NotesbySD`.replace(/[^a-zA-Z0-9_]/g, '_');
+    document.title = `${courseName}_${sessionName}_RevisionNotes`.replace(/[^a-zA-Z0-9_]/g, '_');
     window.print();
     document.title = originalTitle;
   };
@@ -48,282 +47,572 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
   return (
     <div className="notes-modal-overlay" style={{
       position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
-      backgroundColor: 'rgba(0,0,0,0.8)', zIndex: 10000,
-      display: 'flex', justifyContent: 'center', alignItems: 'center',
-      padding: '2rem'
+      backgroundColor: 'rgba(15, 23, 42, 0.75)', backdropFilter: 'blur(6px)',
+      zIndex: 10000, display: 'flex', justifyContent: 'center', alignItems: 'center',
+      padding: '1.5rem'
     }}>
       <style dangerouslySetInnerHTML={{__html: `
         @media print {
-          @page { margin: 15mm; }
-          
-          /* Force all containers to expand fully and remove scrollbars/clipping */
-          html, body, main, div {
-            height: auto !important;
-            max-height: none !important;
-            overflow: visible !important;
-            position: static !important;
-            display: block !important;
+          @page {
+            size: A4;
+            margin: 15mm 15mm 15mm 15mm;
           }
           
-          body * { visibility: hidden; }
+          html, body {
+            background: #ffffff !important;
+            color: #1e293b !important;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+            font-size: 10pt !important;
+            line-height: 1.5 !important;
+          }
           
+          body * { visibility: hidden !important; }
+          .no-print, .no-print * { display: none !important; }
+
           .notes-modal-overlay,
           .notes-modal-overlay *,
           .printable-notes-container, 
           .printable-notes-container * { 
-            visibility: visible; 
+            visibility: visible !important; 
           }
-          
+
           .notes-modal-overlay {
-            position: absolute !important;
-            left: 0 !important;
-            top: 0 !important;
+            position: static !important;
+            background: none !important;
             padding: 0 !important;
             margin: 0 !important;
-            background: none !important;
             width: 100% !important;
+            height: auto !important;
+            display: block !important;
           }
-          
+
           .printable-notes-container {
             padding: 0 !important;
             margin: 0 !important;
             width: 100% !important;
+            max-width: 100% !important;
+            overflow: visible !important;
+            display: block !important;
           }
 
-          .no-print, .no-print * { display: none !important; }
-          
-          section { page-break-inside: avoid; margin-bottom: 2rem; }
-          h1, h2, h3 { page-break-after: avoid; }
-          .definition-box { page-break-inside: avoid; }
-          
-          .print-watermark {
-            display: flex !important;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: fixed !important;
-            top: 45%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-30deg);
-            color: rgba(0, 0, 0, 0.15) !important;
-            z-index: 1000;
-              pointer-events: none;
-              text-align: center;
-              width: 100%;
-            pointer-events: none;
-            text-align: center;
-            width: 100%;
-            visibility: visible !important;
+          h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+          table, tr, td, th { page-break-inside: avoid; break-inside: avoid; }
+          .callout-box, .rule-box, .worked-example-box, .memory-box, .exam-tip-box, .topic-card {
+            page-break-inside: avoid;
+            break-inside: avoid;
           }
-          
-          .print-watermark * {
-            visibility: visible !important;
+          .part-banner {
+            page-break-after: avoid;
+            break-after: avoid;
           }
         }
         
-        @media screen {
-          .print-watermark { display: none; }
+        .notes-table th {
+          background-color: #0f2942 !important;
+          color: #ffffff !important;
+          font-weight: 600;
+          padding: 8px 12px;
+          text-align: left;
+          font-size: 0.85rem;
+          letter-spacing: 0.02em;
+        }
+        .notes-table td {
+          padding: 8px 12px;
+          border: 1px solid #e2e8f0;
+          font-size: 0.85rem;
+          line-height: 1.5;
+        }
+        .notes-table tr:nth-child(even) td {
+          background-color: #f8fafc;
         }
       `}} />
-      
+
       <div style={{
         background: '#ffffff',
-        width: '100%', maxWidth: '900px', height: '100%', maxHeight: '90vh',
+        width: '100%', maxWidth: '980px', height: '100%', maxHeight: '92vh',
         borderRadius: '12px', display: 'flex', flexDirection: 'column',
-        overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.3)'
+        overflow: 'hidden', boxShadow: '0 25px 60px rgba(0,0,0,0.35)',
+        border: '1px solid #cbd5e1'
       }}>
-        {/* Header - No Print */}
+        {/* Top Control Bar - Screen Only */}
         <div className="no-print" style={{
           display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-          padding: '1rem 1.5rem', borderBottom: '1px solid #e5e7eb', background: '#f8fafc'
+          padding: '0.85rem 1.5rem', borderBottom: '1px solid #e2e8f0', background: '#f8fafc'
         }}>
-          <h2 style={{ margin: 0, color: '#1e293b', fontSize: '1.2rem' }}>Notes: {sessionName}</h2>
-          <div style={{ display: 'flex', gap: '1rem' }}>
-            <button onClick={handlePrint} disabled={loading} style={{
-              display: 'flex', alignItems: 'center', gap: '6px', padding: '6px 12px',
-              background: loading ? '#94a3b8' : '#4f46e5', color: 'white', border: 'none', borderRadius: '6px', cursor: loading ? 'not-allowed' : 'pointer'
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <span style={{
+              background: '#0f2942', color: '#ffffff', fontSize: '0.75rem', fontWeight: 700,
+              padding: '3px 8px', borderRadius: '4px', textTransform: 'uppercase', letterSpacing: '0.05em'
             }}>
-              <Printer size={16} /> Print / PDF
+              {isUnitConsolidated ? 'Unit Revision Notes' : 'Session Notes'}
+            </span>
+            <span style={{ color: '#64748b', fontSize: '0.9rem', fontWeight: 500 }}>
+              {courseName} · {sessionName}
+            </span>
+          </div>
+          <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
+            <button 
+              onClick={handlePrint} 
+              disabled={loading} 
+              style={{
+                display: 'flex', alignItems: 'center', gap: '6px', padding: '7px 14px',
+                background: loading ? '#94a3b8' : '#0f2942', color: 'white', border: 'none',
+                borderRadius: '6px', cursor: loading ? 'not-allowed' : 'pointer', fontWeight: 600,
+                fontSize: '0.85rem', boxShadow: '0 2px 4px rgba(15,41,66,0.2)'
+              }}
+            >
+              <Printer size={16} /> Print / Save as PDF
             </button>
-            <button onClick={onClose} style={{
-              background: 'none', border: 'none', cursor: 'pointer', color: '#64748b'
-            }}>
-              <X size={24} />
+            <button 
+              onClick={onClose} 
+              style={{
+                background: 'transparent', border: 'none', cursor: 'pointer', color: '#64748b',
+                display: 'flex', alignItems: 'center', padding: '4px', borderRadius: '4px'
+              }}
+            >
+              <X size={22} />
             </button>
           </div>
         </div>
 
-        {/* Notes Content */}
+        {/* Notes Content Area */}
         <div className="printable-notes-container" style={{
-          flex: 1, overflowY: 'auto', padding: '3rem', color: '#1e293b', background: 'white'
+          flex: 1, overflowY: 'auto', padding: '2.5rem 3rem', color: '#1e293b', background: '#ffffff',
+          fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
         }}>
-          {/* Watermark for Print */}
-          <div className="print-watermark">
-              <p style={{ fontWeight: 'bold', fontSize: '48px', margin: 0, textTransform: 'uppercase', letterSpacing: '2px' }}>S D Sandarsh</p>
-              <p style={{ fontSize: '24px', margin: '15px 0', fontWeight: '500', lineHeight: '1.4' }}>
-                Communicative English Trainer,<br />
-                Soft Skills Trainer,<br />
-                & Employability Coach
-              </p>
-              <p style={{ fontSize: '24px', margin: 0, fontWeight: '500' }}>+91 97437 11584</p>
-            </div>
-
-          {/* Header */}
-          <div style={{ borderBottom: '2px solid #4f46e5', paddingBottom: '1rem', marginBottom: '2rem' }}>
-            <h1 style={{ margin: '0 0 0.5rem 0', color: '#0f172a', fontSize: '2.2rem' }}>{theme}</h1>
-            <div style={{ color: '#64748b', fontSize: '1.2rem' }}>
-                <div style={{ marginBottom: '0.25rem' }}><strong>Course:</strong> {courseName}</div>
-                <div><strong>{sessionIdentifier.toLowerCase().startsWith('unit') ? 'Unit:' : 'Session:'}</strong> {sessionName}</div>
-              </div>
-          </div>
-
           {loading ? (
-             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '4rem', color: '#64748b' }}>
-               <Loader2 className="lucide-spin" size={48} style={{ animation: 'spin 2s linear infinite', marginBottom: '1rem' }} />
-               <p>Generating AI Content...</p>
-               <style dangerouslySetInnerHTML={{__html: `@keyframes spin { 100% { transform: rotate(360deg); } }`}} />
-             </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '6rem 0', color: '#64748b' }}>
+              <Loader2 size={40} style={{ animation: 'spin 1.5s linear infinite', marginBottom: '1rem', color: '#0f2942' }} />
+              <p style={{ fontSize: '0.95rem', fontWeight: 500 }}>Loading Revision Notes...</p>
+              <style dangerouslySetInnerHTML={{__html: `@keyframes spin { 100% { transform: rotate(360deg); } }`}} />
+            </div>
           ) : (
             <>
-              {/* 1. Key Concepts */}
-              <section style={{ marginBottom: '2rem' }}>
-                <h2 style={{ color: '#4f46e5', fontSize: '1.4rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.5rem' }}>1. Key Concepts Covered</h2>
-                <ul style={{ paddingLeft: '1.5rem', lineHeight: '1.8' }}>
-                  {data?.keyConcepts?.map((concept: any, i: number) => (
-                    <li key={i}><strong>{concept.title}</strong>: {concept.explanation}</li>
-                  )) || (
+              {/* Institutional Header */}
+              <div style={{ borderBottom: '1px solid #cbd5e1', paddingBottom: '1rem', marginBottom: '1.25rem' }}>
+                <p style={{
+                  margin: '0 0 0.35rem 0', color: '#0284c7', fontSize: '0.75rem', fontWeight: 700,
+                  textTransform: 'uppercase', letterSpacing: '0.12em'
+                }}>
+                  Alliance School of Aviation Studies · BBA Aviation Management · Semester I
+                </p>
+                <h1 style={{
+                  margin: '0 0 0.35rem 0', color: '#0f2942', fontSize: '2.1rem', fontWeight: 800,
+                  lineHeight: '1.2'
+                }}>
+                  {courseName}
+                </h1>
+                <h2 style={{
+                  margin: '0 0 0.6rem 0', color: '#0284c7', fontSize: '1.2rem', fontWeight: 600
+                }}>
+                  {theme}
+                </h2>
+                <div style={{
+                  color: '#64748b', fontSize: '0.85rem', display: 'flex', gap: '0.75rem', flexWrap: 'wrap'
+                }}>
+                  <span><strong>Course Code:</strong> {data?.courseCode || (courseName.includes('Computing') ? 'CS 101' : 'ENG 101')}</span>
+                  <span>|</span>
+                  <span>Simple explanations · Worked examples · Memory tricks · Exam tips</span>
+                </div>
+              </div>
+
+              {/* HOW TO USE THESE NOTES Callout Box */}
+              <div className="callout-box" style={{
+                background: '#f0f7ff', border: '1px solid #bfdbfe', borderLeft: '4px solid #2563eb',
+                padding: '0.9rem 1.25rem', borderRadius: '4px', marginBottom: '1.5rem'
+              }}>
+                <h3 style={{
+                  margin: '0 0 0.4rem 0', color: '#1e3a8a', fontSize: '0.8rem', fontWeight: 800,
+                  textTransform: 'uppercase', letterSpacing: '0.08em'
+                }}>
+                  How To Use These Notes
+                </h3>
+                <ul style={{ margin: 0, paddingLeft: '1.25rem', color: '#1e3a8b', fontSize: '0.85rem', lineHeight: '1.6' }}>
+                  {data?.howToUse ? (
+                    data.howToUse.map((pt: string, idx: number) => <li key={idx}>{pt}</li>)
+                  ) : (
                     <>
-                      <li><strong>{focus.split(',')[0] || focus}</strong>: [Detailed explanation to be inserted here]</li>
-                      {focus.split(',').slice(1).map((concept, i) => (
-                        <li key={i}><strong>{concept.trim()}</strong>: [Detailed explanation to be inserted here]</li>
-                      ))}
+                      <li><strong>Three rules for every topic:</strong> (1) what it means in one line, (2) the key rules or steps in order, (3) one realistic airline operational example.</li>
+                      <li><strong>Easy marks in this paper:</strong> standard aviation phraseology, precise grammatical structures, and zero sentence fragments.</li>
+                      <li><strong>Airline examples:</strong> Skylink Airways & Air India are used as realistic fleet examples in these notes.</li>
                     </>
                   )}
                 </ul>
-              </section>
+              </div>
 
-              {/* 2. Definitions */}
-              <section style={{ marginBottom: '2rem' }}>
-                <h2 style={{ color: '#4f46e5', fontSize: '1.4rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.5rem' }}>2. Definitions</h2>
-                <div style={{ display: 'grid', gap: '1rem', marginTop: '1rem' }}>
-                  {data?.definitions?.map((defn: any, i: number) => (
-                    <div key={i} className="definition-box" style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px', borderLeft: '4px solid #94a3b8' }}>
-                      <strong>{defn.term}:</strong> {defn.definition}
+              {/* Navigation Grid (Parts TOC) if available */}
+              {data?.parts && (
+                <div style={{
+                  display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+                  gap: '1rem', marginBottom: '2rem'
+                }}>
+                  {data.parts.map((part: any, pIdx: number) => (
+                    <div key={pIdx} style={{ border: '1px solid #cbd5e1', borderRadius: '4px', overflow: 'hidden' }}>
+                      <div style={{
+                        background: '#0f2942', color: '#ffffff', padding: '6px 10px',
+                        fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em'
+                      }}>
+                        {part.title}
+                      </div>
+                      <div style={{ padding: '8px 12px', background: '#ffffff', fontSize: '0.82rem', lineHeight: '1.6', color: '#334155' }}>
+                        {part.items?.map((item: string, iIdx: number) => (
+                          <div key={iIdx} style={{ marginBottom: '4px' }}>{item}</div>
+                        ))}
+                      </div>
                     </div>
-                  )) || (
-                    <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px', borderLeft: '4px solid #94a3b8' }}>
-                      <strong>[Term 1]:</strong> A clear, concise definition of the term as prescribed in the syllabus.
-                    </div>
-                  )}
+                  ))}
                 </div>
-              </section>
-
-              {/* 3. Mnemonics */}
-              {data?.mnemonic && (
-                <section style={{ marginBottom: '2rem' }}>
-                  <h2 style={{ color: '#4f46e5', fontSize: '1.4rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.5rem' }}>3. Mnemonics to Remember</h2>
-                  <div style={{ background: '#fef2f2', border: '1px solid #fecaca', padding: '1rem', borderRadius: '8px', color: '#991b1b' }}>
-                    {typeof data.mnemonic === 'string' ? (
-                      <p style={{ margin: 0 }}><strong>Mnemonic:</strong> {data.mnemonic}</p>
-                    ) : (
-                      <>
-                        <p style={{ margin: '0 0 0.5rem 0' }}><strong>Mnemonic:</strong> {data.mnemonic.acronym || '[ACRONYM]'}</p>
-                        <ul style={{ margin: 0, paddingLeft: '1.5rem' }}>
-                          {data.mnemonic.points?.map((pt: string, i: number) => (
-                            <li key={i}><strong>{pt[0]}</strong>{pt.slice(1)}</li>
-                          ))}
-                        </ul>
-                      </>
-                    )}
-                  </div>
-                </section>
               )}
 
-              {/* 4. Format of Questions (BTL) */}
-              <section style={{ marginBottom: '2rem' }}>
-                <h2 style={{ color: '#4f46e5', fontSize: '1.4rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.5rem' }}>4. Expected Exam Questions (Bloom's Taxonomy)</h2>
-                <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '1rem' }}>
+              {/* Main Topics / Content Sections */}
+              {data?.topics ? (
+                // Rich Multi-Topic Format
+                data.topics.map((topic: any, tIdx: number) => (
+                  <div key={tIdx} className="topic-block" style={{ marginBottom: '2.5rem' }}>
+                    {topic.partBanner && (
+                      <div className="part-banner" style={{
+                        background: '#0f2942', color: '#ffffff', padding: '7px 14px', borderRadius: '3px',
+                        fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.08em', textTransform: 'uppercase',
+                        margin: '2rem 0 1.25rem 0'
+                      }}>
+                        {topic.partBanner}
+                      </div>
+                    )}
+                    
+                    <h3 style={{
+                      color: '#0f2942', fontSize: '1.15rem', fontWeight: 700,
+                      margin: '0 0 0.4rem 0', paddingBottom: '4px', borderBottom: '1px solid #e2e8f0'
+                    }}>
+                      {topic.title}
+                    </h3>
+                    
+                    {topic.premise && (
+                      <p style={{ margin: '0 0 1rem 0', fontSize: '0.9rem', color: '#334155', lineHeight: '1.6' }}>
+                        {topic.premise}
+                      </p>
+                    )}
+
+                    {/* Topic Table */}
+                    {topic.table && (
+                      <div style={{ margin: '1rem 0', overflowX: 'auto' }}>
+                        <table className="notes-table" style={{ width: '100%', borderCollapse: 'collapse' }}>
+                          <thead>
+                            <tr>
+                              {topic.table.headers?.map((h: string, hIdx: number) => (
+                                <th key={hIdx}>{h}</th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {topic.table.rows?.map((r: any[], rIdx: number) => (
+                              <tr key={rIdx}>
+                                {r.map((cell: any, cIdx: number) => (
+                                  <td key={cIdx}>{cell}</td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    )}
+
+                    {/* Green Rule Callout Box */}
+                    {topic.rule && (
+                      <div className="rule-box" style={{
+                        background: '#f0fdf4', border: '1px solid #bbf7d0', borderLeft: '4px solid #16a34a',
+                        padding: '10px 14px', borderRadius: '4px', margin: '1rem 0'
+                      }}>
+                        <h4 style={{
+                          margin: '0 0 0.35rem 0', color: '#15803d', fontSize: '0.78rem', fontWeight: 800,
+                          textTransform: 'uppercase', letterSpacing: '0.06em'
+                        }}>
+                          {topic.rule.title}
+                        </h4>
+                        <p style={{ margin: 0, color: '#166534', fontSize: '0.85rem', lineHeight: '1.5' }}>
+                          {topic.rule.text}
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Blue Worked Example Box */}
+                    {topic.workedExample && (
+                      <div className="worked-example-box" style={{
+                        background: '#f0f9ff', border: '1px solid #bae6fd', borderLeft: '4px solid #0284c7',
+                        padding: '10px 14px', borderRadius: '4px', margin: '1rem 0'
+                      }}>
+                        <h4 style={{
+                          margin: '0 0 0.35rem 0', color: '#0369a1', fontSize: '0.78rem', fontWeight: 800,
+                          textTransform: 'uppercase', letterSpacing: '0.06em'
+                        }}>
+                          {topic.workedExample.title || 'Worked Example'}
+                        </h4>
+                        <div style={{ color: '#0c4a6e', fontSize: '0.85rem', lineHeight: '1.55' }}>
+                          {topic.workedExample.text && <p style={{ margin: '0 0 0.35rem 0' }}>{topic.workedExample.text}</p>}
+                          {topic.workedExample.steps?.map((step: string, sIdx: number) => (
+                            <div key={sIdx} style={{ marginBottom: '2px' }}>{step}</div>
+                          ))}
+                          {topic.workedExample.verdict && (
+                            <div style={{ marginTop: '0.5rem', fontWeight: 700, color: '#0369a1' }}>
+                              Verdict: {topic.workedExample.verdict}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Purple Memory Trick */}
+                    {topic.memoryTrick && (
+                      <div className="memory-box" style={{
+                        background: '#faf5ff', border: '1px solid #e9d5ff', borderLeft: '4px solid #9333ea',
+                        padding: '9px 14px', borderRadius: '4px', margin: '1rem 0'
+                      }}>
+                        <h4 style={{
+                          margin: '0 0 0.25rem 0', color: '#7e22ce', fontSize: '0.78rem', fontWeight: 800,
+                          textTransform: 'uppercase', letterSpacing: '0.06em'
+                        }}>
+                          Memory Trick
+                        </h4>
+                        <p style={{ margin: 0, color: '#581c87', fontSize: '0.85rem', fontWeight: 500, lineHeight: '1.5' }}>
+                          {topic.memoryTrick}
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Amber Exam Tip / Trap */}
+                    {topic.examTip && (
+                      <div className="exam-tip-box" style={{
+                        background: '#fffbeb', border: '1px solid #fde68a', borderLeft: '4px solid #f59e0b',
+                        padding: '9px 14px', borderRadius: '4px', margin: '1rem 0'
+                      }}>
+                        <h4 style={{
+                          margin: '0 0 0.25rem 0', color: '#b45309', fontSize: '0.78rem', fontWeight: 800,
+                          textTransform: 'uppercase', letterSpacing: '0.06em'
+                        }}>
+                          {topic.isTrap ? 'Common Exam Trap' : 'Exam Tip'}
+                        </h4>
+                        <p style={{ margin: 0, color: '#78350f', fontSize: '0.85rem', lineHeight: '1.5' }}>
+                          {topic.examTip}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                ))
+              ) : (
+                // Fallback Classic Format Enhanced with Claude Design
+                <>
+                  {/* Key Concepts */}
+                  <div style={{ marginBottom: '2rem' }}>
+                    <div className="part-banner" style={{
+                      background: '#0f2942', color: '#ffffff', padding: '7px 14px', borderRadius: '3px',
+                      fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.08em', textTransform: 'uppercase',
+                      marginBottom: '1rem'
+                    }}>
+                      Part A · Core Concepts & Principles
+                    </div>
+                    {data?.keyConcepts?.map((concept: any, i: number) => (
+                      <div key={i} style={{ marginBottom: '1rem' }}>
+                        <h4 style={{ margin: '0 0 0.25rem 0', color: '#0f2942', fontSize: '0.95rem', fontWeight: 700 }}>
+                          {i + 1}. {concept.title}
+                        </h4>
+                        <p style={{ margin: 0, fontSize: '0.88rem', color: '#334155', lineHeight: '1.6' }}>
+                          {concept.explanation}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Definitions Table */}
+                  {data?.definitions && data.definitions.length > 0 && (
+                    <div style={{ marginBottom: '2rem' }}>
+                      <div className="part-banner" style={{
+                        background: '#0f2942', color: '#ffffff', padding: '7px 14px', borderRadius: '3px',
+                        fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.08em', textTransform: 'uppercase',
+                        marginBottom: '1rem'
+                      }}>
+                        Part B · High-Yield Terminology & Definitions
+                      </div>
+                      <table className="notes-table" style={{ width: '100%', borderCollapse: 'collapse' }}>
+                        <thead>
+                          <tr>
+                            <th style={{ width: '30%' }}>Term</th>
+                            <th>Aviation Operational Definition</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {data.definitions.map((defn: any, i: number) => (
+                            <tr key={i}>
+                              <td><strong>{defn.term}</strong></td>
+                              <td>{defn.definition}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
+
+                  {/* Memory Trick Box */}
+                  {data?.mnemonic && (
+                    <div className="memory-box" style={{
+                      background: '#faf5ff', border: '1px solid #e9d5ff', borderLeft: '4px solid #9333ea',
+                      padding: '10px 14px', borderRadius: '4px', marginBottom: '2rem'
+                    }}>
+                      <h4 style={{
+                        margin: '0 0 0.25rem 0', color: '#7e22ce', fontSize: '0.78rem', fontWeight: 800,
+                        textTransform: 'uppercase', letterSpacing: '0.06em'
+                      }}>
+                        Memory Trick
+                      </h4>
+                      <p style={{ margin: 0, color: '#581c87', fontSize: '0.88rem', fontWeight: 500, lineHeight: '1.5' }}>
+                        {typeof data.mnemonic === 'string' ? data.mnemonic : `${data.mnemonic.acronym} — ${data.mnemonic.points?.join(', ')}`}
+                      </p>
+                    </div>
+                  )}
+                </>
+              )}
+
+              {/* EXAM SMART Section */}
+              <div style={{ marginTop: '2.5rem', marginBottom: '2.5rem' }}>
+                <div className="part-banner" style={{
+                  background: '#0f2942', color: '#ffffff', padding: '7px 14px', borderRadius: '3px',
+                  fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.08em', textTransform: 'uppercase',
+                  marginBottom: '1rem'
+                }}>
+                  Exam Smart · How to Write Top-Scoring Answers
+                </div>
+
+                <p style={{ fontSize: '0.9rem', color: '#334155', fontWeight: 600, margin: '0 0 0.5rem 0' }}>
+                  Match your answer to the marks:
+                </p>
+                <table className="notes-table" style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '1.25rem' }}>
                   <thead>
-                    <tr style={{ background: '#f1f5f9' }}>
-                      <th style={{ padding: '0.75rem', border: '1px solid #cbd5e1', textAlign: 'left', width: '25%' }}>BTL Level</th>
-                      <th style={{ padding: '0.75rem', border: '1px solid #cbd5e1', textAlign: 'left' }}>Sample Question Format</th>
+                    <tr>
+                      <th style={{ width: '20%' }}>Marks</th>
+                      <th style={{ width: '60%' }}>What to write</th>
+                      <th style={{ width: '20%' }}>Expected Length</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {data?.btlQuestions?.Remember && (
-                      <tr>
-                        <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Remember (BTL 1)</strong></td>
-                        <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>{data.btlQuestions.Remember}</td>
-                      </tr>
-                    )}
-                    {data?.btlQuestions?.Understand && (
-                      <tr>
-                        <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Understand (BTL 2)</strong></td>
-                        <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>{data.btlQuestions.Understand}</td>
-                      </tr>
-                    )}
-                    {data?.btlQuestions?.Apply && (
-                      <tr>
-                        <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Apply (BTL 3)</strong></td>
-                        <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>{data.btlQuestions.Apply}</td>
-                      </tr>
-                    )}
-                    {data?.btlQuestions?.Analyze && (
-                      <tr>
-                        <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Analyze (BTL 4)</strong></td>
-                        <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>{data.btlQuestions.Analyze}</td>
-                      </tr>
-                    )}
-                    {data?.btlQuestions?.Evaluate && (
-                      <tr>
-                        <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Evaluate (BTL 5)</strong></td>
-                        <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>{data.btlQuestions.Evaluate}</td>
-                      </tr>
-                    )}
-                    {data?.btlQuestions?.Create && (
-                      <tr>
-                        <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}><strong>Create (BTL 6)</strong></td>
-                        <td style={{ padding: '0.75rem', border: '1px solid #cbd5e1' }}>{data.btlQuestions.Create}</td>
-                      </tr>
-                    )}
+                    <tr>
+                      <td><strong>1 mark</strong></td>
+                      <td>The exact term, rule, or option. Look for tricky keywords like "always", "never", "without conditions".</td>
+                      <td>One line</td>
+                    </tr>
+                    <tr>
+                      <td><strong>3 marks</strong></td>
+                      <td>Three clear points, or a formal definition plus two realistic airline operational examples.</td>
+                      <td>4–6 lines</td>
+                    </tr>
+                    <tr>
+                      <td><strong>5 marks</strong></td>
+                      <td>Definition → 4–5 key points or comparison table → one complete airline example.</td>
+                      <td>Half to 1 page</td>
+                    </tr>
+                    <tr>
+                      <td><strong>10–15 marks</strong></td>
+                      <td>Short introduction → headings for each sub-question → scenario facts and figures → diagram or table → one-line conclusion.</td>
+                      <td>About 2 pages</td>
+                    </tr>
                   </tbody>
                 </table>
-              </section>
 
-              {/* 5. Reference Material */}
-              <section style={{ marginBottom: '2rem' }}>
-                <h2 style={{ color: '#4f46e5', fontSize: '1.4rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.5rem' }}>5. Prescribed Reference Material</h2>
-                <ul style={{ paddingLeft: '1.5rem', lineHeight: '1.8' }}>
-                  <li><strong>Primary Textbook:</strong> {data?.referenceMaterial?.primary || "Provided in class handouts."}</li>
-                  {data?.referenceMaterial?.further && (
-                    <li><strong>Further Reading:</strong> {data.referenceMaterial.further}</li>
+                {/* Bloom's Taxonomy Question Bank if present */}
+                {data?.btlQuestions && (
+                  <div style={{ marginTop: '1rem' }}>
+                    <p style={{ fontSize: '0.9rem', color: '#334155', fontWeight: 600, margin: '0 0 0.5rem 0' }}>
+                      Sample Exam Questions by Bloom's Level:
+                    </p>
+                    <table className="notes-table" style={{ width: '100%', borderCollapse: 'collapse' }}>
+                      <thead>
+                        <tr>
+                          <th style={{ width: '25%' }}>BTL Level</th>
+                          <th>Sample Question Format</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {Object.entries(data.btlQuestions).map(([level, q]: [string, any], idx: number) => (
+                          <tr key={idx}>
+                            <td><strong>{level}</strong></td>
+                            <td>{q}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+              </div>
+
+              {/* QUICK REVISION Section */}
+              {data?.quickRevision && (
+                <div style={{ marginTop: '2.5rem', marginBottom: '2.5rem' }}>
+                  <div className="part-banner" style={{
+                    background: '#0f2942', color: '#ffffff', padding: '7px 14px', borderRadius: '3px',
+                    fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.08em', textTransform: 'uppercase',
+                    marginBottom: '1rem'
+                  }}>
+                    Quick Revision · Everything on One Page
+                  </div>
+                  <table className="notes-table" style={{ width: '100%', borderCollapse: 'collapse' }}>
+                    <thead>
+                      <tr>
+                        <th style={{ width: '30%' }}>Topic / Rule</th>
+                        <th>Remember This</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {data.quickRevision.map((item: any, idx: number) => (
+                        <tr key={idx}>
+                          <td><strong>{item.topic}</strong></td>
+                          <td>{item.rememberThis}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  <p style={{
+                    textAlign: 'center', fontWeight: 600, color: '#0f2942', fontSize: '0.9rem',
+                    margin: '1.5rem 0 0 0'
+                  }}>
+                    Show your working, name the rule, use the case's own facts. All the best!
+                  </p>
+                </div>
+              )}
+
+              {/* Prescribed Reference Material */}
+              {data?.referenceMaterial && (
+                <div style={{
+                  padding: '1rem 1.25rem', background: '#f8fafc', border: '1px solid #e2e8f0',
+                  borderRadius: '6px', marginTop: '2rem', fontSize: '0.85rem', color: '#475569'
+                }}>
+                  <div style={{ fontWeight: 700, color: '#0f2942', marginBottom: '0.25rem' }}>Prescribed Reference Material:</div>
+                  <div><strong>Primary:</strong> {data.referenceMaterial.primary || 'Provided in course syllabus.'}</div>
+                  {data.referenceMaterial.further && (
+                    <div style={{ marginTop: '2px' }}><strong>Further Reading:</strong> {data.referenceMaterial.further}</div>
                   )}
-                </ul>
-              </section>
+                </div>
+              )}
+
+              {/* Feedback Section - Screen Only */}
+              <div className="no-print" style={{
+                marginTop: '3rem', padding: '1.5rem', background: '#f8fafc',
+                borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '1.5rem',
+                border: '1px dashed #cbd5e1'
+              }}>
+                <div style={{ background: 'white', padding: '8px', borderRadius: '6px', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
+                  <QRCodeSVG value={feedbackUrl} size={90} level="H" />
+                </div>
+                <div>
+                  <h4 style={{ margin: '0 0 0.25rem 0', color: '#0f2942', fontSize: '0.95rem', fontWeight: 700 }}>We Value Your Feedback!</h4>
+                  <p style={{ margin: '0 0 0.5rem 0', color: '#64748b', fontSize: '0.85rem', lineHeight: '1.5' }}>
+                    Scan this QR code to tell us what more could be added in upcoming revision notes.
+                  </p>
+                  <a href={feedbackUrl} target="_blank" rel="noreferrer" style={{
+                    color: '#2563eb', textDecoration: 'none', fontWeight: 600, fontSize: '0.85rem'
+                  }}>
+                    Click here to open feedback form →
+                  </a>
+                </div>
+              </div>
             </>
           )}
-
-          {/* 6. Feedback QR Code */}
-          <section style={{ 
-            marginTop: '3rem', padding: '2rem', background: '#f8fafc', 
-            borderRadius: '12px', display: 'flex', alignItems: 'center', gap: '2rem',
-            border: '1px dashed #cbd5e1'
-          }}>
-            <div style={{ background: 'white', padding: '10px', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0,0,0,0.05)' }}>
-              <QRCodeSVG value={feedbackUrl} size={120} level="H" />
-            </div>
-            <div>
-              <h3 style={{ margin: '0 0 0.5rem 0', color: '#1e293b' }}>We Value Your Feedback!</h3>
-              <p style={{ margin: '0 0 1rem 0', color: '#64748b', lineHeight: '1.5' }}>
-                Scan this QR code to tell us what more could be added in upcoming notes. 
-                Do you need more examples, clearer definitions, or better mnemonics? Let us know!
-              </p>
-              <a href={feedbackUrl} className="no-print" target="_blank" rel="noreferrer" style={{
-                color: '#4f46e5', textDecoration: 'none', fontWeight: 'bold'
-              }}>Click here to open form</a>
-            </div>
-          </section>
-          
         </div>
       </div>
     </div>
