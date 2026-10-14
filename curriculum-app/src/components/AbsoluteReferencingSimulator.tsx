@@ -4,7 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { 
   Play, Pause, RotateCcw, SkipForward, Lock, Unlock, 
   CheckCircle2, AlertTriangle, Sparkles, HelpCircle, 
-  ChevronRight, ArrowDown, Info, ShieldCheck, Laptop, Globe
+  ChevronRight, ArrowDown, Info, ShieldCheck, Laptop, Globe,
+  Copy, FileSpreadsheet, Check
 } from 'lucide-react';
 
 export default function AbsoluteReferencingSimulator() {
@@ -13,6 +14,32 @@ export default function AbsoluteReferencingSimulator() {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [platform, setPlatform] = useState<'excel' | 'sheets'>('excel');
   const [speed, setSpeed] = useState<number>(1800); // ms per step
+
+  // Clipboard copy state & notification
+  const [copiedKey, setCopiedKey] = useState<string | null>(null);
+  const [copyToast, setCopyToast] = useState<string | null>(null);
+
+  const copyToClipboard = async (content: string, key: string, toastMessage?: string) => {
+    try {
+      await navigator.clipboard.writeText(content);
+      setCopiedKey(key);
+      if (toastMessage) setCopyToast(toastMessage);
+      setTimeout(() => setCopiedKey(prev => prev === key ? null : prev), 2500);
+      if (toastMessage) setTimeout(() => setCopyToast(null), 3500);
+    } catch (err) {
+      console.error('Clipboard copy failed:', err);
+    }
+  };
+
+  const getAbsoluteTableTSV = () => {
+    return [
+      `Aviation GST Calculation Matrix\t\t\tTax Rate:\t0.18`,
+      `Passenger Name\tBase Fare (₹)\tFormula Evaluated\tGST Calculated (₹)`,
+      `Rohan Verma\t5000\t${isLocked ? '=B2*$D$1' : '=B2*D1'}\t${isLocked ? '=B2*$D$1' : '=B2*D1'}`,
+      `Priya Sharma\t8500\t${isLocked ? '=B3*$D$1' : '=B3*D2'}\t${isLocked ? '=B3*$D$1' : '=B3*D2'}`,
+      `Ananya Das\t12000\t${isLocked ? '=B4*$D$1' : '=B4*D3'}\t${isLocked ? '=B4*$D$1' : '=B4*D3'}`
+    ].join('\n');
+  };
 
   // Autoplay effect
   useEffect(() => {
@@ -356,25 +383,85 @@ export default function AbsoluteReferencingSimulator() {
           </span>
         </div>
 
-        {/* Platform shortcut helper badge */}
-        <div style={{ fontSize: '0.78rem', color: '#94a3b8', display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <span>Shortcut:</span>
-          <span style={{
-            background: '#334155',
-            color: '#f8fafc',
-            padding: '2px 6px',
-            borderRadius: '3px',
-            fontWeight: 700,
-            border: '1px solid #475569'
-          }}>
-            {platform === 'excel' ? 'F4' : 'F4 / Fn+F4'}
-          </span>
-          <span>to cycle $</span>
+        {/* Platform shortcut helper badge & Copy Formula Button */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ fontSize: '0.78rem', color: '#94a3b8', display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <span>Shortcut:</span>
+            <span style={{
+              background: '#334155',
+              color: '#f8fafc',
+              padding: '2px 6px',
+              borderRadius: '3px',
+              fontWeight: 700,
+              border: '1px solid #475569'
+            }}>
+              {platform === 'excel' ? 'F4' : 'F4 / Fn+F4'}
+            </span>
+          </div>
+
+          <button
+            onClick={() => copyToClipboard(isLocked ? '=B2*$D$1' : '=B2*D1', 'abs-formula', 'Formula copied! Paste into cell C2 in Excel or Google Sheets.')}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '5px',
+              background: copiedKey === 'abs-formula' ? '#10b981' : '#1e293b',
+              color: copiedKey === 'abs-formula' ? '#ffffff' : '#38bdf8',
+              border: '1px solid ' + (copiedKey === 'abs-formula' ? '#10b981' : '#334155'),
+              padding: '4px 9px',
+              borderRadius: '6px',
+              fontSize: '0.75rem',
+              fontWeight: 700,
+              cursor: 'pointer',
+              transition: 'all 0.2s'
+            }}
+            title="Copy formula text"
+          >
+            {copiedKey === 'abs-formula' ? <Check size={13} /> : <Copy size={13} />}
+            <span>{copiedKey === 'abs-formula' ? 'Copied Formula!' : 'Copy Formula'}</span>
+          </button>
         </div>
       </div>
 
       {/* Main Grid View */}
       <div style={{ padding: '1.25rem 1.5rem', background: '#0b1120' }}>
+        {/* Table Action Bar */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '8px',
+          flexWrap: 'wrap',
+          gap: '10px'
+        }}>
+          <span style={{ fontSize: '0.78rem', color: '#94a3b8', fontWeight: 600 }}>
+            Live Spreadsheet Grid · Tax Rate anchored in $D$1 (18%)
+          </span>
+
+          <button
+            onClick={() => copyToClipboard(getAbsoluteTableTSV(), 'abs-table', 'Table copied! Open Excel or Google Sheets, click cell A1, and press Ctrl+V.')}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              background: copiedKey === 'abs-table' ? '#10b981' : 'linear-gradient(135deg, #107c41 0%, #0f9d58 100%)',
+              color: '#ffffff',
+              border: 'none',
+              padding: '5px 13px',
+              borderRadius: '6px',
+              fontSize: '0.78rem',
+              fontWeight: 700,
+              cursor: 'pointer',
+              boxShadow: '0 2px 6px rgba(16, 124, 65, 0.3)',
+              transition: 'all 0.2s'
+            }}
+            title="Copy table with headers & formula to paste directly into Excel or Google Sheets (Ctrl+V at A1)"
+          >
+            {copiedKey === 'abs-table' ? <Check size={14} /> : <FileSpreadsheet size={14} />}
+            <span>{copiedKey === 'abs-table' ? '✓ Copied for Excel / Sheets!' : 'Copy Table for Excel / Sheets'}</span>
+          </button>
+        </div>
+
         <div style={{
           background: '#1e293b',
           borderRadius: '8px',
@@ -684,6 +771,42 @@ export default function AbsoluteReferencingSimulator() {
           </div>
         </div>
       </div>
+
+      {/* Floating Clipboard Copy Confirmation Toast */}
+      {copyToast && (
+        <div style={{
+          position: 'fixed',
+          bottom: '24px',
+          right: '24px',
+          zIndex: 99999,
+          background: 'linear-gradient(135deg, #065f46 0%, #047857 100%)',
+          color: '#ffffff',
+          padding: '12px 18px',
+          borderRadius: '10px',
+          boxShadow: '0 12px 30px rgba(0,0,0,0.5)',
+          border: '1.5px solid #34d399',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '12px',
+          fontSize: '0.86rem',
+          fontWeight: 600,
+          maxWidth: '440px',
+          lineHeight: '1.4'
+        }}>
+          <div style={{
+            background: 'rgba(255,255,255,0.2)',
+            borderRadius: '50%',
+            padding: '4px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0
+          }}>
+            <Check size={16} color="#ffffff" />
+          </div>
+          <span>{copyToast}</span>
+        </div>
+      )}
     </div>
   );
 }

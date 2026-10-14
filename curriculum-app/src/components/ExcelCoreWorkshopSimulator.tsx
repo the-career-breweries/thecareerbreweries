@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import { 
   Calculator, Lock, BarChart3, Binary, CheckCircle2, 
   ArrowRight, Sparkles, RefreshCw, Layers, ShieldCheck, 
-  HelpCircle, Eye, AlertCircle, Laptop, Globe, Check, Award
+  HelpCircle, Eye, AlertCircle, Laptop, Globe, Check, Award,
+  Copy, FileSpreadsheet
 } from 'lucide-react';
 
 export default function ExcelCoreWorkshopSimulator() {
@@ -16,6 +17,30 @@ export default function ExcelCoreWorkshopSimulator() {
     stats: false,
     logical_text: false,
   });
+
+  // Clipboard copy state & notification
+  const [copiedKey, setCopiedKey] = useState<string | null>(null);
+  const [copyToast, setCopyToast] = useState<string | null>(null);
+
+  const copyToClipboard = async (content: string, key: string, toastMessage?: string) => {
+    try {
+      await navigator.clipboard.writeText(content);
+      setCopiedKey(key);
+      if (toastMessage) {
+        setCopyToast(toastMessage);
+      }
+      setTimeout(() => {
+        setCopiedKey(prev => prev === key ? null : prev);
+      }, 2500);
+      if (toastMessage) {
+        setTimeout(() => {
+          setCopyToast(null);
+        }, 3500);
+      }
+    } catch (err) {
+      console.error('Clipboard copy failed:', err);
+    }
+  };
 
   // Mark tab complete
   const markComplete = (tab: string) => {
@@ -84,6 +109,62 @@ export default function ExcelCoreWorkshopSimulator() {
   // Logical results
   const isPriority = milesInput >= 50000;
   const loungeTier = milesInput >= 75000 ? 'Platinum First' : milesInput >= 50000 ? 'Gold Executive' : milesInput >= 25000 ? 'Silver Club' : 'Standard Member';
+
+  // Table TSV and Formula Strings for Clipboard (Excel / Google Sheets)
+  const mathFormulaStr = useParentheses ? '=(B3 - C3) * D3 + E3' : '=B3 - C3 * D3 + E3';
+  const getMathTableTSV = () => {
+    return [
+      `Aviation Excess Baggage Invoice Calculator (PEMDAS)\t\t\t\t\t`,
+      `Flight / Sector\tLuggage (kg)\tFree Allowance (kg)\tRate / Excess Kg (₹)\tHandling Fee (₹)\tTotal Excess Invoice (₹)`,
+      `AI 804 (DEL ➔ IXE)\t${actualLuggage}\t${freeAllowance}\t${ratePerKg}\t${handlingFee}\t${useParentheses ? '=(B3-C3)*D3+E3' : '=B3-C3*D3+E3'}`
+    ].join('\n');
+  };
+
+  const refFormulaStr = isLocked ? '=B3 * $E$1' : '=B3 * E1';
+  const getReferencingTableTSV = () => {
+    return [
+      `Aviation Route Surcharge Matrix\t\t\tFixed Tax Rate:\t0.18`,
+      `Flight Code\tSector\tBase Fare (₹)\tFormula Evaluated\tGST Calculated (₹)`,
+      `QP 1302\tBLR ➔ BOM\t4000\t${isLocked ? '=B3*$E$1' : '=B3*E1'}\t${isLocked ? '=B3*$E$1' : '=B3*E1'}`,
+      `QP 1405\tDEL ➔ GOI\t6500\t${isLocked ? '=B4*$E$1' : '=B4*E2'}\t${isLocked ? '=B4*$E$1' : '=B4*E2'}`,
+      `QP 1511\tHYD ➔ IXE\t5200\t${isLocked ? '=B5*$E$1' : '=B5*E3'}\t${isLocked ? '=B5*$E$1' : '=B5*E3'}`
+    ].join('\n');
+  };
+
+  const getStatFormula = () => {
+    const range = selectedStatFunc === 'MAX' ? 'D3:D7' : selectedStatFunc === 'MIN' ? 'E3:E7' : selectedStatFunc === 'COUNTA' ? 'B3:B7' : 'C3:C7';
+    return `=${selectedStatFunc}(${range})`;
+  };
+  const getStatsTableTSV = () => {
+    return [
+      `Daily Terminal Flight Dispatch Manifest\t\t\t\t`,
+      `Flight Code\tRoute Sector\tPassenger Count\tCargo Weight (kg)\tGate Delay (mins)`,
+      `AI 101\tDEL-BOM\t182\t3400\t0`,
+      `6E 204\tBLR-DEL\t176\t1950\t22`,
+      `UK 815\tBOM-GOI\t158\t2800\t8`,
+      `SG 302\tHYD-IXE\t186\t950\t35`,
+      `QP 110\tCCU-MAA\t168\t1600\t4`,
+      `Total Passengers\t\t=SUM(C3:C7)\t\t`,
+      `Average Pax / Flight\t\t=AVERAGE(C3:C7)\t\t`,
+      `Peak Cargo Flight\t\t\t=MAX(D3:D7)\t`,
+      `Lowest Gate Delay\t\t\t\t=MIN(E3:E7)`,
+      `Scheduled Flights Tracked\t\t=COUNT(C3:C7)\t\t`,
+      `Non-Empty Sectors Logged\t=COUNTA(B3:B7)\t\t\t`
+    ].join('\n');
+  };
+
+  const logicalFormulaStr = '=IF(C3 >= 50000, "★ PRIORITY LOUNGE", "STANDARD BOARDING")';
+  const textFormulaStr = '=PROPER(TRIM(A3))';
+  const getLogicalTextTableTSV = () => {
+    return [
+      `Passenger Manifest Cleaning & Priority Logic\t\t\t\t\t\t`,
+      `Raw Passenger Name\tSector Code\tFrequent Flyer Miles\tCleaned Name (PROPER)\tIATA Code (UPPER)\tAirport Tag (LEFT)\tBoarding Priority (IF)`,
+      `  rohan  verma  \tdel-ixe-804\t${milesInput}\t=PROPER(TRIM(A3))\t=UPPER(B3)\t=LEFT(B3,3)\t=IF(C3>=50000,"★ PRIORITY LOUNGE","STANDARD BOARDING")`,
+      `ARJUN SINGH\tblr-bom-204\t12400\t=PROPER(TRIM(A4))\t=UPPER(B4)\t=LEFT(B4,3)\t=IF(C4>=50000,"★ PRIORITY LOUNGE","STANDARD BOARDING")`,
+      `tanya  sharma\thyd-goi-302\t74500\t=PROPER(TRIM(A5))\t=UPPER(B5)\t=LEFT(B5,3)\t=IF(C5>=50000,"★ PRIORITY LOUNGE","STANDARD BOARDING")`,
+      `mohammed ali\tmaa-del-110\t3800\t=PROPER(TRIM(A6))\t=UPPER(B6)\t=LEFT(B6,3)\t=IF(C6>=50000,"★ PRIORITY LOUNGE","STANDARD BOARDING")`
+    ].join('\n');
+  };
 
   const allCompleted = Object.values(completedTabs).filter(Boolean).length === 4;
 
@@ -334,7 +415,7 @@ export default function ExcelCoreWorkshopSimulator() {
               </div>
             </div>
 
-            {/* Formula Bar */}
+            {/* Formula Bar with Copy Button */}
             <div style={{
               background: '#090d16',
               border: '1px solid #334155',
@@ -342,31 +423,94 @@ export default function ExcelCoreWorkshopSimulator() {
               padding: '8px 14px',
               display: 'flex',
               alignItems: 'center',
+              justifyContent: 'space-between',
               gap: '12px',
               marginBottom: '1rem',
               fontFamily: 'Consolas, monospace',
               fontSize: '0.92rem'
             }}>
-              <span style={{ color: '#94a3b8', fontStyle: 'italic', fontWeight: 700 }}>fx</span>
-              <span style={{ color: '#64748b' }}>|</span>
-              {useParentheses ? (
-                <span>
-                  <strong style={{ color: '#f59e0b' }}>=</strong>
-                  <span style={{ color: '#38bdf8' }}>(</span>
-                  <span style={{ color: '#10b981' }}>B3</span>
-                  <span style={{ color: '#cbd5e1' }}> - </span>
-                  <span style={{ color: '#ec4899' }}>C3</span>
-                  <span style={{ color: '#38bdf8' }}>)</span>
-                  <span style={{ color: '#cbd5e1' }}> * </span>
-                  <span style={{ color: '#a855f7' }}>D3</span>
-                  <span style={{ color: '#cbd5e1' }}> + </span>
-                  <span style={{ color: '#f43f5e' }}>E3</span>
-                </span>
-              ) : (
-                <span style={{ color: '#ef4444' }}>
-                  =B3 - C3 * D3 + E3 <em style={{ fontSize: '0.78rem', color: '#f87171' }}>(Critical Logic Flaw!)</em>
-                </span>
-              )}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', overflowX: 'auto' }}>
+                <span style={{ color: '#94a3b8', fontStyle: 'italic', fontWeight: 700 }}>fx</span>
+                <span style={{ color: '#64748b' }}>|</span>
+                {useParentheses ? (
+                  <span>
+                    <strong style={{ color: '#f59e0b' }}>=</strong>
+                    <span style={{ color: '#38bdf8' }}>(</span>
+                    <span style={{ color: '#10b981' }}>B3</span>
+                    <span style={{ color: '#cbd5e1' }}> - </span>
+                    <span style={{ color: '#ec4899' }}>C3</span>
+                    <span style={{ color: '#38bdf8' }}>)</span>
+                    <span style={{ color: '#cbd5e1' }}> * </span>
+                    <span style={{ color: '#a855f7' }}>D3</span>
+                    <span style={{ color: '#cbd5e1' }}> + </span>
+                    <span style={{ color: '#f43f5e' }}>E3</span>
+                  </span>
+                ) : (
+                  <span style={{ color: '#ef4444' }}>
+                    =B3 - C3 * D3 + E3 <em style={{ fontSize: '0.78rem', color: '#f87171' }}>(Critical Logic Flaw!)</em>
+                  </span>
+                )}
+              </div>
+
+              <button
+                onClick={() => copyToClipboard(mathFormulaStr, 'math-formula', 'Formula copied! Paste into cell F3 in Excel or Google Sheets.')}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  background: copiedKey === 'math-formula' ? '#10b981' : '#1e293b',
+                  color: copiedKey === 'math-formula' ? '#ffffff' : '#38bdf8',
+                  border: '1px solid ' + (copiedKey === 'math-formula' ? '#10b981' : '#334155'),
+                  padding: '5px 11px',
+                  borderRadius: '6px',
+                  fontSize: '0.76rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  flexShrink: 0,
+                  transition: 'all 0.2s'
+                }}
+                title="Copy active formula to clipboard"
+              >
+                {copiedKey === 'math-formula' ? <Check size={14} /> : <Copy size={14} />}
+                <span>{copiedKey === 'math-formula' ? 'Copied Formula!' : 'Copy Formula'}</span>
+              </button>
+            </div>
+
+            {/* Table Action Bar */}
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginBottom: '8px',
+              flexWrap: 'wrap',
+              gap: '10px'
+            }}>
+              <span style={{ fontSize: '0.78rem', color: '#94a3b8', fontWeight: 600 }}>
+                Spreadsheet Grid (Cell coordinates map to Row 3)
+              </span>
+
+              <button
+                onClick={() => copyToClipboard(getMathTableTSV(), 'math-table', 'Table copied! Open Excel or Google Sheets, click cell A1, and press Ctrl+V.')}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '7px',
+                  background: copiedKey === 'math-table' ? '#10b981' : 'linear-gradient(135deg, #107c41 0%, #0f9d58 100%)',
+                  color: '#ffffff',
+                  border: 'none',
+                  padding: '6px 14px',
+                  borderRadius: '6px',
+                  fontSize: '0.78rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  boxShadow: '0 2px 8px rgba(16, 124, 65, 0.35)',
+                  transition: 'all 0.2s'
+                }}
+                title="Copy table with headers & formula to paste directly into Excel or Google Sheets (Ctrl+V at A1)"
+              >
+                {copiedKey === 'math-table' ? <Check size={14} /> : <FileSpreadsheet size={14} />}
+                <span>{copiedKey === 'math-table' ? '✓ Copied for Excel / Sheets!' : 'Copy Table for Excel / Sheets'}</span>
+              </button>
             </div>
 
             {/* Spreadsheet Grid */}
@@ -579,6 +723,88 @@ export default function ExcelCoreWorkshopSimulator() {
               </div>
             </div>
 
+            {/* Formula Bar for Tab 2 */}
+            <div style={{
+              background: '#090d16',
+              border: '1px solid #334155',
+              borderRadius: '8px',
+              padding: '8px 14px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '12px',
+              marginBottom: '1rem',
+              fontFamily: 'Consolas, monospace',
+              fontSize: '0.92rem'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <span style={{ color: '#94a3b8', fontStyle: 'italic', fontWeight: 700 }}>fx</span>
+                <span style={{ color: '#64748b' }}>|</span>
+                <span style={{ color: '#eab308', fontWeight: 700 }}>=B3 * {isLocked ? '$E$1' : 'E1'}</span>
+                <span style={{ color: '#64748b', fontSize: '0.8rem' }}>({isLocked ? 'Absolute Lock' : 'Relative Shift'})</span>
+              </div>
+
+              <button
+                onClick={() => copyToClipboard(refFormulaStr, 'ref-formula', 'Formula copied! Paste into cell C3 in Excel or Google Sheets.')}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  background: copiedKey === 'ref-formula' ? '#10b981' : '#1e293b',
+                  color: copiedKey === 'ref-formula' ? '#ffffff' : '#eab308',
+                  border: '1px solid ' + (copiedKey === 'ref-formula' ? '#10b981' : '#334155'),
+                  padding: '5px 11px',
+                  borderRadius: '6px',
+                  fontSize: '0.76rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  flexShrink: 0,
+                  transition: 'all 0.2s'
+                }}
+                title="Copy active formula to clipboard"
+              >
+                {copiedKey === 'ref-formula' ? <Check size={14} /> : <Copy size={14} />}
+                <span>{copiedKey === 'ref-formula' ? 'Copied Formula!' : 'Copy Formula'}</span>
+              </button>
+            </div>
+
+            {/* Table Action Bar */}
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginBottom: '8px',
+              flexWrap: 'wrap',
+              gap: '10px'
+            }}>
+              <span style={{ fontSize: '0.78rem', color: '#94a3b8', fontWeight: 600 }}>
+                Spreadsheet Grid (Tax Rate is anchored in cell E1)
+              </span>
+
+              <button
+                onClick={() => copyToClipboard(getReferencingTableTSV(), 'ref-table', 'Table copied! Open Excel or Google Sheets, click cell A1, and press Ctrl+V.')}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '7px',
+                  background: copiedKey === 'ref-table' ? '#10b981' : 'linear-gradient(135deg, #107c41 0%, #0f9d58 100%)',
+                  color: '#ffffff',
+                  border: 'none',
+                  padding: '6px 14px',
+                  borderRadius: '6px',
+                  fontSize: '0.78rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  boxShadow: '0 2px 8px rgba(16, 124, 65, 0.35)',
+                  transition: 'all 0.2s'
+                }}
+                title="Copy table with headers & formula to paste directly into Excel or Google Sheets (Ctrl+V at A1)"
+              >
+                {copiedKey === 'ref-table' ? <Check size={14} /> : <FileSpreadsheet size={14} />}
+                <span>{copiedKey === 'ref-table' ? '✓ Copied for Excel / Sheets!' : 'Copy Table for Excel / Sheets'}</span>
+              </button>
+            </div>
+
             {/* Multi-Row Spreadsheet Table */}
             <div style={{
               background: '#0f172a',
@@ -702,7 +928,7 @@ export default function ExcelCoreWorkshopSimulator() {
               </div>
             </div>
 
-            {/* Formula Bar with active range */}
+            {/* Formula Bar with active range & Copy Button */}
             <div style={{
               background: '#090d16',
               border: '1px solid #334155',
@@ -710,17 +936,80 @@ export default function ExcelCoreWorkshopSimulator() {
               padding: '8px 14px',
               display: 'flex',
               alignItems: 'center',
+              justifyContent: 'space-between',
               gap: '12px',
               marginBottom: '1rem',
               fontFamily: 'Consolas, monospace',
               fontSize: '0.92rem'
             }}>
-              <span style={{ color: '#94a3b8', fontStyle: 'italic', fontWeight: 700 }}>fx</span>
-              <span style={{ color: '#64748b' }}>|</span>
-              <span style={{ color: '#a855f7', fontWeight: 700 }}>={selectedStatFunc}</span>
-              <span style={{ color: '#38bdf8' }}>
-                ({selectedStatFunc === 'MAX' ? 'D3:D7' : selectedStatFunc === 'MIN' ? 'E3:E7' : selectedStatFunc === 'COUNTA' ? 'B3:B7' : 'C3:C7'})
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <span style={{ color: '#94a3b8', fontStyle: 'italic', fontWeight: 700 }}>fx</span>
+                <span style={{ color: '#64748b' }}>|</span>
+                <span style={{ color: '#a855f7', fontWeight: 700 }}>={selectedStatFunc}</span>
+                <span style={{ color: '#38bdf8' }}>
+                  ({selectedStatFunc === 'MAX' ? 'D3:D7' : selectedStatFunc === 'MIN' ? 'E3:E7' : selectedStatFunc === 'COUNTA' ? 'B3:B7' : 'C3:C7'})
+                </span>
+              </div>
+
+              <button
+                onClick={() => copyToClipboard(getStatFormula(), 'stat-formula', `Formula ${getStatFormula()} copied! Paste into any cell in Excel or Google Sheets.`)}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  background: copiedKey === 'stat-formula' ? '#10b981' : '#1e293b',
+                  color: copiedKey === 'stat-formula' ? '#ffffff' : '#a855f7',
+                  border: '1px solid ' + (copiedKey === 'stat-formula' ? '#10b981' : '#334155'),
+                  padding: '5px 11px',
+                  borderRadius: '6px',
+                  fontSize: '0.76rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  flexShrink: 0,
+                  transition: 'all 0.2s'
+                }}
+                title="Copy active statistical formula to clipboard"
+              >
+                {copiedKey === 'stat-formula' ? <Check size={14} /> : <Copy size={14} />}
+                <span>{copiedKey === 'stat-formula' ? 'Copied Formula!' : 'Copy Formula'}</span>
+              </button>
+            </div>
+
+            {/* Table Action Bar */}
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginBottom: '8px',
+              flexWrap: 'wrap',
+              gap: '10px'
+            }}>
+              <span style={{ fontSize: '0.78rem', color: '#94a3b8', fontWeight: 600 }}>
+                Spreadsheet Grid (Data spans C3:C7, D3:D7, E3:E7)
               </span>
+
+              <button
+                onClick={() => copyToClipboard(getStatsTableTSV(), 'stats-table', 'Manifest & statistical formulas copied! Open Excel or Google Sheets, click cell A1, and press Ctrl+V.')}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '7px',
+                  background: copiedKey === 'stats-table' ? '#10b981' : 'linear-gradient(135deg, #107c41 0%, #0f9d58 100%)',
+                  color: '#ffffff',
+                  border: 'none',
+                  padding: '6px 14px',
+                  borderRadius: '6px',
+                  fontSize: '0.78rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  boxShadow: '0 2px 8px rgba(16, 124, 65, 0.35)',
+                  transition: 'all 0.2s'
+                }}
+                title="Copy flight manifest table & all summary formulas to paste directly into Excel or Google Sheets (Ctrl+V at A1)"
+              >
+                {copiedKey === 'stats-table' ? <Check size={14} /> : <FileSpreadsheet size={14} />}
+                <span>{copiedKey === 'stats-table' ? '✓ Copied for Excel / Sheets!' : 'Copy Table for Excel / Sheets'}</span>
+              </button>
             </div>
 
             {/* Spreadsheet Grid with Glowing Range */}
@@ -886,7 +1175,7 @@ export default function ExcelCoreWorkshopSimulator() {
 
             {textActiveTab === 'logical' ? (
               <div>
-                {/* Formula Bar for IF */}
+                {/* Formula Bar for IF with Copy Buttons */}
                 <div style={{
                   background: '#090d16',
                   border: '1px solid #334155',
@@ -894,20 +1183,70 @@ export default function ExcelCoreWorkshopSimulator() {
                   padding: '8px 14px',
                   display: 'flex',
                   alignItems: 'center',
+                  justifyContent: 'space-between',
                   gap: '12px',
                   marginBottom: '1rem',
                   fontFamily: 'Consolas, monospace',
                   fontSize: '0.92rem'
                 }}>
-                  <span style={{ color: '#94a3b8', fontStyle: 'italic', fontWeight: 700 }}>fx</span>
-                  <span style={{ color: '#64748b' }}>|</span>
-                  <span style={{ color: '#10b981', fontWeight: 700 }}>=IF</span>
-                  <span style={{ color: '#38bdf8' }}>(</span>
-                  <span style={{ color: '#cbd5e1' }}>C3 &gt;= 50000, </span>
-                  <span style={{ color: '#34d399' }}>&quot;★ PRIORITY LOUNGE&quot;</span>
-                  <span style={{ color: '#cbd5e1' }}>, </span>
-                  <span style={{ color: '#94a3b8' }}>&quot;STANDARD BOARDING&quot;</span>
-                  <span style={{ color: '#38bdf8' }}>)</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', overflowX: 'auto' }}>
+                    <span style={{ color: '#94a3b8', fontStyle: 'italic', fontWeight: 700 }}>fx</span>
+                    <span style={{ color: '#64748b' }}>|</span>
+                    <span style={{ color: '#10b981', fontWeight: 700 }}>=IF</span>
+                    <span style={{ color: '#38bdf8' }}>(</span>
+                    <span style={{ color: '#cbd5e1' }}>C3 &gt;= 50000, </span>
+                    <span style={{ color: '#34d399' }}>&quot;★ PRIORITY LOUNGE&quot;</span>
+                    <span style={{ color: '#cbd5e1' }}>, </span>
+                    <span style={{ color: '#94a3b8' }}>&quot;STANDARD BOARDING&quot;</span>
+                    <span style={{ color: '#38bdf8' }}>)</span>
+                  </div>
+
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+                    <button
+                      onClick={() => copyToClipboard(logicalFormulaStr, 'logical-formula', 'IF formula copied! Paste into cell G3 in Excel or Google Sheets.')}
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '5px',
+                        background: copiedKey === 'logical-formula' ? '#10b981' : '#1e293b',
+                        color: copiedKey === 'logical-formula' ? '#ffffff' : '#10b981',
+                        border: '1px solid ' + (copiedKey === 'logical-formula' ? '#10b981' : '#334155'),
+                        padding: '4px 10px',
+                        borderRadius: '6px',
+                        fontSize: '0.75rem',
+                        fontWeight: 700,
+                        cursor: 'pointer',
+                        transition: 'all 0.2s'
+                      }}
+                      title="Copy IF formula"
+                    >
+                      {copiedKey === 'logical-formula' ? <Check size={13} /> : <Copy size={13} />}
+                      <span>{copiedKey === 'logical-formula' ? 'Copied Formula!' : 'Copy Formula'}</span>
+                    </button>
+
+                    <button
+                      onClick={() => copyToClipboard(getLogicalTextTableTSV(), 'logical-table', 'Passenger table with IF & text formulas copied! Open Excel or Google Sheets, click cell A1, and press Ctrl+V.')}
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        background: copiedKey === 'logical-table' ? '#10b981' : 'linear-gradient(135deg, #107c41 0%, #0f9d58 100%)',
+                        color: '#ffffff',
+                        border: 'none',
+                        padding: '5px 12px',
+                        borderRadius: '6px',
+                        fontSize: '0.76rem',
+                        fontWeight: 700,
+                        cursor: 'pointer',
+                        boxShadow: '0 2px 6px rgba(16, 124, 65, 0.3)',
+                        transition: 'all 0.2s'
+                      }}
+                      title="Copy passenger table with IF & text formulas for Excel/Sheets"
+                    >
+                      {copiedKey === 'logical-table' ? <Check size={14} /> : <FileSpreadsheet size={14} />}
+                      <span>{copiedKey === 'logical-table' ? '✓ Copied Table!' : 'Copy Table for Excel/Sheets'}</span>
+                    </button>
+                  </div>
                 </div>
 
                 {/* Interactive Miles Adjuster */}
@@ -972,7 +1311,44 @@ export default function ExcelCoreWorkshopSimulator() {
               </div>
             ) : (
               <div>
-                {/* Text Functions Lab */}
+                {/* Text Functions Lab Header & Table Action */}
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  marginBottom: '10px',
+                  flexWrap: 'wrap',
+                  gap: '10px'
+                }}>
+                  <span style={{ fontSize: '0.82rem', color: '#cbd5e1', fontWeight: 700 }}>
+                    Live Text Sanitization &amp; String Extraction Lab
+                  </span>
+
+                  <button
+                    onClick={() => copyToClipboard(getLogicalTextTableTSV(), 'text-table', 'Manifest table with text cleaning formulas copied! Paste at cell A1 in Excel/Sheets.')}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      background: copiedKey === 'text-table' ? '#10b981' : 'linear-gradient(135deg, #107c41 0%, #0f9d58 100%)',
+                      color: '#ffffff',
+                      border: 'none',
+                      padding: '5px 13px',
+                      borderRadius: '6px',
+                      fontSize: '0.78rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                      boxShadow: '0 2px 6px rgba(16, 124, 65, 0.3)',
+                      transition: 'all 0.2s'
+                    }}
+                    title="Copy passenger table with text formulas to paste directly into Excel or Google Sheets (Ctrl+V at A1)"
+                  >
+                    {copiedKey === 'text-table' ? <Check size={14} /> : <FileSpreadsheet size={14} />}
+                    <span>{copiedKey === 'text-table' ? '✓ Copied for Excel / Sheets!' : 'Copy Table for Excel / Sheets'}</span>
+                  </button>
+                </div>
+
+                {/* Input Card */}
                 <div style={{ background: '#1e293b', padding: '1.25rem', borderRadius: '10px', border: '1px solid #334155', marginBottom: '1.25rem' }}>
                   <label style={{ fontSize: '0.84rem', fontWeight: 700, color: '#cbd5e1', display: 'block', marginBottom: '8px' }}>
                     Test Messy Passenger Name Entry (Cell A3):
@@ -1003,9 +1379,29 @@ export default function ExcelCoreWorkshopSimulator() {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '14px' }}>
                   
                   {/* PROPER + TRIM */}
-                  <div style={{ background: '#0f172a', border: '1px solid #334155', borderRadius: '10px', padding: '1rem' }}>
-                    <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#10b981', textTransform: 'uppercase' }}>
-                      =PROPER(TRIM(A3))
+                  <div style={{ background: '#0f172a', border: '1px solid #334155', borderRadius: '10px', padding: '1rem', position: 'relative' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#10b981', textTransform: 'uppercase' }}>
+                        =PROPER(TRIM(A3))
+                      </span>
+                      <button
+                        onClick={() => copyToClipboard('=PROPER(TRIM(A3))', 'proper-formula', 'Formula =PROPER(TRIM(A3)) copied!')}
+                        style={{
+                          background: 'transparent',
+                          border: 'none',
+                          color: copiedKey === 'proper-formula' ? '#10b981' : '#64748b',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '4px',
+                          fontSize: '0.72rem',
+                          fontWeight: 600
+                        }}
+                        title="Copy formula"
+                      >
+                        {copiedKey === 'proper-formula' ? <Check size={12} /> : <Copy size={12} />}
+                        <span>{copiedKey === 'proper-formula' ? 'Copied' : 'Copy'}</span>
+                      </button>
                     </div>
                     <div style={{ fontSize: '1.15rem', fontWeight: 800, color: '#ffffff', margin: '6px 0' }}>
                       &quot;{cleanedProper}&quot;
@@ -1017,8 +1413,28 @@ export default function ExcelCoreWorkshopSimulator() {
 
                   {/* UPPER */}
                   <div style={{ background: '#0f172a', border: '1px solid #334155', borderRadius: '10px', padding: '1rem' }}>
-                    <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#38bdf8', textTransform: 'uppercase' }}>
-                      =UPPER(&quot;del-ixe-804&quot;)
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#38bdf8', textTransform: 'uppercase' }}>
+                        =UPPER(&quot;del-ixe-804&quot;)
+                      </span>
+                      <button
+                        onClick={() => copyToClipboard('=UPPER(B3)', 'upper-formula', 'Formula =UPPER(B3) copied!')}
+                        style={{
+                          background: 'transparent',
+                          border: 'none',
+                          color: copiedKey === 'upper-formula' ? '#38bdf8' : '#64748b',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '4px',
+                          fontSize: '0.72rem',
+                          fontWeight: 600
+                        }}
+                        title="Copy formula"
+                      >
+                        {copiedKey === 'upper-formula' ? <Check size={12} /> : <Copy size={12} />}
+                        <span>{copiedKey === 'upper-formula' ? 'Copied' : 'Copy'}</span>
+                      </button>
                     </div>
                     <div style={{ fontSize: '1.15rem', fontWeight: 800, color: '#ffffff', margin: '6px 0' }}>
                       &quot;{upperCode}&quot;
@@ -1030,8 +1446,28 @@ export default function ExcelCoreWorkshopSimulator() {
 
                   {/* LEFT / RIGHT */}
                   <div style={{ background: '#0f172a', border: '1px solid #334155', borderRadius: '10px', padding: '1rem' }}>
-                    <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#eab308', textTransform: 'uppercase' }}>
-                      =LEFT(B3, 3) &amp; =RIGHT(B3, 3)
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#eab308', textTransform: 'uppercase' }}>
+                        =LEFT(B3, 3) &amp; =RIGHT(B3, 3)
+                      </span>
+                      <button
+                        onClick={() => copyToClipboard('=LEFT(B3, 3)', 'left-formula', 'Formula =LEFT(B3, 3) copied!')}
+                        style={{
+                          background: 'transparent',
+                          border: 'none',
+                          color: copiedKey === 'left-formula' ? '#eab308' : '#64748b',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '4px',
+                          fontSize: '0.72rem',
+                          fontWeight: 600
+                        }}
+                        title="Copy formula"
+                      >
+                        {copiedKey === 'left-formula' ? <Check size={12} /> : <Copy size={12} />}
+                        <span>{copiedKey === 'left-formula' ? 'Copied' : 'Copy'}</span>
+                      </button>
                     </div>
                     <div style={{ fontSize: '1.15rem', fontWeight: 800, color: '#ffffff', margin: '6px 0' }}>
                       Origin: {originCode} | Dest: {destCode}
@@ -1113,6 +1549,42 @@ export default function ExcelCoreWorkshopSimulator() {
           )}
         </div>
       </div>
+
+      {/* Floating Clipboard Copy Confirmation Toast */}
+      {copyToast && (
+        <div style={{
+          position: 'fixed',
+          bottom: '24px',
+          right: '24px',
+          zIndex: 99999,
+          background: 'linear-gradient(135deg, #065f46 0%, #047857 100%)',
+          color: '#ffffff',
+          padding: '12px 18px',
+          borderRadius: '10px',
+          boxShadow: '0 12px 30px rgba(0,0,0,0.5)',
+          border: '1.5px solid #34d399',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '12px',
+          fontSize: '0.86rem',
+          fontWeight: 600,
+          maxWidth: '440px',
+          lineHeight: '1.4'
+        }}>
+          <div style={{
+            background: 'rgba(255,255,255,0.2)',
+            borderRadius: '50%',
+            padding: '4px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0
+          }}>
+            <Check size={16} color="#ffffff" />
+          </div>
+          <span>{copyToast}</span>
+        </div>
+      )}
     </div>
   );
 }
