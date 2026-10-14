@@ -566,12 +566,126 @@ export default function CommunicativeEnglishApp() {
                                   <ChevronRight size={14} />
                                 </Link>
                               )}
+                              {Number(week.week) === 16 && (
+                                <Link
+                                  href="/simulators/excel-core-workshop"
+                                  style={{
+                                    textDecoration: 'none',
+                                    background: 'rgba(56, 189, 248, 0.12)',
+                                    border: '1px solid rgba(56, 189, 248, 0.35)',
+                                    color: '#38bdf8',
+                                    padding: '8px 16px',
+                                    borderRadius: '8px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'space-between',
+                                    fontWeight: 600,
+                                    fontSize: '0.82rem',
+                                    cursor: 'pointer'
+                                  }}
+                                  onClick={(e) => e.stopPropagation()}
+                                >
+                                  <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                    <Sparkles size={14} /> 2–4 Hr Workshop Lab
+                                  </span>
+                                  <ChevronRight size={14} />
+                                </Link>
+                              )}
                             </div>
                             {/* Progress Bar inside module card */}
                             <div style={{ width: '100%', height: '4px', background: 'var(--border-sidebar)', position: 'absolute', bottom: 0, left: 0 }}>
                               <div style={{ width: `${sessionProgress[week.week] || 0}%`, height: '100%', background: 'var(--accent-primary)', transition: 'width 0.3s' }} />
                             </div>
                           </div>
+
+                          {/* 2-4 Hour Workshop Milestone Card (Placed Immediately After Unit 3 Session 6 / Week 16) */}
+                          {Number(week.week) === 16 && (
+                            <div 
+                              key="unit-3-workshop-milestone"
+                              className="module-card"
+                              style={{ 
+                                gridColumn: '1 / -1',
+                                position: 'relative', 
+                                overflow: 'hidden',
+                                border: '1.5px solid #38bdf8',
+                                background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(14, 116, 144, 0.18) 100%)',
+                                boxShadow: '0 8px 24px rgba(56, 189, 248, 0.12)',
+                                padding: '1.75rem 2rem',
+                                display: 'flex',
+                                flexDirection: 'row',
+                                flexWrap: 'wrap',
+                                alignItems: 'center',
+                                justifyContent: 'space-between',
+                                gap: '20px'
+                              }}
+                            >
+                              <div style={{ flex: '1 1 500px' }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                                  <span style={{
+                                    background: '#38bdf8',
+                                    color: '#0f172a',
+                                    fontSize: '0.72rem',
+                                    fontWeight: 800,
+                                    padding: '3px 8px',
+                                    borderRadius: '4px',
+                                    letterSpacing: '0.05em',
+                                    textTransform: 'uppercase'
+                                  }}>
+                                    Unit 3 Milestone Lab
+                                  </span>
+                                  <span style={{ color: '#94a3b8', fontSize: '0.85rem' }}>
+                                    Post-Session 6 Intensive · 2–4 Hours Fast-Track
+                                  </span>
+                                </div>
+                                <h3 style={{ margin: '0 0 6px 0', fontSize: '1.35rem', fontWeight: 800, color: '#ffffff' }}>
+                                  Spreadsheet Core Essentials Workshop (Sessions 1–6)
+                                </h3>
+                                <p style={{ margin: '0 0 12px 0', color: '#cbd5e1', fontSize: '0.9rem', lineHeight: '1.5', maxWidth: '750px' }}>
+                                  Designed to consolidate the first 6 sessions in a single 2–4 hour interactive laboratory. 
+                                  Practice <strong>Basic Mathematical Formulae</strong>, <strong>Cell Referencing ($)</strong>, 
+                                  <strong> Essential Statistical Functions</strong>, and <strong>Logical &amp; Text Functions</strong> with live aviation flight manifests.
+                                </p>
+                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                                  <span style={{ background: 'rgba(56, 189, 248, 0.12)', border: '1px solid rgba(56, 189, 248, 0.3)', color: '#38bdf8', padding: '3px 10px', borderRadius: '6px', fontSize: '0.76rem', fontWeight: 600 }}>
+                                    1. Basic Math (PEMDAS)
+                                  </span>
+                                  <span style={{ background: 'rgba(234, 179, 8, 0.12)', border: '1px solid rgba(234, 179, 8, 0.3)', color: '#eab308', padding: '3px 10px', borderRadius: '6px', fontSize: '0.76rem', fontWeight: 600 }}>
+                                    2. Cell Referencing ($A$1)
+                                  </span>
+                                  <span style={{ background: 'rgba(168, 85, 247, 0.12)', border: '1px solid rgba(168, 85, 247, 0.3)', color: '#c084fc', padding: '3px 10px', borderRadius: '6px', fontSize: '0.76rem', fontWeight: 600 }}>
+                                    3. Statistical Functions (SUM/AVG)
+                                  </span>
+                                  <span style={{ background: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.3)', color: '#34d399', padding: '3px 10px', borderRadius: '6px', fontSize: '0.76rem', fontWeight: 600 }}>
+                                    4. Logical &amp; Text (IF/PROPER)
+                                  </span>
+                                </div>
+                              </div>
+
+                              <div>
+                                <Link
+                                  href="/simulators/excel-core-workshop"
+                                  style={{
+                                    textDecoration: 'none',
+                                    background: 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)',
+                                    color: '#ffffff',
+                                    padding: '12px 24px',
+                                    borderRadius: '10px',
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
+                                    gap: '8px',
+                                    fontWeight: 700,
+                                    fontSize: '0.95rem',
+                                    boxShadow: '0 4px 14px rgba(14, 165, 233, 0.35)',
+                                    cursor: 'pointer',
+                                    transition: 'all 0.2s'
+                                  }}
+                                  onClick={(e) => e.stopPropagation()}
+                                >
+                                  <Sparkles size={18} /> Launch 2–4 Hr Workshop Simulator
+                                </Link>
+                              </div>
+                            </div>
+                          )}
 
                           {/* Consolidated Notes Card for entire unit */}
                           {unitSummary && (

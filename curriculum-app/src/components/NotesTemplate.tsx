@@ -392,6 +392,65 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
                 </div>
               )}
 
+              {/* 2–4 Hour Spreadsheet Core Workshop Simulator Banner (Session 16 & Unit 3) */}
+              {(String(weekNumber) === '16' || String(weekNumber) === 'unit-3' || theme.toLowerCase().includes('logical') || theme.toLowerCase().includes('spreadsheet')) && (
+                <div className="no-print" style={{
+                  background: 'linear-gradient(135deg, #091322 0%, #0c2137 100%)',
+                  borderRadius: '8px',
+                  padding: '1.1rem 1.35rem',
+                  marginBottom: '1.75rem',
+                  border: '1px solid #0284c7',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  flexWrap: 'wrap',
+                  gap: '12px',
+                  boxShadow: '0 4px 14px rgba(2, 132, 199, 0.18)'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <div style={{
+                      background: '#0284c7',
+                      color: '#ffffff',
+                      padding: '8px',
+                      borderRadius: '6px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}>
+                      <Sparkles size={20} />
+                    </div>
+                    <div>
+                      <h4 style={{ margin: '0 0 2px 0', color: '#f8fafc', fontSize: '0.92rem', fontWeight: 700 }}>
+                        🚀 Post-Session 6 Fast-Track Workshop Simulator (Sessions 1–6)
+                      </h4>
+                      <p style={{ margin: 0, color: '#94a3b8', fontSize: '0.8rem' }}>
+                        Consolidated 2–4 hour hands-on lab: Basic Math (PEMDAS), $ Referencing, Statistical, &amp; Logical/Text functions.
+                      </p>
+                    </div>
+                  </div>
+                  <a
+                    href="/simulators/excel-core-workshop"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      background: '#0284c7',
+                      color: '#ffffff',
+                      padding: '7px 14px',
+                      borderRadius: '6px',
+                      fontWeight: 700,
+                      fontSize: '0.82rem',
+                      textDecoration: 'none',
+                      boxShadow: '0 2px 6px rgba(2, 132, 199, 0.35)'
+                    }}
+                  >
+                    Open 2–4 Hr Workshop Simulator ↗
+                  </a>
+                </div>
+              )}
+
               {/* Navigation Grid (Parts TOC) if available */}
               {data?.parts && (
                 <div style={{

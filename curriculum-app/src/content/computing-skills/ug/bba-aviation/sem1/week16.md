@@ -12,6 +12,7 @@ Welcome to Session 16. Today we will be covering the following topics:
 * **3.6.4 Text functions: UPPER, LOWER, PROPER**
 * **3.6.5 Text functions: LEFT, RIGHT, MID**
 * **3.6.6 Hands-on: Formatting and evaluating passenger data**
+* **3.6.7 Milestone Lab: 2–4 Hour Spreadsheet Core Simulator (Sessions 1–6)**
 
 ---
 
@@ -63,6 +64,20 @@ Welcome to Session 16. Today we will be covering the following topics:
 * **Step 1:** You have a messy list of passenger names in all lowercase. Create a new column and use `=PROPER()` to fix them.
 * **Step 2:** Use `=LEFT()` to extract the 3-letter airport code from a routing string (e.g., "JFK-LHR").
 * **Step 3:** Use an `=IF()` statement to flag passengers whose frequent flyer miles are > 50,000 as "VIP".
+
+---
+
+# 3.6.7 Milestone Lab: 2–4 Hour Spreadsheet Core Simulator (Sessions 1–6)
+
+* **Comprehensive Flight Operations Analytics Lab**:
+  1. **Basic Math**: Luggage penalty calculation with exact PEMDAS order of operations.
+  2. **Cell Referencing**: Locking aviation GST with `$E$1` vs relative shift errors.
+  3. **Statistical Functions**: Live `=SUM()`, `=AVERAGE()`, `=MAX()`, `=MIN()`, and `=COUNTA()` across daily flight manifest.
+  4. **Logical & Text**: Automated `=IF()` priority lounge flags + text sanitization (`PROPER`, `TRIM`, `UPPER`).
+
+```excel-core-workshop
+```
+
 
 ---
 
