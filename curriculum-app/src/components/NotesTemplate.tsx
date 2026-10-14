@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { X, Printer, Loader2 } from 'lucide-react';
+import { X, Printer, Loader2, Sparkles } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 
 interface NotesTemplateProps {
@@ -332,6 +332,65 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
                   )}
                 </ul>
               </div>
+
+              {/* Interactive Simulator Banner for Session 14 / Unit 3 - Screen Only */}
+              {(String(weekNumber) === '14' || String(weekNumber) === 'unit-3' || theme.toLowerCase().includes('referencing')) && (
+                <div className="no-print" style={{
+                  background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
+                  borderRadius: '8px',
+                  padding: '1.1rem 1.35rem',
+                  marginBottom: '1.75rem',
+                  border: '1px solid #334155',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  flexWrap: 'wrap',
+                  gap: '12px',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <div style={{
+                      background: '#eab308',
+                      color: '#0f172a',
+                      padding: '8px',
+                      borderRadius: '6px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}>
+                      <Sparkles size={20} />
+                    </div>
+                    <div>
+                      <h4 style={{ margin: '0 0 2px 0', color: '#f8fafc', fontSize: '0.92rem', fontWeight: 700 }}>
+                        Interactive Absolute Referencing ($) Simulator Available!
+                      </h4>
+                      <p style={{ margin: 0, color: '#94a3b8', fontSize: '0.8rem' }}>
+                        Test dragging formulas with and without the dollar lock across passenger ticket calculations.
+                      </p>
+                    </div>
+                  </div>
+                  <a
+                    href="/simulators/absolute-referencing"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      background: '#eab308',
+                      color: '#0f172a',
+                      padding: '7px 14px',
+                      borderRadius: '6px',
+                      fontWeight: 700,
+                      fontSize: '0.82rem',
+                      textDecoration: 'none',
+                      boxShadow: '0 2px 6px rgba(234, 179, 8, 0.25)'
+                    }}
+                  >
+                    Launch Interactive Simulator ↗
+                  </a>
+                </div>
+              )}
 
               {/* Navigation Grid (Parts TOC) if available */}
               {data?.parts && (

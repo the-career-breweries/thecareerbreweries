@@ -32,6 +32,13 @@ Welcome to Session 14. Today we will be covering the following topics:
 
 ---
 
+# 3.4.2 Interactive Simulator: The Dollar Lock ($) in Action
+
+```absolute-referencing
+```
+
+---
+
 # 3.4.3 Mixed cell referencing
 
 * **Definition:** Locking only the Row OR the Column, but not both.

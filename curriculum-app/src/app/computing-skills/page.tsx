@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, Fragment } from 'react';
+import Link from 'next/link';
 import { curriculumDataComputing as curriculumData, WeekData } from '@/data/curriculum-computing';
 import { Search, Loader2, Sparkles, Sun, Moon, BookOpen, GraduationCap, LayoutDashboard, ChevronRight, Users, RotateCcw, Menu, FileText } from 'lucide-react';
 import SlideViewer from '@/components/SlideViewer';
@@ -540,6 +541,31 @@ export default function CommunicativeEnglishApp() {
                                 <span>Notes</span>
                                 <FileText size={16} />
                               </div>
+                              {Number(week.week) === 14 && (
+                                <Link
+                                  href="/simulators/absolute-referencing"
+                                  style={{
+                                    textDecoration: 'none',
+                                    background: 'rgba(234, 179, 8, 0.12)',
+                                    border: '1px solid rgba(234, 179, 8, 0.35)',
+                                    color: '#eab308',
+                                    padding: '8px 16px',
+                                    borderRadius: '8px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'space-between',
+                                    fontWeight: 600,
+                                    fontSize: '0.82rem',
+                                    cursor: 'pointer'
+                                  }}
+                                  onClick={(e) => e.stopPropagation()}
+                                >
+                                  <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                    <Sparkles size={14} /> Try $ Simulator
+                                  </span>
+                                  <ChevronRight size={14} />
+                                </Link>
+                              )}
                             </div>
                             {/* Progress Bar inside module card */}
                             <div style={{ width: '100%', height: '4px', background: 'var(--border-sidebar)', position: 'absolute', bottom: 0, left: 0 }}>

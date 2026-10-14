@@ -14,6 +14,7 @@ import AnatomyWidget from './AnatomyWidget';
 import QRCodeForm from './QRCodeForm';
 import AbsurdAbstract from './AbsurdAbstract';
 import SentenceActivity from './SentenceActivity';
+import AbsoluteReferencingSimulator from './AbsoluteReferencingSimulator';
 import confetti from 'canvas-confetti';
 
 const Mermaid = ({ chart, theme }: { chart: string, theme: 'light' | 'dark' }) => {
@@ -645,6 +646,9 @@ export default function SlideViewer
                           }
                           if (!inline && match && match[1] === 'block-diagram') {
                             return <BlockDiagramInteractive />;
+                          }
+                          if (!inline && match && match[1] === 'absolute-referencing') {
+                            return <AbsoluteReferencingSimulator />;
                           }
                           if (!inline && match && match[1] === 'topic-generator') {
                           const customTopics = String(children).trim().split('\n').map(t => t.trim()).filter(t => t.length > 0);
