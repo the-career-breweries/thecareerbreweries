@@ -2,7 +2,7 @@
 
 import { useState, useEffect, Fragment } from 'react';
 import { curriculumDataEnglish as curriculumData, WeekData } from '@/data/curriculum-english';
-import { Search, Loader2, Sparkles, Sun, Moon, BookOpen, GraduationCap, LayoutDashboard, ChevronRight, Users, RotateCcw, Menu, FileText } from 'lucide-react';
+import { Search, Loader2, Sparkles, Sun, Moon, BookOpen, GraduationCap, LayoutDashboard, ChevronRight, Users, RotateCcw, Menu, FileText, Download } from 'lucide-react';
 import SlideViewer from '@/components/SlideViewer';
 import NotesTemplate from '@/components/NotesTemplate';
 import WelcomeScreen from '@/components/WelcomeScreen';
@@ -581,7 +581,7 @@ export default function CommunicativeEnglishApp() {
                         <strong> Operational Circulars &amp; Passenger Advisories</strong>, <strong>Pre-Flight CRM Briefing</strong>, and <strong>Station Crisis SOP &amp; DGCA Passenger Rights</strong>.
                       </p>
                     </div>
-                    <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                    <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
                       <button
                         onClick={() => {
                           setActiveNotesLesson({
@@ -613,6 +613,29 @@ export default function CommunicativeEnglishApp() {
                         <FileText size={18} />
                         <span>Open SEE Exam Booster Notes (PDF Ready)</span>
                       </button>
+                      <a
+                        href="/SEE_Communicative_English_High_Yield_Supplementary_Notes.pdf"
+                        download="SEE_Communicative_English_High_Yield_Supplementary_Notes.pdf"
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '8px',
+                          background: 'rgba(255, 255, 255, 0.08)',
+                          color: '#ffffff',
+                          padding: '12px 18px',
+                          borderRadius: '8px',
+                          fontWeight: 700,
+                          fontSize: '0.9rem',
+                          textDecoration: 'none',
+                          border: '1px solid rgba(255, 255, 255, 0.25)',
+                          cursor: 'pointer',
+                          boxShadow: '0 2px 6px rgba(0, 0, 0, 0.2)',
+                          transition: 'all 0.2s'
+                        }}
+                      >
+                        <Download size={18} />
+                        <span>Download 21-Page PDF</span>
+                      </a>
                     </div>
                   </div>
 

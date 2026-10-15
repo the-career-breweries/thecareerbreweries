@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { X, Printer, Loader2, Sparkles } from 'lucide-react';
+import { X, Printer, Loader2, Sparkles, Download } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 
 interface NotesTemplateProps {
@@ -227,6 +227,20 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
             </span>
           </div>
           <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
+            {sessionIdentifier.includes('see') && (
+              <a 
+                href="/SEE_Communicative_English_High_Yield_Supplementary_Notes.pdf" 
+                download="SEE_Communicative_English_High_Yield_Supplementary_Notes.pdf"
+                style={{
+                  display: 'flex', alignItems: 'center', gap: '6px', padding: '7px 14px',
+                  background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)', color: 'white', textDecoration: 'none',
+                  borderRadius: '6px', fontWeight: 600,
+                  fontSize: '0.85rem', boxShadow: '0 2px 6px rgba(99, 102, 241, 0.35)'
+                }}
+              >
+                <Download size={16} /> Download 21-Page PDF
+              </a>
+            )}
             <button 
               onClick={handlePrint} 
               disabled={loading} 
