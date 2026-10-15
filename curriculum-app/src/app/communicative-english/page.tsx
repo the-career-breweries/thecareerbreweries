@@ -415,6 +415,33 @@ export default function CommunicativeEnglishApp() {
                     <LayoutDashboard size={18} />
                     <span>Semester Overview</span>
                   </li>
+                  <li 
+                    className="module-item"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(79, 70, 229, 0.08) 100%)',
+                      borderLeft: '3px solid #6366f1',
+                      marginTop: '4px',
+                      marginBottom: '8px',
+                      cursor: 'pointer'
+                    }}
+                    onClick={() => {
+                      setActiveNotesLesson({
+                        week: 'see-booster',
+                        semester: selectedSemester,
+                        theme: 'SEE High-Yield Supplementary Notes & Exam Booster Module',
+                        focus: 'Audited against official SEE question papers (Set 1, Set 2 & Model Papers) · 6 High-Yield Exam Topics (5–10 Marks each)',
+                        task: 'SEE Exam Revision & Mastery',
+                        rubric: 'Mastery',
+                        label: 'SEE Exam Booster'
+                      });
+                    }}
+                  >
+                    <Sparkles size={18} color="#6366f1" />
+                    <div className="module-item-text">
+                      <span className="module-week-label" style={{ color: '#4f46e5', fontWeight: 700 }}>🎯 SEE Exam Booster</span>
+                      <span className="module-theme-label" title="Audited High-Yield Notes (6 Core Modules)">6 High-Yield Topics (5–10 Marks)</span>
+                    </div>
+                  </li>
                   {activeWeeks.map((week) => (
                     <li 
                       key={week.week} 
@@ -511,6 +538,83 @@ export default function CommunicativeEnglishApp() {
                       )}
                     </div>
                   )}
+
+                  {/* SEE High-Yield Exam Booster Banner - Screen & Direct Launch */}
+                  <div style={{
+                    background: 'linear-gradient(135deg, #091322 0%, #0f243e 50%, #1e1b4b 100%)',
+                    borderRadius: '12px',
+                    padding: '1.4rem 1.75rem',
+                    marginBottom: '2rem',
+                    border: '1.5px solid #6366f1',
+                    boxShadow: '0 8px 24px rgba(99, 102, 241, 0.15)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    flexWrap: 'wrap',
+                    gap: '16px'
+                  }}>
+                    <div style={{ flex: '1 1 500px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
+                        <span style={{
+                          background: 'rgba(99, 102, 241, 0.2)',
+                          color: '#a5b4fc',
+                          fontSize: '0.72rem',
+                          fontWeight: 800,
+                          padding: '3px 10px',
+                          borderRadius: '999px',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.08em',
+                          border: '1px solid rgba(165, 180, 252, 0.3)'
+                        }}>
+                          🎯 SEE High-Yield Exam Booster
+                        </span>
+                        <span style={{ color: '#94a3b8', fontSize: '0.8rem', fontWeight: 600 }}>
+                          Course Code: Z7AVA 26203 / Z7AVB 26203 · Batch 2026
+                        </span>
+                      </div>
+                      <h3 style={{ margin: '0 0 6px 0', color: '#ffffff', fontSize: '1.25rem', fontWeight: 800, letterSpacing: '-0.01em' }}>
+                        Semester End Examination (SEE) Supplementary Notes &amp; Exam Booster
+                      </h3>
+                      <p style={{ margin: 0, color: '#cbd5e1', fontSize: '0.88rem', lineHeight: '1.5' }}>
+                        Audited against official SEE question papers (Set 1, Set 2 &amp; Model Papers). Master all 6 missing core topics carrying 5 to 10 marks: 
+                        <strong> Shannon-Weaver Model</strong>, <strong>Active vs. Passive Voice</strong>, <strong>30 Aviation Acronyms Glossary</strong>, 
+                        <strong> Operational Circulars &amp; Passenger Advisories</strong>, <strong>Pre-Flight CRM Briefing</strong>, and <strong>Station Crisis SOP &amp; DGCA Passenger Rights</strong>.
+                      </p>
+                    </div>
+                    <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                      <button
+                        onClick={() => {
+                          setActiveNotesLesson({
+                            week: 'see-booster',
+                            semester: selectedSemester,
+                            theme: 'SEE High-Yield Supplementary Notes & Exam Booster Module',
+                            focus: 'Audited against official SEE Question Papers (Set 1, Set 2 & Model Papers) · 6 High-Yield Exam Topics (5–10 Marks each)',
+                            task: 'SEE Exam Revision & Mastery',
+                            rubric: 'Mastery',
+                            label: 'SEE Exam Booster'
+                          });
+                        }}
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '8px',
+                          background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)',
+                          color: '#ffffff',
+                          padding: '12px 20px',
+                          borderRadius: '8px',
+                          fontWeight: 700,
+                          fontSize: '0.9rem',
+                          border: 'none',
+                          cursor: 'pointer',
+                          boxShadow: '0 4px 14px rgba(99, 102, 241, 0.35)',
+                          transition: 'all 0.2s'
+                        }}
+                      >
+                        <FileText size={18} />
+                        <span>Open SEE Exam Booster Notes (PDF Ready)</span>
+                      </button>
+                    </div>
+                  </div>
 
                   <div className="modules-grid">
                     {activeWeeks.map((week) => {

@@ -291,7 +291,7 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
                   </p>
                 )}
                 <div style={{
-                  color: '#64748b', fontSize: '0.85rem', display: 'flex', gap: '0.75rem', flexWrap: 'wrap'
+                  color: '#64748b', fontSize: '0.85rem', display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center'
                 }}>
                   <span><strong>Course Code:</strong> {
                     data?.courseCode && !['ENG 101', 'CS 101'].includes(data.courseCode)
@@ -300,12 +300,14 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
                           ? 'Z7AVA 26209'
                           : (courseName.toLowerCase().includes('soft skill')
                               ? 'Z7AVA 26210'
-                              : 'Z7AVB 26203'))
+                              : 'Z7AVA 26203 / Z7AVB 26203'))
                   }</span>
                   <span>|</span>
-                  <span>Theory</span>
+                  <span><strong>Author / Trainer:</strong> {data?.author || 'S D Sandarsh | Communicative English, Soft Skills & Employability Trainer (+91 97437 11584)'}</span>
                   <span>|</span>
-                  <span>Simple explanations · Worked examples · Memory tricks · Exam tips</span>
+                  <span>Theory &amp; Practical Application</span>
+                  <span>|</span>
+                  <span>Dual-Context Pedagogy · Worked Models · BTL 1–6 Questions</span>
                 </div>
               </div>
 
@@ -498,9 +500,9 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
                     </h3>
                     
                     {topic.premise && (
-                      <p style={{ margin: '0 0 1rem 0', fontSize: '0.9rem', color: '#334155', lineHeight: '1.6' }}>
-                        {topic.premise}
-                      </p>
+                      <div style={{ margin: '0 0 1rem 0', fontSize: '0.9rem', color: '#334155', lineHeight: '1.6', whiteSpace: 'pre-line' }}>
+                        {renderFormattedText(topic.premise)}
+                      </div>
                     )}
 
                     {/* Topic Table */}
@@ -539,9 +541,9 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
                         }}>
                           {topic.rule.title}
                         </h4>
-                        <p style={{ margin: 0, color: '#166534', fontSize: '0.85rem', lineHeight: '1.5' }}>
-                          {topic.rule.text}
-                        </p>
+                        <div style={{ margin: 0, color: '#166534', fontSize: '0.85rem', lineHeight: '1.5', whiteSpace: 'pre-line' }}>
+                          {renderFormattedText(topic.rule.text)}
+                        </div>
                       </div>
                     )}
 
@@ -549,32 +551,51 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
                     {topic.workedExample && (
                       <div className="worked-example-box" style={{
                         background: '#f0f9ff', border: '1px solid #bae6fd', borderLeft: '4px solid #0284c7',
-                        padding: '10px 14px', borderRadius: '4px', margin: '1rem 0'
+                        padding: '12px 16px', borderRadius: '4px', margin: '1.25rem 0'
                       }}>
                         <h4 style={{
-                          margin: '0 0 0.35rem 0', color: '#0369a1', fontSize: '0.78rem', fontWeight: 800,
+                          margin: '0 0 0.45rem 0', color: '#0369a1', fontSize: '0.82rem', fontWeight: 800,
                           textTransform: 'uppercase', letterSpacing: '0.06em'
                         }}>
                           {topic.workedExample.title || 'Worked Example'}
                         </h4>
                         <div style={{ color: '#0c4a6e', fontSize: '0.85rem', lineHeight: '1.55' }}>
-                          {topic.workedExample.text && <p style={{ margin: '0 0 0.5rem 0' }}>{topic.workedExample.text}</p>}
+                          {topic.workedExample.text && (
+                            <div style={{ margin: '0 0 0.65rem 0', whiteSpace: 'pre-line' }}>
+                              {renderFormattedText(topic.workedExample.text)}
+                            </div>
+                          )}
                           {topic.workedExample.everydayContext && (
-                            <div style={{ background: '#ffffff', padding: '6px 10px', borderRadius: '4px', border: '1px solid #e0f2fe', marginBottom: '6px' }}>
-                              <strong style={{ color: '#0369a1' }}>Everyday Example:</strong> {topic.workedExample.everydayContext}
+                            <div style={{ background: '#ffffff', padding: '8px 12px', borderRadius: '4px', border: '1px solid #e0f2fe', marginBottom: '8px', lineHeight: '1.5' }}>
+                              <strong style={{ color: '#0369a1' }}>Everyday Example:</strong> {renderFormattedText(topic.workedExample.everydayContext)}
                             </div>
                           )}
                           {topic.workedExample.aviationContext && (
-                            <div style={{ background: '#ffffff', padding: '6px 10px', borderRadius: '4px', border: '1px solid #e0f2fe', marginBottom: '6px' }}>
-                              <strong style={{ color: '#0369a1' }}>Aviation Application:</strong> {topic.workedExample.aviationContext}
+                            <div style={{ background: '#ffffff', padding: '8px 12px', borderRadius: '4px', border: '1px solid #e0f2fe', marginBottom: '8px', lineHeight: '1.5' }}>
+                              <strong style={{ color: '#0369a1' }}>Aviation Application:</strong> {renderFormattedText(topic.workedExample.aviationContext)}
                             </div>
                           )}
-                          {topic.workedExample.steps?.map((step: string, sIdx: number) => (
-                            <div key={sIdx} style={{ marginBottom: '2px' }}>{step}</div>
-                          ))}
+                          {topic.workedExample.steps && topic.workedExample.steps.length > 0 && (
+                            <div style={{ background: '#ffffff', padding: '10px 14px', borderRadius: '4px', border: '1px solid #e0f2fe', margin: '8px 0' }}>
+                              {topic.workedExample.steps.map((step: string, sIdx: number) => {
+                                const isHeader = (step.startsWith('[') && step.endsWith(']:')) || step.startsWith('###') || step.startsWith('==');
+                                return (
+                                  <div key={sIdx} style={{
+                                    marginBottom: isHeader ? '6px' : '3px',
+                                    marginTop: isHeader ? '8px' : '0',
+                                    fontWeight: isHeader ? 700 : 400,
+                                    color: isHeader ? '#0369a1' : 'inherit',
+                                    fontSize: '0.84rem'
+                                  }}>
+                                    {renderFormattedText(step)}
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          )}
                           {topic.workedExample.verdict && (
-                            <div style={{ marginTop: '0.5rem', fontWeight: 700, color: '#0369a1' }}>
-                              Key Takeaway: {topic.workedExample.verdict}
+                            <div style={{ marginTop: '0.5rem', fontWeight: 700, color: '#0369a1', lineHeight: '1.5' }}>
+                              Key Takeaway: {renderFormattedText(topic.workedExample.verdict)}
                             </div>
                           )}
                         </div>
@@ -593,9 +614,9 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
                         }}>
                           Memory Trick
                         </h4>
-                        <p style={{ margin: 0, color: '#581c87', fontSize: '0.85rem', fontWeight: 500, lineHeight: '1.5' }}>
-                          {topic.memoryTrick}
-                        </p>
+                        <div style={{ margin: 0, color: '#581c87', fontSize: '0.85rem', fontWeight: 500, lineHeight: '1.5', whiteSpace: 'pre-line' }}>
+                          {renderFormattedText(topic.memoryTrick)}
+                        </div>
                       </div>
                     )}
 
@@ -611,9 +632,9 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
                         }}>
                           {topic.isTrap ? 'Common Exam Trap' : 'Exam Tip'}
                         </h4>
-                        <p style={{ margin: 0, color: '#78350f', fontSize: '0.85rem', lineHeight: '1.5' }}>
-                          {topic.examTip}
-                        </p>
+                        <div style={{ margin: 0, color: '#78350f', fontSize: '0.85rem', lineHeight: '1.5', whiteSpace: 'pre-line' }}>
+                          {renderFormattedText(topic.examTip)}
+                        </div>
                       </div>
                     )}
                   </div>
@@ -793,7 +814,7 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
                         {Object.entries(data.btlQuestions).map(([level, q]: [string, any], idx: number) => (
                           <tr key={idx}>
                             <td><strong>{level}</strong></td>
-                            <td>{q}</td>
+                            <td>{renderFormattedText(q)}</td>
                           </tr>
                         ))}
                       </tbody>
