@@ -542,307 +542,332 @@ export default function CommunicativeEnglishApp() {
                                 <FileText size={16} />
                               </div>
                               {Number(week.week) === 13 && (
-                                <Link
-                                  href="/simulators/excel-demo-datasets"
-                                  style={{
-                                    textDecoration: 'none',
-                                    background: 'rgba(56, 189, 248, 0.12)',
-                                    border: '1px solid rgba(56, 189, 248, 0.35)',
-                                    color: '#38bdf8',
-                                    padding: '8px 16px',
-                                    borderRadius: '8px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'space-between',
-                                    fontWeight: 600,
-                                    fontSize: '0.82rem',
-                                    cursor: 'pointer'
-                                  }}
-                                  onClick={(e) => e.stopPropagation()}
-                                >
-                                  <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                    <FileSpreadsheet size={14} /> Demo Data: Math Functions
-                                  </span>
-                                  <ChevronRight size={14} />
-                                </Link>
-                                <a
-                                  href="/sample-data/01_Aviation_Essential_Functions_Dataset.csv"
-                                  download="01_Aviation_Essential_Functions_Dataset.csv"
-                                  style={{
-                                    textDecoration: 'none',
-                                    background: 'rgba(56, 189, 248, 0.08)',
-                                    border: '1px dashed rgba(56, 189, 248, 0.4)',
-                                    color: '#38bdf8',
-                                    padding: '6px 12px',
-                                    borderRadius: '6px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    gap: '6px',
-                                    fontWeight: 600,
-                                    fontSize: '0.76rem',
-                                    cursor: 'pointer'
-                                  }}
-                                  onClick={(e) => e.stopPropagation()}
-                                  title="Download sample CSV to send to student group"
-                                >
-                                  <Download size={13} /> Download Sample File (.csv)
-                                </a>
-                              )}
-                              {Number(week.week) === 14 && (
-                                <a
-                                  href="/sample-data/01_Aviation_Essential_Functions_Dataset.csv"
-                                  download="01_Aviation_Essential_Functions_Dataset.csv"
-                                  style={{
-                                    textDecoration: 'none',
-                                    background: 'rgba(234, 179, 8, 0.08)',
-                                    border: '1px dashed rgba(234, 179, 8, 0.4)',
-                                    color: '#eab308',
-                                    padding: '6px 12px',
-                                    borderRadius: '6px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    gap: '6px',
-                                    fontWeight: 600,
-                                    fontSize: '0.76rem',
-                                    cursor: 'pointer',
-                                    marginBottom: '4px'
-                                  }}
-                                  onClick={(e) => e.stopPropagation()}
-                                  title="Download sample CSV to send to student group"
-                                >
-                                  <Download size={13} /> Download Sample File (.csv)
-                                </a>
-                              )}
-                              {Number(week.week) === 14 && (
-                                <Link
-                                  href="/simulators/absolute-referencing"
-                                  style={{
-                                    textDecoration: 'none',
-                                    background: 'rgba(234, 179, 8, 0.12)',
-                                    border: '1px solid rgba(234, 179, 8, 0.35)',
-                                    color: '#eab308',
-                                    padding: '8px 16px',
-                                    borderRadius: '8px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'space-between',
-                                    fontWeight: 600,
-                                    fontSize: '0.82rem',
-                                    cursor: 'pointer'
-                                  }}
-                                  onClick={(e) => e.stopPropagation()}
-                                >
-                                  <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                    <Sparkles size={14} /> Try $ Simulator
-                                  </span>
-                                  <ChevronRight size={14} />
-                                </Link>
-                              )}
-                              {Number(week.week) === 15 && (
-                                <a
-                                  href="/sample-data/01_Aviation_Essential_Functions_Dataset.csv"
-                                  download="01_Aviation_Essential_Functions_Dataset.csv"
-                                  style={{
-                                    textDecoration: 'none',
-                                    background: 'rgba(16, 185, 129, 0.08)',
-                                    border: '1px dashed rgba(16, 185, 129, 0.4)',
-                                    color: '#10b981',
-                                    padding: '6px 12px',
-                                    borderRadius: '6px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    gap: '6px',
-                                    fontWeight: 600,
-                                    fontSize: '0.76rem',
-                                    cursor: 'pointer',
-                                    marginBottom: '4px'
-                                  }}
-                                  onClick={(e) => e.stopPropagation()}
-                                  title="Download sample CSV to send to student group"
-                                >
-                                  <Download size={13} /> Download Sample File (.csv)
-                                </a>
-                              )}
-                              {Number(week.week) === 15 && (
-                                <Link
-                                  href="/simulators/excel-demo-datasets"
-                                  style={{
-                                    textDecoration: 'none',
-                                    background: 'rgba(16, 185, 129, 0.12)',
-                                    border: '1px solid rgba(16, 185, 129, 0.35)',
-                                    color: '#10b981',
-                                    padding: '8px 16px',
-                                    borderRadius: '8px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'space-between',
-                                    fontWeight: 600,
-                                    fontSize: '0.82rem',
-                                    cursor: 'pointer'
-                                  }}
-                                  onClick={(e) => e.stopPropagation()}
-                                >
-                                  <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                    <FileSpreadsheet size={14} /> Demo Data: Stats (SUM/AVG)
-                                  </span>
-                                  <ChevronRight size={14} />
-                                </Link>
-                              )}
-                              {Number(week.week) === 17 && (
-                                <div style={{ display: 'flex', gap: '6px', marginBottom: '4px' }}>
-                                  <a
-                                    href="/sample-data/03_Aviation_VLOOKUP_HLOOKUP_Tariffs.csv"
-                                    download="03_Aviation_VLOOKUP_HLOOKUP_Tariffs.csv"
+                                <Fragment>
+                                  <Link
+                                    href="/simulators/excel-demo-datasets"
                                     style={{
-                                      flex: 1,
+                                      textDecoration: 'none',
+                                      background: 'rgba(56, 189, 248, 0.12)',
+                                      border: '1px solid rgba(56, 189, 248, 0.35)',
+                                      color: '#38bdf8',
+                                      padding: '8px 16px',
+                                      borderRadius: '8px',
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      justifyContent: 'space-between',
+                                      fontWeight: 600,
+                                      fontSize: '0.82rem',
+                                      cursor: 'pointer'
+                                    }}
+                                    onClick={(e) => e.stopPropagation()}
+                                  >
+                                    <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                      <FileSpreadsheet size={14} /> Demo Data: Math Functions
+                                    </span>
+                                    <ChevronRight size={14} />
+                                  </Link>
+                                  <a
+                                    href="/sample-data/01_Aviation_Essential_Functions_Dataset.csv"
+                                    download="01_Aviation_Essential_Functions_Dataset.csv"
+                                    style={{
+                                      textDecoration: 'none',
+                                      background: 'rgba(56, 189, 248, 0.08)',
+                                      border: '1px dashed rgba(56, 189, 248, 0.4)',
+                                      color: '#38bdf8',
+                                      padding: '6px 12px',
+                                      borderRadius: '6px',
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      justifyContent: 'center',
+                                      gap: '6px',
+                                      fontWeight: 600,
+                                      fontSize: '0.76rem',
+                                      cursor: 'pointer'
+                                    }}
+                                    onClick={(e) => e.stopPropagation()}
+                                    title="Download sample CSV to send to student group"
+                                  >
+                                    <Download size={13} /> Download Sample File (.csv)
+                                  </a>
+                                </Fragment>
+                              )}
+                              {Number(week.week) === 14 && (
+                                <Fragment>
+                                  <Link
+                                    href="/simulators/absolute-referencing"
+                                    style={{
+                                      textDecoration: 'none',
+                                      background: 'rgba(234, 179, 8, 0.12)',
+                                      border: '1px solid rgba(234, 179, 8, 0.35)',
+                                      color: '#eab308',
+                                      padding: '8px 16px',
+                                      borderRadius: '8px',
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      justifyContent: 'space-between',
+                                      fontWeight: 600,
+                                      fontSize: '0.82rem',
+                                      cursor: 'pointer'
+                                    }}
+                                    onClick={(e) => e.stopPropagation()}
+                                  >
+                                    <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                      <Sparkles size={14} /> Try $ Simulator
+                                    </span>
+                                    <ChevronRight size={14} />
+                                  </Link>
+                                  <a
+                                    href="/sample-data/01_Aviation_Essential_Functions_Dataset.csv"
+                                    download="01_Aviation_Essential_Functions_Dataset.csv"
+                                    style={{
                                       textDecoration: 'none',
                                       background: 'rgba(234, 179, 8, 0.08)',
                                       border: '1px dashed rgba(234, 179, 8, 0.4)',
                                       color: '#eab308',
-                                      padding: '5px 8px',
+                                      padding: '6px 12px',
                                       borderRadius: '6px',
                                       display: 'flex',
                                       alignItems: 'center',
                                       justifyContent: 'center',
-                                      gap: '4px',
+                                      gap: '6px',
                                       fontWeight: 600,
-                                      fontSize: '0.72rem',
+                                      fontSize: '0.76rem',
                                       cursor: 'pointer'
                                     }}
                                     onClick={(e) => e.stopPropagation()}
-                                    title="Download VLOOKUP/HLOOKUP Cargo Tariffs (.csv)"
+                                    title="Download sample CSV to send to student group"
                                   >
-                                    <Download size={12} /> V/HLOOKUP (.csv)
+                                    <Download size={13} /> Download Sample File (.csv)
                                   </a>
-                                  <a
-                                    href="/sample-data/04_Aviation_XLOOKUP_Crew_Snag_Master.csv"
-                                    download="04_Aviation_XLOOKUP_Crew_Snag_Master.csv"
+                                </Fragment>
+                              )}
+                              {Number(week.week) === 15 && (
+                                <Fragment>
+                                  <Link
+                                    href="/simulators/excel-demo-datasets"
                                     style={{
-                                      flex: 1,
                                       textDecoration: 'none',
-                                      background: 'rgba(244, 63, 94, 0.08)',
-                                      border: '1px dashed rgba(244, 63, 94, 0.4)',
-                                      color: '#fb7185',
-                                      padding: '5px 8px',
+                                      background: 'rgba(16, 185, 129, 0.12)',
+                                      border: '1px solid rgba(16, 185, 129, 0.35)',
+                                      color: '#10b981',
+                                      padding: '8px 16px',
+                                      borderRadius: '8px',
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      justifyContent: 'space-between',
+                                      fontWeight: 600,
+                                      fontSize: '0.82rem',
+                                      cursor: 'pointer'
+                                    }}
+                                    onClick={(e) => e.stopPropagation()}
+                                  >
+                                    <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                      <FileSpreadsheet size={14} /> Demo Data: Stats (SUM/AVG)
+                                    </span>
+                                    <ChevronRight size={14} />
+                                  </Link>
+                                  <a
+                                    href="/sample-data/01_Aviation_Essential_Functions_Dataset.csv"
+                                    download="01_Aviation_Essential_Functions_Dataset.csv"
+                                    style={{
+                                      textDecoration: 'none',
+                                      background: 'rgba(16, 185, 129, 0.08)',
+                                      border: '1px dashed rgba(16, 185, 129, 0.4)',
+                                      color: '#10b981',
+                                      padding: '6px 12px',
                                       borderRadius: '6px',
                                       display: 'flex',
                                       alignItems: 'center',
                                       justifyContent: 'center',
-                                      gap: '4px',
+                                      gap: '6px',
                                       fontWeight: 600,
-                                      fontSize: '0.72rem',
+                                      fontSize: '0.76rem',
                                       cursor: 'pointer'
                                     }}
                                     onClick={(e) => e.stopPropagation()}
-                                    title="Download XLOOKUP Crew Dispatch Master (.csv)"
+                                    title="Download sample CSV to send to student group"
                                   >
-                                    <Download size={12} /> XLOOKUP (.csv)
+                                    <Download size={13} /> Download Sample File (.csv)
                                   </a>
-                                </div>
+                                </Fragment>
                               )}
                               {Number(week.week) === 17 && (
-                                <Link
-                                  href="/simulators/excel-demo-datasets"
-                                  style={{
-                                    textDecoration: 'none',
-                                    background: 'rgba(234, 179, 8, 0.12)',
-                                    border: '1px solid rgba(234, 179, 8, 0.35)',
-                                    color: '#eab308',
-                                    padding: '8px 16px',
-                                    borderRadius: '8px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'space-between',
-                                    fontWeight: 600,
-                                    fontSize: '0.82rem',
-                                    cursor: 'pointer'
-                                  }}
-                                  onClick={(e) => e.stopPropagation()}
-                                >
-                                  <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                    <FileSpreadsheet size={14} /> Demo Data: Lookups (V/H/X)
-                                  </span>
-                                  <ChevronRight size={14} />
-                                </Link>
+                                <Fragment>
+                                  <Link
+                                    href="/simulators/excel-demo-datasets"
+                                    style={{
+                                      textDecoration: 'none',
+                                      background: 'rgba(234, 179, 8, 0.12)',
+                                      border: '1px solid rgba(234, 179, 8, 0.35)',
+                                      color: '#eab308',
+                                      padding: '8px 16px',
+                                      borderRadius: '8px',
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      justifyContent: 'space-between',
+                                      fontWeight: 600,
+                                      fontSize: '0.82rem',
+                                      cursor: 'pointer'
+                                    }}
+                                    onClick={(e) => e.stopPropagation()}
+                                  >
+                                    <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                      <FileSpreadsheet size={14} /> Demo Data: Lookups (V/H/X)
+                                    </span>
+                                    <ChevronRight size={14} />
+                                  </Link>
+                                  <div style={{ display: 'flex', gap: '6px' }}>
+                                    <a
+                                      href="/sample-data/03_Aviation_VLOOKUP_HLOOKUP_Tariffs.csv"
+                                      download="03_Aviation_VLOOKUP_HLOOKUP_Tariffs.csv"
+                                      style={{
+                                        flex: 1,
+                                        textDecoration: 'none',
+                                        background: 'rgba(234, 179, 8, 0.08)',
+                                        border: '1px dashed rgba(234, 179, 8, 0.4)',
+                                        color: '#eab308',
+                                        padding: '5px 8px',
+                                        borderRadius: '6px',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        gap: '4px',
+                                        fontWeight: 600,
+                                        fontSize: '0.72rem',
+                                        cursor: 'pointer'
+                                      }}
+                                      onClick={(e) => e.stopPropagation()}
+                                      title="Download VLOOKUP/HLOOKUP Cargo Tariffs (.csv)"
+                                    >
+                                      <Download size={12} /> V/HLOOKUP (.csv)
+                                    </a>
+                                    <a
+                                      href="/sample-data/04_Aviation_XLOOKUP_Crew_Snag_Master.csv"
+                                      download="04_Aviation_XLOOKUP_Crew_Snag_Master.csv"
+                                      style={{
+                                        flex: 1,
+                                        textDecoration: 'none',
+                                        background: 'rgba(244, 63, 94, 0.08)',
+                                        border: '1px dashed rgba(244, 63, 94, 0.4)',
+                                        color: '#fb7185',
+                                        padding: '5px 8px',
+                                        borderRadius: '6px',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        gap: '4px',
+                                        fontWeight: 600,
+                                        fontSize: '0.72rem',
+                                        cursor: 'pointer'
+                                      }}
+                                      onClick={(e) => e.stopPropagation()}
+                                      title="Download XLOOKUP Crew Dispatch Master (.csv)"
+                                    >
+                                      <Download size={12} /> XLOOKUP (.csv)
+                                    </a>
+                                  </div>
+                                </Fragment>
                               )}
                               {Number(week.week) === 18 && (
-                                <a
-                                  href="/sample-data/05_Aviation_BLR_Airport_Pivot_Master_Dataset.csv"
-                                  download="05_Aviation_BLR_Airport_Pivot_Master_Dataset.csv"
-                                  style={{
-                                    textDecoration: 'none',
-                                    background: 'rgba(16, 185, 129, 0.08)',
-                                    border: '1px dashed rgba(16, 185, 129, 0.4)',
-                                    color: '#34d399',
-                                    padding: '6px 12px',
-                                    borderRadius: '6px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    gap: '6px',
-                                    fontWeight: 600,
-                                    fontSize: '0.76rem',
-                                    cursor: 'pointer',
-                                    marginBottom: '4px'
-                                  }}
-                                  onClick={(e) => e.stopPropagation()}
-                                  title="Download BLR 50-Flight Operations Log (.csv) to send to student group"
-                                >
-                                  <Download size={13} /> Download Sample File (.csv)
-                                </a>
-                              )}
-                              {Number(week.week) === 18 && (
-                                <Link
-                                  href="/simulators/excel-demo-datasets"
-                                  style={{
-                                    textDecoration: 'none',
-                                    background: 'rgba(16, 185, 129, 0.12)',
-                                    border: '1px solid rgba(16, 185, 129, 0.35)',
-                                    color: '#34d399',
-                                    padding: '8px 16px',
-                                    borderRadius: '8px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'space-between',
-                                    fontWeight: 600,
-                                    fontSize: '0.82rem',
-                                    cursor: 'pointer'
-                                  }}
-                                  onClick={(e) => e.stopPropagation()}
-                                >
-                                  <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                    <FileSpreadsheet size={14} /> Demo Data: Pivots &amp; Charts
-                                  </span>
-                                  <ChevronRight size={14} />
-                                </Link>
+                                <Fragment>
+                                  <Link
+                                    href="/simulators/excel-demo-datasets"
+                                    style={{
+                                      textDecoration: 'none',
+                                      background: 'rgba(16, 185, 129, 0.12)',
+                                      border: '1px solid rgba(16, 185, 129, 0.35)',
+                                      color: '#34d399',
+                                      padding: '8px 16px',
+                                      borderRadius: '8px',
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      justifyContent: 'space-between',
+                                      fontWeight: 600,
+                                      fontSize: '0.82rem',
+                                      cursor: 'pointer'
+                                    }}
+                                    onClick={(e) => e.stopPropagation()}
+                                  >
+                                    <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                      <FileSpreadsheet size={14} /> Demo Data: Pivots &amp; Charts
+                                    </span>
+                                    <ChevronRight size={14} />
+                                  </Link>
+                                  <a
+                                    href="/sample-data/05_Aviation_BLR_Airport_Pivot_Master_Dataset.csv"
+                                    download="05_Aviation_BLR_Airport_Pivot_Master_Dataset.csv"
+                                    style={{
+                                      textDecoration: 'none',
+                                      background: 'rgba(16, 185, 129, 0.08)',
+                                      border: '1px dashed rgba(16, 185, 129, 0.4)',
+                                      color: '#34d399',
+                                      padding: '6px 12px',
+                                      borderRadius: '6px',
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      justifyContent: 'center',
+                                      gap: '6px',
+                                      fontWeight: 600,
+                                      fontSize: '0.76rem',
+                                      cursor: 'pointer'
+                                    }}
+                                    onClick={(e) => e.stopPropagation()}
+                                    title="Download BLR 50-Flight Operations Log (.csv) to send to student group"
+                                  >
+                                    <Download size={13} /> Download Sample File (.csv)
+                                  </a>
+                                </Fragment>
                               )}
                               {Number(week.week) === 16 && (
-                                <Link
-                                  href="/simulators/excel-demo-datasets"
-                                  style={{
-                                    textDecoration: 'none',
-                                    background: 'rgba(168, 85, 247, 0.12)',
-                                    border: '1px solid rgba(168, 85, 247, 0.35)',
-                                    color: '#c084fc',
-                                    padding: '8px 16px',
-                                    borderRadius: '8px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'space-between',
-                                    fontWeight: 600,
-                                    fontSize: '0.82rem',
-                                    cursor: 'pointer'
-                                  }}
-                                  onClick={(e) => e.stopPropagation()}
-                                >
-                                  <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                    <FileSpreadsheet size={14} /> Demo Data: IF &amp; Nested IF</span><ChevronRight size={14} /></Link><a href="/sample-data/02_Aviation_Logical_IF_Nested_IF_Dataset.csv" download="02_Aviation_Logical_IF_Nested_IF_Dataset.csv" style={{ textDecoration: 'none', background: 'rgba(168, 85, 247, 0.08)', border: '1px dashed rgba(168, 85, 247, 0.4)', color: '#c084fc', padding: '6px 12px', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontWeight: 600, fontSize: '0.76rem', cursor: 'pointer', marginTop: '4px' }} onClick={(e) => e.stopPropagation()} title="Download sample CSV to send to student group"><Download size={13} /> Download Sample File (.csv)</a><Link href="/simulators/excel-demo-datasets" style={{ display: 'none' }}><span style={{ display: 'none' }}>
-                                  </span>
-                                  <ChevronRight size={14} />
-                                </Link>
+                                <Fragment>
+                                  <Link
+                                    href="/simulators/excel-demo-datasets"
+                                    style={{
+                                      textDecoration: 'none',
+                                      background: 'rgba(168, 85, 247, 0.12)',
+                                      border: '1px solid rgba(168, 85, 247, 0.35)',
+                                      color: '#c084fc',
+                                      padding: '8px 16px',
+                                      borderRadius: '8px',
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      justifyContent: 'space-between',
+                                      fontWeight: 600,
+                                      fontSize: '0.82rem',
+                                      cursor: 'pointer'
+                                    }}
+                                    onClick={(e) => e.stopPropagation()}
+                                  >
+                                    <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                      <FileSpreadsheet size={14} /> Demo Data: IF &amp; Nested IF
+                                    </span>
+                                    <ChevronRight size={14} />
+                                  </Link>
+                                  <a
+                                    href="/sample-data/02_Aviation_Logical_IF_Nested_IF_Dataset.csv"
+                                    download="02_Aviation_Logical_IF_Nested_IF_Dataset.csv"
+                                    style={{
+                                      textDecoration: 'none',
+                                      background: 'rgba(168, 85, 247, 0.08)',
+                                      border: '1px dashed rgba(168, 85, 247, 0.4)',
+                                      color: '#c084fc',
+                                      padding: '6px 12px',
+                                      borderRadius: '6px',
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      justifyContent: 'center',
+                                      gap: '6px',
+                                      fontWeight: 600,
+                                      fontSize: '0.76rem',
+                                      cursor: 'pointer',
+                                      marginTop: '4px'
+                                    }}
+                                    onClick={(e) => e.stopPropagation()}
+                                    title="Download sample CSV to send to student group"
+                                  >
+                                    <Download size={13} /> Download Sample File (.csv)
+                                  </a>
+                                </Fragment>
                               )}
 
                               {Number(week.week) === 16 && (
@@ -1197,7 +1222,7 @@ export default function CommunicativeEnglishApp() {
           </div>
 
           {/* Presentation Slide Viewer Modal */}
-                    {/* Notes Template Modal */}
+          {/* Notes Template Modal */}
           {activeNotesLesson && (
             <NotesTemplate
               courseName='Introduction to Computing Skills'
