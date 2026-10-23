@@ -6888,6 +6888,17 @@
         "everydayContext": "Checking if your elevator weight is under the 500 kg safety limit.",
         "aviationContext": "Formula in B6: =B2 + B3 + B4 + B5 (Dry weight + Fuel + Cargo + Passengers) → 72,500 kg. Margin = 75000 - B6 = 2,500 kg.",
         "verdict": "Simple arithmetic verifies the aircraft is certified safe for flight."
+      },
+      "demoDataset": {
+        "title": "Dataset 1: Morning Departure Bank & Baggage Manifest (12 Flights)",
+        "file": "/sample-data/01_Aviation_Essential_Functions_Dataset.csv",
+        "interactiveHubUrl": "/simulators/excel-demo-datasets",
+        "description": "Interactive 12-flight morning bank manifest from Kempegowda International Airport (BLR). Demonstrates formula syntax (=), arithmetic operators (+, -, *, /), and PEMDAS precedence on fuel loads, baggage, passenger counts, and seat revenue.",
+        "keyFormulas": [
+          "=F2*G2 (Seat Revenue = Pax Checked In * Base Fare)",
+          "=C2+D2+E2 (Total Payload = Fuel + Cargo + Baggage Weight in kg)",
+          "=(F2/180)*100 (Passenger Load Factor percentage)"
+        ]
       }
     },
     "14": {
@@ -7014,6 +7025,19 @@
         "everydayContext": "A 50-seater college bus carrying 40 students is 40 / 50 = 80% full.",
         "aviationContext": "Total Seats in B2 = 180; Passengers on board in B3 = 153. Formula: =B3 / B2 = 0.85 (85% PLF).",
         "verdict": "Simple division calculates one of aviation's most vital financial metrics."
+      },
+      "demoDataset": {
+        "title": "Dataset 1: Morning Departure Bank Statistical Master (12 Flights)",
+        "file": "/sample-data/01_Aviation_Essential_Functions_Dataset.csv",
+        "interactiveHubUrl": "/simulators/excel-demo-datasets",
+        "description": "Calculates total revenue (=SUM(H2:H13)), average fare (=AVERAGE(G2:G13)), fleet frequency (=COUNTIF(B2:B13, \"A320neo\")), widebody revenue (=SUMIF(B2:B13, \"B777-300ER\", H2:H13)), and rounded values (=ROUND(..., 0)).",
+        "keyFormulas": [
+          "=SUM(H2:H13) (Total Bank Revenue: ₹86,16,500)",
+          "=AVERAGE(F2:F13) (Mean Passenger Load: 198.8 Pax)",
+          "=COUNTIF(B2:B13, \"A320neo\") (Fleet Count: 5 narrowbodies)",
+          "=SUMIF(B2:B13, \"B777-300ER\", H2:H13) (Widebody Revenue: ₹39,78,000)",
+          "=ROUND(AVERAGE(H2:H13), 0) (Rounded Average Flight Revenue: ₹7,18,042)"
+        ]
       }
     },
     "Mid-Sem": {
@@ -7116,6 +7140,18 @@
         "everydayContext": "If you buy 2 pizzas, drinks are free; otherwise drinks cost ₹50.",
         "aviationContext": "Bag weight in cell B2 = 21. Formula: =IF(B2>15, (B2-15)*500, 0) → (21-15)*500 = ₹3,000.",
         "verdict": "Automates instant billing at check-in, preventing agent calculation errors."
+      },
+      "demoDataset": {
+        "title": "Dataset 2: Passenger Delay Manifest & DGCA Compensation (10 PNRs)",
+        "file": "/sample-data/02_Aviation_Logical_IF_Nested_IF_Dataset.csv",
+        "interactiveHubUrl": "/simulators/excel-demo-datasets",
+        "description": "Live demonstration of simple IF (Baggage Surcharge), Nested IF & modern IFS (Frequent Flyer Tiers), and compound AND/OR logic for DGCA Flight Delay Compensation.",
+        "keyFormulas": [
+          "=IF(C2>15, (C2-15)*500, 0) (Excess baggage fee above 15kg at ₹500/kg)",
+          "=IF(D2>=100000, \"Platinum\", IF(D2>=50000, \"Gold\", IF(D2>=25000, \"Silver\", \"Base\"))) (4-tier loyalty)",
+          "=IFS(D2>=100000, \"Platinum\", D2>=50000, \"Gold\", D2>=25000, \"Silver\", TRUE, \"Base\") (Modern IFS)",
+          "=IF(AND(E2>=360, F2=\"NO\"), \"Eligible - ₹10,000\", IF(AND(E2>=120, F2=\"NO\"), \"Eligible - Refreshments\", \"No Surcharge\")) (DGCA CAR Sec 3)"
+        ]
       }
     },
     "17": {
@@ -7176,6 +7212,19 @@
         "everydayContext": "Filtering your college assignment list for Status = 'Pending'.",
         "aviationContext": "Press Ctrl + Shift + L → Click Delay filter dropdown → Number Filters > Greater Than > 45.",
         "verdict": "Instantly displays the 8 critical flights requiring priority ground intervention."
+      },
+      "demoDataset": {
+        "title": "Datasets 3 & 4: Air Cargo Waybills & Flight Crew Dispatch Masters",
+        "file": "/sample-data/03_Aviation_VLOOKUP_HLOOKUP_Tariffs.csv",
+        "additionalFile": "/sample-data/04_Aviation_XLOOKUP_Crew_Snag_Master.csv",
+        "interactiveHubUrl": "/simulators/excel-demo-datasets",
+        "description": "Demonstrates VLOOKUP exact match on airport codes ($I$2:$L$8), approximate match on cargo weight discount tiers ($N$2:$P$6), HLOOKUP on aircraft fuel burn tables ($I$11:$M$13), and modern XLOOKUP leftward/reverse lookups retrieving Tail Number from Flight ID.",
+        "keyFormulas": [
+          "=VLOOKUP(C2, $I$2:$L$8, 2, FALSE) (Destination airport exact match)",
+          "=VLOOKUP(D2, $N$2:$P$6, 3, TRUE) (Approximate match weight volume discount)",
+          "=HLOOKUP(F2, $I$11:$M$13, 2, FALSE) (Horizontal hourly fuel burn rate)",
+          "=XLOOKUP(A2, $M$2:$M$11, $L$2:$L$11, \"UNASSIGNED\") (Leftward/reverse tail lookup)"
+        ]
       }
     },
     "18": {
@@ -7236,6 +7285,18 @@
         "everydayContext": "Plotting your monthly semester test scores on a line graph to see progress.",
         "aviationContext": "Select Months (A2:A13) and OTP% (B2:B13) → Insert > Line Chart with Markers → Add Title '2026 Monthly OTP'.",
         "verdict": "Executives absorb performance trends in 3 seconds compared to reading 50 numbers."
+      },
+      "demoDataset": {
+        "title": "Dataset 5: BLR Airport 24-Hour Master Operations Log (50 Flights)",
+        "file": "/sample-data/05_Aviation_BLR_Airport_Pivot_Master_Dataset.csv",
+        "interactiveHubUrl": "/simulators/excel-demo-datasets",
+        "description": "50-row multi-airline operational manifest across Terminals 1 & 2 at BLR. Features 4 step-by-step Pivot Table and Pivot Chart recipes for Airline Delay Analysis, Terminal Traffic Distribution, Fleet Capacity, and Delay Root Cause Pareto analysis.",
+        "pivotRecipes": [
+          "Recipe 1: Airline Delay Analysis (Rows: Airline, Values: Sum of Delay Mins & Average of Delay Mins)",
+          "Recipe 2: Terminal Traffic Distribution (Rows: Terminal, Columns: Sector, Values: Sum of Total Pax)",
+          "Recipe 3: Fleet Reliability & Capacity (Rows: Aircraft Type, Values: Count of Flights, Average Load Factor)",
+          "Recipe 4: Delay Root Cause Pareto (Rows: Delay Reason, Values: Count of Flights, Sum of Delay Mins)"
+        ]
       }
     },
     "19": {
@@ -8729,6 +8790,18 @@
               "If bag weighed 13 kg: condition evaluates to FALSE → outputs ₹0 fee."
             ],
             "verdict": "Automates instant billing at check-in, preventing agent calculation errors."
+      },
+      "demoDataset": {
+        "title": "Dataset 2: Passenger Delay Manifest & DGCA Compensation (10 PNRs)",
+        "file": "/sample-data/02_Aviation_Logical_IF_Nested_IF_Dataset.csv",
+        "interactiveHubUrl": "/simulators/excel-demo-datasets",
+        "description": "Live demonstration of simple IF (Baggage Surcharge), Nested IF & modern IFS (Frequent Flyer Tiers), and compound AND/OR logic for DGCA Flight Delay Compensation.",
+        "keyFormulas": [
+          "=IF(C2>15, (C2-15)*500, 0) (Excess baggage fee above 15kg at ₹500/kg)",
+          "=IF(D2>=100000, \"Platinum\", IF(D2>=50000, \"Gold\", IF(D2>=25000, \"Silver\", \"Base\"))) (4-tier loyalty)",
+          "=IFS(D2>=100000, \"Platinum\", D2>=50000, \"Gold\", D2>=25000, \"Silver\", TRUE, \"Base\") (Modern IFS)",
+          "=IF(AND(E2>=360, F2=\"NO\"), \"Eligible - ₹10,000\", IF(AND(E2>=120, F2=\"NO\"), \"Eligible - Refreshments\", \"No Surcharge\")) (DGCA CAR Sec 3)"
+        ]
           },
           "memoryTrick": "I-F-T-F: If (Condition) → Then (True action) → Fail (False action).",
           "examTip": "In chart questions: Recommend Column/Bar charts for comparing categories (e.g., airline market share), and Line charts for trends over time (e.g., hourly passenger arrivals)."
@@ -8754,6 +8827,14 @@
         {
           "topic": "Sort vs Filter",
           "rememberThis": "Sort rearranges row order; Filter hides rows that don't match criteria (Ctrl+Shift+L)."
+        },
+        {
+          "topic": "VLOOKUP vs XLOOKUP",
+          "rememberThis": "VLOOKUP searches left-to-right only and needs a column index number; XLOOKUP searches any direction (including reverse/leftward lookups), defaults to exact match, and handles missing values natively without #N/A."
+        },
+        {
+          "topic": "Pivot Tables (The 4 Quadrants)",
+          "rememberThis": "Filters (page filter) → Columns (horizontal matrix) → Rows (vertical categories) → Values (aggregations like Sum, Average, Count). Creates instant executive operational summaries without writing formulas."
         }
       ],
       "btlQuestions": {
@@ -8766,7 +8847,16 @@
       },
       "referenceMaterial": {
         "primary": "Microsoft Excel 2021 Bible (Michael Alexander & Dick Kusleika, Wiley)",
-        "further": "Excel Data Analysis For Dummies (Paul McFedries, Wiley)"
+        "further": "Excel Data Analysis For Dummies (Paul McFedries, Wiley)",
+        "downloadableDatasets": [
+          "01 Essential Math & Statistical Functions (12 Flights): /sample-data/01_Aviation_Essential_Functions_Dataset.csv",
+          "02 Logical IF, Nested IF & DGCA Compensation (10 PNRs): /sample-data/02_Aviation_Logical_IF_Nested_IF_Dataset.csv",
+          "03 Air Cargo Tariff Master with VLOOKUP/HLOOKUP: /sample-data/03_Aviation_VLOOKUP_HLOOKUP_Tariffs.csv",
+          "04 Flight Crew & Aircraft Snag Dispatch with XLOOKUP: /sample-data/04_Aviation_XLOOKUP_Crew_Snag_Master.csv",
+          "05 BLR Airport 24-Hour Operations Master (50 Flights): /sample-data/05_Aviation_BLR_Airport_Pivot_Master_Dataset.csv",
+          "Trainer Demonstration Instructions & Cheatsheet: /sample-data/README_Trainer_Demonstration_Instructions.txt"
+        ],
+        "interactiveHubUrl": "/simulators/excel-demo-datasets"
       }
     },
     "unit-4": {
@@ -10094,6 +10184,17 @@
         "everydayContext": "Checking if your elevator weight is under the 500 kg safety limit.",
         "aviationContext": "Formula in B6: =B2 + B3 + B4 + B5 (Dry weight + Fuel + Cargo + Passengers) → 72,500 kg. Margin = 75000 - B6 = 2,500 kg.",
         "verdict": "Simple arithmetic verifies the aircraft is certified safe for flight."
+      },
+      "demoDataset": {
+        "title": "Dataset 1: Morning Departure Bank & Baggage Manifest (12 Flights)",
+        "file": "/sample-data/01_Aviation_Essential_Functions_Dataset.csv",
+        "interactiveHubUrl": "/simulators/excel-demo-datasets",
+        "description": "Interactive 12-flight morning bank manifest from Kempegowda International Airport (BLR). Demonstrates formula syntax (=), arithmetic operators (+, -, *, /), and PEMDAS precedence on fuel loads, baggage, passenger counts, and seat revenue.",
+        "keyFormulas": [
+          "=F2*G2 (Seat Revenue = Pax Checked In * Base Fare)",
+          "=C2+D2+E2 (Total Payload = Fuel + Cargo + Baggage Weight in kg)",
+          "=(F2/180)*100 (Passenger Load Factor percentage)"
+        ]
       }
     },
     "14": {
@@ -10220,6 +10321,19 @@
         "everydayContext": "A 50-seater college bus carrying 40 students is 40 / 50 = 80% full.",
         "aviationContext": "Total Seats in B2 = 180; Passengers on board in B3 = 153. Formula: =B3 / B2 = 0.85 (85% PLF).",
         "verdict": "Simple division calculates one of aviation's most vital financial metrics."
+      },
+      "demoDataset": {
+        "title": "Dataset 1: Morning Departure Bank Statistical Master (12 Flights)",
+        "file": "/sample-data/01_Aviation_Essential_Functions_Dataset.csv",
+        "interactiveHubUrl": "/simulators/excel-demo-datasets",
+        "description": "Calculates total revenue (=SUM(H2:H13)), average fare (=AVERAGE(G2:G13)), fleet frequency (=COUNTIF(B2:B13, \"A320neo\")), widebody revenue (=SUMIF(B2:B13, \"B777-300ER\", H2:H13)), and rounded values (=ROUND(..., 0)).",
+        "keyFormulas": [
+          "=SUM(H2:H13) (Total Bank Revenue: ₹86,16,500)",
+          "=AVERAGE(F2:F13) (Mean Passenger Load: 198.8 Pax)",
+          "=COUNTIF(B2:B13, \"A320neo\") (Fleet Count: 5 narrowbodies)",
+          "=SUMIF(B2:B13, \"B777-300ER\", H2:H13) (Widebody Revenue: ₹39,78,000)",
+          "=ROUND(AVERAGE(H2:H13), 0) (Rounded Average Flight Revenue: ₹7,18,042)"
+        ]
       }
     },
     "Mid-Sem": {
@@ -10322,6 +10436,18 @@
         "everydayContext": "If you buy 2 pizzas, drinks are free; otherwise drinks cost ₹50.",
         "aviationContext": "Bag weight in cell B2 = 21. Formula: =IF(B2>15, (B2-15)*500, 0) → (21-15)*500 = ₹3,000.",
         "verdict": "Automates instant billing at check-in, preventing agent calculation errors."
+      },
+      "demoDataset": {
+        "title": "Dataset 2: Passenger Delay Manifest & DGCA Compensation (10 PNRs)",
+        "file": "/sample-data/02_Aviation_Logical_IF_Nested_IF_Dataset.csv",
+        "interactiveHubUrl": "/simulators/excel-demo-datasets",
+        "description": "Live demonstration of simple IF (Baggage Surcharge), Nested IF & modern IFS (Frequent Flyer Tiers), and compound AND/OR logic for DGCA Flight Delay Compensation.",
+        "keyFormulas": [
+          "=IF(C2>15, (C2-15)*500, 0) (Excess baggage fee above 15kg at ₹500/kg)",
+          "=IF(D2>=100000, \"Platinum\", IF(D2>=50000, \"Gold\", IF(D2>=25000, \"Silver\", \"Base\"))) (4-tier loyalty)",
+          "=IFS(D2>=100000, \"Platinum\", D2>=50000, \"Gold\", D2>=25000, \"Silver\", TRUE, \"Base\") (Modern IFS)",
+          "=IF(AND(E2>=360, F2=\"NO\"), \"Eligible - ₹10,000\", IF(AND(E2>=120, F2=\"NO\"), \"Eligible - Refreshments\", \"No Surcharge\")) (DGCA CAR Sec 3)"
+        ]
       }
     },
     "17": {
@@ -10382,6 +10508,19 @@
         "everydayContext": "Filtering your college assignment list for Status = 'Pending'.",
         "aviationContext": "Press Ctrl + Shift + L → Click Delay filter dropdown → Number Filters > Greater Than > 45.",
         "verdict": "Instantly displays the 8 critical flights requiring priority ground intervention."
+      },
+      "demoDataset": {
+        "title": "Datasets 3 & 4: Air Cargo Waybills & Flight Crew Dispatch Masters",
+        "file": "/sample-data/03_Aviation_VLOOKUP_HLOOKUP_Tariffs.csv",
+        "additionalFile": "/sample-data/04_Aviation_XLOOKUP_Crew_Snag_Master.csv",
+        "interactiveHubUrl": "/simulators/excel-demo-datasets",
+        "description": "Demonstrates VLOOKUP exact match on airport codes ($I$2:$L$8), approximate match on cargo weight discount tiers ($N$2:$P$6), HLOOKUP on aircraft fuel burn tables ($I$11:$M$13), and modern XLOOKUP leftward/reverse lookups retrieving Tail Number from Flight ID.",
+        "keyFormulas": [
+          "=VLOOKUP(C2, $I$2:$L$8, 2, FALSE) (Destination airport exact match)",
+          "=VLOOKUP(D2, $N$2:$P$6, 3, TRUE) (Approximate match weight volume discount)",
+          "=HLOOKUP(F2, $I$11:$M$13, 2, FALSE) (Horizontal hourly fuel burn rate)",
+          "=XLOOKUP(A2, $M$2:$M$11, $L$2:$L$11, \"UNASSIGNED\") (Leftward/reverse tail lookup)"
+        ]
       }
     },
     "18": {
@@ -10442,6 +10581,18 @@
         "everydayContext": "Plotting your monthly semester test scores on a line graph to see progress.",
         "aviationContext": "Select Months (A2:A13) and OTP% (B2:B13) → Insert > Line Chart with Markers → Add Title '2026 Monthly OTP'.",
         "verdict": "Executives absorb performance trends in 3 seconds compared to reading 50 numbers."
+      },
+      "demoDataset": {
+        "title": "Dataset 5: BLR Airport 24-Hour Master Operations Log (50 Flights)",
+        "file": "/sample-data/05_Aviation_BLR_Airport_Pivot_Master_Dataset.csv",
+        "interactiveHubUrl": "/simulators/excel-demo-datasets",
+        "description": "50-row multi-airline operational manifest across Terminals 1 & 2 at BLR. Features 4 step-by-step Pivot Table and Pivot Chart recipes for Airline Delay Analysis, Terminal Traffic Distribution, Fleet Capacity, and Delay Root Cause Pareto analysis.",
+        "pivotRecipes": [
+          "Recipe 1: Airline Delay Analysis (Rows: Airline, Values: Sum of Delay Mins & Average of Delay Mins)",
+          "Recipe 2: Terminal Traffic Distribution (Rows: Terminal, Columns: Sector, Values: Sum of Total Pax)",
+          "Recipe 3: Fleet Reliability & Capacity (Rows: Aircraft Type, Values: Count of Flights, Average Load Factor)",
+          "Recipe 4: Delay Root Cause Pareto (Rows: Delay Reason, Values: Count of Flights, Sum of Delay Mins)"
+        ]
       }
     },
     "19": {
@@ -11935,6 +12086,18 @@
               "If bag weighed 13 kg: condition evaluates to FALSE → outputs ₹0 fee."
             ],
             "verdict": "Automates instant billing at check-in, preventing agent calculation errors."
+      },
+      "demoDataset": {
+        "title": "Dataset 2: Passenger Delay Manifest & DGCA Compensation (10 PNRs)",
+        "file": "/sample-data/02_Aviation_Logical_IF_Nested_IF_Dataset.csv",
+        "interactiveHubUrl": "/simulators/excel-demo-datasets",
+        "description": "Live demonstration of simple IF (Baggage Surcharge), Nested IF & modern IFS (Frequent Flyer Tiers), and compound AND/OR logic for DGCA Flight Delay Compensation.",
+        "keyFormulas": [
+          "=IF(C2>15, (C2-15)*500, 0) (Excess baggage fee above 15kg at ₹500/kg)",
+          "=IF(D2>=100000, \"Platinum\", IF(D2>=50000, \"Gold\", IF(D2>=25000, \"Silver\", \"Base\"))) (4-tier loyalty)",
+          "=IFS(D2>=100000, \"Platinum\", D2>=50000, \"Gold\", D2>=25000, \"Silver\", TRUE, \"Base\") (Modern IFS)",
+          "=IF(AND(E2>=360, F2=\"NO\"), \"Eligible - ₹10,000\", IF(AND(E2>=120, F2=\"NO\"), \"Eligible - Refreshments\", \"No Surcharge\")) (DGCA CAR Sec 3)"
+        ]
           },
           "memoryTrick": "I-F-T-F: If (Condition) → Then (True action) → Fail (False action).",
           "examTip": "In chart questions: Recommend Column/Bar charts for comparing categories (e.g., airline market share), and Line charts for trends over time (e.g., hourly passenger arrivals)."
@@ -11960,6 +12123,14 @@
         {
           "topic": "Sort vs Filter",
           "rememberThis": "Sort rearranges row order; Filter hides rows that don't match criteria (Ctrl+Shift+L)."
+        },
+        {
+          "topic": "VLOOKUP vs XLOOKUP",
+          "rememberThis": "VLOOKUP searches left-to-right only and needs a column index number; XLOOKUP searches any direction (including reverse/leftward lookups), defaults to exact match, and handles missing values natively without #N/A."
+        },
+        {
+          "topic": "Pivot Tables (The 4 Quadrants)",
+          "rememberThis": "Filters (page filter) → Columns (horizontal matrix) → Rows (vertical categories) → Values (aggregations like Sum, Average, Count). Creates instant executive operational summaries without writing formulas."
         }
       ],
       "btlQuestions": {
@@ -11972,7 +12143,16 @@
       },
       "referenceMaterial": {
         "primary": "Microsoft Excel 2021 Bible (Michael Alexander & Dick Kusleika, Wiley)",
-        "further": "Excel Data Analysis For Dummies (Paul McFedries, Wiley)"
+        "further": "Excel Data Analysis For Dummies (Paul McFedries, Wiley)",
+        "downloadableDatasets": [
+          "01 Essential Math & Statistical Functions (12 Flights): /sample-data/01_Aviation_Essential_Functions_Dataset.csv",
+          "02 Logical IF, Nested IF & DGCA Compensation (10 PNRs): /sample-data/02_Aviation_Logical_IF_Nested_IF_Dataset.csv",
+          "03 Air Cargo Tariff Master with VLOOKUP/HLOOKUP: /sample-data/03_Aviation_VLOOKUP_HLOOKUP_Tariffs.csv",
+          "04 Flight Crew & Aircraft Snag Dispatch with XLOOKUP: /sample-data/04_Aviation_XLOOKUP_Crew_Snag_Master.csv",
+          "05 BLR Airport 24-Hour Operations Master (50 Flights): /sample-data/05_Aviation_BLR_Airport_Pivot_Master_Dataset.csv",
+          "Trainer Demonstration Instructions & Cheatsheet: /sample-data/README_Trainer_Demonstration_Instructions.txt"
+        ],
+        "interactiveHubUrl": "/simulators/excel-demo-datasets"
       }
     },
     "unit-4": {

@@ -47,12 +47,37 @@ export default function ExcelCoreWorkshopPage() {
         <div style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '8px',
-          fontSize: '0.84rem',
-          color: '#94a3b8'
+          gap: '10px',
+          flexWrap: 'wrap'
         }}>
-          <BookOpen size={16} color="#eab308" />
-          <span>Unit 3: Spreadsheet Software · Post-Session 6 Fast-Track Lab (Sessions 1–6)</span>
+          <Link
+            href="/simulators/excel-demo-datasets"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              color: '#38bdf8',
+              textDecoration: 'none',
+              fontSize: '0.85rem',
+              fontWeight: 600,
+              background: 'rgba(56, 189, 248, 0.1)',
+              padding: '6px 12px',
+              borderRadius: '6px',
+              border: '1px solid rgba(56, 189, 248, 0.25)'
+            }}
+          >
+            <Sparkles size={14} color="#38bdf8" /> 📊 Demo Datasets &amp; CSVs
+          </Link>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            fontSize: '0.84rem',
+            color: '#94a3b8'
+          }}>
+            <BookOpen size={16} color="#eab308" />
+            <span>Unit 3: Spreadsheet Software · Post-Session 6 Fast-Track Lab (Sessions 1–6)</span>
+          </div>
         </div>
       </div>
 

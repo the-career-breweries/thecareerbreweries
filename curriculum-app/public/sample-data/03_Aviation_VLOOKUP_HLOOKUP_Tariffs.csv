@@ -1,0 +1,15 @@
+AWB_No,Dest_Code,Dest_City,Distance_km,Weight_kg,Rate_Per_kg,Total_Freight_INR,,Airport_Code,City_Name,Distance_km,Handling_Fee_INR,,Min_Weight_kg,Rate_Per_kg,Tier_Code
+AWB-9011,DEL,"=VLOOKUP(B2, $I$2:$L$8, 2, FALSE)","=VLOOKUP(B2, $I$2:$L$8, 3, FALSE)",850,"=VLOOKUP(E2, $N$2:$P$6, 2, TRUE)","=(E2*F2)+VLOOKUP(B2, $I$2:$L$8, 4, FALSE)",,DEL,New Delhi,1740,1200,,0,120,STANDARD
+AWB-9012,BOM,"=VLOOKUP(B3, $I$2:$L$8, 2, FALSE)","=VLOOKUP(B3, $I$2:$L$8, 3, FALSE)",120,"=VLOOKUP(E3, $N$2:$P$6, 2, TRUE)","=(E3*F3)+VLOOKUP(B3, $I$2:$L$8, 4, FALSE)",,BOM,Mumbai,840,950,,100,100,BULK_1
+AWB-9013,HYD,"=VLOOKUP(B4, $I$2:$L$8, 2, FALSE)","=VLOOKUP(B4, $I$2:$L$8, 3, FALSE)",45,"=VLOOKUP(E4, $N$2:$P$6, 2, TRUE)","=(E4*F4)+VLOOKUP(B4, $I$2:$L$8, 4, FALSE)",,HYD,Hyderabad,500,600,,500,85,BULK_2
+AWB-9014,MAA,"=VLOOKUP(B5, $I$2:$L$8, 2, FALSE)","=VLOOKUP(B5, $I$2:$L$8, 3, FALSE)",1400,"=VLOOKUP(E5, $N$2:$P$6, 2, TRUE)","=(E5*F5)+VLOOKUP(B5, $I$2:$L$8, 4, FALSE)",,MAA,Chennai,290,450,,1000,70,COMMERCIAL
+AWB-9015,GOI,"=VLOOKUP(B6, $I$2:$L$8, 2, FALSE)","=VLOOKUP(B6, $I$2:$L$8, 3, FALSE)",620,"=VLOOKUP(E6, $N$2:$P$6, 2, TRUE)","=(E6*F6)+VLOOKUP(B6, $I$2:$L$8, 4, FALSE)",,GOI,Goa Dabolim,560,650,,2500,55,HEAVY_CARGO
+AWB-9016,CCU,"=VLOOKUP(B7, $I$2:$L$8, 2, FALSE)","=VLOOKUP(B7, $I$2:$L$8, 3, FALSE)",90,"=VLOOKUP(E7, $N$2:$P$6, 2, TRUE)","=(E7*F7)+VLOOKUP(B7, $I$2:$L$8, 4, FALSE)",,CCU,Kolkata,1560,1100,,,
+AWB-9017,COK,"=VLOOKUP(B8, $I$2:$L$8, 2, FALSE)","=VLOOKUP(B8, $I$2:$L$8, 3, FALSE)",2800,"=VLOOKUP(E8, $N$2:$P$6, 2, TRUE)","=(E8*F8)+VLOOKUP(B8, $I$2:$L$8, 4, FALSE)",,COK,Kochi,370,500,,,
+AWB-9018,DEL,"=VLOOKUP(B9, $I$2:$L$8, 2, FALSE)","=VLOOKUP(B9, $I$2:$L$8, 3, FALSE)",350,"=VLOOKUP(E9, $N$2:$P$6, 2, TRUE)","=(E9*F9)+VLOOKUP(B9, $I$2:$L$8, 4, FALSE)",,,,,,,,
+,,,,,,,,,,,,,,,
+--- HLOOKUP AIRCRAFT MATRIX (Range I11:M13) ---,,,,,,,,,,,,,,
+Parameter,A320neo,B737-MAX8,ATR-72,B777-300ER,,,,,,,,,,
+Fuel_Burn_kg_hr,2100,2250,680,7500,,,,,,,,,,
+Hourly_Wet_Lease_INR,185000,192000,95000,480000,,,,,,,,,,
+HLOOKUP Fuel Demo:,"=HLOOKUP(""A320neo"", $I$11:$M$13, 2, FALSE)",,,,,,,,,,,,

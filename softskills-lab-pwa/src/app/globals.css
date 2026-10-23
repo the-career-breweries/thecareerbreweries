@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-input: var(--input);
+  --color-surface: var(--surface-container);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-variant: var(--surface-variant);
+  --color-outline-variant: var(--outline-variant);
+  --color-primary: var(--primary);
+  --color-primary-container: var(--primary-container);
+  --color-on-primary: var(--on-primary);
+  --color-on-primary-container: var(--on-primary);
+  --color-secondary: var(--secondary);
+  --color-secondary-container: var(--secondary-container);
+  --color-inverse-primary: var(--inverse-primary);
+  --color-on-surface: var(--foreground);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-outline: var(--outline);
+  --spacing-container-padding: 24px;
+  --spacing-section-gap: 48px;
+  --width-max-width-desktop: 1200px;
+}
+
+:root {
+  /* Light Mode - TCB Cream & Coffee Theme */
+  --background: #FCF5ED;
+  --foreground: #4A3528;
+  --input: #F3EBE1;
+  --surface-container: #FFFFFF;
+  --surface-container-high: #F6ECE0;
+  --surface-variant: #EFE3D5;
+  --outline-variant: #D9CDBF;
+  --primary: #885A3A;
+  --primary-container: #885A3A;
+  --on-primary: #FFFFFF;
+  --secondary: #A66E46;
+  --secondary-container: #C48F65;
+  --inverse-primary: #6D4428;
+  --on-surface-variant: #725D50;
+  --outline: #A89280;
+}
+
+.dark {
+  /* Dark Mode - TCB Espresso Theme */
+  --background: #1F1511;
+  --foreground: #FCF5ED;
+  --input: #3A2821;
+  --surface-container: #2E1F1A;
+  --surface-container-high: #261915;
+  --surface-variant: #3D2A22;
+  --outline-variant: #543E33;
+  --primary: #D09F75;
+  --primary-container: #D09F75;
+  --on-primary: #2A1A10;
+  --secondary: #E2B893;
+  --secondary-container: #9E6B43;
+  --inverse-primary: #885A3A;
+  --on-surface-variant: #B09B8E;
+  --outline: #725D50;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.glass-panel {
+  background-color: var(--surface-container);
+  border: 1px solid var(--outline-variant);
+}
+
+.input-glow:focus {
+  box-shadow: 0 0 12px rgba(208, 159, 117, 0.25);
+}

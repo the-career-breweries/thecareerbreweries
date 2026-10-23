@@ -1,0 +1,51 @@
+Flight_ID,Airline,Terminal,Sector,Aircraft_Type,Flight_Type,Time_Slot,Pax_Capacity,Pax_Booked,Baggage_Pcs,Status,Delay_Mins,Delay_Reason
+FL-101,IndiGo,T1,BLR-DEL,A321neo,Domestic,Morning,222,216,245,On-Time,0,None
+FL-102,Air India,T2,BLR-DEL,B777-300ER,Domestic,Morning,342,330,410,Delayed,45,Late Inbound Aircraft
+FL-103,Akasa Air,T1,BLR-BOM,B737-MAX8,Domestic,Morning,189,182,198,On-Time,0,None
+FL-104,Vistara,T2,BLR-DEL,A320neo,Domestic,Morning,164,160,185,On-Time,0,None
+FL-105,SpiceJet,T1,BLR-CCU,B737-800,Domestic,Morning,189,171,162,Delayed,65,Technical Snag
+FL-106,IndiGo,T1,BLR-HYD,A320neo,Domestic,Morning,186,178,190,On-Time,0,None
+FL-107,Air India,T2,BLR-LHR,B787-8,International,Morning,256,248,490,On-Time,0,None
+FL-108,IndiGo,T1,BLR-MAA,ATR-72,Domestic,Morning,72,68,75,On-Time,0,None
+FL-109,Akasa Air,T1,BLR-GOI,B737-MAX8,Domestic,Morning,189,185,210,On-Time,0,None
+FL-110,Vistara,T2,BLR-BOM,A320neo,Domestic,Morning,164,155,170,Delayed,20,ATC Congestion
+FL-111,IndiGo,T1,BLR-COK,A320neo,Domestic,Afternoon,186,174,180,On-Time,0,None
+FL-112,Air India,T2,BLR-BOM,A320neo,Domestic,Afternoon,180,168,195,On-Time,0,None
+FL-113,Akasa Air,T1,BLR-DEL,B737-MAX8,Domestic,Afternoon,189,180,205,Delayed,35,Baggage Loading Hold
+FL-114,SpiceJet,T1,BLR-GOI,B737-800,Domestic,Afternoon,189,165,155,Cancelled,0,Aircraft AOG
+FL-115,IndiGo,T1,BLR-DXB,A321neo,International,Afternoon,222,220,460,On-Time,0,None
+FL-116,Vistara,T2,BLR-DEL,A321neo,Domestic,Afternoon,188,184,215,Delayed,15,ATC Congestion
+FL-117,Air India,T2,BLR-HYD,A320neo,Domestic,Afternoon,180,162,172,On-Time,0,None
+FL-118,IndiGo,T1,BLR-IXE,ATR-72,Domestic,Afternoon,72,70,78,On-Time,0,None
+FL-119,Akasa Air,T1,BLR-HYD,B737-MAX8,Domestic,Afternoon,189,176,192,On-Time,0,None
+FL-120,SpiceJet,T1,BLR-DEL,B737-800,Domestic,Afternoon,189,175,168,Delayed,80,Late Inbound Aircraft
+FL-121,IndiGo,T1,BLR-DEL,A321neo,Domestic,Evening,222,219,250,On-Time,0,None
+FL-122,Air India,T2,BLR-SFO,B777-200LR,International,Evening,288,282,620,On-Time,0,None
+FL-123,Vistara,T2,BLR-DEL,A320neo,Domestic,Evening,164,161,182,On-Time,0,None
+FL-124,Akasa Air,T1,BLR-BOM,B737-MAX8,Domestic,Evening,189,184,202,Delayed,30,ATC Congestion
+FL-125,IndiGo,T1,BLR-CCU,A320neo,Domestic,Evening,186,180,198,On-Time,0,None
+FL-126,SpiceJet,T1,BLR-BOM,B737-800,Domestic,Evening,189,168,160,Delayed,50,Crew Duty Exceeded
+FL-127,Air India,T2,BLR-DEL,A321neo,Domestic,Evening,192,188,220,On-Time,0,None
+FL-128,IndiGo,T1,BLR-SIN,A321neo,International,Evening,222,218,440,On-Time,0,None
+FL-129,Akasa Air,T1,BLR-GOI,B737-MAX8,Domestic,Evening,189,187,212,On-Time,0,None
+FL-130,Vistara,T2,BLR-HYD,A320neo,Domestic,Evening,164,158,165,On-Time,0,None
+FL-131,IndiGo,T1,BLR-BOM,A320neo,Domestic,Night,186,172,186,Delayed,25,ATC Congestion
+FL-132,Air India,T2,BLR-DXB,A320neo,International,Night,180,175,390,On-Time,0,None
+FL-133,Akasa Air,T1,BLR-DEL,B737-MAX8,Domestic,Night,189,178,195,On-Time,0,None
+FL-134,SpiceJet,T1,BLR-MAA,B737-800,Domestic,Night,189,154,140,Delayed,75,Late Inbound Aircraft
+FL-135,IndiGo,T1,BLR-HYD,A320neo,Domestic,Night,186,169,175,On-Time,0,None
+FL-136,Vistara,T2,BLR-BOM,A320neo,Domestic,Night,164,159,172,On-Time,0,None
+FL-137,Air India,T2,BLR-DEL,B777-300ER,Domestic,Night,342,335,420,On-Time,0,None
+FL-138,IndiGo,T1,BLR-DEL,A321neo,Domestic,Morning,222,215,242,On-Time,0,None
+FL-139,Akasa Air,T1,BLR-CCU,B737-MAX8,Domestic,Morning,189,181,196,On-Time,0,None
+FL-140,SpiceJet,T1,BLR-HYD,B737-800,Domestic,Morning,189,162,150,Cancelled,0,Crew Sickness
+FL-141,IndiGo,T1,BLR-DOH,A321neo,International,Morning,222,212,435,On-Time,0,None
+FL-142,Air India,T2,BLR-BOM,A320neo,Domestic,Afternoon,180,171,188,Delayed,40,Technical Snag
+FL-143,Vistara,T2,BLR-DEL,A321neo,Domestic,Afternoon,188,182,210,On-Time,0,None
+FL-144,Akasa Air,T1,BLR-COK,B737-MAX8,Domestic,Afternoon,189,179,188,On-Time,0,None
+FL-145,IndiGo,T1,BLR-DEL,A320neo,Domestic,Evening,186,183,199,On-Time,0,None
+FL-146,Air India,T2,BLR-MAA,A320neo,Domestic,Evening,180,165,178,On-Time,0,None
+FL-147,SpiceJet,T1,BLR-DEL,B737-800,Domestic,Evening,189,170,165,Delayed,90,Weather / Rain
+FL-148,Vistara,T2,BLR-CCU,A320neo,Domestic,Evening,164,157,169,On-Time,0,None
+FL-149,Akasa Air,T1,BLR-BOM,B737-MAX8,Domestic,Night,189,186,204,On-Time,0,None
+FL-150,IndiGo,T1,BLR-BOM,A321neo,Domestic,Night,222,217,248,On-Time,0,None

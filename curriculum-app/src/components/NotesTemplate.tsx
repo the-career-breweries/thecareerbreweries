@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { X, Printer, Loader2, Sparkles, Download } from 'lucide-react';
+import { X, Printer, Loader2, Sparkles, Download, FileSpreadsheet, ExternalLink } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 
 interface NotesTemplateProps {
@@ -19,6 +19,15 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
 
   const sessionIdentifier = typeof weekNumber !== 'undefined' ? weekNumber.toString() : '1';
   const isUnitConsolidated = sessionIdentifier.toLowerCase().startsWith('unit');
+  const isExcelSession = 
+    (courseName.toLowerCase().includes('computing') && ['11', '12', '13', '14', '15', '16', '17', '18', '19', '20', 'unit-3'].includes(sessionIdentifier.toLowerCase())) ||
+    theme.toLowerCase().includes('excel') ||
+    theme.toLowerCase().includes('spreadsheet') ||
+    theme.toLowerCase().includes('formula') ||
+    theme.toLowerCase().includes('function') ||
+    theme.toLowerCase().includes('vlookup') ||
+    theme.toLowerCase().includes('pivot') ||
+    Boolean(data?.demoDataset);
 
   useEffect(() => {
     fetch(`/api/notes?course=${encodeURIComponent(courseName)}&session=${encodeURIComponent(sessionIdentifier)}`)
@@ -464,6 +473,231 @@ export default function NotesTemplate({ courseName, sessionName, theme, focus, o
                   >
                     Open 2–4 Hr Workshop Simulator ↗
                   </a>
+                </div>
+              )}
+
+              {/* Live Demonstration Datasets & Excel Files Hub (Sessions 11–20 & Unit 3) */}
+              {isExcelSession && (
+                <div className="no-print" style={{
+                  background: 'linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%)',
+                  borderRadius: '10px',
+                  padding: '1.25rem 1.5rem',
+                  marginBottom: '1.75rem',
+                  border: '1px solid #10b981',
+                  boxShadow: '0 4px 18px rgba(5, 150, 105, 0.25)',
+                  color: '#ffffff'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: '14px' }}>
+                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px', maxWidth: '640px' }}>
+                      <div style={{
+                        background: 'rgba(255,255,255,0.18)',
+                        padding: '10px',
+                        borderRadius: '8px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexShrink: 0
+                      }}>
+                        <FileSpreadsheet size={24} style={{ color: '#a7f3d0' }} />
+                      </div>
+                      <div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+                          <span style={{ background: '#ecfdf5', color: '#047857', fontSize: '0.72rem', fontWeight: 800, padding: '2px 8px', borderRadius: '4px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                            Excel Demo Files Embedded
+                          </span>
+                          <span style={{ fontSize: '0.75rem', color: '#a7f3d0' }}>Live Classroom Demonstration</span>
+                        </div>
+                        <h4 style={{ margin: '0 0 4px 0', color: '#ffffff', fontSize: '1rem', fontWeight: 800 }}>
+                          📊 Aviation Operations Demonstration Datasets (TSV + CSV + Formulas)
+                        </h4>
+                        <p style={{ margin: 0, color: '#d1fae5', fontSize: '0.82rem', lineHeight: 1.5 }}>
+                          Ready-to-use spreadsheet files built for live projection. Copy pre-built formulas directly into Excel/Google Sheets with one click, or download the raw CSVs.
+                        </p>
+                      </div>
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'flex-end' }}>
+                      <a
+                        href="/simulators/excel-demo-datasets"
+                        target="_blank"
+                        rel="noreferrer"
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '6px',
+                          background: '#ffffff',
+                          color: '#065f46',
+                          padding: '8px 16px',
+                          borderRadius: '6px',
+                          fontWeight: 800,
+                          fontSize: '0.85rem',
+                          textDecoration: 'none',
+                          boxShadow: '0 3px 10px rgba(0, 0, 0, 0.2)'
+                        }}
+                      >
+                        <ExternalLink size={16} /> Open Datasets Hub ↗
+                      </a>
+                      <a
+                        href="/api/download-sample-datasets"
+                        download="Aviation_ICS_Student_Practice_Datasets_Batch2026.zip"
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '6px',
+                          background: '#ecfdf5',
+                          color: '#065f46',
+                          padding: '7px 14px',
+                          borderRadius: '6px',
+                          fontWeight: 700,
+                          fontSize: '0.82rem',
+                          textDecoration: 'none',
+                          boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)'
+                        }}
+                        title="Download all 5 files in a ZIP bundle to share in student WhatsApp/Teams group"
+                      >
+                        <Download size={14} /> 📦 Download All (.ZIP)
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Dataset Quick-Download Pills */}
+                  <div style={{
+                    marginTop: '1rem',
+                    paddingTop: '0.85rem',
+                    borderTop: '1px solid rgba(255,255,255,0.2)',
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    alignItems: 'center',
+                    gap: '8px',
+                    fontSize: '0.78rem'
+                  }}>
+                    <span style={{ color: '#a7f3d0', fontWeight: 700, marginRight: '4px' }}>Download CSVs:</span>
+                    <a href="/sample-data/01_Aviation_Essential_Functions_Dataset.csv" download style={{ color: '#ffffff', background: 'rgba(255,255,255,0.15)', padding: '3px 10px', borderRadius: '4px', textDecoration: 'none', fontWeight: 600 }}>
+                      📥 01 Math &amp; Statistical
+                    </a>
+                    <a href="/sample-data/02_Aviation_Logical_IF_Nested_IF_Dataset.csv" download style={{ color: '#ffffff', background: 'rgba(255,255,255,0.15)', padding: '3px 10px', borderRadius: '4px', textDecoration: 'none', fontWeight: 600 }}>
+                      📥 02 IF &amp; Nested IF
+                    </a>
+                    <a href="/sample-data/03_Aviation_VLOOKUP_HLOOKUP_Tariffs.csv" download style={{ color: '#ffffff', background: 'rgba(255,255,255,0.15)', padding: '3px 10px', borderRadius: '4px', textDecoration: 'none', fontWeight: 600 }}>
+                      📥 03 VLOOKUP / HLOOKUP
+                    </a>
+                    <a href="/sample-data/04_Aviation_XLOOKUP_Crew_Snag_Master.csv" download style={{ color: '#ffffff', background: 'rgba(255,255,255,0.15)', padding: '3px 10px', borderRadius: '4px', textDecoration: 'none', fontWeight: 600 }}>
+                      📥 04 XLOOKUP Master
+                    </a>
+                    <a href="/sample-data/05_Aviation_BLR_Airport_Pivot_Master_Dataset.csv" download style={{ color: '#ffffff', background: 'rgba(255,255,255,0.15)', padding: '3px 10px', borderRadius: '4px', textDecoration: 'none', fontWeight: 600 }}>
+                      📥 05 BLR 50-Flight Pivot
+                    </a>
+                    <a href="/sample-data/README_Trainer_Demonstration_Instructions.txt" download style={{ color: '#fef08a', background: 'rgba(0,0,0,0.25)', padding: '3px 10px', borderRadius: '4px', textDecoration: 'none', fontWeight: 700 }}>
+                      📄 Cheatsheet (.txt)
+                    </a>
+                    <a href="/api/download-sample-datasets" download="Aviation_ICS_Student_Practice_Datasets_Batch2026.zip" style={{ color: '#ffffff', background: '#059669', padding: '3px 10px', borderRadius: '4px', textDecoration: 'none', fontWeight: 700 }}>
+                      📦 All Files (.zip)
+                    </a>
+                  </div>
+                </div>
+              )}
+
+              {/* Specific Session Demonstration Dataset Details if present in data */}
+              {data?.demoDataset && (
+                <div style={{
+                  marginBottom: '2rem',
+                  border: '1px solid #10b981',
+                  borderRadius: '8px',
+                  background: '#f0fdf4',
+                  overflow: 'hidden'
+                }}>
+                  <div style={{
+                    background: '#047857',
+                    color: '#ffffff',
+                    padding: '8px 14px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    flexWrap: 'wrap',
+                    gap: '8px'
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <FileSpreadsheet size={18} />
+                      <strong style={{ fontSize: '0.88rem' }}>{data.demoDataset.title}</strong>
+                    </div>
+                    <div className="no-print" style={{ display: 'flex', gap: '8px' }}>
+                      {data.demoDataset.file && (
+                        <a
+                          href={data.demoDataset.file}
+                          download
+                          style={{
+                            background: '#ffffff',
+                            color: '#065f46',
+                            padding: '3px 10px',
+                            borderRadius: '4px',
+                            fontSize: '0.75rem',
+                            fontWeight: 700,
+                            textDecoration: 'none',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '4px'
+                          }}
+                        >
+                          <Download size={13} /> Download .CSV
+                        </a>
+                      )}
+                      <a
+                        href="/simulators/excel-demo-datasets"
+                        target="_blank"
+                        rel="noreferrer"
+                        style={{
+                          background: '#ecfdf5',
+                          color: '#047857',
+                          padding: '3px 10px',
+                          borderRadius: '4px',
+                          fontSize: '0.75rem',
+                          fontWeight: 700,
+                          textDecoration: 'none',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '4px'
+                        }}
+                      >
+                        <ExternalLink size={13} /> Open Hub ↗
+                      </a>
+                    </div>
+                  </div>
+                  <div style={{ padding: '12px 16px', fontSize: '0.85rem', color: '#1f2937' }}>
+                    <p style={{ margin: '0 0 10px 0', lineHeight: 1.5 }}>{data.demoDataset.description}</p>
+                    {data.demoDataset.keyFormulas && (
+                      <div>
+                        <div style={{ fontWeight: 700, color: '#065f46', marginBottom: '6px', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                          Key Demonstration Formulas for Excel &amp; Google Sheets:
+                        </div>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '6px' }}>
+                          {data.demoDataset.keyFormulas.map((formula: string, fIdx: number) => (
+                            <div key={fIdx} style={{
+                              fontFamily: 'Consolas, Monaco, monospace',
+                              fontSize: '0.8rem',
+                              background: '#ffffff',
+                              padding: '6px 10px',
+                              borderRadius: '4px',
+                              border: '1px solid #d1fae5',
+                              color: '#065f46'
+                            }}>
+                              <code>{formula}</code>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {data.demoDataset.pivotRecipes && (
+                      <div style={{ marginTop: '8px' }}>
+                        <div style={{ fontWeight: 700, color: '#065f46', marginBottom: '6px', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                          Pivot Table Demonstration Recipes:
+                        </div>
+                        <ul style={{ margin: 0, paddingLeft: '1.25rem', color: '#374151', fontSize: '0.82rem' }}>
+                          {data.demoDataset.pivotRecipes.map((recipe: string, rIdx: number) => (
+                            <li key={rIdx} style={{ marginBottom: '3px' }}>{recipe}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
                 </div>
               )}
 

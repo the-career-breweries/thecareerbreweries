@@ -1,0 +1,16 @@
+PNR,Pax_Name,Flight_No,Tier_Miles,Delay_Hours,Delay_Reason,DGCA_Compensation_INR,Loyalty_Tier,Lounge_Access
+6E-4019,Rajesh Kulkarni,6E 521,115000,4.5,Technical Snag,"=IF(E2>=4, 5000, 0)","=IF(D2>=100000, ""Platinum Elite"", IF(D2>=50000, ""Gold Wing"", IF(D2>=25000, ""Silver Crest"", ""Blue Base"")))","=IF(OR(H2=""Platinum Elite"", H2=""Gold Wing""), ""YES"", ""NO"")"
+AI-8821,Pooja Hegde,AI 804,62000,1.5,ATC Hold,"=IF(E3>=4, 5000, 0)","=IF(D3>=100000, ""Platinum Elite"", IF(D3>=50000, ""Gold Wing"", IF(D3>=25000, ""Silver Crest"", ""Blue Base"")))","=IF(OR(H3=""Platinum Elite"", H3=""Gold Wing""), ""YES"", ""NO"")"
+QP-2210,Arjun Nambiar,QP 1332,29500,5.0,Aircraft AOG,"=IF(E4>=4, 5000, 0)","=IF(D4>=100000, ""Platinum Elite"", IF(D4>=50000, ""Gold Wing"", IF(D4>=25000, ""Silver Crest"", ""Blue Base"")))","=IF(OR(H4=""Platinum Elite"", H4=""Gold Wing""), ""YES"", ""NO"")"
+6E-9932,Sunita Sharma,6E 204,8400,0.0,On Time,"=IF(E5>=4, 5000, 0)","=IF(D5>=100000, ""Platinum Elite"", IF(D5>=50000, ""Gold Wing"", IF(D5>=25000, ""Silver Crest"", ""Blue Base"")))","=IF(OR(H5=""Platinum Elite"", H5=""Gold Wing""), ""YES"", ""NO"")"
+UK-7714,Capt. Dhruv Sen,UK 815,142000,6.2,Technical Snag,"=IF(E6>=4, 5000, 0)","=IF(D6>=100000, ""Platinum Elite"", IF(D6>=50000, ""Gold Wing"", IF(D6>=25000, ""Silver Crest"", ""Blue Base"")))","=IF(OR(H6=""Platinum Elite"", H6=""Gold Wing""), ""YES"", ""NO"")"
+SG-3310,Deepak Roy,SG 401,18000,3.5,Weather Fog,"=IF(E7>=4, 5000, 0)","=IF(D7>=100000, ""Platinum Elite"", IF(D7>=50000, ""Gold Wing"", IF(D7>=25000, ""Silver Crest"", ""Blue Base"")))","=IF(OR(H7=""Platinum Elite"", H7=""Gold Wing""), ""YES"", ""NO"")"
+AI-1044,Kavita Menon,AI 506,51000,2.0,Late Inbound,"=IF(E8>=4, 5000, 0)","=IF(D8>=100000, ""Platinum Elite"", IF(D8>=50000, ""Gold Wing"", IF(D8>=25000, ""Silver Crest"", ""Blue Base"")))","=IF(OR(H8=""Platinum Elite"", H8=""Gold Wing""), ""YES"", ""NO"")"
+6E-6651,Aditya Prasad,6E 1104,34000,4.0,Crew Sickness,"=IF(E9>=4, 5000, 0)","=IF(D9>=100000, ""Platinum Elite"", IF(D9>=50000, ""Gold Wing"", IF(D9>=25000, ""Silver Crest"", ""Blue Base"")))","=IF(OR(H9=""Platinum Elite"", H9=""Gold Wing""), ""YES"", ""NO"")"
+QP-9081,Farhan Akhtar,QP 1405,75000,0.5,Ramp Congestion,"=IF(E10>=4, 5000, 0)","=IF(D10>=100000, ""Platinum Elite"", IF(D10>=50000, ""Gold Wing"", IF(D10>=25000, ""Silver Crest"", ""Blue Base"")))","=IF(OR(H10=""Platinum Elite"", H10=""Gold Wing""), ""YES"", ""NO"")"
+AI-3012,Meera Deshmukh,AI 2811,104000,7.0,Aircraft AOG,"=IF(E11>=4, 5000, 0)","=IF(D11>=100000, ""Platinum Elite"", IF(D11>=50000, ""Gold Wing"", IF(D11>=25000, ""Silver Crest"", ""Blue Base"")))","=IF(OR(H11=""Platinum Elite"", H11=""Gold Wing""), ""YES"", ""NO"")"
+,,,,,,,,
+--- ADVANCED IFS ALTERNATIVE FOR LOYALTY TIER ---,,,,,,,,
+Formula in H2:,"=IFS(D2>=100000, ""Platinum Elite"", D2>=50000, ""Gold Wing"", D2>=25000, ""Silver Crest"", TRUE, ""Blue Base"")",,,,,,,
+--- COMPOUND IF WITH AND (CONTROLLABLE DELAY ONLY) ---,,,,,,,,
+Formula in G2:,"=IF(AND(E2>=4, OR(F2=""Technical Snag"", F2=""Aircraft AOG"", F2=""Crew Sickness"")), 5000, 0)",,,,,,,
