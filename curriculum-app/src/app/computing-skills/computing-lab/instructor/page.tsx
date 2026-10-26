@@ -1382,129 +1382,157 @@ export default function InstructorEvaluationConsole() {
           )}
 
           {/* Master Submissions Roster */}
-          <main style={{ maxWidth: '1400px', margin: '20px auto 60px', padding: '0 28px' }}>
-            <div style={{ backgroundColor: t.cardBg, border: `1px solid ${t.border}`, borderRadius: '14px', overflow: 'hidden', boxShadow: t.shadow }}>
+          <main style={{ maxWidth: '100%', margin: '16px auto 60px', padding: '0 20px' }}>
+            <div style={{ backgroundColor: t.cardBg, border: `1px solid ${t.border}`, borderRadius: '12px', overflow: 'hidden', boxShadow: t.shadow }}>
               <div style={{ overflowX: 'auto' }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.86rem' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.82rem' }}>
                   <thead>
                     <tr style={{ backgroundColor: t.cardBgAlt, borderBottom: `1px solid ${t.border}`, color: t.textMuted }}>
-                      <th style={{ padding: '16px 20px' }}>Roll No</th>
-                      <th style={{ padding: '16px 20px' }}>Student Name</th>
-                      <th style={{ padding: '16px 20px' }}>Assignment</th>
-                      <th style={{ padding: '16px 20px' }}>Application Generator</th>
-                      <th style={{ padding: '16px 20px' }}>Edit Time</th>
-                      <th style={{ padding: '16px 20px' }}>Formulas / Structure</th>
-                      <th style={{ padding: '16px 20px' }}>Score</th>
-                      <th style={{ padding: '16px 20px' }}>Integrity Status</th>
-                      <th style={{ padding: '16px 20px', textAlign: 'right' }}>Actions</th>
+                      <th style={{ padding: '12px 10px', whiteSpace: 'nowrap', fontWeight: 700 }}>Roll No</th>
+                      <th style={{ padding: '12px 10px', whiteSpace: 'nowrap', fontWeight: 700 }}>Student Name</th>
+                      <th style={{ padding: '12px 10px', whiteSpace: 'nowrap', fontWeight: 700 }}>Assignment</th>
+                      <th style={{ padding: '12px 10px', whiteSpace: 'nowrap', fontWeight: 700 }}>Software / Editor</th>
+                      <th style={{ padding: '12px 10px', whiteSpace: 'nowrap', fontWeight: 700 }}>Edit Time</th>
+                      <th style={{ padding: '12px 10px', whiteSpace: 'nowrap', fontWeight: 700 }}>Formulas / Structure</th>
+                      <th style={{ padding: '12px 10px', whiteSpace: 'nowrap', fontWeight: 700 }}>Score</th>
+                      <th style={{ padding: '12px 10px', whiteSpace: 'nowrap', fontWeight: 700 }}>Integrity Status</th>
+                      <th style={{ padding: '12px 10px', textAlign: 'right', whiteSpace: 'nowrap', fontWeight: 700 }}>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
                     {filteredSubmissions.length === 0 ? (
                       <tr>
-                        <td colSpan={9} style={{ padding: '48px', textAlign: 'center', color: t.textMuted }}>
+                        <td colSpan={9} style={{ padding: '40px', textAlign: 'center', color: t.textMuted }}>
                           No submissions found matching criteria. Upload a submissions ZIP folder above or have students submit via portal.
                         </td>
                       </tr>
                     ) : (
                       filteredSubmissions.map((s) => {
                         const isFlagged = s.forensics.integrityLevel !== 'clean';
+                        
+                        // Clean formatted application display
+                        const appStr = s.forensics.application || 'Unknown';
+                        let cleanApp = appStr;
+                        if (appStr.includes('LibreOffice')) cleanApp = 'LibreOffice Calc';
+                        else if (appStr.toLowerCase().includes('openpyxl')) cleanApp = 'openpyxl (Python)';
+                        else if (appStr.includes('Microsoft Excel') || appStr.toLowerCase() === 'excel') cleanApp = 'Microsoft Excel';
+                        else if (appStr.includes('Excel iOS')) cleanApp = 'Excel (iOS)';
+                        else if (appStr.includes('Excel Android')) cleanApp = 'Excel (Android)';
+                        else if (appStr.includes('Google Sheets')) cleanApp = 'Google Sheets';
+                        else if (cleanApp.length > 18) cleanApp = cleanApp.substring(0, 16) + '...';
+
+                        // Clean formatted integrity status badge
+                        const rawTool = s.forensics.aiToolsUsed?.toolNames?.[0] || '';
+                        let shortAiTool = 'AI Tool';
+                        if (rawTool.includes('OpenAI')) shortAiTool = 'AI: ChatGPT';
+                        else if (rawTool.includes('openpyxl')) shortAiTool = 'AI: openpyxl';
+                        else if (rawTool.includes('LLM')) shortAiTool = 'AI: LLM';
+
                         return (
                           <tr
                             key={s.id}
-                            style={{ borderBottom: `1px solid ${t.border}`, backgroundColor: isFlagged ? 'rgba(239, 68, 68, 0.04)' : 'transparent' }}
+                            style={{ borderBottom: `1px solid ${t.border}`, backgroundColor: isFlagged ? 'rgba(239, 68, 68, 0.03)' : 'transparent' }}
                           >
-                            <td style={{ padding: '16px 20px', fontWeight: 800, color: t.text }}>
+                            <td style={{ padding: '10px 10px', fontWeight: 800, color: t.text, whiteSpace: 'nowrap', fontSize: '0.80rem' }}>
                               {s.rollNo}
                             </td>
-                            <td style={{ padding: '16px 20px', color: t.textSecondary, fontWeight: 600 }}>
+                            <td style={{ padding: '10px 10px', color: t.textSecondary, fontWeight: 600, whiteSpace: 'nowrap' }}>
                               {s.studentName}
                             </td>
-                            <td style={{ padding: '16px 20px', fontSize: '0.8rem', color: '#818cf8', fontWeight: 600, maxWidth: '200px' }}>
-                              <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                            <td style={{ padding: '10px 10px', fontSize: '0.78rem', color: '#818cf8', fontWeight: 600, maxWidth: '130px' }}>
+                              <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={s.assignmentTitle || 'Flight Operations Analysis'}>
                                 {s.assignmentTitle || 'Flight Operations Analysis'}
                               </div>
                               {s.batchEvaluated && (
-                                <span style={{ fontSize: '0.68rem', backgroundColor: t.accentIndigoBg, color: t.accentIndigoText, padding: '1px 6px', borderRadius: '4px', fontWeight: 700, display: 'inline-block', marginTop: '2px' }}>
+                                <span style={{ fontSize: '0.64rem', backgroundColor: t.accentIndigoBg, color: t.accentIndigoText, padding: '1px 5px', borderRadius: '3px', fontWeight: 700, display: 'inline-block', marginTop: '1px' }}>
                                   ZIP Batch
                                 </span>
                               )}
                             </td>
-                            <td style={{ padding: '16px 20px', fontFamily: 'monospace', fontSize: '0.8rem', color: s.forensics.flags.isAiGenerator ? '#f87171' : t.textMuted }}>
-                              {s.forensics.application || 'Unknown'}
+                            <td style={{ padding: '10px 10px', fontFamily: 'monospace', fontSize: '0.76rem', color: s.forensics.flags.isAiGenerator ? '#f87171' : t.textMuted, whiteSpace: 'nowrap' }} title={appStr}>
+                              {cleanApp}
                             </td>
-                            <td style={{ padding: '16px 20px', color: s.forensics.flags.hasZeroEditTime ? '#f87171' : t.textMuted }}>
+                            <td style={{ padding: '10px 10px', color: s.forensics.flags.hasZeroEditTime ? '#f87171' : t.textMuted, whiteSpace: 'nowrap' }}>
                               {s.forensics.totalTimeMinutes}m
                             </td>
-                            <td style={{ padding: '16px 20px', color: s.forensics.totalFormulasFound > 0 ? '#10b981' : '#f87171', fontWeight: 600, fontSize: '0.82rem' }}>
+                            <td style={{ padding: '10px 10px', color: s.forensics.totalFormulasFound > 0 ? '#10b981' : '#f87171', fontWeight: 600, fontSize: '0.78rem', whiteSpace: 'nowrap' }}>
                               {s.forensics.totalFormulasFound > 0
                                 ? `${s.forensics.totalFormulasFound} cells`
                                 : s.forensics.sheetNames.length > 0
-                                ? `${s.forensics.sheetNames.length} sections/slides`
+                                ? `${s.forensics.sheetNames.length} slides`
                                 : '0 detected'}
                             </td>
-                            <td style={{ padding: '16px 20px', fontWeight: 800, color: '#38bdf8' }}>
+                            <td style={{ padding: '10px 10px', fontWeight: 800, color: '#38bdf8', whiteSpace: 'nowrap' }}>
                               {s.evaluation.finalScore} / {s.evaluation.maxMarks || 50}
                               {s.evaluation.instructorOverride && (
-                                <span style={{ fontSize: '0.7rem', marginLeft: '4px', color: '#eab308' }}>*</span>
+                                <span style={{ fontSize: '0.7rem', marginLeft: '3px', color: '#eab308' }}>*</span>
                               )}
                             </td>
-                            <td style={{ padding: '16px 20px' }}>
+                            <td style={{ padding: '10px 10px', whiteSpace: 'nowrap' }}>
                               {s.forensics.integrityLevel === 'clean' ? (
-                                <span style={{ backgroundColor: 'rgba(16, 185, 129, 0.15)', color: '#10b981', padding: '4px 10px', borderRadius: '6px', fontSize: '0.78rem', fontWeight: 700 }}>
+                                <span style={{ backgroundColor: 'rgba(16, 185, 129, 0.15)', color: '#10b981', padding: '3px 7px', borderRadius: '5px', fontSize: '0.73rem', fontWeight: 700, display: 'inline-block' }}>
                                   🟢 Authentic
                                 </span>
                               ) : s.forensics.flags.isAiGenerator ? (
-                                <span style={{ backgroundColor: 'rgba(239, 68, 68, 0.2)', color: '#f87171', padding: '4px 10px', borderRadius: '6px', fontSize: '0.78rem', fontWeight: 800 }}>
-                                  🟡 AI Tool ({s.forensics.aiToolsUsed?.toolNames?.[0] || 'ChatGPT / openpyxl'})
+                                <span
+                                  title={s.forensics.aiToolsUsed?.toolNames?.join(', ') || 'AI Code Generated'}
+                                  style={{ backgroundColor: 'rgba(239, 68, 68, 0.2)', color: '#f87171', padding: '3px 7px', borderRadius: '5px', fontSize: '0.73rem', fontWeight: 800, display: 'inline-block' }}
+                                >
+                                  🟡 {shortAiTool}
                                 </span>
                               ) : s.forensics.flags.isHoneypotTriggered ? (
-                                <span style={{ backgroundColor: 'rgba(239, 68, 68, 0.2)', color: '#f87171', padding: '4px 10px', borderRadius: '6px', fontSize: '0.78rem', fontWeight: 800 }}>
-                                  🔴 Honeypot Injected
+                                <span
+                                  title="Invisible prompt injection honeypot token detected inside workbook cells"
+                                  style={{ backgroundColor: 'rgba(239, 68, 68, 0.2)', color: '#f87171', padding: '3px 7px', borderRadius: '5px', fontSize: '0.73rem', fontWeight: 800, display: 'inline-block' }}
+                                >
+                                  🔴 Honeypot
                                 </span>
                               ) : s.forensics.flags.isTrapRecordFound ? (
-                                <span style={{ backgroundColor: 'rgba(249, 115, 22, 0.2)', color: '#fb923c', padding: '4px 10px', borderRadius: '6px', fontSize: '0.78rem', fontWeight: 800 }}>
-                                  🟠 Trap Record Present
+                                <span
+                                  title="Trap calibration record left in analysis"
+                                  style={{ backgroundColor: 'rgba(249, 115, 22, 0.2)', color: '#fb923c', padding: '3px 7px', borderRadius: '5px', fontSize: '0.73rem', fontWeight: 800, display: 'inline-block' }}
+                                >
+                                  🟠 Trap Record
                                 </span>
                               ) : (
-                                <span style={{ backgroundColor: 'rgba(234, 179, 8, 0.2)', color: '#facc15', padding: '4px 10px', borderRadius: '6px', fontSize: '0.78rem', fontWeight: 800 }}>
+                                <span style={{ backgroundColor: 'rgba(234, 179, 8, 0.2)', color: '#facc15', padding: '3px 7px', borderRadius: '5px', fontSize: '0.73rem', fontWeight: 800, display: 'inline-block' }}>
                                   ⚠️ Suspicious ({s.forensics.integrityScore}%)
                                 </span>
                               )}
                             </td>
-                            <td style={{ padding: '16px 20px', textAlign: 'right', whiteSpace: 'nowrap' }}>
+                            <td style={{ padding: '10px 10px', textAlign: 'right', whiteSpace: 'nowrap' }}>
                               <button
                                 onClick={() => handleOpenReportCard(s)}
                                 style={{
                                   backgroundColor: t.accentEmeraldBg,
                                   color: '#10b981',
                                   border: `1px solid ${t.borderHighlight}`,
-                                  padding: '7px 12px',
-                                  borderRadius: '6px',
-                                  fontSize: '0.78rem',
+                                  padding: '5px 8px',
+                                  borderRadius: '5px',
+                                  fontSize: '0.74rem',
                                   fontWeight: 700,
                                   cursor: 'pointer',
-                                  marginRight: '6px',
+                                  marginRight: '4px',
                                   display: 'inline-flex',
                                   alignItems: 'center',
-                                  gap: '5px'
+                                  gap: '4px'
                                 }}
                                 title="View & Print Official Student Report Card"
                               >
-                                <Award size={14} /> Report Card
+                                <Award size={13} /> Report Card
                               </button>
                               <button
                                 onClick={() => handleOpenInspector(s)}
-                                style={{ backgroundColor: '#10b981', color: '#090d16', border: 'none', padding: '8px 14px', borderRadius: '6px', fontSize: '0.8rem', fontWeight: 800, cursor: 'pointer', marginRight: '6px' }}
+                                style={{ backgroundColor: '#10b981', color: '#090d16', border: 'none', padding: '5px 9px', borderRadius: '5px', fontSize: '0.74rem', fontWeight: 800, cursor: 'pointer', marginRight: '4px' }}
                               >
-                                Inspect & Grade
+                                Inspect
                               </button>
                               <button
                                 onClick={() => handleDeleteSubmission(s.id)}
-                                style={{ backgroundColor: 'transparent', border: `1px solid ${t.border}`, color: '#ef4444', padding: '8px', borderRadius: '6px', cursor: 'pointer', verticalAlign: 'middle' }}
+                                style={{ backgroundColor: 'transparent', border: `1px solid ${t.border}`, color: '#ef4444', padding: '5px 7px', borderRadius: '5px', cursor: 'pointer', verticalAlign: 'middle' }}
                                 title="Delete submission"
                               >
-                                <Trash2 size={14} />
+                                <Trash2 size={13} />
                               </button>
                             </td>
                           </tr>
