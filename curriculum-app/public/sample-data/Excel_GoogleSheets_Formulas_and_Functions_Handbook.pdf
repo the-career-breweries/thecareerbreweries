@@ -1,0 +1,621 @@
+%PDF-1.4
+%âãÏÓ
+1 0 obj
+<</Type/Catalog/Pages 2 0 R>>
+endobj
+2 0 obj
+<</Type/Pages/Kids[3 0 R 4 0 R 5 0 R 6 0 R 7 0 R]/Count 5>>
+endobj
+3 0 obj
+<</Type/Page/Parent 2 0 R/MediaBox[0 0 595.28 841.89]/Resources<</Font 8 0 R>>/Contents 9 0 R>>
+endobj
+4 0 obj
+<</Type/Page/Parent 2 0 R/MediaBox[0 0 595.28 841.89]/Resources<</Font 8 0 R>>/Contents 10 0 R>>
+endobj
+5 0 obj
+<</Type/Page/Parent 2 0 R/MediaBox[0 0 595.28 841.89]/Resources<</Font 8 0 R>>/Contents 11 0 R>>
+endobj
+6 0 obj
+<</Type/Page/Parent 2 0 R/MediaBox[0 0 595.28 841.89]/Resources<</Font 8 0 R>>/Contents 12 0 R>>
+endobj
+7 0 obj
+<</Type/Page/Parent 2 0 R/MediaBox[0 0 595.28 841.89]/Resources<</Font 8 0 R>>/Contents 13 0 R>>
+endobj
+8 0 obj
+<</F1<</Type/Font/Subtype/Type1/BaseFont/Helvetica>>/F2<</Type/Font/Subtype/Type1/BaseFont/Helvetica-Bold>>/F3<</Type/Font/Subtype/Type1/BaseFont/Courier>>/F4<</Type/Font/Subtype/Type1/BaseFont/Courier-Bold>>>>
+endobj
+9 0 obj
+<</Length 4795>>
+stream
+0.80 0.84 0.90 RG
+0.5 w
+45 802 m 550 802 l S
+BT
+/F1 7.5 Tf
+0.35 0.40 0.45 rg
+45 807 Td
+(ALLIANCE UNIVERSITY | DEPT OF AVIATION & AEROSPACE MANAGEMENT | Z7AVA 26209) Tj
+ET
+45 42 m 550 42 l S
+BT
+/F1 7.5 Tf
+0.35 0.40 0.45 rg
+45 32 Td
+(Excel & Google Sheets Comprehensive Formulae & Functions Handbook) Tj
+ET
+BT
+/F2 7.5 Tf
+0.10 0.20 0.40 rg
+515 32 Td
+(Page 1 of 5) Tj
+ET
+BT
+/F4 8.0 Tf
+12.0 TL
+0.07 0.20 0.38 rg
+45 778 Td
+(================================================================================) Tj T*
+(COMPREHENSIVE FORMULAS & FUNCTIONS HANDBOOK [EXCEL & GOOGLE SHEETS]) Tj T*
+(================================================================================) Tj T*
+/F4 7.8 Tf
+0.10 0.35 0.65 rg
+(PART 1: FORMULA BASICS, OPERATORS & CELL REFERENCING) Tj T*
+/F3 7.8 Tf
+0.60 0.65 0.75 rg
+(--------------------------------------------------------------------------------) Tj T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(1. FORMULA SYNTAX RULES:) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   - Every formula and function MUST start with an equals sign \(=\).) Tj T*
+(   - Functions follow the pattern: =FUNCTION_NAME\(argument1, argument2, ...\)) Tj T*
+(   - Arguments are separated by commas \(,\).) Tj T*
+(   - Text strings inside formulas must be wrapped in quotes: "Delayed".) Tj T*
+(   - Numerical values and cell references do NOT use quotes: A1 + 50.) Tj T*
+T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(2. ARITHMETIC OPERATORS & PEMDAS PRECEDENCE:) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   +  Addition          =A1 + B1) Tj T*
+(   -  Subtraction       =A1 - B1) Tj T*
+(   *  Multiplication    =A1 * B1) Tj T*
+(   /  Division          =A1 / B1) Tj T*
+(   ^  Exponentiation    =A1 ^ 2   \(A1 squared\)) Tj T*
+(   %  Percentage        =A1 * 18% \(Multiplies by 0.18\)) Tj T*
+(   \(\) Parentheses       Controls calculation order: =\(A1 + B1\) * C1) Tj T*
+(   * PEMDAS Order: Parentheses -> Exponents -> Multiply/Divide -> Add/Subtract) Tj T*
+T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(3. CELL REFERENCING TYPES \(CRITICAL LAB & EXAM SKILL\):) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   - Relative Reference \(A1\):) Tj T*
+(     Shifts row and column automatically when copied or dragged.) Tj T*
+(     Example: In C1, =A1*B1. Dragged down to C2 automatically becomes =A2*B2.) Tj T*
+(   - Absolute Reference \($A$1\):) Tj T*
+(     Locks BOTH column and row with $. Never shifts when copied anywhere.) Tj T*
+(     Shortcut Key: Press F4 \(or Fn + F4\) while editing a cell reference.) Tj T*
+(     Example: =B2 * $D$1 \(where D1 holds a fixed Tax Rate or Aviation Fuel Surcharge\).) Tj T*
+(   - Mixed Reference \($A1 or A$1\):) Tj T*
+(     $A1 locks Column A, while row changes when dragged down.) Tj T*
+(     A$1 locks Row 1, while column changes when dragged across.) Tj T*
+T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(4. ERROR CODES & DIAGNOSTIC FIXES:) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   - #DIV/0!  : Attempted division by zero or empty cell. Fix: Wrap in IFERROR.) Tj T*
+(   - #N/A     : Value not available \(Lookup found no matching record\).) Tj T*
+(   - #VALUE!  : Wrong data type passed \(e.g. attempting arithmetic on text\).) Tj T*
+(   - #REF!    : Invalid cell reference \(a referenced row or column was deleted\).) Tj T*
+(   - #NAME?   : Misspelled function name \(e.g. =SUMM\(A1:A10\) instead of =SUM\).) Tj T*
+(   - ####     : Column is too narrow to display number. Fix: Double-click header.) Tj T*
+T*
+/F4 7.8 Tf
+0.10 0.35 0.65 rg
+(PART 2: ESSENTIAL STATISTICAL FUNCTIONS:) Tj T*
+/F3 7.8 Tf
+0.60 0.65 0.75 rg
+(--------------------------------------------------------------------------------) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   =SUM\(range\)          : Adds all numbers in range        =SUM\(H2:H51\)) Tj T*
+(   =AVERAGE\(range\)      : Calculates arithmetic mean       =AVERAGE\(L2:L51\)) Tj T*
+(   =MIN\(range\)          : Returns smallest value in range  =MIN\(I2:I51\)) Tj T*
+(   =MAX\(range\)          : Returns largest value in range   =MAX\(I2:I51\)) Tj T*
+(   =COUNT\(range\)        : Counts cells with NUMBERS only   =COUNT\(L2:L51\)) Tj T*
+(   =COUNTA\(range\)       : Counts all NON-EMPTY cells       =COUNTA\(A2:A51\)) Tj T*
+(   =COUNTBLANK\(range\)   : Counts empty cells in range      =COUNTBLANK\(M2:M51\)) Tj T*
+(   =ROUND\(num, digits\)  : Rounds to specified decimals     =ROUND\(A1, 1\)) Tj T*
+(   =MOD\(num, divisor\)   : Returns division remainder       =MOD\(125, 60\) -> 5) Tj
+ET
+endstream
+endobj
+10 0 obj
+<</Length 4556>>
+stream
+0.80 0.84 0.90 RG
+0.5 w
+45 802 m 550 802 l S
+BT
+/F1 7.5 Tf
+0.35 0.40 0.45 rg
+45 807 Td
+(ALLIANCE UNIVERSITY | DEPT OF AVIATION & AEROSPACE MANAGEMENT | Z7AVA 26209) Tj
+ET
+45 42 m 550 42 l S
+BT
+/F1 7.5 Tf
+0.35 0.40 0.45 rg
+45 32 Td
+(Excel & Google Sheets Comprehensive Formulae & Functions Handbook) Tj
+ET
+BT
+/F2 7.5 Tf
+0.10 0.20 0.40 rg
+515 32 Td
+(Page 2 of 5) Tj
+ET
+BT
+/F4 7.8 Tf
+12.0 TL
+0.10 0.35 0.65 rg
+45 778 Td
+(PART 3: LOGICAL, COMPARISON & CONDITIONAL FUNCTIONS) Tj T*
+/F3 7.8 Tf
+0.60 0.65 0.75 rg
+(--------------------------------------------------------------------------------) Tj T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(COMPARISON OPERATORS:) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(= \(Equal\), <> \(Not Equal\), > \(Greater Than\), < \(Less Than\), >= \(GTE\), <= \(LTE\)) Tj T*
+T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(1. IF FUNCTION \(BINARY DECISION\):) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   Syntax: =IF\(logical_test, value_if_true, value_if_false\)) Tj T*
+(   Example: =IF\(L2 > 15, "Delayed", "On-Time"\)) Tj T*
+(   Evaluates flight delay: if L2 > 15 returns "Delayed", else "On-Time".) Tj T*
+T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(2. NESTED IF \(MULTI-TIER DECISION HIERARCHY\):) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   Syntax: =IF\(cond1, val1, IF\(cond2, val2, val3\)\)) Tj T*
+(   Example: =IF\(L2=0, "On-Time", IF\(L2<=30, "Minor Delay", "Major Disruption"\)\)) Tj T*
+T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(3. IFS FUNCTION \(MODERN CLEAN MULTI-CONDITION SYNTAX\):) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   Syntax: =IFS\(condition1, val1, condition2, val2, [TRUE, default_val]\)) Tj T*
+(   Example: =IFS\(L2=0, "On-Time", L2<=15, "Short Buffer", TRUE, "Delayed"\)) Tj T*
+T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(4. LOGICAL OPERATORS: AND, OR, NOT) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   - =AND\(cond1, cond2\): Returns TRUE only if ALL conditions are TRUE.) Tj T*
+(     Example: =IF\(AND\(F2="International", I2>250\), "Widebody Gate", "Narrowbody"\)) Tj T*
+(   - =OR\(cond1, cond2\): Returns TRUE if AT LEAST ONE condition is TRUE.) Tj T*
+(     Example: =IF\(OR\(K2="Delayed", K2="Cancelled"\), "Irregular Ops", "Normal"\)) Tj T*
+(   - =NOT\(cond\): Reverses boolean truth value.) Tj T*
+T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(5. ERROR SUPPRESSION: IFERROR & IFNA) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   Syntax: =IFERROR\(calculation, fallback_value\)) Tj T*
+(   Example: =IFERROR\(I2 / H2, 0\)  -> Prevents #DIV/0! if capacity is empty.) Tj T*
+T*
+/F4 7.8 Tf
+0.10 0.35 0.65 rg
+(PART 4: CRITERIA-BASED AGGREGATIONS \(COUNTIF, SUMIF, AVERAGEIF\)) Tj T*
+/F3 7.8 Tf
+0.60 0.65 0.75 rg
+(--------------------------------------------------------------------------------) Tj T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(1. COUNTIF & COUNTIFS:) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   - Single Condition: =COUNTIF\(range, criteria\)) Tj T*
+(     Example: =COUNTIF\(B2:B51, "IndiGo"\)            -> Counts IndiGo movements) Tj T*
+(     Example: =COUNTIF\(L2:L51, ">30"\)                -> Flights delayed >30 mins) Tj T*
+(   - Multiple Conditions: =COUNTIFS\(criteria_range1, crit1, crit_range2, crit2\)) Tj T*
+(     Example: =COUNTIFS\(B2:B51, "Air India", K2:K51, "Delayed"\)) Tj T*
+T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(2. SUMIF & SUMIFS:) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   - Single Condition: =SUMIF\(criteria_range, criteria, [sum_range]\)) Tj T*
+(     Example: =SUMIF\(C2:C51, "T1", J2:J51\)          -> Sums baggage pieces for T1) Tj T*
+(   - Multiple Conditions: =SUMIFS\(sum_range, crit_range1, crit1, crit_range2, crit2\)) Tj T*
+(     * CRITICAL: In SUMIFS, sum_range comes FIRST, not last!) Tj T*
+(     Example: =SUMIFS\(I2:I51, B2:B51, "IndiGo", C2:C51, "T1"\)) Tj T*
+T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(3. AVERAGEIF & AVERAGEIFS:) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   - Single Condition: =AVERAGEIF\(criteria_range, criteria, [avg_range]\)) Tj T*
+(     Example: =AVERAGEIF\(B2:B51, "Vistara", L2:L51\)  -> Avg delay for Vistara) Tj T*
+(   - Multiple Conditions: =AVERAGEIFS\(avg_range, crit_range1, crit1, ...\)) Tj T*
+(     Example: =AVERAGEIFS\(L2:L51, C2:C51, "T2", F2:F51, "International"\)) Tj
+ET
+endstream
+endobj
+11 0 obj
+<</Length 5256>>
+stream
+0.80 0.84 0.90 RG
+0.5 w
+45 802 m 550 802 l S
+BT
+/F1 7.5 Tf
+0.35 0.40 0.45 rg
+45 807 Td
+(ALLIANCE UNIVERSITY | DEPT OF AVIATION & AEROSPACE MANAGEMENT | Z7AVA 26209) Tj
+ET
+45 42 m 550 42 l S
+BT
+/F1 7.5 Tf
+0.35 0.40 0.45 rg
+45 32 Td
+(Excel & Google Sheets Comprehensive Formulae & Functions Handbook) Tj
+ET
+BT
+/F2 7.5 Tf
+0.10 0.20 0.40 rg
+515 32 Td
+(Page 3 of 5) Tj
+ET
+BT
+/F4 7.8 Tf
+12.0 TL
+0.10 0.35 0.65 rg
+45 778 Td
+(PART 5: TEXT MANIPULATION & DATA CLEANING FUNCTIONS) Tj T*
+/F3 7.8 Tf
+0.60 0.65 0.75 rg
+(--------------------------------------------------------------------------------) Tj T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(FUNCTION          SYNTAX & DESCRIPTION                        EXAMPLE) Tj T*
+/F3 7.8 Tf
+0.60 0.65 0.75 rg
+(--------------------------------------------------------------------------------) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(& \(Ampersand\)    Concatenation operator                      =A2 & " - " & D2) Tj T*
+(                 Joins text without a formula.               -> "FL-101 - BLR-DEL") Tj T*
+(CONCATENATE      =CONCATENATE\(text1, text2, ...\)             =CONCATENATE\(B2, " ", C2\)) Tj T*
+(TEXTJOIN         =TEXTJOIN\(delim, ignore_empty, range\)       =TEXTJOIN\(", ", TRUE, B2:B6\)) Tj T*
+(                 Joins array with a custom delimiter.        -> "IndiGo, Air India") Tj T*
+(UPPER            =UPPER\(text\)                                =UPPER\("spicejet"\) -> "SPICEJET") Tj T*
+(LOWER            =LOWER\(text\)                                =LOWER\("AIR INDIA"\) -> "air india") Tj T*
+(PROPER           =PROPER\(text\)                               =PROPER\("akasa air"\) -> "Akasa Air") Tj T*
+(TRIM             =TRIM\(text\)                                 =TRIM\("  BLR  "\) -> "BLR") Tj T*
+(                 Removes extra leading & trailing spaces.) Tj T*
+(LEN              =LEN\(text\)                                  =LEN\("FL-101"\) -> 6) Tj T*
+(                 Counts total character count in cell.) Tj T*
+(LEFT             =LEFT\(text, num_chars\)                      =LEFT\("BLR-BOM", 3\) -> "BLR") Tj T*
+(                 Extracts n characters from the left.) Tj T*
+(RIGHT            =RIGHT\(text, num_chars\)                     =RIGHT\("BLR-BOM", 3\) -> "BOM") Tj T*
+(                 Extracts n characters from the right.) Tj T*
+(MID              =MID\(text, start_num, num_chars\)            =MID\("FL-101", 4, 3\) -> "101") Tj T*
+(                 Extracts characters from the middle.) Tj T*
+(FIND             =FIND\(find_text, within_text\)               =FIND\("-", "BLR-DEL"\) -> 4) Tj T*
+(                 Returns character position \(Case-Sensitive\).) Tj T*
+(SEARCH           =SEARCH\(find_text, within_text\)             Case-insensitive position search.) Tj T*
+(SUBSTITUTE       =SUBSTITUTE\(text, old, new\)                 =SUBSTITUTE\("T1", "1", "2"\) -> "T2") Tj T*
+(TEXT             =TEXT\(value, format_string\)                 =TEXT\(TODAY\(\), "DD-MMM-YYYY"\)) Tj T*
+(                 Converts numbers/dates to text display.     =TEXT\(1250, "#,##0"\) -> "1,250") Tj T*
+T*
+/F4 7.8 Tf
+0.10 0.35 0.65 rg
+(PART 6: LOOKUP & REFERENCE FUNCTIONS) Tj T*
+/F3 7.8 Tf
+0.60 0.65 0.75 rg
+(--------------------------------------------------------------------------------) Tj T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(1. VLOOKUP \(VERTICAL LOOKUP - TRADITIONAL STANDARD\):) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   Syntax: =VLOOKUP\(lookup_value, table_array, col_index_num, [range_lookup]\)) Tj T*
+(   - lookup_value  : Value to search for \(MUST reside in Column 1 of table\).) Tj T*
+(   - table_array   : The data range holding the lookup table \(e.g. A2:M51\).) Tj T*
+(   - col_index_num : Column number to return data from \(e.g. 2 for Airline\).) Tj T*
+(   - [range_lookup]: ALWAYS specify FALSE \(or 0\) for exact match!) Tj T*
+(   Example: =VLOOKUP\("FL-105", A2:M51, 2, FALSE\)) Tj T*
+(   * Limitation: VLOOKUP CANNOT look to the left of the lookup column!) Tj T*
+T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(2. INDEX + MATCH \(THE TWO-WAY LOOKUP GOLD STANDARD\):) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   - =MATCH\(lookup_val, lookup_range, 0\) : Returns the exact row position index.) Tj T*
+(   - =INDEX\(return_range, row_num\)       : Retrieves data from that row index.) Tj T*
+(   Combined Formula:) Tj T*
+(   =INDEX\(B2:B51, MATCH\("FL-105", A2:A51, 0\)\)) Tj T*
+(   * Superpower: Can look left or right, and never breaks when columns are added!) Tj T*
+T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(3. XLOOKUP \(MODERN STANDARD IN EXCEL 365 & GOOGLE SHEETS\):) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   Syntax: =XLOOKUP\(lookup_val, lookup_range, return_range, [if_not_found]\)) Tj T*
+(   - Defaults to EXACT MATCH automatically \(no FALSE needed!\).) Tj T*
+(   - Built-in error handling via [if_not_found] argument.) Tj T*
+(   Example: =XLOOKUP\("FL-105", A2:A51, B2:B51, "Flight Not Found"\)) Tj
+ET
+endstream
+endobj
+12 0 obj
+<</Length 4606>>
+stream
+0.80 0.84 0.90 RG
+0.5 w
+45 802 m 550 802 l S
+BT
+/F1 7.5 Tf
+0.35 0.40 0.45 rg
+45 807 Td
+(ALLIANCE UNIVERSITY | DEPT OF AVIATION & AEROSPACE MANAGEMENT | Z7AVA 26209) Tj
+ET
+45 42 m 550 42 l S
+BT
+/F1 7.5 Tf
+0.35 0.40 0.45 rg
+45 32 Td
+(Excel & Google Sheets Comprehensive Formulae & Functions Handbook) Tj
+ET
+BT
+/F2 7.5 Tf
+0.10 0.20 0.40 rg
+515 32 Td
+(Page 4 of 5) Tj
+ET
+BT
+/F4 7.8 Tf
+12.0 TL
+0.10 0.35 0.65 rg
+45 778 Td
+(PART 7: DATE & TIME FUNCTIONS) Tj T*
+/F3 7.8 Tf
+0.60 0.65 0.75 rg
+(--------------------------------------------------------------------------------) Tj T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(FUNCTION          SYNTAX & DESCRIPTION                        EXAMPLE) Tj T*
+/F3 7.8 Tf
+0.60 0.65 0.75 rg
+(--------------------------------------------------------------------------------) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(TODAY\(\)         =TODAY\(\)                                   Returns current system date.) Tj T*
+(NOW\(\)           =NOW\(\)                                     Returns current date and time.) Tj T*
+(DATE            =DATE\(year, month, day\)                    =DATE\(2026, 10, 24\)) Tj T*
+(YEAR            =YEAR\(serial_date\)                         =YEAR\(TODAY\(\)\) -> 2026) Tj T*
+(MONTH           =MONTH\(serial_date\)                        =MONTH\(TODAY\(\)\) -> 10) Tj T*
+(DAY             =DAY\(serial_date\)                          =DAY\(TODAY\(\)\) -> 24) Tj T*
+(HOUR            =HOUR\(time_val\)                            =HOUR\(NOW\(\)\) -> 13) Tj T*
+(MINUTE          =MINUTE\(time_val\)                          =MINUTE\(NOW\(\)\) -> 45) Tj T*
+(DATEDIF         =DATEDIF\(start_date, end_date, unit\)       =DATEDIF\(A2, B2, "D"\)) Tj T*
+(                 Units: "Y" \(years\), "M" \(months\), "D" \(days\).) Tj T*
+(NETWORKDAYS     =NETWORKDAYS\(start_date, end_date, [hols]\) Calculates working business days.) Tj T*
+(EDATE           =EDATE\(start_date, months\)                 Adds or subtracts n months.) Tj T*
+(EOMONTH         =EOMONTH\(start_date, months\)               Returns last day of the month.) Tj T*
+T*
+/F4 7.8 Tf
+0.10 0.35 0.65 rg
+(PART 8: GOOGLE SHEETS DYNAMIC ARRAY SUPERPOWERS) Tj T*
+/F3 7.8 Tf
+0.60 0.65 0.75 rg
+(--------------------------------------------------------------------------------) Tj T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(1. UNIQUE FUNCTION \(AUTOMATIC DEDUPLICATION\):) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   Syntax: =UNIQUE\(range\)) Tj T*
+(   Example: =UNIQUE\(B2:B51\)) Tj T*
+(   Spills a clean, distinct list of unique airlines automatically without duplicates!) Tj T*
+T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(2. SORT FUNCTION \(DYNAMIC TABLE SORTING\):) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   Syntax: =SORT\(range, sort_column_index, is_ascending\)) Tj T*
+(   Example: =SORT\(A2:M51, 12, FALSE\)) Tj T*
+(   Dynamically sorts entire flight dataset by Delay_Mins \(Col 12\) descending.) Tj T*
+T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(3. FILTER FUNCTION \(DYNAMIC LIVE SUBSETS\):) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   Syntax: =FILTER\(range, condition1, [condition2, ...]\)) Tj T*
+(   Example: =FILTER\(A2:M51, K2:K51="Delayed", C2:C51="T1"\)) Tj T*
+(   Extracts all delayed T1 flights into an adjacent table with zero manual work.) Tj T*
+T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(4. ARRAYFORMULA \(ELIMINATES MANUAL FORMULA DRAGGING\):) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   Syntax: =ARRAYFORMULA\(formula_applied_to_range\)) Tj T*
+(   Example: =ARRAYFORMULA\(I2:I51 / H2:H51 * 100\)) Tj T*
+(   Computes Load Factor across all 50 rows in one single formula cell!) Tj T*
+T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(5. QUERY FUNCTION \(SQL DATABASE QUERIES INSIDE SPREADSHEETS\):) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   Syntax: =QUERY\(data, "SELECT ... WHERE ... GROUP BY ..."\)) Tj T*
+(   Example: =QUERY\(A1:M51, "SELECT B, SUM\(I\) WHERE C='T1' GROUP BY B"\)) Tj T*
+(   Executes full database aggregations natively in Google Sheets.) Tj T*
+T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(6. SPARKLINE & IMPORTRANGE:) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   - =SPARKLINE\(range, {"charttype","bar"}\) : Miniature in-cell chart.) Tj T*
+(   - =IMPORTRANGE\("sheet_url", "Raw_Data!A1:M50"\) : Live cross-sheet data sync.) Tj
+ET
+endstream
+endobj
+13 0 obj
+<</Length 3917>>
+stream
+0.80 0.84 0.90 RG
+0.5 w
+45 802 m 550 802 l S
+BT
+/F1 7.5 Tf
+0.35 0.40 0.45 rg
+45 807 Td
+(ALLIANCE UNIVERSITY | DEPT OF AVIATION & AEROSPACE MANAGEMENT | Z7AVA 26209) Tj
+ET
+45 42 m 550 42 l S
+BT
+/F1 7.5 Tf
+0.35 0.40 0.45 rg
+45 32 Td
+(Excel & Google Sheets Comprehensive Formulae & Functions Handbook) Tj
+ET
+BT
+/F2 7.5 Tf
+0.10 0.20 0.40 rg
+515 32 Td
+(Page 5 of 5) Tj
+ET
+BT
+/F4 7.8 Tf
+12.0 TL
+0.10 0.35 0.65 rg
+45 778 Td
+(PART 9: PIVOT TABLES & ADVANCED DATA ANALYSIS CHEATSHEET) Tj T*
+/F3 7.8 Tf
+0.60 0.65 0.75 rg
+(--------------------------------------------------------------------------------) Tj T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(PIVOT TABLE QUADRANTS EXPLAINED:) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(1. ROWS    : Categorical field whose unique values form the vertical row labels.) Tj T*
+(2. COLUMNS : Categorical field whose unique values form horizontal column headers.) Tj T*
+(3. VALUES  : Numeric field summarized using SUM, AVERAGE, COUNT, MIN, MAX.) Tj T*
+(4. FILTERS : High-level slicer dropdown to isolate subsets \(e.g. Flight_Type\).) Tj T*
+T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(CRITICAL PIVOT COMPUTATIONS:) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(- Sum of Values       : Aggregates total volume \(e.g. Sum of Pax_Booked\).) Tj T*
+(- Count of Records    : Total movements/rows \(e.g. Count of Flight_ID\).) Tj T*
+(- Average of Values   : Mean turnaround delay \(e.g. Average of Delay_Mins\).) Tj T*
+(- % of Row Total      : Shows relative distribution per airline \(Punctuality OTP\).) Tj T*
+(- % of Grand Total    : Shows market share across the entire airport dataset.) Tj T*
+T*
+/F4 7.8 Tf
+0.10 0.35 0.65 rg
+(PART 10: REAL-WORLD AVIATION FORMULA RECIPES) Tj T*
+/F3 7.8 Tf
+0.60 0.65 0.75 rg
+(--------------------------------------------------------------------------------) Tj T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(1. PASSENGER LOAD FACTOR \(% OCCUPANCY\):) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   =ROUND\(\(I2 / H2\) * 100, 1\) & "%") Tj T*
+(   Divides Pax_Booked by Pax_Capacity, rounded to 1 decimal with percent sign.) Tj T*
+T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(2. ON-TIME PERFORMANCE \(OTP 15-MINUTE INDUSTRY BENCHMARK\):) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   =IF\(L2 <= 15, "On-Time \(OTP\)", "Delayed"\)) Tj T*
+(   Standard DGCA/FAA benchmark: departures within 15 mins of schedule are OTP.) Tj T*
+T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(3. BAGGAGE CAROUSEL LOAD RATIO:) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   =ROUND\(J2 / I2, 2\)) Tj T*
+(   Checked baggage pieces divided by boarded passengers.) Tj T*
+T*
+/F4 7.8 Tf
+0.07 0.20 0.38 rg
+(4. TURNAROUND DELAY SEVERITY TIERING:) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(   =IFS\(L2=0, "Clean", L2<=15, "Minor Buffer", L2<=45, "Moderate", TRUE, "Critical"\)) Tj T*
+T*
+/F4 7.8 Tf
+0.10 0.35 0.65 rg
+(LABORATORY & EXAMINATION GOLDEN RULES:) Tj T*
+/F3 7.8 Tf
+0.60 0.65 0.75 rg
+(--------------------------------------------------------------------------------) Tj T*
+/F3 7.8 Tf
+0.15 0.18 0.22 rg
+(1. Always begin every formula with '='.) Tj T*
+(2. Lock lookup tables and constants using absolute reference \($A$1\) via F4.) Tj T*
+(3. In VLOOKUP, remember to set range_lookup to FALSE for exact matches.) Tj T*
+(4. In SUMIFS and AVERAGEIFS, the sum/average range is the FIRST argument.) Tj T*
+(5. Use IFERROR\(\) around divisions to prevent unsightly #DIV/0! errors.) Tj T*
+(6. In Google Sheets, submit work as .xlsx by using File -> Download -> Excel.) Tj T*
+0.60 0.65 0.75 rg
+(================================================================================) Tj
+ET
+endstream
+endobj
+xref
+0 14
+0000000000 65535 f 
+0000000024 00000 n 
+0000000078 00000 n 
+0000000162 00000 n 
+0000000284 00000 n 
+0000000408 00000 n 
+0000000532 00000 n 
+0000000656 00000 n 
+0000000780 00000 n 
+0000001018 00000 n 
+0000005923 00000 n 
+0000010664 00000 n 
+0000016104 00000 n 
+0000020894 00000 n 
+trailer
+<</Size 14/Root 1 0 R>>
+startxref
+24995
+%%EOF

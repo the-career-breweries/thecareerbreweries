@@ -1,0 +1,454 @@
+%PDF-1.4
+%âãÏÓ
+1 0 obj
+<</Type/Catalog/Pages 2 0 R>>
+endobj
+2 0 obj
+<</Type/Pages/Kids[3 0 R 4 0 R 5 0 R 6 0 R]/Count 4>>
+endobj
+3 0 obj
+<</Type/Page/Parent 2 0 R/MediaBox[0 0 595.28 841.89]/Resources<</Font 7 0 R>>/Contents 8 0 R>>
+endobj
+4 0 obj
+<</Type/Page/Parent 2 0 R/MediaBox[0 0 595.28 841.89]/Resources<</Font 7 0 R>>/Contents 9 0 R>>
+endobj
+5 0 obj
+<</Type/Page/Parent 2 0 R/MediaBox[0 0 595.28 841.89]/Resources<</Font 7 0 R>>/Contents 10 0 R>>
+endobj
+6 0 obj
+<</Type/Page/Parent 2 0 R/MediaBox[0 0 595.28 841.89]/Resources<</Font 7 0 R>>/Contents 11 0 R>>
+endobj
+7 0 obj
+<</F1<</Type/Font/Subtype/Type1/BaseFont/Helvetica>>/F2<</Type/Font/Subtype/Type1/BaseFont/Helvetica-Bold>>/F3<</Type/Font/Subtype/Type1/BaseFont/Courier>>/F4<</Type/Font/Subtype/Type1/BaseFont/Courier-Bold>>>>
+endobj
+8 0 obj
+<</Length 3930>>
+stream
+0.80 0.84 0.90 RG
+0.5 w
+45 802 m 550 802 l S
+BT
+/F1 7.5 Tf
+0.35 0.40 0.45 rg
+45 807 Td
+(ALLIANCE UNIVERSITY | DEPARTMENT OF AVIATION & AEROSPACE MANAGEMENT) Tj
+ET
+45 42 m 550 42 l S
+BT
+/F1 7.5 Tf
+0.35 0.40 0.45 rg
+45 32 Td
+(Course: Introduction to Computing Skills [Z7AVA 26209] - Aviation Pivot Lab) Tj
+ET
+BT
+/F2 7.5 Tf
+0.10 0.20 0.40 rg
+515 32 Td
+(Page 1 of 4) Tj
+ET
+BT
+/F4 8.2 Tf
+13 TL
+0.07 0.20 0.38 rg
+45 778 Td
+(================================================================================) Tj T*
+(DEPARTMENT OF AVIATION & AEROSPACE MANAGEMENT) Tj T*
+/F3 8.2 Tf
+0.15 0.18 0.22 rg
+(Course: Introduction to Computing Skills \(Z7AVA 26209\)) Tj T*
+/F4 8.2 Tf
+0.07 0.20 0.38 rg
+(Laboratory Assignment: Flight Operations Analysis using Pivot Tables & Pivot Charts) Tj T*
+(================================================================================) Tj T*
+T*
+/F4 8.2 Tf
+0.10 0.35 0.65 rg
+(EXERCISE DATASET FILE TO USE:) Tj T*
+/F4 8.2 Tf
+0.15 0.18 0.22 rg
+(05_Aviation_BLR_Airport_Pivot_Master_Dataset.csv) Tj T*
+/F3 8.2 Tf
+0.35 0.40 0.45 rg
+(\(Contains 50 flight records across Terminal 1 & 2 at Bengaluru Airport\)) Tj T*
+T*
+0.60 0.65 0.75 rg
+(--------------------------------------------------------------------------------) Tj T*
+/F4 8.2 Tf
+0.07 0.20 0.38 rg
+(1. SCENARIO & PROBLEM STATEMENT) Tj T*
+/F3 8.2 Tf
+0.60 0.65 0.75 rg
+(--------------------------------------------------------------------------------) Tj T*
+/F3 8.2 Tf
+0.15 0.18 0.22 rg
+(You are a Junior Operations Analyst at the Airport Operations Control Centre \(AOCC\),) Tj T*
+(Kempegowda International Airport Bengaluru \(BIAL / BLR\).) Tj T*
+T*
+(The Airport Director has requested an operational performance review for 50 scheduled) Tj T*
+(commercial flights operated across Terminal 1 and Terminal 2.) Tj T*
+T*
+(Your objective is to provide actionable intelligence regarding:) Tj T*
+(1. Passenger distribution across airlines and terminals) Tj T*
+(2. Carrier on-time punctuality rates \(OTP\)) Tj T*
+(3. Root-cause turnaround delay bottlenecks) Tj T*
+(4. Peak baggage handling demands across departure waves) Tj T*
+T*
+0.60 0.65 0.75 rg
+(--------------------------------------------------------------------------------) Tj T*
+/F4 8.2 Tf
+0.07 0.20 0.38 rg
+(2. DATASET SUMMARY \(50 Flights, 13 Columns\)) Tj T*
+/F3 8.2 Tf
+0.60 0.65 0.75 rg
+(--------------------------------------------------------------------------------) Tj T*
+/F3 8.2 Tf
+0.15 0.18 0.22 rg
+(Col A: Flight_ID       - Callsign/Tracking ID \(FL-101 to FL-150\)) Tj T*
+(Col B: Airline         - IndiGo, Air India, Akasa Air, Vistara, SpiceJet) Tj T*
+(Col C: Terminal        - T1 \(Low-Cost Domestic\), T2 \(Full-Service & International\)) Tj T*
+(Col D: Sector          - Route \(BLR-DEL, BLR-BOM, BLR-LHR, BLR-SFO, etc.\)) Tj T*
+(Col E: Aircraft_Type   - A320neo, A321neo, B737-MAX8, B777-300ER, B787-8, ATR-72) Tj T*
+(Col F: Flight_Type     - Domestic vs International) Tj T*
+(Col G: Time_Slot       - Morning, Afternoon, Evening, Night) Tj T*
+(Col H: Pax_Capacity    - Total passenger seats installed \(72 to 342\)) Tj T*
+(Col I: Pax_Booked      - Actual passengers boarded \(68 to 335\)) Tj T*
+(Col J: Baggage_Pcs     - Checked-in baggage count \(75 to 620\)) Tj T*
+(Col K: Status          - On-Time, Delayed, Cancelled) Tj T*
+(Col L: Delay_Mins      - Turnaround delay duration in minutes \(0 for On-Time\)) Tj T*
+(Col M: Delay_Reason    - None, Late Inbound, ATC Congestion, Snag, Weather, etc.) Tj T*
+T*
+0.60 0.65 0.75 rg
+(--------------------------------------------------------------------------------) Tj
+ET
+endstream
+endobj
+9 0 obj
+<</Length 3613>>
+stream
+0.80 0.84 0.90 RG
+0.5 w
+45 802 m 550 802 l S
+BT
+/F1 7.5 Tf
+0.35 0.40 0.45 rg
+45 807 Td
+(ALLIANCE UNIVERSITY | DEPARTMENT OF AVIATION & AEROSPACE MANAGEMENT) Tj
+ET
+45 42 m 550 42 l S
+BT
+/F1 7.5 Tf
+0.35 0.40 0.45 rg
+45 32 Td
+(Course: Introduction to Computing Skills [Z7AVA 26209] - Aviation Pivot Lab) Tj
+ET
+BT
+/F2 7.5 Tf
+0.10 0.20 0.40 rg
+515 32 Td
+(Page 2 of 4) Tj
+ET
+BT
+/F4 8.2 Tf
+13 TL
+0.07 0.20 0.38 rg
+45 778 Td
+(3. LABORATORY TASKS \(4 PIVOT TABLES + 4 PIVOT CHARTS\)) Tj T*
+/F3 8.2 Tf
+0.60 0.65 0.75 rg
+(--------------------------------------------------------------------------------) Tj T*
+T*
+/F4 8.2 Tf
+0.10 0.35 0.65 rg
+(WORKBOOK STRUCTURE:) Tj T*
+/F3 8.2 Tf
+0.15 0.18 0.22 rg
+(- Sheet 1: Raw_Data \(Imported CSV\)) Tj T*
+(- Sheet 2: Task1_Pax_Terminal \(Table + Clustered Column Chart\)) Tj T*
+(- Sheet 3: Task2_Punctuality_OTP \(Table + 100% Stacked Bar Chart\)) Tj T*
+(- Sheet 4: Task3_Delay_Bottlenecks \(Table + Sorted Horizontal Bar Chart\)) Tj T*
+(- Sheet 5: Task4_Baggage_Waves \(Table + Dual-Axis Combo Chart\)) Tj T*
+T*
+/F4 8.2 Tf
+0.07 0.20 0.38 rg
+(TASK 1: PASSENGER VOLUME BY AIRLINE & TERMINAL) Tj T*
+/F3 8.2 Tf
+0.15 0.18 0.22 rg
+(- Rows: Airline) Tj T*
+(- Columns: Terminal) Tj T*
+(- Values: Sum of Pax_Booked \(Formatted with comma separator: 1,250\)) Tj T*
+(- Filter: Flight_Type) Tj T*
+(- Chart: Clustered Column Chart \(Comparing T1 vs T2 per airline\)) Tj T*
+/F4 8.2 Tf
+0.10 0.35 0.65 rg
+(- Question: Which airline dominates T1 passenger volume, and which dominates T2?) Tj T*
+T*
+/F4 8.2 Tf
+0.07 0.20 0.38 rg
+(TASK 2: AIRLINE ON-TIME PERFORMANCE \(OTP\) PUNCTUALITY) Tj T*
+/F3 8.2 Tf
+0.15 0.18 0.22 rg
+(- Rows: Airline) Tj T*
+(- Columns: Status \(Cancelled, Delayed, On-Time\)) Tj T*
+(- Values: Count of Flight_ID) Tj T*
+(- Calculation: Show Values As -> "% of Row Total" \(Percentage with 1 decimal\)) Tj T*
+(- Chart: 100% Stacked Bar Chart \(Green = On-Time, Amber = Delayed, Red = Cancelled\)) Tj T*
+/F4 8.2 Tf
+0.10 0.35 0.65 rg
+(- Question: Which airline has the highest on-time punctuality rate?) Tj T*
+T*
+/F4 8.2 Tf
+0.07 0.20 0.38 rg
+(TASK 3: ROOT-CAUSE TURNAROUND DELAY ANALYSIS) Tj T*
+/F3 8.2 Tf
+0.15 0.18 0.22 rg
+(- Rows: Delay_Reason \(Filter out "None"\)) Tj T*
+(- Values:) Tj T*
+(  1. Average of Delay_Mins \(Formatted to 1 decimal place\)) Tj T*
+(  2. Count of Flight_ID \(Renamed to "Affected Flights"\)) Tj T*
+(- Sorting: Sort rows Descending by Average Delay Minutes) Tj T*
+(- Chart: Horizontal Bar Chart with data labels enabled) Tj T*
+/F4 8.2 Tf
+0.10 0.35 0.65 rg
+(- Question: Which root cause triggers the longest average delay duration?) Tj T*
+T*
+/F4 8.2 Tf
+0.07 0.20 0.38 rg
+(TASK 4: DEPARTURE WAVES & BAGGAGE HANDLING DEMAND) Tj T*
+/F3 8.2 Tf
+0.15 0.18 0.22 rg
+(- Rows: Time_Slot \(Morning -> Afternoon -> Evening -> Night\)) Tj T*
+(- Values:) Tj T*
+(  1. Sum of Baggage_Pcs \(Renamed to "Total Baggage Pieces"\)) Tj T*
+(  2. Count of Flight_ID \(Renamed to "Scheduled Movements"\)) Tj T*
+(- Chart: Combo Chart \(Dual-Axis\)) Tj T*
+(  - Primary Axis \(Columns\): Baggage Pieces) Tj T*
+(  - Secondary Axis \(Line with Markers\): Scheduled Movements) Tj T*
+/F4 8.2 Tf
+0.10 0.35 0.65 rg
+(- Question: Which time slot generates peak baggage carousel strain?) Tj
+ET
+endstream
+endobj
+10 0 obj
+<</Length 2674>>
+stream
+0.80 0.84 0.90 RG
+0.5 w
+45 802 m 550 802 l S
+BT
+/F1 7.5 Tf
+0.35 0.40 0.45 rg
+45 807 Td
+(ALLIANCE UNIVERSITY | DEPARTMENT OF AVIATION & AEROSPACE MANAGEMENT) Tj
+ET
+45 42 m 550 42 l S
+BT
+/F1 7.5 Tf
+0.35 0.40 0.45 rg
+45 32 Td
+(Course: Introduction to Computing Skills [Z7AVA 26209] - Aviation Pivot Lab) Tj
+ET
+BT
+/F2 7.5 Tf
+0.10 0.20 0.40 rg
+515 32 Td
+(Page 3 of 4) Tj
+ET
+BT
+/F4 8.2 Tf
+13.5 TL
+0.07 0.20 0.38 rg
+45 778 Td
+(4. HOW TO DO IT ON MICROSOFT EXCEL) Tj T*
+/F3 8.2 Tf
+0.60 0.65 0.75 rg
+(--------------------------------------------------------------------------------) Tj T*
+T*
+/F4 8.2 Tf
+0.10 0.35 0.65 rg
+(1. Open "05_Aviation_BLR_Airport_Pivot_Master_Dataset.csv" in Excel.) Tj T*
+T*
+(2. IMMEDIATELY Save As Excel Workbook:) Tj T*
+/F3 8.2 Tf
+0.15 0.18 0.22 rg
+(   File -> Save As -> Change format to "Excel Workbook \(*.xlsx\)". ) Tj T*
+(   Name: [RollNo]_[YourName]_Pivot_Assignment.xlsx) Tj T*
+T*
+/F4 8.2 Tf
+0.10 0.35 0.65 rg
+(3. Rename the first sheet tab to "Raw_Data".) Tj T*
+T*
+(4. To create a Pivot Table:) Tj T*
+/F3 8.2 Tf
+0.15 0.18 0.22 rg
+(   Click any cell in the data \(A1\) -> Insert -> PivotTable -> New Worksheet.) Tj T*
+T*
+/F4 8.2 Tf
+0.10 0.35 0.65 rg
+(5. In the PivotTable Fields pane on the right:) Tj T*
+/F3 8.2 Tf
+0.15 0.18 0.22 rg
+(   Drag fields into Rows, Columns, Values, and Filters boxes as specified.) Tj T*
+T*
+/F4 8.2 Tf
+0.10 0.35 0.65 rg
+(6. Number Formatting:) Tj T*
+/F3 8.2 Tf
+0.15 0.18 0.22 rg
+(   Right-click any value in table -> Number Format -> Number \(use 1000 separator\).) Tj T*
+T*
+/F4 8.2 Tf
+0.10 0.35 0.65 rg
+(7. Percentage of Row Total \(Task 2\):) Tj T*
+/F3 8.2 Tf
+0.15 0.18 0.22 rg
+(   Right-click value -> Show Values As -> "% of Row Total".) Tj T*
+T*
+/F4 8.2 Tf
+0.10 0.35 0.65 rg
+(8. Changing Sum to Average \(Task 3\):) Tj T*
+/F3 8.2 Tf
+0.15 0.18 0.22 rg
+(   Click dropdown on value -> Value Field Settings -> select "Average".) Tj T*
+T*
+/F4 8.2 Tf
+0.10 0.35 0.65 rg
+(9. Inserting Charts:) Tj T*
+/F3 8.2 Tf
+0.15 0.18 0.22 rg
+(   Click inside Pivot Table -> PivotTable Analyze -> PivotChart -> Select Chart Type.) Tj T*
+T*
+/F4 8.2 Tf
+0.10 0.35 0.65 rg
+(10. Combo Chart \(Task 4\):) Tj T*
+/F3 8.2 Tf
+0.15 0.18 0.22 rg
+(    PivotTable Analyze -> PivotChart -> Combo -> Set Baggage to Column,) Tj T*
+(    Flights to Line and check "Secondary Axis".) Tj
+ET
+endstream
+endobj
+11 0 obj
+<</Length 3851>>
+stream
+0.80 0.84 0.90 RG
+0.5 w
+45 802 m 550 802 l S
+BT
+/F1 7.5 Tf
+0.35 0.40 0.45 rg
+45 807 Td
+(ALLIANCE UNIVERSITY | DEPARTMENT OF AVIATION & AEROSPACE MANAGEMENT) Tj
+ET
+45 42 m 550 42 l S
+BT
+/F1 7.5 Tf
+0.35 0.40 0.45 rg
+45 32 Td
+(Course: Introduction to Computing Skills [Z7AVA 26209] - Aviation Pivot Lab) Tj
+ET
+BT
+/F2 7.5 Tf
+0.10 0.20 0.40 rg
+515 32 Td
+(Page 4 of 4) Tj
+ET
+BT
+/F4 8.2 Tf
+12 TL
+0.07 0.20 0.38 rg
+45 778 Td
+(5. HOW TO DO IT ON GOOGLE SHEETS) Tj T*
+/F3 8.2 Tf
+0.60 0.65 0.75 rg
+(--------------------------------------------------------------------------------) Tj T*
+/F4 8.2 Tf
+0.10 0.35 0.65 rg
+(STEP 1: IMPORT CSV INTO GOOGLE SHEETS \(MANDATORY\)) Tj T*
+/F3 8.2 Tf
+0.15 0.18 0.22 rg
+(1. Open browser -> Go to https://sheets.new \(opens a new blank sheet\).) Tj T*
+(2. Go to top menu: File -> Import.) Tj T*
+(3. Click the "Upload" tab on the right.) Tj T*
+(4. Drag and drop "05_Aviation_BLR_Airport_Pivot_Master_Dataset.csv" \(or Browse\).) Tj T*
+(5. In the Import Location dialog:) Tj T*
+(   - Import location: "Replace current sheet") Tj T*
+(   - Separator type: "Detect automatically") Tj T*
+(   - Convert text to numbers, dates, and formulas: Check "Yes") Tj T*
+(6. Click "Import data".) Tj T*
+(7. Rename bottom-left sheet tab to "Raw_Data".) Tj T*
+(8. Name spreadsheet at top left: [RollNo]_[YourName]_Aviation_Pivot_Lab.) Tj T*
+T*
+/F4 8.2 Tf
+0.10 0.35 0.65 rg
+(STEP 2: CREATE PIVOT TABLES & CHARTS) Tj T*
+/F3 8.2 Tf
+0.15 0.18 0.22 rg
+(1. Click cell A1 -> Press Ctrl + A to select all data.) Tj T*
+(2. Top menu: Insert -> Pivot table -> Select "New sheet" -> Click "Create".) Tj T*
+(3. Rename tab to "Task1_Pax_Terminal".) Tj T*
+(4. In the Pivot Table Editor sidebar on the right:) Tj T*
+(   - Rows: Click "Add" -> select field.) Tj T*
+(   - Columns: Click "Add" -> select field.) Tj T*
+(   - Values: Click "Add" -> select field -> choose Summarize by \(SUM, COUNTA, AVERAGE\).) Tj T*
+(   - Filters: Click "Add" -> select field.) Tj T*
+(5. Show as Percentage of Row \(Task 2\):) Tj T*
+(   In Values section -> change "Show as" from Default to "% of row".) Tj T*
+(6. Insert Charts:) Tj T*
+(   Highlight the Pivot Table range -> Insert -> Chart.) Tj T*
+(   In Chart Editor \(Setup tab\): Choose Chart Type \(Column, 100% Stacked Bar, Bar, Combo\).) Tj T*
+(   In Chart Editor \(Customize tab\): Add Chart Titles, Legend, and Data Labels.) Tj T*
+T*
+0.60 0.65 0.75 rg
+(--------------------------------------------------------------------------------) Tj T*
+/F4 8.2 Tf
+0.07 0.20 0.38 rg
+(6. SUBMISSION GUIDELINES) Tj T*
+/F3 8.2 Tf
+0.60 0.65 0.75 rg
+(--------------------------------------------------------------------------------) Tj T*
+/F4 8.2 Tf
+0.85 0.15 0.15 rg
+(- DEADLINE: 26 October, 2026 | 1000 hours) Tj T*
+/F4 8.2 Tf
+0.10 0.35 0.65 rg
+(- FILE FORMAT: All submissions must be in Excel \(.xlsx\) format.) Tj T*
+/F3 8.2 Tf
+0.15 0.18 0.22 rg
+(  * Excel users: Save your file as [RollNo]_[YourName]_Pivot_Assignment.xlsx) Tj T*
+(  * Google Sheets users: File -> Download -> Microsoft Excel \(.xlsx\)) Tj T*
+T*
+/F4 8.2 Tf
+0.10 0.35 0.65 rg
+(- UPLOAD LINK \(Google Drive\):) Tj T*
+/F3 7.8 Tf
+0.05 0.35 0.75 rg
+(  https://drive.google.com/drive/folders/1pPt5eKaWxiPeLtm0UoopuW3rwkjRVTAV?usp=drive_link) Tj T*
+T*
+/F3 8.2 Tf
+0.15 0.18 0.22 rg
+(- EVALUATION: 50 Marks Total \(10 marks per task + 5 marks data setup + 5 marks analysis\).) Tj T*
+0.60 0.65 0.75 rg
+(================================================================================) Tj
+ET
+endstream
+endobj
+xref
+0 12
+0000000000 65535 f 
+0000000024 00000 n 
+0000000078 00000 n 
+0000000156 00000 n 
+0000000278 00000 n 
+0000000401 00000 n 
+0000000525 00000 n 
+0000000649 00000 n 
+0000000887 00000 n 
+0000004921 00000 n 
+0000008717 00000 n 
+0000011570 00000 n 
+trailer
+<</Size 12/Root 1 0 R>>
+startxref
+15605
+%%EOF

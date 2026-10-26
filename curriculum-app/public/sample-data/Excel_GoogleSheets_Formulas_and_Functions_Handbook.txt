@@ -1,0 +1,265 @@
+================================================================================
+ALLIANCE UNIVERSITY | DEPARTMENT OF AVIATION & AEROSPACE MANAGEMENT
+Course: Introduction to Computing Skills (Z7AVA 26209)
+COMPREHENSIVE FORMULAS & FUNCTIONS HANDBOOK (MS EXCEL & GOOGLE SHEETS)
+================================================================================
+
+--------------------------------------------------------------------------------
+PART 1: FORMULA BASICS, OPERATORS & CELL REFERENCING
+--------------------------------------------------------------------------------
+
+1. FORMULA SYNTAX RULES:
+   - Every formula and function MUST start with an equals sign (=).
+   - Functions follow the pattern: =FUNCTION_NAME(argument1, argument2, ...)
+   - Arguments are separated by commas (,).
+   - Text strings inside formulas must be wrapped in double quotes: "Delayed".
+   - Numerical values and cell references do NOT use quotes: A1 + 50.
+
+2. ARITHMETIC OPERATORS & PEMDAS ORDER OF PRECEDENCE:
+   +  Addition          =A1 + B1
+   -  Subtraction       =A1 - B1
+   *  Multiplication    =A1 * B1
+   /  Division          =A1 / B1
+   ^  Exponentiation    =A1 ^ 2   (A1 squared)
+   %  Percentage        =A1 * 18% (Multiplies by 0.18)
+   () Parentheses       Controls calculation order (e.g. =(A1+B1)*C1 )
+   * PEMDAS Order: Parentheses -> Exponents -> Mult/Div -> Add/Sub
+
+3. CELL REFERENCING TYPES (CRITICAL LAB SKILL):
+   - Relative Reference (A1):
+     Shifts row and column automatically when copied/dragged down or across.
+     Example: In C1, =A1*B1. Dragged to C2 becomes =A2*B2.
+   - Absolute Reference ($A$1):
+     Locks BOTH column and row. Never changes when copied anywhere.
+     Shortcut Key: Press F4 (or Fn + F4) while cursor is on cell reference.
+     Example: =B2 * $D$1 (where D1 contains a fixed Tax Rate or Fuel Price).
+   - Mixed Reference ($A1 or A$1):
+     $A1 locks Column A, but row changes when dragged vertically.
+     A$1 locks Row 1, but column changes when dragged horizontally.
+
+4. ERROR CODES & DIAGNOSTIC FIXES:
+   - #DIV/0!  : Attempted division by zero or an empty cell.
+   - #N/A     : Value not available (lookup function found no match).
+   - #VALUE!  : Wrong data type passed (e.g. attempting to multiply text: "A" * 5).
+   - #REF!    : Invalid cell reference (a referenced row/column was deleted).
+   - #NAME?   : Misspelled function name (e.g. =SUMM(A1:A10) instead of =SUM).
+   - ####     : Column is too narrow to display number (double-click header edge).
+
+--------------------------------------------------------------------------------
+PART 2: ESSENTIAL MATHEMATICAL & STATISTICAL FUNCTIONS
+--------------------------------------------------------------------------------
+
+Function        Syntax & Description                               Example
+--------------------------------------------------------------------------------
+SUM             =SUM(number1, [number2], ...)                      =SUM(H2:H51)
+                Adds all numbers in the specified range.
+AVERAGE         =AVERAGE(number1, [number2], ...)                  =AVERAGE(L2:L51)
+                Calculates arithmetic mean of the values.
+MIN             =MIN(number1, [number2], ...)                      =MIN(I2:I51)
+                Returns smallest numerical value in range.
+MAX             =MAX(number1, [number2], ...)                      =MAX(I2:I51)
+                Returns largest numerical value in range.
+COUNT           =COUNT(value1, [value2], ...)                      =COUNT(L2:L51)
+                Counts cells containing NUMERICAL values only.
+COUNTA          =COUNTA(value1, [value2], ...)                     =COUNTA(A2:A51)
+                Counts all NON-EMPTY cells (text + numbers).
+COUNTBLANK      =COUNTBLANK(range)                                 =COUNTBLANK(M2:M51)
+                Counts empty / blank cells in the range.
+LARGE           =LARGE(array, k)                                   =LARGE(I2:I51, 3)
+                Returns the k-th largest value (3rd highest).
+SMALL           =SMALL(array, k)                                   =SMALL(L2:L51, 1)
+                Returns the k-th smallest value (1st lowest).
+ROUND           =ROUND(number, num_digits)                         =ROUND(AVERAGE(L2:L51), 1)
+                Rounds a number to specified decimal places.
+ROUNDUP         =ROUNDUP(number, num_digits)                       =ROUNDUP(A1, 0)
+                Rounds number upwards away from 0.
+ROUNDDOWN       =ROUNDDOWN(number, num_digits)                     =ROUNDDOWN(A1, 2)
+                Rounds number downwards toward 0.
+INT             =INT(number)                                       =INT(45.85) -> 45
+                Rounds down to nearest integer.
+MOD             =MOD(number, divisor)                              =MOD(125, 60) -> 5
+                Returns remainder after division.
+ABS             =ABS(number)                                       =ABS(-15.4) -> 15.4
+                Returns absolute positive magnitude.
+
+--------------------------------------------------------------------------------
+PART 3: LOGICAL, COMPARISON & CONDITIONAL FUNCTIONS
+--------------------------------------------------------------------------------
+
+Comparison Operators:
+= (Equal), <> (Not Equal), > (Greater Than), < (Less Than), >= (GTE), <= (LTE)
+
+1. IF Function (Binary Decision):
+   Syntax: =IF(logical_test, value_if_true, value_if_false)
+   Example:
+   =IF(L2 > 15, "Delayed", "On-Time")
+
+2. Nested IF (Multi-tier Decision):
+   Syntax: =IF(condition1, val1, IF(condition2, val2, val3))
+   Example (Flight delay severity categorization):
+   =IF(L2=0, "On-Time", IF(L2<=30, "Minor Delay", "Severe Delay"))
+
+3. IFS Function (Modern cleaner multi-condition without nesting):
+   Syntax: =IFS(condition1, val1, condition2, val2, [TRUE, default_val])
+   Example:
+   =IFS(L2=0, "On-Time", L2<=15, "Short Delay", L2<=60, "Moderate", TRUE, "Critical")
+
+4. AND & OR Functions:
+   - AND(cond1, cond2, ...): Returns TRUE only if ALL conditions are TRUE.
+     Example: =IF(AND(F2="International", I2>250), "Heavy Widebody", "Standard")
+   - OR(cond1, cond2, ...): Returns TRUE if AT LEAST ONE condition is TRUE.
+     Example: =IF(OR(K2="Delayed", K2="Cancelled"), "Disrupted", "Normal")
+
+5. IFERROR & IFNA (Error Handling):
+   Syntax: =IFERROR(value, value_if_error)
+   Protects sheets from displaying unsightly error codes like #DIV/0! or #N/A.
+   Example:
+   =IFERROR(I2 / H2, 0)   (Calculates Load Factor; returns 0 if capacity is 0)
+
+--------------------------------------------------------------------------------
+PART 4: CRITERIA-BASED AGGREGATION FUNCTIONS (SUMIF, COUNTIF, AVERAGEIF)
+--------------------------------------------------------------------------------
+
+1. COUNTIF & COUNTIFS:
+   - Single Condition: =COUNTIF(range, criteria)
+     Example: =COUNTIF(B2:B51, "IndiGo")
+     Example: =COUNTIF(L2:L51, ">30")
+   - Multiple Conditions: =COUNTIFS(criteria_range1, crit1, criteria_range2, crit2, ...)
+     Example: =COUNTIFS(B2:B51, "Air India", K2:K51, "Delayed")
+
+2. SUMIF & SUMIFS:
+   - Single Condition: =SUMIF(criteria_range, criteria, [sum_range])
+     Example: =SUMIF(C2:C51, "T1", J2:J51)
+     (Sums Baggage_Pcs in column J only for flights where Terminal in C is "T1")
+   - Multiple Conditions: =SUMIFS(sum_range, criteria_range1, crit1, criteria_range2, crit2, ...)
+     * Note: In SUMIFS, sum_range comes FIRST!
+     Example: =SUMIFS(I2:I51, B2:B51, "IndiGo", C2:C51, "T1")
+
+3. AVERAGEIF & AVERAGEIFS:
+   - Single Condition: =AVERAGEIF(criteria_range, criteria, [avg_range])
+     Example: =AVERAGEIF(B2:B51, "Akasa Air", L2:L51)
+   - Multiple Conditions: =AVERAGEIFS(avg_range, criteria_range1, crit1, ...)
+     Example: =AVERAGEIFS(L2:L51, C2:C51, "T2", F2:F51, "International")
+
+--------------------------------------------------------------------------------
+PART 5: TEXT MANIPULATION & DATA CLEANING FUNCTIONS
+--------------------------------------------------------------------------------
+
+Function        Syntax & Description                               Example
+--------------------------------------------------------------------------------
+& (Ampersand)   Text concatenation operator                        =A2 & " - " & D2
+                Joins multiple strings together.                   -> "FL-101 - BLR-DEL"
+CONCATENATE     =CONCATENATE(text1, text2, ...)                    =CONCATENATE(B2,"-",C2)
+TEXTJOIN        =TEXTJOIN(delimiter, ignore_empty, text1, ...)     =TEXTJOIN(", ", TRUE, B2:B6)
+                Joins range with custom delimiter.
+UPPER           =UPPER(text)                                       =UPPER("indigo") -> "INDIGO"
+LOWER           =LOWER(text)                                       =LOWER("AIR INDIA") -> "air india"
+PROPER          =PROPER(text)                                      =PROPER("akasa air") -> "Akasa Air"
+TRIM            =TRIM(text)                                        =TRIM("  BLR  ") -> "BLR"
+                Removes all irregular leading/trailing spaces.
+LEN             =LEN(text)                                         =LEN("FL-101") -> 6
+                Returns character length of text string.
+LEFT            =LEFT(text, num_chars)                             =LEFT("BLR-BOM", 3) -> "BLR"
+                Extracts characters from left side.
+RIGHT           =RIGHT(text, num_chars)                            =RIGHT("BLR-BOM", 3) -> "BOM"
+                Extracts characters from right side.
+MID             =MID(text, start_num, num_chars)                   =MID("FL-101", 4, 3) -> "101"
+                Extracts characters from middle of string.
+FIND            =FIND(find_text, within_text)                      =FIND("-", "BLR-DEL") -> 4
+                Returns 1-based character position (Case-Sensitive).
+SEARCH          =SEARCH(find_text, within_text)                    Case-insensitive position lookup.
+SUBSTITUTE      =SUBSTITUTE(text, old_text, new_text)              =SUBSTITUTE("T1","1","2") -> "T2"
+TEXT            =TEXT(value, format_text)                          =TEXT(TODAY(),"DD-MMM-YYYY")
+                Formats numbers/dates into formatted text string.
+
+--------------------------------------------------------------------------------
+PART 6: LOOKUP & REFERENCE FUNCTIONS (VLOOKUP, INDEX/MATCH, XLOOKUP)
+--------------------------------------------------------------------------------
+
+1. VLOOKUP (Vertical Lookup - Traditional standard):
+   Syntax: =VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])
+   - lookup_value  : Item you want to search for (must exist in Column 1 of table).
+   - table_array   : The data table range (e.g. A2:M51).
+   - col_index_num : Column number to return value from (1, 2, 3...).
+   - [range_lookup]: ALWAYS use FALSE (or 0) for exact match!
+   Example:
+   =VLOOKUP("FL-105", A2:M51, 2, FALSE)
+   -> Searches for "FL-105" in Col A and returns corresponding Airline from Col B.
+   * Limitation: VLOOKUP cannot look to the left of the lookup column!
+
+2. INDEX & MATCH (The Dynamic Gold Standard):
+   - MATCH(lookup_val, lookup_array, 0): Finds row position index of an item.
+   - INDEX(array, row_num, [col_num]): Returns data at that row & column.
+   Combination Formula:
+   =INDEX(B2:B51, MATCH("FL-105", A2:A51, 0))
+   -> Looks up "FL-105" in A2:A51, finds row number, and fetches airline from B2:B51.
+   * Superpower: Can look left, right, and is immune to column insertions.
+
+3. XLOOKUP (Modern Superior Function in Excel 365 & Google Sheets):
+   Syntax: =XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found], [match_mode])
+   - Defaults to EXACT MATCH (no need to write FALSE).
+   - Can search forwards or backwards and look left or right.
+   Example:
+   =XLOOKUP("FL-105", A2:A51, B2:B51, "Flight Not Found")
+
+--------------------------------------------------------------------------------
+PART 7: DATE & TIME FUNCTIONS
+--------------------------------------------------------------------------------
+
+Function        Syntax & Description                               Example
+--------------------------------------------------------------------------------
+TODAY()         =TODAY()                                           Returns current system date.
+NOW()           =NOW()                                             Returns current date and time.
+DATE            =DATE(year, month, day)                            =DATE(2026, 10, 24)
+YEAR            =YEAR(serial_date)                                 =YEAR(TODAY()) -> 2026
+MONTH           =MONTH(serial_date)                                =MONTH(TODAY()) -> 10
+DAY             =DAY(serial_date)                                  =DAY(TODAY()) -> 24
+DATEDIF         =DATEDIF(start_date, end_date, unit)               =DATEDIF(A2, B2, "D")
+                Units: "Y" (years), "M" (months), "D" (days).
+NETWORKDAYS     =NETWORKDAYS(start_date, end_date, [holidays])     Calculates working business days.
+EDATE           =EDATE(start_date, months)                         Adds/subtracts n calendar months.
+EOMONTH         =EOMONTH(start_date, months)                       Returns last day of the month.
+
+--------------------------------------------------------------------------------
+PART 8: GOOGLE SHEETS SUPERPOWERS (DYNAMIC ARRAY FUNCTIONS)
+--------------------------------------------------------------------------------
+
+Function        Syntax & Description                               Example
+--------------------------------------------------------------------------------
+UNIQUE          =UNIQUE(range)                                     =UNIQUE(B2:B51)
+                Extracts distinct list of values with no dupes.
+SORT            =SORT(range, sort_column, is_ascending)            =SORT(A2:M51, 12, FALSE)
+                Sorts table dynamically (e.g. descending delays).
+FILTER          =FILTER(range, condition1, [condition2, ...])      =FILTER(A2:M51, K2:K51="Delayed")
+                Filters entire table into adjacent cells dynamically.
+ARRAYFORMULA    =ARRAYFORMULA(I2:I51 / H2:H51 * 100)               =ARRAYFORMULA(I2:I51 / H2:H51)
+                Executes formula across entire column automatically!
+QUERY           =QUERY(data, "select B, sum(I) group by B")        Runs SQL queries inside sheet!
+SPARKLINE       =SPARKLINE(range, {"charttype","bar"})             Generates mini in-cell chart.
+IMPORTRANGE     =IMPORTRANGE("sheet_url", "Raw_Data!A1:M50")       Pulls live data from another sheet.
+
+--------------------------------------------------------------------------------
+PART 9: AVIATION DATA ANALYSIS FORMULA RECIPES (PRACTICAL EXAMPLES)
+--------------------------------------------------------------------------------
+
+1. Passenger Load Factor (% Seat Occupancy):
+   =ROUND((I2 / H2) * 100, 1) & "%"
+   (Pax_Booked divided by Pax_Capacity, rounded to 1 decimal with % symbol)
+
+2. Aircraft Revenue Estimate:
+   =I2 * 4500
+   (Pax_Booked multiplied by average ticket fare of Rs. 4,500)
+
+3. On-Time Performance (OTP) 15-Minute Rule:
+   =IF(L2 <= 15, "Punctual (OTP)", "Delayed")
+   (Aviation industry standard: Flights within 15 min of schedule count as On-Time)
+
+4. Baggage Ratio per Boarded Passenger:
+   =ROUND(J2 / I2, 2)
+   (Checked baggage count divided by actual passengers boarded)
+
+5. Turnaround Delay Classification:
+   =IF(L2=0, "Clean Departure", IF(L2<=30, "Minor Ramp Buffer", "Major Disruption"))
+================================================================================
+ALLIANCE UNIVERSITY | DEPARTMENT OF AVIATION & AEROSPACE MANAGEMENT
+================================================================================

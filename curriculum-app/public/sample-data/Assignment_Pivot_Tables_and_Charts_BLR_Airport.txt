@@ -1,0 +1,155 @@
+================================================================================
+DEPARTMENT OF AVIATION & AEROSPACE MANAGEMENT
+Course: Introduction to Computing Skills (Z7AVA 26209)
+Laboratory Assignment: Flight Operations Analysis using Pivot Tables & Pivot Charts
+================================================================================
+
+EXERCISE DATASET FILE TO USE:
+05_Aviation_BLR_Airport_Pivot_Master_Dataset.csv
+(Contains 50 flight records across Terminal 1 & 2 at Bengaluru Airport)
+
+--------------------------------------------------------------------------------
+1. SCENARIO & PROBLEM STATEMENT
+--------------------------------------------------------------------------------
+You are a Junior Operations Analyst at the Airport Operations Control Centre (AOCC),
+Kempegowda International Airport Bengaluru (BIAL / BLR).
+
+The Airport Director has requested an operational performance review for 50 scheduled
+commercial flights operated across Terminal 1 and Terminal 2.
+
+Your objective is to provide actionable intelligence regarding:
+1. Passenger distribution across airlines and terminals
+2. Carrier on-time punctuality rates (OTP)
+3. Root-cause turnaround delay bottlenecks
+4. Peak baggage handling demands across departure waves
+
+--------------------------------------------------------------------------------
+2. DATASET SUMMARY (50 Flights, 13 Columns)
+--------------------------------------------------------------------------------
+Col A: Flight_ID       - Callsign/Tracking ID (FL-101 to FL-150)
+Col B: Airline         - IndiGo, Air India, Akasa Air, Vistara, SpiceJet
+Col C: Terminal        - T1 (Low-Cost Domestic), T2 (Full-Service & International)
+Col D: Sector          - Route (BLR-DEL, BLR-BOM, BLR-LHR, BLR-SFO, etc.)
+Col E: Aircraft_Type   - A320neo, A321neo, B737-MAX8, B777-300ER, B787-8, ATR-72
+Col F: Flight_Type     - Domestic vs International
+Col G: Time_Slot       - Morning, Afternoon, Evening, Night
+Col H: Pax_Capacity    - Total passenger seats installed (72 to 342)
+Col I: Pax_Booked      - Actual passengers boarded (68 to 335)
+Col J: Baggage_Pcs     - Checked-in baggage count (75 to 620)
+Col K: Status          - On-Time, Delayed, Cancelled
+Col L: Delay_Mins      - Turnaround delay duration in minutes (0 for On-Time)
+Col M: Delay_Reason    - None, Late Inbound, ATC Congestion, Snag, Weather, etc.
+
+--------------------------------------------------------------------------------
+3. LABORATORY TASKS (4 PIVOT TABLES + 4 PIVOT CHARTS)
+--------------------------------------------------------------------------------
+
+WORKBOOK STRUCTURE:
+- Sheet 1: Raw_Data (Imported CSV)
+- Sheet 2: Task1_Pax_Terminal (Table + Clustered Column Chart)
+- Sheet 3: Task2_Punctuality_OTP (Table + 100% Stacked Bar Chart)
+- Sheet 4: Task3_Delay_Bottlenecks (Table + Sorted Horizontal Bar Chart)
+- Sheet 5: Task4_Baggage_Waves (Table + Dual-Axis Combo Chart)
+
+TASK 1: PASSENGER VOLUME BY AIRLINE & TERMINAL
+- Rows: Airline
+- Columns: Terminal
+- Values: Sum of Pax_Booked (Formatted with comma separator: 1,250)
+- Filter: Flight_Type
+- Chart: Clustered Column Chart (Comparing T1 vs T2 per airline)
+- Question: Which airline dominates T1 passenger volume, and which dominates T2?
+
+TASK 2: AIRLINE ON-TIME PERFORMANCE (OTP) PUNCTUALITY
+- Rows: Airline
+- Columns: Status (Cancelled, Delayed, On-Time)
+- Values: Count of Flight_ID
+- Calculation: Show Values As -> "% of Row Total" (Percentage with 1 decimal)
+- Chart: 100% Stacked Bar Chart (Green = On-Time, Amber = Delayed, Red = Cancelled)
+- Question: Which airline has the highest on-time punctuality rate?
+
+TASK 3: ROOT-CAUSE TURNAROUND DELAY ANALYSIS
+- Rows: Delay_Reason (Filter out "None")
+- Values:
+  1. Average of Delay_Mins (Formatted to 1 decimal place)
+  2. Count of Flight_ID (Renamed to "Affected Flights")
+- Sorting: Sort rows Descending by Average Delay Minutes
+- Chart: Horizontal Bar Chart with data labels enabled
+- Question: Which root cause triggers the longest average delay duration?
+
+TASK 4: DEPARTURE WAVES & BAGGAGE HANDLING DEMAND
+- Rows: Time_Slot (Morning -> Afternoon -> Evening -> Night)
+- Values:
+  1. Sum of Baggage_Pcs (Renamed to "Total Baggage Pieces")
+  2. Count of Flight_ID (Renamed to "Scheduled Movements")
+- Chart: Combo Chart (Dual-Axis)
+  - Primary Axis (Columns): Baggage Pieces
+  - Secondary Axis (Line with Markers): Scheduled Movements
+- Question: Which time slot generates peak baggage carousel strain?
+
+--------------------------------------------------------------------------------
+4. HOW TO DO IT ON MICROSOFT EXCEL
+--------------------------------------------------------------------------------
+1. Open "05_Aviation_BLR_Airport_Pivot_Master_Dataset.csv" in Excel.
+2. IMMEDIATELY Save As Excel Workbook:
+   File -> Save As -> Change format to "Excel Workbook (*.xlsx)".
+   Name: [RollNo]_[YourName]_Pivot_Assignment.xlsx
+3. Rename the first sheet tab to "Raw_Data".
+4. To create a Pivot Table:
+   Click any cell in the data (A1) -> Insert -> PivotTable -> New Worksheet.
+5. In the PivotTable Fields pane on the right:
+   Drag fields into Rows, Columns, Values, and Filters boxes as specified.
+6. Number Formatting:
+   Right-click any value in the table -> Number Format -> Number (use 1000 separator).
+7. Percentage of Row Total (Task 2):
+   Right-click value -> Show Values As -> "% of Row Total".
+8. Changing Sum to Average (Task 3):
+   Click dropdown on value -> Value Field Settings -> select "Average".
+9. Inserting Charts:
+   Click inside Pivot Table -> PivotTable Analyze -> PivotChart -> Select Chart Type.
+10. Combo Chart (Task 4):
+    PivotTable Analyze -> PivotChart -> Combo -> Set Baggage to Column,
+    Flights to Line and check "Secondary Axis".
+
+--------------------------------------------------------------------------------
+5. HOW TO DO IT ON GOOGLE SHEETS
+--------------------------------------------------------------------------------
+STEP 1: IMPORT CSV INTO GOOGLE SHEETS (MANDATORY)
+1. Open browser -> Go to https://sheets.new (opens a new blank sheet).
+2. Go to top menu: File -> Import.
+3. Click the "Upload" tab on the right.
+4. Drag and drop "05_Aviation_BLR_Airport_Pivot_Master_Dataset.csv" (or Browse).
+5. In the Import Location dialog:
+   - Import location: "Replace current sheet"
+   - Separator type: "Detect automatically"
+   - Convert text to numbers, dates, and formulas: Check "Yes"
+6. Click "Import data".
+7. Rename bottom-left sheet tab to "Raw_Data".
+8. Name spreadsheet at top left: [RollNo]_[YourName]_Aviation_Pivot_Lab.
+
+STEP 2: CREATE PIVOT TABLES
+1. Click cell A1 -> Press Ctrl + A to select all data.
+2. Top menu: Insert -> Pivot table -> Select "New sheet" -> Click "Create".
+3. Rename tab to "Task1_Pax_Terminal".
+4. In the Pivot Table Editor sidebar on the right:
+   - Rows: Click "Add" -> select field.
+   - Columns: Click "Add" -> select field.
+   - Values: Click "Add" -> select field -> choose Summarize by (SUM, COUNTA, AVERAGE).
+   - Filters: Click "Add" -> select field.
+5. Show as Percentage of Row (Task 2):
+   In Values section -> change "Show as" from Default to "% of row".
+6. Insert Charts:
+   Highlight the Pivot Table range -> Insert -> Chart.
+   In Chart Editor (Setup tab): Choose Chart Type (Column, 100% Stacked Bar, Bar, Combo).
+   In Chart Editor (Customize tab): Add Chart Titles, Legend, and Data Labels.
+
+--------------------------------------------------------------------------------
+6. SUBMISSION GUIDELINES
+--------------------------------------------------------------------------------
+- DEADLINE: 26 October, 2026 | 1000 hours
+- FILE FORMAT: All submissions must be in Excel (.xlsx) format.
+  * Excel users: Save your file as [RollNo]_[YourName]_Pivot_Assignment.xlsx
+  * Google Sheets users: File -> Download -> Microsoft Excel (.xlsx)
+- UPLOAD LINK: Upload your .xlsx file to the designated Google Drive folder:
+  https://drive.google.com/drive/folders/1pPt5eKaWxiPeLtm0UoopuW3rwkjRVTAV?usp=drive_link
+- EVALUATION: 50 Marks Total (10 marks per task + 5 marks data setup + 5 marks analysis).
+================================================================================

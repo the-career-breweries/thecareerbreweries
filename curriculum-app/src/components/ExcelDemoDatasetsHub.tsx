@@ -610,6 +610,51 @@ export default function ExcelDemoDatasetsHub() {
             >
               📦 Download All 5 (.zip)
             </a>
+            {activeDataset.id === 'pivot-charts' && (
+              <>
+                <a
+                  href="/sample-data/Assignment_Pivot_Tables_and_Charts_BLR_Airport.pdf"
+                  download="Assignment_Pivot_Tables_and_Charts_BLR_Airport.pdf"
+                  style={{
+                    background: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)',
+                    color: '#ffffff',
+                    border: 'none',
+                    padding: '8px 16px',
+                    borderRadius: '6px',
+                    fontSize: '0.82rem',
+                    fontWeight: 700,
+                    textDecoration: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    boxShadow: '0 2px 8px rgba(239, 68, 68, 0.3)'
+                  }}
+                  title="Download Student Assignment PDF Handout & Guidelines"
+                >
+                  <Download size={14} /> Download Assignment PDF (.PDF)
+                </a>
+                <a
+                  href="/sample-data/Assignment_Pivot_Tables_and_Charts_BLR_Airport.md"
+                  download="Assignment_Pivot_Tables_and_Charts_BLR_Airport.md"
+                  style={{
+                    background: 'rgba(234, 179, 8, 0.15)',
+                    color: '#facc15',
+                    border: '1px solid rgba(234, 179, 8, 0.4)',
+                    padding: '8px 16px',
+                    borderRadius: '6px',
+                    fontSize: '0.82rem',
+                    fontWeight: 700,
+                    textDecoration: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px'
+                  }}
+                  title="Download Student Assignment Handout (.md)"
+                >
+                  📝 Download Assignment Handout (.MD)
+                </a>
+              </>
+            )}
           </div>
         </div>
 

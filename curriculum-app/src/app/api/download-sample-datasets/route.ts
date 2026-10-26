@@ -111,7 +111,10 @@ export async function GET(req: Request) {
     '03_Aviation_VLOOKUP_HLOOKUP_Tariffs.csv',
     '04_Aviation_XLOOKUP_Crew_Snag_Master.csv',
     '05_Aviation_BLR_Airport_Pivot_Master_Dataset.csv',
-    'README_Trainer_Demonstration_Instructions.txt'
+    'README_Trainer_Demonstration_Instructions.txt',
+    'Assignment_Pivot_Tables_and_Charts_BLR_Airport.md',
+    'Assignment_Pivot_Tables_and_Charts_BLR_Airport.txt',
+    'Assignment_Pivot_Tables_and_Charts_BLR_Airport.pdf'
   ];
 
   // If specific file requested, serve directly
@@ -127,7 +130,11 @@ export async function GET(req: Request) {
         const fileBuffer = fs.readFileSync(filePath);
         return new NextResponse(new Uint8Array(fileBuffer), {
           headers: {
-            'Content-Type': matchedFile.endsWith('.csv') ? 'text/csv; charset=utf-8' : 'text/plain; charset=utf-8',
+            'Content-Type': matchedFile.endsWith('.csv') 
+              ? 'text/csv; charset=utf-8' 
+              : (matchedFile.endsWith('.md') 
+                  ? 'text/markdown; charset=utf-8' 
+                  : (matchedFile.endsWith('.pdf') ? 'application/pdf' : 'text/plain; charset=utf-8')),
             'Content-Disposition': `attachment; filename="${matchedFile}"`
           }
         });

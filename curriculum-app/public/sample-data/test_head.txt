@@ -1,0 +1,37 @@
+%PDF-1.4
+%âãÏÓ
+1 0 obj
+<<
+  /Type /Catalog
+  /Pages 3 0 R
+>>
+endobj
+2 0 obj
+<<
+  /Title (Flight Operations Analysis - Pivot Tables & Pivot Charts Assignment)
+  /Author (Alliance University - Department of Aviation Management)
+  /Subject (Z7AVA 26209 Introduction to Computing Skills)
+  /Creator (Alliance University Academic Portal)
+  /Producer (Alliance University Press)
+  /CreationDate (D:20261024120000+05'30')
+>>
+endobj
+3 0 obj
+<<
+  /Type /Pages
+  /Kids [4 0 R 6 0 R 8 0 R 10 0 R]
+  /Count 4
+>>
+endobj
+12 0 obj
+<<
+  /Font <<
+    /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+    /F2 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+    /F3 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>
+    /F4 << /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+    /F5 << /Type /Font /Subtype /Type1 /BaseFont /Courier-Bold >>
+  >>
+  /ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj

@@ -339,6 +339,13 @@ export default function CommunicativeEnglishApp() {
             </div>
             
             <div className="lms-topbar-actions">
+              <Link
+                href="/computing-skills/computing-lab"
+                className="lab-portal-btn"
+                style={{ textDecoration: 'none', backgroundColor: 'rgba(16, 185, 129, 0.12)', border: '1px solid #10b981', color: '#059669', padding: '6px 14px', borderRadius: '6px', fontSize: '0.82rem', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+              >
+                <FileSpreadsheet size={16} /> Student Lab & Assignment
+              </Link>
               <div className="lms-program-toggle">
                 <button 
                   className={`toggle-btn ${program === 'ug' ? 'active' : ''}`}
@@ -377,6 +384,9 @@ export default function CommunicativeEnglishApp() {
                 </a>
                 <a href="/computing-skills" className="module-item" style={{ textDecoration: 'none', color: 'var(--text-sidebar)' }}>
                   <span style={{ fontSize: '1.2rem' }}>💻</span> Computing Skills
+                </a>
+                <a href="/computing-skills/computing-lab" className="module-item" style={{ textDecoration: 'none', color: '#059669', fontWeight: 700 }}>
+                  <span style={{ fontSize: '1.2rem' }}>📊</span> Student Lab & Assignment
                 </a>
                 <a href="/workshops/admin" 
                   className="flex items-center gap-2 p-3 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors font-medium border border-blue-200 dark:border-blue-800 shadow-sm"
@@ -589,6 +599,7 @@ export default function CommunicativeEnglishApp() {
                                   >
                                     <Download size={13} /> Download Sample File (.csv)
                                   </a>
+
                                 </Fragment>
                               )}
                               {Number(week.week) === 14 && (
@@ -639,6 +650,7 @@ export default function CommunicativeEnglishApp() {
                                   >
                                     <Download size={13} /> Download Sample File (.csv)
                                   </a>
+
                                 </Fragment>
                               )}
                               {Number(week.week) === 15 && (
@@ -689,6 +701,7 @@ export default function CommunicativeEnglishApp() {
                                   >
                                     <Download size={13} /> Download Sample File (.csv)
                                   </a>
+
                                 </Fragment>
                               )}
                               {Number(week.week) === 17 && (
@@ -816,6 +829,54 @@ export default function CommunicativeEnglishApp() {
                                   >
                                     <Download size={13} /> Download Sample File (.csv)
                                   </a>
+                                  <a
+                                    href="/sample-data/Assignment_Pivot_Tables_and_Charts_BLR_Airport.md"
+                                    download="Assignment_Pivot_Tables_and_Charts_BLR_Airport.md"
+                                    style={{
+                                      textDecoration: 'none',
+                                      background: 'rgba(234, 179, 8, 0.08)',
+                                      border: '1px dashed rgba(234, 179, 8, 0.4)',
+                                      color: '#facc15',
+                                      padding: '6px 12px',
+                                      borderRadius: '6px',
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      justifyContent: 'center',
+                                      gap: '6px',
+                                      fontWeight: 600,
+                                      fontSize: '0.76rem',
+                                      cursor: 'pointer',
+                                      marginTop: '4px'
+                                    }}
+                                    onClick={(e) => e.stopPropagation()}
+                                    title="Download Student Assignment Sheet (.md) for Pivot Tables & Charts"
+                                  >
+                                    <Download size={13} /> Download Pivot Assignment Sheet (.MD)
+                                  </a>
+                                  <a
+                                    href="/sample-data/Assignment_Pivot_Tables_and_Charts_BLR_Airport.pdf"
+                                    download="Assignment_Pivot_Tables_and_Charts_BLR_Airport.pdf"
+                                    style={{
+                                      textDecoration: 'none',
+                                      background: 'rgba(239, 68, 68, 0.08)',
+                                      border: '1px dashed rgba(239, 68, 68, 0.4)',
+                                      color: '#f87171',
+                                      padding: '6px 12px',
+                                      borderRadius: '6px',
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      justifyContent: 'center',
+                                      gap: '6px',
+                                      fontWeight: 600,
+                                      fontSize: '0.76rem',
+                                      cursor: 'pointer',
+                                      marginTop: '4px'
+                                    }}
+                                    onClick={(e) => e.stopPropagation()}
+                                    title="Download Official PDF Assignment Handout & Instructions"
+                                  >
+                                    <Download size={13} /> Download Assignment Handout (.PDF)
+                                  </a>
                                 </Fragment>
                               )}
                               {Number(week.week) === 16 && (
@@ -867,6 +928,7 @@ export default function CommunicativeEnglishApp() {
                                   >
                                     <Download size={13} /> Download Sample File (.csv)
                                   </a>
+
                                 </Fragment>
                               )}
 
@@ -1124,6 +1186,29 @@ export default function CommunicativeEnglishApp() {
                                   onClick={(e) => e.stopPropagation()}
                                 >
                                   <Download size={14} /> Download Lesson Script (TXT)
+                                </a>
+                                <a
+                                  href="/sample-data/Assignment_Pivot_Tables_and_Charts_BLR_Airport.md"
+                                  download="Assignment_Pivot_Tables_and_Charts_BLR_Airport.md"
+                                  style={{
+                                    textDecoration: 'none',
+                                    background: 'rgba(234, 179, 8, 0.1)',
+                                    border: '1px solid rgba(234, 179, 8, 0.3)',
+                                    color: '#facc15',
+                                    padding: '8px 16px',
+                                    borderRadius: '8px',
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    gap: '6px',
+                                    fontWeight: 600,
+                                    fontSize: '0.82rem',
+                                    cursor: 'pointer'
+                                  }}
+                                  onClick={(e) => e.stopPropagation()}
+                                  title="Download Pivot Table & Chart Student Assignment Sheet (.md)"
+                                >
+                                  <Download size={14} /> Download Pivot Assignment Sheet (.MD)
                                 </a>
                               </div>
                             </div>
