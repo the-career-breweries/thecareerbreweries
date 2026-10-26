@@ -259,7 +259,7 @@ export default function StudentEvaluationPortal({
       doc.setTextColor(51, 65, 85);
       doc.text(sub.instructorRemarks || 'Evaluation completed. Work verified against institutional computing standards.', 18, remarksY + 8, { maxWidth: 174 });
 
-      // Signature Footer
+      // Signature Footer (Center Aligned)
       const signY = remarksY + 20;
       doc.setDrawColor(15, 23, 42);
       doc.setLineWidth(0.4);
@@ -267,25 +267,17 @@ export default function StudentEvaluationPortal({
 
       if (signatureData) {
         try {
-          doc.addImage(signatureData, 'PNG', 14, signY + 2, 34, 12);
+          // Page center is 105mm. Image width 36mm -> X = 87mm
+          doc.addImage(signatureData, 'PNG', 87, signY + 3, 36, 12);
         } catch (imgErr) {
           // fallback if image fail
         }
       }
 
       doc.setFont('helvetica', 'bold');
-      doc.setFontSize(8);
+      doc.setFontSize(8.5);
       doc.setTextColor(15, 23, 42);
-      doc.text('Course Instructor / Evaluator', 14, signY + 18);
-
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(7.5);
-      doc.setTextColor(100, 116, 139);
-      doc.text('Department of Aviation & Aerospace Studies', 14, signY + 22);
-
-      doc.setFont('helvetica', 'bold');
-      doc.setTextColor(16, 185, 129);
-      doc.text('Official Verified Evaluation Seal', 196, signY + 18, { align: 'right' });
+      doc.text('Course Instructor / Evaluator', 105, signY + 19, { align: 'center' });
 
       doc.save(`${sub.rollNo}_${sub.studentName.replace(/\s+/g, '_')}_Report_Card.pdf`);
       setDownloadSuccessToast(true);
@@ -675,20 +667,11 @@ export default function StudentEvaluationPortal({
               {result.submission.instructorRemarks || 'Evaluation completed. Work verified against institutional computing standards.'}
             </p>
 
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: `1px solid ${t.border}`, paddingTop: '14px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                {signatureData && (
-                  <img src={signatureData} alt="Evaluator Signature" style={{ height: '32px', objectFit: 'contain' }} />
-                )}
-                <div>
-                  <div style={{ fontSize: '0.78rem', fontWeight: 800, color: t.text }}>Course Instructor & Evaluator</div>
-                  <div style={{ fontSize: '0.72rem', color: t.textMuted }}>Department of Aviation & Aerospace Studies</div>
-                </div>
-              </div>
-
-              <div style={{ fontSize: '0.72rem', color: '#10b981', fontWeight: 700, backgroundColor: t.accentEmeraldBg, padding: '4px 10px', borderRadius: '6px' }}>
-                ✓ Official Verified Evaluation
-              </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', borderTop: `1px solid ${t.border}`, paddingTop: '14px', textAlign: 'center' }}>
+              {signatureData && (
+                <img src={signatureData} alt="Course Instructor / Evaluator Signature" style={{ height: '38px', objectFit: 'contain', marginBottom: '6px', display: 'block' }} />
+              )}
+              <div style={{ fontSize: '0.82rem', fontWeight: 800, color: t.text }}>Course Instructor / Evaluator</div>
             </div>
           </div>
 
@@ -844,18 +827,12 @@ export default function StudentEvaluationPortal({
                 <div style={{ color: '#475569' }}>{result.submission.instructorRemarks}</div>
               </div>
 
-              {/* Sign-off with Signature */}
-              <div style={{ borderTop: '1.5px solid #0f172a', paddingTop: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', fontSize: '0.74rem' }}>
-                <div>
-                  {signatureData && (
-                    <img src={signatureData} alt="Instructor Signature" style={{ height: '30px', objectFit: 'contain', marginBottom: '2px' }} />
-                  )}
-                  <div style={{ fontWeight: 800, color: '#0f172a' }}>Course Instructor / Evaluator</div>
-                  <div style={{ color: '#64748b' }}>Department of Aviation & Aerospace Studies</div>
-                </div>
-                <div style={{ textAlign: 'right', color: '#059669', fontWeight: 800 }}>
-                  Official Verified Evaluation Seal
-                </div>
+              {/* Sign-off with Signature (Center Aligned) */}
+              <div style={{ borderTop: '1.5px solid #0f172a', paddingTop: '12px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', fontSize: '0.78rem' }}>
+                {signatureData && (
+                  <img src={signatureData} alt="Course Instructor / Evaluator Signature" style={{ height: '42px', objectFit: 'contain', marginBottom: '4px', display: 'block' }} />
+                )}
+                <div style={{ fontWeight: 800, color: '#0f172a' }}>Course Instructor / Evaluator</div>
               </div>
 
             </div>

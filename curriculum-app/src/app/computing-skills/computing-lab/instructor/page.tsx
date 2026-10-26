@@ -3043,48 +3043,26 @@ export default function InstructorEvaluationConsole() {
 
                 </div>
 
-                {/* Institutional Endorsement Sign-Off with Evaluator Signature */}
-                <div style={{ borderTop: '1.5px solid #0f172a', paddingTop: '12px', marginTop: '14px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', fontSize: '0.76rem' }}>
-                  {/* Left Side: Authentic Evaluator Signature Image */}
-                  <div style={{ minWidth: '260px' }}>
-                    <div style={{ height: '54px', display: 'flex', alignItems: 'flex-end', marginBottom: '2px' }}>
-                      <img
-                        src="/api/lab/instructor-signature"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = '/instructor-signature.jpg';
-                        }}
-                        alt="Course Evaluator Signature"
-                        style={{
-                          height: '50px',
-                          maxWidth: '180px',
-                          objectFit: 'contain',
-                          mixBlendMode: 'multiply',
-                          display: 'block'
-                        }}
-                      />
-                    </div>
-                    <div style={{ borderTop: '1.5px solid #0f172a', width: '220px', paddingTop: '4px' }}>
-                      <strong style={{ color: '#0f172a', fontSize: '0.82rem', display: 'block' }}>
-                        Course Evaluator Signature
-                      </strong>
-                      <div style={{ fontSize: '0.7rem', color: '#64748b', marginTop: '1px' }}>
-                        Authenticated via Instructor Console • Passkey 2525
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Right Side: Certified Status & Audit Ref */}
-                  <div style={{ textAlign: 'right' }}>
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', backgroundColor: '#f0fdf4', border: '1px solid #86efac', padding: '3px 10px', borderRadius: '4px', fontSize: '0.76rem', fontWeight: 800, color: '#166534', marginBottom: '4px' }}>
-                      ✓ OFFICIALLY CERTIFIED
-                    </div>
-                    <div style={{ fontSize: '0.72rem', color: '#64748b' }}>
-                      Practicum Audit System Ref: <strong style={{ fontFamily: 'monospace', color: '#0f172a' }}>{sub.id}</strong>
-                    </div>
-                    <div style={{ fontSize: '0.68rem', color: '#94a3b8', marginTop: '2px' }}>
-                      Page 1 of 1
-                    </div>
-                  </div>
+                {/* Institutional Endorsement Sign-Off with Evaluator Signature (Center Aligned) */}
+                <div style={{ borderTop: '1.5px solid #0f172a', paddingTop: '14px', marginTop: '14px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', fontSize: '0.78rem' }}>
+                  <img
+                    src="/api/lab/instructor-signature"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = '/instructor-signature.jpg';
+                    }}
+                    alt="Course Instructor / Evaluator Signature"
+                    style={{
+                      height: '46px',
+                      maxWidth: '180px',
+                      objectFit: 'contain',
+                      mixBlendMode: 'multiply',
+                      display: 'block',
+                      marginBottom: '4px'
+                    }}
+                  />
+                  <strong style={{ color: '#0f172a', fontSize: '0.84rem', display: 'block' }}>
+                    Course Instructor / Evaluator
+                  </strong>
                 </div>
 
               </div>
