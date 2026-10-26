@@ -38,7 +38,9 @@ import {
   X,
   Award,
   Printer,
-  FileCheck
+  FileCheck,
+  MessageCircle,
+  Copy
 } from 'lucide-react';
 import {
   TOPICS_DATA,
@@ -174,12 +176,18 @@ export default function InstructorEvaluationConsole() {
   const [customScenario, setCustomScenario] = useState<string>('');
   const [genExerciseNumber, setGenExerciseNumber] = useState<string>('LAB EXERCISE 06');
   const [genTitle, setGenTitle] = useState<string>('');
-  const [genMarks, setGenMarks] = useState<number>(50);
+  const [genMarks, setGenMarks] = useState<number>(15);
   const [genDeadline, setGenDeadline] = useState<string>('02 November, 2026 | 1700 hrs');
   const [generatedAssignment, setGeneratedAssignment] = useState<AssignmentTemplate | null>(null);
   const [publishSuccess, setPublishSuccess] = useState<string>('');
   const [publishError, setPublishError] = useState<string>('');
   const [isPublishing, setIsPublishing] = useState<boolean>(false);
+
+  // WhatsApp Announcement Modal State
+  const [showWhatsAppModal, setShowWhatsAppModal] = useState<boolean>(false);
+  const [whatsAppText, setWhatsAppText] = useState<string>('');
+  const [whatsAppCopied, setWhatsAppCopied] = useState<boolean>(false);
+  const [whatsAppAsgnTitle, setWhatsAppAsgnTitle] = useState<string>('');
 
   // Load theme preference
   useEffect(() => {
@@ -560,6 +568,37 @@ export default function InstructorEvaluationConsole() {
     } catch (err) {
       console.error('Error deleting assignment:', err);
     }
+  };
+
+  // Open WhatsApp Announcement Modal
+  const handleOpenWhatsAppAnnouncement = (asgn: AssignmentTemplate) => {
+    const origin = typeof window !== 'undefined' ? window.location.origin : '';
+    const portalUrl = `${origin}/computing-skills/computing-lab`;
+    const text = `📢 *COMPUTING SKILLS LABORATORY — NEW ASSIGNMENT ACTIVE*
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+📌 *Exercise:* ${asgn.exerciseNumber} — ${asgn.title}
+🎯 *Track / Format:* ${asgn.topic.toUpperCase()} (.${asgn.fileType})
+🏆 *Maximum Marks:* ${asgn.totalMarks} Marks
+⏳ *Submission Deadline:* ${asgn.deadline}
+
+📋 *Operational Mandate:*
+${asgn.role?.mandate || asgn.role?.context || 'Complete the analytical tasks and formatting as per technical rubric.'}
+
+📥 *Raw Dataset & Instructions Download:*
+Students can download their starter Raw Data file (.CSV) and official Instructions Manual directly from the portal:
+🔗 *Student Lab Portal:* ${portalUrl}
+
+💡 *Student Submission Checklist:*
+1. Visit the portal link above to download your Raw Dataset & Instructions.
+2. Complete all required sheets, formulas, and visual dashboard charts.
+3. Submit your completed .${asgn.fileType} file directly on the portal before the deadline.
+4. Automated forensic verification & micro-viva validation are active.
+━━━━━━━━━━━━━━━━━━━━━━━━━━`;
+
+    setWhatsAppAsgnTitle(`${asgn.exerciseNumber}: ${asgn.title}`);
+    setWhatsAppText(text);
+    setWhatsAppCopied(false);
+    setShowWhatsAppModal(true);
   };
 
   const exportToCSV = () => {
@@ -1713,14 +1752,37 @@ export default function InstructorEvaluationConsole() {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: t.text, marginBottom: '6px' }}>
-                    Total Marks
-                  </label>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
+                    <label style={{ fontSize: '0.82rem', fontWeight: 700, color: t.text }}>
+                      Maximum Marks (Max Score)
+                    </label>
+                    <div style={{ display: 'flex', gap: '4px' }}>
+                      {[15, 25, 50, 100].map((m) => (
+                        <button
+                          key={m}
+                          type="button"
+                          onClick={() => setGenMarks(m)}
+                          style={{
+                            backgroundColor: genMarks === m ? '#10b981' : t.cardBgAlt,
+                            color: genMarks === m ? '#090d16' : t.textMuted,
+                            border: `1px solid ${genMarks === m ? '#10b981' : t.border}`,
+                            borderRadius: '4px',
+                            fontSize: '0.7rem',
+                            fontWeight: 700,
+                            padding: '2px 6px',
+                            cursor: 'pointer'
+                          }}
+                        >
+                          {m}M
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                   <input
                     type="number"
                     value={genMarks}
-                    onChange={(e) => setGenMarks(Number(e.target.value))}
-                    min={10}
+                    onChange={(e) => setGenMarks(Math.max(1, Number(e.target.value)))}
+                    min={1}
                     max={100}
                     style={{ width: '100%', boxSizing: 'border-box', backgroundColor: t.inputBg, border: `1px solid ${t.inputBorder}`, color: t.text, padding: '10px 12px', borderRadius: '8px', fontSize: '0.86rem', outline: 'none' }}
                   />
@@ -1813,7 +1875,55 @@ export default function InstructorEvaluationConsole() {
                       </div>
                     </div>
 
-                    <div style={{ display: 'flex', gap: '8px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          if (confirm('Discard this generated assignment plan?')) {
+                            setGeneratedAssignment(null);
+                            setPublishSuccess('');
+                            setPublishError('');
+                          }
+                        }}
+                        style={{
+                          backgroundColor: 'rgba(239, 68, 68, 0.08)',
+                          border: '1px solid rgba(239, 68, 68, 0.3)',
+                          color: '#ef4444',
+                          padding: '8px 12px',
+                          borderRadius: '8px',
+                          fontSize: '0.8rem',
+                          fontWeight: 700,
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '5px'
+                        }}
+                        title="Discard generated assignment"
+                      >
+                        <Trash2 size={13} /> Discard Plan
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => handleOpenWhatsAppAnnouncement(generatedAssignment)}
+                        style={{
+                          backgroundColor: '#25D366',
+                          color: '#090d16',
+                          border: 'none',
+                          padding: '8px 14px',
+                          borderRadius: '8px',
+                          fontSize: '0.8rem',
+                          fontWeight: 800,
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '6px',
+                          boxShadow: '0 4px 12px rgba(37, 211, 102, 0.25)'
+                        }}
+                      >
+                        <MessageCircle size={14} /> WhatsApp Announcement
+                      </button>
+
                       <button
                         type="button"
                         onClick={() => handleSaveOrPublish(false)}
@@ -2010,43 +2120,80 @@ export default function InstructorEvaluationConsole() {
                     <strong>Tasks Included:</strong> {asgn.tasks?.length || 4} tasks • Deadline: {asgn.deadline}
                   </div>
 
-                  <div style={{ marginTop: 'auto', borderTop: `1px solid ${t.border}`, paddingTop: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
-                    {!isActive ? (
+                  <div style={{ marginTop: 'auto', borderTop: `1px solid ${t.border}`, paddingTop: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px', flexWrap: 'wrap' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      {!isActive ? (
+                        <button
+                          type="button"
+                          onClick={() => handleSwitchActiveAssignment(asgn.id)}
+                          style={{
+                            backgroundColor: '#10b981',
+                            color: '#090d16',
+                            border: 'none',
+                            padding: '8px 14px',
+                            borderRadius: '8px',
+                            fontSize: '0.8rem',
+                            fontWeight: 800,
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px'
+                          }}
+                        >
+                          <Send size={13} /> Activate Live
+                        </button>
+                      ) : (
+                        <span style={{ fontSize: '0.8rem', color: '#10b981', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '4px' }}>
+                          <Check size={14} /> Currently Live
+                        </span>
+                      )}
+                    </div>
+
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                       <button
                         type="button"
-                        onClick={() => handleSwitchActiveAssignment(asgn.id)}
+                        onClick={() => handleOpenWhatsAppAnnouncement(asgn)}
                         style={{
-                          backgroundColor: '#10b981',
-                          color: '#090d16',
-                          border: 'none',
-                          padding: '8px 16px',
+                          backgroundColor: 'rgba(37, 211, 102, 0.12)',
+                          border: '1px solid #25D366',
+                          color: '#25D366',
+                          padding: '7px 12px',
                           borderRadius: '8px',
-                          fontSize: '0.8rem',
-                          fontWeight: 800,
+                          fontSize: '0.78rem',
+                          fontWeight: 700,
                           cursor: 'pointer',
                           display: 'flex',
                           alignItems: 'center',
-                          gap: '6px'
+                          gap: '5px'
                         }}
+                        title="Generate WhatsApp broadcast message"
                       >
-                        <Send size={13} /> Activate on Student Portal
+                        <MessageCircle size={13} /> WhatsApp
                       </button>
-                    ) : (
-                      <span style={{ fontSize: '0.8rem', color: '#10b981', fontWeight: 700 }}>
-                        Currently Live
-                      </span>
-                    )}
 
-                    {asgn.id !== 'blr-pivot-operations' && (
-                      <button
-                        type="button"
-                        onClick={() => handleDeleteAssignment(asgn.id)}
-                        style={{ backgroundColor: 'transparent', border: `1px solid ${t.border}`, color: '#f87171', padding: '6px 10px', borderRadius: '6px', fontSize: '0.78rem', cursor: 'pointer' }}
-                        title="Delete assignment"
-                      >
-                        <Trash2 size={13} />
-                      </button>
-                    )}
+                      {asgn.id !== 'blr-pivot-operations' && (
+                        <button
+                          type="button"
+                          onClick={() => handleDeleteAssignment(asgn.id)}
+                          style={{
+                            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                            border: '1px solid rgba(239, 68, 68, 0.4)',
+                            color: '#ef4444',
+                            padding: '7px 12px',
+                            borderRadius: '8px',
+                            fontSize: '0.78rem',
+                            fontWeight: 700,
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '5px'
+                          }}
+                          title="Delete assignment from library"
+                        >
+                          <Trash2 size={13} /> Delete
+                        </button>
+                      )}
+                    </div>
                   </div>
                 </div>
               );
@@ -3121,6 +3268,209 @@ export default function InstructorEvaluationConsole() {
           </div>
         );
       })()}
+
+      {/* ================= MODAL: WHATSAPP ANNOUNCEMENT BROADCAST ================= */}
+      {showWhatsAppModal && (
+        <div
+          className="no-print"
+          style={{
+            position: 'fixed',
+            inset: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.78)',
+            backdropFilter: 'blur(6px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 99999,
+            padding: '20px'
+          }}
+          onClick={() => setShowWhatsAppModal(false)}
+        >
+          <div
+            style={{
+              backgroundColor: t.cardBg,
+              border: `1px solid ${t.border}`,
+              borderRadius: '16px',
+              maxWidth: '680px',
+              width: '100%',
+              overflow: 'hidden',
+              boxShadow: '0 25px 60px rgba(0,0,0,0.6)',
+              display: 'flex',
+              flexDirection: 'column'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div
+              style={{
+                backgroundColor: '#075E54',
+                color: '#ffffff',
+                padding: '18px 24px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between'
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <div style={{ backgroundColor: '#25D366', color: '#090d16', padding: '8px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <MessageCircle size={22} />
+                </div>
+                <div>
+                  <h3 style={{ fontSize: '1.15rem', fontWeight: 800, margin: 0, color: '#ffffff' }}>
+                    WhatsApp Broadcast Announcement
+                  </h3>
+                  <div style={{ fontSize: '0.78rem', color: '#a7f3d0', marginTop: '2px' }}>
+                    {whatsAppAsgnTitle || 'Curriculum Assignment Broadcast'}
+                  </div>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setShowWhatsAppModal(false)}
+                style={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                  border: 'none',
+                  color: '#ffffff',
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
+                <X size={18} />
+              </button>
+            </div>
+
+            {/* Body */}
+            <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div style={{ fontSize: '0.84rem', color: t.textSecondary, lineHeight: 1.5 }}>
+                Copy this pre-formatted announcement and paste it into your student WhatsApp groups, or open WhatsApp Web directly. Students will receive the active assignment details and the direct portal link to download their starter dataset.
+              </div>
+
+              <div>
+                <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: 700, color: t.textMuted, marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  Announcement Preview (Editable)
+                </label>
+                <textarea
+                  value={whatsAppText}
+                  onChange={(e) => setWhatsAppText(e.target.value)}
+                  rows={12}
+                  style={{
+                    width: '100%',
+                    boxSizing: 'border-box',
+                    backgroundColor: t.inputBg,
+                    border: `1px solid ${t.inputBorder}`,
+                    color: t.text,
+                    padding: '14px',
+                    borderRadius: '10px',
+                    fontSize: '0.84rem',
+                    fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
+                    lineHeight: 1.5,
+                    resize: 'vertical',
+                    outline: 'none'
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Actions Footer */}
+            <div
+              style={{
+                padding: '16px 24px',
+                borderTop: `1px solid ${t.border}`,
+                backgroundColor: t.cardBgAlt,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: '10px'
+              }}
+            >
+              <button
+                type="button"
+                onClick={() => setShowWhatsAppModal(false)}
+                style={{
+                  backgroundColor: 'transparent',
+                  border: `1px solid ${t.border}`,
+                  color: t.textSecondary,
+                  padding: '9px 16px',
+                  borderRadius: '8px',
+                  fontSize: '0.82rem',
+                  fontWeight: 700,
+                  cursor: 'pointer'
+                }}
+              >
+                Close
+              </button>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <a
+                  href={`https://web.whatsapp.com/send?text=${encodeURIComponent(whatsAppText)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    textDecoration: 'none',
+                    backgroundColor: 'rgba(37, 211, 102, 0.15)',
+                    border: '1px solid #25D366',
+                    color: '#25D366',
+                    padding: '9px 16px',
+                    borderRadius: '8px',
+                    fontSize: '0.82rem',
+                    fontWeight: 700,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    cursor: 'pointer'
+                  }}
+                >
+                  <ExternalLink size={14} /> Open in WhatsApp Web
+                </a>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (navigator.clipboard) {
+                      navigator.clipboard.writeText(whatsAppText);
+                      setWhatsAppCopied(true);
+                      setTimeout(() => setWhatsAppCopied(false), 2500);
+                    }
+                  }}
+                  style={{
+                    backgroundColor: whatsAppCopied ? '#10b981' : '#25D366',
+                    color: '#090d16',
+                    border: 'none',
+                    padding: '9px 20px',
+                    borderRadius: '8px',
+                    fontSize: '0.84rem',
+                    fontWeight: 800,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    cursor: 'pointer',
+                    boxShadow: '0 4px 14px rgba(37, 211, 102, 0.35)',
+                    transition: 'all 0.15s ease'
+                  }}
+                >
+                  {whatsAppCopied ? (
+                    <>
+                      <Check size={16} /> Copied to Clipboard!
+                    </>
+                  ) : (
+                    <>
+                      <Copy size={16} /> Copy Announcement
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      )}
     </div>
   );
 }

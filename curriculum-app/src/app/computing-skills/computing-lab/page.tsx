@@ -618,46 +618,40 @@ export default function ComputingLabPortal() {
 
                 {/* Direct Download Buttons */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', minWidth: '320px' }}>
-                  {activeAssignment.sampleDatasetFilename && (
-                    <a
-                      href={`/sample-data/${activeAssignment.sampleDatasetFilename}`}
-                      download={activeAssignment.sampleDatasetFilename}
-                      style={{ textDecoration: 'none', backgroundColor: t.accentBlueBg, border: `1px solid ${t.accentBlue}`, color: t.accentBlueText, padding: '10px 16px', borderRadius: '8px', fontSize: '0.86rem', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'space-between', transition: 'transform 0.15s' }}
-                    >
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <Download size={16} /> {activeAssignment.sampleDatasetFilename}
-                      </span>
-                      <span style={{ fontSize: '0.72rem', opacity: 0.85 }}>{activeAssignment.topic === 'excel' ? 'Dataset (CSV)' : 'Starter Asset'}</span>
-                    </a>
-                  )}
+                  <a
+                    href={`/api/lab/assignment/raw-data?id=${activeAssignment.id}`}
+                    download={`${activeAssignment.title?.replace(/[^a-zA-Z0-9_-]/g, '_') || 'Assignment'}_Raw_Data.csv`}
+                    style={{ textDecoration: 'none', backgroundColor: t.accentBlueBg, border: `1px solid ${t.accentBlue}`, color: t.accentBlueText, padding: '10px 16px', borderRadius: '8px', fontSize: '0.86rem', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'space-between', transition: 'transform 0.15s' }}
+                  >
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <Download size={16} /> Download Raw Dataset (.CSV)
+                    </span>
+                    <span style={{ fontSize: '0.72rem', opacity: 0.85 }}>50 Records · Import Ready</span>
+                  </a>
 
-                  {activeAssignment.assignmentPdfFilename && (
-                    <a
-                      href={`/sample-data/${activeAssignment.assignmentPdfFilename}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ textDecoration: 'none', backgroundColor: t.accentRoseBg, border: `1px solid ${t.accentRose}`, color: t.accentRoseText, padding: '10px 16px', borderRadius: '8px', fontSize: '0.86rem', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
-                    >
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <ExternalLink size={16} /> Assignment Instructions Manual (PDF)
-                      </span>
-                      <span style={{ fontSize: '0.72rem', opacity: 0.85 }}>Official Brief</span>
-                    </a>
-                  )}
+                  <a
+                    href={`/api/lab/assignment/instructions?id=${activeAssignment.id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: 'none', backgroundColor: t.accentRoseBg, border: `1px solid ${t.accentRose}`, color: t.accentRoseText, padding: '10px 16px', borderRadius: '8px', fontSize: '0.86rem', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
+                  >
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <FileText size={16} /> Assignment Instructions Manual
+                    </span>
+                    <span style={{ fontSize: '0.72rem', opacity: 0.85 }}>Mandate & Rubric</span>
+                  </a>
 
-                  {activeAssignment.handbookPdfFilename && (
-                    <a
-                      href={`/sample-data/${activeAssignment.handbookPdfFilename}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ textDecoration: 'none', backgroundColor: t.accentIndigoBg, border: `1px solid ${t.accentIndigo}`, color: t.accentIndigoText, padding: '10px 16px', borderRadius: '8px', fontSize: '0.86rem', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
-                    >
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <FileText size={16} /> Technical Skills Handbook (PDF)
-                      </span>
-                      <span style={{ fontSize: '0.72rem', opacity: 0.85 }}>Reference</span>
-                    </a>
-                  )}
+                  <a
+                    href={`/sample-data/${activeAssignment.handbookPdfFilename || 'Excel_GoogleSheets_Formulas_and_Functions_Handbook.pdf'}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: 'none', backgroundColor: t.accentIndigoBg, border: `1px solid ${t.accentIndigo}`, color: t.accentIndigoText, padding: '10px 16px', borderRadius: '8px', fontSize: '0.86rem', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
+                  >
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <ExternalLink size={16} /> Technical Skills Handbook (PDF)
+                    </span>
+                    <span style={{ fontSize: '0.72rem', opacity: 0.85 }}>Reference Guide</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -924,30 +918,15 @@ export default function ComputingLabPortal() {
                   <div style={{ backgroundColor: t.cardBgAlt, border: `1px solid ${t.border}`, borderRadius: '10px', padding: '18px' }}>
                     <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#fbbf24', marginBottom: '8px' }}>Marks Distribution ({activeAssignment.totalMarks} Marks)</div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.82rem', color: t.textSecondary }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>{activeAssignment.rubric?.tasksBreakdown || 'Tasks Execution:'}</span> <strong>40 Marks</strong></div>
-                      <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>{activeAssignment.rubric?.dataSetup || 'Structure & Setup:'}</span> <strong>5 Marks</strong></div>
-                      <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>{activeAssignment.rubric?.formattingAndViva || 'Micro-Viva & Formatting:'}</span> <strong>5 Marks</strong></div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>{activeAssignment.rubric?.tasksBreakdown || 'Tasks Execution:'}</span> <strong>{activeAssignment.totalMarks} Marks</strong></div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>{activeAssignment.rubric?.dataSetup || 'Structure & Setup:'}</span> <strong>Evaluated</strong></div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>{activeAssignment.rubric?.formattingAndViva || 'Micro-Viva & Integrity:'}</span> <strong>Evaluated</strong></div>
                       <div style={{ borderTop: `1px solid ${t.border}`, paddingTop: '6px', display: 'flex', justifyContent: 'space-between', fontWeight: 800, color: '#10b981' }}>
                         <span>Total Score:</span> <span>{activeAssignment.totalMarks} Marks</span>
                       </div>
                     </div>
                   </div>
 
-                </div>
-
-                {/* Google Drive Fallback Notice */}
-                <div style={{ backgroundColor: t.accentIndigoBg, border: `1px solid ${t.accentIndigo}`, borderRadius: '10px', padding: '14px 18px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
-                  <div style={{ fontSize: '0.84rem', color: t.textSecondary }}>
-                    <strong style={{ color: t.accentIndigoText }}>Official Backup Drive:</strong> If you need to upload a secondary backup copy, access the instructor Google Drive folder.
-                  </div>
-                  <a
-                    href="https://drive.google.com/drive/folders/1pPt5eKaWxiPeLtm0UoopuW3rwkjRVTAV?usp=drive_link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ textDecoration: 'none', backgroundColor: '#6366f1', color: '#ffffff', padding: '6px 14px', borderRadius: '6px', fontSize: '0.8rem', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px' }}
-                  >
-                    Open Drive Folder <ExternalLink size={14} />
-                  </a>
                 </div>
               </div>
             </div>
