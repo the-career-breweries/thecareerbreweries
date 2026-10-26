@@ -42,6 +42,7 @@ export default function StudentEvaluationPortal({
   const [result, setResult] = useState<any | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [isDownloadingPdf, setIsDownloadingPdf] = useState(false);
+  const [downloadSuccessToast, setDownloadSuccessToast] = useState(false);
   const [signatureData, setSignatureData] = useState<string | null>(null);
 
   // Fetch evaluator signature for PDF/modal
@@ -82,6 +83,12 @@ export default function StudentEvaluationPortal({
         setError(data.error || 'Failed to locate evaluation record.');
       } else {
         setResult(data);
+        // Automatically trigger in-memory background download if submission evaluated!
+        if (data.submitted && data.submission) {
+          setTimeout(() => {
+            handleDownloadPdf(data.submission, true);
+          }, 400);
+        }
       }
     } catch (err: any) {
       setError('Network error connecting to evaluation server. Please try again.');
@@ -90,8 +97,9 @@ export default function StudentEvaluationPortal({
     }
   };
 
-  const handleDownloadPdf = () => {
-    if (!result?.submission) return;
+  const handleDownloadPdf = (subToDownload?: any, isAuto = false) => {
+    const sub = subToDownload || result?.submission;
+    if (!sub) return;
     setIsDownloadingPdf(true);
 
     try {
@@ -280,9 +288,13 @@ export default function StudentEvaluationPortal({
       doc.text('Official Verified Evaluation Seal', 196, signY + 18, { align: 'right' });
 
       doc.save(`${sub.rollNo}_${sub.studentName.replace(/\s+/g, '_')}_Report_Card.pdf`);
+      setDownloadSuccessToast(true);
+      setTimeout(() => setDownloadSuccessToast(false), 9000);
     } catch (err: any) {
       console.error('PDF generation error:', err);
-      alert('Could not download PDF. You can view the report card on-screen.');
+      if (!isAuto) {
+        alert('Could not download PDF. You can view the report card on-screen.');
+      }
     } finally {
       setIsDownloadingPdf(false);
     }
@@ -513,7 +525,7 @@ export default function StudentEvaluationPortal({
               </button>
 
               <button
-                onClick={handleDownloadPdf}
+                onClick={() => handleDownloadPdf()}
                 disabled={isDownloadingPdf}
                 style={{
                   backgroundColor: '#10b981',
@@ -533,6 +545,23 @@ export default function StudentEvaluationPortal({
               </button>
             </div>
           </div>
+
+          {/* Background Auto-Download Toast Notification */}
+          {downloadSuccessToast && (
+            <div style={{ backgroundColor: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.35)', color: '#10b981', padding: '10px 18px', borderRadius: '10px', fontSize: '0.82rem', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', boxShadow: '0 2px 10px rgba(16, 185, 129, 0.1)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <CheckCircle2 size={17} style={{ flexShrink: 0 }} />
+                <span>Official Report Card PDF has been downloaded in the background to your device.</span>
+              </div>
+              <button
+                onClick={() => setDownloadSuccessToast(false)}
+                style={{ backgroundColor: 'transparent', border: 'none', color: '#10b981', cursor: 'pointer', fontSize: '0.8rem', fontWeight: 800, padding: '2px 6px' }}
+                title="Dismiss"
+              >
+                ✕
+              </button>
+            </div>
+          )}
 
           {/* Student Profile Card */}
           <div style={{ backgroundColor: t.cardBg, border: `1px solid ${t.border}`, borderRadius: '14px', padding: '24px 28px', boxShadow: t.shadow }}>
