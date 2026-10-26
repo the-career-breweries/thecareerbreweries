@@ -723,8 +723,9 @@ export default function InstructorEvaluationConsole() {
   return (
     <div style={{ minHeight: '100vh', backgroundColor: t.bg, color: t.text, fontFamily: 'system-ui, -apple-system, sans-serif', transition: 'background-color 0.2s, color 0.2s' }}>
       
-      {/* Top Header */}
-      <header style={{ borderBottom: `1px solid ${t.border}`, backgroundColor: t.headerBg, padding: '16px 28px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px', position: 'sticky', top: 0, zIndex: 100 }}>
+      <div className="instructor-console-main-container">
+        {/* Top Header */}
+        <header style={{ borderBottom: `1px solid ${t.border}`, backgroundColor: t.headerBg, padding: '16px 28px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px', position: 'sticky', top: 0, zIndex: 100 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
           <div style={{ backgroundColor: '#10b981', color: '#090d16', padding: '10px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <ShieldCheck size={22} />
@@ -1896,10 +1897,11 @@ export default function InstructorEvaluationConsole() {
 
         </div>
       )}
+      </div> {/* end instructor-console-main-container */}
 
       {/* ================= DEEP FORENSIC INSPECTOR MODAL ================= */}
       {selectedSub && (
-        <div style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px', zIndex: 9999 }}>
+        <div className="no-print" style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px', zIndex: 9999 }}>
           <div style={{ backgroundColor: t.cardBg, border: `1px solid ${t.border}`, borderRadius: '16px', maxWidth: '800px', width: '100%', maxHeight: '90vh', overflowY: 'auto', padding: '30px', boxShadow: '0 25px 60px rgba(0,0,0,0.7)' }}>
             
             {/* Header */}
@@ -2112,6 +2114,7 @@ export default function InstructorEvaluationConsole() {
       {/* ================= MODAL: BATCH EVALUATION AUDIT REPORT ================= */}
       {showBatchModal && batchResult && (
         <div
+          className="no-print"
           style={{
             position: 'fixed',
             inset: 0,
@@ -2406,11 +2409,12 @@ export default function InstructorEvaluationConsole() {
 
         return (
           <div
+            className="report-card-modal-backdrop"
             style={{
               position: 'fixed',
               inset: 0,
-              backgroundColor: 'rgba(0, 0, 0, 0.8)',
-              backdropFilter: 'blur(6px)',
+              backgroundColor: 'rgba(0, 0, 0, 0.82)',
+              backdropFilter: 'blur(8px)',
               zIndex: 1100,
               display: 'flex',
               alignItems: 'center',
@@ -2420,47 +2424,106 @@ export default function InstructorEvaluationConsole() {
           >
             <style>{`
               @media print {
-                body * { visibility: hidden !important; }
-                #printable-report-card, #printable-report-card * { visibility: visible !important; }
-                #printable-report-card { position: absolute !important; left: 0 !important; top: 0 !important; width: 100% !important; margin: 0 !important; padding: 24px !important; box-shadow: none !important; border: 1px solid #000 !important; background: #fff !important; color: #000 !important; }
-                .no-print { display: none !important; }
+                @page {
+                  size: A4 portrait;
+                  margin: 8mm 10mm 8mm 10mm;
+                }
+                html, body {
+                  margin: 0 !important;
+                  padding: 0 !important;
+                  background: #ffffff !important;
+                  color: #0f172a !important;
+                  height: 100% !important;
+                  max-height: 100% !important;
+                  overflow: hidden !important;
+                  -webkit-print-color-adjust: exact !important;
+                  print-color-adjust: exact !important;
+                }
+                .instructor-console-main-container,
+                .no-print {
+                  display: none !important;
+                }
+                .report-card-modal-backdrop {
+                  position: static !important;
+                  inset: auto !important;
+                  width: 100% !important;
+                  height: auto !important;
+                  min-height: 0 !important;
+                  background: transparent !important;
+                  padding: 0 !important;
+                  margin: 0 !important;
+                  display: block !important;
+                  overflow: visible !important;
+                }
+                #printable-report-card {
+                  position: static !important;
+                  width: 100% !important;
+                  max-width: 100% !important;
+                  height: auto !important;
+                  max-height: none !important;
+                  overflow: visible !important;
+                  box-shadow: none !important;
+                  border: 2px solid #0f172a !important;
+                  border-radius: 6px !important;
+                  margin: 0 auto !important;
+                  padding: 0 !important;
+                  background: #ffffff !important;
+                  color: #0f172a !important;
+                  page-break-after: avoid !important;
+                  page-break-inside: avoid !important;
+                  break-after: avoid !important;
+                  break-inside: avoid !important;
+                }
+                #printable-report-card * {
+                  box-sizing: border-box !important;
+                  color: #0f172a !important;
+                }
+                .report-card-body {
+                  padding: 16px 20px !important;
+                }
+                .report-card-table th,
+                .report-card-table td {
+                  border: 1px solid #cbd5e1 !important;
+                  padding: 5px 8px !important;
+                }
               }
             `}</style>
 
             <div
               id="printable-report-card"
               style={{
-                backgroundColor: t.cardBg,
-                border: `2px solid ${t.borderHighlight}`,
-                borderRadius: '16px',
+                backgroundColor: '#ffffff',
+                border: '2px solid #0f172a',
+                borderRadius: '12px',
                 maxWidth: '920px',
                 width: '100%',
-                maxHeight: '92vh',
+                maxHeight: '94vh',
                 overflowY: 'auto',
-                boxShadow: '0 25px 60px -15px rgba(0, 0, 0, 0.6)',
+                boxShadow: '0 25px 60px -15px rgba(0, 0, 0, 0.7)',
                 display: 'flex',
-                flexDirection: 'column'
+                flexDirection: 'column',
+                color: '#0f172a'
               }}
             >
-              {/* Report Card Top Bar with Print Actions */}
+              {/* Report Card Top Action Bar (Screen Only) */}
               <div
                 className="no-print"
                 style={{
-                  padding: '14px 22px',
-                  borderBottom: `1px solid ${t.border}`,
+                  padding: '12px 20px',
+                  borderBottom: '1px solid #e2e8f0',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  backgroundColor: t.cardHeaderBg,
+                  backgroundColor: '#f8fafc',
                   position: 'sticky',
                   top: 0,
                   zIndex: 20
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Award size={18} color="#10b981" />
-                  <span style={{ fontSize: '0.86rem', fontWeight: 800, color: t.text }}>
-                    Official Student Evaluation Report Card
+                  <Award size={18} color="#059669" />
+                  <span style={{ fontSize: '0.86rem', fontWeight: 800, color: '#0f172a' }}>
+                    Student Laboratory Evaluation Report Card
                   </span>
                 </div>
 
@@ -2468,11 +2531,11 @@ export default function InstructorEvaluationConsole() {
                   <button
                     onClick={() => window.print()}
                     style={{
-                      backgroundColor: '#10b981',
-                      color: '#090d16',
+                      backgroundColor: '#059669',
+                      color: '#ffffff',
                       border: 'none',
-                      padding: '8px 16px',
-                      borderRadius: '8px',
+                      padding: '8px 18px',
+                      borderRadius: '6px',
                       fontSize: '0.82rem',
                       fontWeight: 800,
                       cursor: 'pointer',
@@ -2481,17 +2544,17 @@ export default function InstructorEvaluationConsole() {
                       gap: '6px'
                     }}
                   >
-                    <Printer size={15} /> Print / Save PDF
+                    <Printer size={15} /> Print / Save PDF (A4)
                   </button>
                   <button
                     onClick={() => setShowReportCardModal(false)}
                     style={{
                       backgroundColor: 'transparent',
-                      border: `1px solid ${t.border}`,
-                      color: t.textMuted,
+                      border: '1px solid #cbd5e1',
+                      color: '#64748b',
                       padding: '6px 12px',
-                      borderRadius: '8px',
-                      fontSize: '0.84rem',
+                      borderRadius: '6px',
+                      fontSize: '0.82rem',
                       cursor: 'pointer'
                     }}
                   >
@@ -2500,289 +2563,362 @@ export default function InstructorEvaluationConsole() {
                 </div>
               </div>
 
-              {/* Report Card Official Content Body */}
-              <div style={{ padding: '28px 32px' }}>
+              {/* Official Academic Report Body */}
+              <div className="report-card-body" style={{ padding: '22px 26px', backgroundColor: '#ffffff', color: '#0f172a' }}>
                 
-                {/* Header Banner */}
-                <div style={{ borderBottom: `2px solid ${t.border}`, paddingBottom: '20px', marginBottom: '22px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px' }}>
+                {/* 1. Official Header Banner */}
+                <div style={{ borderBottom: '2px solid #0f172a', paddingBottom: '12px', marginBottom: '14px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px' }}>
                   <div>
-                    <span style={{ backgroundColor: t.accentEmeraldBg, color: '#10b981', padding: '3px 10px', borderRadius: '4px', fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
-                      PRACTICUM PERFORMANCE EVALUATION
-                    </span>
-                    <h1 style={{ fontSize: '1.45rem', fontWeight: 800, margin: '8px 0 4px', color: t.text }}>
-                      Laboratory Evaluation Report Card
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+                      <span style={{ backgroundColor: '#0f172a', color: '#ffffff', padding: '2px 8px', borderRadius: '4px', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.08em' }}>
+                        ACADEMIC RECORD
+                      </span>
+                      <span style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 600 }}>
+                        Course Code: Z7AVA 26209 • Academic Cycle 2026–27
+                      </span>
+                    </div>
+                    <h1 style={{ fontSize: '1.25rem', fontWeight: 900, margin: '2px 0', color: '#0f172a', letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+                      Computing Skills & Laboratory Practicum
                     </h1>
-                    <p style={{ fontSize: '0.82rem', color: t.textMuted, margin: 0 }}>
-                      Computing Skills & Laboratory Practicum • Course Code: Z7AVA 26209
-                    </p>
+                    <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#059669' }}>
+                      Official Student Performance Scorecard & Forensic Integrity Audit
+                    </div>
                   </div>
 
-                  <div style={{ textAlign: 'right' }}>
-                    <div style={{ fontSize: '0.74rem', color: t.textMuted }}>Evaluation Verified On</div>
-                    <div style={{ fontSize: '0.88rem', fontWeight: 700, color: t.text }}>
-                      {new Date(sub.submittedAt).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' })}
+                  <div style={{ textAlign: 'right', minWidth: '180px' }}>
+                    <div style={{ fontSize: '0.7rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700 }}>Evaluation Ref ID</div>
+                    <div style={{ fontSize: '0.8rem', fontWeight: 800, fontFamily: 'monospace', color: '#0f172a' }}>{sub.id}</div>
+                    <div style={{ fontSize: '0.72rem', color: '#64748b', marginTop: '2px' }}>
+                      Issue Date: <strong>{new Date(sub.submittedAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</strong>
                     </div>
-                    <div style={{ fontSize: '0.74rem', color: '#10b981', fontWeight: 700, marginTop: '2px' }}>
-                      Authenticated by Instructor Console
+                    <div style={{ fontSize: '0.68rem', color: '#059669', fontWeight: 700, marginTop: '2px' }}>
+                      ✓ Passkey 2525 Authenticated
                     </div>
                   </div>
                 </div>
 
-                {/* Student Demographics Block */}
-                <div style={{ backgroundColor: t.cardBgAlt, border: `1px solid ${t.border}`, borderRadius: '12px', padding: '16px 20px', marginBottom: '22px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+                {/* 2. Candidate & Exercise Demographics Matrix */}
+                <div style={{ border: '1px solid #cbd5e1', borderRadius: '6px', backgroundColor: '#f8fafc', padding: '10px 14px', marginBottom: '14px', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '10px', fontSize: '0.8rem' }}>
                   <div>
-                    <div style={{ fontSize: '0.72rem', color: t.textMuted, textTransform: 'uppercase', fontWeight: 700 }}>Student Name</div>
-                    <div style={{ fontSize: '1.1rem', fontWeight: 800, color: t.text, marginTop: '2px' }}>{sub.studentName}</div>
+                    <div style={{ fontSize: '0.68rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700 }}>Candidate Name</div>
+                    <div style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0f172a', marginTop: '1px' }}>{sub.studentName}</div>
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.72rem', color: t.textMuted, textTransform: 'uppercase', fontWeight: 700 }}>Roll Number / Student ID</div>
-                    <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#38bdf8', marginTop: '2px', fontFamily: 'monospace' }}>{sub.rollNo}</div>
+                    <div style={{ fontSize: '0.68rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700 }}>Roll Number / ID</div>
+                    <div style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0284c7', fontFamily: 'monospace', marginTop: '1px' }}>{sub.rollNo}</div>
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.72rem', color: t.textMuted, textTransform: 'uppercase', fontWeight: 700 }}>Assignment Evaluated</div>
-                    <div style={{ fontSize: '0.88rem', fontWeight: 700, color: t.text, marginTop: '2px' }}>{sub.assignmentTitle || 'Flight Operations Analysis'}</div>
+                    <div style={{ fontSize: '0.68rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700 }}>Lab Assignment</div>
+                    <div style={{ fontSize: '0.84rem', fontWeight: 700, color: '#0f172a', marginTop: '1px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                      {sub.assignmentTitle || 'Flight Operations Analysis'}
+                    </div>
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.72rem', color: t.textMuted, textTransform: 'uppercase', fontWeight: 700 }}>Original Submitted File</div>
-                    <div style={{ fontSize: '0.82rem', fontWeight: 600, color: t.textSecondary, marginTop: '2px', fontFamily: 'monospace' }}>{sub.originalFilename}</div>
+                    <div style={{ fontSize: '0.68rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700 }}>Evaluated Artifact</div>
+                    <div style={{ fontSize: '0.76rem', fontWeight: 600, color: '#475569', fontFamily: 'monospace', marginTop: '1px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                      {sub.originalFilename}
+                    </div>
                   </div>
                 </div>
 
-                {/* Score & Grade Showcase Card */}
-                <div style={{ backgroundColor: t.accentEmeraldBg, border: `2px solid ${t.borderHighlight}`, borderRadius: '12px', padding: '20px 24px', marginBottom: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
+                {/* 3. Executive Performance & Integrity Ribbon */}
+                <div style={{ border: '1.5px solid #0f172a', borderRadius: '6px', backgroundColor: '#f0fdf4', padding: '12px 18px', marginBottom: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap' }}>
                   <div>
-                    <div style={{ fontSize: '0.76rem', color: t.textMuted, textTransform: 'uppercase', fontWeight: 800, letterSpacing: '0.04em' }}>
-                      Overall Evaluation Score
+                    <div style={{ fontSize: '0.7rem', color: '#065f46', textTransform: 'uppercase', fontWeight: 800, letterSpacing: '0.04em' }}>
+                      Total Evaluation Score
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginTop: '4px' }}>
-                      <span style={{ fontSize: '2.4rem', fontWeight: 900, color: '#10b981' }}>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', marginTop: '2px' }}>
+                      <span style={{ fontSize: '1.9rem', fontWeight: 900, color: '#059669', lineHeight: 1 }}>
                         {finalScore}
                       </span>
-                      <span style={{ fontSize: '1.2rem', fontWeight: 700, color: t.textMuted }}>
+                      <span style={{ fontSize: '1rem', fontWeight: 700, color: '#475569' }}>
                         / {maxMarks} Marks
                       </span>
-                      <span style={{ fontSize: '1.05rem', fontWeight: 800, color: '#38bdf8', marginLeft: '10px' }}>
+                      <span style={{ fontSize: '0.95rem', fontWeight: 800, color: '#0284c7', marginLeft: '6px' }}>
                         ({scorePct}%)
                       </span>
                     </div>
                   </div>
 
-                  <div style={{ display: 'flex', gap: '14px', alignItems: 'center' }}>
-                    <div style={{ textAlign: 'center', padding: '8px 18px', backgroundColor: t.cardBg, borderRadius: '8px', border: `1px solid ${t.border}` }}>
-                      <div style={{ fontSize: '0.7rem', color: t.textMuted, textTransform: 'uppercase', fontWeight: 700 }}>Performance Band</div>
-                      <div style={{ fontSize: '1.2rem', fontWeight: 900, color: '#10b981', marginTop: '2px' }}>
+                  <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                    <div style={{ textAlign: 'center', padding: '6px 14px', backgroundColor: '#ffffff', borderRadius: '6px', border: '1px solid #cbd5e1' }}>
+                      <div style={{ fontSize: '0.66rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700 }}>Performance Band</div>
+                      <div style={{ fontSize: '0.96rem', fontWeight: 900, color: '#059669', marginTop: '1px' }}>
                         {sub.evaluation.gradeBand || (scorePct >= 90 ? 'Grade O' : scorePct >= 75 ? 'Grade A+' : scorePct >= 60 ? 'Grade A' : 'Grade B')}
                       </div>
                     </div>
 
-                    <div style={{ textAlign: 'center', padding: '8px 18px', backgroundColor: t.cardBg, borderRadius: '8px', border: `1px solid ${t.border}` }}>
-                      <div style={{ fontSize: '0.7rem', color: t.textMuted, textTransform: 'uppercase', fontWeight: 700 }}>Integrity Level</div>
-                      <div style={{ fontSize: '0.92rem', fontWeight: 800, color: isClean ? '#10b981' : '#f87171', marginTop: '4px', textTransform: 'uppercase' }}>
-                        {sub.forensics.integrityLevel}
+                    <div style={{ textAlign: 'center', padding: '6px 14px', backgroundColor: '#ffffff', borderRadius: '6px', border: '1px solid #cbd5e1' }}>
+                      <div style={{ fontSize: '0.66rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700 }}>Integrity Status</div>
+                      <div style={{ fontSize: '0.86rem', fontWeight: 800, color: isClean ? '#059669' : '#dc2626', marginTop: '1px', textTransform: 'uppercase' }}>
+                        {isClean ? '✓ Authentic' : `⚠️ ${sub.forensics.integrityLevel}`}
+                      </div>
+                    </div>
+
+                    <div style={{ textAlign: 'center', padding: '6px 14px', backgroundColor: '#ffffff', borderRadius: '6px', border: '1px solid #cbd5e1' }}>
+                      <div style={{ fontSize: '0.66rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700 }}>Result Accuracy</div>
+                      <div style={{ fontSize: '0.96rem', fontWeight: 900, color: '#0284c7', marginTop: '1px' }}>
+                        {accuracy.percentage}%
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* 4 Pillars Grid (Accuracy, Formulae, Integrity, AI Tools) */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '18px', marginBottom: '24px' }}>
+                {/* 4. Structured Assessment Rubric Breakdown Table */}
+                <div style={{ marginBottom: '14px' }}>
+                  <div style={{ fontSize: '0.76rem', color: '#0f172a', fontWeight: 800, textTransform: 'uppercase', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <CheckSquare size={14} color="#059669" /> Component Evaluation Rubric & Computational Precision
+                  </div>
+                  <table className="report-card-table" style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.8rem', border: '1px solid #cbd5e1' }}>
+                    <thead>
+                      <tr style={{ backgroundColor: '#f1f5f9', color: '#0f172a', fontWeight: 800, fontSize: '0.72rem', textTransform: 'uppercase' }}>
+                        <th style={{ padding: '6px 10px', border: '1px solid #cbd5e1' }}>Assessment Domain</th>
+                        <th style={{ padding: '6px 10px', border: '1px solid #cbd5e1', textAlign: 'center' }}>Weightage</th>
+                        <th style={{ padding: '6px 10px', border: '1px solid #cbd5e1', textAlign: 'center' }}>Marks Awarded</th>
+                        <th style={{ padding: '6px 10px', border: '1px solid #cbd5e1', textAlign: 'center' }}>Accuracy</th>
+                        <th style={{ padding: '6px 10px', border: '1px solid #cbd5e1' }}>Evaluator Criterion & Verification Notes</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td style={{ padding: '5px 10px', border: '1px solid #cbd5e1', fontWeight: 700 }}>
+                          1. Data Hygiene, Schema & Tabs Setup
+                        </td>
+                        <td style={{ padding: '5px 10px', border: '1px solid #cbd5e1', textAlign: 'center', color: '#64748b' }}>
+                          10% ({(maxMarks * 0.1).toFixed(1)}M)
+                        </td>
+                        <td style={{ padding: '5px 10px', border: '1px solid #cbd5e1', textAlign: 'center', fontWeight: 800, color: '#059669' }}>
+                          {(sub.forensics.autoGradeEstimate?.dataSetup ?? (maxMarks * 0.1)).toFixed(1)} M
+                        </td>
+                        <td style={{ padding: '5px 10px', border: '1px solid #cbd5e1', textAlign: 'center', fontWeight: 700 }}>
+                          {accuracy.dataSetupAccuracy}%
+                        </td>
+                        <td style={{ padding: '5px 10px', border: '1px solid #cbd5e1', fontSize: '0.74rem', color: '#334155' }}>
+                          Raw sheet presence, clean headers & section formatting verified
+                        </td>
+                      </tr>
+                      <tr style={{ backgroundColor: '#f8fafc' }}>
+                        <td style={{ padding: '5px 10px', border: '1px solid #cbd5e1', fontWeight: 700 }}>
+                          2. Formula Implementation & Logic Tasks
+                        </td>
+                        <td style={{ padding: '5px 10px', border: '1px solid #cbd5e1', textAlign: 'center', color: '#64748b' }}>
+                          80% ({(maxMarks * 0.8).toFixed(1)}M)
+                        </td>
+                        <td style={{ padding: '5px 10px', border: '1px solid #cbd5e1', textAlign: 'center', fontWeight: 800, color: '#059669' }}>
+                          {(sub.forensics.autoGradeEstimate?.tasks ?? (maxMarks * 0.8)).toFixed(1)} M
+                        </td>
+                        <td style={{ padding: '5px 10px', border: '1px solid #cbd5e1', textAlign: 'center', fontWeight: 700 }}>
+                          {accuracy.computationalAccuracy}%
+                        </td>
+                        <td style={{ padding: '5px 10px', border: '1px solid #cbd5e1', fontSize: '0.74rem', color: '#334155' }}>
+                          Mathematical, conditional (IF/IFS) & lookup formula syntax execution
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style={{ padding: '5px 10px', border: '1px solid #cbd5e1', fontWeight: 700 }}>
+                          3. Operational Analysis & Calibration
+                        </td>
+                        <td style={{ padding: '5px 10px', border: '1px solid #cbd5e1', textAlign: 'center', color: '#64748b' }}>
+                          10% ({(maxMarks * 0.1).toFixed(1)}M)
+                        </td>
+                        <td style={{ padding: '5px 10px', border: '1px solid #cbd5e1', textAlign: 'center', fontWeight: 800, color: '#059669' }}>
+                          {(sub.forensics.autoGradeEstimate?.analysis ?? (maxMarks * 0.1)).toFixed(1)} M
+                        </td>
+                        <td style={{ padding: '5px 10px', border: '1px solid #cbd5e1', textAlign: 'center', fontWeight: 700 }}>
+                          {accuracy.analysisAccuracy}%
+                        </td>
+                        <td style={{ padding: '5px 10px', border: '1px solid #cbd5e1', fontSize: '0.74rem', color: '#334155' }}>
+                          Pivot table synthesis & calibration trap record (FL-199) handling
+                        </td>
+                      </tr>
+                      <tr style={{ backgroundColor: '#f8fafc' }}>
+                        <td style={{ padding: '5px 10px', border: '1px solid #cbd5e1', fontWeight: 700 }}>
+                          4. Micro-Viva Concept Verification
+                        </td>
+                        <td style={{ padding: '5px 10px', border: '1px solid #cbd5e1', textAlign: 'center', color: '#64748b' }}>
+                          Qualifying
+                        </td>
+                        <td style={{ padding: '5px 10px', border: '1px solid #cbd5e1', textAlign: 'center', fontWeight: 800, color: sub.viva.isCorrect ? '#059669' : '#dc2626' }}>
+                          {sub.viva.isCorrect ? 'PASSED (2/2)' : 'FAIL / TIMEOUT'}
+                        </td>
+                        <td style={{ padding: '5px 10px', border: '1px solid #cbd5e1', textAlign: 'center', fontWeight: 700 }}>
+                          {sub.viva.isCorrect ? '100%' : '0%'}
+                        </td>
+                        <td style={{ padding: '5px 10px', border: '1px solid #cbd5e1', fontSize: '0.74rem', color: '#334155' }}>
+                          Interactive conceptual response logged in {sub.viva.secondsTaken} seconds
+                        </td>
+                      </tr>
+                      <tr style={{ backgroundColor: '#f1f5f9', fontWeight: 900 }}>
+                        <td style={{ padding: '6px 10px', border: '1px solid #cbd5e1' }}>
+                          Total Certified Practicum Score
+                        </td>
+                        <td style={{ padding: '6px 10px', border: '1px solid #cbd5e1', textAlign: 'center' }}>
+                          {maxMarks} M
+                        </td>
+                        <td style={{ padding: '6px 10px', border: '1px solid #cbd5e1', textAlign: 'center', fontSize: '0.95rem', color: '#059669' }}>
+                          {finalScore} M
+                        </td>
+                        <td style={{ padding: '6px 10px', border: '1px solid #cbd5e1', textAlign: 'center', color: '#0284c7' }}>
+                          {accuracy.percentage}%
+                        </td>
+                        <td style={{ padding: '6px 10px', border: '1px solid #cbd5e1', fontSize: '0.74rem' }}>
+                          Performance classification: <strong>{sub.evaluation.gradeBand || 'Grade A'}</strong>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* 5. Technical Evidence & Audit Grid (2 Equal Columns) */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px', marginBottom: '14px', fontSize: '0.78rem' }}>
                   
-                  {/* Pillar 1: Result Accuracy */}
-                  <div style={{ backgroundColor: t.cardBgAlt, border: `1px solid ${t.border}`, borderRadius: '12px', padding: '18px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                      <div style={{ fontSize: '0.86rem', fontWeight: 800, color: t.text, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <CheckCircle2 size={17} color="#10b981" /> Result Accuracy & Computation
-                      </div>
-                      <span style={{ fontSize: '0.82rem', fontWeight: 800, color: '#10b981', backgroundColor: 'rgba(16, 185, 129, 0.15)', padding: '2px 8px', borderRadius: '4px' }}>
-                        {accuracy.percentage}% — {accuracy.status}
+                  {/* Left Column: Formulae Used */}
+                  <div style={{ border: '1px solid #cbd5e1', borderRadius: '6px', padding: '10px 14px', backgroundColor: '#f8fafc' }}>
+                    <div style={{ fontSize: '0.76rem', fontWeight: 800, color: '#0f172a', marginBottom: '6px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <FileSpreadsheet size={14} color="#0284c7" /> Formulae Used in Submission
                       </span>
-                    </div>
-
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.82rem' }}>
-                      <div>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '3px', color: t.textSecondary }}>
-                          <span>Data Setup & Schema Structure</span>
-                          <strong>{accuracy.dataSetupAccuracy}%</strong>
-                        </div>
-                        <div style={{ width: '100%', height: '6px', backgroundColor: t.border, borderRadius: '3px', overflow: 'hidden' }}>
-                          <div style={{ width: `${accuracy.dataSetupAccuracy}%`, height: '100%', backgroundColor: '#10b981', borderRadius: '3px' }} />
-                        </div>
-                      </div>
-
-                      <div>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '3px', color: t.textSecondary }}>
-                          <span>Computational & Formula Implementation</span>
-                          <strong>{accuracy.computationalAccuracy}%</strong>
-                        </div>
-                        <div style={{ width: '100%', height: '6px', backgroundColor: t.border, borderRadius: '3px', overflow: 'hidden' }}>
-                          <div style={{ width: `${accuracy.computationalAccuracy}%`, height: '100%', backgroundColor: '#38bdf8', borderRadius: '3px' }} />
-                        </div>
-                      </div>
-
-                      <div>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '3px', color: t.textSecondary }}>
-                          <span>Analytical Precision & Calibration Filtering</span>
-                          <strong>{accuracy.analysisAccuracy}%</strong>
-                        </div>
-                        <div style={{ width: '100%', height: '6px', backgroundColor: t.border, borderRadius: '3px', overflow: 'hidden' }}>
-                          <div style={{ width: `${accuracy.analysisAccuracy}%`, height: '100%', backgroundColor: accuracy.analysisAccuracy >= 80 ? '#10b981' : '#fb923c', borderRadius: '3px' }} />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Pillar 2: AI Tools Used for Submission */}
-                  <div style={{ backgroundColor: t.cardBgAlt, border: `1px solid ${aiTools.detected ? 'rgba(239, 68, 68, 0.4)' : t.border}`, borderRadius: '12px', padding: '18px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                      <div style={{ fontSize: '0.86rem', fontWeight: 800, color: t.text, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <ShieldCheck size={17} color={aiTools.detected ? '#f87171' : '#10b981'} /> AI Tools Detection Audit
-                      </div>
-                      <span style={{ fontSize: '0.76rem', fontWeight: 800, color: aiTools.detected ? '#f87171' : '#10b981', backgroundColor: aiTools.detected ? 'rgba(239, 68, 68, 0.15)' : 'rgba(16, 185, 129, 0.15)', padding: '2px 8px', borderRadius: '4px' }}>
-                        {aiTools.detected ? 'AI Tool / Flagged' : 'Authentic Human Work'}
-                      </span>
-                    </div>
-
-                    <div style={{ fontSize: '0.82rem', lineHeight: 1.6, color: t.textSecondary }}>
-                      <div style={{ marginBottom: '6px' }}>
-                        <strong style={{ color: t.text }}>Software Generator:</strong>{' '}
-                        <code style={{ backgroundColor: t.codeBg, padding: '2px 6px', borderRadius: '4px', color: sub.forensics.flags.isAiGenerator ? '#f87171' : t.text }}>
-                          {sub.forensics.application || 'Unknown Application'}
-                        </code>
-                      </div>
-
-                      <div style={{ marginBottom: '6px' }}>
-                        <strong style={{ color: t.text }}>AI Tools Used:</strong>{' '}
-                        <span style={{ color: aiTools.detected ? '#f87171' : '#10b981', fontWeight: 700 }}>
-                          {aiTools.toolNames.join(', ')}
-                        </span>
-                      </div>
-
-                      <div style={{ marginBottom: '6px' }}>
-                        <strong style={{ color: t.text }}>Active Editing Duration:</strong>{' '}
-                        <span style={{ color: sub.forensics.flags.hasZeroEditTime ? '#f87171' : t.text }}>
-                          {sub.forensics.totalTimeMinutes} minutes {sub.forensics.flags.hasZeroEditTime && '(Instant/Automated Generation)'}
-                        </span>
-                      </div>
-
-                      <div>
-                        <strong style={{ color: t.text }}>Prompt-Injection Honeypot:</strong>{' '}
-                        <span style={{ color: sub.forensics.flags.isHoneypotTriggered ? '#f87171' : '#10b981', fontWeight: 700 }}>
-                          {sub.forensics.flags.isHoneypotTriggered ? 'TRIGGERED (AI Agent Injection Found)' : 'PASSED (Clean)'}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Pillar 3: Formulae Used */}
-                  <div style={{ backgroundColor: t.cardBgAlt, border: `1px solid ${t.border}`, borderRadius: '12px', padding: '18px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                      <div style={{ fontSize: '0.86rem', fontWeight: 800, color: t.text, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <FileSpreadsheet size={17} color="#38bdf8" /> Formulae Used in Submission
-                      </div>
-                      <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#38bdf8' }}>
+                      <span style={{ color: '#0284c7', fontSize: '0.72rem' }}>
                         {sub.forensics.totalFormulasFound} active formula cell(s)
                       </span>
                     </div>
 
                     {formulaTypes.length > 0 && (
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '10px' }}>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', marginBottom: '6px' }}>
                         {formulaTypes.map((fn, idx) => (
-                          <span key={idx} style={{ backgroundColor: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', padding: '2px 8px', borderRadius: '4px', fontSize: '0.72rem', fontWeight: 800 }}>
+                          <span key={idx} className="report-code-badge" style={{ backgroundColor: '#e0f2fe', color: '#0369a1', padding: '1px 6px', borderRadius: '3px', fontSize: '0.7rem', fontWeight: 800, border: '1px solid #bae6fd' }}>
                             ={fn}()
                           </span>
                         ))}
                       </div>
                     )}
 
-                    <div style={{ fontSize: '0.78rem', color: t.textMuted, marginBottom: '6px' }}>
-                      Formula Samples Extracted from Worksheets:
+                    <div style={{ fontSize: '0.7rem', color: '#64748b', marginBottom: '4px', fontWeight: 700 }}>
+                      Extracted Cell Formula Samples:
                     </div>
                     {formulas.length > 0 ? (
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', maxHeight: '110px', overflowY: 'auto' }}>
-                        {formulas.slice(0, 6).map((f, idx) => (
-                          <code key={idx} style={{ backgroundColor: t.codeBg, color: '#38bdf8', padding: '3px 8px', borderRadius: '4px', fontSize: '0.74rem', fontFamily: 'monospace' }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', maxHeight: '60px', overflowY: 'hidden' }}>
+                        {formulas.slice(0, 4).map((f, idx) => (
+                          <code key={idx} style={{ backgroundColor: '#ffffff', color: '#0284c7', padding: '2px 6px', borderRadius: '3px', fontSize: '0.7rem', fontFamily: 'monospace', border: '1px solid #e2e8f0', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                             ={f}
                           </code>
                         ))}
                       </div>
                     ) : (
-                      <div style={{ color: '#f87171', fontSize: '0.78rem', fontStyle: 'italic' }}>
-                        No spreadsheet formulas detected (formula tags empty; hardcoded cell values)
+                      <div style={{ color: '#dc2626', fontSize: '0.72rem', fontStyle: 'italic' }}>
+                        No formula tags detected in workbook (values may be hardcoded).
                       </div>
                     )}
 
-                    <div style={{ marginTop: '10px', fontSize: '0.76rem', color: t.textSecondary }}>
+                    <div style={{ marginTop: '6px', fontSize: '0.7rem', color: '#475569' }}>
                       <strong>Workbook Tabs:</strong> {sub.forensics.sheetNames.join(', ') || 'None detected'}
                     </div>
                   </div>
 
-                  {/* Pillar 4: Integrity Status & Forensic Findings */}
-                  <div style={{ backgroundColor: t.cardBgAlt, border: `1px solid ${t.border}`, borderRadius: '12px', padding: '18px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                      <div style={{ fontSize: '0.86rem', fontWeight: 800, color: t.text, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <FileCheck size={17} color={isClean ? '#10b981' : '#f87171'} /> Integrity Status & Audit Findings
-                      </div>
-                      <span style={{ fontSize: '0.8rem', fontWeight: 800, color: isClean ? '#10b981' : '#f87171' }}>
+                  {/* Right Column: AI Tools & Forensic Audit */}
+                  <div style={{ border: '1px solid #cbd5e1', borderRadius: '6px', padding: '10px 14px', backgroundColor: '#f8fafc' }}>
+                    <div style={{ fontSize: '0.76rem', fontWeight: 800, color: '#0f172a', marginBottom: '6px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <ShieldCheck size={14} color={aiTools.detected ? '#dc2626' : '#059669'} /> AI Generator Detection Audit
+                      </span>
+                      <span style={{ color: aiTools.detected ? '#dc2626' : '#059669', fontSize: '0.72rem', fontWeight: 800 }}>
                         Score: {sub.forensics.integrityScore}/100
                       </span>
                     </div>
 
-                    <ul style={{ margin: 0, paddingLeft: '18px', fontSize: '0.8rem', lineHeight: 1.65, color: t.textSecondary }}>
-                      {sub.forensics.summaryFindings.map((finding, idx) => (
-                        <li key={idx} style={{ color: finding.includes('Authentic') ? '#10b981' : '#f87171' }}>
-                          {finding}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div style={{ marginTop: '12px', padding: '8px 10px', backgroundColor: t.cardBg, borderRadius: '6px', fontSize: '0.75rem', color: t.textMuted }}>
-                      <strong>Micro-Viva Verification:</strong> {sub.viva.isCorrect ? 'Verified comprehension passed within time limit' : 'Failed or timed out on conceptual questions'}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', fontSize: '0.74rem', color: '#334155' }}>
+                      <div>
+                        <strong>Software Signature:</strong>{' '}
+                        <code style={{ backgroundColor: '#ffffff', padding: '1px 5px', borderRadius: '3px', border: '1px solid #e2e8f0', color: sub.forensics.flags.isAiGenerator ? '#dc2626' : '#0f172a' }}>
+                          {sub.forensics.application || 'Microsoft Excel'}
+                        </code>
+                      </div>
+                      <div>
+                        <strong>AI Tools Detected:</strong>{' '}
+                        <span style={{ color: aiTools.detected ? '#dc2626' : '#059669', fontWeight: 700 }}>
+                          {aiTools.toolNames.join(', ')}
+                        </span>
+                      </div>
+                      <div>
+                        <strong>Active Editing Time:</strong>{' '}
+                        <span style={{ color: sub.forensics.flags.hasZeroEditTime ? '#dc2626' : '#0f172a' }}>
+                          {sub.forensics.totalTimeMinutes} minutes {sub.forensics.flags.hasZeroEditTime && '(Instant generation flag)'}
+                        </span>
+                      </div>
+                      <div>
+                        <strong>Honeypot Trap Tokens:</strong>{' '}
+                        <span style={{ color: sub.forensics.flags.isHoneypotTriggered ? '#dc2626' : '#059669', fontWeight: 700 }}>
+                          {sub.forensics.flags.isHoneypotTriggered ? 'TRIGGERED: AI Agent Token Detected' : 'PASSED (Clean)'}
+                        </span>
+                      </div>
                     </div>
                   </div>
 
                 </div>
 
-                {/* Section 5: Instructor Remarks */}
-                <div style={{ backgroundColor: t.cardBgAlt, border: `1px solid ${t.border}`, borderRadius: '10px', padding: '16px 20px', marginBottom: '20px' }}>
-                  <div style={{ fontSize: '0.78rem', color: t.textMuted, textTransform: 'uppercase', fontWeight: 800, marginBottom: '6px' }}>
+                {/* 6. Instructor Feedback & Formal Signatures */}
+                <div style={{ border: '1px solid #cbd5e1', borderRadius: '6px', padding: '10px 14px', backgroundColor: '#f8fafc', marginBottom: '14px' }}>
+                  <div style={{ fontSize: '0.7rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 800, marginBottom: '2px' }}>
                     Instructor Evaluator Remarks
                   </div>
-                  <div style={{ fontSize: '0.88rem', color: t.text, fontStyle: sub.evaluation.instructorRemarks ? 'normal' : 'italic' }}>
-                    {sub.evaluation.instructorRemarks || 'Student demonstrated satisfactory proficiency with laboratory operational exercises and formulas.'}
+                  <div style={{ fontSize: '0.8rem', color: '#0f172a', fontStyle: sub.evaluation.instructorRemarks ? 'normal' : 'italic' }}>
+                    "{sub.evaluation.instructorRemarks || 'Candidate has completed all required operational spreadsheet tasks and formula calculations in accordance with the prescribed rubric.'}"
                   </div>
                 </div>
 
-                {/* Report Card Footer Stamp */}
-                <div style={{ borderTop: `1px solid ${t.border}`, paddingTop: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px', fontSize: '0.74rem', color: t.textMuted }}>
-                  <div>
-                    Evaluation Signature: <strong>INSTRUCTOR-CONSOLE-PASSKEY-AUTH</strong> • Submission ID: {sub.id}
+                {/* 7. Institutional Endorsement Sign-Off */}
+                <div style={{ borderTop: '1px solid #0f172a', paddingTop: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', fontSize: '0.74rem' }}>
+                  <div style={{ width: '42%' }}>
+                    <div style={{ height: '24px' }}></div>
+                    <div style={{ borderTop: '1px dashed #0f172a', paddingTop: '3px' }}>
+                      <strong style={{ color: '#0f172a' }}>Course Evaluator Signature</strong>
+                      <div style={{ fontSize: '0.68rem', color: '#64748b' }}>
+                        Authenticated via Instructor Console • Passkey 2525
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    Generated by Academic Evaluation Engine • Page 1 of 1
+
+                  <div style={{ textAlign: 'center', width: '16%' }}>
+                    <div style={{ fontSize: '0.7rem', color: '#059669', fontWeight: 800 }}>
+                      ✓ CERTIFIED
+                    </div>
+                    <div style={{ fontSize: '0.64rem', color: '#64748b' }}>
+                      Page 1 of 1
+                    </div>
+                  </div>
+
+                  <div style={{ width: '42%', textAlign: 'right' }}>
+                    <div style={{ height: '24px' }}></div>
+                    <div style={{ borderTop: '1px dashed #0f172a', paddingTop: '3px' }}>
+                      <strong style={{ color: '#0f172a' }}>Academic Examination Seal</strong>
+                      <div style={{ fontSize: '0.68rem', color: '#64748b' }}>
+                        Practicum Audit System • Ref: {sub.id}
+                      </div>
+                    </div>
                   </div>
                 </div>
 
               </div>
 
-              {/* Modal Bottom Close */}
+              {/* Modal Bottom Close Action Bar (Screen Only) */}
               <div
                 className="no-print"
                 style={{
-                  padding: '14px 24px',
-                  borderTop: `1px solid ${t.border}`,
+                  padding: '12px 20px',
+                  borderTop: '1px solid #e2e8f0',
                   display: 'flex',
                   justifyContent: 'flex-end',
-                  backgroundColor: t.cardHeaderBg
+                  backgroundColor: '#f8fafc'
                 }}
               >
                 <button
                   onClick={() => setShowReportCardModal(false)}
                   style={{
-                    backgroundColor: '#10b981',
-                    color: '#090d16',
+                    backgroundColor: '#059669',
+                    color: '#ffffff',
                     border: 'none',
                     padding: '8px 20px',
-                    borderRadius: '8px',
+                    borderRadius: '6px',
                     fontSize: '0.84rem',
                     fontWeight: 800,
                     cursor: 'pointer'
