@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import { parseStudentDetailsFromFilename } from '@/lib/batch-evaluator';
 
 export const dynamic = 'force-dynamic';
 
@@ -36,6 +37,27 @@ export async function GET(req: NextRequest) {
   }
 
   const records = readSubmissions();
+  let modified = false;
+
+  // Automatically normalize and update roll numbers and student names from original filenames
+  for (const r of records) {
+    if (r.originalFilename) {
+      const parsed = parseStudentDetailsFromFilename(r.originalFilename);
+      if (parsed.studentName && parsed.studentName !== r.studentName && !parsed.studentName.startsWith('Student STU-')) {
+        r.studentName = parsed.studentName;
+        modified = true;
+      }
+      if (parsed.rollNo && parsed.rollNo !== r.rollNo && !parsed.rollNo.startsWith('STU-')) {
+        r.rollNo = parsed.rollNo;
+        modified = true;
+      }
+    }
+  }
+
+  if (modified) {
+    writeSubmissions(records);
+  }
+
   return NextResponse.json({
     success: true,
     count: records.length,

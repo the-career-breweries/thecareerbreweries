@@ -94,65 +94,123 @@ export function unzipArchive(buffer: Buffer): UnzippedFile[] {
 
 /**
  * Robust extractor for Student Roll Number and Name from arbitrary filenames
- * e.g. 26AVA101_RahulSharma_Pivot_Assignment.xlsx -> { rollNo: "26AVA101", studentName: "Rahul Sharma" }
- * e.g. Rahul Sharma - 26AVA101.xlsx -> { rollNo: "26AVA101", studentName: "Rahul Sharma" }
+ * Supports institutional formats like:
+ *   - 26-AVA-034_Syed_Hisham_Hamza_Pivot_Assignment.xlsx -> rollNo: "26-AVA-034", studentName: "Syed Hisham Hamza"
+ *   - PROVASAVBSC726053_Man Patel_Pivot_Assignment.xlsx -> rollNo: "PROV-ASAV-BSC-7-26-053", studentName: "Man Patel"
+ *   - PROV_ASAV_BSC_7_26_019_Evlin Rose Shoji_Aviation_Pivot_Lab.xlsx -> rollNo: "PROV-ASAV-BSC-7-26-019", studentName: "Evlin Rose Shoji"
+ *   - PROV-ASAV-BSC-7-26-046_DanielJaisonJ_Pivot_Assignment.xlsx -> rollNo: "PROV-ASAV-BSC-7-26-046", studentName: "Daniel Jaison J"
+ *   - 26AVA018_Daniel Ntonja_Pivot_Assignment_New.xlsx -> rollNo: "26-AVA-018", studentName: "Daniel Ntonja"
+ *   - 26AVA044PrathameshChavan_Pivot_Assignment.xlsx -> rollNo: "26-AVA-044", studentName: "Prathamesh Chavan"
+ *   - 26_AVA_007_HarmainSehar_Pivot_Assignment.xlsx -> rollNo: "26-AVA-007", studentName: "Harmain Sehar"
+ *   - 11 SIRI SAMHITHA R_Pivot_Assignment.xlsx -> rollNo: "26-AVA-011", studentName: "Siri Samhitha R"
+ *   - Baba thanveer -pivot-Assignment.xlsx -> rollNo: "STU-...", studentName: "Baba Thanveer"
  */
 export function parseStudentDetailsFromFilename(fullPathOrName: string): { rollNo: string; studentName: string } {
   const base = path.basename(fullPathOrName);
-  const nameWithoutExt = base.replace(/\.[^/.]+$/, '');
-
-  // 1. Identify Roll Number patterns
-  const rollRegexes = [
-    /\b([0-9]{2}[A-Za-z]{2,5}[0-9]{2,4}[A-Za-z]?)\b/i, // 26AVA101, 26AV101, 22BBA045
-    /\b([A-Za-z]{2,5}[0-9]{3,5})\b/i,                  // AVA101, AV2026
-    /\b([0-9]{6,10})\b/                                // Numeric ID
-  ];
+  
+  // 1. Remove all file extensions (including double extensions like .xlsx.xlsx, .copy.xlsx)
+  let raw = base
+    .replace(/(\.xlsx|\.docx|\.pptx|\.csv|\.pdf)+$/gi, '')
+    .trim();
 
   let rollNo = '';
-  for (const regex of rollRegexes) {
-    const match = nameWithoutExt.match(regex);
-    if (match) {
-      rollNo = match[1].toUpperCase();
-      break;
+  let rollMatchStr = '';
+
+  // 2. Identify and extract Roll Number
+
+  // Pattern A: PROV-ASAV-BSC format with any delimiters or concatenated (e.g. PROVASAVBSC726053, PROV_ASAV_BSC_7_26_019)
+  const provMatch = raw.match(/\b(PROV[-_ ]?ASAV[-_ ]?BSC(?:[-_ ]?[0-9]+)*)\b/i);
+  if (provMatch) {
+    rollMatchStr = provMatch[1];
+    const digitsOnly = rollMatchStr.replace(/[^0-9]/g, '');
+    if (digitsOnly.length >= 5) {
+      const lastDigits = digitsOnly.slice(-3);
+      const batch = digitsOnly.slice(-5, -3);
+      const sec = digitsOnly.slice(0, -5) || '7';
+      rollNo = `PROV-ASAV-BSC-${sec}-${batch}-${lastDigits}`;
+    } else {
+      rollNo = rollMatchStr.replace(/[_ ]/g, '-').toUpperCase();
     }
   }
 
-  // 2. Extract and clean Student Name
-  let cleaned = nameWithoutExt;
-  if (rollNo) {
-    cleaned = cleaned.replace(new RegExp(rollNo, 'i'), '');
+  // Pattern B: 26-AVA-034, 26_AVA_007, 26AVA018, 26AVA36, 22BBA045
+  if (!rollNo) {
+    const avaMatch = raw.match(/\b([0-9]{2})[-_ ]?([A-Za-z]{2,5})[-_ ]?([0-9]{1,4}[A-Za-z]?)\b/i);
+    if (avaMatch) {
+      rollMatchStr = avaMatch[0];
+      const prefixYear = avaMatch[1];
+      const dept = avaMatch[2].toUpperCase();
+      const numPart = avaMatch[3].padStart(3, '0');
+      rollNo = `${prefixYear}-${dept}-${numPart}`;
+    }
   }
 
-  // Common stop words to strip from filename
-  const stopWords = new Set([
-    'assignment', 'lab', 'exercise', 'pivot', 'flight', 'aviation',
-    'submission', 'task', 'report', 'word', 'powerpoint', 'excel',
-    'master', 'final', 'draft', 'copy', 'tables', 'charts', 'blr',
-    'airport', 'assignsubmission', 'file', 'student', 'data', 'xlsx',
-    'docx', 'pptx', 'sheet', 'work'
-  ]);
+  // Pattern C: AVA101, AV2026
+  if (!rollNo) {
+    const codeMatch = raw.match(/\b([A-Za-z]{2,5}[-_ ]?[0-9]{2,5})\b/i);
+    if (codeMatch) {
+      rollMatchStr = codeMatch[1];
+      rollNo = rollMatchStr.replace(/[_ ]/g, '-').toUpperCase();
+    }
+  }
 
-  cleaned = cleaned.replace(/[_\-()[\]0-9]+/g, ' ').trim();
-  const words = cleaned
+  // Pattern D: Leading number like "010_...", "28_...", "11 SIRI..."
+  if (!rollNo) {
+    const leadNumMatch = raw.match(/^([0-9]{1,3})[_\- ]/);
+    if (leadNumMatch) {
+      rollMatchStr = leadNumMatch[0];
+      rollNo = `26-AVA-${leadNumMatch[1].padStart(3, '0')}`;
+    }
+  }
+
+  // 3. Remove the detected roll number portion from the candidate string
+  let nameStr = raw;
+  if (rollMatchStr) {
+    nameStr = nameStr.replace(rollMatchStr, ' ');
+  }
+
+  // 4. Strip institutional / registration prefixes and loose code tokens
+  nameStr = nameStr.replace(/\b(PROV|ASAV|BSC|AVA|BBA)\b/gi, ' ');
+  nameStr = nameStr.replace(/\b(PROVASAVBSC[0-9]*)\b/gi, ' ');
+
+  // 5. Remove common assignment & operational keywords
+  const stopWordsRegex = /\b(assignment|assinment|lab|exercise|pivot|flight|aviation|operations|submission|task|report|word|powerpoint|excel|master|final|draft|copy|tables|charts|summary|blr|airport|sheet|work|new|pax|terminal|otp)\b/gi;
+  nameStr = nameStr.replace(stopWordsRegex, ' ');
+
+  // 6. Expand CamelCase / PascalCase names (e.g. "DanielJaisonJ" -> "Daniel Jaison J", "HarmainSehar" -> "Harmain Sehar", "PrathameshChavan" -> "Prathamesh Chavan")
+  nameStr = nameStr
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    .replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2');
+
+  // 7. Clean punctuation & special chars, leaving only letters and spaces
+  nameStr = nameStr.replace(/[^A-Za-z\s]+/g, ' ').trim();
+
+  // 8. Tokenize and format in Title Case
+  const words = nameStr
     .split(/\s+/)
-    .filter(w => w.length > 1 && !stopWords.has(w.toLowerCase()));
+    .map(w => w.trim())
+    .filter(w => w.length > 0 && !w.match(/^(xlsx|docx|pptx|copy|prov|asav|bsc|ava|bba)$/i));
 
   let studentName = words
-    .map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+    .map(w => {
+      // Single letter initials stay uppercase (e.g. "J", "M", "P", "N", "R")
+      if (w.length === 1) return w.toUpperCase();
+      return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+    })
     .join(' ')
     .trim();
 
-  // Deterministic fallback for Roll No if unparseable
+  // Fallback for roll number if unparseable
   if (!rollNo) {
     let hash = 0;
-    for (let i = 0; i < nameWithoutExt.length; i++) {
-      hash = ((hash << 5) - hash) + nameWithoutExt.charCodeAt(i);
+    for (let i = 0; i < raw.length; i++) {
+      hash = ((hash << 5) - hash) + raw.charCodeAt(i);
       hash |= 0;
     }
     rollNo = `STU-${Math.abs(hash % 90000 + 10000)}`;
   }
 
-  // Fallback for Student Name if unparseable
+  // Fallback for student name if unparseable
   if (!studentName || studentName.length < 2) {
     studentName = `Student ${rollNo}`;
   }
