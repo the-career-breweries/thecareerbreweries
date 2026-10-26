@@ -378,7 +378,7 @@ export default function InstructorEvaluationConsole() {
       const pct = r.evaluation.percentage || Math.round((score / maxM) * 100);
       const acc = r.forensics.resultAccuracy?.percentage ?? pct;
       const formulasStr = (r.forensics.allFormulas || r.forensics.sampleFormulas || []).slice(0, 8).join('; ');
-      const aiToolsStr = (r.forensics.aiToolsUsed?.toolNames || [r.forensics.application || 'Unknown']).join(', ');
+      const aiToolsStr = (r.forensics.aiToolsUsed?.toolNames || (r.forensics.flags?.isAiGenerator ? ['ChatGPT / Claude Code Interpreter'] : ['None Detected'])).join(', ');
 
       return [
         `"${r.rollNo}"`,
@@ -592,7 +592,7 @@ export default function InstructorEvaluationConsole() {
       const pct = s.evaluation.percentage || Math.round((s.evaluation.finalScore / maxM) * 100);
       const acc = s.forensics.resultAccuracy?.percentage ?? pct;
       const formulasStr = (s.forensics.allFormulas || s.forensics.sampleFormulas || []).slice(0, 8).join('; ');
-      const aiToolsStr = (s.forensics.aiToolsUsed?.toolNames || [s.forensics.application || 'Unknown']).join(', ');
+      const aiToolsStr = (s.forensics.aiToolsUsed?.toolNames || (s.forensics.flags?.isAiGenerator ? ['ChatGPT / Claude Code Interpreter'] : ['None Detected'])).join(', ');
 
       return [
         `"${s.rollNo}"`,
@@ -2557,7 +2557,7 @@ export default function InstructorEvaluationConsole() {
           analysisAccuracy: 85
         };
         const aiTools = sub.forensics.aiToolsUsed || {
-          detected: sub.forensics.flags.isAiGenerator || sub.forensics.flags.isHoneypotTriggered || sub.forensics.flags.hasZeroEditTime,
+          detected: sub.forensics.flags.isAiGenerator || sub.forensics.flags.isHoneypotTriggered || (sub.forensics.flags.hasZeroEditTime && !sub.originalFilename?.toLowerCase().endsWith('.xlsx')),
           toolNames: sub.forensics.flags.isAiGenerator ? ['ChatGPT / Claude Code Interpreter (openpyxl)'] : ['None Detected (Microsoft Office / Google Sheets)'],
           reasons: sub.forensics.summaryFindings.filter((f) => !f.includes('Authentic'))
         };

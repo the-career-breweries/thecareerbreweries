@@ -43,26 +43,23 @@
         "analysisAccuracy": 100
       },
       "aiToolsUsed": {
-        "detected": true,
+        "detected": false,
         "toolNames": [
-          "Synthetic File Generator (0m Edit Time)"
+          "None Detected (Authentic Microsoft Office / Google Sheets)"
         ],
-        "reasons": [
-          "0 minutes active editing time recorded in file metadata"
-        ]
+        "reasons": []
       },
       "flags": {
         "isAiGenerator": false,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": true
       },
-      "integrityScore": 65,
+      "integrityScore": 80,
       "integrityLevel": "suspicious",
       "summaryFindings": [
-        "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
       "autoGradeEstimate": {
@@ -78,7 +75,7 @@
       "percentage": 68,
       "gradeBand": "B",
       "instructorOverride": false,
-      "instructorRemarks": "File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "instructorRemarks": "No formula tags (<f>) detected in worksheets; values may be hardcoded",
       "evaluatedAt": "2026-10-26T14:42:26.686Z"
     },
     "batchEvaluated": true
@@ -103,7 +100,7 @@
       "fileSize": 29949,
       "application": "LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2",
       "appVersion": "15.0000",
-      "totalTimeMinutes": 0,
+      "totalTimeMinutes": 1,
       "creator": "openpyxl",
       "lastModifiedBy": "",
       "createdDate": "2026-10-25T13:32:35Z",
@@ -199,7 +196,7 @@
       "percentage": 100,
       "gradeBand": "O",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2)",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.680Z"
     },
     "batchEvaluated": true
@@ -224,7 +221,7 @@
       "fileSize": 18467,
       "application": "Microsoft Excel",
       "appVersion": "3.1",
-      "totalTimeMinutes": 0,
+      "totalTimeMinutes": 35,
       "creator": "openpyxl",
       "lastModifiedBy": "Unknown",
       "createdDate": "2026-10-25T11:49:58Z",
@@ -260,15 +257,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": true
       },
-      "integrityScore": 15,
+      "integrityScore": 30,
       "integrityLevel": "high_risk",
       "summaryFindings": [
         "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
       "autoGradeEstimate": {
@@ -284,7 +280,7 @@
       "percentage": 68,
       "gradeBand": "B",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata; No formula tags (<f>) detected in worksheets; values may be hardcoded",
       "evaluatedAt": "2026-10-26T14:42:26.677Z"
     },
     "batchEvaluated": true
@@ -309,7 +305,7 @@
       "fileSize": 29712,
       "application": "LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2",
       "appVersion": "15.0000",
-      "totalTimeMinutes": 0,
+      "totalTimeMinutes": 1,
       "creator": "openpyxl",
       "lastModifiedBy": "",
       "createdDate": "2026-10-25T16:24:12Z",
@@ -406,7 +402,7 @@
       "percentage": 100,
       "gradeBand": "O",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2)",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.674Z"
     },
     "batchEvaluated": true
@@ -509,15 +505,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": false
       },
-      "integrityScore": 35,
+      "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)"
+        "AI Code Interpreter (Python openpyxl) detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -532,7 +527,7 @@
       "percentage": 100,
       "gradeBand": "O",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.670Z"
     },
     "batchEvaluated": true
@@ -557,7 +552,7 @@
       "fileSize": 18467,
       "application": "Microsoft Excel",
       "appVersion": "3.1",
-      "totalTimeMinutes": 0,
+      "totalTimeMinutes": 35,
       "creator": "openpyxl",
       "lastModifiedBy": "Unknown",
       "createdDate": "2026-10-25T11:49:58Z",
@@ -593,15 +588,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": true
       },
-      "integrityScore": 15,
+      "integrityScore": 30,
       "integrityLevel": "high_risk",
       "summaryFindings": [
         "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
       "autoGradeEstimate": {
@@ -617,7 +611,7 @@
       "percentage": 68,
       "gradeBand": "B",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata; No formula tags (<f>) detected in worksheets; values may be hardcoded",
       "evaluatedAt": "2026-10-26T14:42:26.667Z"
     },
     "batchEvaluated": true
@@ -678,15 +672,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": true
       },
-      "integrityScore": 15,
+      "integrityScore": 30,
       "integrityLevel": "high_risk",
       "summaryFindings": [
         "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
       "autoGradeEstimate": {
@@ -702,7 +695,7 @@
       "percentage": 68,
       "gradeBand": "B",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata; No formula tags (<f>) detected in worksheets; values may be hardcoded",
       "evaluatedAt": "2026-10-26T14:42:26.664Z"
     },
     "batchEvaluated": true
@@ -727,7 +720,7 @@
       "fileSize": 35871,
       "application": "Microsoft Excel",
       "appVersion": "16.0300",
-      "totalTimeMinutes": 0,
+      "totalTimeMinutes": 6,
       "creator": "SIRI SAMHITHA R",
       "lastModifiedBy": "Siri Samhitha R",
       "createdDate": "2026-10-25T11:08:45Z",
@@ -790,26 +783,24 @@
         "analysisAccuracy": 100
       },
       "aiToolsUsed": {
-        "detected": true,
+        "detected": false,
         "toolNames": [
-          "Synthetic File Generator (0m Edit Time)"
+          "None Detected (Authentic Microsoft Office / Google Sheets)"
         ],
-        "reasons": [
-          "0 minutes active editing time recorded in file metadata"
-        ]
+        "reasons": []
       },
       "flags": {
         "isAiGenerator": false,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": false
       },
-      "integrityScore": 85,
+      "integrityScore": 100,
       "integrityLevel": "clean",
       "summaryFindings": [
-        "File metadata registers 0 minutes total editing time (instant generation)"
+        "Authentic authoring signature confirmed via Microsoft Excel / Google Sheets"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -824,7 +815,7 @@
       "percentage": 100,
       "gradeBand": "O",
       "instructorOverride": false,
-      "instructorRemarks": "File metadata registers 0 minutes total editing time (instant generation)",
+      "instructorRemarks": "Evaluation completed. Work verified against institutional computing standards.",
       "evaluatedAt": "2026-10-26T14:42:26.661Z"
     },
     "batchEvaluated": true
@@ -886,15 +877,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": true
       },
-      "integrityScore": 15,
+      "integrityScore": 30,
       "integrityLevel": "high_risk",
       "summaryFindings": [
         "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
       "autoGradeEstimate": {
@@ -910,7 +900,7 @@
       "percentage": 68,
       "gradeBand": "B",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata; No formula tags (<f>) detected in worksheets; values may be hardcoded",
       "evaluatedAt": "2026-10-26T14:42:26.656Z"
     },
     "batchEvaluated": true
@@ -935,7 +925,7 @@
       "fileSize": 11031,
       "application": "Microsoft Excel",
       "appVersion": "3.1",
-      "totalTimeMinutes": 0,
+      "totalTimeMinutes": 1,
       "creator": "openpyxl",
       "lastModifiedBy": "Unknown",
       "createdDate": "2026-10-25T11:28:44Z",
@@ -971,15 +961,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": true
       },
-      "integrityScore": 15,
+      "integrityScore": 30,
       "integrityLevel": "high_risk",
       "summaryFindings": [
         "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
       "autoGradeEstimate": {
@@ -995,7 +984,7 @@
       "percentage": 68,
       "gradeBand": "B",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata; No formula tags (<f>) detected in worksheets; values may be hardcoded",
       "evaluatedAt": "2026-10-26T14:42:26.653Z"
     },
     "batchEvaluated": true
@@ -1020,7 +1009,7 @@
       "fileSize": 23328,
       "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
       "appVersion": "3.1",
-      "totalTimeMinutes": 0,
+      "totalTimeMinutes": 1,
       "creator": "openpyxl",
       "lastModifiedBy": "Unknown",
       "createdDate": "2026-10-25T06:06:38Z",
@@ -1094,15 +1083,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": false
       },
-      "integrityScore": 35,
+      "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)"
+        "AI Code Interpreter (Python openpyxl) detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -1117,7 +1105,7 @@
       "percentage": 100,
       "gradeBand": "O",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.651Z"
     },
     "batchEvaluated": true
@@ -1178,15 +1166,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": true
       },
-      "integrityScore": 15,
+      "integrityScore": 30,
       "integrityLevel": "high_risk",
       "summaryFindings": [
         "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
       "autoGradeEstimate": {
@@ -1202,7 +1189,7 @@
       "percentage": 68,
       "gradeBand": "B",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata; No formula tags (<f>) detected in worksheets; values may be hardcoded",
       "evaluatedAt": "2026-10-26T14:42:26.648Z"
     },
     "batchEvaluated": true
@@ -1301,15 +1288,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": false
       },
-      "integrityScore": 35,
+      "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)"
+        "AI Code Interpreter (Python openpyxl) detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -1324,7 +1310,7 @@
       "percentage": 100,
       "gradeBand": "O",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.645Z"
     },
     "batchEvaluated": true
@@ -1349,7 +1335,7 @@
       "fileSize": 38613,
       "application": "Microsoft Excel",
       "appVersion": "16.0300",
-      "totalTimeMinutes": 0,
+      "totalTimeMinutes": 25,
       "creator": "openpyxl",
       "lastModifiedBy": "ABIGA J",
       "createdDate": "2026-10-25T17:36:58Z",
@@ -1385,15 +1371,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": true
       },
-      "integrityScore": 15,
+      "integrityScore": 30,
       "integrityLevel": "high_risk",
       "summaryFindings": [
         "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
       "autoGradeEstimate": {
@@ -1409,7 +1394,7 @@
       "percentage": 68,
       "gradeBand": "B",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata; No formula tags (<f>) detected in worksheets; values may be hardcoded",
       "evaluatedAt": "2026-10-26T14:42:26.641Z"
     },
     "batchEvaluated": true
@@ -1470,15 +1455,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": true
       },
-      "integrityScore": 15,
+      "integrityScore": 30,
       "integrityLevel": "high_risk",
       "summaryFindings": [
         "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
       "autoGradeEstimate": {
@@ -1494,7 +1478,7 @@
       "percentage": 68,
       "gradeBand": "B",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata; No formula tags (<f>) detected in worksheets; values may be hardcoded",
       "evaluatedAt": "2026-10-26T14:42:26.637Z"
     },
     "batchEvaluated": true
@@ -1593,15 +1577,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": false
       },
-      "integrityScore": 35,
+      "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)"
+        "AI Code Interpreter (Python openpyxl) detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -1616,7 +1599,7 @@
       "percentage": 100,
       "gradeBand": "O",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.634Z"
     },
     "batchEvaluated": true
@@ -1641,7 +1624,7 @@
       "fileSize": 22651,
       "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
       "appVersion": "3.1",
-      "totalTimeMinutes": 0,
+      "totalTimeMinutes": 825,
       "creator": "openpyxl",
       "lastModifiedBy": "Unknown",
       "createdDate": "2026-10-25T13:38:36Z",
@@ -1678,15 +1661,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": true
       },
-      "integrityScore": 15,
+      "integrityScore": 30,
       "integrityLevel": "high_risk",
       "summaryFindings": [
         "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
       "autoGradeEstimate": {
@@ -1702,7 +1684,7 @@
       "percentage": 68,
       "gradeBand": "B",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata; No formula tags (<f>) detected in worksheets; values may be hardcoded",
       "evaluatedAt": "2026-10-26T14:42:26.631Z"
     },
     "batchEvaluated": true
@@ -1763,15 +1745,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": true
       },
-      "integrityScore": 15,
+      "integrityScore": 30,
       "integrityLevel": "high_risk",
       "summaryFindings": [
         "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
       "autoGradeEstimate": {
@@ -1787,7 +1768,7 @@
       "percentage": 68,
       "gradeBand": "B",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata; No formula tags (<f>) detected in worksheets; values may be hardcoded",
       "evaluatedAt": "2026-10-26T14:42:26.627Z"
     },
     "batchEvaluated": true
@@ -1889,15 +1870,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": false
       },
-      "integrityScore": 35,
+      "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)"
+        "AI Code Interpreter (Python openpyxl) detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -1912,7 +1892,7 @@
       "percentage": 100,
       "gradeBand": "O",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation)",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.624Z"
     },
     "batchEvaluated": true
@@ -1973,15 +1953,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": true
       },
-      "integrityScore": 15,
+      "integrityScore": 30,
       "integrityLevel": "high_risk",
       "summaryFindings": [
         "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
       "autoGradeEstimate": {
@@ -1997,7 +1976,7 @@
       "percentage": 68,
       "gradeBand": "B",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata; No formula tags (<f>) detected in worksheets; values may be hardcoded",
       "evaluatedAt": "2026-10-26T14:42:26.621Z"
     },
     "batchEvaluated": true
@@ -2022,7 +2001,7 @@
       "fileSize": 32883,
       "application": "Excel iOS",
       "appVersion": "16.0300",
-      "totalTimeMinutes": 0,
+      "totalTimeMinutes": 1,
       "creator": "openpyxl",
       "lastModifiedBy": "",
       "createdDate": "2026-10-25T16:24:12Z",
@@ -2097,15 +2076,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": false
       },
-      "integrityScore": 35,
+      "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)"
+        "AI Code Interpreter (Python openpyxl) detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -2120,7 +2098,7 @@
       "percentage": 100,
       "gradeBand": "O",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Excel iOS); File metadata registers 0 minutes total editing time (instant generation)",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.618Z"
     },
     "batchEvaluated": true
@@ -2181,15 +2159,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": true
       },
-      "integrityScore": 15,
+      "integrityScore": 30,
       "integrityLevel": "high_risk",
       "summaryFindings": [
         "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
       "autoGradeEstimate": {
@@ -2205,7 +2182,7 @@
       "percentage": 68,
       "gradeBand": "B",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata; No formula tags (<f>) detected in worksheets; values may be hardcoded",
       "evaluatedAt": "2026-10-26T14:42:26.614Z"
     },
     "batchEvaluated": true
@@ -2303,15 +2280,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": false
       },
-      "integrityScore": 35,
+      "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)"
+        "AI Code Interpreter (Python openpyxl) detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -2326,7 +2302,7 @@
       "percentage": 100,
       "gradeBand": "O",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation)",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.611Z"
     },
     "batchEvaluated": true
@@ -2393,15 +2369,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": false
       },
-      "integrityScore": 35,
+      "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)"
+        "AI Code Interpreter (Python openpyxl) detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -2416,7 +2391,7 @@
       "percentage": 92,
       "gradeBand": "A+",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Excel Android); File metadata registers 0 minutes total editing time (instant generation)",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.608Z"
     },
     "batchEvaluated": true
@@ -2441,7 +2416,7 @@
       "fileSize": 25088,
       "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
       "appVersion": "3.1",
-      "totalTimeMinutes": 0,
+      "totalTimeMinutes": 679,
       "creator": "Aryan Zinda R",
       "lastModifiedBy": "Aryan Zinda R",
       "createdDate": "2026-10-25T16:24:12Z",
@@ -2516,15 +2491,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": false
       },
-      "integrityScore": 35,
+      "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)"
+        "AI Code Interpreter (Python openpyxl) detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -2539,7 +2513,7 @@
       "percentage": 100,
       "gradeBand": "O",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.604Z"
     },
     "batchEvaluated": true
@@ -2639,15 +2613,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": false
       },
-      "integrityScore": 35,
+      "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)"
+        "AI Code Interpreter (Python openpyxl) detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -2662,7 +2635,7 @@
       "percentage": 100,
       "gradeBand": "O",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.601Z"
     },
     "batchEvaluated": true
@@ -2687,7 +2660,7 @@
       "fileSize": 25088,
       "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
       "appVersion": "3.1",
-      "totalTimeMinutes": 0,
+      "totalTimeMinutes": 679,
       "creator": "Aryan Zinda R",
       "lastModifiedBy": "Aryan Zinda R",
       "createdDate": "2026-10-25T16:24:12Z",
@@ -2762,15 +2735,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": false
       },
-      "integrityScore": 35,
+      "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)"
+        "AI Code Interpreter (Python openpyxl) detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -2785,7 +2757,7 @@
       "percentage": 100,
       "gradeBand": "O",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.598Z"
     },
     "batchEvaluated": true
@@ -2810,7 +2782,7 @@
       "fileSize": 32755,
       "application": "LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2",
       "appVersion": "15.0000",
-      "totalTimeMinutes": 0,
+      "totalTimeMinutes": 1,
       "creator": "openpyxl",
       "lastModifiedBy": "",
       "createdDate": "2026-10-25T11:15:15Z",
@@ -2908,7 +2880,7 @@
       "percentage": 100,
       "gradeBand": "O",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2)",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.595Z"
     },
     "batchEvaluated": true
@@ -3010,15 +2982,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": false
       },
-      "integrityScore": 35,
+      "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)"
+        "AI Code Interpreter (Python openpyxl) detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -3033,7 +3004,7 @@
       "percentage": 100,
       "gradeBand": "O",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Excel iOS); File metadata registers 0 minutes total editing time (instant generation)",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.591Z"
     },
     "batchEvaluated": true
@@ -3058,7 +3029,7 @@
       "fileSize": 25088,
       "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
       "appVersion": "3.1",
-      "totalTimeMinutes": 0,
+      "totalTimeMinutes": 679,
       "creator": "Aryan Zinda R",
       "lastModifiedBy": "Aryan Zinda R",
       "createdDate": "2026-10-25T16:24:12Z",
@@ -3133,15 +3104,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": false
       },
-      "integrityScore": 35,
+      "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)"
+        "AI Code Interpreter (Python openpyxl) detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -3156,7 +3126,7 @@
       "percentage": 100,
       "gradeBand": "O",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.587Z"
     },
     "batchEvaluated": true
@@ -3181,7 +3151,7 @@
       "fileSize": 32839,
       "application": "Microsoft Excel",
       "appVersion": "16.0300",
-      "totalTimeMinutes": 0,
+      "totalTimeMinutes": 38,
       "creator": "openpyxl",
       "lastModifiedBy": "HANNAH MARIAM SONY",
       "createdDate": "2026-10-25T16:34:41Z",
@@ -3217,15 +3187,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": true
       },
-      "integrityScore": 15,
+      "integrityScore": 30,
       "integrityLevel": "high_risk",
       "summaryFindings": [
         "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
       "autoGradeEstimate": {
@@ -3241,7 +3210,7 @@
       "percentage": 68,
       "gradeBand": "B",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata; No formula tags (<f>) detected in worksheets; values may be hardcoded",
       "evaluatedAt": "2026-10-26T14:42:26.583Z"
     },
     "batchEvaluated": true
@@ -3347,7 +3316,7 @@
       "fileSize": 21895,
       "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
       "appVersion": "3.1",
-      "totalTimeMinutes": 0,
+      "totalTimeMinutes": 1,
       "creator": "OpenAI",
       "lastModifiedBy": "Unknown",
       "createdDate": "2026-10-25T12:45:20Z",
@@ -3419,15 +3388,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": false
       },
-      "integrityScore": 35,
+      "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "Direct ChatGPT / OpenAI signature detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)"
+        "Direct ChatGPT / OpenAI signature detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -3442,7 +3410,7 @@
       "percentage": 100,
       "gradeBand": "O",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
+      "instructorRemarks": "Direct ChatGPT / OpenAI signature detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.577Z"
     },
     "batchEvaluated": true
@@ -3467,7 +3435,7 @@
       "fileSize": 25088,
       "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
       "appVersion": "3.1",
-      "totalTimeMinutes": 0,
+      "totalTimeMinutes": 679,
       "creator": "Aryan Zinda R",
       "lastModifiedBy": "Aryan Zinda R",
       "createdDate": "2026-10-25T16:24:12Z",
@@ -3542,15 +3510,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": false
       },
-      "integrityScore": 35,
+      "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)"
+        "AI Code Interpreter (Python openpyxl) detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -3565,7 +3532,7 @@
       "percentage": 100,
       "gradeBand": "O",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.573Z"
     },
     "batchEvaluated": true
@@ -3667,15 +3634,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": false
       },
-      "integrityScore": 35,
+      "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)"
+        "AI Code Interpreter (Python openpyxl) detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -3690,7 +3656,7 @@
       "percentage": 100,
       "gradeBand": "O",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation)",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.570Z"
     },
     "batchEvaluated": true
@@ -3715,7 +3681,7 @@
       "fileSize": 21357,
       "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
       "appVersion": "3.1",
-      "totalTimeMinutes": 0,
+      "totalTimeMinutes": 1,
       "creator": "openpyxl",
       "lastModifiedBy": "Unknown",
       "createdDate": "2026-10-25T09:51:18Z",
@@ -3785,15 +3751,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": false
       },
-      "integrityScore": 35,
+      "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)"
+        "AI Code Interpreter (Python openpyxl) detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -3808,7 +3773,7 @@
       "percentage": 100,
       "gradeBand": "O",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.567Z"
     },
     "batchEvaluated": true
@@ -3857,26 +3822,23 @@
         "analysisAccuracy": 100
       },
       "aiToolsUsed": {
-        "detected": true,
+        "detected": false,
         "toolNames": [
-          "Synthetic File Generator (0m Edit Time)"
+          "None Detected (Authentic Microsoft Office / Google Sheets)"
         ],
-        "reasons": [
-          "0 minutes active editing time recorded in file metadata"
-        ]
+        "reasons": []
       },
       "flags": {
         "isAiGenerator": false,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": true
       },
-      "integrityScore": 65,
+      "integrityScore": 80,
       "integrityLevel": "suspicious",
       "summaryFindings": [
-        "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
       "autoGradeEstimate": {
@@ -3892,7 +3854,7 @@
       "percentage": 68,
       "gradeBand": "B",
       "instructorOverride": false,
-      "instructorRemarks": "File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "instructorRemarks": "No formula tags (<f>) detected in worksheets; values may be hardcoded",
       "evaluatedAt": "2026-10-26T14:42:26.564Z"
     },
     "batchEvaluated": true
@@ -3917,7 +3879,7 @@
       "fileSize": 38613,
       "application": "Microsoft Excel",
       "appVersion": "16.0300",
-      "totalTimeMinutes": 0,
+      "totalTimeMinutes": 25,
       "creator": "openpyxl",
       "lastModifiedBy": "ABIGA J",
       "createdDate": "2026-10-25T17:36:58Z",
@@ -3953,15 +3915,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": true
       },
-      "integrityScore": 15,
+      "integrityScore": 30,
       "integrityLevel": "high_risk",
       "summaryFindings": [
         "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
       "autoGradeEstimate": {
@@ -3977,7 +3938,7 @@
       "percentage": 68,
       "gradeBand": "B",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata; No formula tags (<f>) detected in worksheets; values may be hardcoded",
       "evaluatedAt": "2026-10-26T14:42:26.559Z"
     },
     "batchEvaluated": true
@@ -4038,15 +3999,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": true
       },
-      "integrityScore": 15,
+      "integrityScore": 30,
       "integrityLevel": "high_risk",
       "summaryFindings": [
         "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
       "autoGradeEstimate": {
@@ -4062,7 +4022,7 @@
       "percentage": 68,
       "gradeBand": "B",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata; No formula tags (<f>) detected in worksheets; values may be hardcoded",
       "evaluatedAt": "2026-10-26T14:42:26.555Z"
     },
     "batchEvaluated": true
@@ -4123,15 +4083,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": true
       },
-      "integrityScore": 15,
+      "integrityScore": 30,
       "integrityLevel": "high_risk",
       "summaryFindings": [
         "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
       "autoGradeEstimate": {
@@ -4147,7 +4106,7 @@
       "percentage": 68,
       "gradeBand": "B",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata; No formula tags (<f>) detected in worksheets; values may be hardcoded",
       "evaluatedAt": "2026-10-26T14:42:26.552Z"
     },
     "batchEvaluated": true
@@ -4218,15 +4177,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": false
       },
-      "integrityScore": 35,
+      "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "Direct ChatGPT / OpenAI signature detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)"
+        "Direct ChatGPT / OpenAI signature detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -4241,7 +4199,7 @@
       "percentage": 84,
       "gradeBand": "A",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
+      "instructorRemarks": "Direct ChatGPT / OpenAI signature detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.549Z"
     },
     "batchEvaluated": true
@@ -4266,7 +4224,7 @@
       "fileSize": 37997,
       "application": "Excel Android",
       "appVersion": "16.0300",
-      "totalTimeMinutes": 0,
+      "totalTimeMinutes": 330,
       "creator": "openpyxl",
       "lastModifiedBy": "",
       "createdDate": "2026-10-25T20:14:10Z",
@@ -4340,15 +4298,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": false
       },
-      "integrityScore": 35,
+      "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)"
+        "AI Code Interpreter (Python openpyxl) detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -4363,7 +4320,7 @@
       "percentage": 100,
       "gradeBand": "O",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Excel Android); File metadata registers 0 minutes total editing time (instant generation)",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.546Z"
     },
     "batchEvaluated": true
@@ -4388,7 +4345,7 @@
       "fileSize": 19785,
       "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
       "appVersion": "3.1",
-      "totalTimeMinutes": 0,
+      "totalTimeMinutes": 1,
       "creator": "openpyxl",
       "lastModifiedBy": "Unknown",
       "createdDate": "2026-10-25T16:35:06Z",
@@ -4424,15 +4381,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": true
       },
-      "integrityScore": 15,
+      "integrityScore": 30,
       "integrityLevel": "high_risk",
       "summaryFindings": [
         "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
       "autoGradeEstimate": {
@@ -4448,7 +4404,7 @@
       "percentage": 68,
       "gradeBand": "B",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata; No formula tags (<f>) detected in worksheets; values may be hardcoded",
       "evaluatedAt": "2026-10-26T14:42:26.541Z"
     },
     "batchEvaluated": true
@@ -4573,7 +4529,7 @@
       "percentage": 100,
       "gradeBand": "O",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Unknown)",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.537Z"
     },
     "batchEvaluated": true
@@ -4663,7 +4619,7 @@
       "percentage": 92,
       "gradeBand": "A+",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Unknown)",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.532Z"
     },
     "batchEvaluated": true
@@ -4786,7 +4742,7 @@
       "percentage": 100,
       "gradeBand": "O",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Unknown)",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.527Z"
     },
     "batchEvaluated": true
@@ -4929,15 +4885,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": true
       },
-      "integrityScore": 15,
+      "integrityScore": 30,
       "integrityLevel": "high_risk",
       "summaryFindings": [
         "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
       "autoGradeEstimate": {
@@ -4953,7 +4908,7 @@
       "percentage": 68,
       "gradeBand": "B",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata; No formula tags (<f>) detected in worksheets; values may be hardcoded",
       "evaluatedAt": "2026-10-26T14:42:26.516Z"
     },
     "batchEvaluated": true
@@ -4978,7 +4933,7 @@
       "fileSize": 32324,
       "application": "Microsoft Excel",
       "appVersion": "16.0300",
-      "totalTimeMinutes": 0,
+      "totalTimeMinutes": 103,
       "creator": "OpenAI",
       "lastModifiedBy": "Roberto Carlos",
       "createdDate": "2026-10-25T12:39:24Z",
@@ -5002,7 +4957,7 @@
         "analysisAccuracy": 100
       },
       "aiToolsUsed": {
-        "detected": true,
+        "detected": false,
         "toolNames": [
           "ChatGPT / OpenAI"
         ],
@@ -5014,14 +4969,13 @@
         "isAiGenerator": false,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": true
       },
-      "integrityScore": 65,
+      "integrityScore": 80,
       "integrityLevel": "suspicious",
       "summaryFindings": [
-        "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
       "autoGradeEstimate": {
@@ -5037,7 +4991,7 @@
       "percentage": 68,
       "gradeBand": "B",
       "instructorOverride": false,
-      "instructorRemarks": "File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "instructorRemarks": "No formula tags (<f>) detected in worksheets; values may be hardcoded",
       "evaluatedAt": "2026-10-26T14:42:26.512Z"
     },
     "batchEvaluated": true
@@ -5062,7 +5016,7 @@
       "fileSize": 32134,
       "application": "Excel iOS",
       "appVersion": "16.0300",
-      "totalTimeMinutes": 0,
+      "totalTimeMinutes": 1465,
       "creator": "openpyxl",
       "lastModifiedBy": "CHEEDELLA SAI MANVITH",
       "createdDate": "2026-10-24T11:35:00Z",
@@ -5137,15 +5091,14 @@
         "isAiGenerator": true,
         "isHoneypotTriggered": false,
         "isTrapRecordFound": false,
-        "hasZeroEditTime": true,
+        "hasZeroEditTime": false,
         "hasMissingSheets": false,
         "hasNoFormulas": false
       },
-      "integrityScore": 35,
+      "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI Code Interpreter (Python openpyxl) detected in file metadata",
-        "File metadata registers 0 minutes total editing time (instant generation)"
+        "AI Code Interpreter (Python openpyxl) detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -5160,7 +5113,7 @@
       "percentage": 100,
       "gradeBand": "O",
       "instructorOverride": false,
-      "instructorRemarks": "AI code generator detected in file metadata (Application: Excel iOS); File metadata registers 0 minutes total editing time (instant generation)",
+      "instructorRemarks": "AI Code Interpreter (Python openpyxl) detected in file metadata",
       "evaluatedAt": "2026-10-26T14:42:26.508Z"
     },
     "batchEvaluated": true

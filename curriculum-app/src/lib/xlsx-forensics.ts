@@ -250,9 +250,25 @@ export function analyzeXlsxBuffer(
     combinedSearchText.includes('SYSTEM_CALIBRATION_TEST') ||
     combinedSearchText.includes('SIMULATION_TEST');
 
-  // Zero edit time flag (only if it's Office format without editing time logged)
-  const isOfficeApp = application.toLowerCase().includes('excel') || application.toLowerCase().includes('word') || application.toLowerCase().includes('powerpoint') || application.toLowerCase().includes('libreoffice');
-  const hasZeroEditTime = isOfficeApp && totalTimeMinutes === 0;
+  // For Excel files (.xlsx), Microsoft Excel does not update <TotalTime> (it remains 0 or omitted by design).
+  // If timestamps are present and modified > created, estimate active working span from file timestamps.
+  let activeEditingMinutes = totalTimeMinutes;
+  if (activeEditingMinutes === 0 && createdDate && modifiedDate) {
+    try {
+      const created = new Date(createdDate).getTime();
+      const modified = new Date(modifiedDate).getTime();
+      if (!isNaN(created) && !isNaN(modified) && modified > created) {
+        activeEditingMinutes = Math.max(1, Math.round((modified - created) / 60000));
+      }
+    } catch {
+      // ignore parsing error
+    }
+  }
+
+  // Zero edit time flag: only applies to Microsoft Word / PowerPoint where TotalTime is an active tracking field.
+  // In Excel (.xlsx), TotalTime is not tracked by design, so 0 minutes is normal and NOT an indicator of AI generation.
+  const isWordOrPpt = !isExcel && (application.toLowerCase().includes('word') || application.toLowerCase().includes('powerpoint'));
+  const hasZeroEditTime = isWordOrPpt && totalTimeMinutes === 0;
 
   // Sheet / Section presence check
   const isExcel = originalFilename.toLowerCase().endsWith('.xlsx') || !!files['xl/workbook.xml'];
@@ -288,7 +304,7 @@ export function analyzeXlsxBuffer(
   }
 
   if (hasZeroEditTime) {
-    summaryFindings.push('File metadata registers 0 minutes total editing time (instant generation)');
+    summaryFindings.push('Document metadata registers 0 minutes total editing time (instant generation)');
     integrityScore -= 15;
   }
 
@@ -372,7 +388,7 @@ export function analyzeXlsxBuffer(
     fileSize: buffer.length,
     application,
     appVersion,
-    totalTimeMinutes,
+    totalTimeMinutes: activeEditingMinutes,
     creator,
     lastModifiedBy,
     createdDate,
