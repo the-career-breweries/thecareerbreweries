@@ -45,10 +45,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Synthetic File Generator"
+          "Synthetic File Generator (0m Edit Time)"
         ],
         "reasons": [
-          "0 minutes active editing time recorded"
+          "0 minutes active editing time recorded in file metadata"
         ]
       },
       "flags": {
@@ -167,10 +167,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2)"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -184,7 +184,7 @@
       "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2)"
+        "AI Code Interpreter (Python openpyxl) detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -250,12 +250,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -269,7 +267,7 @@
       "integrityScore": 15,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
@@ -376,10 +374,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2)"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -393,7 +391,7 @@
       "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2)"
+        "AI Code Interpreter (Python openpyxl) detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -501,12 +499,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel Compatible / Openpyxl 3.1.5",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel Compatible / Openpyxl 3.1.5)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -520,7 +516,7 @@
       "integrityScore": 35,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)"
       ],
       "autoGradeEstimate": {
@@ -587,12 +583,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -606,7 +600,7 @@
       "integrityScore": 15,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
@@ -674,12 +668,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel Compatible / Openpyxl 3.1.5",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel Compatible / Openpyxl 3.1.5)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -693,7 +685,7 @@
       "integrityScore": 15,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
@@ -800,10 +792,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Synthetic File Generator"
+          "Synthetic File Generator (0m Edit Time)"
         ],
         "reasons": [
-          "0 minutes active editing time recorded"
+          "0 minutes active editing time recorded in file metadata"
         ]
       },
       "flags": {
@@ -884,12 +876,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel Compatible / Openpyxl 3.1.5",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel Compatible / Openpyxl 3.1.5)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -903,7 +893,7 @@
       "integrityScore": 15,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
@@ -971,12 +961,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -990,7 +978,7 @@
       "integrityScore": 15,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
@@ -1096,12 +1084,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel Compatible / Openpyxl 3.1.5",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel Compatible / Openpyxl 3.1.5)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -1115,7 +1101,7 @@
       "integrityScore": 35,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)"
       ],
       "autoGradeEstimate": {
@@ -1182,12 +1168,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel Compatible / Openpyxl 3.1.5",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel Compatible / Openpyxl 3.1.5)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -1201,7 +1185,7 @@
       "integrityScore": 15,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
@@ -1307,12 +1291,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel Compatible / Openpyxl 3.1.5",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel Compatible / Openpyxl 3.1.5)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -1326,7 +1308,7 @@
       "integrityScore": 35,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)"
       ],
       "autoGradeEstimate": {
@@ -1393,12 +1375,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -1412,7 +1392,7 @@
       "integrityScore": 15,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
@@ -1480,12 +1460,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel Compatible / Openpyxl 3.1.5",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel Compatible / Openpyxl 3.1.5)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -1499,7 +1477,7 @@
       "integrityScore": 15,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
@@ -1605,12 +1583,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel Compatible / Openpyxl 3.1.5",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel Compatible / Openpyxl 3.1.5)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -1624,7 +1600,7 @@
       "integrityScore": 35,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)"
       ],
       "autoGradeEstimate": {
@@ -1692,12 +1668,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel Compatible / Openpyxl 3.1.5",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel Compatible / Openpyxl 3.1.5)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -1711,7 +1685,7 @@
       "integrityScore": 15,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
@@ -1779,12 +1753,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel Compatible / Openpyxl 3.1.5",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel Compatible / Openpyxl 3.1.5)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -1798,7 +1770,7 @@
       "integrityScore": 15,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
@@ -1907,12 +1879,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -1926,7 +1896,7 @@
       "integrityScore": 35,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)"
       ],
       "autoGradeEstimate": {
@@ -1993,12 +1963,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel Compatible / Openpyxl 3.1.5",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel Compatible / Openpyxl 3.1.5)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -2012,7 +1980,7 @@
       "integrityScore": 15,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
@@ -2119,12 +2087,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Excel iOS",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Excel iOS)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -2138,7 +2104,7 @@
       "integrityScore": 35,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Excel iOS)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)"
       ],
       "autoGradeEstimate": {
@@ -2205,12 +2171,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel Compatible / Openpyxl 3.1.5",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel Compatible / Openpyxl 3.1.5)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -2224,7 +2188,7 @@
       "integrityScore": 15,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
@@ -2329,12 +2293,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -2348,7 +2310,7 @@
       "integrityScore": 35,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)"
       ],
       "autoGradeEstimate": {
@@ -2421,12 +2383,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Excel Android",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Excel Android)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -2440,7 +2400,7 @@
       "integrityScore": 35,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Excel Android)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)"
       ],
       "autoGradeEstimate": {
@@ -2546,12 +2506,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel Compatible / Openpyxl 3.1.5",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel Compatible / Openpyxl 3.1.5)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -2565,7 +2523,7 @@
       "integrityScore": 35,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)"
       ],
       "autoGradeEstimate": {
@@ -2671,12 +2629,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel Compatible / Openpyxl 3.1.5",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel Compatible / Openpyxl 3.1.5)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -2690,7 +2646,7 @@
       "integrityScore": 35,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)"
       ],
       "autoGradeEstimate": {
@@ -2796,12 +2752,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel Compatible / Openpyxl 3.1.5",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel Compatible / Openpyxl 3.1.5)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -2815,7 +2769,7 @@
       "integrityScore": 35,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)"
       ],
       "autoGradeEstimate": {
@@ -2922,10 +2876,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2)"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -2939,7 +2893,7 @@
       "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2)"
+        "AI Code Interpreter (Python openpyxl) detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -3046,12 +3000,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Excel iOS",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Excel iOS)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -3065,7 +3017,7 @@
       "integrityScore": 35,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Excel iOS)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)"
       ],
       "autoGradeEstimate": {
@@ -3171,12 +3123,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel Compatible / Openpyxl 3.1.5",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel Compatible / Openpyxl 3.1.5)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -3190,7 +3140,7 @@
       "integrityScore": 35,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)"
       ],
       "autoGradeEstimate": {
@@ -3257,12 +3207,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -3276,7 +3224,7 @@
       "integrityScore": 15,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
@@ -3461,12 +3409,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel Compatible / Openpyxl 3.1.5",
-          "Synthetic File Generator"
+          "ChatGPT / OpenAI"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel Compatible / Openpyxl 3.1.5)",
-          "0 minutes active editing time recorded"
+          "Direct ChatGPT / OpenAI signature detected in file metadata"
         ]
       },
       "flags": {
@@ -3480,7 +3426,7 @@
       "integrityScore": 35,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "Direct ChatGPT / OpenAI signature detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)"
       ],
       "autoGradeEstimate": {
@@ -3586,12 +3532,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel Compatible / Openpyxl 3.1.5",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel Compatible / Openpyxl 3.1.5)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -3605,7 +3549,7 @@
       "integrityScore": 35,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)"
       ],
       "autoGradeEstimate": {
@@ -3713,12 +3657,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -3732,7 +3674,7 @@
       "integrityScore": 35,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)"
       ],
       "autoGradeEstimate": {
@@ -3833,12 +3775,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel Compatible / Openpyxl 3.1.5",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel Compatible / Openpyxl 3.1.5)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -3852,7 +3792,7 @@
       "integrityScore": 35,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)"
       ],
       "autoGradeEstimate": {
@@ -3919,10 +3859,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Synthetic File Generator"
+          "Synthetic File Generator (0m Edit Time)"
         ],
         "reasons": [
-          "0 minutes active editing time recorded"
+          "0 minutes active editing time recorded in file metadata"
         ]
       },
       "flags": {
@@ -4003,12 +3943,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -4022,7 +3960,7 @@
       "integrityScore": 15,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
@@ -4090,12 +4028,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel Compatible / Openpyxl 3.1.5",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel Compatible / Openpyxl 3.1.5)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -4109,7 +4045,7 @@
       "integrityScore": 15,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
@@ -4177,12 +4113,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -4196,7 +4130,7 @@
       "integrityScore": 15,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
@@ -4274,12 +4208,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel Compatible / Openpyxl 3.1.5",
-          "Synthetic File Generator"
+          "ChatGPT / OpenAI"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel Compatible / Openpyxl 3.1.5)",
-          "0 minutes active editing time recorded"
+          "Direct ChatGPT / OpenAI signature detected in file metadata"
         ]
       },
       "flags": {
@@ -4293,7 +4225,7 @@
       "integrityScore": 35,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "Direct ChatGPT / OpenAI signature detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)"
       ],
       "autoGradeEstimate": {
@@ -4398,12 +4330,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Excel Android",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Excel Android)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -4417,7 +4347,7 @@
       "integrityScore": 35,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Excel Android)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)"
       ],
       "autoGradeEstimate": {
@@ -4484,12 +4414,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel Compatible / Openpyxl 3.1.5",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel Compatible / Openpyxl 3.1.5)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -4503,7 +4431,7 @@
       "integrityScore": 15,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
@@ -4613,10 +4541,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Unknown"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Unknown)"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -4630,7 +4558,7 @@
       "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Unknown)"
+        "AI Code Interpreter (Python openpyxl) detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -4703,10 +4631,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Unknown"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Unknown)"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -4720,7 +4648,7 @@
       "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Unknown)"
+        "AI Code Interpreter (Python openpyxl) detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -4826,10 +4754,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Unknown"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Unknown)"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -4843,7 +4771,7 @@
       "integrityScore": 50,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Unknown)"
+        "AI Code Interpreter (Python openpyxl) detected in file metadata"
       ],
       "autoGradeEstimate": {
         "dataSetup": 1.5,
@@ -4991,12 +4919,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Microsoft Excel Compatible / Openpyxl 3.1.5",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Microsoft Excel Compatible / Openpyxl 3.1.5)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -5010,7 +4936,7 @@
       "integrityScore": 15,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)",
         "No formula tags (<f>) detected in worksheets; values may be hardcoded"
       ],
@@ -5078,10 +5004,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Synthetic File Generator"
+          "ChatGPT / OpenAI"
         ],
         "reasons": [
-          "0 minutes active editing time recorded"
+          "Direct ChatGPT / OpenAI signature detected in file metadata"
         ]
       },
       "flags": {
@@ -5201,12 +5127,10 @@
       "aiToolsUsed": {
         "detected": true,
         "toolNames": [
-          "Excel iOS",
-          "Synthetic File Generator"
+          "ChatGPT / Claude Code Interpreter (openpyxl)"
         ],
         "reasons": [
-          "Automated software generator signature detected (Excel iOS)",
-          "0 minutes active editing time recorded"
+          "Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)"
         ]
       },
       "flags": {
@@ -5220,7 +5144,7 @@
       "integrityScore": 35,
       "integrityLevel": "high_risk",
       "summaryFindings": [
-        "AI code generator detected in file metadata (Application: Excel iOS)",
+        "AI Code Interpreter (Python openpyxl) detected in file metadata",
         "File metadata registers 0 minutes total editing time (instant generation)"
       ],
       "autoGradeEstimate": {

@@ -215,13 +215,20 @@ export function analyzeXlsxBuffer(
   const combinedSearchText = (allSheetXmlContent + ' ' + sharedStrings).toUpperCase();
 
   // 5. Evaluate Traps
-  // Trap 1: AI Code Interpreter / openpyxl / python generator
-  const isAiGenerator =
+  // Trap 1: AI Code Interpreter / openpyxl / python generator (ChatGPT Code Interpreter, Claude Artifacts, DeepSeek Python sandbox)
+  const isPythonAiScript =
     /openpyxl|python|xlsxwriter|pandas|python-docx|python-pptx|pandoc/i.test(application) ||
     /openpyxl|python|pandoc/i.test(creator) ||
     /openpyxl|python|pandoc/i.test(lastModifiedBy);
 
-  // Trap 2: Prompt Injection Honeypot keywords
+  const isOpenAiDirect =
+    /openai/i.test(creator) ||
+    /openai/i.test(lastModifiedBy) ||
+    /openai/i.test(application);
+
+  const isAiGenerator = isPythonAiScript || isOpenAiDirect;
+
+  // Trap 2: Prompt Injection Honeypot keywords (LLM output copying)
   const isCustomHoneypot =
     extraHoneypots &&
     extraHoneypots.some(
@@ -244,7 +251,7 @@ export function analyzeXlsxBuffer(
     combinedSearchText.includes('SIMULATION_TEST');
 
   // Zero edit time flag (only if it's Office format without editing time logged)
-  const isOfficeApp = application.toLowerCase().includes('excel') || application.toLowerCase().includes('word') || application.toLowerCase().includes('powerpoint');
+  const isOfficeApp = application.toLowerCase().includes('excel') || application.toLowerCase().includes('word') || application.toLowerCase().includes('powerpoint') || application.toLowerCase().includes('libreoffice');
   const hasZeroEditTime = isOfficeApp && totalTimeMinutes === 0;
 
   // Sheet / Section presence check
@@ -262,8 +269,11 @@ export function analyzeXlsxBuffer(
   const summaryFindings: string[] = [];
   let integrityScore = 100;
 
-  if (isAiGenerator) {
-    summaryFindings.push(`AI code generator detected in file metadata (Application: ${application})`);
+  if (isOpenAiDirect) {
+    summaryFindings.push('Direct ChatGPT / OpenAI signature detected in file metadata');
+    integrityScore -= 50;
+  } else if (isPythonAiScript) {
+    summaryFindings.push('AI Code Interpreter (Python openpyxl) detected in file metadata');
     integrityScore -= 50;
   }
 
@@ -334,18 +344,24 @@ export function analyzeXlsxBuffer(
   const aiToolNames: string[] = [];
   const aiReasons: string[] = [];
 
-  if (isAiGenerator) {
-    aiToolNames.push(application);
-    aiReasons.push(`Automated software generator signature detected (${application})`);
+  if (isOpenAiDirect) {
+    aiToolNames.push('ChatGPT / OpenAI');
+    aiReasons.push('Direct OpenAI generation signature recorded in document metadata');
+  } else if (isPythonAiScript) {
+    aiToolNames.push('ChatGPT / Claude Code Interpreter (openpyxl)');
+    aiReasons.push('Synthetically built using Python openpyxl (standard backend for ChatGPT Code Interpreter & Claude Artifacts)');
   }
+
   if (isHoneypotTriggered) {
-    aiToolNames.push('LLM / Automated AI Assistant');
-    aiReasons.push('Invisible prompt injection honeypot token detected inside workbook cells');
+    aiToolNames.push('LLM Assistant (ChatGPT / Claude / Gemini / DeepSeek)');
+    aiReasons.push('Invisible prompt-injection honeypot token detected inside workbook cells');
   }
-  if (hasZeroEditTime) {
-    aiToolNames.push('Synthetic File Generator');
-    aiReasons.push('0 minutes active editing time recorded');
+
+  if (hasZeroEditTime && !isAiGenerator) {
+    aiToolNames.push('Synthetic File Generator (0m Edit Time)');
+    aiReasons.push('0 minutes active editing time recorded in file metadata');
   }
+
   const isAiDetected = isAiGenerator || isHoneypotTriggered || hasZeroEditTime;
   if (aiToolNames.length === 0) {
     aiToolNames.push('None Detected (Authentic Microsoft Office / Google Sheets)');

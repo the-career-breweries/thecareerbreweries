@@ -1456,7 +1456,7 @@ export default function InstructorEvaluationConsole() {
                                 </span>
                               ) : s.forensics.flags.isAiGenerator ? (
                                 <span style={{ backgroundColor: 'rgba(239, 68, 68, 0.2)', color: '#f87171', padding: '4px 10px', borderRadius: '6px', fontSize: '0.78rem', fontWeight: 800 }}>
-                                  🟡 AI Tool ({s.forensics.application})
+                                  🟡 AI Tool ({s.forensics.aiToolsUsed?.toolNames?.[0] || 'ChatGPT / openpyxl'})
                                 </span>
                               ) : s.forensics.flags.isHoneypotTriggered ? (
                                 <span style={{ backgroundColor: 'rgba(239, 68, 68, 0.2)', color: '#f87171', padding: '4px 10px', borderRadius: '6px', fontSize: '0.78rem', fontWeight: 800 }}>
@@ -2530,7 +2530,7 @@ export default function InstructorEvaluationConsole() {
         };
         const aiTools = sub.forensics.aiToolsUsed || {
           detected: sub.forensics.flags.isAiGenerator || sub.forensics.flags.isHoneypotTriggered || sub.forensics.flags.hasZeroEditTime,
-          toolNames: sub.forensics.flags.isAiGenerator ? [sub.forensics.application] : ['None Detected (Microsoft Office / Google Sheets)'],
+          toolNames: sub.forensics.flags.isAiGenerator ? ['ChatGPT / Claude Code Interpreter (openpyxl)'] : ['None Detected (Microsoft Office / Google Sheets)'],
           reasons: sub.forensics.summaryFindings.filter((f) => !f.includes('Authentic'))
         };
         const formulas = sub.forensics.allFormulas || sub.forensics.sampleFormulas || [];
