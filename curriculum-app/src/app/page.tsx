@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { BookOpen, Code, Upload, BarChart, FileSpreadsheet, ShieldCheck } from 'lucide-react';
+import { BookOpen, Code, Upload, BarChart, FileSpreadsheet, ShieldCheck, Award } from 'lucide-react';
 import './globals.css';
 import styles from './home.module.css';
 
@@ -93,6 +93,11 @@ export default function Home() {
                 <Link href="/computing-skills/computing-lab/instructor" className={`${styles.link} ${styles.secondary}`}>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
                     <ShieldCheck size={16} /> Evaluator Console 🔒
+                  </span>
+                </Link>
+                <Link href="/computing-skills/computing-lab/student" className={`${styles.link} ${styles.secondary}`}>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                    <Award size={16} color="#38bdf8" /> Student Evaluation & Report Card
                   </span>
                 </Link>
               </div>

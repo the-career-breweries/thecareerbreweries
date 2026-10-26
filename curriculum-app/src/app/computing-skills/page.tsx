@@ -388,6 +388,9 @@ export default function CommunicativeEnglishApp() {
                 <a href="/computing-skills/computing-lab" className="module-item" style={{ textDecoration: 'none', color: '#059669', fontWeight: 700 }}>
                   <span style={{ fontSize: '1.2rem' }}>📊</span> Student Lab & Assignment
                 </a>
+                <a href="/computing-skills/computing-lab/student" className="module-item" style={{ textDecoration: 'none', color: '#0284c7', fontWeight: 700 }}>
+                  <span style={{ fontSize: '1.2rem' }}>🎓</span> Check Evaluation & Report Card
+                </a>
                 <a href="/workshops/admin" 
                   className="flex items-center gap-2 p-3 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors font-medium border border-blue-200 dark:border-blue-800 shadow-sm"
                 >

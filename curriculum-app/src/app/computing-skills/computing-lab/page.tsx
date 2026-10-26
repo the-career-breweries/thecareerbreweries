@@ -26,8 +26,10 @@ import {
   FileText,
   AlertTriangle,
   ArrowRight,
-  Check
+  Check,
+  Award
 } from 'lucide-react';
+import StudentEvaluationPortal from '@/components/StudentEvaluationPortal';
 
 interface SubmissionSummary {
   submissionId: string;
@@ -208,9 +210,19 @@ const FORMULA_DATABASE = [
 ];
 
 export default function ComputingLabPortal() {
-  const [activeTab, setActiveTab] = useState<'assignment' | 'notes' | 'cheatsheet'>('assignment');
+  const [activeTab, setActiveTab] = useState<'assignment' | 'notes' | 'cheatsheet' | 'evaluation'>('assignment');
   const [theme, setTheme] = useState<'dark' | 'light'>('light');
   const [softwareTab, setSoftwareTab] = useState<'excel' | 'sheets'>('excel');
+
+  // Check URL query parameters on initial load (e.g. ?tab=evaluation or ?rollNo=...)
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('tab') === 'evaluation' || params.get('rollNo')) {
+        setActiveTab('evaluation');
+      }
+    }
+  }, []);
 
   // Dynamic Assignment State
   const [activeAssignment, setActiveAssignment] = useState<AssignmentTemplate>(DEFAULT_ASSIGNMENT);
@@ -459,6 +471,25 @@ export default function ComputingLabPortal() {
             Curriculum Hub
           </Link>
 
+          <button
+            onClick={() => setActiveTab('evaluation')}
+            style={{
+              color: '#38bdf8',
+              backgroundColor: 'rgba(56, 189, 248, 0.12)',
+              border: '1px solid rgba(56, 189, 248, 0.3)',
+              fontSize: '0.82rem',
+              fontWeight: 700,
+              padding: '8px 14px',
+              borderRadius: '8px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              cursor: 'pointer'
+            }}
+          >
+            <Award size={16} /> Check My Evaluation
+          </button>
+
           <Link
             href="/computing-skills/computing-lab/instructor"
             style={{ textDecoration: 'none', color: '#10b981', backgroundColor: t.accentEmeraldBg, border: `1px solid ${t.borderHighlight}`, fontSize: '0.82rem', fontWeight: 700, padding: '8px 16px', borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}
@@ -489,6 +520,25 @@ export default function ComputingLabPortal() {
             }}
           >
             <Upload size={17} /> Active Assignment & Submission
+          </button>
+          <button
+            onClick={() => setActiveTab('evaluation')}
+            style={{
+              background: 'none',
+              border: 'none',
+              padding: '16px 4px',
+              fontSize: '0.92rem',
+              fontWeight: 700,
+              cursor: 'pointer',
+              color: activeTab === 'evaluation' ? '#38bdf8' : t.textMuted,
+              borderBottom: activeTab === 'evaluation' ? '3px solid #38bdf8' : '3px solid transparent',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              transition: 'all 0.15s'
+            }}
+          >
+            <Award size={17} color={activeTab === 'evaluation' ? '#38bdf8' : undefined} /> Check Evaluation & Report Card
           </button>
           <button
             onClick={() => setActiveTab('cheatsheet')}
@@ -533,6 +583,14 @@ export default function ComputingLabPortal() {
 
       {/* ================= MAIN CONTENT ================= */}
       <main style={{ maxWidth: '1400px', margin: '0 auto', padding: '36px 28px' }}>
+        
+        {/* ================= TAB 4: STUDENT EVALUATION LOOKUP & REPORT CARD ================= */}
+        {activeTab === 'evaluation' && (
+          <StudentEvaluationPortal
+            theme={theme}
+            onBackToAssignment={() => setActiveTab('assignment')}
+          />
+        )}
         
         {/* ================= TAB 1: ACTIVE ASSIGNMENT & SUBMISSION ================= */}
         {activeTab === 'assignment' && (
