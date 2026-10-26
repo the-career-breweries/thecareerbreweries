@@ -736,7 +736,7 @@ export default function InstructorEvaluationConsole() {
                 Evaluator Console & Assignment Studio
               </h1>
               <span style={{ fontSize: '0.72rem', backgroundColor: t.accentEmeraldBg, color: '#10b981', padding: '2px 8px', borderRadius: '4px', fontWeight: 700 }}>
-                Passkey 2525
+                Instructor Authenticated
               </span>
             </div>
             <p style={{ fontSize: '0.8rem', margin: '2px 0 0', color: t.textMuted }}>
@@ -2751,7 +2751,7 @@ export default function InstructorEvaluationConsole() {
                       Issue Date: <strong>{new Date(sub.submittedAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</strong>
                     </div>
                     <div style={{ fontSize: '0.68rem', color: '#059669', fontWeight: 700, marginTop: '2px' }}>
-                      ✓ Passkey 2525 Authenticated
+                      ✓ Evaluator Verified
                     </div>
                   </div>
                 </div>
