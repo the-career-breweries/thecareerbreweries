@@ -3023,14 +3023,18 @@ export default function InstructorEvaluationConsole() {
                         </div>
                         <div>
                           <strong style={{ color: '#0f172a' }}>Active Editing Time:</strong>{' '}
-                          <span style={{ color: sub.forensics.flags.hasZeroEditTime ? '#dc2626' : '#0f172a', fontWeight: 600 }}>
-                            {sub.forensics.totalTimeMinutes} minutes {sub.forensics.flags.hasZeroEditTime && '(Instant creation)'}
+                          <span style={{ color: '#0f172a', fontWeight: 600 }}>
+                            {sub.forensics.totalTimeMinutes > 0 ? `${sub.forensics.totalTimeMinutes} minutes` : '0 minutes'}
                           </span>
                         </div>
                         <div>
                           <strong style={{ color: '#0f172a' }}>Verification Status:</strong>{' '}
-                          <span style={{ color: isClean ? '#059669' : '#dc2626', fontWeight: 700 }}>
-                            {isClean ? '✓ Authentic Student Submission' : '⚠️ Flagged for Artificial Generation'}
+                          <span style={{ color: isClean ? '#059669' : aiTools.detected ? '#dc2626' : '#d97706', fontWeight: 700 }}>
+                            {isClean
+                              ? '✓ Authentic Student Submission'
+                              : aiTools.detected
+                              ? '⚠️ Flagged for Artificial Generation'
+                              : '⚠️ Verified with Discrepancies'}
                           </span>
                         </div>
                       </div>

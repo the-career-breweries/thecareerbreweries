@@ -327,7 +327,7 @@ export function evaluateBatchSubmissions(
           isAiGenerator: false,
           isHoneypotTriggered: false,
           isTrapRecordFound: false,
-          hasZeroEditTime: true,
+          hasZeroEditTime: false,
           hasMissingSheets: true,
           hasNoFormulas: true
         },

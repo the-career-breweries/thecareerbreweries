@@ -250,6 +250,9 @@ export function analyzeXlsxBuffer(
     combinedSearchText.includes('SYSTEM_CALIBRATION_TEST') ||
     combinedSearchText.includes('SIMULATION_TEST');
 
+  // Sheet / Section presence check
+  const isExcel = originalFilename.toLowerCase().endsWith('.xlsx') || !!files['xl/workbook.xml'];
+
   // For Excel files (.xlsx), Microsoft Excel does not update <TotalTime> (it remains 0 or omitted by design).
   // If timestamps are present and modified > created, estimate active working span from file timestamps.
   let activeEditingMinutes = totalTimeMinutes;
@@ -270,8 +273,6 @@ export function analyzeXlsxBuffer(
   const isWordOrPpt = !isExcel && (application.toLowerCase().includes('word') || application.toLowerCase().includes('powerpoint'));
   const hasZeroEditTime = isWordOrPpt && totalTimeMinutes === 0;
 
-  // Sheet / Section presence check
-  const isExcel = originalFilename.toLowerCase().endsWith('.xlsx') || !!files['xl/workbook.xml'];
   const requiredSheets = ['Raw_Data', 'Task1', 'Task2', 'Task3', 'Task4'];
   const missingSheetsCount = isExcel ? requiredSheets.filter((req) =>
     !sheetNames.some((s) => s.toLowerCase().includes(req.toLowerCase()))
