@@ -143,7 +143,7 @@ export function analyzeXlsxBuffer(buffer: Buffer, originalFilename: string): For
     if (modifiedMatch) modifiedDate = modifiedMatch[1];
   }
 
-  // 3. Analyze xl/workbook.xml for sheet names
+  // 3. Analyze xl/workbook.xml for sheet names (or Word sections or PowerPoint slides)
   if (files['xl/workbook.xml']) {
     const wbXml = files['xl/workbook.xml'].toString('utf8');
     const sheetRegex = /<sheet[^>]+name="([^"]+)"/gi;
@@ -151,10 +151,21 @@ export function analyzeXlsxBuffer(buffer: Buffer, originalFilename: string): For
     while ((match = sheetRegex.exec(wbXml)) !== null) {
       sheetNames.push(match[1]);
     }
+  } else if (files['word/document.xml']) {
+    sheetNames.push('Document Body');
+    if (Object.keys(files).some(k => k.startsWith('word/header'))) sheetNames.push('Header Sections');
+    if (Object.keys(files).some(k => k.startsWith('word/footer'))) sheetNames.push('Footer Sections');
+    if (Object.keys(files).some(k => k.includes('footnotes'))) sheetNames.push('Footnotes');
+  } else if (files['ppt/presentation.xml']) {
+    const slideKeys = Object.keys(files).filter(k => k.startsWith('ppt/slides/slide') && k.endsWith('.xml'));
+    slideKeys.sort().forEach((k, idx) => {
+      sheetNames.push(`Slide ${idx + 1}`);
+    });
   }
 
-  // 4. Analyze worksheets for formulas & honeypots
+  // 4. Analyze worksheets, word documents, or slides for formulas, text & honeypots
   for (const [name, content] of Object.entries(files)) {
+    // Excel sheets
     if (name.startsWith('xl/worksheets/sheet') && name.endsWith('.xml')) {
       const xml = content.toString('utf8');
       allSheetXmlContent += ' ' + xml;
@@ -164,6 +175,16 @@ export function analyzeXlsxBuffer(buffer: Buffer, originalFilename: string): For
       while ((fMatch = fRegex.exec(xml)) !== null) {
         formulas.push(fMatch[1]);
       }
+    }
+    // Word document content
+    else if (name.startsWith('word/') && name.endsWith('.xml')) {
+      const xml = content.toString('utf8');
+      allSheetXmlContent += ' ' + xml;
+    }
+    // PowerPoint slide content
+    else if (name.startsWith('ppt/slides/') && name.endsWith('.xml')) {
+      const xml = content.toString('utf8');
+      allSheetXmlContent += ' ' + xml;
     }
   }
 
@@ -178,16 +199,18 @@ export function analyzeXlsxBuffer(buffer: Buffer, originalFilename: string): For
   // 5. Evaluate Traps
   // Trap 1: AI Code Interpreter / openpyxl / python generator
   const isAiGenerator =
-    /openpyxl|python|xlsxwriter|pandas/i.test(application) ||
-    /openpyxl|python/i.test(creator) ||
-    /openpyxl|python/i.test(lastModifiedBy);
+    /openpyxl|python|xlsxwriter|pandas|python-docx|python-pptx|pandoc/i.test(application) ||
+    /openpyxl|python|pandoc/i.test(creator) ||
+    /openpyxl|python|pandoc/i.test(lastModifiedBy);
 
   // Trap 2: Prompt Injection Honeypot keywords
   const isHoneypotTriggered =
     combinedSearchText.includes('_OPS') ||
     combinedSearchText.includes('OP-AI') ||
     combinedSearchText.includes('AOCC-AI') ||
-    combinedSearchText.includes('VERIFIED BY AOCC');
+    combinedSearchText.includes('VERIFIED BY AOCC') ||
+    combinedSearchText.includes('FLIGHT-DISPATCH-AI') ||
+    combinedSearchText.includes('MANDATE-AI');
 
   // Trap 3: Dataset Poison Pill / Trap Record
   const isTrapRecordFound =
@@ -195,19 +218,20 @@ export function analyzeXlsxBuffer(buffer: Buffer, originalFilename: string): For
     combinedSearchText.includes('SYSTEM_CALIBRATION_TEST') ||
     combinedSearchText.includes('SIMULATION_TEST');
 
-  // Zero edit time flag (only if it's Excel format without editing time logged)
-  const hasZeroEditTime =
-    application.toLowerCase().includes('excel') && totalTimeMinutes === 0;
+  // Zero edit time flag (only if it's Office format without editing time logged)
+  const isOfficeApp = application.toLowerCase().includes('excel') || application.toLowerCase().includes('word') || application.toLowerCase().includes('powerpoint');
+  const hasZeroEditTime = isOfficeApp && totalTimeMinutes === 0;
 
-  // Sheet presence check
+  // Sheet / Section presence check
+  const isExcel = originalFilename.toLowerCase().endsWith('.xlsx') || !!files['xl/workbook.xml'];
   const requiredSheets = ['Raw_Data', 'Task1', 'Task2', 'Task3', 'Task4'];
-  const missingSheetsCount = requiredSheets.filter((req) =>
+  const missingSheetsCount = isExcel ? requiredSheets.filter((req) =>
     !sheetNames.some((s) => s.toLowerCase().includes(req.toLowerCase()))
-  ).length;
-  const hasMissingSheets = missingSheetsCount > 2;
+  ).length : 0;
+  const hasMissingSheets = isExcel && missingSheetsCount > 2;
 
-  // Formula check
-  const hasNoFormulas = formulas.length === 0;
+  // Formula check (applicable to spreadsheets)
+  const hasNoFormulas = isExcel && formulas.length === 0;
 
   // 6. Compute Findings & Integrity Level
   const summaryFindings: string[] = [];

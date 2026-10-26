@@ -6,6 +6,20 @@ import { analyzeXlsxBuffer } from '@/lib/xlsx-forensics';
 export const dynamic = 'force-dynamic';
 
 const SUBMISSIONS_PATH = path.join(process.cwd(), 'src', 'data', 'lab-submissions.json');
+const ASSIGNMENTS_PATH = path.join(process.cwd(), 'src', 'data', 'lab-assignments.json');
+
+function getActiveAssignment() {
+  try {
+    if (fs.existsSync(ASSIGNMENTS_PATH)) {
+      const data = JSON.parse(fs.readFileSync(ASSIGNMENTS_PATH, 'utf8'));
+      const activeId = data.activeAssignmentId;
+      return (data.assignments || []).find((a: any) => a.id === activeId) || data.assignments?.[0] || null;
+    }
+  } catch (err) {
+    console.error('Error reading active assignment:', err);
+  }
+  return null;
+}
 
 interface SubmissionRecord {
   id: string;
@@ -68,9 +82,16 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    if (!file.name.toLowerCase().endsWith('.xlsx')) {
+    const activeAssignment = getActiveAssignment();
+    const expectedFileType = activeAssignment?.fileType || 'xlsx';
+
+    const validExtensions = [`.${expectedFileType}`];
+    const fileNameLower = file.name.toLowerCase();
+    const hasValidExt = validExtensions.some(ext => fileNameLower.endsWith(ext));
+
+    if (!hasValidExt) {
       return NextResponse.json(
-        { error: 'Invalid file format. Please upload an Excel Workbook (.xlsx) file.' },
+        { error: `Invalid file format. Please upload your assignment as a .${expectedFileType} file.` },
         { status: 400 }
       );
     }
@@ -84,17 +105,20 @@ export async function POST(req: NextRequest) {
       forensics = analyzeXlsxBuffer(buffer, file.name);
     } catch (parseErr: any) {
       return NextResponse.json(
-        { error: `Could not parse .xlsx file structure: ${parseErr.message}` },
+        { error: `Could not parse file structure: ${parseErr.message}` },
         { status: 400 }
       );
     }
 
     // Evaluate Micro-viva answers
-    // Q1: Highest passenger volume at T1 is IndiGo
-    // Q2: Absolute referencing locks cells with $
+    const expectedQ1 = (activeAssignment?.vivaQuestions?.q1?.answer || 'IndiGo').toLowerCase();
+    const expectedQ2 = (activeAssignment?.vivaQuestions?.q2?.answer || '$').toLowerCase();
+
     const q1Normalized = q1.toLowerCase();
-    const isQ1Correct = q1Normalized.includes('indigo') || q1Normalized === 'a';
-    const isQ2Correct = q2.includes('$') || q2.toLowerCase().includes('absolute') || q2.toLowerCase() === 'b';
+    const q2Normalized = q2.toLowerCase();
+
+    const isQ1Correct = q1Normalized.includes(expectedQ1) || expectedQ1.includes(q1Normalized);
+    const isQ2Correct = q2Normalized.includes(expectedQ2) || expectedQ2.includes(q2Normalized);
     const isVivaPassed = isQ1Correct && isQ2Correct && secondsTaken <= 60;
 
     if (!isVivaPassed) {
