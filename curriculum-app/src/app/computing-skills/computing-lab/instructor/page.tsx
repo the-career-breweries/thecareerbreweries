@@ -996,107 +996,143 @@ export default function InstructorEvaluationConsole() {
                   </div>
                 )}
 
-                <form onSubmit={handleRunBatchEvaluation} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px', alignItems: 'end' }}>
+                <form onSubmit={handleRunBatchEvaluation} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
                   
-                  {/* Dropdown 1: Target Assignment Selection */}
-                  <div>
-                    <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: t.text, marginBottom: '6px' }}>
-                      1. Select Target Assignment *
-                    </label>
-                    <select
-                      value={batchAssignmentId}
-                      onChange={(e) => handleAssignmentSelect(e.target.value)}
-                      style={{
-                        width: '100%',
-                        boxSizing: 'border-box',
-                        backgroundColor: t.inputBg,
-                        border: `1px solid ${t.inputBorder}`,
-                        color: t.text,
-                        padding: '11px 14px',
-                        borderRadius: '8px',
-                        fontSize: '0.88rem',
-                        fontWeight: 600,
-                        outline: 'none',
-                        cursor: 'pointer'
-                      }}
-                    >
-                      {assignmentsList.map((a) => (
-                        <option key={a.id} value={a.id}>
-                          [{a.topic?.toUpperCase()}] {a.exerciseNumber}: {a.title} ({a.totalMarks} Marks, .{a.fileType})
-                        </option>
-                      ))}
-                    </select>
-                    <div style={{ fontSize: '0.74rem', color: t.textMuted, marginTop: '5px' }}>
-                      Expected format: <code>.{assignmentsList.find(a => a.id === batchAssignmentId)?.fileType || 'xlsx'}</code> • Applies assignment-specific rubrics & honeypot tests
-                    </div>
-                  </div>
-
-                  {/* Input 2: ZIP File Upload Dropzone */}
-                  <div>
-                    <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: t.text, marginBottom: '6px' }}>
-                      2. Submissions ZIP Folder Archive *
-                    </label>
-                    <div
-                      style={{
-                        border: `2px dashed ${batchZipFile ? '#10b981' : t.inputBorder}`,
-                        backgroundColor: batchZipFile ? t.accentEmeraldBg : t.cardBgAlt,
-                        borderRadius: '8px',
-                        padding: '10px 14px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        cursor: 'pointer',
-                        transition: 'all 0.15s'
-                      }}
-                    >
-                      <input
-                        type="file"
-                        accept=".zip"
-                        id="batch-zip-input"
-                        style={{ display: 'none' }}
-                        onChange={handleBatchZipChange}
-                      />
-                      <label htmlFor="batch-zip-input" style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px', width: '100%' }}>
-                        <FolderArchive size={26} color={batchZipFile ? '#10b981' : t.textMuted} />
-                        <div style={{ flex: 1, minWidth: 0 }}>
-                          <div style={{ fontSize: '0.84rem', fontWeight: 700, color: t.text, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                            {batchZipFile ? batchZipFile.name : 'Choose or drag & drop class .zip folder'}
-                          </div>
-                          <div style={{ fontSize: '0.72rem', color: t.textMuted }}>
-                            {batchZipFile ? `${(batchZipFile.size / 1024 / 1024).toFixed(2)} MB • Ready for evaluation` : 'Archive containing student .xlsx, .docx, or .pptx work'}
-                          </div>
-                        </div>
-                        <span style={{ fontSize: '0.75rem', backgroundColor: t.cardBg, border: `1px solid ${t.border}`, padding: '4px 10px', borderRadius: '6px', fontWeight: 600, color: t.textSecondary, whiteSpace: 'nowrap' }}>
-                          Browse ZIP
-                        </span>
+                  {/* Top Inputs: Two spacious, balanced columns for Assignment & ZIP Upload */}
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))', gap: '20px', alignItems: 'start' }}>
+                    
+                    {/* Input 1: Target Assignment Selection */}
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: t.text, marginBottom: '6px' }}>
+                        1. Select Target Assignment *
                       </label>
+                      <select
+                        value={batchAssignmentId}
+                        onChange={(e) => handleAssignmentSelect(e.target.value)}
+                        style={{
+                          width: '100%',
+                          boxSizing: 'border-box',
+                          backgroundColor: t.inputBg,
+                          border: `1px solid ${t.inputBorder}`,
+                          color: t.text,
+                          padding: '11px 14px',
+                          borderRadius: '8px',
+                          fontSize: '0.88rem',
+                          fontWeight: 600,
+                          outline: 'none',
+                          cursor: 'pointer'
+                        }}
+                      >
+                        {assignmentsList.map((a) => (
+                          <option key={a.id} value={a.id}>
+                            [{a.topic?.toUpperCase()}] {a.exerciseNumber}: {a.title} ({a.totalMarks} Marks, .{a.fileType})
+                          </option>
+                        ))}
+                      </select>
+                      <div style={{ fontSize: '0.74rem', color: t.textMuted, marginTop: '6px' }}>
+                        Expected format: <code>.{assignmentsList.find(a => a.id === batchAssignmentId)?.fileType || 'xlsx'}</code> • Applies assignment-specific rubrics & honeypot tests
+                      </div>
                     </div>
+
+                    {/* Input 2: ZIP File Upload Dropzone */}
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: t.text, marginBottom: '6px' }}>
+                        2. Submissions ZIP Folder Archive *
+                      </label>
+                      <div
+                        style={{
+                          border: `2px dashed ${batchZipFile ? '#10b981' : t.inputBorder}`,
+                          backgroundColor: batchZipFile ? t.accentEmeraldBg : t.cardBgAlt,
+                          borderRadius: '8px',
+                          padding: '10px 16px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          cursor: 'pointer',
+                          transition: 'all 0.15s',
+                          minHeight: '44px'
+                        }}
+                      >
+                        <input
+                          type="file"
+                          accept=".zip"
+                          id="batch-zip-input"
+                          style={{ display: 'none' }}
+                          onChange={handleBatchZipChange}
+                        />
+                        <label htmlFor="batch-zip-input" style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '12px', width: '100%' }}>
+                          <FolderArchive size={26} color={batchZipFile ? '#10b981' : t.textMuted} style={{ flexShrink: 0 }} />
+                          <div style={{ flex: 1, minWidth: 0 }}>
+                            <div style={{ fontSize: '0.86rem', fontWeight: 700, color: t.text, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                              {batchZipFile ? batchZipFile.name : 'Choose or drag & drop class .zip folder'}
+                            </div>
+                            <div style={{ fontSize: '0.74rem', color: t.textMuted }}>
+                              {batchZipFile ? `${(batchZipFile.size / 1024 / 1024).toFixed(2)} MB • Ready for evaluation` : 'Archive containing student .xlsx, .docx, or .pptx work'}
+                            </div>
+                          </div>
+                          <span style={{ fontSize: '0.76rem', backgroundColor: t.cardBg, border: `1px solid ${t.border}`, padding: '6px 12px', borderRadius: '6px', fontWeight: 700, color: t.text, whiteSpace: 'nowrap', flexShrink: 0 }}>
+                            Browse ZIP
+                          </span>
+                        </label>
+                      </div>
+                      <div style={{ fontSize: '0.74rem', color: t.textMuted, marginTop: '6px' }}>
+                        Upload a single compressed <code>.zip</code> file containing all student submissions
+                      </div>
+                    </div>
+
                   </div>
 
-                  {/* Input 3 & Action Button: Highest Marks for Evaluation + Evaluate All Submissions */}
-                  <div>
-                    <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: t.text, marginBottom: '6px' }}>
-                      3. Evaluation Highest Marks & Run *
-                    </label>
-                    <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                      <div style={{ width: '105px', flexShrink: 0 }}>
+                  {/* Bottom Strip: Dedicated Evaluation Scale & Run Action Bar */}
+                  <div
+                    style={{
+                      backgroundColor: t.cardBgAlt,
+                      border: `1px solid ${t.border}`,
+                      borderRadius: '10px',
+                      padding: '14px 20px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      flexWrap: 'wrap',
+                      gap: '16px'
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                      <div style={{ backgroundColor: 'rgba(16, 185, 129, 0.12)', color: '#10b981', padding: '8px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <Award size={20} />
+                      </div>
+                      <div>
+                        <div style={{ fontSize: '0.86rem', fontWeight: 800, color: t.text }}>
+                          Dynamic Marks Calibration & Forensic Auto-Grading
+                        </div>
+                        <div style={{ fontSize: '0.76rem', color: t.textMuted }}>
+                          Scores and rubrics will be automatically scaled out of your specified maximum marks.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <label htmlFor="batch-max-marks-input" style={{ fontSize: '0.84rem', fontWeight: 700, color: t.text, whiteSpace: 'nowrap' }}>
+                          Highest Marks:
+                        </label>
                         <input
+                          id="batch-max-marks-input"
                           type="number"
                           min="1"
                           max="1000"
                           value={batchMaxMarks}
                           onChange={(e) => setBatchMaxMarks(Math.max(1, parseInt(e.target.value, 10) || 1))}
                           title="Enter highest marks to evaluate out of (e.g. 15, 20, 50)"
-                          placeholder="Marks"
+                          placeholder="15"
                           style={{
-                            width: '100%',
+                            width: '75px',
                             boxSizing: 'border-box',
                             backgroundColor: t.inputBg,
                             border: `2px solid ${t.borderHighlight}`,
                             color: t.text,
-                            padding: '11px 10px',
+                            padding: '9px 10px',
                             borderRadius: '8px',
-                            fontSize: '0.95rem',
+                            fontSize: '0.98rem',
                             fontWeight: 800,
                             textAlign: 'center',
                             outline: 'none'
@@ -1108,22 +1144,20 @@ export default function InstructorEvaluationConsole() {
                         type="submit"
                         disabled={!batchZipFile || isEvaluatingBatch}
                         style={{
-                          flex: 1,
-                          backgroundColor: !batchZipFile || isEvaluatingBatch ? t.cardBgAlt : '#10b981',
+                          backgroundColor: !batchZipFile || isEvaluatingBatch ? t.cardBg : '#10b981',
                           color: !batchZipFile || isEvaluatingBatch ? t.textMuted : '#090d16',
                           border: `1px solid ${!batchZipFile || isEvaluatingBatch ? t.border : '#10b981'}`,
-                          padding: '12px 14px',
+                          padding: '11px 22px',
                           borderRadius: '8px',
                           fontSize: '0.88rem',
                           fontWeight: 800,
                           cursor: !batchZipFile || isEvaluatingBatch ? 'not-allowed' : 'pointer',
                           display: 'flex',
                           alignItems: 'center',
-                          justifyContent: 'center',
-                          gap: '6px',
+                          gap: '8px',
                           boxShadow: !batchZipFile || isEvaluatingBatch ? 'none' : '0 4px 14px rgba(16, 185, 129, 0.35)',
-                          transition: 'all 0.15s',
-                          whiteSpace: 'nowrap'
+                          whiteSpace: 'nowrap',
+                          transition: 'all 0.15s'
                         }}
                       >
                         {isEvaluatingBatch ? (
@@ -1139,9 +1173,6 @@ export default function InstructorEvaluationConsole() {
                         )}
                       </button>
                     </div>
-                    <div style={{ fontSize: '0.72rem', color: t.textMuted, marginTop: '5px' }}>
-                      Marks will be automatically calibrated out of <strong>{batchMaxMarks} marks</strong>
-                    </div>
                   </div>
 
                 </form>
@@ -1149,97 +1180,196 @@ export default function InstructorEvaluationConsole() {
             </div>
           </div>
 
-          {/* Search & Filters */}
-          <div style={{ maxWidth: '1400px', margin: '28px auto 0', padding: '0 28px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: '1', minWidth: '300px', flexWrap: 'wrap' }}>
-              <div style={{ position: 'relative', flex: '1', minWidth: '240px', maxWidth: '380px' }}>
-                <Search size={16} color={t.textMuted} style={{ position: 'absolute', left: '14px', top: '13px' }} />
-                <input
-                  type="text"
-                  placeholder="Search by Roll No, Student Name or Filename..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  style={{ width: '100%', boxSizing: 'border-box', backgroundColor: t.inputBg, border: `1px solid ${t.inputBorder}`, color: t.text, padding: '11px 14px 11px 40px', borderRadius: '8px', fontSize: '0.86rem', outline: 'none' }}
-                />
-              </div>
-
-              {/* Assignment Filter Dropdown */}
-              <select
-                value={assignmentFilter}
-                onChange={(e) => setAssignmentFilter(e.target.value)}
+          {/* Search & Filters Toolbar Card */}
+          <div style={{ maxWidth: '1400px', margin: '24px auto 0', padding: '0 28px' }}>
+            <div
+              style={{
+                backgroundColor: t.cardBg,
+                border: `1px solid ${t.border}`,
+                borderRadius: '12px',
+                padding: '16px 20px',
+                boxShadow: t.shadow,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '14px'
+              }}
+            >
+              {/* Row 1: Search & Assignment Filter */}
+              <div
                 style={{
-                  backgroundColor: t.cardBg,
-                  border: `1px solid ${t.border}`,
-                  color: t.text,
-                  padding: '10px 14px',
-                  borderRadius: '8px',
-                  fontSize: '0.84rem',
-                  fontWeight: 600,
-                  outline: 'none',
-                  cursor: 'pointer'
-                }}
-              >
-                <option value="all">All Assignments ({submissions.length})</option>
-                {assignmentsList.map((a) => (
-                  <option key={a.id} value={a.id}>
-                    {a.exerciseNumber}: {a.title}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
-              <button
-                onClick={() => setFilterMode('all')}
-                style={{ backgroundColor: filterMode === 'all' ? '#10b981' : t.cardBg, color: filterMode === 'all' ? '#090d16' : t.textMuted, border: `1px solid ${filterMode === 'all' ? '#10b981' : t.border}`, padding: '8px 16px', borderRadius: '8px', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}
-              >
-                All ({submissions.length})
-              </button>
-              <button
-                onClick={() => setFilterMode('flagged')}
-                style={{ backgroundColor: filterMode === 'flagged' ? '#f43f5e' : t.cardBg, color: filterMode === 'flagged' ? '#ffffff' : t.textMuted, border: `1px solid ${filterMode === 'flagged' ? '#f43f5e' : t.border}`, padding: '8px 16px', borderRadius: '8px', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}
-              >
-                Flagged ({flaggedCount})
-              </button>
-              <button
-                onClick={() => setFilterMode('clean')}
-                style={{ backgroundColor: filterMode === 'clean' ? '#10b981' : t.cardBg, color: filterMode === 'clean' ? '#090d16' : t.textMuted, border: `1px solid ${filterMode === 'clean' ? '#10b981' : t.border}`, padding: '8px 16px', borderRadius: '8px', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}
-              >
-                Clean ({cleanCount})
-              </button>
-
-              <button
-                onClick={exportToCSV}
-                style={{ backgroundColor: t.cardBg, color: t.text, border: `1px solid ${t.border}`, padding: '8px 14px', borderRadius: '8px', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
-                title="Download CSV roster"
-              >
-                <Download size={15} /> Export CSV
-              </button>
-
-              {/* Requirement 3: Delete All Evaluations Button */}
-              <button
-                onClick={handleDeleteAllEvaluations}
-                disabled={submissions.length === 0 || isDeletingAll}
-                style={{
-                  backgroundColor: 'rgba(239, 68, 68, 0.1)',
-                  color: '#ef4444',
-                  border: '1px solid rgba(239, 68, 68, 0.35)',
-                  padding: '8px 14px',
-                  borderRadius: '8px',
-                  fontSize: '0.82rem',
-                  fontWeight: 800,
-                  cursor: submissions.length === 0 || isDeletingAll ? 'not-allowed' : 'pointer',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '6px',
-                  opacity: submissions.length === 0 ? 0.5 : 1,
-                  transition: 'all 0.15s'
+                  gap: '16px',
+                  flexWrap: 'wrap'
                 }}
-                title="Permanently remove all evaluation records"
               >
-                <Trash2 size={15} />
-                {isDeletingAll ? 'Deleting All...' : `Delete All Evaluations (${submissions.length})`}
-              </button>
+                {/* Search Input */}
+                <div style={{ position: 'relative', flex: '1', minWidth: '280px' }}>
+                  <Search size={16} color={t.textMuted} style={{ position: 'absolute', left: '14px', top: '13px' }} />
+                  <input
+                    type="text"
+                    placeholder="Search by Roll No, Student Name or Filename..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    style={{
+                      width: '100%',
+                      boxSizing: 'border-box',
+                      backgroundColor: t.inputBg,
+                      border: `1px solid ${t.inputBorder}`,
+                      color: t.text,
+                      padding: '10px 14px 10px 40px',
+                      borderRadius: '8px',
+                      fontSize: '0.86rem',
+                      outline: 'none'
+                    }}
+                  />
+                </div>
+
+                {/* Assignment Filter Dropdown */}
+                <div style={{ flex: '1.2', minWidth: '320px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <span style={{ fontSize: '0.8rem', fontWeight: 700, color: t.textMuted, whiteSpace: 'nowrap' }}>
+                    Assignment:
+                  </span>
+                  <select
+                    value={assignmentFilter}
+                    onChange={(e) => setAssignmentFilter(e.target.value)}
+                    style={{
+                      flex: 1,
+                      minWidth: 0,
+                      boxSizing: 'border-box',
+                      backgroundColor: t.inputBg,
+                      border: `1px solid ${t.inputBorder}`,
+                      color: t.text,
+                      padding: '10px 14px',
+                      borderRadius: '8px',
+                      fontSize: '0.85rem',
+                      fontWeight: 600,
+                      outline: 'none',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    <option value="all">All Assignments ({submissions.length})</option>
+                    {assignmentsList.map((a) => (
+                      <option key={a.id} value={a.id}>
+                        {a.exerciseNumber}: {a.title}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              {/* Row 2: Status Filter Segmented Pills & Actions */}
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  flexWrap: 'wrap',
+                  gap: '12px',
+                  paddingTop: '12px',
+                  borderTop: `1px solid ${t.border}`
+                }}
+              >
+                {/* Segmented Filter Pills */}
+                <div style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: t.cardBgAlt, padding: '3px', borderRadius: '8px', border: `1px solid ${t.border}`, gap: '3px' }}>
+                  <button
+                    onClick={() => setFilterMode('all')}
+                    style={{
+                      backgroundColor: filterMode === 'all' ? '#10b981' : 'transparent',
+                      color: filterMode === 'all' ? '#090d16' : t.textMuted,
+                      border: 'none',
+                      padding: '6px 14px',
+                      borderRadius: '6px',
+                      fontSize: '0.8rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                      transition: 'all 0.15s'
+                    }}
+                  >
+                    All ({submissions.length})
+                  </button>
+                  <button
+                    onClick={() => setFilterMode('flagged')}
+                    style={{
+                      backgroundColor: filterMode === 'flagged' ? '#f43f5e' : 'transparent',
+                      color: filterMode === 'flagged' ? '#ffffff' : t.textMuted,
+                      border: 'none',
+                      padding: '6px 14px',
+                      borderRadius: '6px',
+                      fontSize: '0.8rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                      transition: 'all 0.15s'
+                    }}
+                  >
+                    Flagged ({flaggedCount})
+                  </button>
+                  <button
+                    onClick={() => setFilterMode('clean')}
+                    style={{
+                      backgroundColor: filterMode === 'clean' ? '#10b981' : 'transparent',
+                      color: filterMode === 'clean' ? '#090d16' : t.textMuted,
+                      border: 'none',
+                      padding: '6px 14px',
+                      borderRadius: '6px',
+                      fontSize: '0.8rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                      transition: 'all 0.15s'
+                    }}
+                  >
+                    Clean ({cleanCount})
+                  </button>
+                </div>
+
+                {/* Actions: Export CSV + Delete All Evaluations */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+                  <button
+                    onClick={exportToCSV}
+                    style={{
+                      backgroundColor: t.cardBgAlt,
+                      color: t.text,
+                      border: `1px solid ${t.border}`,
+                      padding: '8px 14px',
+                      borderRadius: '8px',
+                      fontSize: '0.82rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      transition: 'all 0.15s'
+                    }}
+                    title="Download CSV roster"
+                  >
+                    <Download size={15} /> Export CSV
+                  </button>
+
+                  <button
+                    onClick={handleDeleteAllEvaluations}
+                    disabled={submissions.length === 0 || isDeletingAll}
+                    style={{
+                      backgroundColor: 'rgba(239, 68, 68, 0.08)',
+                      color: '#ef4444',
+                      border: '1px solid rgba(239, 68, 68, 0.3)',
+                      padding: '8px 14px',
+                      borderRadius: '8px',
+                      fontSize: '0.82rem',
+                      fontWeight: 800,
+                      cursor: submissions.length === 0 || isDeletingAll ? 'not-allowed' : 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      opacity: submissions.length === 0 ? 0.5 : 1,
+                      transition: 'all 0.15s'
+                    }}
+                    title="Permanently remove all evaluation records"
+                  >
+                    <Trash2 size={15} />
+                    {isDeletingAll ? 'Deleting All...' : `Delete All Evaluations (${submissions.length})`}
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -2495,10 +2625,11 @@ export default function InstructorEvaluationConsole() {
                 backgroundColor: '#ffffff',
                 border: '2px solid #0f172a',
                 borderRadius: '12px',
-                maxWidth: '920px',
-                width: '100%',
+                maxWidth: '1240px',
+                width: '95vw',
                 maxHeight: '94vh',
                 overflowY: 'auto',
+                overflowX: 'hidden',
                 boxShadow: '0 25px 60px -15px rgba(0, 0, 0, 0.7)',
                 display: 'flex',
                 flexDirection: 'column',
@@ -2728,7 +2859,7 @@ export default function InstructorEvaluationConsole() {
                           {accuracy.analysisAccuracy}%
                         </td>
                         <td style={{ padding: '5px 10px', border: '1px solid #cbd5e1', fontSize: '0.74rem', color: '#334155' }}>
-                          Pivot table synthesis & calibration trap record (FL-199) handling
+                          Pivot table synthesis & flight analysis records handling
                         </td>
                       </tr>
                       <tr style={{ backgroundColor: '#f8fafc' }}>
@@ -2769,131 +2900,161 @@ export default function InstructorEvaluationConsole() {
                   </table>
                 </div>
 
-                {/* 5. Technical Evidence & Audit Grid (2 Equal Columns) */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px', marginBottom: '14px', fontSize: '0.78rem' }}>
+                {/* 5. Technical Evidence & Audit Grid (2 Balanced Columns) */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '14px', marginBottom: '16px', fontSize: '0.78rem' }}>
                   
                   {/* Left Column: Formulae Used */}
-                  <div style={{ border: '1px solid #cbd5e1', borderRadius: '6px', padding: '10px 14px', backgroundColor: '#f8fafc' }}>
-                    <div style={{ fontSize: '0.76rem', fontWeight: 800, color: '#0f172a', marginBottom: '6px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <FileSpreadsheet size={14} color="#0284c7" /> Formulae Used in Submission
-                      </span>
-                      <span style={{ color: '#0284c7', fontSize: '0.72rem' }}>
-                        {sub.forensics.totalFormulasFound} active formula cell(s)
-                      </span>
-                    </div>
-
-                    {formulaTypes.length > 0 && (
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', marginBottom: '6px' }}>
-                        {formulaTypes.map((fn, idx) => (
-                          <span key={idx} className="report-code-badge" style={{ backgroundColor: '#e0f2fe', color: '#0369a1', padding: '1px 6px', borderRadius: '3px', fontSize: '0.7rem', fontWeight: 800, border: '1px solid #bae6fd' }}>
-                            ={fn}()
-                          </span>
-                        ))}
+                  <div style={{ border: '1px solid #cbd5e1', borderRadius: '6px', padding: '12px 16px', backgroundColor: '#f8fafc', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                    <div>
+                      <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#0f172a', marginBottom: '8px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <FileSpreadsheet size={15} color="#0284c7" /> Formulae Used in Submission
+                        </span>
+                        <span style={{ color: '#0284c7', fontSize: '0.74rem', fontWeight: 700 }}>
+                          {sub.forensics.totalFormulasFound} active formula cell(s)
+                        </span>
                       </div>
-                    )}
 
-                    <div style={{ fontSize: '0.7rem', color: '#64748b', marginBottom: '4px', fontWeight: 700 }}>
-                      Extracted Cell Formula Samples:
+                      {formulaTypes.length > 0 && (
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '10px' }}>
+                          {formulaTypes.map((fn, idx) => (
+                            <span key={idx} className="report-code-badge" style={{ backgroundColor: '#e0f2fe', color: '#0369a1', padding: '2px 8px', borderRadius: '4px', fontSize: '0.74rem', fontWeight: 800, border: '1px solid #bae6fd' }}>
+                              ={fn}()
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      <div style={{ fontSize: '0.72rem', color: '#475569', marginBottom: '6px', fontWeight: 700 }}>
+                        Extracted Cell Formula Samples:
+                      </div>
+                      {formulas.length > 0 ? (
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', marginBottom: '8px' }}>
+                          {formulas.slice(0, 4).map((f, idx) => (
+                            <div
+                              key={idx}
+                              style={{
+                                backgroundColor: '#ffffff',
+                                color: '#0369a1',
+                                padding: '4px 8px',
+                                borderRadius: '4px',
+                                fontSize: '0.73rem',
+                                fontFamily: 'monospace',
+                                border: '1px solid #e2e8f0',
+                                whiteSpace: 'nowrap',
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
+                                lineHeight: 1.4
+                              }}
+                            >
+                              ={f}
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <div style={{ color: '#dc2626', fontSize: '0.74rem', fontStyle: 'italic', marginBottom: '8px' }}>
+                          No formula tags detected in workbook (values may be hardcoded).
+                        </div>
+                      )}
                     </div>
-                    {formulas.length > 0 ? (
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', maxHeight: '60px', overflowY: 'hidden' }}>
-                        {formulas.slice(0, 4).map((f, idx) => (
-                          <code key={idx} style={{ backgroundColor: '#ffffff', color: '#0284c7', padding: '2px 6px', borderRadius: '3px', fontSize: '0.7rem', fontFamily: 'monospace', border: '1px solid #e2e8f0', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                            ={f}
+
+                    <div style={{ fontSize: '0.72rem', color: '#475569', borderTop: '1px solid #e2e8f0', paddingTop: '8px', marginTop: '6px' }}>
+                      <strong style={{ color: '#0f172a' }}>Workbook Tabs: </strong>
+                      {sub.forensics.sheetNames?.map((sheet, idx) => (
+                        <span key={idx} style={{ display: 'inline-block', backgroundColor: '#e2e8f0', color: '#334155', padding: '1px 6px', borderRadius: '3px', fontSize: '0.7rem', marginRight: '4px', marginTop: '2px', fontWeight: 600 }}>
+                          {sheet}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Right Column: AI Tools & Authoring Verification */}
+                  <div style={{ border: '1px solid #cbd5e1', borderRadius: '6px', padding: '12px 16px', backgroundColor: '#f8fafc', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                    <div>
+                      <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#0f172a', marginBottom: '8px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <ShieldCheck size={15} color={aiTools.detected ? '#dc2626' : '#059669'} /> AI & Authoring Verification
+                        </span>
+                        <span style={{ color: aiTools.detected ? '#dc2626' : '#059669', fontSize: '0.74rem', fontWeight: 800 }}>
+                          Integrity Score: {sub.forensics.integrityScore}/100
+                        </span>
+                      </div>
+
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.76rem', color: '#334155' }}>
+                        <div>
+                          <strong style={{ color: '#0f172a' }}>Software Signature:</strong>{' '}
+                          <code style={{ backgroundColor: '#ffffff', padding: '2px 6px', borderRadius: '4px', border: '1px solid #e2e8f0', color: sub.forensics.flags.isAiGenerator ? '#dc2626' : '#0f172a', fontWeight: 700 }}>
+                            {sub.forensics.application || 'Microsoft Excel'}
                           </code>
-                        ))}
+                        </div>
+                        <div>
+                          <strong style={{ color: '#0f172a' }}>AI Tools Detected:</strong>{' '}
+                          <span style={{ color: aiTools.detected ? '#dc2626' : '#059669', fontWeight: 700 }}>
+                            {aiTools.toolNames.join(', ')}
+                          </span>
+                        </div>
+                        <div>
+                          <strong style={{ color: '#0f172a' }}>Active Editing Time:</strong>{' '}
+                          <span style={{ color: sub.forensics.flags.hasZeroEditTime ? '#dc2626' : '#0f172a', fontWeight: 600 }}>
+                            {sub.forensics.totalTimeMinutes} minutes {sub.forensics.flags.hasZeroEditTime && '(Instant creation)'}
+                          </span>
+                        </div>
+                        <div>
+                          <strong style={{ color: '#0f172a' }}>Verification Status:</strong>{' '}
+                          <span style={{ color: isClean ? '#059669' : '#dc2626', fontWeight: 700 }}>
+                            {isClean ? '✓ Authentic Student Submission' : '⚠️ Flagged for Artificial Generation'}
+                          </span>
+                        </div>
                       </div>
-                    ) : (
-                      <div style={{ color: '#dc2626', fontSize: '0.72rem', fontStyle: 'italic' }}>
-                        No formula tags detected in workbook (values may be hardcoded).
-                      </div>
-                    )}
-
-                    <div style={{ marginTop: '6px', fontSize: '0.7rem', color: '#475569' }}>
-                      <strong>Workbook Tabs:</strong> {sub.forensics.sheetNames.join(', ') || 'None detected'}
-                    </div>
-                  </div>
-
-                  {/* Right Column: AI Tools & Forensic Audit */}
-                  <div style={{ border: '1px solid #cbd5e1', borderRadius: '6px', padding: '10px 14px', backgroundColor: '#f8fafc' }}>
-                    <div style={{ fontSize: '0.76rem', fontWeight: 800, color: '#0f172a', marginBottom: '6px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <ShieldCheck size={14} color={aiTools.detected ? '#dc2626' : '#059669'} /> AI Generator Detection Audit
-                      </span>
-                      <span style={{ color: aiTools.detected ? '#dc2626' : '#059669', fontSize: '0.72rem', fontWeight: 800 }}>
-                        Score: {sub.forensics.integrityScore}/100
-                      </span>
                     </div>
 
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', fontSize: '0.74rem', color: '#334155' }}>
-                      <div>
-                        <strong>Software Signature:</strong>{' '}
-                        <code style={{ backgroundColor: '#ffffff', padding: '1px 5px', borderRadius: '3px', border: '1px solid #e2e8f0', color: sub.forensics.flags.isAiGenerator ? '#dc2626' : '#0f172a' }}>
-                          {sub.forensics.application || 'Microsoft Excel'}
-                        </code>
-                      </div>
-                      <div>
-                        <strong>AI Tools Detected:</strong>{' '}
-                        <span style={{ color: aiTools.detected ? '#dc2626' : '#059669', fontWeight: 700 }}>
-                          {aiTools.toolNames.join(', ')}
-                        </span>
-                      </div>
-                      <div>
-                        <strong>Active Editing Time:</strong>{' '}
-                        <span style={{ color: sub.forensics.flags.hasZeroEditTime ? '#dc2626' : '#0f172a' }}>
-                          {sub.forensics.totalTimeMinutes} minutes {sub.forensics.flags.hasZeroEditTime && '(Instant generation flag)'}
-                        </span>
-                      </div>
-                      <div>
-                        <strong>Honeypot Trap Tokens:</strong>{' '}
-                        <span style={{ color: sub.forensics.flags.isHoneypotTriggered ? '#dc2626' : '#059669', fontWeight: 700 }}>
-                          {sub.forensics.flags.isHoneypotTriggered ? 'TRIGGERED: AI Agent Token Detected' : 'PASSED (Clean)'}
-                        </span>
-                      </div>
+                    <div style={{ fontSize: '0.72rem', color: '#64748b', borderTop: '1px solid #e2e8f0', paddingTop: '8px', marginTop: '6px' }}>
+                      Metadata & application fingerprint verified against laboratory submission standards.
                     </div>
                   </div>
 
                 </div>
 
-                {/* 6. Instructor Feedback & Formal Signatures */}
-                <div style={{ border: '1px solid #cbd5e1', borderRadius: '6px', padding: '10px 14px', backgroundColor: '#f8fafc', marginBottom: '14px' }}>
-                  <div style={{ fontSize: '0.7rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 800, marginBottom: '2px' }}>
-                    Instructor Evaluator Remarks
-                  </div>
-                  <div style={{ fontSize: '0.8rem', color: '#0f172a', fontStyle: sub.evaluation.instructorRemarks ? 'normal' : 'italic' }}>
-                    "{sub.evaluation.instructorRemarks || 'Candidate has completed all required operational spreadsheet tasks and formula calculations in accordance with the prescribed rubric.'}"
-                  </div>
-                </div>
-
-                {/* 7. Institutional Endorsement Sign-Off */}
-                <div style={{ borderTop: '1px solid #0f172a', paddingTop: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', fontSize: '0.74rem' }}>
-                  <div style={{ width: '42%' }}>
-                    <div style={{ height: '24px' }}></div>
-                    <div style={{ borderTop: '1px dashed #0f172a', paddingTop: '3px' }}>
-                      <strong style={{ color: '#0f172a' }}>Course Evaluator Signature</strong>
-                      <div style={{ fontSize: '0.68rem', color: '#64748b' }}>
+                {/* Institutional Endorsement Sign-Off with Evaluator Signature */}
+                <div style={{ borderTop: '1.5px solid #0f172a', paddingTop: '12px', marginTop: '14px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', fontSize: '0.76rem' }}>
+                  {/* Left Side: Authentic Evaluator Signature Image */}
+                  <div style={{ minWidth: '260px' }}>
+                    <div style={{ height: '54px', display: 'flex', alignItems: 'flex-end', marginBottom: '2px' }}>
+                      <img
+                        src="/api/lab/instructor-signature"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = '/instructor-signature.jpg';
+                        }}
+                        alt="Course Evaluator Signature"
+                        style={{
+                          height: '50px',
+                          maxWidth: '180px',
+                          objectFit: 'contain',
+                          mixBlendMode: 'multiply',
+                          display: 'block'
+                        }}
+                      />
+                    </div>
+                    <div style={{ borderTop: '1.5px solid #0f172a', width: '220px', paddingTop: '4px' }}>
+                      <strong style={{ color: '#0f172a', fontSize: '0.82rem', display: 'block' }}>
+                        Course Evaluator Signature
+                      </strong>
+                      <div style={{ fontSize: '0.7rem', color: '#64748b', marginTop: '1px' }}>
                         Authenticated via Instructor Console • Passkey 2525
                       </div>
                     </div>
                   </div>
 
-                  <div style={{ textAlign: 'center', width: '16%' }}>
-                    <div style={{ fontSize: '0.7rem', color: '#059669', fontWeight: 800 }}>
-                      ✓ CERTIFIED
+                  {/* Right Side: Certified Status & Audit Ref */}
+                  <div style={{ textAlign: 'right' }}>
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', backgroundColor: '#f0fdf4', border: '1px solid #86efac', padding: '3px 10px', borderRadius: '4px', fontSize: '0.76rem', fontWeight: 800, color: '#166534', marginBottom: '4px' }}>
+                      ✓ OFFICIALLY CERTIFIED
                     </div>
-                    <div style={{ fontSize: '0.64rem', color: '#64748b' }}>
+                    <div style={{ fontSize: '0.72rem', color: '#64748b' }}>
+                      Practicum Audit System Ref: <strong style={{ fontFamily: 'monospace', color: '#0f172a' }}>{sub.id}</strong>
+                    </div>
+                    <div style={{ fontSize: '0.68rem', color: '#94a3b8', marginTop: '2px' }}>
                       Page 1 of 1
-                    </div>
-                  </div>
-
-                  <div style={{ width: '42%', textAlign: 'right' }}>
-                    <div style={{ height: '24px' }}></div>
-                    <div style={{ borderTop: '1px dashed #0f172a', paddingTop: '3px' }}>
-                      <strong style={{ color: '#0f172a' }}>Academic Examination Seal</strong>
-                      <div style={{ fontSize: '0.68rem', color: '#64748b' }}>
-                        Practicum Audit System • Ref: {sub.id}
-                      </div>
                     </div>
                   </div>
                 </div>

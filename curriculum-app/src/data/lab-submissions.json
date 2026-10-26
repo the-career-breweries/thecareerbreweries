@@ -1,11 +1,11 @@
 [
   {
-    "id": "SUB-STU-15550-740770",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-15550-680590",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-15550",
     "studentName": "Prov Asav Bsc Evlin Rose Shoji",
-    "submittedAt": "2026-10-26T14:09:00.770Z",
+    "submittedAt": "2026-10-26T14:24:40.590Z",
     "originalFilename": "PROV_ASAV_BSC_7_26_019_Evlin Rose Shoji_Aviation_Pivot_Lab.xlsx",
     "fileSize": 57036,
     "viva": {
@@ -79,17 +79,17 @@
       "gradeBand": "B",
       "instructorOverride": false,
       "instructorRemarks": "File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
-      "evaluatedAt": "2026-10-26T14:09:00.770Z"
+      "evaluatedAt": "2026-10-26T14:24:40.590Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-58730-740764",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-58730-680584",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-58730",
     "studentName": "Prov Asav Bsc Pratham",
-    "submittedAt": "2026-10-26T14:09:00.764Z",
+    "submittedAt": "2026-10-26T14:24:40.584Z",
     "originalFilename": "PROV-ASAV-BSC-7-26-049_Pratham_P_N_Pivot_Assignment.xlsx",
     "fileSize": 29949,
     "viva": {
@@ -200,17 +200,17 @@
       "gradeBand": "O",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2)",
-      "evaluatedAt": "2026-10-26T14:09:00.764Z"
+      "evaluatedAt": "2026-10-26T14:24:40.584Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-36150-740760",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-36150-680581",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-36150",
     "studentName": "Prov Asav Bsc Sai Dakshitha",
-    "submittedAt": "2026-10-26T14:09:00.760Z",
+    "submittedAt": "2026-10-26T14:24:40.581Z",
     "originalFilename": "PROV_ASAV_BSC_26_7_047_SAI_DAKSHITHA_PIVOT_ASSIGNMENT-1.xlsx",
     "fileSize": 18467,
     "viva": {
@@ -287,17 +287,17 @@
       "gradeBand": "B",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
-      "evaluatedAt": "2026-10-26T14:09:00.760Z"
+      "evaluatedAt": "2026-10-26T14:24:40.581Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-80053-740757",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-80053-680578",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-80053",
     "studentName": "Dhyaanavasudevan Assinment",
-    "submittedAt": "2026-10-26T14:09:00.757Z",
+    "submittedAt": "2026-10-26T14:24:40.578Z",
     "originalFilename": "010_DhyaanaVasudevan_Pivot_Assinment.xlsx",
     "fileSize": 29712,
     "viva": {
@@ -409,17 +409,17 @@
       "gradeBand": "O",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2)",
-      "evaluatedAt": "2026-10-26T14:09:00.757Z"
+      "evaluatedAt": "2026-10-26T14:24:40.578Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-13036-740753",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-13036-680574",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-13036",
     "studentName": "Ava Sarveshwaran",
-    "submittedAt": "2026-10-26T14:09:00.753Z",
+    "submittedAt": "2026-10-26T14:24:40.574Z",
     "originalFilename": "26AVA043_ Sarveshwaran_Pivot_Assignment.xlsx",
     "fileSize": 22771,
     "viva": {
@@ -537,17 +537,17 @@
       "gradeBand": "O",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
-      "evaluatedAt": "2026-10-26T14:09:00.753Z"
+      "evaluatedAt": "2026-10-26T14:24:40.574Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-76063-740751",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-76063-680571",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-76063",
     "studentName": "Prov Asav Bsc Bavaleena",
-    "submittedAt": "2026-10-26T14:09:00.751Z",
+    "submittedAt": "2026-10-26T14:24:40.571Z",
     "originalFilename": "PROV_ASAV_BSC_7_26_006_BAVALEENA_PIVOT_ASSIGNMENT.xlsx",
     "fileSize": 18467,
     "viva": {
@@ -624,17 +624,17 @@
       "gradeBand": "B",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
-      "evaluatedAt": "2026-10-26T14:09:00.751Z"
+      "evaluatedAt": "2026-10-26T14:24:40.571Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-58105-740748",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-58105-680567",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-58105",
     "studentName": "Prov Asav Bsc Samiya",
-    "submittedAt": "2026-10-26T14:09:00.748Z",
+    "submittedAt": "2026-10-26T14:24:40.567Z",
     "originalFilename": "PROV_ASAV_BSC_7_26_027_SAMIYA_Pivot_Assignment.xlsx",
     "fileSize": 20671,
     "viva": {
@@ -711,17 +711,17 @@
       "gradeBand": "B",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
-      "evaluatedAt": "2026-10-26T14:09:00.748Z"
+      "evaluatedAt": "2026-10-26T14:24:40.567Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-71961-740745",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-71961-680564",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-71961",
     "studentName": "Siri Samhitha",
-    "submittedAt": "2026-10-26T14:09:00.745Z",
+    "submittedAt": "2026-10-26T14:24:40.564Z",
     "originalFilename": "11 SIRI SAMHITHA R_Pivot_Assignment.xlsx",
     "fileSize": 35871,
     "viva": {
@@ -833,17 +833,17 @@
       "gradeBand": "O",
       "instructorOverride": false,
       "instructorRemarks": "File metadata registers 0 minutes total editing time (instant generation)",
-      "evaluatedAt": "2026-10-26T14:09:00.745Z"
+      "evaluatedAt": "2026-10-26T14:24:40.564Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-50402-740741",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-50402-680560",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-50402",
     "studentName": "Keerthikha",
-    "submittedAt": "2026-10-26T14:09:00.741Z",
+    "submittedAt": "2026-10-26T14:24:40.560Z",
     "originalFilename": "Keerthikha_BLR_Airport_Pivot_Assignment.xlsx",
     "fileSize": 22612,
     "viva": {
@@ -921,17 +921,17 @@
       "gradeBand": "B",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
-      "evaluatedAt": "2026-10-26T14:09:00.741Z"
+      "evaluatedAt": "2026-10-26T14:24:40.560Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-73790-740737",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-73790-680556",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-73790",
     "studentName": "Uday Kiran",
-    "submittedAt": "2026-10-26T14:09:00.737Z",
+    "submittedAt": "2026-10-26T14:24:40.556Z",
     "originalFilename": " UDAY KIRAN Pivot_Assignment.xlsx",
     "fileSize": 11031,
     "viva": {
@@ -1008,17 +1008,17 @@
       "gradeBand": "B",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
-      "evaluatedAt": "2026-10-26T14:09:00.737Z"
+      "evaluatedAt": "2026-10-26T14:24:40.556Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-83448-740735",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-83448-680555",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-83448",
     "studentName": "Pavans",
-    "submittedAt": "2026-10-26T14:09:00.735Z",
+    "submittedAt": "2026-10-26T14:24:40.555Z",
     "originalFilename": "PavanS_Pivot_Assignment.xlsx",
     "fileSize": 23328,
     "viva": {
@@ -1132,17 +1132,17 @@
       "gradeBand": "O",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
-      "evaluatedAt": "2026-10-26T14:09:00.735Z"
+      "evaluatedAt": "2026-10-26T14:24:40.555Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-30080-740732",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-30080-680551",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-30080",
     "studentName": "Prov Asav Bsc Bhumika",
-    "submittedAt": "2026-10-26T14:09:00.732Z",
+    "submittedAt": "2026-10-26T14:24:40.551Z",
     "originalFilename": "PROV-ASAV-BSC-7-26-052_Bhumika_Pivot_Assignment.xlsx",
     "fileSize": 25983,
     "viva": {
@@ -1219,17 +1219,17 @@
       "gradeBand": "B",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
-      "evaluatedAt": "2026-10-26T14:09:00.732Z"
+      "evaluatedAt": "2026-10-26T14:24:40.551Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-11860-740728",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-11860-680548",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-11860",
     "studentName": "Dinesh Sai",
-    "submittedAt": "2026-10-26T14:09:00.728Z",
+    "submittedAt": "2026-10-26T14:24:40.548Z",
     "originalFilename": "Dinesh_Sai_Pivot_Assignment.xlsx",
     "fileSize": 21542,
     "viva": {
@@ -1343,17 +1343,17 @@
       "gradeBand": "O",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
-      "evaluatedAt": "2026-10-26T14:09:00.728Z"
+      "evaluatedAt": "2026-10-26T14:24:40.548Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-12297-740726",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-12297-680544",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-12297",
     "studentName": "Prov Asav Bsc Abiga Assignment.xlsx",
-    "submittedAt": "2026-10-26T14:09:00.726Z",
+    "submittedAt": "2026-10-26T14:24:40.544Z",
     "originalFilename": "PROV_ASAV_BSC_7_26_022_ABIGA J_PIVOT_ASSIGNMENT.xlsx(1).xlsx",
     "fileSize": 38613,
     "viva": {
@@ -1430,17 +1430,17 @@
       "gradeBand": "B",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
-      "evaluatedAt": "2026-10-26T14:09:00.726Z"
+      "evaluatedAt": "2026-10-26T14:24:40.544Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-26AVA057-740722",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-26AVA057-680540",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "26AVA057",
     "studentName": "Falaknaaz Sayyed",
-    "submittedAt": "2026-10-26T14:09:00.722Z",
+    "submittedAt": "2026-10-26T14:24:40.540Z",
     "originalFilename": "26AVA057 Falaknaaz Sayyed Pivot Assignment.xlsx",
     "fileSize": 21519,
     "viva": {
@@ -1517,17 +1517,17 @@
       "gradeBand": "B",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
-      "evaluatedAt": "2026-10-26T14:09:00.722Z"
+      "evaluatedAt": "2026-10-26T14:24:40.540Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-42284-740719",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-42284-680537",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-42284",
     "studentName": "Baba Thanveer",
-    "submittedAt": "2026-10-26T14:09:00.719Z",
+    "submittedAt": "2026-10-26T14:24:40.537Z",
     "originalFilename": "Baba thanveer -pivot-Assignment.xlsx",
     "fileSize": 21542,
     "viva": {
@@ -1641,17 +1641,17 @@
       "gradeBand": "O",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
-      "evaluatedAt": "2026-10-26T14:09:00.719Z"
+      "evaluatedAt": "2026-10-26T14:24:40.537Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-59995-740712",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-59995-680533",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-59995",
     "studentName": "Praneshumashankar Pivotassognment",
-    "submittedAt": "2026-10-26T14:09:00.712Z",
+    "submittedAt": "2026-10-26T14:24:40.533Z",
     "originalFilename": "035_PraneshUmashankar_PivotAssognment.xlsx",
     "fileSize": 22651,
     "viva": {
@@ -1729,17 +1729,17 @@
       "gradeBand": "B",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
-      "evaluatedAt": "2026-10-26T14:09:00.712Z"
+      "evaluatedAt": "2026-10-26T14:24:40.533Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-24030-740708",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-24030-680530",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-24030",
     "studentName": "Prov Asav Bsc Nidhipatel",
-    "submittedAt": "2026-10-26T14:09:00.708Z",
+    "submittedAt": "2026-10-26T14:24:40.530Z",
     "originalFilename": "PROV-ASAV-BSC-016_nidhipatel_pivot_assignment.xlsx",
     "fileSize": 27372,
     "viva": {
@@ -1816,17 +1816,17 @@
       "gradeBand": "B",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
-      "evaluatedAt": "2026-10-26T14:09:00.708Z"
+      "evaluatedAt": "2026-10-26T14:24:40.530Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-14425-740704",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-14425-680526",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-14425",
     "studentName": "Prov Asav Bsc Guru",
-    "submittedAt": "2026-10-26T14:09:00.704Z",
+    "submittedAt": "2026-10-26T14:24:40.526Z",
     "originalFilename": "PROV-ASAV-BSC-26-023_GURU_BLR_Airport_Pivot_Assignment.xlsx",
     "fileSize": 21803,
     "viva": {
@@ -1943,17 +1943,17 @@
       "gradeBand": "O",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation)",
-      "evaluatedAt": "2026-10-26T14:09:00.704Z"
+      "evaluatedAt": "2026-10-26T14:24:40.526Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-43088-740698",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-43088-680523",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-43088",
     "studentName": "Ava Deepaklakhani",
-    "submittedAt": "2026-10-26T14:09:00.698Z",
+    "submittedAt": "2026-10-26T14:24:40.523Z",
     "originalFilename": "26AVA062_DeepakLakhani_Pivot_Assignment.xlsx",
     "fileSize": 19582,
     "viva": {
@@ -2030,17 +2030,17 @@
       "gradeBand": "B",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
-      "evaluatedAt": "2026-10-26T14:09:00.699Z"
+      "evaluatedAt": "2026-10-26T14:24:40.523Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-3361-740695",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-3361-680521",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-3361",
     "studentName": "Prov Asav Bsc",
-    "submittedAt": "2026-10-26T14:09:00.695Z",
+    "submittedAt": "2026-10-26T14:24:40.521Z",
     "originalFilename": "PROV_ASAV_BSC_7_26_058.xlsx",
     "fileSize": 32883,
     "viva": {
@@ -2155,17 +2155,17 @@
       "gradeBand": "O",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Excel iOS); File metadata registers 0 minutes total editing time (instant generation)",
-      "evaluatedAt": "2026-10-26T14:09:00.695Z"
+      "evaluatedAt": "2026-10-26T14:24:40.521Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-21210-740692",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-21210-680517",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-21210",
     "studentName": "Ava Makara Bushan Assignment.xlsx",
-    "submittedAt": "2026-10-26T14:09:00.692Z",
+    "submittedAt": "2026-10-26T14:24:40.517Z",
     "originalFilename": "26AVA36_MAKARA BUSHAN_Pivot_Assignment.xlsx.xlsx",
     "fileSize": 21519,
     "viva": {
@@ -2242,17 +2242,17 @@
       "gradeBand": "B",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
-      "evaluatedAt": "2026-10-26T14:09:00.692Z"
+      "evaluatedAt": "2026-10-26T14:24:40.517Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-51071-740689",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-51071-680513",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-51071",
     "studentName": "Provasavbsc Man Patel",
-    "submittedAt": "2026-10-26T14:09:00.689Z",
+    "submittedAt": "2026-10-26T14:24:40.513Z",
     "originalFilename": "PROVASAVBSC726053_Man Patel_Pivot_Assignment.xlsx",
     "fileSize": 22691,
     "viva": {
@@ -2365,17 +2365,17 @@
       "gradeBand": "O",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation)",
-      "evaluatedAt": "2026-10-26T14:09:00.689Z"
+      "evaluatedAt": "2026-10-26T14:24:40.513Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-61075-740685",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-61075-680510",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-61075",
     "studentName": "Ava Daniel Ntonja New",
-    "submittedAt": "2026-10-26T14:09:00.685Z",
+    "submittedAt": "2026-10-26T14:24:40.510Z",
     "originalFilename": "26AVA018_Daniel Ntonja_Pivot_Assignment_New.xlsx",
     "fileSize": 26091,
     "viva": {
@@ -2457,17 +2457,17 @@
       "gradeBand": "A+",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Excel Android); File metadata registers 0 minutes total editing time (instant generation)",
-      "evaluatedAt": "2026-10-26T14:09:00.686Z"
+      "evaluatedAt": "2026-10-26T14:24:40.510Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-96393-740682",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-96393-680507",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-96393",
     "studentName": "Ava Syed Hisham Hamza",
-    "submittedAt": "2026-10-26T14:09:00.682Z",
+    "submittedAt": "2026-10-26T14:24:40.507Z",
     "originalFilename": "26-AVA-034_Syed_Hisham_Hamza_Pivot_Assignment.xlsx",
     "fileSize": 25088,
     "viva": {
@@ -2582,17 +2582,17 @@
       "gradeBand": "O",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
-      "evaluatedAt": "2026-10-26T14:09:00.682Z"
+      "evaluatedAt": "2026-10-26T14:24:40.507Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-99407-740679",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-99407-680504",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-99407",
     "studentName": "Ava Prathameshchavan",
-    "submittedAt": "2026-10-26T14:09:00.679Z",
+    "submittedAt": "2026-10-26T14:24:40.504Z",
     "originalFilename": "26AVA044PrathameshChavan_Pivot_Assignment.xlsx",
     "fileSize": 21838,
     "viva": {
@@ -2707,17 +2707,17 @@
       "gradeBand": "O",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
-      "evaluatedAt": "2026-10-26T14:09:00.679Z"
+      "evaluatedAt": "2026-10-26T14:24:40.504Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-75903-740674",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-75903-680500",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-75903",
     "studentName": "Prov Asav Bsc Danieljaisonj",
-    "submittedAt": "2026-10-26T14:09:00.674Z",
+    "submittedAt": "2026-10-26T14:24:40.500Z",
     "originalFilename": "PROV-ASAV-BSC-7-26-046_DanielJaisonJ_Pivot_Assignment.xlsx",
     "fileSize": 25088,
     "viva": {
@@ -2832,17 +2832,17 @@
       "gradeBand": "O",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
-      "evaluatedAt": "2026-10-26T14:09:00.674Z"
+      "evaluatedAt": "2026-10-26T14:24:40.500Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-86618-740670",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-86618-680496",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-86618",
     "studentName": "Prov Asav Bsc Syedrasulhuzaif",
-    "submittedAt": "2026-10-26T14:09:00.670Z",
+    "submittedAt": "2026-10-26T14:24:40.496Z",
     "originalFilename": "PROV-ASAV-BSC-7-26-001_SyedRasulHuzaif_Pivot_Assignment-1.xlsx",
     "fileSize": 32755,
     "viva": {
@@ -2955,17 +2955,17 @@
       "gradeBand": "O",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2)",
-      "evaluatedAt": "2026-10-26T14:09:00.670Z"
+      "evaluatedAt": "2026-10-26T14:24:40.496Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-38418-740666",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-38418-680492",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-38418",
     "studentName": "Prov Asav Bsc Pavankumar",
-    "submittedAt": "2026-10-26T14:09:00.666Z",
+    "submittedAt": "2026-10-26T14:24:40.492Z",
     "originalFilename": "PROV-ASAV-BSC-7-014-096_Pavankumar_BLR_Airport_Pivot_Assignment copy.xlsx",
     "fileSize": 32661,
     "viva": {
@@ -3082,17 +3082,17 @@
       "gradeBand": "O",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Excel iOS); File metadata registers 0 minutes total editing time (instant generation)",
-      "evaluatedAt": "2026-10-26T14:09:00.666Z"
+      "evaluatedAt": "2026-10-26T14:24:40.492Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-63852-740663",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-63852-680489",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-63852",
     "studentName": "Ava Aryanzindar",
-    "submittedAt": "2026-10-26T14:09:00.663Z",
+    "submittedAt": "2026-10-26T14:24:40.489Z",
     "originalFilename": "26-AVA-050_AryanZindaR_Pivot_Assignment.xlsx",
     "fileSize": 25088,
     "viva": {
@@ -3207,17 +3207,17 @@
       "gradeBand": "O",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
-      "evaluatedAt": "2026-10-26T14:09:00.663Z"
+      "evaluatedAt": "2026-10-26T14:24:40.489Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-59299-740659",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-59299-680484",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-59299",
     "studentName": "Prov Asav Bsc Hannah Sony",
-    "submittedAt": "2026-10-26T14:09:00.659Z",
+    "submittedAt": "2026-10-26T14:24:40.485Z",
     "originalFilename": "PROV-ASAV-BSC-7-26-026_Hannah Sony_Pivot_Assignment.xlsx",
     "fileSize": 32839,
     "viva": {
@@ -3294,17 +3294,17 @@
       "gradeBand": "B",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
-      "evaluatedAt": "2026-10-26T14:09:00.659Z"
+      "evaluatedAt": "2026-10-26T14:24:40.485Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-9948-740655",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-9948-680480",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-9948",
     "studentName": "Prov Asav Bsc Daiwikvardhan",
-    "submittedAt": "2026-10-26T14:09:00.655Z",
+    "submittedAt": "2026-10-26T14:24:40.480Z",
     "originalFilename": "PROV_ASAV_BSC_7_26_005_DaiwikVardhan_Pivot_Assignment.xlsx",
     "fileSize": 23085,
     "viva": {
@@ -3375,17 +3375,17 @@
       "gradeBand": "B",
       "instructorOverride": false,
       "instructorRemarks": "No formula tags (<f>) detected in worksheets; values may be hardcoded",
-      "evaluatedAt": "2026-10-26T14:09:00.655Z"
+      "evaluatedAt": "2026-10-26T14:24:40.480Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-60295-740652",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-60295-680477",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-60295",
     "studentName": "Prov Asav Bsc Kusumahreddy",
-    "submittedAt": "2026-10-26T14:09:00.652Z",
+    "submittedAt": "2026-10-26T14:24:40.477Z",
     "originalFilename": "PROV_ASAV_BSC_7_26_040_ KusumaHReddy.xlsx",
     "fileSize": 21895,
     "viva": {
@@ -3497,17 +3497,17 @@
       "gradeBand": "O",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
-      "evaluatedAt": "2026-10-26T14:09:00.652Z"
+      "evaluatedAt": "2026-10-26T14:24:40.477Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-45666-740649",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-45666-680474",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-45666",
     "studentName": "Ava Felbin Antony Alappadan",
-    "submittedAt": "2026-10-26T14:09:00.649Z",
+    "submittedAt": "2026-10-26T14:24:40.474Z",
     "originalFilename": "26-AVA-038_Felbin_Antony_Alappadan_Pivot_Assignment.xlsx",
     "fileSize": 25088,
     "viva": {
@@ -3622,17 +3622,17 @@
       "gradeBand": "O",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
-      "evaluatedAt": "2026-10-26T14:09:00.649Z"
+      "evaluatedAt": "2026-10-26T14:24:40.474Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-42505-740646",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-42505-680471",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-42505",
     "studentName": "Prov Asav Bsc Guru",
-    "submittedAt": "2026-10-26T14:09:00.646Z",
+    "submittedAt": "2026-10-26T14:24:40.471Z",
     "originalFilename": "PROV-ASAV-BSC-26-023_GURU_BLR_Airport_Pivot_Assignment(1).xlsx",
     "fileSize": 21803,
     "viva": {
@@ -3749,17 +3749,17 @@
       "gradeBand": "O",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation)",
-      "evaluatedAt": "2026-10-26T14:09:00.646Z"
+      "evaluatedAt": "2026-10-26T14:24:40.471Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-19501-740643",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-19501-680468",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-19501",
     "studentName": "Sreeya.s",
-    "submittedAt": "2026-10-26T14:09:00.643Z",
+    "submittedAt": "2026-10-26T14:24:40.468Z",
     "originalFilename": "021_SREEYA.S_Pivot_Assignment.xlsx",
     "fileSize": 21357,
     "viva": {
@@ -3869,17 +3869,17 @@
       "gradeBand": "O",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
-      "evaluatedAt": "2026-10-26T14:09:00.643Z"
+      "evaluatedAt": "2026-10-26T14:24:40.468Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-39233-740640",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-39233-680463",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-39233",
     "studentName": "Prov Asav Irene Anna Sabu",
-    "submittedAt": "2026-10-26T14:09:00.640Z",
+    "submittedAt": "2026-10-26T14:24:40.463Z",
     "originalFilename": "PROV_ASAV_726042_IRENE ANNA SABU_PIVOT_ASSIGNMENT.xlsx",
     "fileSize": 51850,
     "viva": {
@@ -3953,17 +3953,17 @@
       "gradeBand": "B",
       "instructorOverride": false,
       "instructorRemarks": "File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
-      "evaluatedAt": "2026-10-26T14:09:00.640Z"
+      "evaluatedAt": "2026-10-26T14:24:40.463Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-29753-740635",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-29753-680458",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-29753",
     "studentName": "Prov Asav Bsc Abiga Assignment.xlsx",
-    "submittedAt": "2026-10-26T14:09:00.635Z",
+    "submittedAt": "2026-10-26T14:24:40.458Z",
     "originalFilename": "PROV_ASAV_BSC_7_26_022_ABIGA J_PIVOT_ASSIGNMENT.xlsx.xlsx",
     "fileSize": 38613,
     "viva": {
@@ -4040,17 +4040,17 @@
       "gradeBand": "B",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
-      "evaluatedAt": "2026-10-26T14:09:00.635Z"
+      "evaluatedAt": "2026-10-26T14:24:40.458Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-91890-740632",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-91890-680454",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-91890",
     "studentName": "Prov Asav Bsc Md.saquib",
-    "submittedAt": "2026-10-26T14:09:00.632Z",
+    "submittedAt": "2026-10-26T14:24:40.454Z",
     "originalFilename": "PROV_ASAV_BSC_7_26_008_MD.SAQUIB_Pivot_assignment.xlsx",
     "fileSize": 22112,
     "viva": {
@@ -4127,17 +4127,17 @@
       "gradeBand": "B",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
-      "evaluatedAt": "2026-10-26T14:09:00.632Z"
+      "evaluatedAt": "2026-10-26T14:24:40.454Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-17431-740627",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-17431-680448",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-17431",
     "studentName": "Rakshan Rs",
-    "submittedAt": "2026-10-26T14:09:00.627Z",
+    "submittedAt": "2026-10-26T14:24:40.448Z",
     "originalFilename": "033_RAKSHAN RS_Pivot_Assignment (1).xlsx",
     "fileSize": 18554,
     "viva": {
@@ -4214,17 +4214,17 @@
       "gradeBand": "B",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
-      "evaluatedAt": "2026-10-26T14:09:00.627Z"
+      "evaluatedAt": "2026-10-26T14:24:40.448Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-27508-740617",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-27508-680445",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-27508",
     "studentName": "Prov Asav Bsc Vandana Rani",
-    "submittedAt": "2026-10-26T14:09:00.617Z",
+    "submittedAt": "2026-10-26T14:24:40.445Z",
     "originalFilename": "PROV-ASAV-BSC-7-26-017-Vandana_Rani_Aviation_Pivot_Assignment.xlsx",
     "fileSize": 21319,
     "viva": {
@@ -4310,17 +4310,17 @@
       "gradeBand": "A",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
-      "evaluatedAt": "2026-10-26T14:09:00.617Z"
+      "evaluatedAt": "2026-10-26T14:24:40.445Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-37281-740612",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-37281-680442",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-37281",
     "studentName": "Prov Asav Bsc Aaryakamerkar",
-    "submittedAt": "2026-10-26T14:09:00.612Z",
+    "submittedAt": "2026-10-26T14:24:40.442Z",
     "originalFilename": "PROV_ASAV_BSC_7_26_009_AaryaKamerkar_Pivot_Assignment.xlsx",
     "fileSize": 37997,
     "viva": {
@@ -4434,17 +4434,17 @@
       "gradeBand": "O",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Excel Android); File metadata registers 0 minutes total editing time (instant generation)",
-      "evaluatedAt": "2026-10-26T14:09:00.612Z"
+      "evaluatedAt": "2026-10-26T14:24:40.442Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-38451-740606",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-38451-680438",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-38451",
     "studentName": "Avinash.a",
-    "submittedAt": "2026-10-26T14:09:00.606Z",
+    "submittedAt": "2026-10-26T14:24:40.438Z",
     "originalFilename": "Avinash.A(Assignment).xlsx",
     "fileSize": 19785,
     "viva": {
@@ -4521,17 +4521,17 @@
       "gradeBand": "B",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
-      "evaluatedAt": "2026-10-26T14:09:00.606Z"
+      "evaluatedAt": "2026-10-26T14:24:40.438Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-53340-740601",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-53340-680434",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-53340",
     "studentName": "Ava Vishwas",
-    "submittedAt": "2026-10-26T14:09:00.601Z",
+    "submittedAt": "2026-10-26T14:24:40.434Z",
     "originalFilename": "26AVA061_VISHWAS_Pivot_Assignment.xlsx",
     "fileSize": 44692,
     "viva": {
@@ -4646,17 +4646,17 @@
       "gradeBand": "O",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Unknown)",
-      "evaluatedAt": "2026-10-26T14:09:00.601Z"
+      "evaluatedAt": "2026-10-26T14:24:40.434Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-11153-740593",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-11153-680428",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-11153",
     "studentName": "Ava Abdulazeezwajid Bscaviationseca Pivotassignment",
-    "submittedAt": "2026-10-26T14:09:00.593Z",
+    "submittedAt": "2026-10-26T14:24:40.428Z",
     "originalFilename": "26AVA020_AbdulazeezWajid_BSCAviationSecA_PivotAssignment.xlsx",
     "fileSize": 39774,
     "viva": {
@@ -4736,17 +4736,17 @@
       "gradeBand": "A+",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Unknown)",
-      "evaluatedAt": "2026-10-26T14:09:00.593Z"
+      "evaluatedAt": "2026-10-26T14:24:40.428Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-93650-740584",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-93650-680423",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-93650",
     "studentName": "Prov Asav Bsc Adhilmohammedm",
-    "submittedAt": "2026-10-26T14:09:00.584Z",
+    "submittedAt": "2026-10-26T14:24:40.423Z",
     "originalFilename": "PROV-ASAV-BSC-7-26-029-AdhilMohammedM_Pivot_Assignment.xlsx",
     "fileSize": 46642,
     "viva": {
@@ -4859,17 +4859,17 @@
       "gradeBand": "O",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Unknown)",
-      "evaluatedAt": "2026-10-26T14:09:00.584Z"
+      "evaluatedAt": "2026-10-26T14:24:40.423Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-83646-740578",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-83646-680418",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-83646",
     "studentName": "Ava Harmainsehar",
-    "submittedAt": "2026-10-26T14:09:00.578Z",
+    "submittedAt": "2026-10-26T14:24:40.418Z",
     "originalFilename": "26_AVA_007_HarmainSehar_Pivot_Assignment.xlsx",
     "fileSize": 46898,
     "viva": {
@@ -4941,17 +4941,17 @@
       "gradeBand": "B",
       "instructorOverride": false,
       "instructorRemarks": "No formula tags (<f>) detected in worksheets; values may be hardcoded",
-      "evaluatedAt": "2026-10-26T14:09:00.578Z"
+      "evaluatedAt": "2026-10-26T14:24:40.418Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-16070-740571",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-16070-680412",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-16070",
     "studentName": "Prov Asav Bsc Tanmaykumar",
-    "submittedAt": "2026-10-26T14:09:00.571Z",
+    "submittedAt": "2026-10-26T14:24:40.412Z",
     "originalFilename": "PROV-ASAV-BSC-7-26-048_TanmayKumar_Pivot_Assignment.xlsx",
     "fileSize": 26208,
     "viva": {
@@ -5028,17 +5028,17 @@
       "gradeBand": "B",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
-      "evaluatedAt": "2026-10-26T14:09:00.571Z"
+      "evaluatedAt": "2026-10-26T14:24:40.412Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-20661-740564",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-20661-680408",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-20661",
     "studentName": "Shubhankarbhowmick",
-    "submittedAt": "2026-10-26T14:09:00.564Z",
+    "submittedAt": "2026-10-26T14:24:40.408Z",
     "originalFilename": "28_ShubhankarBhowmick_Pivot_Assignment.xlsx",
     "fileSize": 32324,
     "viva": {
@@ -5112,17 +5112,17 @@
       "gradeBand": "B",
       "instructorOverride": false,
       "instructorRemarks": "File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
-      "evaluatedAt": "2026-10-26T14:09:00.564Z"
+      "evaluatedAt": "2026-10-26T14:24:40.408Z"
     },
     "batchEvaluated": true
   },
   {
-    "id": "SUB-STU-31940-740560",
-    "assignmentId": "blr-pivot-operations",
-    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "id": "SUB-STU-31940-680404",
+    "assignmentId": "asgn-1793008071187",
+    "assignmentTitle": "Airport Operations & Terminal Flight Movements (AOCC BLR Airport) Analysis & Analytical Modeling",
     "rollNo": "STU-31940",
     "studentName": "Prov Asav Bsc Cheedella Sai Manvith",
-    "submittedAt": "2026-10-26T14:09:00.560Z",
+    "submittedAt": "2026-10-26T14:24:40.404Z",
     "originalFilename": "PROV_ASAV_BSC_7_26_004_Cheedella Sai Manvith_Pivot_Assignment copy.xlsx",
     "fileSize": 32134,
     "viva": {
@@ -5237,7 +5237,7 @@
       "gradeBand": "O",
       "instructorOverride": false,
       "instructorRemarks": "AI code generator detected in file metadata (Application: Excel iOS); File metadata registers 0 minutes total editing time (instant generation)",
-      "evaluatedAt": "2026-10-26T14:09:00.560Z"
+      "evaluatedAt": "2026-10-26T14:24:40.404Z"
     },
     "batchEvaluated": true
   }
