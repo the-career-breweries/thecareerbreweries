@@ -90,9 +90,31 @@ export async function DELETE(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const passkey = searchParams.get('passkey');
   const submissionId = searchParams.get('id');
+  const deleteAll = searchParams.get('all') === 'true' || submissionId === 'all';
+  const assignmentId = searchParams.get('assignmentId');
 
   if (passkey !== INSTRUCTOR_PASSKEY) {
-    return NextResponse.json({ error: 'Unauthorized.' }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthorized: Invalid instructor passkey.' }, { status: 401 });
+  }
+
+  if (deleteAll) {
+    if (assignmentId && assignmentId !== 'all') {
+      const records = readSubmissions();
+      const filtered = records.filter((r: any) => r.assignmentId !== assignmentId);
+      writeSubmissions(filtered);
+      return NextResponse.json({
+        success: true,
+        message: `All evaluations for assignment deleted successfully.`,
+        count: filtered.length
+      });
+    }
+
+    writeSubmissions([]);
+    return NextResponse.json({
+      success: true,
+      message: 'All evaluations deleted successfully from master roster.',
+      count: 0
+    });
   }
 
   const records = readSubmissions();

@@ -1,1 +1,3326 @@
-[]
+[
+  {
+    "id": "SUB-STU-15550-108672",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-15550",
+    "studentName": "Prov Asav Bsc Evlin Rose Shoji",
+    "submittedAt": "2026-10-26T13:41:48.672Z",
+    "originalFilename": "PROV_ASAV_BSC_7_26_019_Evlin Rose Shoji_Aviation_Pivot_Lab.xlsx",
+    "fileSize": 57036,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV_ASAV_BSC_7_26_019_Evlin Rose Shoji_Aviation_Pivot_Lab.xlsx",
+      "fileSize": 57036,
+      "application": "Microsoft Excel",
+      "appVersion": "16.0300",
+      "totalTimeMinutes": 0,
+      "creator": "Unknown",
+      "lastModifiedBy": "Evlin Rose",
+      "createdDate": "",
+      "modifiedDate": "2026-10-26T02:29:45Z",
+      "sheetNames": [
+        "Raw Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 0,
+      "sampleFormulas": [],
+      "flags": {
+        "isAiGenerator": false,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": true
+      },
+      "integrityScore": 65,
+      "integrityLevel": "suspicious",
+      "summaryFindings": [
+        "File metadata registers 0 minutes total editing time (instant generation)",
+        "No formula tags (<f>) detected in worksheets; values may be hardcoded"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 24,
+        "analysis": 5,
+        "total": 34
+      }
+    },
+    "evaluation": {
+      "finalScore": 34,
+      "instructorOverride": false,
+      "instructorRemarks": "File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "evaluatedAt": "2026-10-26T13:41:48.672Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-58730-108666",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-58730",
+    "studentName": "Prov Asav Bsc Pratham",
+    "submittedAt": "2026-10-26T13:41:48.666Z",
+    "originalFilename": "PROV-ASAV-BSC-7-26-049_Pratham_P_N_Pivot_Assignment.xlsx",
+    "fileSize": 29949,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV-ASAV-BSC-7-26-049_Pratham_P_N_Pivot_Assignment.xlsx",
+      "fileSize": 29949,
+      "application": "LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2",
+      "appVersion": "15.0000",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "",
+      "createdDate": "2026-10-25T13:32:35Z",
+      "modifiedDate": "2026-10-25T13:32:37Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves",
+        "Analysis_Summary"
+      ],
+      "totalFormulasFound": 68,
+      "sampleFormulas": [
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A4,Raw_Data!$C$2:$C$51,&quot;T1&quot;)",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A4,Raw_Data!$C$2:$C$51,&quot;T2&quot;)",
+        "SUM(B4:C4)",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A5,Raw_Data!$C$2:$C$51,&quot;T1&quot;)",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A5,Raw_Data!$C$2:$C$51,&quot;T2&quot;)"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": false,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 50,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 40,
+        "analysis": 5,
+        "total": 50
+      }
+    },
+    "evaluation": {
+      "finalScore": 50,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2)",
+      "evaluatedAt": "2026-10-26T13:41:48.666Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-36150-108663",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-36150",
+    "studentName": "Prov Asav Bsc Sai Dakshitha",
+    "submittedAt": "2026-10-26T13:41:48.663Z",
+    "originalFilename": "PROV_ASAV_BSC_26_7_047_SAI_DAKSHITHA_PIVOT_ASSIGNMENT-1.xlsx",
+    "fileSize": 18467,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV_ASAV_BSC_26_7_047_SAI_DAKSHITHA_PIVOT_ASSIGNMENT-1.xlsx",
+      "fileSize": 18467,
+      "application": "Microsoft Excel",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T11:49:58Z",
+      "modifiedDate": "2026-10-25T12:24:38Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 0,
+      "sampleFormulas": [],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": true
+      },
+      "integrityScore": 15,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel)",
+        "File metadata registers 0 minutes total editing time (instant generation)",
+        "No formula tags (<f>) detected in worksheets; values may be hardcoded"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 24,
+        "analysis": 5,
+        "total": 34
+      }
+    },
+    "evaluation": {
+      "finalScore": 34,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "evaluatedAt": "2026-10-26T13:41:48.663Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-80053-108660",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-80053",
+    "studentName": "Dhyaanavasudevan Assinment",
+    "submittedAt": "2026-10-26T13:41:48.660Z",
+    "originalFilename": "010_DhyaanaVasudevan_Pivot_Assinment.xlsx",
+    "fileSize": 29712,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "010_DhyaanaVasudevan_Pivot_Assinment.xlsx",
+      "fileSize": 29712,
+      "application": "LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2",
+      "appVersion": "15.0000",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "",
+      "createdDate": "2026-10-25T16:24:12Z",
+      "modifiedDate": "2026-10-25T16:24:15Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 70,
+      "sampleFormulas": [
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A6,Raw_Data!$C$2:$C$51,&quot;T1&quot;,Raw_Data!$F$2:$F$51,IF($B$3=&quot;All&quot;,&quot;*&quot;,$B$3))",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A6,Raw_Data!$C$2:$C$51,&quot;T2&quot;,Raw_Data!$F$2:$F$51,IF($B$3=&quot;All&quot;,&quot;*&quot;,$B$3))",
+        "SUM(B6:C6)",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A7,Raw_Data!$C$2:$C$51,&quot;T1&quot;,Raw_Data!$F$2:$F$51,IF($B$3=&quot;All&quot;,&quot;*&quot;,$B$3))",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A7,Raw_Data!$C$2:$C$51,&quot;T2&quot;,Raw_Data!$F$2:$F$51,IF($B$3=&quot;All&quot;,&quot;*&quot;,$B$3))"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": false,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 50,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 40,
+        "analysis": 5,
+        "total": 50
+      }
+    },
+    "evaluation": {
+      "finalScore": 50,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2)",
+      "evaluatedAt": "2026-10-26T13:41:48.660Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-13036-108656",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-13036",
+    "studentName": "Ava Sarveshwaran",
+    "submittedAt": "2026-10-26T13:41:48.656Z",
+    "originalFilename": "26AVA043_ Sarveshwaran_Pivot_Assignment.xlsx",
+    "fileSize": 22771,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "26AVA043_ Sarveshwaran_Pivot_Assignment.xlsx",
+      "fileSize": 22771,
+      "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T10:32:53Z",
+      "modifiedDate": "2026-10-25T10:32:53Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves",
+        "Analysis_Summary"
+      ],
+      "totalFormulasFound": 100,
+      "sampleFormulas": [
+        "IF(B3=\"All\",\"*\",B3)",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A6,Raw_Data!$C$2:$C$51,B$5,Raw_Data!$F$2:$F$51,$C$3)",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A6,Raw_Data!$C$2:$C$51,C$5,Raw_Data!$F$2:$F$51,$C$3)",
+        "SUM(B6:C6)",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A7,Raw_Data!$C$2:$C$51,B$5,Raw_Data!$F$2:$F$51,$C$3)"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 35,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "File metadata registers 0 minutes total editing time (instant generation)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 40,
+        "analysis": 5,
+        "total": 50
+      }
+    },
+    "evaluation": {
+      "finalScore": 50,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
+      "evaluatedAt": "2026-10-26T13:41:48.656Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-76063-108653",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-76063",
+    "studentName": "Prov Asav Bsc Bavaleena",
+    "submittedAt": "2026-10-26T13:41:48.653Z",
+    "originalFilename": "PROV_ASAV_BSC_7_26_006_BAVALEENA_PIVOT_ASSIGNMENT.xlsx",
+    "fileSize": 18467,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV_ASAV_BSC_7_26_006_BAVALEENA_PIVOT_ASSIGNMENT.xlsx",
+      "fileSize": 18467,
+      "application": "Microsoft Excel",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T11:49:58Z",
+      "modifiedDate": "2026-10-25T12:24:38Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 0,
+      "sampleFormulas": [],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": true
+      },
+      "integrityScore": 15,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel)",
+        "File metadata registers 0 minutes total editing time (instant generation)",
+        "No formula tags (<f>) detected in worksheets; values may be hardcoded"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 24,
+        "analysis": 5,
+        "total": 34
+      }
+    },
+    "evaluation": {
+      "finalScore": 34,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "evaluatedAt": "2026-10-26T13:41:48.653Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-58105-108650",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-58105",
+    "studentName": "Prov Asav Bsc Samiya",
+    "submittedAt": "2026-10-26T13:41:48.650Z",
+    "originalFilename": "PROV_ASAV_BSC_7_26_027_SAMIYA_Pivot_Assignment.xlsx",
+    "fileSize": 20671,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV_ASAV_BSC_7_26_027_SAMIYA_Pivot_Assignment.xlsx",
+      "fileSize": 20671,
+      "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "Sami",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T15:13:29Z",
+      "modifiedDate": "2026-10-25T15:13:29Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 0,
+      "sampleFormulas": [],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": true
+      },
+      "integrityScore": 15,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "File metadata registers 0 minutes total editing time (instant generation)",
+        "No formula tags (<f>) detected in worksheets; values may be hardcoded"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 24,
+        "analysis": 5,
+        "total": 34
+      }
+    },
+    "evaluation": {
+      "finalScore": 34,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "evaluatedAt": "2026-10-26T13:41:48.650Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-71961-108647",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-71961",
+    "studentName": "Siri Samhitha",
+    "submittedAt": "2026-10-26T13:41:48.647Z",
+    "originalFilename": "11 SIRI SAMHITHA R_Pivot_Assignment.xlsx",
+    "fileSize": 35871,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "11 SIRI SAMHITHA R_Pivot_Assignment.xlsx",
+      "fileSize": 35871,
+      "application": "Microsoft Excel",
+      "appVersion": "16.0300",
+      "totalTimeMinutes": 0,
+      "creator": "SIRI SAMHITHA R",
+      "lastModifiedBy": "Siri Samhitha R",
+      "createdDate": "2026-10-25T11:08:45Z",
+      "modifiedDate": "2026-10-25T11:14:45Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves",
+        "Ops_Overview"
+      ],
+      "totalFormulasFound": 43,
+      "sampleFormulas": [
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A6,Raw_Data!$C$2:$C$51,B$5,Raw_Data!$F$2:$F$51,IF($B$3=\"All\",\"&lt;&gt;\",$B$3))",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A6,Raw_Data!$C$2:$C$51,C$5,Raw_Data!$F$2:$F$51,IF($B$3=\"All\",\"&lt;&gt;\",$B$3))",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A7,Raw_Data!$C$2:$C$51,B$5,Raw_Data!$F$2:$F$51,IF($B$3=\"All\",\"&lt;&gt;\",$B$3))",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A7,Raw_Data!$C$2:$C$51,C$5,Raw_Data!$F$2:$F$51,IF($B$3=\"All\",\"&lt;&gt;\",$B$3))",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A8,Raw_Data!$C$2:$C$51,B$5,Raw_Data!$F$2:$F$51,IF($B$3=\"All\",\"&lt;&gt;\",$B$3))"
+      ],
+      "flags": {
+        "isAiGenerator": false,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 85,
+      "integrityLevel": "clean",
+      "summaryFindings": [
+        "File metadata registers 0 minutes total editing time (instant generation)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 40,
+        "analysis": 5,
+        "total": 50
+      }
+    },
+    "evaluation": {
+      "finalScore": 50,
+      "instructorOverride": false,
+      "instructorRemarks": "File metadata registers 0 minutes total editing time (instant generation)",
+      "evaluatedAt": "2026-10-26T13:41:48.647Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-50402-108643",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-50402",
+    "studentName": "Keerthikha",
+    "submittedAt": "2026-10-26T13:41:48.643Z",
+    "originalFilename": "Keerthikha_BLR_Airport_Pivot_Assignment.xlsx",
+    "fileSize": 22612,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "Keerthikha_BLR_Airport_Pivot_Assignment.xlsx",
+      "fileSize": 22612,
+      "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T13:38:36Z",
+      "modifiedDate": "2026-10-25T13:38:36Z",
+      "sheetNames": [
+        "Procedure",
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 0,
+      "sampleFormulas": [],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": true
+      },
+      "integrityScore": 15,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "File metadata registers 0 minutes total editing time (instant generation)",
+        "No formula tags (<f>) detected in worksheets; values may be hardcoded"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 24,
+        "analysis": 5,
+        "total": 34
+      }
+    },
+    "evaluation": {
+      "finalScore": 34,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "evaluatedAt": "2026-10-26T13:41:48.643Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-73790-108638",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-73790",
+    "studentName": "Uday Kiran",
+    "submittedAt": "2026-10-26T13:41:48.638Z",
+    "originalFilename": " UDAY KIRAN Pivot_Assignment.xlsx",
+    "fileSize": 11031,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": " UDAY KIRAN Pivot_Assignment.xlsx",
+      "fileSize": 11031,
+      "application": "Microsoft Excel",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T11:28:44Z",
+      "modifiedDate": "2026-10-25T11:28:45Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 0,
+      "sampleFormulas": [],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": true
+      },
+      "integrityScore": 15,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel)",
+        "File metadata registers 0 minutes total editing time (instant generation)",
+        "No formula tags (<f>) detected in worksheets; values may be hardcoded"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 24,
+        "analysis": 5,
+        "total": 34
+      }
+    },
+    "evaluation": {
+      "finalScore": 34,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "evaluatedAt": "2026-10-26T13:41:48.639Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-83448-108637",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-83448",
+    "studentName": "Pavans",
+    "submittedAt": "2026-10-26T13:41:48.637Z",
+    "originalFilename": "PavanS_Pivot_Assignment.xlsx",
+    "fileSize": 23328,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PavanS_Pivot_Assignment.xlsx",
+      "fileSize": 23328,
+      "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T06:06:38Z",
+      "modifiedDate": "2026-10-25T06:07:27Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Analysis_Summary",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 69,
+      "sampleFormulas": [
+        "IF($B$2=\"All\",SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A6,Raw_Data!$C:$C,\"T1\"),SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A6,Raw_Data!$C:$C,\"T1\",Raw_Data!$F:$F,$B$2))",
+        "IF($B$2=\"All\",SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A6,Raw_Data!$C:$C,\"T2\"),SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A6,Raw_Data!$C:$C,\"T2\",Raw_Data!$F:$F,$B$2))",
+        "SUM(B6:C6)",
+        "$B$2",
+        "IF($B$2=\"All\",SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A7,Raw_Data!$C:$C,\"T1\"),SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A7,Raw_Data!$C:$C,\"T1\",Raw_Data!$F:$F,$B$2))"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 35,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "File metadata registers 0 minutes total editing time (instant generation)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 40,
+        "analysis": 5,
+        "total": 50
+      }
+    },
+    "evaluation": {
+      "finalScore": 50,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
+      "evaluatedAt": "2026-10-26T13:41:48.637Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-30080-108633",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-30080",
+    "studentName": "Prov Asav Bsc Bhumika",
+    "submittedAt": "2026-10-26T13:41:48.633Z",
+    "originalFilename": "PROV-ASAV-BSC-7-26-052_Bhumika_Pivot_Assignment.xlsx",
+    "fileSize": 25983,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV-ASAV-BSC-7-26-052_Bhumika_Pivot_Assignment.xlsx",
+      "fileSize": 25983,
+      "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-24T14:32:58Z",
+      "modifiedDate": "2026-10-24T14:32:58Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 0,
+      "sampleFormulas": [],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": true
+      },
+      "integrityScore": 15,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "File metadata registers 0 minutes total editing time (instant generation)",
+        "No formula tags (<f>) detected in worksheets; values may be hardcoded"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 24,
+        "analysis": 5,
+        "total": 34
+      }
+    },
+    "evaluation": {
+      "finalScore": 34,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "evaluatedAt": "2026-10-26T13:41:48.633Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-11860-108630",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-11860",
+    "studentName": "Dinesh Sai",
+    "submittedAt": "2026-10-26T13:41:48.630Z",
+    "originalFilename": "Dinesh_Sai_Pivot_Assignment.xlsx",
+    "fileSize": 21542,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "Dinesh_Sai_Pivot_Assignment.xlsx",
+      "fileSize": 21542,
+      "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-26T02:55:37Z",
+      "modifiedDate": "2026-10-26T02:55:37Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 41,
+      "sampleFormulas": [
+        "IF($B$4=\"All\",SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A7,Raw_Data!$C:$C,B$6),SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A7,Raw_Data!$C:$C,B$6,Raw_Data!$F:$F,$B$4))",
+        "IF($B$4=\"All\",SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A7,Raw_Data!$C:$C,C$6),SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A7,Raw_Data!$C:$C,C$6,Raw_Data!$F:$F,$B$4))",
+        "SUM(B7:C7)",
+        "IF($B$4=\"All\",SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A8,Raw_Data!$C:$C,B$6),SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A8,Raw_Data!$C:$C,B$6,Raw_Data!$F:$F,$B$4))",
+        "IF($B$4=\"All\",SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A8,Raw_Data!$C:$C,C$6),SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A8,Raw_Data!$C:$C,C$6,Raw_Data!$F:$F,$B$4))"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 35,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "File metadata registers 0 minutes total editing time (instant generation)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 40,
+        "analysis": 5,
+        "total": 50
+      }
+    },
+    "evaluation": {
+      "finalScore": 50,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
+      "evaluatedAt": "2026-10-26T13:41:48.630Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-12297-108627",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-12297",
+    "studentName": "Prov Asav Bsc Abiga Assignment.xlsx",
+    "submittedAt": "2026-10-26T13:41:48.627Z",
+    "originalFilename": "PROV_ASAV_BSC_7_26_022_ABIGA J_PIVOT_ASSIGNMENT.xlsx(1).xlsx",
+    "fileSize": 38613,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV_ASAV_BSC_7_26_022_ABIGA J_PIVOT_ASSIGNMENT.xlsx(1).xlsx",
+      "fileSize": 38613,
+      "application": "Microsoft Excel",
+      "appVersion": "16.0300",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "ABIGA J",
+      "createdDate": "2026-10-25T17:36:58Z",
+      "modifiedDate": "2026-10-25T18:01:40Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 0,
+      "sampleFormulas": [],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": true
+      },
+      "integrityScore": 15,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel)",
+        "File metadata registers 0 minutes total editing time (instant generation)",
+        "No formula tags (<f>) detected in worksheets; values may be hardcoded"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 24,
+        "analysis": 5,
+        "total": 34
+      }
+    },
+    "evaluation": {
+      "finalScore": 34,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "evaluatedAt": "2026-10-26T13:41:48.627Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-26AVA057-108622",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "26AVA057",
+    "studentName": "Falaknaaz Sayyed",
+    "submittedAt": "2026-10-26T13:41:48.622Z",
+    "originalFilename": "26AVA057 Falaknaaz Sayyed Pivot Assignment.xlsx",
+    "fileSize": 21519,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "26AVA057 Falaknaaz Sayyed Pivot Assignment.xlsx",
+      "fileSize": 21519,
+      "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T04:44:54Z",
+      "modifiedDate": "2026-10-25T04:44:54Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 0,
+      "sampleFormulas": [],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": true
+      },
+      "integrityScore": 15,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "File metadata registers 0 minutes total editing time (instant generation)",
+        "No formula tags (<f>) detected in worksheets; values may be hardcoded"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 24,
+        "analysis": 5,
+        "total": 34
+      }
+    },
+    "evaluation": {
+      "finalScore": 34,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "evaluatedAt": "2026-10-26T13:41:48.622Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-42284-108619",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-42284",
+    "studentName": "Baba Thanveer",
+    "submittedAt": "2026-10-26T13:41:48.619Z",
+    "originalFilename": "Baba thanveer -pivot-Assignment.xlsx",
+    "fileSize": 21542,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "Baba thanveer -pivot-Assignment.xlsx",
+      "fileSize": 21542,
+      "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-26T02:55:37Z",
+      "modifiedDate": "2026-10-26T02:55:37Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 41,
+      "sampleFormulas": [
+        "IF($B$4=\"All\",SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A7,Raw_Data!$C:$C,B$6),SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A7,Raw_Data!$C:$C,B$6,Raw_Data!$F:$F,$B$4))",
+        "IF($B$4=\"All\",SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A7,Raw_Data!$C:$C,C$6),SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A7,Raw_Data!$C:$C,C$6,Raw_Data!$F:$F,$B$4))",
+        "SUM(B7:C7)",
+        "IF($B$4=\"All\",SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A8,Raw_Data!$C:$C,B$6),SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A8,Raw_Data!$C:$C,B$6,Raw_Data!$F:$F,$B$4))",
+        "IF($B$4=\"All\",SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A8,Raw_Data!$C:$C,C$6),SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A8,Raw_Data!$C:$C,C$6,Raw_Data!$F:$F,$B$4))"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 35,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "File metadata registers 0 minutes total editing time (instant generation)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 40,
+        "analysis": 5,
+        "total": 50
+      }
+    },
+    "evaluation": {
+      "finalScore": 50,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
+      "evaluatedAt": "2026-10-26T13:41:48.619Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-59995-108615",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-59995",
+    "studentName": "Praneshumashankar Pivotassognment",
+    "submittedAt": "2026-10-26T13:41:48.615Z",
+    "originalFilename": "035_PraneshUmashankar_PivotAssognment.xlsx",
+    "fileSize": 22651,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "035_PraneshUmashankar_PivotAssognment.xlsx",
+      "fileSize": 22651,
+      "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T13:38:36Z",
+      "modifiedDate": "2026-10-26T03:23:07Z",
+      "sheetNames": [
+        "Procedure",
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 0,
+      "sampleFormulas": [],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": true
+      },
+      "integrityScore": 15,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "File metadata registers 0 minutes total editing time (instant generation)",
+        "No formula tags (<f>) detected in worksheets; values may be hardcoded"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 24,
+        "analysis": 5,
+        "total": 34
+      }
+    },
+    "evaluation": {
+      "finalScore": 34,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "evaluatedAt": "2026-10-26T13:41:48.616Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-24030-108612",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-24030",
+    "studentName": "Prov Asav Bsc Nidhipatel",
+    "submittedAt": "2026-10-26T13:41:48.612Z",
+    "originalFilename": "PROV-ASAV-BSC-016_nidhipatel_pivot_assignment.xlsx",
+    "fileSize": 27372,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV-ASAV-BSC-016_nidhipatel_pivot_assignment.xlsx",
+      "fileSize": 27372,
+      "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T13:33:34Z",
+      "modifiedDate": "2026-10-25T13:33:34Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 0,
+      "sampleFormulas": [],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": true
+      },
+      "integrityScore": 15,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "File metadata registers 0 minutes total editing time (instant generation)",
+        "No formula tags (<f>) detected in worksheets; values may be hardcoded"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 24,
+        "analysis": 5,
+        "total": 34
+      }
+    },
+    "evaluation": {
+      "finalScore": 34,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "evaluatedAt": "2026-10-26T13:41:48.612Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-14425-108608",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-14425",
+    "studentName": "Prov Asav Bsc Guru",
+    "submittedAt": "2026-10-26T13:41:48.608Z",
+    "originalFilename": "PROV-ASAV-BSC-26-023_GURU_BLR_Airport_Pivot_Assignment.xlsx",
+    "fileSize": 21803,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV-ASAV-BSC-26-023_GURU_BLR_Airport_Pivot_Assignment.xlsx",
+      "fileSize": 21803,
+      "application": "Microsoft Excel",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T11:08:11Z",
+      "modifiedDate": "2026-10-25T11:08:11Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 98,
+      "sampleFormulas": [
+        "SUM(Raw_Data!I5:I54)",
+        "SUMIF(Raw_Data!$C$5:$C$54, \"T1\", Raw_Data!$I$5:$I$54)",
+        "SUMIF(Raw_Data!$C$5:$C$54, \"T2\", Raw_Data!$I$5:$I$54)",
+        "SUMIFS(Raw_Data!$I$5:$I$54, Raw_Data!$B$5:$B$54, \"IndiGo\", Raw_Data!$C$5:$C$54, \"T1\")",
+        "SUMIFS(Raw_Data!$I$5:$I$54, Raw_Data!$B$5:$B$54, \"IndiGo\", Raw_Data!$C$5:$C$54, \"T2\")"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 35,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel)",
+        "File metadata registers 0 minutes total editing time (instant generation)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 40,
+        "analysis": 5,
+        "total": 50
+      }
+    },
+    "evaluation": {
+      "finalScore": 50,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation)",
+      "evaluatedAt": "2026-10-26T13:41:48.608Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-43088-108604",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-43088",
+    "studentName": "Ava Deepaklakhani",
+    "submittedAt": "2026-10-26T13:41:48.604Z",
+    "originalFilename": "26AVA062_DeepakLakhani_Pivot_Assignment.xlsx",
+    "fileSize": 19582,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "26AVA062_DeepakLakhani_Pivot_Assignment.xlsx",
+      "fileSize": 19582,
+      "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-26T03:04:54Z",
+      "modifiedDate": "2026-10-26T03:04:54Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 0,
+      "sampleFormulas": [],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": true
+      },
+      "integrityScore": 15,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "File metadata registers 0 minutes total editing time (instant generation)",
+        "No formula tags (<f>) detected in worksheets; values may be hardcoded"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 24,
+        "analysis": 5,
+        "total": 34
+      }
+    },
+    "evaluation": {
+      "finalScore": 34,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "evaluatedAt": "2026-10-26T13:41:48.604Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-3361-108601",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-3361",
+    "studentName": "Prov Asav Bsc",
+    "submittedAt": "2026-10-26T13:41:48.601Z",
+    "originalFilename": "PROV_ASAV_BSC_7_26_058.xlsx",
+    "fileSize": 32883,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV_ASAV_BSC_7_26_058.xlsx",
+      "fileSize": 32883,
+      "application": "Excel iOS",
+      "appVersion": "16.0300",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "",
+      "createdDate": "2026-10-25T16:24:12Z",
+      "modifiedDate": "2026-10-25T16:24:15Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 70,
+      "sampleFormulas": [
+        "AVERAGEIFS(Raw_Data!$L$2:$L$51,Raw_Data!$M$2:$M$51,$A5)",
+        "COUNTIFS(Raw_Data!$M$2:$M$51,$A5)",
+        "AVERAGEIFS(Raw_Data!$L$2:$L$51,Raw_Data!$M$2:$M$51,$A6)",
+        "COUNTIFS(Raw_Data!$M$2:$M$51,$A6)",
+        "AVERAGEIFS(Raw_Data!$L$2:$L$51,Raw_Data!$M$2:$M$51,$A7)"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 35,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Excel iOS)",
+        "File metadata registers 0 minutes total editing time (instant generation)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 40,
+        "analysis": 5,
+        "total": 50
+      }
+    },
+    "evaluation": {
+      "finalScore": 50,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Excel iOS); File metadata registers 0 minutes total editing time (instant generation)",
+      "evaluatedAt": "2026-10-26T13:41:48.601Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-21210-108597",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-21210",
+    "studentName": "Ava Makara Bushan Assignment.xlsx",
+    "submittedAt": "2026-10-26T13:41:48.597Z",
+    "originalFilename": "26AVA36_MAKARA BUSHAN_Pivot_Assignment.xlsx.xlsx",
+    "fileSize": 21519,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "26AVA36_MAKARA BUSHAN_Pivot_Assignment.xlsx.xlsx",
+      "fileSize": 21519,
+      "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T04:44:54Z",
+      "modifiedDate": "2026-10-25T04:44:54Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 0,
+      "sampleFormulas": [],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": true
+      },
+      "integrityScore": 15,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "File metadata registers 0 minutes total editing time (instant generation)",
+        "No formula tags (<f>) detected in worksheets; values may be hardcoded"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 24,
+        "analysis": 5,
+        "total": 34
+      }
+    },
+    "evaluation": {
+      "finalScore": 34,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "evaluatedAt": "2026-10-26T13:41:48.597Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-51071-108594",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-51071",
+    "studentName": "Provasavbsc Man Patel",
+    "submittedAt": "2026-10-26T13:41:48.594Z",
+    "originalFilename": "PROVASAVBSC726053_Man Patel_Pivot_Assignment.xlsx",
+    "fileSize": 22691,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROVASAVBSC726053_Man Patel_Pivot_Assignment.xlsx",
+      "fileSize": 22691,
+      "application": "Microsoft Excel",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T11:13:59Z",
+      "modifiedDate": "2026-10-25T11:13:59Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 93,
+      "sampleFormulas": [
+        "SUMIFS(Raw_Data!$I$6:$I$55, Raw_Data!$B$6:$B$55, \"Air India\", Raw_Data!$C$6:$C$55, \"T1\")",
+        "SUMIFS(Raw_Data!$I$6:$I$55, Raw_Data!$B$6:$B$55, \"Air India\", Raw_Data!$C$6:$C$55, \"T2\")",
+        "SUM(B8:C8)",
+        "SUMIFS(Raw_Data!$I$6:$I$55, Raw_Data!$B$6:$B$55, \"Akasa Air\", Raw_Data!$C$6:$C$55, \"T1\")",
+        "SUMIFS(Raw_Data!$I$6:$I$55, Raw_Data!$B$6:$B$55, \"Akasa Air\", Raw_Data!$C$6:$C$55, \"T2\")"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 35,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel)",
+        "File metadata registers 0 minutes total editing time (instant generation)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 40,
+        "analysis": 5,
+        "total": 50
+      }
+    },
+    "evaluation": {
+      "finalScore": 50,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation)",
+      "evaluatedAt": "2026-10-26T13:41:48.594Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-61075-108590",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-61075",
+    "studentName": "Ava Daniel Ntonja New",
+    "submittedAt": "2026-10-26T13:41:48.590Z",
+    "originalFilename": "26AVA018_Daniel Ntonja_Pivot_Assignment_New.xlsx",
+    "fileSize": 26091,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "26AVA018_Daniel Ntonja_Pivot_Assignment_New.xlsx",
+      "fileSize": 26091,
+      "application": "Excel Android",
+      "appVersion": "16.0300",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T12:45:22Z",
+      "modifiedDate": "2026-10-25T12:45:22Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 1,
+      "sampleFormulas": [
+        "SUM(B5:B9)"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 35,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Excel Android)",
+        "File metadata registers 0 minutes total editing time (instant generation)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 36,
+        "analysis": 5,
+        "total": 46
+      }
+    },
+    "evaluation": {
+      "finalScore": 46,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Excel Android); File metadata registers 0 minutes total editing time (instant generation)",
+      "evaluatedAt": "2026-10-26T13:41:48.590Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-96393-108585",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-96393",
+    "studentName": "Ava Syed Hisham Hamza",
+    "submittedAt": "2026-10-26T13:41:48.585Z",
+    "originalFilename": "26-AVA-034_Syed_Hisham_Hamza_Pivot_Assignment.xlsx",
+    "fileSize": 25088,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "26-AVA-034_Syed_Hisham_Hamza_Pivot_Assignment.xlsx",
+      "fileSize": 25088,
+      "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "Aryan Zinda R",
+      "lastModifiedBy": "Aryan Zinda R",
+      "createdDate": "2026-10-25T16:24:12Z",
+      "modifiedDate": "2026-10-26T03:43:24Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 70,
+      "sampleFormulas": [
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A6,Raw_Data!$C$2:$C$51,\"T1\",Raw_Data!$F$2:$F$51,IF($B$3=\"All\",\"*\",$B$3))",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A6,Raw_Data!$C$2:$C$51,\"T2\",Raw_Data!$F$2:$F$51,IF($B$3=\"All\",\"*\",$B$3))",
+        "SUM(B6:C6)",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A7,Raw_Data!$C$2:$C$51,\"T1\",Raw_Data!$F$2:$F$51,IF($B$3=\"All\",\"*\",$B$3))",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A7,Raw_Data!$C$2:$C$51,\"T2\",Raw_Data!$F$2:$F$51,IF($B$3=\"All\",\"*\",$B$3))"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 35,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "File metadata registers 0 minutes total editing time (instant generation)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 40,
+        "analysis": 5,
+        "total": 50
+      }
+    },
+    "evaluation": {
+      "finalScore": 50,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
+      "evaluatedAt": "2026-10-26T13:41:48.585Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-99407-108582",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-99407",
+    "studentName": "Ava Prathameshchavan",
+    "submittedAt": "2026-10-26T13:41:48.582Z",
+    "originalFilename": "26AVA044PrathameshChavan_Pivot_Assignment.xlsx",
+    "fileSize": 21838,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "26AVA044PrathameshChavan_Pivot_Assignment.xlsx",
+      "fileSize": 21838,
+      "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-26T03:24:53Z",
+      "modifiedDate": "2026-10-26T03:24:53Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 74,
+      "sampleFormulas": [
+        "IF($B$4=\"All\",SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A7,Raw_Data!$C$2:$C$51,B$6),SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A7,Raw_Data!$C$2:$C$51,B$6,Raw_Data!$F$2:$F$51,$B$4))",
+        "IF($B$4=\"All\",SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A7,Raw_Data!$C$2:$C$51,C$6),SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A7,Raw_Data!$C$2:$C$51,C$6,Raw_Data!$F$2:$F$51,$B$4))",
+        "SUM(B7:C7)",
+        "IF($B$4=\"All\",SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A8,Raw_Data!$C$2:$C$51,B$6),SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A8,Raw_Data!$C$2:$C$51,B$6,Raw_Data!$F$2:$F$51,$B$4))",
+        "IF($B$4=\"All\",SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A8,Raw_Data!$C$2:$C$51,C$6),SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A8,Raw_Data!$C$2:$C$51,C$6,Raw_Data!$F$2:$F$51,$B$4))"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 35,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "File metadata registers 0 minutes total editing time (instant generation)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 40,
+        "analysis": 5,
+        "total": 50
+      }
+    },
+    "evaluation": {
+      "finalScore": 50,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
+      "evaluatedAt": "2026-10-26T13:41:48.582Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-75903-108579",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-75903",
+    "studentName": "Prov Asav Bsc Danieljaisonj",
+    "submittedAt": "2026-10-26T13:41:48.579Z",
+    "originalFilename": "PROV-ASAV-BSC-7-26-046_DanielJaisonJ_Pivot_Assignment.xlsx",
+    "fileSize": 25088,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV-ASAV-BSC-7-26-046_DanielJaisonJ_Pivot_Assignment.xlsx",
+      "fileSize": 25088,
+      "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "Aryan Zinda R",
+      "lastModifiedBy": "Aryan Zinda R",
+      "createdDate": "2026-10-25T16:24:12Z",
+      "modifiedDate": "2026-10-26T03:43:24Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 70,
+      "sampleFormulas": [
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A6,Raw_Data!$C$2:$C$51,\"T1\",Raw_Data!$F$2:$F$51,IF($B$3=\"All\",\"*\",$B$3))",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A6,Raw_Data!$C$2:$C$51,\"T2\",Raw_Data!$F$2:$F$51,IF($B$3=\"All\",\"*\",$B$3))",
+        "SUM(B6:C6)",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A7,Raw_Data!$C$2:$C$51,\"T1\",Raw_Data!$F$2:$F$51,IF($B$3=\"All\",\"*\",$B$3))",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A7,Raw_Data!$C$2:$C$51,\"T2\",Raw_Data!$F$2:$F$51,IF($B$3=\"All\",\"*\",$B$3))"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 35,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "File metadata registers 0 minutes total editing time (instant generation)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 40,
+        "analysis": 5,
+        "total": 50
+      }
+    },
+    "evaluation": {
+      "finalScore": 50,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
+      "evaluatedAt": "2026-10-26T13:41:48.579Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-86618-108575",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-86618",
+    "studentName": "Prov Asav Bsc Syedrasulhuzaif",
+    "submittedAt": "2026-10-26T13:41:48.575Z",
+    "originalFilename": "PROV-ASAV-BSC-7-26-001_SyedRasulHuzaif_Pivot_Assignment-1.xlsx",
+    "fileSize": 32755,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV-ASAV-BSC-7-26-001_SyedRasulHuzaif_Pivot_Assignment-1.xlsx",
+      "fileSize": 32755,
+      "application": "LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2",
+      "appVersion": "15.0000",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "",
+      "createdDate": "2026-10-25T11:15:15Z",
+      "modifiedDate": "2026-10-25T11:15:17Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves",
+        "Analysis_Summary"
+      ],
+      "totalFormulasFound": 99,
+      "sampleFormulas": [
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A8,Raw_Data!$C$2:$C$51,B$7,Raw_Data!$F$2:$F$51,IF($B$4=&quot;(All)&quot;,&quot;*&quot;,$B$4))",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A8,Raw_Data!$C$2:$C$51,C$7,Raw_Data!$F$2:$F$51,IF($B$4=&quot;(All)&quot;,&quot;*&quot;,$B$4))",
+        "SUM(B8:C8)",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A9,Raw_Data!$C$2:$C$51,B$7,Raw_Data!$F$2:$F$51,IF($B$4=&quot;(All)&quot;,&quot;*&quot;,$B$4))",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A9,Raw_Data!$C$2:$C$51,C$7,Raw_Data!$F$2:$F$51,IF($B$4=&quot;(All)&quot;,&quot;*&quot;,$B$4))"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": false,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 50,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 40,
+        "analysis": 5,
+        "total": 50
+      }
+    },
+    "evaluation": {
+      "finalScore": 50,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2)",
+      "evaluatedAt": "2026-10-26T13:41:48.575Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-38418-108570",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-38418",
+    "studentName": "Prov Asav Bsc Pavankumar",
+    "submittedAt": "2026-10-26T13:41:48.570Z",
+    "originalFilename": "PROV-ASAV-BSC-7-014-096_Pavankumar_BLR_Airport_Pivot_Assignment copy.xlsx",
+    "fileSize": 32661,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV-ASAV-BSC-7-014-096_Pavankumar_BLR_Airport_Pivot_Assignment copy.xlsx",
+      "fileSize": 32661,
+      "application": "Excel iOS",
+      "appVersion": "16.0300",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T11:08:11Z",
+      "modifiedDate": "2026-10-25T11:08:11Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 98,
+      "sampleFormulas": [
+        "COUNTIF(Raw_Data!$K$5:$K$54, \"Delayed\")",
+        "AVERAGEIF(Raw_Data!$L$5:$L$54, \"&gt;0\", Raw_Data!$L$5:$L$54)",
+        "AVERAGEIFS(Raw_Data!$L$5:$L$54, Raw_Data!$M$5:$M$54, \"Weather\")",
+        "COUNTIFS(Raw_Data!$M$5:$M$54, \"Weather\", Raw_Data!$K$5:$K$54, \"Delayed\")",
+        "AVERAGEIFS(Raw_Data!$L$5:$L$54, Raw_Data!$M$5:$M$54, \"ATC Congestion\")"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 35,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Excel iOS)",
+        "File metadata registers 0 minutes total editing time (instant generation)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 40,
+        "analysis": 5,
+        "total": 50
+      }
+    },
+    "evaluation": {
+      "finalScore": 50,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Excel iOS); File metadata registers 0 minutes total editing time (instant generation)",
+      "evaluatedAt": "2026-10-26T13:41:48.570Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-63852-108567",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-63852",
+    "studentName": "Ava Aryanzindar",
+    "submittedAt": "2026-10-26T13:41:48.567Z",
+    "originalFilename": "26-AVA-050_AryanZindaR_Pivot_Assignment.xlsx",
+    "fileSize": 25088,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "26-AVA-050_AryanZindaR_Pivot_Assignment.xlsx",
+      "fileSize": 25088,
+      "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "Aryan Zinda R",
+      "lastModifiedBy": "Aryan Zinda R",
+      "createdDate": "2026-10-25T16:24:12Z",
+      "modifiedDate": "2026-10-26T03:43:24Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 70,
+      "sampleFormulas": [
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A6,Raw_Data!$C$2:$C$51,\"T1\",Raw_Data!$F$2:$F$51,IF($B$3=\"All\",\"*\",$B$3))",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A6,Raw_Data!$C$2:$C$51,\"T2\",Raw_Data!$F$2:$F$51,IF($B$3=\"All\",\"*\",$B$3))",
+        "SUM(B6:C6)",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A7,Raw_Data!$C$2:$C$51,\"T1\",Raw_Data!$F$2:$F$51,IF($B$3=\"All\",\"*\",$B$3))",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A7,Raw_Data!$C$2:$C$51,\"T2\",Raw_Data!$F$2:$F$51,IF($B$3=\"All\",\"*\",$B$3))"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 35,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "File metadata registers 0 minutes total editing time (instant generation)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 40,
+        "analysis": 5,
+        "total": 50
+      }
+    },
+    "evaluation": {
+      "finalScore": 50,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
+      "evaluatedAt": "2026-10-26T13:41:48.567Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-59299-108562",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-59299",
+    "studentName": "Prov Asav Bsc Hannah Sony",
+    "submittedAt": "2026-10-26T13:41:48.562Z",
+    "originalFilename": "PROV-ASAV-BSC-7-26-026_Hannah Sony_Pivot_Assignment.xlsx",
+    "fileSize": 32839,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV-ASAV-BSC-7-26-026_Hannah Sony_Pivot_Assignment.xlsx",
+      "fileSize": 32839,
+      "application": "Microsoft Excel",
+      "appVersion": "16.0300",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "HANNAH MARIAM SONY",
+      "createdDate": "2026-10-25T16:34:41Z",
+      "modifiedDate": "2026-10-25T17:13:06Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 0,
+      "sampleFormulas": [],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": true
+      },
+      "integrityScore": 15,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel)",
+        "File metadata registers 0 minutes total editing time (instant generation)",
+        "No formula tags (<f>) detected in worksheets; values may be hardcoded"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 24,
+        "analysis": 5,
+        "total": 34
+      }
+    },
+    "evaluation": {
+      "finalScore": 34,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "evaluatedAt": "2026-10-26T13:41:48.562Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-9948-108558",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-9948",
+    "studentName": "Prov Asav Bsc Daiwikvardhan",
+    "submittedAt": "2026-10-26T13:41:48.558Z",
+    "originalFilename": "PROV_ASAV_BSC_7_26_005_DaiwikVardhan_Pivot_Assignment.xlsx",
+    "fileSize": 23085,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV_ASAV_BSC_7_26_005_DaiwikVardhan_Pivot_Assignment.xlsx",
+      "fileSize": 23085,
+      "application": "Unknown",
+      "appVersion": "",
+      "totalTimeMinutes": 0,
+      "creator": "Unknown",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "",
+      "modifiedDate": "",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 0,
+      "sampleFormulas": [],
+      "flags": {
+        "isAiGenerator": false,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": false,
+        "hasMissingSheets": false,
+        "hasNoFormulas": true
+      },
+      "integrityScore": 80,
+      "integrityLevel": "suspicious",
+      "summaryFindings": [
+        "No formula tags (<f>) detected in worksheets; values may be hardcoded"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 24,
+        "analysis": 5,
+        "total": 34
+      }
+    },
+    "evaluation": {
+      "finalScore": 34,
+      "instructorOverride": false,
+      "instructorRemarks": "No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "evaluatedAt": "2026-10-26T13:41:48.558Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-60295-108554",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-60295",
+    "studentName": "Prov Asav Bsc Kusumahreddy",
+    "submittedAt": "2026-10-26T13:41:48.554Z",
+    "originalFilename": "PROV_ASAV_BSC_7_26_040_ KusumaHReddy.xlsx",
+    "fileSize": 21895,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV_ASAV_BSC_7_26_040_ KusumaHReddy.xlsx",
+      "fileSize": 21895,
+      "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "OpenAI",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T12:45:20Z",
+      "modifiedDate": "2026-10-25T12:45:30Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 40,
+      "sampleFormulas": [
+        "IF($B$4=\"All\",SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A7,Raw_Data!$C:$C,B$6),SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A7,Raw_Data!$C:$C,B$6,Raw_Data!$F:$F,$B$4))",
+        "IF($B$4=\"All\",SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A7,Raw_Data!$C:$C,C$6),SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A7,Raw_Data!$C:$C,C$6,Raw_Data!$F:$F,$B$4))",
+        "SUM(B7:C7)",
+        "IF($B$4=\"All\",SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A8,Raw_Data!$C:$C,B$6),SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A8,Raw_Data!$C:$C,B$6,Raw_Data!$F:$F,$B$4))",
+        "IF($B$4=\"All\",SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A8,Raw_Data!$C:$C,C$6),SUMIFS(Raw_Data!$I:$I,Raw_Data!$B:$B,$A8,Raw_Data!$C:$C,C$6,Raw_Data!$F:$F,$B$4))"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 35,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "File metadata registers 0 minutes total editing time (instant generation)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 40,
+        "analysis": 5,
+        "total": 50
+      }
+    },
+    "evaluation": {
+      "finalScore": 50,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
+      "evaluatedAt": "2026-10-26T13:41:48.554Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-45666-108551",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-45666",
+    "studentName": "Ava Felbin Antony Alappadan",
+    "submittedAt": "2026-10-26T13:41:48.551Z",
+    "originalFilename": "26-AVA-038_Felbin_Antony_Alappadan_Pivot_Assignment.xlsx",
+    "fileSize": 25088,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "26-AVA-038_Felbin_Antony_Alappadan_Pivot_Assignment.xlsx",
+      "fileSize": 25088,
+      "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "Aryan Zinda R",
+      "lastModifiedBy": "Aryan Zinda R",
+      "createdDate": "2026-10-25T16:24:12Z",
+      "modifiedDate": "2026-10-26T03:43:24Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 70,
+      "sampleFormulas": [
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A6,Raw_Data!$C$2:$C$51,\"T1\",Raw_Data!$F$2:$F$51,IF($B$3=\"All\",\"*\",$B$3))",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A6,Raw_Data!$C$2:$C$51,\"T2\",Raw_Data!$F$2:$F$51,IF($B$3=\"All\",\"*\",$B$3))",
+        "SUM(B6:C6)",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A7,Raw_Data!$C$2:$C$51,\"T1\",Raw_Data!$F$2:$F$51,IF($B$3=\"All\",\"*\",$B$3))",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A7,Raw_Data!$C$2:$C$51,\"T2\",Raw_Data!$F$2:$F$51,IF($B$3=\"All\",\"*\",$B$3))"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 35,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "File metadata registers 0 minutes total editing time (instant generation)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 40,
+        "analysis": 5,
+        "total": 50
+      }
+    },
+    "evaluation": {
+      "finalScore": 50,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
+      "evaluatedAt": "2026-10-26T13:41:48.551Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-42505-108547",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-42505",
+    "studentName": "Prov Asav Bsc Guru",
+    "submittedAt": "2026-10-26T13:41:48.547Z",
+    "originalFilename": "PROV-ASAV-BSC-26-023_GURU_BLR_Airport_Pivot_Assignment(1).xlsx",
+    "fileSize": 21803,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV-ASAV-BSC-26-023_GURU_BLR_Airport_Pivot_Assignment(1).xlsx",
+      "fileSize": 21803,
+      "application": "Microsoft Excel",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T11:08:11Z",
+      "modifiedDate": "2026-10-25T11:08:11Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 98,
+      "sampleFormulas": [
+        "SUM(Raw_Data!I5:I54)",
+        "SUMIF(Raw_Data!$C$5:$C$54, \"T1\", Raw_Data!$I$5:$I$54)",
+        "SUMIF(Raw_Data!$C$5:$C$54, \"T2\", Raw_Data!$I$5:$I$54)",
+        "SUMIFS(Raw_Data!$I$5:$I$54, Raw_Data!$B$5:$B$54, \"IndiGo\", Raw_Data!$C$5:$C$54, \"T1\")",
+        "SUMIFS(Raw_Data!$I$5:$I$54, Raw_Data!$B$5:$B$54, \"IndiGo\", Raw_Data!$C$5:$C$54, \"T2\")"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 35,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel)",
+        "File metadata registers 0 minutes total editing time (instant generation)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 40,
+        "analysis": 5,
+        "total": 50
+      }
+    },
+    "evaluation": {
+      "finalScore": 50,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation)",
+      "evaluatedAt": "2026-10-26T13:41:48.547Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-19501-108544",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-19501",
+    "studentName": "Sreeya.s",
+    "submittedAt": "2026-10-26T13:41:48.544Z",
+    "originalFilename": "021_SREEYA.S_Pivot_Assignment.xlsx",
+    "fileSize": 21357,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "021_SREEYA.S_Pivot_Assignment.xlsx",
+      "fileSize": 21357,
+      "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T09:51:18Z",
+      "modifiedDate": "2026-10-25T09:51:31Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 29,
+      "sampleFormulas": [
+        "SUM(B7:C7)",
+        "SUM(B8:C8)",
+        "SUM(B9:C9)",
+        "SUM(B10:C10)",
+        "SUM(B11:C11)"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 35,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "File metadata registers 0 minutes total editing time (instant generation)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 40,
+        "analysis": 5,
+        "total": 50
+      }
+    },
+    "evaluation": {
+      "finalScore": 50,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
+      "evaluatedAt": "2026-10-26T13:41:48.544Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-39233-108540",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-39233",
+    "studentName": "Prov Asav Irene Anna Sabu",
+    "submittedAt": "2026-10-26T13:41:48.540Z",
+    "originalFilename": "PROV_ASAV_726042_IRENE ANNA SABU_PIVOT_ASSIGNMENT.xlsx",
+    "fileSize": 51850,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV_ASAV_726042_IRENE ANNA SABU_PIVOT_ASSIGNMENT.xlsx",
+      "fileSize": 51850,
+      "application": "Microsoft Excel",
+      "appVersion": "16.0300",
+      "totalTimeMinutes": 0,
+      "creator": "Irene Sabu",
+      "lastModifiedBy": "Irene Sabu",
+      "createdDate": "2026-10-26T09:37:48Z",
+      "modifiedDate": "2026-10-26T09:37:48Z",
+      "sheetNames": [
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_delay_Bottlenecks",
+        "Task4_baggage_waves",
+        "Raw_Data"
+      ],
+      "totalFormulasFound": 0,
+      "sampleFormulas": [],
+      "flags": {
+        "isAiGenerator": false,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": true
+      },
+      "integrityScore": 65,
+      "integrityLevel": "suspicious",
+      "summaryFindings": [
+        "File metadata registers 0 minutes total editing time (instant generation)",
+        "No formula tags (<f>) detected in worksheets; values may be hardcoded"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 24,
+        "analysis": 5,
+        "total": 34
+      }
+    },
+    "evaluation": {
+      "finalScore": 34,
+      "instructorOverride": false,
+      "instructorRemarks": "File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "evaluatedAt": "2026-10-26T13:41:48.540Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-29753-108533",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-29753",
+    "studentName": "Prov Asav Bsc Abiga Assignment.xlsx",
+    "submittedAt": "2026-10-26T13:41:48.533Z",
+    "originalFilename": "PROV_ASAV_BSC_7_26_022_ABIGA J_PIVOT_ASSIGNMENT.xlsx.xlsx",
+    "fileSize": 38613,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV_ASAV_BSC_7_26_022_ABIGA J_PIVOT_ASSIGNMENT.xlsx.xlsx",
+      "fileSize": 38613,
+      "application": "Microsoft Excel",
+      "appVersion": "16.0300",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "ABIGA J",
+      "createdDate": "2026-10-25T17:36:58Z",
+      "modifiedDate": "2026-10-25T18:01:40Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 0,
+      "sampleFormulas": [],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": true
+      },
+      "integrityScore": 15,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel)",
+        "File metadata registers 0 minutes total editing time (instant generation)",
+        "No formula tags (<f>) detected in worksheets; values may be hardcoded"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 24,
+        "analysis": 5,
+        "total": 34
+      }
+    },
+    "evaluation": {
+      "finalScore": 34,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "evaluatedAt": "2026-10-26T13:41:48.533Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-91890-108528",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-91890",
+    "studentName": "Prov Asav Bsc Md.saquib",
+    "submittedAt": "2026-10-26T13:41:48.528Z",
+    "originalFilename": "PROV_ASAV_BSC_7_26_008_MD.SAQUIB_Pivot_assignment.xlsx",
+    "fileSize": 22112,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV_ASAV_BSC_7_26_008_MD.SAQUIB_Pivot_assignment.xlsx",
+      "fileSize": 22112,
+      "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T13:33:34Z",
+      "modifiedDate": "2026-10-25T13:33:34Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 0,
+      "sampleFormulas": [],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": true
+      },
+      "integrityScore": 15,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "File metadata registers 0 minutes total editing time (instant generation)",
+        "No formula tags (<f>) detected in worksheets; values may be hardcoded"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 24,
+        "analysis": 5,
+        "total": 34
+      }
+    },
+    "evaluation": {
+      "finalScore": 34,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "evaluatedAt": "2026-10-26T13:41:48.528Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-17431-108523",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-17431",
+    "studentName": "Rakshan Rs",
+    "submittedAt": "2026-10-26T13:41:48.523Z",
+    "originalFilename": "033_RAKSHAN RS_Pivot_Assignment (1).xlsx",
+    "fileSize": 18554,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "033_RAKSHAN RS_Pivot_Assignment (1).xlsx",
+      "fileSize": 18554,
+      "application": "Microsoft Excel",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-26T02:12:06Z",
+      "modifiedDate": "2026-10-26T02:12:06Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 0,
+      "sampleFormulas": [],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": true
+      },
+      "integrityScore": 15,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel)",
+        "File metadata registers 0 minutes total editing time (instant generation)",
+        "No formula tags (<f>) detected in worksheets; values may be hardcoded"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 24,
+        "analysis": 5,
+        "total": 34
+      }
+    },
+    "evaluation": {
+      "finalScore": 34,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "evaluatedAt": "2026-10-26T13:41:48.523Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-27508-108518",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-27508",
+    "studentName": "Prov Asav Bsc Vandana Rani",
+    "submittedAt": "2026-10-26T13:41:48.518Z",
+    "originalFilename": "PROV-ASAV-BSC-7-26-017-Vandana_Rani_Aviation_Pivot_Assignment.xlsx",
+    "fileSize": 21319,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV-ASAV-BSC-7-26-017-Vandana_Rani_Aviation_Pivot_Assignment.xlsx",
+      "fileSize": 21319,
+      "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "OpenAI",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T18:39:16Z",
+      "modifiedDate": "2026-10-25T18:39:16Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 3,
+      "sampleFormulas": [
+        "SUM(B6:B10)",
+        "SUM(C6:C10)",
+        "SUM(D6:D10)"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 35,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "File metadata registers 0 minutes total editing time (instant generation)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 32,
+        "analysis": 5,
+        "total": 42
+      }
+    },
+    "evaluation": {
+      "finalScore": 42,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation)",
+      "evaluatedAt": "2026-10-26T13:41:48.518Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-37281-108514",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-37281",
+    "studentName": "Prov Asav Bsc Aaryakamerkar",
+    "submittedAt": "2026-10-26T13:41:48.514Z",
+    "originalFilename": "PROV_ASAV_BSC_7_26_009_AaryaKamerkar_Pivot_Assignment.xlsx",
+    "fileSize": 37997,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV_ASAV_BSC_7_26_009_AaryaKamerkar_Pivot_Assignment.xlsx",
+      "fileSize": 37997,
+      "application": "Excel Android",
+      "appVersion": "16.0300",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "",
+      "createdDate": "2026-10-25T20:14:10Z",
+      "modifiedDate": "2026-10-26T01:44:12Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves",
+        "Analysis"
+      ],
+      "totalFormulasFound": 94,
+      "sampleFormulas": [
+        "SUMIFS(Raw_Data!$J$2:$J$51,Raw_Data!$G$2:$G$51,$A5)",
+        "COUNTIFS(Raw_Data!$G$2:$G$51,$A5)",
+        "SUMIFS(Raw_Data!$J$2:$J$51,Raw_Data!$G$2:$G$51,$A6)",
+        "COUNTIFS(Raw_Data!$G$2:$G$51,$A6)",
+        "SUMIFS(Raw_Data!$J$2:$J$51,Raw_Data!$G$2:$G$51,$A7)"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 35,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Excel Android)",
+        "File metadata registers 0 minutes total editing time (instant generation)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 40,
+        "analysis": 5,
+        "total": 50
+      }
+    },
+    "evaluation": {
+      "finalScore": 50,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Excel Android); File metadata registers 0 minutes total editing time (instant generation)",
+      "evaluatedAt": "2026-10-26T13:41:48.514Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-38451-108510",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-38451",
+    "studentName": "Avinash.a",
+    "submittedAt": "2026-10-26T13:41:48.510Z",
+    "originalFilename": "Avinash.A(Assignment).xlsx",
+    "fileSize": 19785,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "Avinash.A(Assignment).xlsx",
+      "fileSize": 19785,
+      "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T16:35:06Z",
+      "modifiedDate": "2026-10-25T16:35:20Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 0,
+      "sampleFormulas": [],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": true
+      },
+      "integrityScore": 15,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "File metadata registers 0 minutes total editing time (instant generation)",
+        "No formula tags (<f>) detected in worksheets; values may be hardcoded"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 24,
+        "analysis": 5,
+        "total": 34
+      }
+    },
+    "evaluation": {
+      "finalScore": 34,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "evaluatedAt": "2026-10-26T13:41:48.510Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-53340-108507",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-53340",
+    "studentName": "Ava Vishwas",
+    "submittedAt": "2026-10-26T13:41:48.507Z",
+    "originalFilename": "26AVA061_VISHWAS_Pivot_Assignment.xlsx",
+    "fileSize": 44692,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "26AVA061_VISHWAS_Pivot_Assignment.xlsx",
+      "fileSize": 44692,
+      "application": "Unknown",
+      "appVersion": "",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T10:32:53Z",
+      "modifiedDate": "",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves",
+        "Analysis_Summary"
+      ],
+      "totalFormulasFound": 69,
+      "sampleFormulas": [
+        "IF(B3=&quot;All&quot;,&quot;*&quot;,B3)",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A6,Raw_Data!$C$2:$C$51,B$5,Raw_Data!$F$2:$F$51,$C$3)",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A6,Raw_Data!$C$2:$C$51,C$5,Raw_Data!$F$2:$F$51,$C$3)",
+        "SUM(B6:C6)",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A7,Raw_Data!$C$2:$C$51,B$5,Raw_Data!$F$2:$F$51,$C$3)"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": false,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 50,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Unknown)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 40,
+        "analysis": 5,
+        "total": 50
+      }
+    },
+    "evaluation": {
+      "finalScore": 50,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Unknown)",
+      "evaluatedAt": "2026-10-26T13:41:48.507Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-11153-108502",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-11153",
+    "studentName": "Ava Abdulazeezwajid Bscaviationseca Pivotassignment",
+    "submittedAt": "2026-10-26T13:41:48.502Z",
+    "originalFilename": "26AVA020_AbdulazeezWajid_BSCAviationSecA_PivotAssignment.xlsx",
+    "fileSize": 39774,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "26AVA020_AbdulazeezWajid_BSCAviationSecA_PivotAssignment.xlsx",
+      "fileSize": 39774,
+      "application": "Unknown",
+      "appVersion": "",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T12:45:22Z",
+      "modifiedDate": "",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves",
+        "Sheet1"
+      ],
+      "totalFormulasFound": 1,
+      "sampleFormulas": [
+        "SUM(B5:B9)"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": false,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 50,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Unknown)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 36,
+        "analysis": 5,
+        "total": 46
+      }
+    },
+    "evaluation": {
+      "finalScore": 46,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Unknown)",
+      "evaluatedAt": "2026-10-26T13:41:48.502Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-93650-108495",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-93650",
+    "studentName": "Prov Asav Bsc Adhilmohammedm",
+    "submittedAt": "2026-10-26T13:41:48.495Z",
+    "originalFilename": "PROV-ASAV-BSC-7-26-029-AdhilMohammedM_Pivot_Assignment.xlsx",
+    "fileSize": 46642,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV-ASAV-BSC-7-26-029-AdhilMohammedM_Pivot_Assignment.xlsx",
+      "fileSize": 46642,
+      "application": "Unknown",
+      "appVersion": "",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T11:11:58Z",
+      "modifiedDate": "",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves",
+        "Analysis_Summary",
+        "Sheet1"
+      ],
+      "totalFormulasFound": 80,
+      "sampleFormulas": [
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A6,Raw_Data!$C$2:$C$51,B$5,Raw_Data!$F$2:$F$51,IF($B$3=&quot;All&quot;,&quot;*&quot;,$B$3))",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A6,Raw_Data!$C$2:$C$51,C$5,Raw_Data!$F$2:$F$51,IF($B$3=&quot;All&quot;,&quot;*&quot;,$B$3))",
+        "SUM(B6:C6)",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A7,Raw_Data!$C$2:$C$51,B$5,Raw_Data!$F$2:$F$51,IF($B$3=&quot;All&quot;,&quot;*&quot;,$B$3))",
+        "SUMIFS(Raw_Data!$I$2:$I$51,Raw_Data!$B$2:$B$51,$A7,Raw_Data!$C$2:$C$51,C$5,Raw_Data!$F$2:$F$51,IF($B$3=&quot;All&quot;,&quot;*&quot;,$B$3))"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": false,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 50,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Unknown)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 40,
+        "analysis": 5,
+        "total": 50
+      }
+    },
+    "evaluation": {
+      "finalScore": 50,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Unknown)",
+      "evaluatedAt": "2026-10-26T13:41:48.495Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-83646-108488",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-83646",
+    "studentName": "Ava Harmainsehar",
+    "submittedAt": "2026-10-26T13:41:48.488Z",
+    "originalFilename": "26_AVA_007_HarmainSehar_Pivot_Assignment.xlsx",
+    "fileSize": 46898,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "26_AVA_007_HarmainSehar_Pivot_Assignment.xlsx",
+      "fileSize": 46898,
+      "application": "Unknown",
+      "appVersion": "",
+      "totalTimeMinutes": 0,
+      "creator": "Unknown",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T15:01:48Z",
+      "modifiedDate": "",
+      "sheetNames": [
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_waves",
+        "Raw_Data",
+        "Sheet1"
+      ],
+      "totalFormulasFound": 0,
+      "sampleFormulas": [],
+      "flags": {
+        "isAiGenerator": false,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": false,
+        "hasMissingSheets": false,
+        "hasNoFormulas": true
+      },
+      "integrityScore": 80,
+      "integrityLevel": "suspicious",
+      "summaryFindings": [
+        "No formula tags (<f>) detected in worksheets; values may be hardcoded"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 24,
+        "analysis": 5,
+        "total": 34
+      }
+    },
+    "evaluation": {
+      "finalScore": 34,
+      "instructorOverride": false,
+      "instructorRemarks": "No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "evaluatedAt": "2026-10-26T13:41:48.488Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-16070-108481",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-16070",
+    "studentName": "Prov Asav Bsc Tanmaykumar",
+    "submittedAt": "2026-10-26T13:41:48.481Z",
+    "originalFilename": "PROV-ASAV-BSC-7-26-048_TanmayKumar_Pivot_Assignment.xlsx",
+    "fileSize": 26208,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV-ASAV-BSC-7-26-048_TanmayKumar_Pivot_Assignment.xlsx",
+      "fileSize": 26208,
+      "application": "Microsoft Excel Compatible / Openpyxl 3.1.5",
+      "appVersion": "3.1",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "Unknown",
+      "createdDate": "2026-10-25T16:34:41Z",
+      "modifiedDate": "2026-10-25T16:34:41Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 0,
+      "sampleFormulas": [],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": true
+      },
+      "integrityScore": 15,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5)",
+        "File metadata registers 0 minutes total editing time (instant generation)",
+        "No formula tags (<f>) detected in worksheets; values may be hardcoded"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 24,
+        "analysis": 5,
+        "total": 34
+      }
+    },
+    "evaluation": {
+      "finalScore": 34,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Microsoft Excel Compatible / Openpyxl 3.1.5); File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "evaluatedAt": "2026-10-26T13:41:48.481Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-20661-108476",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-20661",
+    "studentName": "Shubhankarbhowmick",
+    "submittedAt": "2026-10-26T13:41:48.476Z",
+    "originalFilename": "28_ShubhankarBhowmick_Pivot_Assignment.xlsx",
+    "fileSize": 32324,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "28_ShubhankarBhowmick_Pivot_Assignment.xlsx",
+      "fileSize": 32324,
+      "application": "Microsoft Excel",
+      "appVersion": "16.0300",
+      "totalTimeMinutes": 0,
+      "creator": "OpenAI",
+      "lastModifiedBy": "Roberto Carlos",
+      "createdDate": "2026-10-25T12:39:24Z",
+      "modifiedDate": "2026-10-25T14:22:45Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 0,
+      "sampleFormulas": [],
+      "flags": {
+        "isAiGenerator": false,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": true
+      },
+      "integrityScore": 65,
+      "integrityLevel": "suspicious",
+      "summaryFindings": [
+        "File metadata registers 0 minutes total editing time (instant generation)",
+        "No formula tags (<f>) detected in worksheets; values may be hardcoded"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 24,
+        "analysis": 5,
+        "total": 34
+      }
+    },
+    "evaluation": {
+      "finalScore": 34,
+      "instructorOverride": false,
+      "instructorRemarks": "File metadata registers 0 minutes total editing time (instant generation); No formula tags (<f>) detected in worksheets; values may be hardcoded",
+      "evaluatedAt": "2026-10-26T13:41:48.476Z"
+    },
+    "batchEvaluated": true
+  },
+  {
+    "id": "SUB-STU-31940-108471",
+    "assignmentId": "blr-pivot-operations",
+    "assignmentTitle": "Flight Operations Analysis using Pivot Tables & Charts",
+    "rollNo": "STU-31940",
+    "studentName": "Prov Asav Bsc Cheedella Sai Manvith",
+    "submittedAt": "2026-10-26T13:41:48.471Z",
+    "originalFilename": "PROV_ASAV_BSC_7_26_004_Cheedella Sai Manvith_Pivot_Assignment copy.xlsx",
+    "fileSize": 32134,
+    "viva": {
+      "q1Answer": "Batch ZIP Submission",
+      "q2Answer": "Batch ZIP Submission",
+      "isCorrect": true,
+      "secondsTaken": 0
+    },
+    "forensics": {
+      "filename": "PROV_ASAV_BSC_7_26_004_Cheedella Sai Manvith_Pivot_Assignment copy.xlsx",
+      "fileSize": 32134,
+      "application": "Excel iOS",
+      "appVersion": "16.0300",
+      "totalTimeMinutes": 0,
+      "creator": "openpyxl",
+      "lastModifiedBy": "CHEEDELLA SAI MANVITH",
+      "createdDate": "2026-10-24T11:35:00Z",
+      "modifiedDate": "2026-10-25T11:59:34Z",
+      "sheetNames": [
+        "Raw_Data",
+        "Task1_Pax_Terminal",
+        "Task2_Punctuality_OTP",
+        "Task3_Delay_Bottlenecks",
+        "Task4_Baggage_Waves"
+      ],
+      "totalFormulasFound": 74,
+      "sampleFormulas": [
+        "AVERAGEIF(Raw_Data!$M$2:$M$51, \"Weather / Rain\", Raw_Data!$L$2:$L$51)",
+        "COUNTIF(Raw_Data!$M$2:$M$51, \"Weather / Rain\")",
+        "AVERAGEIF(Raw_Data!$M$2:$M$51, \"Late Inbound Aircraft\", Raw_Data!$L$2:$L$51)",
+        "COUNTIF(Raw_Data!$M$2:$M$51, \"Late Inbound Aircraft\")",
+        "AVERAGEIF(Raw_Data!$M$2:$M$51, \"Technical Snag\", Raw_Data!$L$2:$L$51)"
+      ],
+      "flags": {
+        "isAiGenerator": true,
+        "isHoneypotTriggered": false,
+        "isTrapRecordFound": false,
+        "hasZeroEditTime": true,
+        "hasMissingSheets": false,
+        "hasNoFormulas": false
+      },
+      "integrityScore": 35,
+      "integrityLevel": "high_risk",
+      "summaryFindings": [
+        "AI code generator detected in file metadata (Application: Excel iOS)",
+        "File metadata registers 0 minutes total editing time (instant generation)"
+      ],
+      "autoGradeEstimate": {
+        "dataSetup": 5,
+        "tasks": 40,
+        "analysis": 5,
+        "total": 50
+      }
+    },
+    "evaluation": {
+      "finalScore": 50,
+      "instructorOverride": false,
+      "instructorRemarks": "AI code generator detected in file metadata (Application: Excel iOS); File metadata registers 0 minutes total editing time (instant generation)",
+      "evaluatedAt": "2026-10-26T13:41:48.471Z"
+    },
+    "batchEvaluated": true
+  }
+]

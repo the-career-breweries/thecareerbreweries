@@ -168,6 +168,7 @@ export interface BatchEvaluationSummary {
   flaggedCount: number;
   highRiskCount: number;
   averageScore: number;
+  maxMarks: number;
   assignmentTitle: string;
   assignmentId: string;
   evaluatedAt: string;
@@ -180,9 +181,11 @@ export interface BatchEvaluationSummary {
  */
 export function evaluateBatchSubmissions(
   zipBuffer: Buffer,
-  assignment: AssignmentTemplate
+  assignment: AssignmentTemplate,
+  customMaxMarks?: number
 ): BatchEvaluationSummary {
   const extractedFiles = unzipArchive(zipBuffer);
+  const targetMaxMarks = customMaxMarks && customMaxMarks > 0 ? customMaxMarks : (assignment.totalMarks || 50);
 
   // Filter valid candidate office assignment files (.xlsx, .docx, .pptx)
   const validExtensions = ['.xlsx', '.docx', '.pptx', '.csv'];
@@ -249,7 +252,30 @@ export function evaluateBatchSubmissions(
     }
 
     const submissionId = `SUB-${rollNo}-${Date.now().toString().slice(-6)}`;
-    const score = forensics.autoGradeEstimate.total;
+
+    // Scale autoGrade to targetMaxMarks
+    const rawTotal50 = forensics.autoGradeEstimate.total;
+    const scaledScore = Number(((rawTotal50 / 50) * targetMaxMarks).toFixed(1));
+    const scorePercentage = Math.round((scaledScore / targetMaxMarks) * 100);
+
+    let gradeBand = 'O';
+    if (scorePercentage < 40) gradeBand = 'F';
+    else if (scorePercentage < 55) gradeBand = 'C';
+    else if (scorePercentage < 70) gradeBand = 'B';
+    else if (scorePercentage < 85) gradeBand = 'A';
+    else if (scorePercentage < 95) gradeBand = 'A+';
+
+    // Scale component breakdowns
+    const scaledDataSetup = Number(((forensics.autoGradeEstimate.dataSetup / 5) * (targetMaxMarks * 0.1)).toFixed(1));
+    const scaledTasks = Number(((forensics.autoGradeEstimate.tasks / 40) * (targetMaxMarks * 0.8)).toFixed(1));
+    const scaledAnalysis = Number(((forensics.autoGradeEstimate.analysis / 5) * (targetMaxMarks * 0.1)).toFixed(1));
+
+    forensics.autoGradeEstimate = {
+      dataSetup: scaledDataSetup,
+      tasks: scaledTasks,
+      analysis: scaledAnalysis,
+      total: scaledScore
+    };
 
     results.push({
       id: submissionId,
@@ -268,7 +294,10 @@ export function evaluateBatchSubmissions(
       },
       forensics,
       evaluation: {
-        finalScore: score,
+        finalScore: scaledScore,
+        maxMarks: targetMaxMarks,
+        percentage: scorePercentage,
+        gradeBand,
         instructorOverride: false,
         instructorRemarks: forensics.summaryFindings.join('; '),
         evaluatedAt: new Date().toISOString()
@@ -292,6 +321,7 @@ export function evaluateBatchSubmissions(
     flaggedCount,
     highRiskCount,
     averageScore,
+    maxMarks: targetMaxMarks,
     assignmentTitle: assignment.title,
     assignmentId: assignment.id,
     evaluatedAt: new Date().toISOString(),

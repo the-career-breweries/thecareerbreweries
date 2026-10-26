@@ -35,7 +35,10 @@ import {
   ArrowRight,
   FolderArchive,
   Upload,
-  X
+  X,
+  Award,
+  Printer,
+  FileCheck
 } from 'lucide-react';
 import {
   TOPICS_DATA,
@@ -71,6 +74,20 @@ interface SubmissionRecord {
     sheetNames: string[];
     totalFormulasFound: number;
     sampleFormulas: string[];
+    allFormulas?: string[];
+    formulaTypes?: string[];
+    resultAccuracy?: {
+      percentage: number;
+      status: string;
+      dataSetupAccuracy: number;
+      computationalAccuracy: number;
+      analysisAccuracy: number;
+    };
+    aiToolsUsed?: {
+      detected: boolean;
+      toolNames: string[];
+      reasons: string[];
+    };
     flags: {
       isAiGenerator: boolean;
       isHoneypotTriggered: boolean;
@@ -91,6 +108,9 @@ interface SubmissionRecord {
   };
   evaluation: {
     finalScore: number;
+    maxMarks?: number;
+    percentage?: number;
+    gradeBand?: string;
     instructorOverride: boolean;
     instructorRemarks: string;
     evaluatedAt: string | null;
@@ -128,12 +148,19 @@ export default function InstructorEvaluationConsole() {
 
   // Batch ZIP Evaluation State
   const [batchAssignmentId, setBatchAssignmentId] = useState<string>('blr-pivot-operations');
+  const [batchMaxMarks, setBatchMaxMarks] = useState<number>(15);
   const [batchZipFile, setBatchZipFile] = useState<File | null>(null);
   const [isEvaluatingBatch, setIsEvaluatingBatch] = useState<boolean>(false);
   const [batchResult, setBatchResult] = useState<any | null>(null);
   const [batchError, setBatchError] = useState<string>('');
   const [showBatchModal, setShowBatchModal] = useState<boolean>(false);
   const [assignmentFilter, setAssignmentFilter] = useState<string>('all');
+
+  // Report Card & Deletion State
+  const [selectedReportCardSub, setSelectedReportCardSub] = useState<SubmissionRecord | null>(null);
+  const [showReportCardModal, setShowReportCardModal] = useState<boolean>(false);
+  const [isDeletingAll, setIsDeletingAll] = useState<boolean>(false);
+  const [deleteStatus, setDeleteStatus] = useState<string>('');
 
   // Generator State
   const [genTopic, setGenTopic] = useState<'excel' | 'powerpoint' | 'word'>('excel');
@@ -217,12 +244,25 @@ export default function InstructorEvaluationConsole() {
         setAssignmentsList(list);
         const active = data.activeAssignmentId || 'blr-pivot-operations';
         setActiveAssignmentId(active);
-        setBatchAssignmentId((prev) => prev || active || (list[0]?.id ?? 'blr-pivot-operations'));
+        const targetId = active || list[0]?.id || 'blr-pivot-operations';
+        setBatchAssignmentId(targetId);
+        const asgnObj = list.find((a: any) => a.id === targetId);
+        if (asgnObj && asgnObj.totalMarks) {
+          setBatchMaxMarks(asgnObj.totalMarks);
+        }
       }
     } catch (err) {
       console.error('Failed to load assignments list:', err);
     } finally {
       setIsLoadingAssignments(false);
+    }
+  };
+
+  const handleAssignmentSelect = (asgnId: string) => {
+    setBatchAssignmentId(asgnId);
+    const asgnObj = assignmentsList.find((a: any) => a.id === asgnId);
+    if (asgnObj && asgnObj.totalMarks) {
+      setBatchMaxMarks(asgnObj.totalMarks);
     }
   };
 
@@ -251,6 +291,7 @@ export default function InstructorEvaluationConsole() {
     const formData = new FormData();
     formData.append('file', batchZipFile);
     formData.append('assignmentId', batchAssignmentId);
+    formData.append('maxMarks', String(batchMaxMarks));
     formData.append('passkey', INSTRUCTOR_PASSKEY);
 
     try {
@@ -275,32 +316,87 @@ export default function InstructorEvaluationConsole() {
     }
   };
 
+  const handleOpenReportCard = (sub: SubmissionRecord) => {
+    setSelectedReportCardSub(sub);
+    setShowReportCardModal(true);
+  };
+
+  const handleDeleteAllEvaluations = async () => {
+    const isFiltered = assignmentFilter !== 'all';
+    const filterTitle = assignmentsList.find((a) => a.id === assignmentFilter)?.title || assignmentFilter;
+    const confirmMessage = isFiltered
+      ? `Are you sure you want to delete ALL evaluations for "${filterTitle}"? This cannot be undone.`
+      : `⚠️ Are you sure you want to delete ALL ${submissions.length} evaluations from the master roster? This will completely clear the roster and cannot be undone.`;
+
+    if (!window.confirm(confirmMessage)) return;
+
+    setIsDeletingAll(true);
+    setDeleteStatus('');
+    try {
+      const url = isFiltered
+        ? `/api/lab/submissions?passkey=${INSTRUCTOR_PASSKEY}&all=true&assignmentId=${assignmentFilter}`
+        : `/api/lab/submissions?passkey=${INSTRUCTOR_PASSKEY}&all=true`;
+
+      const res = await fetch(url, { method: 'DELETE' });
+      const data = await res.json();
+      if (data.success) {
+        setDeleteStatus(data.message || 'All evaluations deleted.');
+        await fetchSubmissions();
+        setTimeout(() => setDeleteStatus(''), 4500);
+      } else {
+        alert(data.error || 'Failed to delete evaluations.');
+      }
+    } catch (err) {
+      console.error('Delete all error:', err);
+      alert('Network error while deleting evaluations.');
+    } finally {
+      setIsDeletingAll(false);
+    }
+  };
+
   const exportBatchToCSV = (bResult: any) => {
     if (!bResult || !bResult.results || bResult.results.length === 0) return;
+    const maxM = bResult.maxMarks || 50;
     const headers = [
       'Roll No',
       'Student Name',
       'Assignment',
       'Original File',
+      `Final Score (Out of ${maxM})`,
+      'Score Percentage',
+      'Grade Band',
+      'Result Accuracy (%)',
+      'Formulae Used',
       'Application Generator',
+      'AI Tools Detected',
       'Edit Time (Mins)',
-      'Formulas Count',
       'Integrity Status',
-      'Final Score',
       'Audit Findings'
     ];
-    const rows = bResult.results.map((r: any) => [
-      `"${r.rollNo}"`,
-      `"${r.studentName}"`,
-      `"${r.assignmentTitle || bResult.assignmentTitle}"`,
-      `"${r.originalFilename}"`,
-      `"${r.forensics.application || 'Unknown'}"`,
-      r.forensics.totalTimeMinutes,
-      r.forensics.totalFormulasFound,
-      `"${r.forensics.integrityLevel?.toUpperCase()}"`,
-      r.evaluation.finalScore,
-      `"${(r.forensics.summaryFindings || []).join('; ').replace(/"/g, '""')}"`
-    ]);
+    const rows = bResult.results.map((r: any) => {
+      const score = r.evaluation.finalScore;
+      const pct = r.evaluation.percentage || Math.round((score / maxM) * 100);
+      const acc = r.forensics.resultAccuracy?.percentage ?? pct;
+      const formulasStr = (r.forensics.allFormulas || r.forensics.sampleFormulas || []).slice(0, 8).join('; ');
+      const aiToolsStr = (r.forensics.aiToolsUsed?.toolNames || [r.forensics.application || 'Unknown']).join(', ');
+
+      return [
+        `"${r.rollNo}"`,
+        `"${r.studentName}"`,
+        `"${r.assignmentTitle || bResult.assignmentTitle}"`,
+        `"${r.originalFilename}"`,
+        score,
+        `"${pct}%"`,
+        `"${r.evaluation.gradeBand || 'A'}"`,
+        `"${acc}%"`,
+        `"${formulasStr.replace(/"/g, '""')}"`,
+        `"${r.forensics.application || 'Unknown'}"`,
+        `"${aiToolsStr.replace(/"/g, '""')}"`,
+        r.forensics.totalTimeMinutes,
+        `"${r.forensics.integrityLevel?.toUpperCase()}"`,
+        `"${(r.forensics.summaryFindings || []).join('; ').replace(/"/g, '""')}"`
+      ];
+    });
 
     const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map((r: any) => r.join(','))].join('\n');
     const encodedUri = encodeURI(csvContent);
@@ -474,35 +570,53 @@ export default function InstructorEvaluationConsole() {
       'Assignment',
       'Original File',
       'Submitted At',
+      'Final Score',
+      'Max Marks',
+      'Score (%)',
+      'Result Accuracy (%)',
+      'Formulae Used',
       'Application Generator',
+      'AI Tools Detected',
       'Editing Time (Mins)',
       'Total Formulas',
       'AI Generator Flag',
       'Honeypot Flag',
       'Trap Record Flag',
       'Micro-Viva Status',
-      'Auto-Grade Estimate',
-      'Final Score',
+      'Integrity Status',
       'Instructor Remarks'
     ];
 
-    const rows = submissions.map((s) => [
-      `"${s.rollNo}"`,
-      `"${s.studentName}"`,
-      `"${s.assignmentTitle || 'Flight Operations Analysis'}"`,
-      `"${s.originalFilename || ''}"`,
-      `"${s.submittedAt}"`,
-      `"${s.forensics.application}"`,
-      s.forensics.totalTimeMinutes,
-      s.forensics.totalFormulasFound,
-      s.forensics.flags.isAiGenerator ? 'YES' : 'NO',
-      s.forensics.flags.isHoneypotTriggered ? 'YES' : 'NO',
-      s.forensics.flags.isTrapRecordFound ? 'YES' : 'NO',
-      s.viva.isCorrect ? 'PASS' : 'FAIL',
-      s.forensics.autoGradeEstimate.total,
-      s.evaluation.finalScore,
-      `"${s.evaluation.instructorRemarks.replace(/"/g, '""')}"`
-    ]);
+    const rows = submissions.map((s) => {
+      const maxM = s.evaluation.maxMarks || 50;
+      const pct = s.evaluation.percentage || Math.round((s.evaluation.finalScore / maxM) * 100);
+      const acc = s.forensics.resultAccuracy?.percentage ?? pct;
+      const formulasStr = (s.forensics.allFormulas || s.forensics.sampleFormulas || []).slice(0, 8).join('; ');
+      const aiToolsStr = (s.forensics.aiToolsUsed?.toolNames || [s.forensics.application || 'Unknown']).join(', ');
+
+      return [
+        `"${s.rollNo}"`,
+        `"${s.studentName}"`,
+        `"${s.assignmentTitle || 'Flight Operations Analysis'}"`,
+        `"${s.originalFilename || ''}"`,
+        `"${s.submittedAt}"`,
+        s.evaluation.finalScore,
+        maxM,
+        `"${pct}%"`,
+        `"${acc}%"`,
+        `"${formulasStr.replace(/"/g, '""')}"`,
+        `"${s.forensics.application}"`,
+        `"${aiToolsStr.replace(/"/g, '""')}"`,
+        s.forensics.totalTimeMinutes,
+        s.forensics.totalFormulasFound,
+        s.forensics.flags.isAiGenerator ? 'YES' : 'NO',
+        s.forensics.flags.isHoneypotTriggered ? 'YES' : 'NO',
+        s.forensics.flags.isTrapRecordFound ? 'YES' : 'NO',
+        s.viva.isCorrect ? 'PASS' : 'FAIL',
+        `"${s.forensics.integrityLevel?.toUpperCase()}"`,
+        `"${s.evaluation.instructorRemarks.replace(/"/g, '""')}"`
+      ];
+    });
 
     const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map((r) => r.join(','))].join('\n');
     const encodedUri = encodeURI(csvContent);
@@ -803,7 +917,7 @@ export default function InstructorEvaluationConsole() {
                   Cohort Average Score
                 </div>
                 <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#38bdf8' }}>
-                  {avgScore} <span style={{ fontSize: '0.95rem', color: t.textMuted }}>/ 50</span>
+                  {avgScore} <span style={{ fontSize: '0.95rem', color: t.textMuted }}>/ {submissions[0]?.evaluation?.maxMarks || 50}</span>
                 </div>
                 <div style={{ fontSize: '0.76rem', color: t.textMuted, marginTop: '4px' }}>Auto-calculated marks</div>
               </div>
@@ -858,7 +972,7 @@ export default function InstructorEvaluationConsole() {
                           {batchResult.flaggedCount} Flagged
                         </span>
                         <span style={{ fontSize: '0.74rem', padding: '2px 8px', borderRadius: '4px', backgroundColor: 'rgba(56, 189, 248, 0.2)', color: '#38bdf8', fontWeight: 700 }}>
-                          Avg: {batchResult.averageScore} / 50
+                          Avg: {batchResult.averageScore} / {batchResult.maxMarks || 50}
                         </span>
                       </div>
                     </div>
@@ -890,7 +1004,7 @@ export default function InstructorEvaluationConsole() {
                     </label>
                     <select
                       value={batchAssignmentId}
-                      onChange={(e) => setBatchAssignmentId(e.target.value)}
+                      onChange={(e) => handleAssignmentSelect(e.target.value)}
                       style={{
                         width: '100%',
                         boxSizing: 'border-box',
@@ -958,41 +1072,75 @@ export default function InstructorEvaluationConsole() {
                     </div>
                   </div>
 
-                  {/* Action Button */}
+                  {/* Input 3 & Action Button: Highest Marks for Evaluation + Evaluate All Submissions */}
                   <div>
-                    <button
-                      type="submit"
-                      disabled={!batchZipFile || isEvaluatingBatch}
-                      style={{
-                        width: '100%',
-                        backgroundColor: !batchZipFile || isEvaluatingBatch ? t.cardBgAlt : '#10b981',
-                        color: !batchZipFile || isEvaluatingBatch ? t.textMuted : '#090d16',
-                        border: `1px solid ${!batchZipFile || isEvaluatingBatch ? t.border : '#10b981'}`,
-                        padding: '12px 20px',
-                        borderRadius: '8px',
-                        fontSize: '0.9rem',
-                        fontWeight: 800,
-                        cursor: !batchZipFile || isEvaluatingBatch ? 'not-allowed' : 'pointer',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        gap: '8px',
-                        boxShadow: !batchZipFile || isEvaluatingBatch ? 'none' : '0 4px 14px rgba(16, 185, 129, 0.35)',
-                        transition: 'all 0.15s'
-                      }}
-                    >
-                      {isEvaluatingBatch ? (
-                        <>
-                          <RefreshCw size={16} className="animate-spin" />
-                          Unpacking & Evaluating Submissions...
-                        </>
-                      ) : (
-                        <>
-                          <Upload size={16} />
-                          Evaluate All Submissions
-                        </>
-                      )}
-                    </button>
+                    <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: t.text, marginBottom: '6px' }}>
+                      3. Evaluation Highest Marks & Run *
+                    </label>
+                    <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                      <div style={{ width: '105px', flexShrink: 0 }}>
+                        <input
+                          type="number"
+                          min="1"
+                          max="1000"
+                          value={batchMaxMarks}
+                          onChange={(e) => setBatchMaxMarks(Math.max(1, parseInt(e.target.value, 10) || 1))}
+                          title="Enter highest marks to evaluate out of (e.g. 15, 20, 50)"
+                          placeholder="Marks"
+                          style={{
+                            width: '100%',
+                            boxSizing: 'border-box',
+                            backgroundColor: t.inputBg,
+                            border: `2px solid ${t.borderHighlight}`,
+                            color: t.text,
+                            padding: '11px 10px',
+                            borderRadius: '8px',
+                            fontSize: '0.95rem',
+                            fontWeight: 800,
+                            textAlign: 'center',
+                            outline: 'none'
+                          }}
+                        />
+                      </div>
+
+                      <button
+                        type="submit"
+                        disabled={!batchZipFile || isEvaluatingBatch}
+                        style={{
+                          flex: 1,
+                          backgroundColor: !batchZipFile || isEvaluatingBatch ? t.cardBgAlt : '#10b981',
+                          color: !batchZipFile || isEvaluatingBatch ? t.textMuted : '#090d16',
+                          border: `1px solid ${!batchZipFile || isEvaluatingBatch ? t.border : '#10b981'}`,
+                          padding: '12px 14px',
+                          borderRadius: '8px',
+                          fontSize: '0.88rem',
+                          fontWeight: 800,
+                          cursor: !batchZipFile || isEvaluatingBatch ? 'not-allowed' : 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '6px',
+                          boxShadow: !batchZipFile || isEvaluatingBatch ? 'none' : '0 4px 14px rgba(16, 185, 129, 0.35)',
+                          transition: 'all 0.15s',
+                          whiteSpace: 'nowrap'
+                        }}
+                      >
+                        {isEvaluatingBatch ? (
+                          <>
+                            <RefreshCw size={16} className="animate-spin" />
+                            Evaluating Submissions...
+                          </>
+                        ) : (
+                          <>
+                            <Upload size={16} />
+                            Evaluate All Submissions (Out of {batchMaxMarks})
+                          </>
+                        )}
+                      </button>
+                    </div>
+                    <div style={{ fontSize: '0.72rem', color: t.textMuted, marginTop: '5px' }}>
+                      Marks will be automatically calibrated out of <strong>{batchMaxMarks} marks</strong>
+                    </div>
                   </div>
 
                 </form>
@@ -1039,7 +1187,7 @@ export default function InstructorEvaluationConsole() {
               </select>
             </div>
 
-            <div style={{ display: 'flex', gap: '8px' }}>
+            <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
               <button
                 onClick={() => setFilterMode('all')}
                 style={{ backgroundColor: filterMode === 'all' ? '#10b981' : t.cardBg, color: filterMode === 'all' ? '#090d16' : t.textMuted, border: `1px solid ${filterMode === 'all' ? '#10b981' : t.border}`, padding: '8px 16px', borderRadius: '8px', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}
@@ -1058,8 +1206,49 @@ export default function InstructorEvaluationConsole() {
               >
                 Clean ({cleanCount})
               </button>
+
+              <button
+                onClick={exportToCSV}
+                style={{ backgroundColor: t.cardBg, color: t.text, border: `1px solid ${t.border}`, padding: '8px 14px', borderRadius: '8px', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
+                title="Download CSV roster"
+              >
+                <Download size={15} /> Export CSV
+              </button>
+
+              {/* Requirement 3: Delete All Evaluations Button */}
+              <button
+                onClick={handleDeleteAllEvaluations}
+                disabled={submissions.length === 0 || isDeletingAll}
+                style={{
+                  backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                  color: '#ef4444',
+                  border: '1px solid rgba(239, 68, 68, 0.35)',
+                  padding: '8px 14px',
+                  borderRadius: '8px',
+                  fontSize: '0.82rem',
+                  fontWeight: 800,
+                  cursor: submissions.length === 0 || isDeletingAll ? 'not-allowed' : 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  opacity: submissions.length === 0 ? 0.5 : 1,
+                  transition: 'all 0.15s'
+                }}
+                title="Permanently remove all evaluation records"
+              >
+                <Trash2 size={15} />
+                {isDeletingAll ? 'Deleting All...' : `Delete All Evaluations (${submissions.length})`}
+              </button>
             </div>
           </div>
+
+          {deleteStatus && (
+            <div style={{ maxWidth: '1400px', margin: '14px auto 0', padding: '0 28px' }}>
+              <div style={{ backgroundColor: 'rgba(239, 68, 68, 0.1)', border: '1px solid rgba(239, 68, 68, 0.3)', color: '#ef4444', padding: '10px 16px', borderRadius: '8px', fontSize: '0.84rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <CheckCircle2 size={16} /> {deleteStatus}
+              </div>
+            </div>
+          )}
 
           {/* Master Submissions Roster */}
           <main style={{ maxWidth: '1400px', margin: '20px auto 60px', padding: '0 28px' }}>
@@ -1124,7 +1313,7 @@ export default function InstructorEvaluationConsole() {
                                 : '0 detected'}
                             </td>
                             <td style={{ padding: '16px 20px', fontWeight: 800, color: '#38bdf8' }}>
-                              {s.evaluation.finalScore} / 50
+                              {s.evaluation.finalScore} / {s.evaluation.maxMarks || 50}
                               {s.evaluation.instructorOverride && (
                                 <span style={{ fontSize: '0.7rem', marginLeft: '4px', color: '#eab308' }}>*</span>
                               )}
@@ -1152,10 +1341,30 @@ export default function InstructorEvaluationConsole() {
                                 </span>
                               )}
                             </td>
-                            <td style={{ padding: '16px 20px', textAlign: 'right' }}>
+                            <td style={{ padding: '16px 20px', textAlign: 'right', whiteSpace: 'nowrap' }}>
+                              <button
+                                onClick={() => handleOpenReportCard(s)}
+                                style={{
+                                  backgroundColor: t.accentEmeraldBg,
+                                  color: '#10b981',
+                                  border: `1px solid ${t.borderHighlight}`,
+                                  padding: '7px 12px',
+                                  borderRadius: '6px',
+                                  fontSize: '0.78rem',
+                                  fontWeight: 700,
+                                  cursor: 'pointer',
+                                  marginRight: '6px',
+                                  display: 'inline-flex',
+                                  alignItems: 'center',
+                                  gap: '5px'
+                                }}
+                                title="View & Print Official Student Report Card"
+                              >
+                                <Award size={14} /> Report Card
+                              </button>
                               <button
                                 onClick={() => handleOpenInspector(s)}
-                                style={{ backgroundColor: '#10b981', color: '#090d16', border: 'none', padding: '8px 14px', borderRadius: '6px', fontSize: '0.8rem', fontWeight: 800, cursor: 'pointer', marginRight: '8px' }}
+                                style={{ backgroundColor: '#10b981', color: '#090d16', border: 'none', padding: '8px 14px', borderRadius: '6px', fontSize: '0.8rem', fontWeight: 800, cursor: 'pointer', marginRight: '6px' }}
                               >
                                 Inspect & Grade
                               </button>
@@ -1854,20 +2063,44 @@ export default function InstructorEvaluationConsole() {
                 </div>
               </div>
 
-              <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '12px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
                 <button
-                  onClick={() => setSelectedSub(null)}
-                  style={{ backgroundColor: 'transparent', border: `1px solid ${t.border}`, color: t.textMuted, padding: '10px 18px', borderRadius: '8px', fontSize: '0.86rem', cursor: 'pointer' }}
+                  type="button"
+                  onClick={() => {
+                    handleOpenReportCard(selectedSub);
+                  }}
+                  style={{
+                    backgroundColor: t.accentEmeraldBg,
+                    border: `1px solid ${t.borderHighlight}`,
+                    color: '#10b981',
+                    padding: '10px 18px',
+                    borderRadius: '8px',
+                    fontSize: '0.86rem',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px'
+                  }}
                 >
-                  Close
+                  <Award size={16} /> Generate Official Report Card
                 </button>
-                <button
-                  onClick={handleSaveEvaluation}
-                  disabled={isSaving}
-                  style={{ backgroundColor: '#10b981', color: '#090d16', border: 'none', padding: '10px 22px', borderRadius: '8px', fontSize: '0.88rem', fontWeight: 800, cursor: isSaving ? 'not-allowed' : 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
-                >
-                  <Save size={16} /> {isSaving ? 'Saving...' : 'Save Evaluation'}
-                </button>
+
+                <div style={{ display: 'flex', gap: '12px' }}>
+                  <button
+                    onClick={() => setSelectedSub(null)}
+                    style={{ backgroundColor: 'transparent', border: `1px solid ${t.border}`, color: t.textMuted, padding: '10px 18px', borderRadius: '8px', fontSize: '0.86rem', cursor: 'pointer' }}
+                  >
+                    Close
+                  </button>
+                  <button
+                    onClick={handleSaveEvaluation}
+                    disabled={isSaving}
+                    style={{ backgroundColor: '#10b981', color: '#090d16', border: 'none', padding: '10px 22px', borderRadius: '8px', fontSize: '0.88rem', fontWeight: 800, cursor: isSaving ? 'not-allowed' : 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
+                  >
+                    <Save size={16} /> {isSaving ? 'Saving...' : 'Save Evaluation'}
+                  </button>
+                </div>
               </div>
 
             </div>
@@ -1997,7 +2230,7 @@ export default function InstructorEvaluationConsole() {
                 <div style={{ backgroundColor: t.cardBgAlt, border: `1px solid ${t.border}`, borderRadius: '10px', padding: '14px 18px' }}>
                   <div style={{ fontSize: '0.74rem', color: t.textMuted, textTransform: 'uppercase', fontWeight: 700 }}>Cohort Average</div>
                   <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#38bdf8', marginTop: '2px' }}>
-                    {batchResult.averageScore} <span style={{ fontSize: '0.8rem', color: t.textMuted }}>/ 50</span>
+                    {batchResult.averageScore} <span style={{ fontSize: '0.8rem', color: t.textMuted }}>/ {batchResult.maxMarks || 50}</span>
                   </div>
                 </div>
               </div>
@@ -2064,10 +2297,29 @@ export default function InstructorEvaluationConsole() {
                             </td>
                             <td style={{ padding: '12px 16px' }}>
                               <div style={{ fontSize: '0.96rem', fontWeight: 800, color: '#10b981' }}>
-                                {res.evaluation.finalScore} <span style={{ fontSize: '0.72rem', color: t.textMuted }}>/ 50</span>
+                                {res.evaluation.finalScore} <span style={{ fontSize: '0.72rem', color: t.textMuted }}>/ {res.evaluation.maxMarks || batchResult.maxMarks || 50}</span>
                               </div>
                             </td>
-                            <td style={{ padding: '12px 16px', textAlign: 'right' }}>
+                            <td style={{ padding: '12px 16px', textAlign: 'right', whiteSpace: 'nowrap' }}>
+                              <button
+                                onClick={() => {
+                                  setShowBatchModal(false);
+                                  handleOpenReportCard(res);
+                                }}
+                                style={{
+                                  backgroundColor: t.accentEmeraldBg,
+                                  border: `1px solid ${t.borderHighlight}`,
+                                  color: '#10b981',
+                                  padding: '5px 10px',
+                                  borderRadius: '6px',
+                                  fontSize: '0.74rem',
+                                  fontWeight: 700,
+                                  cursor: 'pointer',
+                                  marginRight: '6px'
+                                }}
+                              >
+                                Report Card
+                              </button>
                               <button
                                 onClick={() => {
                                   setShowBatchModal(false);
@@ -2077,9 +2329,9 @@ export default function InstructorEvaluationConsole() {
                                   backgroundColor: t.cardBgAlt,
                                   border: `1px solid ${t.border}`,
                                   color: t.text,
-                                  padding: '6px 12px',
+                                  padding: '5px 10px',
                                   borderRadius: '6px',
-                                  fontSize: '0.76rem',
+                                  fontSize: '0.74rem',
                                   fontWeight: 700,
                                   cursor: 'pointer'
                                 }}
@@ -2129,6 +2381,421 @@ export default function InstructorEvaluationConsole() {
           </div>
         </div>
       )}
+
+      {/* ================= MODAL: OFFICIAL STUDENT EVALUATION REPORT CARD ================= */}
+      {showReportCardModal && selectedReportCardSub && (() => {
+        const sub = selectedReportCardSub;
+        const maxMarks = sub.evaluation.maxMarks || 50;
+        const finalScore = sub.evaluation.finalScore;
+        const scorePct = sub.evaluation.percentage || Math.round((finalScore / maxMarks) * 100);
+        const accuracy = sub.forensics.resultAccuracy || {
+          percentage: scorePct,
+          status: scorePct >= 90 ? 'High Precision' : scorePct >= 75 ? 'Satisfactory' : 'Discrepancies Flagged',
+          dataSetupAccuracy: 100,
+          computationalAccuracy: 90,
+          analysisAccuracy: 85
+        };
+        const aiTools = sub.forensics.aiToolsUsed || {
+          detected: sub.forensics.flags.isAiGenerator || sub.forensics.flags.isHoneypotTriggered || sub.forensics.flags.hasZeroEditTime,
+          toolNames: sub.forensics.flags.isAiGenerator ? [sub.forensics.application] : ['None Detected (Microsoft Office / Google Sheets)'],
+          reasons: sub.forensics.summaryFindings.filter((f) => !f.includes('Authentic'))
+        };
+        const formulas = sub.forensics.allFormulas || sub.forensics.sampleFormulas || [];
+        const formulaTypes = sub.forensics.formulaTypes || [];
+        const isClean = sub.forensics.integrityLevel === 'clean';
+
+        return (
+          <div
+            style={{
+              position: 'fixed',
+              inset: 0,
+              backgroundColor: 'rgba(0, 0, 0, 0.8)',
+              backdropFilter: 'blur(6px)',
+              zIndex: 1100,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '20px'
+            }}
+          >
+            <style>{`
+              @media print {
+                body * { visibility: hidden !important; }
+                #printable-report-card, #printable-report-card * { visibility: visible !important; }
+                #printable-report-card { position: absolute !important; left: 0 !important; top: 0 !important; width: 100% !important; margin: 0 !important; padding: 24px !important; box-shadow: none !important; border: 1px solid #000 !important; background: #fff !important; color: #000 !important; }
+                .no-print { display: none !important; }
+              }
+            `}</style>
+
+            <div
+              id="printable-report-card"
+              style={{
+                backgroundColor: t.cardBg,
+                border: `2px solid ${t.borderHighlight}`,
+                borderRadius: '16px',
+                maxWidth: '920px',
+                width: '100%',
+                maxHeight: '92vh',
+                overflowY: 'auto',
+                boxShadow: '0 25px 60px -15px rgba(0, 0, 0, 0.6)',
+                display: 'flex',
+                flexDirection: 'column'
+              }}
+            >
+              {/* Report Card Top Bar with Print Actions */}
+              <div
+                className="no-print"
+                style={{
+                  padding: '14px 22px',
+                  borderBottom: `1px solid ${t.border}`,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  backgroundColor: t.cardHeaderBg,
+                  position: 'sticky',
+                  top: 0,
+                  zIndex: 20
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Award size={18} color="#10b981" />
+                  <span style={{ fontSize: '0.86rem', fontWeight: 800, color: t.text }}>
+                    Official Student Evaluation Report Card
+                  </span>
+                </div>
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <button
+                    onClick={() => window.print()}
+                    style={{
+                      backgroundColor: '#10b981',
+                      color: '#090d16',
+                      border: 'none',
+                      padding: '8px 16px',
+                      borderRadius: '8px',
+                      fontSize: '0.82rem',
+                      fontWeight: 800,
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px'
+                    }}
+                  >
+                    <Printer size={15} /> Print / Save PDF
+                  </button>
+                  <button
+                    onClick={() => setShowReportCardModal(false)}
+                    style={{
+                      backgroundColor: 'transparent',
+                      border: `1px solid ${t.border}`,
+                      color: t.textMuted,
+                      padding: '6px 12px',
+                      borderRadius: '8px',
+                      fontSize: '0.84rem',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    ✕ Close
+                  </button>
+                </div>
+              </div>
+
+              {/* Report Card Official Content Body */}
+              <div style={{ padding: '28px 32px' }}>
+                
+                {/* Header Banner */}
+                <div style={{ borderBottom: `2px solid ${t.border}`, paddingBottom: '20px', marginBottom: '22px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px' }}>
+                  <div>
+                    <span style={{ backgroundColor: t.accentEmeraldBg, color: '#10b981', padding: '3px 10px', borderRadius: '4px', fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+                      PRACTICUM PERFORMANCE EVALUATION
+                    </span>
+                    <h1 style={{ fontSize: '1.45rem', fontWeight: 800, margin: '8px 0 4px', color: t.text }}>
+                      Laboratory Evaluation Report Card
+                    </h1>
+                    <p style={{ fontSize: '0.82rem', color: t.textMuted, margin: 0 }}>
+                      Computing Skills & Laboratory Practicum • Course Code: Z7AVA 26209
+                    </p>
+                  </div>
+
+                  <div style={{ textAlign: 'right' }}>
+                    <div style={{ fontSize: '0.74rem', color: t.textMuted }}>Evaluation Verified On</div>
+                    <div style={{ fontSize: '0.88rem', fontWeight: 700, color: t.text }}>
+                      {new Date(sub.submittedAt).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' })}
+                    </div>
+                    <div style={{ fontSize: '0.74rem', color: '#10b981', fontWeight: 700, marginTop: '2px' }}>
+                      Authenticated by Instructor Console
+                    </div>
+                  </div>
+                </div>
+
+                {/* Student Demographics Block */}
+                <div style={{ backgroundColor: t.cardBgAlt, border: `1px solid ${t.border}`, borderRadius: '12px', padding: '16px 20px', marginBottom: '22px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+                  <div>
+                    <div style={{ fontSize: '0.72rem', color: t.textMuted, textTransform: 'uppercase', fontWeight: 700 }}>Student Name</div>
+                    <div style={{ fontSize: '1.1rem', fontWeight: 800, color: t.text, marginTop: '2px' }}>{sub.studentName}</div>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.72rem', color: t.textMuted, textTransform: 'uppercase', fontWeight: 700 }}>Roll Number / Student ID</div>
+                    <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#38bdf8', marginTop: '2px', fontFamily: 'monospace' }}>{sub.rollNo}</div>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.72rem', color: t.textMuted, textTransform: 'uppercase', fontWeight: 700 }}>Assignment Evaluated</div>
+                    <div style={{ fontSize: '0.88rem', fontWeight: 700, color: t.text, marginTop: '2px' }}>{sub.assignmentTitle || 'Flight Operations Analysis'}</div>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.72rem', color: t.textMuted, textTransform: 'uppercase', fontWeight: 700 }}>Original Submitted File</div>
+                    <div style={{ fontSize: '0.82rem', fontWeight: 600, color: t.textSecondary, marginTop: '2px', fontFamily: 'monospace' }}>{sub.originalFilename}</div>
+                  </div>
+                </div>
+
+                {/* Score & Grade Showcase Card */}
+                <div style={{ backgroundColor: t.accentEmeraldBg, border: `2px solid ${t.borderHighlight}`, borderRadius: '12px', padding: '20px 24px', marginBottom: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
+                  <div>
+                    <div style={{ fontSize: '0.76rem', color: t.textMuted, textTransform: 'uppercase', fontWeight: 800, letterSpacing: '0.04em' }}>
+                      Overall Evaluation Score
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginTop: '4px' }}>
+                      <span style={{ fontSize: '2.4rem', fontWeight: 900, color: '#10b981' }}>
+                        {finalScore}
+                      </span>
+                      <span style={{ fontSize: '1.2rem', fontWeight: 700, color: t.textMuted }}>
+                        / {maxMarks} Marks
+                      </span>
+                      <span style={{ fontSize: '1.05rem', fontWeight: 800, color: '#38bdf8', marginLeft: '10px' }}>
+                        ({scorePct}%)
+                      </span>
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', gap: '14px', alignItems: 'center' }}>
+                    <div style={{ textAlign: 'center', padding: '8px 18px', backgroundColor: t.cardBg, borderRadius: '8px', border: `1px solid ${t.border}` }}>
+                      <div style={{ fontSize: '0.7rem', color: t.textMuted, textTransform: 'uppercase', fontWeight: 700 }}>Performance Band</div>
+                      <div style={{ fontSize: '1.2rem', fontWeight: 900, color: '#10b981', marginTop: '2px' }}>
+                        {sub.evaluation.gradeBand || (scorePct >= 90 ? 'Grade O' : scorePct >= 75 ? 'Grade A+' : scorePct >= 60 ? 'Grade A' : 'Grade B')}
+                      </div>
+                    </div>
+
+                    <div style={{ textAlign: 'center', padding: '8px 18px', backgroundColor: t.cardBg, borderRadius: '8px', border: `1px solid ${t.border}` }}>
+                      <div style={{ fontSize: '0.7rem', color: t.textMuted, textTransform: 'uppercase', fontWeight: 700 }}>Integrity Level</div>
+                      <div style={{ fontSize: '0.92rem', fontWeight: 800, color: isClean ? '#10b981' : '#f87171', marginTop: '4px', textTransform: 'uppercase' }}>
+                        {sub.forensics.integrityLevel}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 4 Pillars Grid (Accuracy, Formulae, Integrity, AI Tools) */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '18px', marginBottom: '24px' }}>
+                  
+                  {/* Pillar 1: Result Accuracy */}
+                  <div style={{ backgroundColor: t.cardBgAlt, border: `1px solid ${t.border}`, borderRadius: '12px', padding: '18px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                      <div style={{ fontSize: '0.86rem', fontWeight: 800, color: t.text, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <CheckCircle2 size={17} color="#10b981" /> Result Accuracy & Computation
+                      </div>
+                      <span style={{ fontSize: '0.82rem', fontWeight: 800, color: '#10b981', backgroundColor: 'rgba(16, 185, 129, 0.15)', padding: '2px 8px', borderRadius: '4px' }}>
+                        {accuracy.percentage}% — {accuracy.status}
+                      </span>
+                    </div>
+
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.82rem' }}>
+                      <div>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '3px', color: t.textSecondary }}>
+                          <span>Data Setup & Schema Structure</span>
+                          <strong>{accuracy.dataSetupAccuracy}%</strong>
+                        </div>
+                        <div style={{ width: '100%', height: '6px', backgroundColor: t.border, borderRadius: '3px', overflow: 'hidden' }}>
+                          <div style={{ width: `${accuracy.dataSetupAccuracy}%`, height: '100%', backgroundColor: '#10b981', borderRadius: '3px' }} />
+                        </div>
+                      </div>
+
+                      <div>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '3px', color: t.textSecondary }}>
+                          <span>Computational & Formula Implementation</span>
+                          <strong>{accuracy.computationalAccuracy}%</strong>
+                        </div>
+                        <div style={{ width: '100%', height: '6px', backgroundColor: t.border, borderRadius: '3px', overflow: 'hidden' }}>
+                          <div style={{ width: `${accuracy.computationalAccuracy}%`, height: '100%', backgroundColor: '#38bdf8', borderRadius: '3px' }} />
+                        </div>
+                      </div>
+
+                      <div>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '3px', color: t.textSecondary }}>
+                          <span>Analytical Precision & Calibration Filtering</span>
+                          <strong>{accuracy.analysisAccuracy}%</strong>
+                        </div>
+                        <div style={{ width: '100%', height: '6px', backgroundColor: t.border, borderRadius: '3px', overflow: 'hidden' }}>
+                          <div style={{ width: `${accuracy.analysisAccuracy}%`, height: '100%', backgroundColor: accuracy.analysisAccuracy >= 80 ? '#10b981' : '#fb923c', borderRadius: '3px' }} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Pillar 2: AI Tools Used for Submission */}
+                  <div style={{ backgroundColor: t.cardBgAlt, border: `1px solid ${aiTools.detected ? 'rgba(239, 68, 68, 0.4)' : t.border}`, borderRadius: '12px', padding: '18px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                      <div style={{ fontSize: '0.86rem', fontWeight: 800, color: t.text, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <ShieldCheck size={17} color={aiTools.detected ? '#f87171' : '#10b981'} /> AI Tools Detection Audit
+                      </div>
+                      <span style={{ fontSize: '0.76rem', fontWeight: 800, color: aiTools.detected ? '#f87171' : '#10b981', backgroundColor: aiTools.detected ? 'rgba(239, 68, 68, 0.15)' : 'rgba(16, 185, 129, 0.15)', padding: '2px 8px', borderRadius: '4px' }}>
+                        {aiTools.detected ? 'AI Tool / Flagged' : 'Authentic Human Work'}
+                      </span>
+                    </div>
+
+                    <div style={{ fontSize: '0.82rem', lineHeight: 1.6, color: t.textSecondary }}>
+                      <div style={{ marginBottom: '6px' }}>
+                        <strong style={{ color: t.text }}>Software Generator:</strong>{' '}
+                        <code style={{ backgroundColor: t.codeBg, padding: '2px 6px', borderRadius: '4px', color: sub.forensics.flags.isAiGenerator ? '#f87171' : t.text }}>
+                          {sub.forensics.application || 'Unknown Application'}
+                        </code>
+                      </div>
+
+                      <div style={{ marginBottom: '6px' }}>
+                        <strong style={{ color: t.text }}>AI Tools Used:</strong>{' '}
+                        <span style={{ color: aiTools.detected ? '#f87171' : '#10b981', fontWeight: 700 }}>
+                          {aiTools.toolNames.join(', ')}
+                        </span>
+                      </div>
+
+                      <div style={{ marginBottom: '6px' }}>
+                        <strong style={{ color: t.text }}>Active Editing Duration:</strong>{' '}
+                        <span style={{ color: sub.forensics.flags.hasZeroEditTime ? '#f87171' : t.text }}>
+                          {sub.forensics.totalTimeMinutes} minutes {sub.forensics.flags.hasZeroEditTime && '(Instant/Automated Generation)'}
+                        </span>
+                      </div>
+
+                      <div>
+                        <strong style={{ color: t.text }}>Prompt-Injection Honeypot:</strong>{' '}
+                        <span style={{ color: sub.forensics.flags.isHoneypotTriggered ? '#f87171' : '#10b981', fontWeight: 700 }}>
+                          {sub.forensics.flags.isHoneypotTriggered ? 'TRIGGERED (AI Agent Injection Found)' : 'PASSED (Clean)'}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Pillar 3: Formulae Used */}
+                  <div style={{ backgroundColor: t.cardBgAlt, border: `1px solid ${t.border}`, borderRadius: '12px', padding: '18px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                      <div style={{ fontSize: '0.86rem', fontWeight: 800, color: t.text, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <FileSpreadsheet size={17} color="#38bdf8" /> Formulae Used in Submission
+                      </div>
+                      <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#38bdf8' }}>
+                        {sub.forensics.totalFormulasFound} active formula cell(s)
+                      </span>
+                    </div>
+
+                    {formulaTypes.length > 0 && (
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '10px' }}>
+                        {formulaTypes.map((fn, idx) => (
+                          <span key={idx} style={{ backgroundColor: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', padding: '2px 8px', borderRadius: '4px', fontSize: '0.72rem', fontWeight: 800 }}>
+                            ={fn}()
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
+                    <div style={{ fontSize: '0.78rem', color: t.textMuted, marginBottom: '6px' }}>
+                      Formula Samples Extracted from Worksheets:
+                    </div>
+                    {formulas.length > 0 ? (
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', maxHeight: '110px', overflowY: 'auto' }}>
+                        {formulas.slice(0, 6).map((f, idx) => (
+                          <code key={idx} style={{ backgroundColor: t.codeBg, color: '#38bdf8', padding: '3px 8px', borderRadius: '4px', fontSize: '0.74rem', fontFamily: 'monospace' }}>
+                            ={f}
+                          </code>
+                        ))}
+                      </div>
+                    ) : (
+                      <div style={{ color: '#f87171', fontSize: '0.78rem', fontStyle: 'italic' }}>
+                        No spreadsheet formulas detected (formula tags empty; hardcoded cell values)
+                      </div>
+                    )}
+
+                    <div style={{ marginTop: '10px', fontSize: '0.76rem', color: t.textSecondary }}>
+                      <strong>Workbook Tabs:</strong> {sub.forensics.sheetNames.join(', ') || 'None detected'}
+                    </div>
+                  </div>
+
+                  {/* Pillar 4: Integrity Status & Forensic Findings */}
+                  <div style={{ backgroundColor: t.cardBgAlt, border: `1px solid ${t.border}`, borderRadius: '12px', padding: '18px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                      <div style={{ fontSize: '0.86rem', fontWeight: 800, color: t.text, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <FileCheck size={17} color={isClean ? '#10b981' : '#f87171'} /> Integrity Status & Audit Findings
+                      </div>
+                      <span style={{ fontSize: '0.8rem', fontWeight: 800, color: isClean ? '#10b981' : '#f87171' }}>
+                        Score: {sub.forensics.integrityScore}/100
+                      </span>
+                    </div>
+
+                    <ul style={{ margin: 0, paddingLeft: '18px', fontSize: '0.8rem', lineHeight: 1.65, color: t.textSecondary }}>
+                      {sub.forensics.summaryFindings.map((finding, idx) => (
+                        <li key={idx} style={{ color: finding.includes('Authentic') ? '#10b981' : '#f87171' }}>
+                          {finding}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div style={{ marginTop: '12px', padding: '8px 10px', backgroundColor: t.cardBg, borderRadius: '6px', fontSize: '0.75rem', color: t.textMuted }}>
+                      <strong>Micro-Viva Verification:</strong> {sub.viva.isCorrect ? 'Verified comprehension passed within time limit' : 'Failed or timed out on conceptual questions'}
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* Section 5: Instructor Remarks */}
+                <div style={{ backgroundColor: t.cardBgAlt, border: `1px solid ${t.border}`, borderRadius: '10px', padding: '16px 20px', marginBottom: '20px' }}>
+                  <div style={{ fontSize: '0.78rem', color: t.textMuted, textTransform: 'uppercase', fontWeight: 800, marginBottom: '6px' }}>
+                    Instructor Evaluator Remarks
+                  </div>
+                  <div style={{ fontSize: '0.88rem', color: t.text, fontStyle: sub.evaluation.instructorRemarks ? 'normal' : 'italic' }}>
+                    {sub.evaluation.instructorRemarks || 'Student demonstrated satisfactory proficiency with laboratory operational exercises and formulas.'}
+                  </div>
+                </div>
+
+                {/* Report Card Footer Stamp */}
+                <div style={{ borderTop: `1px solid ${t.border}`, paddingTop: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px', fontSize: '0.74rem', color: t.textMuted }}>
+                  <div>
+                    Evaluation Signature: <strong>INSTRUCTOR-CONSOLE-PASSKEY-AUTH</strong> • Submission ID: {sub.id}
+                  </div>
+                  <div>
+                    Generated by Academic Evaluation Engine • Page 1 of 1
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Modal Bottom Close */}
+              <div
+                className="no-print"
+                style={{
+                  padding: '14px 24px',
+                  borderTop: `1px solid ${t.border}`,
+                  display: 'flex',
+                  justifyContent: 'flex-end',
+                  backgroundColor: t.cardHeaderBg
+                }}
+              >
+                <button
+                  onClick={() => setShowReportCardModal(false)}
+                  style={{
+                    backgroundColor: '#10b981',
+                    color: '#090d16',
+                    border: 'none',
+                    padding: '8px 20px',
+                    borderRadius: '8px',
+                    fontSize: '0.84rem',
+                    fontWeight: 800,
+                    cursor: 'pointer'
+                  }}
+                >
+                  Close Report Card
+                </button>
+              </div>
+
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 }

@@ -87,9 +87,12 @@ export async function POST(req: NextRequest) {
     const arrayBuffer = await file.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
 
+    const maxMarksParam = formData.get('maxMarks') as string | null;
+    const customMaxMarks = maxMarksParam && !isNaN(Number(maxMarksParam)) ? Math.max(1, Number(maxMarksParam)) : (assignment.totalMarks || 50);
+
     let summary;
     try {
-      summary = evaluateBatchSubmissions(buffer, assignment);
+      summary = evaluateBatchSubmissions(buffer, assignment, customMaxMarks);
     } catch (parseErr: any) {
       return NextResponse.json(
         { success: false, error: `Failed to process ZIP archive: ${parseErr.message}` },

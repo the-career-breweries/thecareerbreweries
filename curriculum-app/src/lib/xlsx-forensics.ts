@@ -13,6 +13,20 @@ export interface ForensicResult {
   sheetNames: string[];
   totalFormulasFound: number;
   sampleFormulas: string[];
+  allFormulas?: string[];
+  formulaTypes?: string[];
+  resultAccuracy?: {
+    percentage: number;
+    status: string;
+    dataSetupAccuracy: number;
+    computationalAccuracy: number;
+    analysisAccuracy: number;
+  };
+  aiToolsUsed?: {
+    detected: boolean;
+    toolNames: string[];
+    reasons: string[];
+  };
   flags: {
     isAiGenerator: boolean;
     isHoneypotTriggered: boolean;
@@ -299,6 +313,44 @@ export function analyzeXlsxBuffer(
 
   const total = Math.max(0, Math.min(50, dataSetup + tasks + analysis));
 
+  // Distinct formulas & formula types for student report card
+  const uniqueFormulas = Array.from(new Set(formulas));
+  const formulaTypesSet = new Set<string>();
+  formulas.forEach((f) => {
+    const fnMatch = f.match(/([A-Z_]+)\s*\(/i);
+    if (fnMatch) formulaTypesSet.add(fnMatch[1].toUpperCase());
+  });
+  const formulaTypes = Array.from(formulaTypesSet);
+
+  // Result accuracy calculation
+  const dataSetupAccuracy = Math.round((dataSetup / 5) * 100);
+  const computationalAccuracy = Math.round((tasks / 40) * 100);
+  const analysisAccuracy = Math.round((analysis / 5) * 100);
+  const accuracyPercentage = Math.round(((dataSetup + tasks + analysis) / 50) * 100);
+  const accuracyStatus =
+    accuracyPercentage >= 90 ? 'High Precision' : accuracyPercentage >= 75 ? 'Satisfactory' : 'Discrepancies Flagged';
+
+  // AI Tools Used Detection
+  const aiToolNames: string[] = [];
+  const aiReasons: string[] = [];
+
+  if (isAiGenerator) {
+    aiToolNames.push(application);
+    aiReasons.push(`Automated software generator signature detected (${application})`);
+  }
+  if (isHoneypotTriggered) {
+    aiToolNames.push('LLM / Automated AI Assistant');
+    aiReasons.push('Invisible prompt injection honeypot token detected inside workbook cells');
+  }
+  if (hasZeroEditTime) {
+    aiToolNames.push('Synthetic File Generator');
+    aiReasons.push('0 minutes active editing time recorded');
+  }
+  const isAiDetected = isAiGenerator || isHoneypotTriggered || hasZeroEditTime;
+  if (aiToolNames.length === 0) {
+    aiToolNames.push('None Detected (Authentic Microsoft Office / Google Sheets)');
+  }
+
   return {
     filename: originalFilename,
     fileSize: buffer.length,
@@ -312,6 +364,20 @@ export function analyzeXlsxBuffer(
     sheetNames,
     totalFormulasFound: formulas.length,
     sampleFormulas: formulas.slice(0, 5),
+    allFormulas: uniqueFormulas.slice(0, 25),
+    formulaTypes,
+    resultAccuracy: {
+      percentage: accuracyPercentage,
+      status: accuracyStatus,
+      dataSetupAccuracy,
+      computationalAccuracy,
+      analysisAccuracy
+    },
+    aiToolsUsed: {
+      detected: isAiDetected,
+      toolNames: aiToolNames,
+      reasons: aiReasons
+    },
     flags: {
       isAiGenerator,
       isHoneypotTriggered,
