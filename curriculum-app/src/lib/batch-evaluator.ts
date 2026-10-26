@@ -105,11 +105,25 @@ export function unzipArchive(buffer: Buffer): UnzippedFile[] {
  *   - 11 SIRI SAMHITHA R_Pivot_Assignment.xlsx -> rollNo: "26-AVA-011", studentName: "Siri Samhitha R"
  *   - Baba thanveer -pivot-Assignment.xlsx -> rollNo: "STU-...", studentName: "Baba Thanveer"
  */
+const STOP_WORDS = new Set([
+  'assignment', 'assinment', 'assognment', 'pivotassignment',
+  'pivot', 'pivottable', 'pivottables', 'lab', 'exercise',
+  'flight', 'aviation', 'operations', 'submission', 'task',
+  'report', 'word', 'powerpoint', 'excel', 'master', 'final',
+  'draft', 'copy', 'tables', 'charts', 'summary', 'blr',
+  'airport', 'sheet', 'work', 'new', 'pax', 'terminal',
+  'otp', 'sec', 'seca', 'secb', 'secc', 'section', 'bsc', 'prov', 'asav',
+  'ava', 'bba', 'student', 'stu', 'xlsx', 'docx', 'pptx'
+]);
+
 export function parseStudentDetailsFromFilename(fullPathOrName: string): { rollNo: string; studentName: string } {
   const base = path.basename(fullPathOrName);
   
-  // 1. Remove all file extensions (including double extensions like .xlsx.xlsx, .copy.xlsx)
+  // 1. Clean file extensions and duplicate extensions / copy suffixes
   let raw = base
+    .replace(/\s*\(\d+\)(?:\.xlsx)?$/gi, '')
+    .replace(/\s*copy(?:\.xlsx)?$/gi, '')
+    .replace(/[-_ ]\d(?:\.xlsx|\.docx|\.pptx|\.csv|\.pdf)+$/gi, '')
     .replace(/(\.xlsx|\.docx|\.pptx|\.csv|\.pdf)+$/gi, '')
     .trim();
 
@@ -118,26 +132,47 @@ export function parseStudentDetailsFromFilename(fullPathOrName: string): { rollN
 
   // 2. Identify and extract Roll Number
 
-  // Pattern A: PROV-ASAV-BSC format with any delimiters or concatenated (e.g. PROVASAVBSC726053, PROV_ASAV_BSC_7_26_019)
-  const provMatch = raw.match(/\b(PROV[-_ ]?ASAV[-_ ]?BSC(?:[-_ ]?[0-9]+)*)\b/i);
+  // Pattern A: PROV style (e.g. PROV_ASAV_BSC_7_26_019, PROV-ASAV-BSC-7-26-049, PROVASAVBSC726053, PROV_ASAV_726042, PROV-ASAV-BSC-016)
+  const provMatch = raw.match(/(PROV[-_ ]?(?:ASAV[-_ ]?)?(?:BSC[-_ ]?)?(?:[0-9]+[-_ ]*)+)/i);
   if (provMatch) {
     rollMatchStr = provMatch[1];
     const digitsOnly = rollMatchStr.replace(/[^0-9]/g, '');
-    if (digitsOnly.length >= 5) {
-      const lastDigits = digitsOnly.slice(-3);
+    
+    // Check if the string already had clear delimiter separated parts
+    const parts = rollMatchStr.split(/[-_ ]+/).filter(p => /^[0-9]+$/.test(p));
+    if (parts.length === 3) {
+      if (parts[0] === '26' && parts[1] === '7') {
+        rollNo = `PROV-ASAV-BSC-7-26-${parts[2].padStart(3, '0')}`;
+      } else if (parts[0] === '7' && parts[1] === '26') {
+        rollNo = `PROV-ASAV-BSC-7-26-${parts[2].padStart(3, '0')}`;
+      } else {
+        rollNo = `PROV-ASAV-BSC-${parts[0]}-${parts[1]}-${parts[2].padStart(3, '0')}`;
+      }
+    } else if (parts.length === 2) {
+      rollNo = `PROV-ASAV-BSC-7-${parts[0]}-${parts[1].padStart(3, '0')}`;
+    } else if (parts.length === 1 && parts[0].length >= 5) {
+      const d = parts[0];
+      const last3 = d.slice(-3);
+      const batch = d.slice(-5, -3);
+      const sec = d.slice(0, -5) || '7';
+      rollNo = `PROV-ASAV-BSC-${sec}-${batch}-${last3}`;
+    } else if (parts.length === 1 && parts[0].length === 3) {
+      rollNo = `PROV-ASAV-BSC-7-26-${parts[0]}`;
+    } else if (digitsOnly.length >= 5) {
+      const last3 = digitsOnly.slice(-3);
       const batch = digitsOnly.slice(-5, -3);
       const sec = digitsOnly.slice(0, -5) || '7';
-      rollNo = `PROV-ASAV-BSC-${sec}-${batch}-${lastDigits}`;
+      rollNo = `PROV-ASAV-BSC-${sec}-${batch}-${last3}`;
     } else {
-      rollNo = rollMatchStr.replace(/[_ ]/g, '-').toUpperCase();
+      rollNo = rollMatchStr.replace(/[_ ]/g, '-').replace(/-+$/, '').toUpperCase();
     }
   }
 
-  // Pattern B: 26-AVA-034, 26_AVA_007, 26AVA018, 26AVA36, 22BBA045
+  // Pattern B: 26AVA043, 26-AVA-034, 26_AVA_007, 26AVA36, 26AVA044PrathameshChavan
   if (!rollNo) {
-    const avaMatch = raw.match(/\b([0-9]{2})[-_ ]?([A-Za-z]{2,5})[-_ ]?([0-9]{1,4}[A-Za-z]?)\b/i);
+    const avaMatch = raw.match(/(?:^|[^A-Za-z0-9])([0-9]{2})[-_ ]?([A-Za-z]{3})[-_ ]?([0-9]{1,4})(?=[^0-9]|$)/i);
     if (avaMatch) {
-      rollMatchStr = avaMatch[0];
+      rollMatchStr = avaMatch[0].trim();
       const prefixYear = avaMatch[1];
       const dept = avaMatch[2].toUpperCase();
       const numPart = avaMatch[3].padStart(3, '0');
@@ -145,55 +180,64 @@ export function parseStudentDetailsFromFilename(fullPathOrName: string): { rollN
     }
   }
 
-  // Pattern C: AVA101, AV2026
+  // Pattern C: Leading sequence number (e.g. 010_DhyaanaVasudevan, 11 SIRI SAMHITHA R, 28_ShubhankarBhowmick)
   if (!rollNo) {
-    const codeMatch = raw.match(/\b([A-Za-z]{2,5}[-_ ]?[0-9]{2,5})\b/i);
-    if (codeMatch) {
-      rollMatchStr = codeMatch[1];
-      rollNo = rollMatchStr.replace(/[_ ]/g, '-').toUpperCase();
-    }
-  }
-
-  // Pattern D: Leading number like "010_...", "28_...", "11 SIRI..."
-  if (!rollNo) {
-    const leadNumMatch = raw.match(/^([0-9]{1,3})[_\- ]/);
+    const leadNumMatch = raw.match(/^([0-9]{1,3})[-_ ]+/);
     if (leadNumMatch) {
       rollMatchStr = leadNumMatch[0];
       rollNo = `26-AVA-${leadNumMatch[1].padStart(3, '0')}`;
     }
   }
 
-  // 3. Remove the detected roll number portion from the candidate string
+  // 3. Remove detected roll string from candidate string
   let nameStr = raw;
   if (rollMatchStr) {
     nameStr = nameStr.replace(rollMatchStr, ' ');
   }
 
-  // 4. Strip institutional / registration prefixes and loose code tokens
-  nameStr = nameStr.replace(/\b(PROV|ASAV|BSC|AVA|BBA)\b/gi, ' ');
-  nameStr = nameStr.replace(/\b(PROVASAVBSC[0-9]*)\b/gi, ' ');
+  // Also strip any residual PROVASAVBSC code or isolated PROV/ASAV/BSC tokens
+  nameStr = nameStr.replace(/PROV[-_ ]?ASAV[-_ ]?BSC(?:[-_ ]?[0-9]+)*/gi, ' ');
+  nameStr = nameStr.replace(/26[-_ ]?AVA[-_ ]?[0-9]*/gi, ' ');
 
-  // 5. Remove common assignment & operational keywords
-  const stopWordsRegex = /\b(assignment|assinment|lab|exercise|pivot|flight|aviation|operations|submission|task|report|word|powerpoint|excel|master|final|draft|copy|tables|charts|summary|blr|airport|sheet|work|new|pax|terminal|otp)\b/gi;
-  nameStr = nameStr.replace(stopWordsRegex, ' ');
+  // 4. Normalize separators (underscores, hyphens, dots, parentheses) to spaces BEFORE keyword parsing!
+  nameStr = nameStr.replace(/[-_./()+]/g, ' ');
 
-  // 6. Expand CamelCase / PascalCase names (e.g. "DanielJaisonJ" -> "Daniel Jaison J", "HarmainSehar" -> "Harmain Sehar", "PrathameshChavan" -> "Prathamesh Chavan")
+  // 5. Expand CamelCase / PascalCase names (e.g. "DanielJaisonJ" -> "Daniel Jaison J", "AbdulazeezWajid" -> "Abdulazeez Wajid", "SecA" -> "Sec A")
   nameStr = nameStr
     .replace(/([a-z])([A-Z])/g, '$1 $2')
     .replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2');
 
-  // 7. Clean punctuation & special chars, leaving only letters and spaces
-  nameStr = nameStr.replace(/[^A-Za-z\s]+/g, ' ').trim();
+  // Strip section descriptors like "Sec A", "Section A", "Sec 1" etc. now that spaces exist!
+  nameStr = nameStr.replace(/\b(?:Sec|Section)\s+[A-Za-z0-9]\b/gi, ' ');
 
-  // 8. Tokenize and format in Title Case
-  const words = nameStr
-    .split(/\s+/)
-    .map(w => w.trim())
-    .filter(w => w.length > 0 && !w.match(/^(xlsx|docx|pptx|copy|prov|asav|bsc|ava|bba)$/i));
+  // Specific name corrections for concatenated lowercase names
+  nameStr = nameStr.replace(/\bnidhipatel\b/gi, 'Nidhi Patel');
 
-  let studentName = words
+  // 6. Tokenize words, filtering out any stop words
+  const rawWords = nameStr.split(/\s+/).filter(Boolean);
+  const filteredWords: string[] = [];
+
+  for (let i = 0; i < rawWords.length; i++) {
+    const w = rawWords[i];
+    const lower = w.toLowerCase();
+    
+    // Check if it's a stop word
+    if (STOP_WORDS.has(lower)) {
+      continue;
+    }
+    
+    // Ignore pure digits or isolated non-alpha junk
+    if (!/[A-Za-z]/.test(w)) {
+      continue;
+    }
+
+    filteredWords.push(w);
+  }
+
+  // 7. Format into proper Title Case
+  let studentName = filteredWords
     .map(w => {
-      // Single letter initials stay uppercase (e.g. "J", "M", "P", "N", "R")
+      // Single letter initials stay uppercase (e.g. "J", "M", "P", "N", "R", "S")
       if (w.length === 1) return w.toUpperCase();
       return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
     })
