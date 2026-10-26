@@ -259,8 +259,15 @@ export default function StudentEvaluationPortal({
       doc.setTextColor(51, 65, 85);
       doc.text(sub.instructorRemarks || 'Evaluation completed. Work verified against institutional computing standards.', 18, remarksY + 8, { maxWidth: 174 });
 
+      // Performance Band Scale Strip
+      const scaleY = remarksY + 20;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(6.8);
+      doc.setTextColor(100, 116, 139);
+      doc.text('Performance Band Scale:  O (>=90% Outstanding)  |  A+ (80-89% Excellent)  |  A (70-79% Very Good)  |  B (60-69% Good)  |  C (50-59% Pass)  |  F (<50% Re-attempt)', 105, scaleY, { align: 'center' });
+
       // Signature Footer (Center Aligned)
-      const signY = remarksY + 20;
+      const signY = scaleY + 4;
       doc.setDrawColor(15, 23, 42);
       doc.setLineWidth(0.4);
       doc.line(14, signY, 196, signY);
@@ -667,6 +674,22 @@ export default function StudentEvaluationPortal({
               {result.submission.instructorRemarks || 'Evaluation completed. Work verified against institutional computing standards.'}
             </p>
 
+            {/* Academic Performance Scale Strip */}
+            <div style={{ backgroundColor: t.cardBgAlt, border: `1px solid ${t.border}`, borderRadius: '6px', padding: '6px 12px', marginBottom: '14px', fontSize: '0.72rem', color: t.textMuted, display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '8px' }}>
+              <span style={{ fontWeight: 800, color: t.text, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Performance Scale:</span>
+              <span><strong>O</strong> (≥90% Outstanding)</span>
+              <span>•</span>
+              <span><strong>A+</strong> (80–89% Excellent)</span>
+              <span>•</span>
+              <span><strong>A</strong> (70–79% Very Good)</span>
+              <span>•</span>
+              <span><strong>B</strong> (60–69% Good)</span>
+              <span>•</span>
+              <span><strong>C</strong> (50–59% Pass)</span>
+              <span>•</span>
+              <span><strong>F</strong> (&lt;50% Re-attempt)</span>
+            </div>
+
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', borderTop: `1px solid ${t.border}`, paddingTop: '14px', textAlign: 'center' }}>
               {signatureData && (
                 <img src={signatureData} alt="Course Instructor / Evaluator Signature" style={{ height: '38px', objectFit: 'contain', marginBottom: '6px', display: 'block' }} />
@@ -690,7 +713,7 @@ export default function StudentEvaluationPortal({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '20px'
+            padding: '12px'
           }}
         >
           <div
@@ -698,8 +721,8 @@ export default function StudentEvaluationPortal({
               backgroundColor: '#ffffff',
               color: '#0f172a',
               borderRadius: '12px',
-              maxWidth: '820px',
-              width: '100%',
+              maxWidth: '1060px',
+              width: '96vw',
               maxHeight: '92vh',
               overflowY: 'auto',
               boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)',
@@ -757,7 +780,7 @@ export default function StudentEvaluationPortal({
                   </tr>
                   <tr>
                     <td style={{ padding: '5px 8px', fontWeight: 700, color: '#64748b' }}>Roll Number:</td>
-                    <td style={{ padding: '5px 8px', fontWeight: 800, color: '#0f172a' }}>{result.submission.rollNo}</td>
+                    <td style={{ padding: '5px 8px', fontWeight: 800, color: '#0f172a', whiteSpace: 'nowrap' }}>{result.submission.rollNo}</td>
                     <td style={{ padding: '5px 8px', fontWeight: 700, color: '#64748b' }}>Evaluation Date:</td>
                     <td style={{ padding: '5px 8px', color: '#0f172a' }}>{new Date(result.submission.evaluatedAt || result.submission.submittedAt).toLocaleDateString('en-GB')}</td>
                   </tr>
@@ -825,6 +848,22 @@ export default function StudentEvaluationPortal({
               <div style={{ border: '1px solid #cbd5e1', borderRadius: '6px', padding: '10px 14px', backgroundColor: '#f8fafc', marginBottom: '14px', fontSize: '0.76rem' }}>
                 <div style={{ fontWeight: 800, color: '#0f172a', marginBottom: '4px' }}>Instructor Remarks</div>
                 <div style={{ color: '#475569' }}>{result.submission.instructorRemarks}</div>
+              </div>
+
+              {/* Academic Performance Grading Scale Key Strip */}
+              <div style={{ backgroundColor: '#f8fafc', border: '1px solid #cbd5e1', borderRadius: '6px', padding: '6px 12px', marginBottom: '12px', fontSize: '0.72rem', color: '#475569', display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '8px' }}>
+                <span style={{ fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Performance Scale:</span>
+                <span><strong>O</strong> (≥90% Outstanding)</span>
+                <span style={{ color: '#cbd5e1' }}>•</span>
+                <span><strong>A+</strong> (80–89% Excellent)</span>
+                <span style={{ color: '#cbd5e1' }}>•</span>
+                <span><strong>A</strong> (70–79% Very Good)</span>
+                <span style={{ color: '#cbd5e1' }}>•</span>
+                <span><strong>B</strong> (60–69% Good)</span>
+                <span style={{ color: '#cbd5e1' }}>•</span>
+                <span><strong>C</strong> (50–59% Pass)</span>
+                <span style={{ color: '#cbd5e1' }}>•</span>
+                <span><strong>F</strong> (&lt;50% Re-attempt)</span>
               </div>
 
               {/* Sign-off with Signature (Center Aligned) */}

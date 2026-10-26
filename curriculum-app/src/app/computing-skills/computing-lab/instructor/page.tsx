@@ -2653,8 +2653,8 @@ export default function InstructorEvaluationConsole() {
                 backgroundColor: '#ffffff',
                 border: '2px solid #0f172a',
                 borderRadius: '12px',
-                maxWidth: '1240px',
-                width: '95vw',
+                maxWidth: '1360px',
+                width: '96vw',
                 maxHeight: '94vh',
                 overflowY: 'auto',
                 overflowX: 'hidden',
@@ -2757,26 +2757,28 @@ export default function InstructorEvaluationConsole() {
                 </div>
 
                 {/* 2. Candidate & Exercise Demographics Matrix */}
-                <div style={{ border: '1px solid #cbd5e1', borderRadius: '6px', backgroundColor: '#f8fafc', padding: '10px 14px', marginBottom: '14px', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '10px', fontSize: '0.8rem' }}>
-                  <div>
-                    <div style={{ fontSize: '0.68rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700 }}>Candidate Name</div>
-                    <div style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0f172a', marginTop: '1px' }}>{sub.studentName}</div>
-                  </div>
-                  <div>
-                    <div style={{ fontSize: '0.68rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700 }}>Roll Number / ID</div>
-                    <div style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0284c7', fontFamily: 'monospace', marginTop: '1px' }}>{sub.rollNo}</div>
-                  </div>
-                  <div>
-                    <div style={{ fontSize: '0.68rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700 }}>Lab Assignment</div>
-                    <div style={{ fontSize: '0.84rem', fontWeight: 700, color: '#0f172a', marginTop: '1px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                      {sub.assignmentTitle || 'Flight Operations Analysis'}
+                <div style={{ border: '1px solid #cbd5e1', borderRadius: '6px', backgroundColor: '#f8fafc', padding: '12px 16px', marginBottom: '14px', fontSize: '0.8rem' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'minmax(180px, 1.2fr) minmax(210px, 1.4fr) minmax(220px, 2fr)', gap: '14px', marginBottom: '10px' }}>
+                    <div>
+                      <div style={{ fontSize: '0.68rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700 }}>Candidate Name</div>
+                      <div style={{ fontSize: '0.95rem', fontWeight: 800, color: '#0f172a', marginTop: '2px' }}>{sub.studentName}</div>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '0.68rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700 }}>Roll Number / ID</div>
+                      <div style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0284c7', fontFamily: 'monospace', marginTop: '2px', whiteSpace: 'nowrap' }}>{sub.rollNo}</div>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '0.68rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700 }}>Lab Assignment</div>
+                      <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#0f172a', marginTop: '2px', lineHeight: 1.3 }}>
+                        {sub.assignmentTitle || 'Flight Operations Analysis'}
+                      </div>
                     </div>
                   </div>
-                  <div>
-                    <div style={{ fontSize: '0.68rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700 }}>Evaluated Artifact</div>
-                    <div style={{ fontSize: '0.76rem', fontWeight: 600, color: '#475569', fontFamily: 'monospace', marginTop: '1px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                  <div style={{ borderTop: '1px solid #e2e8f0', paddingTop: '8px', display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                    <span style={{ fontSize: '0.68rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700, whiteSpace: 'nowrap' }}>Evaluated Artifact:</span>
+                    <span style={{ fontSize: '0.80rem', fontWeight: 600, color: '#334155', fontFamily: 'monospace', wordBreak: 'break-all' }}>
                       {sub.originalFilename}
-                    </div>
+                    </span>
                   </div>
                 </div>
 
@@ -3045,6 +3047,22 @@ export default function InstructorEvaluationConsole() {
                     </div>
                   </div>
 
+                </div>
+
+                {/* Academic Performance Grading Scale Key Strip */}
+                <div style={{ backgroundColor: '#f8fafc', border: '1px solid #cbd5e1', borderRadius: '6px', padding: '6px 12px', marginTop: '12px', marginBottom: '12px', fontSize: '0.72rem', color: '#475569', display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '8px' }}>
+                  <span style={{ fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Performance Scale:</span>
+                  <span><strong>O</strong> (≥90% Outstanding)</span>
+                  <span style={{ color: '#cbd5e1' }}>•</span>
+                  <span><strong>A+</strong> (80–89% Excellent)</span>
+                  <span style={{ color: '#cbd5e1' }}>•</span>
+                  <span><strong>A</strong> (70–79% Very Good)</span>
+                  <span style={{ color: '#cbd5e1' }}>•</span>
+                  <span><strong>B</strong> (60–69% Good)</span>
+                  <span style={{ color: '#cbd5e1' }}>•</span>
+                  <span><strong>C</strong> (50–59% Pass)</span>
+                  <span style={{ color: '#cbd5e1' }}>•</span>
+                  <span><strong>F</strong> (&lt;50% Re-attempt)</span>
                 </div>
 
                 {/* Institutional Endorsement Sign-Off with Evaluator Signature (Center Aligned) */}
