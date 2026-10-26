@@ -67,7 +67,7 @@ const FORMULA_DATABASE = [
 
 export default function ComputingLabPortal() {
   const [activeTab, setActiveTab] = useState<'assignment' | 'notes' | 'cheatsheet'>('assignment');
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const [theme, setTheme] = useState<'dark' | 'light'>('light');
   const [softwareTab, setSoftwareTab] = useState<'excel' | 'sheets'>('excel');
 
   // Form states
@@ -93,6 +93,8 @@ export default function ComputingLabPortal() {
     const savedTheme = localStorage.getItem('lab_portal_theme');
     if (savedTheme === 'light' || savedTheme === 'dark') {
       setTheme(savedTheme);
+    } else {
+      setTheme('light');
     }
   }, []);
 

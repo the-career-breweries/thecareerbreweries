@@ -82,7 +82,7 @@ export default function InstructorEvaluationConsole() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [passkeyInput, setPasskeyInput] = useState('');
   const [authError, setAuthError] = useState('');
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const [theme, setTheme] = useState<'dark' | 'light'>('light');
 
   const [submissions, setSubmissions] = useState<SubmissionRecord[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -101,6 +101,8 @@ export default function InstructorEvaluationConsole() {
     const savedTheme = localStorage.getItem('lab_portal_theme');
     if (savedTheme === 'light' || savedTheme === 'dark') {
       setTheme(savedTheme);
+    } else {
+      setTheme('light');
     }
   }, []);
 
