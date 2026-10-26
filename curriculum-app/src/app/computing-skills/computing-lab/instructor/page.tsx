@@ -32,7 +32,10 @@ import {
   FileText,
   Send,
   Check,
-  ArrowRight
+  ArrowRight,
+  FolderArchive,
+  Upload,
+  X
 } from 'lucide-react';
 import {
   TOPICS_DATA,
@@ -43,6 +46,9 @@ import {
 
 interface SubmissionRecord {
   id: string;
+  assignmentId?: string;
+  assignmentTitle?: string;
+  batchEvaluated?: boolean;
   rollNo: string;
   studentName: string;
   submittedAt: string;
@@ -119,6 +125,15 @@ export default function InstructorEvaluationConsole() {
   const [assignmentsList, setAssignmentsList] = useState<any[]>([]);
   const [activeAssignmentId, setActiveAssignmentId] = useState<string>('blr-pivot-operations');
   const [isLoadingAssignments, setIsLoadingAssignments] = useState(false);
+
+  // Batch ZIP Evaluation State
+  const [batchAssignmentId, setBatchAssignmentId] = useState<string>('blr-pivot-operations');
+  const [batchZipFile, setBatchZipFile] = useState<File | null>(null);
+  const [isEvaluatingBatch, setIsEvaluatingBatch] = useState<boolean>(false);
+  const [batchResult, setBatchResult] = useState<any | null>(null);
+  const [batchError, setBatchError] = useState<string>('');
+  const [showBatchModal, setShowBatchModal] = useState<boolean>(false);
+  const [assignmentFilter, setAssignmentFilter] = useState<string>('all');
 
   // Generator State
   const [genTopic, setGenTopic] = useState<'excel' | 'powerpoint' | 'word'>('excel');
@@ -198,14 +213,103 @@ export default function InstructorEvaluationConsole() {
       const res = await fetch(`/api/lab/assignment?passkey=${INSTRUCTOR_PASSKEY}`);
       const data = await res.json();
       if (data.success) {
-        setAssignmentsList(data.assignments || []);
-        setActiveAssignmentId(data.activeAssignmentId || 'blr-pivot-operations');
+        const list = data.assignments || [];
+        setAssignmentsList(list);
+        const active = data.activeAssignmentId || 'blr-pivot-operations';
+        setActiveAssignmentId(active);
+        setBatchAssignmentId((prev) => prev || active || (list[0]?.id ?? 'blr-pivot-operations'));
       }
     } catch (err) {
       console.error('Failed to load assignments list:', err);
     } finally {
       setIsLoadingAssignments(false);
     }
+  };
+
+  const handleBatchZipChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0];
+      if (!file.name.toLowerCase().endsWith('.zip')) {
+        setBatchError('Please select a valid .zip folder archive.');
+        setBatchZipFile(null);
+        return;
+      }
+      setBatchZipFile(file);
+      setBatchError('');
+    }
+  };
+
+  const handleRunBatchEvaluation = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!batchZipFile) {
+      setBatchError('Please select a student submissions .zip folder first.');
+      return;
+    }
+    setIsEvaluatingBatch(true);
+    setBatchError('');
+
+    const formData = new FormData();
+    formData.append('file', batchZipFile);
+    formData.append('assignmentId', batchAssignmentId);
+    formData.append('passkey', INSTRUCTOR_PASSKEY);
+
+    try {
+      const res = await fetch('/api/lab/batch-evaluate', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || 'Batch evaluation failed.');
+      }
+
+      setBatchResult(data.summary);
+      setShowBatchModal(true);
+      setBatchZipFile(null);
+      await fetchSubmissions();
+    } catch (err: any) {
+      setBatchError(err.message || 'Error occurred during batch evaluation.');
+    } finally {
+      setIsEvaluatingBatch(false);
+    }
+  };
+
+  const exportBatchToCSV = (bResult: any) => {
+    if (!bResult || !bResult.results || bResult.results.length === 0) return;
+    const headers = [
+      'Roll No',
+      'Student Name',
+      'Assignment',
+      'Original File',
+      'Application Generator',
+      'Edit Time (Mins)',
+      'Formulas Count',
+      'Integrity Status',
+      'Final Score',
+      'Audit Findings'
+    ];
+    const rows = bResult.results.map((r: any) => [
+      `"${r.rollNo}"`,
+      `"${r.studentName}"`,
+      `"${r.assignmentTitle || bResult.assignmentTitle}"`,
+      `"${r.originalFilename}"`,
+      `"${r.forensics.application || 'Unknown'}"`,
+      r.forensics.totalTimeMinutes,
+      r.forensics.totalFormulasFound,
+      `"${r.forensics.integrityLevel?.toUpperCase()}"`,
+      r.evaluation.finalScore,
+      `"${(r.forensics.summaryFindings || []).join('; ').replace(/"/g, '""')}"`
+    ]);
+
+    const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map((r: any) => r.join(','))].join('\n');
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement('a');
+    link.setAttribute('href', encodedUri);
+    link.setAttribute('download', `Batch_Evaluation_${bResult.assignmentId}_${new Date().toISOString().slice(0, 10)}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const handleOpenInspector = (sub: SubmissionRecord) => {
@@ -367,6 +471,8 @@ export default function InstructorEvaluationConsole() {
     const headers = [
       'Roll No',
       'Student Name',
+      'Assignment',
+      'Original File',
       'Submitted At',
       'Application Generator',
       'Editing Time (Mins)',
@@ -383,6 +489,8 @@ export default function InstructorEvaluationConsole() {
     const rows = submissions.map((s) => [
       `"${s.rollNo}"`,
       `"${s.studentName}"`,
+      `"${s.assignmentTitle || 'Flight Operations Analysis'}"`,
+      `"${s.originalFilename || ''}"`,
       `"${s.submittedAt}"`,
       `"${s.forensics.application}"`,
       s.forensics.totalTimeMinutes,
@@ -416,11 +524,13 @@ export default function InstructorEvaluationConsole() {
   const filteredSubmissions = submissions.filter((s) => {
     const matchesSearch =
       s.rollNo.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      s.studentName.toLowerCase().includes(searchQuery.toLowerCase());
+      s.studentName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (s.originalFilename && s.originalFilename.toLowerCase().includes(searchQuery.toLowerCase()));
 
     if (!matchesSearch) return false;
     if (filterMode === 'flagged') return s.forensics.integrityLevel !== 'clean';
     if (filterMode === 'clean') return s.forensics.integrityLevel === 'clean';
+    if (assignmentFilter !== 'all' && s.assignmentId !== assignmentFilter) return false;
     return true;
   });
 
@@ -701,17 +811,232 @@ export default function InstructorEvaluationConsole() {
             </div>
           </div>
 
+          {/* ================= BATCH SUBMISSIONS ZIP EVALUATOR ================= */}
+          <div style={{ maxWidth: '1400px', margin: '24px auto 0', padding: '0 28px' }}>
+            <div style={{ backgroundColor: t.cardBg, border: `2px solid ${t.borderHighlight}`, borderRadius: '14px', overflow: 'hidden', boxShadow: t.shadow }}>
+              <div style={{ backgroundColor: t.cardHeaderBg, padding: '16px 22px', borderBottom: `1px solid ${t.border}`, display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <div style={{ backgroundColor: '#10b981', color: '#090d16', padding: '8px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <FolderArchive size={20} />
+                  </div>
+                  <div>
+                    <h3 style={{ fontSize: '1.08rem', fontWeight: 800, margin: 0, color: t.text }}>
+                      Batch Submissions Evaluation (ZIP Archive Upload)
+                    </h3>
+                    <p style={{ fontSize: '0.78rem', color: t.textMuted, margin: '2px 0 0' }}>
+                      Select the target assignment, upload student submissions ZIP, and automatically evaluate files with forensic AI audits & auto-grading
+                    </p>
+                  </div>
+                </div>
+
+                <span style={{ fontSize: '0.74rem', backgroundColor: t.accentEmeraldBg, color: t.accentEmeraldText, fontWeight: 700, padding: '3px 10px', borderRadius: '6px' }}>
+                  Automated Class Evaluation
+                </span>
+              </div>
+
+              <div style={{ padding: '22px' }}>
+                {batchError && (
+                  <div style={{ backgroundColor: 'rgba(239, 68, 68, 0.12)', border: '1px solid rgba(239, 68, 68, 0.3)', color: '#f87171', padding: '10px 14px', borderRadius: '8px', fontSize: '0.84rem', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <AlertCircle size={17} /> {batchError}
+                  </div>
+                )}
+
+                {batchResult && (
+                  <div style={{ backgroundColor: t.accentEmeraldBg, border: `1px solid ${t.borderHighlight}`, borderRadius: '10px', padding: '14px 18px', marginBottom: '18px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#10b981', fontWeight: 800, fontSize: '0.92rem' }}>
+                        <CheckCircle2 size={18} /> Batch Evaluation Complete!
+                      </div>
+                      <div style={{ fontSize: '0.82rem', color: t.textSecondary }}>
+                        Evaluated <strong>{batchResult.evaluatedCount}</strong> submission(s) for <em>{batchResult.assignmentTitle}</em>
+                      </div>
+                      <div style={{ display: 'flex', gap: '6px' }}>
+                        <span style={{ fontSize: '0.74rem', padding: '2px 8px', borderRadius: '4px', backgroundColor: 'rgba(16, 185, 129, 0.2)', color: '#10b981', fontWeight: 700 }}>
+                          {batchResult.cleanCount} Clean
+                        </span>
+                        <span style={{ fontSize: '0.74rem', padding: '2px 8px', borderRadius: '4px', backgroundColor: 'rgba(239, 68, 68, 0.2)', color: '#f87171', fontWeight: 700 }}>
+                          {batchResult.flaggedCount} Flagged
+                        </span>
+                        <span style={{ fontSize: '0.74rem', padding: '2px 8px', borderRadius: '4px', backgroundColor: 'rgba(56, 189, 248, 0.2)', color: '#38bdf8', fontWeight: 700 }}>
+                          Avg: {batchResult.averageScore} / 50
+                        </span>
+                      </div>
+                    </div>
+
+                    <div style={{ display: 'flex', gap: '8px' }}>
+                      <button
+                        onClick={() => setShowBatchModal(true)}
+                        style={{ backgroundColor: t.cardBg, border: `1px solid ${t.border}`, color: t.text, padding: '6px 12px', borderRadius: '6px', fontSize: '0.8rem', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px' }}
+                      >
+                        <Eye size={14} /> View Audit Report
+                      </button>
+                      <button
+                        onClick={() => setBatchResult(null)}
+                        style={{ background: 'transparent', border: 'none', color: t.textMuted, padding: '4px', cursor: 'pointer' }}
+                        title="Dismiss banner"
+                      >
+                        <X size={16} />
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                <form onSubmit={handleRunBatchEvaluation} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px', alignItems: 'end' }}>
+                  
+                  {/* Dropdown 1: Target Assignment Selection */}
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: t.text, marginBottom: '6px' }}>
+                      1. Select Target Assignment *
+                    </label>
+                    <select
+                      value={batchAssignmentId}
+                      onChange={(e) => setBatchAssignmentId(e.target.value)}
+                      style={{
+                        width: '100%',
+                        boxSizing: 'border-box',
+                        backgroundColor: t.inputBg,
+                        border: `1px solid ${t.inputBorder}`,
+                        color: t.text,
+                        padding: '11px 14px',
+                        borderRadius: '8px',
+                        fontSize: '0.88rem',
+                        fontWeight: 600,
+                        outline: 'none',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      {assignmentsList.map((a) => (
+                        <option key={a.id} value={a.id}>
+                          [{a.topic?.toUpperCase()}] {a.exerciseNumber}: {a.title} ({a.totalMarks} Marks, .{a.fileType})
+                        </option>
+                      ))}
+                    </select>
+                    <div style={{ fontSize: '0.74rem', color: t.textMuted, marginTop: '5px' }}>
+                      Expected format: <code>.{assignmentsList.find(a => a.id === batchAssignmentId)?.fileType || 'xlsx'}</code> • Applies assignment-specific rubrics & honeypot tests
+                    </div>
+                  </div>
+
+                  {/* Input 2: ZIP File Upload Dropzone */}
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: t.text, marginBottom: '6px' }}>
+                      2. Submissions ZIP Folder Archive *
+                    </label>
+                    <div
+                      style={{
+                        border: `2px dashed ${batchZipFile ? '#10b981' : t.inputBorder}`,
+                        backgroundColor: batchZipFile ? t.accentEmeraldBg : t.cardBgAlt,
+                        borderRadius: '8px',
+                        padding: '10px 14px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        cursor: 'pointer',
+                        transition: 'all 0.15s'
+                      }}
+                    >
+                      <input
+                        type="file"
+                        accept=".zip"
+                        id="batch-zip-input"
+                        style={{ display: 'none' }}
+                        onChange={handleBatchZipChange}
+                      />
+                      <label htmlFor="batch-zip-input" style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px', width: '100%' }}>
+                        <FolderArchive size={26} color={batchZipFile ? '#10b981' : t.textMuted} />
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          <div style={{ fontSize: '0.84rem', fontWeight: 700, color: t.text, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                            {batchZipFile ? batchZipFile.name : 'Choose or drag & drop class .zip folder'}
+                          </div>
+                          <div style={{ fontSize: '0.72rem', color: t.textMuted }}>
+                            {batchZipFile ? `${(batchZipFile.size / 1024 / 1024).toFixed(2)} MB • Ready for evaluation` : 'Archive containing student .xlsx, .docx, or .pptx work'}
+                          </div>
+                        </div>
+                        <span style={{ fontSize: '0.75rem', backgroundColor: t.cardBg, border: `1px solid ${t.border}`, padding: '4px 10px', borderRadius: '6px', fontWeight: 600, color: t.textSecondary, whiteSpace: 'nowrap' }}>
+                          Browse ZIP
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+
+                  {/* Action Button */}
+                  <div>
+                    <button
+                      type="submit"
+                      disabled={!batchZipFile || isEvaluatingBatch}
+                      style={{
+                        width: '100%',
+                        backgroundColor: !batchZipFile || isEvaluatingBatch ? t.cardBgAlt : '#10b981',
+                        color: !batchZipFile || isEvaluatingBatch ? t.textMuted : '#090d16',
+                        border: `1px solid ${!batchZipFile || isEvaluatingBatch ? t.border : '#10b981'}`,
+                        padding: '12px 20px',
+                        borderRadius: '8px',
+                        fontSize: '0.9rem',
+                        fontWeight: 800,
+                        cursor: !batchZipFile || isEvaluatingBatch ? 'not-allowed' : 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '8px',
+                        boxShadow: !batchZipFile || isEvaluatingBatch ? 'none' : '0 4px 14px rgba(16, 185, 129, 0.35)',
+                        transition: 'all 0.15s'
+                      }}
+                    >
+                      {isEvaluatingBatch ? (
+                        <>
+                          <RefreshCw size={16} className="animate-spin" />
+                          Unpacking & Evaluating Submissions...
+                        </>
+                      ) : (
+                        <>
+                          <Upload size={16} />
+                          Evaluate All Submissions
+                        </>
+                      )}
+                    </button>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+
           {/* Search & Filters */}
           <div style={{ maxWidth: '1400px', margin: '28px auto 0', padding: '0 28px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
-            <div style={{ position: 'relative', minWidth: '300px', flex: '1', maxWidth: '440px' }}>
-              <Search size={16} color={t.textMuted} style={{ position: 'absolute', left: '14px', top: '13px' }} />
-              <input
-                type="text"
-                placeholder="Search by Roll No or Student Name..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                style={{ width: '100%', boxSizing: 'border-box', backgroundColor: t.inputBg, border: `1px solid ${t.inputBorder}`, color: t.text, padding: '11px 14px 11px 40px', borderRadius: '8px', fontSize: '0.86rem', outline: 'none' }}
-              />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: '1', minWidth: '300px', flexWrap: 'wrap' }}>
+              <div style={{ position: 'relative', flex: '1', minWidth: '240px', maxWidth: '380px' }}>
+                <Search size={16} color={t.textMuted} style={{ position: 'absolute', left: '14px', top: '13px' }} />
+                <input
+                  type="text"
+                  placeholder="Search by Roll No, Student Name or Filename..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  style={{ width: '100%', boxSizing: 'border-box', backgroundColor: t.inputBg, border: `1px solid ${t.inputBorder}`, color: t.text, padding: '11px 14px 11px 40px', borderRadius: '8px', fontSize: '0.86rem', outline: 'none' }}
+                />
+              </div>
+
+              {/* Assignment Filter Dropdown */}
+              <select
+                value={assignmentFilter}
+                onChange={(e) => setAssignmentFilter(e.target.value)}
+                style={{
+                  backgroundColor: t.cardBg,
+                  border: `1px solid ${t.border}`,
+                  color: t.text,
+                  padding: '10px 14px',
+                  borderRadius: '8px',
+                  fontSize: '0.84rem',
+                  fontWeight: 600,
+                  outline: 'none',
+                  cursor: 'pointer'
+                }}
+              >
+                <option value="all">All Assignments ({submissions.length})</option>
+                {assignmentsList.map((a) => (
+                  <option key={a.id} value={a.id}>
+                    {a.exerciseNumber}: {a.title}
+                  </option>
+                ))}
+              </select>
             </div>
 
             <div style={{ display: 'flex', gap: '8px' }}>
@@ -719,19 +1044,19 @@ export default function InstructorEvaluationConsole() {
                 onClick={() => setFilterMode('all')}
                 style={{ backgroundColor: filterMode === 'all' ? '#10b981' : t.cardBg, color: filterMode === 'all' ? '#090d16' : t.textMuted, border: `1px solid ${filterMode === 'all' ? '#10b981' : t.border}`, padding: '8px 16px', borderRadius: '8px', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}
               >
-                All Submissions ({submissions.length})
+                All ({submissions.length})
               </button>
               <button
                 onClick={() => setFilterMode('flagged')}
                 style={{ backgroundColor: filterMode === 'flagged' ? '#f43f5e' : t.cardBg, color: filterMode === 'flagged' ? '#ffffff' : t.textMuted, border: `1px solid ${filterMode === 'flagged' ? '#f43f5e' : t.border}`, padding: '8px 16px', borderRadius: '8px', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}
               >
-                Flagged Only ({flaggedCount})
+                Flagged ({flaggedCount})
               </button>
               <button
                 onClick={() => setFilterMode('clean')}
                 style={{ backgroundColor: filterMode === 'clean' ? '#10b981' : t.cardBg, color: filterMode === 'clean' ? '#090d16' : t.textMuted, border: `1px solid ${filterMode === 'clean' ? '#10b981' : t.border}`, padding: '8px 16px', borderRadius: '8px', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer' }}
               >
-                Clean Only ({cleanCount})
+                Clean ({cleanCount})
               </button>
             </div>
           </div>
@@ -745,9 +1070,10 @@ export default function InstructorEvaluationConsole() {
                     <tr style={{ backgroundColor: t.cardBgAlt, borderBottom: `1px solid ${t.border}`, color: t.textMuted }}>
                       <th style={{ padding: '16px 20px' }}>Roll No</th>
                       <th style={{ padding: '16px 20px' }}>Student Name</th>
+                      <th style={{ padding: '16px 20px' }}>Assignment</th>
                       <th style={{ padding: '16px 20px' }}>Application Generator</th>
                       <th style={{ padding: '16px 20px' }}>Edit Time</th>
-                      <th style={{ padding: '16px 20px' }}>Formulas</th>
+                      <th style={{ padding: '16px 20px' }}>Formulas / Structure</th>
                       <th style={{ padding: '16px 20px' }}>Score</th>
                       <th style={{ padding: '16px 20px' }}>Integrity Status</th>
                       <th style={{ padding: '16px 20px', textAlign: 'right' }}>Actions</th>
@@ -756,8 +1082,8 @@ export default function InstructorEvaluationConsole() {
                   <tbody>
                     {filteredSubmissions.length === 0 ? (
                       <tr>
-                        <td colSpan={8} style={{ padding: '48px', textAlign: 'center', color: t.textMuted }}>
-                          No submissions found matching criteria.
+                        <td colSpan={9} style={{ padding: '48px', textAlign: 'center', color: t.textMuted }}>
+                          No submissions found matching criteria. Upload a submissions ZIP folder above or have students submit via portal.
                         </td>
                       </tr>
                     ) : (
@@ -771,8 +1097,18 @@ export default function InstructorEvaluationConsole() {
                             <td style={{ padding: '16px 20px', fontWeight: 800, color: t.text }}>
                               {s.rollNo}
                             </td>
-                            <td style={{ padding: '16px 20px', color: t.textSecondary }}>
+                            <td style={{ padding: '16px 20px', color: t.textSecondary, fontWeight: 600 }}>
                               {s.studentName}
+                            </td>
+                            <td style={{ padding: '16px 20px', fontSize: '0.8rem', color: '#818cf8', fontWeight: 600, maxWidth: '200px' }}>
+                              <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                                {s.assignmentTitle || 'Flight Operations Analysis'}
+                              </div>
+                              {s.batchEvaluated && (
+                                <span style={{ fontSize: '0.68rem', backgroundColor: t.accentIndigoBg, color: t.accentIndigoText, padding: '1px 6px', borderRadius: '4px', fontWeight: 700, display: 'inline-block', marginTop: '2px' }}>
+                                  ZIP Batch
+                                </span>
+                              )}
                             </td>
                             <td style={{ padding: '16px 20px', fontFamily: 'monospace', fontSize: '0.8rem', color: s.forensics.flags.isAiGenerator ? '#f87171' : t.textMuted }}>
                               {s.forensics.application || 'Unknown'}
@@ -780,8 +1116,12 @@ export default function InstructorEvaluationConsole() {
                             <td style={{ padding: '16px 20px', color: s.forensics.flags.hasZeroEditTime ? '#f87171' : t.textMuted }}>
                               {s.forensics.totalTimeMinutes}m
                             </td>
-                            <td style={{ padding: '16px 20px', color: s.forensics.totalFormulasFound > 0 ? '#10b981' : '#f87171', fontWeight: 600 }}>
-                              {s.forensics.totalFormulasFound} cells
+                            <td style={{ padding: '16px 20px', color: s.forensics.totalFormulasFound > 0 ? '#10b981' : '#f87171', fontWeight: 600, fontSize: '0.82rem' }}>
+                              {s.forensics.totalFormulasFound > 0
+                                ? `${s.forensics.totalFormulasFound} cells`
+                                : s.forensics.sheetNames.length > 0
+                                ? `${s.forensics.sheetNames.length} sections/slides`
+                                : '0 detected'}
                             </td>
                             <td style={{ padding: '16px 20px', fontWeight: 800, color: '#38bdf8' }}>
                               {s.evaluation.finalScore} / 50
@@ -796,7 +1136,7 @@ export default function InstructorEvaluationConsole() {
                                 </span>
                               ) : s.forensics.flags.isAiGenerator ? (
                                 <span style={{ backgroundColor: 'rgba(239, 68, 68, 0.2)', color: '#f87171', padding: '4px 10px', borderRadius: '6px', fontSize: '0.78rem', fontWeight: 800 }}>
-                                  🟡 AI Tool (openpyxl)
+                                  🟡 AI Tool ({s.forensics.application})
                                 </span>
                               ) : s.forensics.flags.isHoneypotTriggered ? (
                                 <span style={{ backgroundColor: 'rgba(239, 68, 68, 0.2)', color: '#f87171', padding: '4px 10px', borderRadius: '6px', fontSize: '0.78rem', fontWeight: 800 }}>
@@ -804,7 +1144,7 @@ export default function InstructorEvaluationConsole() {
                                 </span>
                               ) : s.forensics.flags.isTrapRecordFound ? (
                                 <span style={{ backgroundColor: 'rgba(249, 115, 22, 0.2)', color: '#fb923c', padding: '4px 10px', borderRadius: '6px', fontSize: '0.78rem', fontWeight: 800 }}>
-                                  🟠 Trap FL-199 Present
+                                  🟠 Trap Record Present
                                 </span>
                               ) : (
                                 <span style={{ backgroundColor: 'rgba(234, 179, 8, 0.2)', color: '#facc15', padding: '4px 10px', borderRadius: '6px', fontSize: '0.78rem', fontWeight: 800 }}>
@@ -1532,6 +1872,260 @@ export default function InstructorEvaluationConsole() {
 
             </div>
 
+          </div>
+        </div>
+      )}
+
+      {/* ================= MODAL: BATCH EVALUATION AUDIT REPORT ================= */}
+      {showBatchModal && batchResult && (
+        <div
+          style={{
+            position: 'fixed',
+            inset: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.75)',
+            backdropFilter: 'blur(5px)',
+            zIndex: 1000,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '20px'
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: t.cardBg,
+              border: `1px solid ${t.border}`,
+              borderRadius: '16px',
+              maxWidth: '1100px',
+              width: '100%',
+              maxHeight: '90vh',
+              overflowY: 'auto',
+              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+              display: 'flex',
+              flexDirection: 'column'
+            }}
+          >
+            {/* Modal Header */}
+            <div
+              style={{
+                padding: '20px 24px',
+                borderBottom: `1px solid ${t.border}`,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                position: 'sticky',
+                top: 0,
+                backgroundColor: t.cardBg,
+                zIndex: 10
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <div style={{ backgroundColor: '#10b981', color: '#090d16', padding: '10px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <FolderArchive size={22} />
+                </div>
+                <div>
+                  <h2 style={{ fontSize: '1.25rem', fontWeight: 800, margin: 0, color: t.text }}>
+                    Batch Evaluation Audit Report
+                  </h2>
+                  <p style={{ fontSize: '0.8rem', color: t.textMuted, margin: '3px 0 0' }}>
+                    Assignment: <strong style={{ color: t.text }}>{batchResult.assignmentTitle}</strong> • {batchResult.evaluatedCount} files analyzed out of {batchResult.totalFilesParsed} archive contents
+                  </p>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <button
+                  onClick={() => exportBatchToCSV(batchResult)}
+                  style={{
+                    backgroundColor: t.accentEmeraldBg,
+                    border: `1px solid ${t.borderHighlight}`,
+                    color: '#10b981',
+                    padding: '8px 14px',
+                    borderRadius: '8px',
+                    fontSize: '0.82rem',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px'
+                  }}
+                >
+                  <Download size={15} /> Export Marks (CSV)
+                </button>
+                <button
+                  onClick={() => setShowBatchModal(false)}
+                  style={{
+                    backgroundColor: 'transparent',
+                    border: 'none',
+                    color: t.textMuted,
+                    fontSize: '1.3rem',
+                    cursor: 'pointer',
+                    padding: '6px 10px',
+                    borderRadius: '6px'
+                  }}
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Body */}
+            <div style={{ padding: '24px' }}>
+              {/* Summary KPIs */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px', marginBottom: '24px' }}>
+                <div style={{ backgroundColor: t.cardBgAlt, border: `1px solid ${t.border}`, borderRadius: '10px', padding: '14px 18px' }}>
+                  <div style={{ fontSize: '0.74rem', color: t.textMuted, textTransform: 'uppercase', fontWeight: 700 }}>Total Evaluated</div>
+                  <div style={{ fontSize: '1.5rem', fontWeight: 800, color: t.text, marginTop: '2px' }}>
+                    {batchResult.evaluatedCount} <span style={{ fontSize: '0.8rem', color: t.textMuted }}>Students</span>
+                  </div>
+                </div>
+
+                <div style={{ backgroundColor: t.cardBgAlt, border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: '10px', padding: '14px 18px' }}>
+                  <div style={{ fontSize: '0.74rem', color: '#10b981', textTransform: 'uppercase', fontWeight: 700 }}>Authentic Submissions</div>
+                  <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#10b981', marginTop: '2px' }}>
+                    {batchResult.cleanCount} <span style={{ fontSize: '0.8rem', color: t.textMuted }}>Clean</span>
+                  </div>
+                </div>
+
+                <div style={{ backgroundColor: t.cardBgAlt, border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '10px', padding: '14px 18px' }}>
+                  <div style={{ fontSize: '0.74rem', color: '#f87171', textTransform: 'uppercase', fontWeight: 700 }}>Flagged / AI Generated</div>
+                  <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#f87171', marginTop: '2px' }}>
+                    {batchResult.flaggedCount} <span style={{ fontSize: '0.8rem', color: t.textMuted }}>Flagged</span>
+                  </div>
+                </div>
+
+                <div style={{ backgroundColor: t.cardBgAlt, border: `1px solid ${t.border}`, borderRadius: '10px', padding: '14px 18px' }}>
+                  <div style={{ fontSize: '0.74rem', color: t.textMuted, textTransform: 'uppercase', fontWeight: 700 }}>Cohort Average</div>
+                  <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#38bdf8', marginTop: '2px' }}>
+                    {batchResult.averageScore} <span style={{ fontSize: '0.8rem', color: t.textMuted }}>/ 50</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Student Results Table */}
+              <div style={{ border: `1px solid ${t.border}`, borderRadius: '10px', overflow: 'hidden' }}>
+                <div style={{ overflowX: 'auto' }}>
+                  <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.84rem' }}>
+                    <thead>
+                      <tr style={{ backgroundColor: t.cardHeaderBg, borderBottom: `1px solid ${t.border}`, color: t.textMuted, textTransform: 'uppercase', fontSize: '0.72rem', letterSpacing: '0.04em' }}>
+                        <th style={{ padding: '12px 16px' }}>Student</th>
+                        <th style={{ padding: '12px 16px' }}>File & Generator</th>
+                        <th style={{ padding: '12px 16px' }}>Edit Time</th>
+                        <th style={{ padding: '12px 16px' }}>Formulas</th>
+                        <th style={{ padding: '12px 16px' }}>Integrity</th>
+                        <th style={{ padding: '12px 16px' }}>Score</th>
+                        <th style={{ padding: '12px 16px', textAlign: 'right' }}>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {batchResult.results?.map((res: any, idx: number) => {
+                        const isClean = res.forensics.integrityLevel === 'clean';
+                        return (
+                          <tr
+                            key={res.id || idx}
+                            style={{
+                              borderBottom: idx === batchResult.results.length - 1 ? 'none' : `1px solid ${t.border}`,
+                              backgroundColor: isClean ? 'transparent' : 'rgba(239, 68, 68, 0.04)'
+                            }}
+                          >
+                            <td style={{ padding: '12px 16px' }}>
+                              <div style={{ fontWeight: 700, color: t.text }}>{res.studentName}</div>
+                              <div style={{ fontSize: '0.75rem', color: t.textMuted }}>{res.rollNo}</div>
+                            </td>
+                            <td style={{ padding: '12px 16px' }}>
+                              <div style={{ color: t.text, fontFamily: 'monospace', fontSize: '0.78rem' }}>{res.originalFilename}</div>
+                              <div style={{ fontSize: '0.74rem', color: res.forensics.flags?.isAiGenerator ? '#f87171' : t.textMuted }}>
+                                {res.forensics.application || 'Unknown app'}
+                              </div>
+                            </td>
+                            <td style={{ padding: '12px 16px', color: res.forensics.flags?.hasZeroEditTime ? '#f87171' : t.text }}>
+                              {res.forensics.totalTimeMinutes}m
+                            </td>
+                            <td style={{ padding: '12px 16px', color: t.textSecondary }}>
+                              {res.forensics.totalFormulasFound}
+                            </td>
+                            <td style={{ padding: '12px 16px' }}>
+                              <span
+                                style={{
+                                  display: 'inline-flex',
+                                  alignItems: 'center',
+                                  gap: '4px',
+                                  padding: '3px 8px',
+                                  borderRadius: '4px',
+                                  fontSize: '0.72rem',
+                                  fontWeight: 800,
+                                  backgroundColor: isClean ? 'rgba(16, 185, 129, 0.15)' : 'rgba(239, 68, 68, 0.15)',
+                                  color: isClean ? '#10b981' : '#f87171'
+                                }}
+                              >
+                                {isClean ? <CheckCircle2 size={13} /> : <AlertTriangle size={13} />}
+                                {isClean ? 'CLEAN' : 'FLAGGED'}
+                              </span>
+                            </td>
+                            <td style={{ padding: '12px 16px' }}>
+                              <div style={{ fontSize: '0.96rem', fontWeight: 800, color: '#10b981' }}>
+                                {res.evaluation.finalScore} <span style={{ fontSize: '0.72rem', color: t.textMuted }}>/ 50</span>
+                              </div>
+                            </td>
+                            <td style={{ padding: '12px 16px', textAlign: 'right' }}>
+                              <button
+                                onClick={() => {
+                                  setShowBatchModal(false);
+                                  handleOpenInspector(res);
+                                }}
+                                style={{
+                                  backgroundColor: t.cardBgAlt,
+                                  border: `1px solid ${t.border}`,
+                                  color: t.text,
+                                  padding: '6px 12px',
+                                  borderRadius: '6px',
+                                  fontSize: '0.76rem',
+                                  fontWeight: 700,
+                                  cursor: 'pointer'
+                                }}
+                              >
+                                Inspect
+                              </button>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            {/* Modal Footer */}
+            <div
+              style={{
+                padding: '16px 24px',
+                borderTop: `1px solid ${t.border}`,
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                backgroundColor: t.cardHeaderBg
+              }}
+            >
+              <div style={{ fontSize: '0.78rem', color: t.textMuted }}>
+                All records have been saved into the Master Roster.
+              </div>
+              <button
+                onClick={() => setShowBatchModal(false)}
+                style={{
+                  backgroundColor: '#10b981',
+                  color: '#090d16',
+                  border: 'none',
+                  padding: '9px 20px',
+                  borderRadius: '8px',
+                  fontSize: '0.84rem',
+                  fontWeight: 800,
+                  cursor: 'pointer'
+                }}
+              >
+                Close Report
+              </button>
+            </div>
           </div>
         </div>
       )}

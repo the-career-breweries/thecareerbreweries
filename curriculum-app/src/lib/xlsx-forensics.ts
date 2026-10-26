@@ -98,9 +98,13 @@ export function extractXlsxFiles(buffer: Buffer): Record<string, Buffer> {
 }
 
 /**
- * Performs deep forensic analysis on an uploaded .xlsx file
+ * Performs deep forensic analysis on an uploaded .xlsx, .docx, or .pptx file
  */
-export function analyzeXlsxBuffer(buffer: Buffer, originalFilename: string): ForensicResult {
+export function analyzeXlsxBuffer(
+  buffer: Buffer,
+  originalFilename: string,
+  extraHoneypots?: string[]
+): ForensicResult {
   const files = extractXlsxFiles(buffer);
 
   let application = 'Unknown';
@@ -204,13 +208,20 @@ export function analyzeXlsxBuffer(buffer: Buffer, originalFilename: string): For
     /openpyxl|python|pandoc/i.test(lastModifiedBy);
 
   // Trap 2: Prompt Injection Honeypot keywords
+  const isCustomHoneypot =
+    extraHoneypots &&
+    extraHoneypots.some(
+      (token) => token && token.trim().length > 1 && combinedSearchText.includes(token.trim().toUpperCase())
+    );
+
   const isHoneypotTriggered =
     combinedSearchText.includes('_OPS') ||
     combinedSearchText.includes('OP-AI') ||
     combinedSearchText.includes('AOCC-AI') ||
     combinedSearchText.includes('VERIFIED BY AOCC') ||
     combinedSearchText.includes('FLIGHT-DISPATCH-AI') ||
-    combinedSearchText.includes('MANDATE-AI');
+    combinedSearchText.includes('MANDATE-AI') ||
+    Boolean(isCustomHoneypot);
 
   // Trap 3: Dataset Poison Pill / Trap Record
   const isTrapRecordFound =
