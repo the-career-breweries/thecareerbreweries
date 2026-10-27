@@ -916,11 +916,27 @@ export default function ComputingLabPortal() {
                     <p style={{ fontSize: '0.82rem', color: t.textSecondary, lineHeight: 1.6, margin: '0 0 10px' }}>
                       All files must be saved strictly in <strong>.{activeAssignment.fileType}</strong> format.
                     </p>
-                    <div style={{ backgroundColor: t.codeBg, border: `1px solid ${t.border}`, borderRadius: '6px', padding: '8px 12px', fontFamily: 'monospace', fontSize: '0.8rem', color: '#10b981' }}>
-                      [RollNo]_[YourName]_{activeAssignment.id.replace(/-/g, '_')}.{activeAssignment.fileType}
+                    <div
+                      style={{
+                        backgroundColor: t.codeBg,
+                        border: `1px solid ${t.border}`,
+                        borderRadius: '6px',
+                        padding: '8px 12px',
+                        fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
+                        fontSize: '0.8rem',
+                        color: '#10b981',
+                        overflowWrap: 'anywhere',
+                        wordBreak: 'break-word',
+                        whiteSpace: 'normal',
+                        lineHeight: 1.4,
+                        maxWidth: '100%',
+                        boxSizing: 'border-box'
+                      }}
+                    >
+                      [RollNo]_[YourName]_Assignment.{activeAssignment.fileType}
                     </div>
-                    <div style={{ fontSize: '0.74rem', color: t.textMuted, marginTop: '6px' }}>
-                      Example: <code>26AVA101_RahulSharma_Assignment.{activeAssignment.fileType}</code>
+                    <div style={{ fontSize: '0.74rem', color: t.textMuted, marginTop: '8px', overflowWrap: 'anywhere', wordBreak: 'break-word' }}>
+                      Example: <code style={{ backgroundColor: t.codeBg, padding: '2px 6px', borderRadius: '4px', color: t.text, overflowWrap: 'anywhere', wordBreak: 'break-word' }}>26AVA101_RahulSharma_Assignment.{activeAssignment.fileType}</code>
                     </div>
                   </div>
 
