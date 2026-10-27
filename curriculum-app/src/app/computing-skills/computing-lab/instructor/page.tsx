@@ -588,11 +588,15 @@ ${asgn.role?.mandate || asgn.role?.context || 'Complete the analytical tasks and
 Students can download their starter Raw Data file (.CSV) and official Instructions Manual directly from the portal:
 🔗 *Student Lab Portal:* ${portalUrl}
 
+🎓 *Interactive Implementation Slides:*
+Step-by-step visual demonstration slides for formulas, lookup engines, and pivot charts are embedded directly on the student portal page.
+
 💡 *Student Submission Checklist:*
 1. Visit the portal link above to download your Raw Dataset & Instructions.
-2. Complete all required sheets, formulas, and visual dashboard charts.
-3. Submit your completed .${asgn.fileType} file directly on the portal before the deadline.
-4. Automated forensic verification & micro-viva validation are active.
+2. Review the embedded Step-by-Step Implementation Slides for required formulas.
+3. Complete all required sheets, formulas, and visual dashboard charts.
+4. Submit your completed .${asgn.fileType} file directly on the portal before the deadline.
+5. Automated forensic verification & micro-viva validation are active.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━`;
 
     setWhatsAppAsgnTitle(`${asgn.exerciseNumber}: ${asgn.title}`);
@@ -1971,6 +1975,24 @@ Students can download their starter Raw Data file (.CSV) and official Instructio
                     <div style={{ fontSize: '0.8rem', color: t.textSecondary, lineHeight: 1.5 }}>
                       <strong>Mandate:</strong> {generatedAssignment.role.mandate}
                     </div>
+                  </div>
+
+                  {/* Step-by-Step Implementation Slides Auto-Attached */}
+                  <div style={{ backgroundColor: t.accentEmeraldBg, border: `1px solid ${t.accentEmerald}`, borderRadius: '10px', padding: '12px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                      <BookOpen size={18} color="#10b981" />
+                      <div>
+                        <div style={{ fontSize: '0.82rem', fontWeight: 800, color: t.accentEmeraldText }}>
+                          ✓ Implementation Slides Auto-Fetched &amp; Attached
+                        </div>
+                        <div style={{ fontSize: '0.76rem', color: t.textSecondary }}>
+                          Visual walkthrough slides covering required functions, lookups, and visual charts will be embedded before &quot;1. Operational Scenario &amp; Your Role&quot;.
+                        </div>
+                      </div>
+                    </div>
+                    <span style={{ fontSize: '0.72rem', backgroundColor: '#10b981', color: '#090d16', padding: '3px 8px', borderRadius: '4px', fontWeight: 800 }}>
+                      Auto-Embedded
+                    </span>
                   </div>
 
                   {/* Tasks Breakdown */}

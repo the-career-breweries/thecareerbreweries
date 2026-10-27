@@ -30,6 +30,7 @@ import {
   Award
 } from 'lucide-react';
 import StudentEvaluationPortal from '@/components/StudentEvaluationPortal';
+import CurriculumSlideViewer from '@/components/lab/CurriculumSlideViewer';
 
 interface SubmissionSummary {
   submissionId: string;
@@ -656,6 +657,14 @@ export default function ComputingLabPortal() {
               </div>
             </div>
 
+            {/* STEP-BY-STEP IMPLEMENTATION SLIDESHOW (FETCHED DYNAMICALLY FOR ACTIVE ASSIGNMENT) */}
+            <CurriculumSlideViewer
+              mode="embedded"
+              theme={theme}
+              assignment={activeAssignment}
+              onSwitchTab={(target) => setActiveTab(target)}
+            />
+
             {/* CARD 1: YOUR ROLE & OPERATIONAL SCENARIO */}
             <div style={{ backgroundColor: t.cardBg, border: `1px solid ${t.border}`, borderRadius: '14px', overflow: 'hidden', boxShadow: t.shadow }}>
               <div style={{ backgroundColor: t.cardHeaderBg, padding: '18px 24px', borderBottom: `1px solid ${t.border}`, display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -1099,6 +1108,13 @@ export default function ComputingLabPortal() {
                 Course Code: Z7AVA 26209 • Consolidated session notes covering Units 1 to 5.
               </p>
             </div>
+
+            {/* CURRICULUM MASTER SLIDESHOW & TECHNICAL IMPLEMENTATION ATLAS */}
+            <CurriculumSlideViewer
+              mode="master"
+              theme={theme}
+              onSwitchTab={(target) => setActiveTab(target)}
+            />
 
             {[
               {

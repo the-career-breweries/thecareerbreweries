@@ -41,6 +41,7 @@ export interface AssignmentTemplate {
   sampleDatasetFilename?: string;
   assignmentPdfFilename?: string;
   handbookPdfFilename?: string;
+  slideIds?: string[];
   honeypotInstruction: string;
   vivaQuestions: {
     q1: { question: string; options: string[]; answer: string };
@@ -137,6 +138,15 @@ export function generateAssignmentFromCriteria(params: {
       totalMarks: effectiveMarks,
       deadline: deadline || '02 November, 2026 | 1700 hrs',
       fileType: 'xlsx',
+      slideIds: [
+        'excel-formula-structure',
+        'excel-statistical-aggregations',
+        'excel-logical-if-ifs',
+        'excel-vlookup-mastery',
+        'excel-xlookup-modern',
+        'excel-pivot-tables',
+        'excel-dynamic-charts'
+      ],
       role: {
         title: 'Operations & Data Analyst',
         organization: `Operations Intelligence Unit — ${scenario}`,
@@ -264,6 +274,11 @@ export function generateAssignmentFromCriteria(params: {
       totalMarks: effectiveMarks,
       deadline: deadline || '02 November, 2026 | 1700 hrs',
       fileType: 'pptx',
+      slideIds: [
+        'ppt-slide-master',
+        'ppt-smartart-infographics',
+        'ppt-linked-charts-animations'
+      ],
       role: {
         title: 'Executive Presentation Specialist',
         organization: `Aviation Strategy & Communication Board — ${scenario}`,
@@ -377,6 +392,12 @@ export function generateAssignmentFromCriteria(params: {
     totalMarks: effectiveMarks,
     deadline: deadline || '02 November, 2026 | 1700 hrs',
     fileType: 'docx',
+    slideIds: [
+      'word-styles-toc',
+      'word-tables-manifest',
+      'word-section-breaks-headers',
+      'word-mail-merge-dispatch'
+    ],
     role: {
       title: 'Technical Documentation & Compliance Officer',
       organization: `Aviation Safety & Standards Division — ${scenario}`,
