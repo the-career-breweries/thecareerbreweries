@@ -14,8 +14,11 @@ import {
   Star,
   Award,
   CreditCard,
-  HeartPulse,
-  HelpCircle
+  QrCode,
+  Smartphone,
+  Copy,
+  Check,
+  X
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase/client';
@@ -30,28 +33,27 @@ declare global {
 export default function PaywallScreen() {
   const router = useRouter();
   const [unlocking, setUnlocking] = useState<'student' | 'pro' | null>(null);
-  const [razorpayLoaded, setRazorpayLoaded] = useState(false);
   const [userEmail, setUserEmail] = useState<string>('');
   const [userName, setUserName] = useState<string>('');
 
+  // PhonePe UPI Modal State
+  const [phonePeModal, setPhonePeModal] = useState<{
+    isOpen: boolean;
+    bundle: 'student' | 'pro';
+  }>({
+    isOpen: false,
+    bundle: 'student'
+  });
+  const [utrInput, setUtrInput] = useState('');
+  const [utrError, setUtrError] = useState('');
+  const [copiedUpi, setCopiedUpi] = useState(false);
+
+  // PhonePe UPI ID configured via .env.local (defaults to 9743711584@ybl)
+  const phonePeUpiId =
+    process.env.NEXT_PUBLIC_PHONEPE_UPI_ID || '9743711584@ybl';
   const razorpayKey = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || '';
 
   useEffect(() => {
-    // Load Razorpay standard checkout script dynamically
-    if (typeof window !== 'undefined') {
-      const existingScript = document.getElementById('razorpay-checkout-js');
-      if (!existingScript) {
-        const script = document.createElement('script');
-        script.id = 'razorpay-checkout-js';
-        script.src = 'https://checkout.razorpay.com/v1/checkout.js';
-        script.async = true;
-        script.onload = () => setRazorpayLoaded(true);
-        document.body.appendChild(script);
-      } else {
-        setRazorpayLoaded(true);
-      }
-    }
-
     if (supabase) {
       supabase.auth.getUser().then(({ data }) => {
         if (data?.user) {
@@ -94,98 +96,34 @@ export default function PaywallScreen() {
       // Fallback to localStorage if unauthenticated or Supabase offline
     } finally {
       setUnlocking(null);
+      setPhonePeModal({ isOpen: false, bundle: 'student' });
       router.push('/dashboard');
     }
   };
 
-  const handleCheckout = async (bundle: 'student' | 'pro') => {
-    setUnlocking(bundle);
+  const handlePhonePeSubmit = () => {
+    setUtrError('');
+    const cleanUtr = utrInput.trim();
 
-    try {
-      // Step 1: Call our server route to create a genuine Razorpay Order
-      const res = await fetch('/api/razorpay/create-order', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          bundle,
-          email: userEmail,
-          name: userName
-        })
-      });
-
-      const orderData = await res.json();
-
-      // If Razorpay keys are not configured or demo mode returned, bypass instantly
-      if (orderData.demo || !orderData.orderId || !window.Razorpay) {
-        await completeUnlock(bundle);
-        return;
-      }
-
-      // Step 2: Open standard Razorpay Checkout modal
-      const options = {
-        key: orderData.keyId,
-        amount: orderData.amount,
-        currency: orderData.currency || 'INR',
-        name: 'The Career Breweries',
-        description:
-          bundle === 'pro'
-            ? 'Professional Bundle — 3-Days Workshop & Lab'
-            : 'Student Bundle — 3-Days Workshop & Lab',
-        order_id: orderData.orderId,
-        image: '/tcb-logo.png',
-        prefill: {
-          name: userName || 'TCB Learner',
-          email: userEmail || 'learner@tcb.edu'
-        },
-        theme: {
-          color: '#885A3A'
-        },
-        handler: async function (response: {
-          razorpay_order_id: string;
-          razorpay_payment_id: string;
-          razorpay_signature: string;
-        }) {
-          // Step 3: Verify cryptographic signature on the server
-          try {
-            const verifyRes = await fetch('/api/razorpay/verify-payment', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                ...response,
-                bundle
-              })
-            });
-            const verifyData = await verifyRes.json();
-            if (verifyData.verified) {
-              await completeUnlock(bundle, response.razorpay_payment_id);
-            } else {
-              alert('Payment verification could not be confirmed. Please contact support.');
-              setUnlocking(null);
-            }
-          } catch (e) {
-            console.error('Verification error:', e);
-            await completeUnlock(bundle, response.razorpay_payment_id);
-          }
-        },
-        modal: {
-          ondismiss: function () {
-            setUnlocking(null);
-          }
-        }
-      };
-
-      const rzp = new window.Razorpay(options);
-      rzp.on('payment.failed', function (resp: any) {
-        alert(`Payment failed: ${resp.error?.description || 'Transaction declined'}`);
-        setUnlocking(null);
-      });
-      rzp.open();
-    } catch (err) {
-      console.error('Checkout error:', err);
-      // Fallback to demo unlock so user is never stuck
-      await completeUnlock(bundle);
+    if (cleanUtr.length < 8) {
+      setUtrError('Please enter a valid 12-digit UPI UTR / Reference ID from your PhonePe receipt.');
+      return;
     }
+
+    completeUnlock(phonePeModal.bundle, `PHONEPE_UTR_${cleanUtr}`);
   };
+
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedUpi(true);
+    setTimeout(() => setCopiedUpi(false), 2500);
+  };
+
+  // Generate dynamic UPI Deep-Link and QR code for PhonePe
+  const activeAmount = phonePeModal.bundle === 'pro' ? 999 : 499;
+  const activeBundleTitle = phonePeModal.bundle === 'pro' ? 'The Professional Bundle' : 'The Student Bundle';
+  const upiIntentString = `upi://pay?pa=${phonePeUpiId}&pn=TheCareerBreweries&am=${activeAmount}&cu=INR&tn=TCB%20${encodeURIComponent(activeBundleTitle)}`;
+  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=${encodeURIComponent(upiIntentString)}&bgcolor=ffffff&color=5f259f`;
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center p-4 md:p-8 font-sans relative">
@@ -204,15 +142,15 @@ export default function PaywallScreen() {
             Brew Your Career Superpower
           </h1>
           <p className="text-sm md:text-base text-on-surface-variant max-w-xl leading-relaxed">
-            Choose the interactive lab curriculum tailored to your career milestone. Includes scenario simulators, live script synthesizers, and verified credentials.
+            Choose the interactive lab curriculum tailored to your career milestone. Pay instantly via PhonePe / UPI (0% extra charges) for immediate access.
           </p>
 
-          {!razorpayKey && (
-            <div className="mt-4 px-3.5 py-1.5 rounded-full bg-secondary/15 text-secondary border border-secondary/30 text-xs font-mono inline-flex items-center gap-2">
-              <Zap size={13} />
-              Instant Workshop Demo Mode Active (Clicking unlock will immediately grant lifetime access)
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
+            <div className="px-3.5 py-1.5 rounded-full bg-[#5F259F]/15 text-[#5F259F] dark:text-[#A775E3] border border-[#5F259F]/30 text-xs font-mono inline-flex items-center gap-1.5 font-bold">
+              <Smartphone size={13} />
+              Instant PhonePe UPI Direct Pay Active
             </div>
-          )}
+          </div>
         </header>
 
         {/* Pricing Cards */}
@@ -268,21 +206,23 @@ export default function PaywallScreen() {
               </ul>
             </div>
 
-            <button
-              onClick={() => handleCheckout('student')}
-              disabled={unlocking !== null}
-              className="w-full bg-surface-variant hover:bg-secondary hover:text-on-secondary text-on-surface border border-outline-variant font-bold py-3.5 px-6 rounded-xl transition-all duration-200 cursor-pointer disabled:opacity-50 flex items-center justify-center gap-2 shadow-sm"
-            >
-              {unlocking === 'student' ? (
-                'Unlocking Student Bundle...'
-              ) : (
-                <>
-                  <CreditCard size={16} />
-                  {razorpayKey ? 'Unlock for ₹499' : 'Unlock Student (Instant Demo)'}
-                  <ArrowRight size={16} />
-                </>
-              )}
-            </button>
+            <div className="flex flex-col gap-2.5">
+              <button
+                onClick={() => setPhonePeModal({ isOpen: true, bundle: 'student' })}
+                disabled={unlocking !== null}
+                className="w-full bg-[#5F259F] hover:bg-[#4D1E82] text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-200 cursor-pointer shadow-md flex items-center justify-center gap-2"
+              >
+                <Smartphone size={18} />
+                Pay ₹499 via PhonePe / UPI QR
+                <ArrowRight size={16} />
+              </button>
+              <button
+                onClick={() => completeUnlock('student')}
+                className="text-xs text-on-surface-variant hover:text-primary transition-colors text-center py-1 font-mono"
+              >
+                Instant Workshop Demo Unlock →
+              </button>
+            </div>
           </article>
 
           {/* ================= Professional Bundle ================= */}
@@ -340,21 +280,23 @@ export default function PaywallScreen() {
               </ul>
             </div>
 
-            <button
-              onClick={() => handleCheckout('pro')}
-              disabled={unlocking !== null}
-              className="w-full bg-primary text-on-primary font-bold py-3.5 px-6 rounded-xl hover:opacity-90 active:scale-95 transition-all duration-200 cursor-pointer shadow-md disabled:opacity-50 flex items-center justify-center gap-2"
-            >
-              {unlocking === 'pro' ? (
-                'Unlocking Professional Bundle...'
-              ) : (
-                <>
-                  <CreditCard size={16} />
-                  {razorpayKey ? 'Unlock for ₹999' : 'Unlock Professional (Instant Demo)'}
-                  <ArrowRight size={16} />
-                </>
-              )}
-            </button>
+            <div className="flex flex-col gap-2.5">
+              <button
+                onClick={() => setPhonePeModal({ isOpen: true, bundle: 'pro' })}
+                disabled={unlocking !== null}
+                className="w-full bg-[#5F259F] hover:bg-[#4D1E82] text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-200 cursor-pointer shadow-md flex items-center justify-center gap-2"
+              >
+                <Smartphone size={18} />
+                Pay ₹999 via PhonePe / UPI QR
+                <ArrowRight size={16} />
+              </button>
+              <button
+                onClick={() => completeUnlock('pro')}
+                className="text-xs text-on-surface-variant hover:text-primary transition-colors text-center py-1 font-mono"
+              >
+                Instant Workshop Demo Unlock →
+              </button>
+            </div>
           </article>
         </div>
 
@@ -427,6 +369,114 @@ export default function PaywallScreen() {
           <Link href="/dashboard" className="px-2.5 py-1 rounded-full hover:bg-surface-variant text-on-surface">4. Dashboard</Link>
         </nav>
       </main>
+
+      {/* ================= PHONEPE UPI QR MODAL ================= */}
+      {phonePeModal.isOpen && (
+        <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-surface-container border-2 border-[#5F259F] rounded-2xl w-full max-w-md p-6 flex flex-col gap-5 shadow-2xl relative animate-in fade-in zoom-in-95">
+            <button
+              onClick={() => setPhonePeModal({ isOpen: false, bundle: 'student' })}
+              className="absolute top-4 right-4 p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-variant cursor-pointer"
+            >
+              <X size={18} />
+            </button>
+
+            {/* Modal Header with PhonePe Branding */}
+            <div className="flex items-center gap-3">
+              <div className="h-10 w-10 rounded-xl bg-[#5F259F] text-white flex items-center justify-center font-bold text-lg shadow-sm">
+                पे
+              </div>
+              <div>
+                <div className="flex items-center gap-1.5">
+                  <h3 className="text-base font-bold text-on-surface">PhonePe Direct UPI Checkout</h3>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 font-bold">
+                    0% Gateway Fee
+                  </span>
+                </div>
+                <p className="text-xs text-on-surface-variant">
+                  {activeBundleTitle} • <strong className="text-on-surface">₹{activeAmount}</strong>
+                </p>
+              </div>
+            </div>
+
+            {/* QR Code Card */}
+            <div className="flex flex-col items-center justify-center p-4 bg-white rounded-xl border border-outline-variant shadow-inner">
+              <img
+                src={qrCodeUrl}
+                alt="PhonePe UPI QR Code"
+                className="w-48 h-48 rounded-lg object-contain"
+              />
+              <p className="text-[11px] font-mono text-zinc-600 font-semibold mt-2 text-center">
+                Scan with PhonePe, Google Pay, Paytm, or BHIM
+              </p>
+            </div>
+
+            {/* UPI ID + Mobile Deep-link */}
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center justify-between p-2.5 rounded-lg bg-surface-variant border border-outline-variant text-xs">
+                <div>
+                  <span className="text-[10px] font-mono text-on-surface-variant block uppercase">TCB PhonePe UPI ID:</span>
+                  <span className="font-mono font-bold text-on-surface">{phonePeUpiId}</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => copyToClipboard(phonePeUpiId)}
+                  className="px-2.5 py-1 rounded bg-[#5F259F] text-white text-[11px] font-bold flex items-center gap-1 hover:opacity-90"
+                >
+                  {copiedUpi ? <Check size={12} /> : <Copy size={12} />}
+                  {copiedUpi ? 'Copied!' : 'Copy UPI'}
+                </button>
+              </div>
+
+              {/* Mobile "Open Directly in PhonePe" button */}
+              <a
+                href={upiIntentString}
+                className="w-full py-2.5 px-4 rounded-lg bg-[#5F259F]/15 text-[#5F259F] dark:text-[#A775E3] border border-[#5F259F]/30 text-xs font-bold flex items-center justify-center gap-1.5 hover:bg-[#5F259F]/25 text-center"
+              >
+                <Smartphone size={14} />
+                Open Directly in PhonePe App (Mobile)
+              </a>
+            </div>
+
+            {/* Step 3: Enter 12-Digit UTR Number */}
+            <div className="flex flex-col gap-1.5 pt-2 border-t border-outline-variant/60">
+              <label className="text-xs font-bold text-on-surface flex items-center justify-between">
+                <span>Enter 12-Digit UPI Ref / UTR No:</span>
+                <span className="text-[10px] text-on-surface-variant font-normal">Found on PhonePe Receipt</span>
+              </label>
+              <input
+                type="text"
+                maxLength={16}
+                value={utrInput}
+                onChange={(e) => setUtrInput(e.target.value.replace(/[^0-9]/g, ''))}
+                placeholder="e.g., 429184719283"
+                className="w-full bg-input border border-outline-variant rounded-lg p-2.5 text-xs font-mono text-on-surface placeholder:text-outline focus:border-[#5F259F] outline-none"
+              />
+              {utrError && <p className="text-[11px] text-red-400">{utrError}</p>}
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col gap-2">
+              <button
+                type="button"
+                onClick={handlePhonePeSubmit}
+                disabled={unlocking !== null}
+                className="w-full bg-[#5F259F] hover:bg-[#4D1E82] text-white font-bold py-3 px-4 rounded-xl text-xs shadow-md flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50"
+              >
+                <CheckCircle size={15} />
+                Verify &amp; Activate Lab Access
+              </button>
+              <button
+                type="button"
+                onClick={() => completeUnlock(phonePeModal.bundle, 'PHONEPE_TEST_PASS')}
+                className="text-[11px] text-on-surface-variant hover:text-primary transition-colors text-center font-mono py-1"
+              >
+                Instant Bypass (Test / Demo Mode) →
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

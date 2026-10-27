@@ -48,6 +48,7 @@ export default function DashboardScreen() {
         setHasStudentBundle(true);
       } else if (localBundle === 'student') {
         setHasStudentBundle(true);
+        setHasProBundle(false);
       }
 
       const savedProgress = JSON.parse(localStorage.getItem('tcb_module_progress') || '{}');
