@@ -1109,13 +1109,6 @@ export default function ComputingLabPortal() {
               </p>
             </div>
 
-            {/* CURRICULUM MASTER SLIDESHOW & TECHNICAL IMPLEMENTATION ATLAS */}
-            <CurriculumSlideViewer
-              mode="master"
-              theme={theme}
-              onSwitchTab={(target) => setActiveTab(target)}
-            />
-
             {[
               {
                 unit: 1,
@@ -1194,6 +1187,35 @@ export default function ComputingLabPortal() {
                     <li key={idx}>{item}</li>
                   ))}
                 </ul>
+
+                {/* Technical Implementation Slideshow embedded directly within Unit 3 (Excel) */}
+                {u.unit === 3 && (
+                  <CurriculumSlideViewer
+                    mode="unit"
+                    unitNumber={3}
+                    theme={theme}
+                    onSwitchTab={(target) => setActiveTab(target)}
+                  />
+                )}
+
+                {/* Optional implementation slide decks for Word (Unit 2) and PowerPoint (Unit 4) */}
+                {u.unit === 2 && (
+                  <CurriculumSlideViewer
+                    mode="unit"
+                    unitNumber={2}
+                    theme={theme}
+                    onSwitchTab={(target) => setActiveTab(target)}
+                  />
+                )}
+
+                {u.unit === 4 && (
+                  <CurriculumSlideViewer
+                    mode="unit"
+                    unitNumber={4}
+                    theme={theme}
+                    onSwitchTab={(target) => setActiveTab(target)}
+                  />
+                )}
               </div>
             ))}
           </div>

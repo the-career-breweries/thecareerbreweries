@@ -27,9 +27,10 @@ import {
 } from 'lucide-react';
 
 interface CurriculumSlideViewerProps {
-  mode: 'embedded' | 'master';
+  mode: 'embedded' | 'master' | 'unit';
   theme: 'light' | 'dark';
   assignment?: AssignmentTemplate;
+  unitNumber?: number;
   onSwitchTab?: (tab: 'assignment' | 'notes') => void;
 }
 
@@ -37,6 +38,7 @@ export default function CurriculumSlideViewer({
   mode,
   theme,
   assignment,
+  unitNumber = 3,
   onSwitchTab
 }: CurriculumSlideViewerProps) {
   const isDark = theme === 'dark';
@@ -77,8 +79,13 @@ export default function CurriculumSlideViewer({
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isTheater, setIsTheater] = useState<boolean>(false);
 
-  // State for embedded mode
-  const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
+  // State for embedded / unit mode
+  const [isCollapsed, setIsCollapsed] = useState<boolean>(() => {
+    if (mode === 'unit' && unitNumber !== 3) {
+      return true;
+    }
+    return false;
+  });
 
   // Active slide index
   const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
@@ -88,6 +95,10 @@ export default function CurriculumSlideViewer({
   const slides: CurriculumSlide[] = useMemo(() => {
     if (mode === 'embedded') {
       return getSlidesForAssignment(assignment);
+    }
+    if (mode === 'unit') {
+      const targetUnit = unitNumber || 3;
+      return getAllCurriculumSlides().filter((s) => s.unit === targetUnit);
     }
     // Master mode: filter by unit and search
     let all = getAllCurriculumSlides();
@@ -170,18 +181,20 @@ export default function CurriculumSlideViewer({
   }
 
   // =========================================================================
-  // EMBEDDED MODE (Placed before "1. Operational Scenario & Your Role")
+  // EMBEDDED & UNIT MODE (For Active Assignment Scaffolding & Unit-Wise Revision)
   // =========================================================================
-  if (mode === 'embedded') {
+  if (mode === 'embedded' || mode === 'unit') {
+    const isUnitMode = mode === 'unit';
     return (
       <div
-        id="active-lab-implementation-slides"
+        id={isUnitMode ? `unit-${unitNumber}-implementation-slides` : 'active-lab-implementation-slides'}
         style={{
           backgroundColor: t.cardBg,
-          border: `2px solid ${t.borderHighlight}`,
-          borderRadius: '16px',
+          border: isUnitMode ? `1px solid ${t.border}` : `2px solid ${t.borderHighlight}`,
+          borderRadius: isUnitMode ? '14px' : '16px',
           overflow: 'hidden',
-          boxShadow: t.shadow,
+          boxShadow: isUnitMode ? 'none' : t.shadow,
+          marginTop: isUnitMode ? '20px' : 0,
           transition: 'all 0.2s ease'
         }}
       >
@@ -226,20 +239,26 @@ export default function CurriculumSlideViewer({
                     textTransform: 'uppercase'
                   }}
                 >
-                  Step-by-Step Implementation Guide
+                  {isUnitMode
+                    ? `Unit ${unitNumber} Implementation Slideshow`
+                    : 'Step-by-Step Implementation Guide'}
                 </span>
                 <span style={{ fontSize: '0.76rem', color: t.textMuted }}>
                   Slide {currentSlideIndex + 1} of {slides.length}
                 </span>
               </div>
               <h3 style={{ fontSize: '1.2rem', fontWeight: 800, margin: '4px 0 0', color: t.text }}>
-                Technical Execution & Formula Walkthrough for {assignment?.exerciseNumber || 'This Exercise'}
+                {isUnitMode
+                  ? unitNumber === 3
+                    ? 'Technical Implementation Slideshow: Formulas, Lookups, Pivot Tables & Charts'
+                    : `${activeSlide?.unitTitle || 'Unit ' + unitNumber} Implementation Slide Deck`
+                  : `Technical Execution & Formula Walkthrough for ${assignment?.exerciseNumber || 'This Exercise'}`}
               </h3>
             </div>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            {onSwitchTab && (
+            {!isUnitMode && onSwitchTab && (
               <button
                 type="button"
                 onClick={() => onSwitchTab('notes')}
@@ -280,11 +299,11 @@ export default function CurriculumSlideViewer({
             >
               {isCollapsed ? (
                 <>
-                  <ChevronDown size={14} /> Expand Guide ({slides.length} Slides)
+                  <ChevronDown size={14} /> Expand Slideshow ({slides.length} Slides)
                 </>
               ) : (
                 <>
-                  <ChevronUp size={14} /> Collapse Guide
+                  <ChevronUp size={14} /> Collapse Slideshow
                 </>
               )}
             </button>
