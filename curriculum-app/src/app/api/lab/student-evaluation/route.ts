@@ -147,10 +147,18 @@ export async function GET(req: NextRequest) {
       analysisAccuracy: 85
     };
 
-    const aiTools = matchSub.forensics?.aiToolsUsed || {
-      detected: matchSub.forensics?.flags?.isAiGenerator || matchSub.forensics?.flags?.isHoneypotTriggered,
-      toolNames: matchSub.forensics?.flags?.isAiGenerator ? ['ChatGPT / Claude Code Interpreter (openpyxl)'] : ['None Detected (Authentic Microsoft Office / Google Sheets)'],
-      reasons: matchSub.forensics?.summaryFindings?.filter((f: string) => !f.includes('Authentic')) || []
+    const isAi = Boolean(matchSub.forensics?.flags?.isAiGenerator || matchSub.forensics?.flags?.isHoneypotTriggered);
+    const resolvedIntegrityLevel = isAi ? (matchSub.forensics?.integrityLevel || 'suspicious') : 'clean';
+    const resolvedIntegrityScore = isAi ? (matchSub.forensics?.integrityScore ?? 50) : 100;
+
+    const aiTools = {
+      detected: isAi,
+      toolNames: isAi
+        ? (matchSub.forensics?.aiToolsUsed?.toolNames || ['ChatGPT / Claude Code Interpreter (openpyxl)'])
+        : ['None Detected (Authentic Microsoft Office / Google Sheets)'],
+      reasons: isAi
+        ? (matchSub.forensics?.aiToolsUsed?.reasons || matchSub.forensics?.summaryFindings?.filter((f: string) => !f.includes('Authentic')) || [])
+        : []
     };
 
     return NextResponse.json({
@@ -179,8 +187,8 @@ export async function GET(req: NextRequest) {
           allFormulas: matchSub.forensics?.allFormulas || matchSub.forensics?.sampleFormulas || [],
           formulaTypes: matchSub.forensics?.formulaTypes || [],
           totalTimeMinutes: matchSub.forensics?.totalTimeMinutes ?? 0,
-          integrityScore: matchSub.forensics?.integrityScore ?? 100,
-          integrityLevel: matchSub.forensics?.integrityLevel || 'clean',
+          integrityScore: resolvedIntegrityScore,
+          integrityLevel: resolvedIntegrityLevel,
           summaryFindings: matchSub.forensics?.summaryFindings || [],
           sheetNames: matchSub.forensics?.sheetNames || []
         }

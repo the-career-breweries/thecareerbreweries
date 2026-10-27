@@ -125,9 +125,9 @@ export async function POST(req: NextRequest) {
       forensics.summaryFindings.push(
         `Micro-viva comprehension check incomplete (Q1: ${isQ1Correct ? 'Pass' : 'Fail'}, Q2: ${isQ2Correct ? 'Pass' : 'Fail'}, Time: ${secondsTaken}s)`
       );
-      forensics.integrityScore = Math.max(0, forensics.integrityScore - 15);
-      if (forensics.integrityScore < 70) {
-        forensics.integrityLevel = 'suspicious';
+      // Comprehension check remark; do NOT mark submission suspicious if no AI/Python signatures exist
+      if (forensics.flags?.isAiGenerator || forensics.flags?.isHoneypotTriggered) {
+        forensics.integrityScore = Math.max(0, forensics.integrityScore - 15);
       }
     }
 

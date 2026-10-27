@@ -2725,8 +2725,9 @@ Step-by-step visual demonstration slides for formulas, lookup engines, and pivot
           computationalAccuracy: 90,
           analysisAccuracy: 85
         };
+        const isAi = Boolean(sub.forensics.flags?.isAiGenerator || sub.forensics.flags?.isHoneypotTriggered);
         const aiTools = sub.forensics.aiToolsUsed || {
-          detected: sub.forensics.flags.isAiGenerator || sub.forensics.flags.isHoneypotTriggered || (sub.forensics.flags.hasZeroEditTime && !sub.originalFilename?.toLowerCase().endsWith('.xlsx')),
+          detected: isAi,
           toolNames: sub.forensics.flags.isAiGenerator ? ['ChatGPT / Claude Code Interpreter (openpyxl)'] : ['None Detected (Microsoft Office / Google Sheets)'],
           reasons: sub.forensics.summaryFindings.filter((f) => !f.includes('Authentic'))
         };

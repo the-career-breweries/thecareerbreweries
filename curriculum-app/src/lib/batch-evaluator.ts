@@ -350,7 +350,9 @@ export function evaluateBatchSubmissions(
       forensics.summaryFindings.push(
         `File format discrepancy: Submitted as ${fileExt.toUpperCase()} but expected ${expectedExt.toUpperCase()}`
       );
-      forensics.integrityScore = Math.max(0, forensics.integrityScore - 10);
+      if (forensics.flags?.isAiGenerator || forensics.flags?.isHoneypotTriggered) {
+        forensics.integrityScore = Math.max(0, forensics.integrityScore - 10);
+      }
     }
 
     const submissionId = `SUB-${rollNo}-${Date.now().toString().slice(-6)}`;

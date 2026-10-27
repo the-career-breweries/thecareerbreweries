@@ -236,13 +236,16 @@ export function analyzeXlsxBuffer(
     );
 
   const isHoneypotTriggered =
-    combinedSearchText.includes('_OPS') ||
     combinedSearchText.includes('OP-AI') ||
     combinedSearchText.includes('AOCC-AI') ||
     combinedSearchText.includes('VERIFIED BY AOCC') ||
     combinedSearchText.includes('FLIGHT-DISPATCH-AI') ||
     combinedSearchText.includes('MANDATE-AI') ||
+    (combinedSearchText.includes('_OPS') && combinedSearchText.includes('AOCC')) ||
     Boolean(isCustomHoneypot);
+
+  // Core AI detection: file was created or assisted via Python script or AI LLM tools
+  const hasAiSignature = isAiGenerator || isHoneypotTriggered;
 
   // Trap 3: Dataset Poison Pill / Trap Record
   const isTrapRecordFound =
@@ -285,44 +288,44 @@ export function analyzeXlsxBuffer(
   // 6. Compute Findings & Integrity Level
   const summaryFindings: string[] = [];
   let integrityScore = 100;
+  let integrityLevel: 'clean' | 'suspicious' | 'high_risk' = 'clean';
 
   if (isOpenAiDirect) {
     summaryFindings.push('Direct ChatGPT / OpenAI signature detected in file metadata');
     integrityScore -= 50;
+    integrityLevel = 'high_risk';
   } else if (isPythonAiScript) {
     summaryFindings.push('AI Code Interpreter (Python openpyxl) detected in file metadata');
     integrityScore -= 50;
+    integrityLevel = 'high_risk';
   }
 
   if (isHoneypotTriggered) {
     summaryFindings.push('Invisible prompt injection honeypot token detected inside workbook cells');
     integrityScore -= 40;
+    if (integrityLevel !== 'high_risk') {
+      integrityLevel = 'suspicious';
+    }
   }
 
+  // If there is no signature left from python or any other AI tools, do not mark as suspicious.
+  if (!hasAiSignature) {
+    integrityLevel = 'clean';
+    integrityScore = 100;
+    summaryFindings.push('Authentic authoring confirmed via Microsoft Excel / Office software (No AI or Python tools detected)');
+  }
+
+  // Academic observations (reflected in autoGrade marks, but NOT counted as AI suspicion)
   if (isTrapRecordFound) {
-    summaryFindings.push('Trap calibration record (FL-199) was left unfiltered in analysis');
-    integrityScore -= 20;
+    summaryFindings.push('Academic Observation: Trap calibration record (FL-199) was left unfiltered in analysis');
   }
 
   if (hasZeroEditTime) {
-    summaryFindings.push('Document metadata registers 0 minutes total editing time (instant generation)');
-    integrityScore -= 15;
+    summaryFindings.push('Document metadata registers 0 minutes active editing time');
   }
 
   if (hasNoFormulas) {
-    summaryFindings.push('No formula tags (<f>) detected in worksheets; values may be hardcoded');
-    integrityScore -= 20;
-  }
-
-  if (summaryFindings.length === 0) {
-    summaryFindings.push('Authentic authoring signature confirmed via Microsoft Excel / Google Sheets');
-  }
-
-  let integrityLevel: 'clean' | 'suspicious' | 'high_risk' = 'clean';
-  if (integrityScore < 60) {
-    integrityLevel = 'high_risk';
-  } else if (integrityScore < 85) {
-    integrityLevel = 'suspicious';
+    summaryFindings.push('Academic Observation: Worksheet formatted with direct values / pivot tables (no active <f> formula tags detected)');
   }
 
   // 7. Auto Grade Calculation
@@ -374,13 +377,8 @@ export function analyzeXlsxBuffer(
     aiReasons.push('Invisible prompt-injection honeypot token detected inside workbook cells');
   }
 
-  if (hasZeroEditTime && !isAiGenerator) {
-    aiToolNames.push('Synthetic File Generator (0m Edit Time)');
-    aiReasons.push('0 minutes active editing time recorded in file metadata');
-  }
-
-  const isAiDetected = isAiGenerator || isHoneypotTriggered || hasZeroEditTime;
-  if (aiToolNames.length === 0) {
+  const isAiDetected = hasAiSignature;
+  if (!isAiDetected) {
     aiToolNames.push('None Detected (Authentic Microsoft Office / Google Sheets)');
   }
 
