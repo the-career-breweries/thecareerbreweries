@@ -28,30 +28,51 @@ function writeAssignmentsData(data: any) {
   }
 }
 
+function sanitizeAssignmentForStudent(assignment: any) {
+  if (!assignment) return null;
+  const clone = JSON.parse(JSON.stringify(assignment));
+  if (clone.vivaQuestions) {
+    if (clone.vivaQuestions.q1) {
+      delete clone.vivaQuestions.q1.answer;
+    }
+    if (clone.vivaQuestions.q2) {
+      delete clone.vivaQuestions.q2.answer;
+    }
+  }
+  delete clone.honeypotInstruction;
+  return clone;
+}
+
 // GET /api/lab/assignment
-// Public for students to fetch active assignment; includes assignment list if passkey provided
+// Public for students to fetch active and archived assignments; includes raw answers if instructor passkey provided
 export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
     const passkey = searchParams.get('passkey');
+    const targetId = searchParams.get('id');
 
     const data = readAssignmentsData();
     const active = data.assignments.find((a: any) => a.id === data.activeAssignmentId) || data.assignments[0] || null;
+    const selected = targetId
+      ? (data.assignments.find((a: any) => a.id === targetId) || active)
+      : active;
 
     if (passkey === INSTRUCTOR_PASSKEY) {
       return NextResponse.json({
         success: true,
         activeAssignmentId: data.activeAssignmentId,
         activeAssignment: active,
-        assignment: active,
+        assignment: selected,
         assignments: data.assignments
       });
     }
 
     return NextResponse.json({
       success: true,
-      activeAssignment: active,
-      assignment: active
+      activeAssignmentId: data.activeAssignmentId,
+      activeAssignment: sanitizeAssignmentForStudent(active),
+      assignment: sanitizeAssignmentForStudent(selected),
+      assignments: (data.assignments || []).map(sanitizeAssignmentForStudent)
     });
   } catch (error: any) {
     return NextResponse.json(

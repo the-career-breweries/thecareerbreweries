@@ -2,7 +2,7 @@ import { getApps, initializeApp, cert } from 'firebase-admin/app';
 import { getAuth } from 'firebase-admin/auth';
 import { getFirestore } from 'firebase-admin/firestore';
 
-if (!getApps().length) {
+if (!getApps().length && process.env.FIREBASE_PROJECT_ID) {
   try {
     initializeApp({
       credential: cert({
@@ -17,7 +17,7 @@ if (!getApps().length) {
   }
 }
 
-const adminAuth = getAuth();
-const adminDb = getFirestore();
+const adminAuth = getApps().length ? getAuth() : ({} as any);
+const adminDb = getApps().length ? getFirestore() : ({} as any);
 
 export { adminAuth, adminDb };

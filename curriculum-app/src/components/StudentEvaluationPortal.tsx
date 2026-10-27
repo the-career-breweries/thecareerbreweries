@@ -18,7 +18,8 @@ import {
   Hash,
   BookOpen,
   ArrowLeft,
-  X
+  X,
+  FolderArchive
 } from 'lucide-react';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
@@ -64,7 +65,7 @@ export default function StudentEvaluationPortal({
     }
   }, [initialRollNo]);
 
-  const handleSearch = async (rollToSearch?: string) => {
+  const handleSearch = async (rollToSearch?: string, assignmentIdToSearch?: string, skipAutoDownload = false) => {
     const roll = (rollToSearch || rollInput).trim();
     if (!roll) {
       setError('Please enter your Roll Number.');
@@ -73,18 +74,22 @@ export default function StudentEvaluationPortal({
 
     setLoading(true);
     setError(null);
-    setResult(null);
 
     try {
-      const res = await fetch(`/api/lab/student-evaluation?rollNo=${encodeURIComponent(roll)}`);
+      let url = `/api/lab/student-evaluation?rollNo=${encodeURIComponent(roll)}`;
+      if (assignmentIdToSearch) {
+        url += `&assignmentId=${encodeURIComponent(assignmentIdToSearch)}`;
+      }
+      const res = await fetch(url);
       const data = await res.json();
 
       if (!res.ok) {
         setError(data.error || 'Failed to locate evaluation record.');
+        setResult(null);
       } else {
         setResult(data);
         // Automatically trigger in-memory background download if submission evaluated!
-        if (data.submitted && data.submission) {
+        if (!skipAutoDownload && data.submitted && data.submission) {
           setTimeout(() => {
             handleDownloadPdf(data.submission, true);
           }, 400);
@@ -103,7 +108,6 @@ export default function StudentEvaluationPortal({
     setIsDownloadingPdf(true);
 
     try {
-      const sub = result.submission;
       const doc = new jsPDF({
         orientation: 'portrait',
         unit: 'mm',
@@ -286,7 +290,9 @@ export default function StudentEvaluationPortal({
       doc.setTextColor(15, 23, 42);
       doc.text('Course Instructor / Evaluator', 105, signY + 19, { align: 'center' });
 
-      doc.save(`${sub.rollNo}_${sub.studentName.replace(/\s+/g, '_')}_Report_Card.pdf`);
+      const cleanName = (sub.studentName || 'Student').replace(/\s+/g, '_');
+      const cleanAsgn = (sub.assignmentId || 'Lab').replace(/[^a-zA-Z0-9_-]/g, '_');
+      doc.save(`${sub.rollNo}_${cleanName}_${cleanAsgn}_Report_Card.pdf`);
       setDownloadSuccessToast(true);
       setTimeout(() => setDownloadSuccessToast(false), 9000);
     } catch (err: any) {
@@ -562,6 +568,72 @@ export default function StudentEvaluationPortal({
             </div>
           )}
 
+          {/* Assignment Switcher if multiple submissions exist */}
+          {result.submittedAssignments && result.submittedAssignments.length > 1 && (
+            <div
+              style={{
+                backgroundColor: t.cardBg,
+                border: `1px solid ${t.border}`,
+                borderRadius: '12px',
+                padding: '14px 18px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '10px',
+                boxShadow: t.shadow
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
+                <span style={{ fontSize: '0.82rem', fontWeight: 800, color: t.text, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <FolderArchive size={16} color="#10b981" />
+                  Your Evaluated Lab Submissions ({result.submittedAssignments.length}):
+                </span>
+                <span style={{ fontSize: '0.74rem', color: t.textMuted }}>
+                  Click any lab below to switch report cards and download its PDF
+                </span>
+              </div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                {result.submittedAssignments.map((subItem: any) => {
+                  const currentId = result.submission?.assignmentId || result.assignmentId || 'blr-pivot-operations';
+                  const isCurrent = (subItem.assignmentId || 'blr-pivot-operations') === currentId;
+                  return (
+                    <button
+                      key={subItem.assignmentId}
+                      type="button"
+                      onClick={() => handleSearch(result.submission.rollNo, subItem.assignmentId, true)}
+                      style={{
+                        padding: '8px 14px',
+                        borderRadius: '8px',
+                        border: `1.5px solid ${isCurrent ? '#10b981' : t.border}`,
+                        backgroundColor: isCurrent ? t.accentEmeraldBg : t.cardBgAlt,
+                        color: isCurrent ? '#10b981' : t.textSecondary,
+                        fontSize: '0.8rem',
+                        fontWeight: 700,
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        transition: 'all 0.15s'
+                      }}
+                    >
+                      <span>{subItem.assignmentTitle || subItem.assignmentId}</span>
+                      <span
+                        style={{
+                          fontSize: '0.72rem',
+                          backgroundColor: isCurrent ? 'rgba(16, 185, 129, 0.25)' : t.cardBg,
+                          padding: '2px 7px',
+                          borderRadius: '4px',
+                          fontWeight: 800
+                        }}
+                      >
+                        {subItem.marksObtained}/{subItem.totalMarks} M
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
           {/* Student Profile Card */}
           <div style={{ backgroundColor: t.cardBg, border: `1px solid ${t.border}`, borderRadius: '14px', padding: '24px 28px', boxShadow: t.shadow }}>
             <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
@@ -572,10 +644,12 @@ export default function StudentEvaluationPortal({
                 <h2 style={{ fontSize: '1.45rem', fontWeight: 800, margin: '6px 0 4px', color: t.text }}>
                   {result.submission.studentName}
                 </h2>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '0.82rem', color: t.textMuted }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '0.82rem', color: t.textMuted, flexWrap: 'wrap' }}>
                   <span style={{ fontWeight: 700, color: '#38bdf8' }}>{result.submission.rollNo}</span>
                   <span>•</span>
                   <span>{result.submission.courseCode} - B.Sc Aviation</span>
+                  <span>•</span>
+                  <span style={{ fontWeight: 600, color: t.textSecondary }}>{result.assignmentTitle || result.submission.assignmentTitle || 'Lab Exercise'}</span>
                   <span>•</span>
                   <span>Evaluated: {new Date(result.submission.evaluatedAt || result.submission.submittedAt).toLocaleDateString('en-GB')}</span>
                 </div>

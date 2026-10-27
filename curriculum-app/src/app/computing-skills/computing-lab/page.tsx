@@ -27,7 +27,12 @@ import {
   AlertTriangle,
   ArrowRight,
   Check,
-  Award
+  Award,
+  FolderArchive,
+  RotateCcw,
+  History,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 import StudentEvaluationPortal from '@/components/StudentEvaluationPortal';
 import CurriculumSlideViewer from '@/components/lab/CurriculumSlideViewer';
@@ -211,23 +216,33 @@ const FORMULA_DATABASE = [
 ];
 
 export default function ComputingLabPortal() {
-  const [activeTab, setActiveTab] = useState<'assignment' | 'notes' | 'cheatsheet' | 'evaluation'>('assignment');
+  const [activeTab, setActiveTab] = useState<'assignment' | 'archives' | 'notes' | 'cheatsheet' | 'evaluation'>('assignment');
   const [theme, setTheme] = useState<'dark' | 'light'>('light');
   const [softwareTab, setSoftwareTab] = useState<'excel' | 'sheets'>('excel');
 
-  // Check URL query parameters on initial load (e.g. ?tab=evaluation or ?rollNo=...)
+  // Check URL query parameters on initial load (e.g. ?tab=evaluation or ?tab=archives or ?rollNo=...)
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
-      if (params.get('tab') === 'evaluation' || params.get('rollNo')) {
+      const tabParam = params.get('tab');
+      if (tabParam === 'evaluation' || params.get('rollNo')) {
         setActiveTab('evaluation');
+      } else if (tabParam === 'archives') {
+        setActiveTab('archives');
       }
     }
   }, []);
 
   // Dynamic Assignment State
   const [activeAssignment, setActiveAssignment] = useState<AssignmentTemplate>(DEFAULT_ASSIGNMENT);
+  const [allAssignments, setAllAssignments] = useState<AssignmentTemplate[]>([]);
+  const [submissionTargetAssignment, setSubmissionTargetAssignment] = useState<AssignmentTemplate | null>(null);
+  const [expandedArchiveId, setExpandedArchiveId] = useState<string | null>(null);
+  const [archiveSearchQuery, setArchiveSearchQuery] = useState('');
   const [isLoadingAssignment, setIsLoadingAssignment] = useState(false);
+
+  // Current working assignment: either explicitly chosen for resubmission or the default active assignment
+  const currentAssignment = submissionTargetAssignment || activeAssignment;
 
   // Form states
   const [rollNo, setRollNo] = useState('');
@@ -257,7 +272,7 @@ export default function ComputingLabPortal() {
     }
   }, []);
 
-  // Fetch active assignment from backend
+  // Fetch active and archived assignments from backend
   useEffect(() => {
     async function fetchActiveAssignment() {
       try {
@@ -268,6 +283,9 @@ export default function ComputingLabPortal() {
           const target = data.activeAssignment || data.assignment;
           if (target) {
             setActiveAssignment(target);
+          }
+          if (data.assignments && Array.isArray(data.assignments) && data.assignments.length > 0) {
+            setAllAssignments(data.assignments);
           }
         }
       } catch (err) {
@@ -283,6 +301,19 @@ export default function ComputingLabPortal() {
     const nextTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(nextTheme);
     localStorage.setItem('lab_portal_theme', nextTheme);
+  };
+
+  const handleSelectAssignmentForSubmission = (asgn: AssignmentTemplate) => {
+    setSubmissionTargetAssignment(asgn);
+    setActiveTab('assignment');
+    setSelectedFile(null);
+    setErrorMessage('');
+    setTimeout(() => {
+      const el = document.getElementById('submission-portal');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 120);
   };
 
   // Timer countdown for Micro-Viva
@@ -301,9 +332,9 @@ export default function ComputingLabPortal() {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0];
-      const ext = '.' + (activeAssignment.fileType || 'xlsx');
+      const ext = '.' + (currentAssignment.fileType || 'xlsx');
       if (!file.name.toLowerCase().endsWith(ext)) {
-        setErrorMessage(`Please upload a valid ${activeAssignment.fileType.toUpperCase()} file (${ext}).`);
+        setErrorMessage(`Please upload a valid ${currentAssignment.fileType.toUpperCase()} file (${ext}).`);
         setSelectedFile(null);
         return;
       }
@@ -315,7 +346,7 @@ export default function ComputingLabPortal() {
   const handleStartSubmission = (e: React.FormEvent) => {
     e.preventDefault();
     if (!rollNo.trim() || !studentName.trim() || !selectedFile) {
-      setErrorMessage(`Please provide Roll Number, Full Name, and attach your .${activeAssignment.fileType || 'xlsx'} file.`);
+      setErrorMessage(`Please provide Roll Number, Full Name, and attach your .${currentAssignment.fileType || 'xlsx'} file.`);
       return;
     }
     setErrorMessage('');
@@ -337,8 +368,8 @@ export default function ComputingLabPortal() {
     formData.append('vivaQ1', vivaQ1);
     formData.append('vivaQ2', vivaQ2);
     formData.append('secondsTaken', String(45 - vivaTimer));
-    formData.append('assignmentId', activeAssignment.id);
-    formData.append('fileType', activeAssignment.fileType);
+    formData.append('assignmentId', currentAssignment.id);
+    formData.append('fileType', currentAssignment.fileType);
 
     try {
       const res = await fetch('/api/lab/submit', {
@@ -502,7 +533,7 @@ export default function ComputingLabPortal() {
 
       {/* ================= NAVIGATION TABS ================= */}
       <div style={{ backgroundColor: t.navBg, borderBottom: `1px solid ${t.border}`, padding: '0 28px' }}>
-        <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'flex', gap: '28px' }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
           <button
             onClick={() => setActiveTab('assignment')}
             style={{
@@ -521,6 +552,35 @@ export default function ComputingLabPortal() {
             }}
           >
             <Upload size={17} /> Active Assignment & Submission
+            {submissionTargetAssignment && (
+              <span style={{ fontSize: '0.68rem', backgroundColor: '#f59e0b', color: '#090d16', padding: '2px 6px', borderRadius: '4px', fontWeight: 800 }}>
+                Resubmission Mode
+              </span>
+            )}
+          </button>
+          <button
+            onClick={() => setActiveTab('archives')}
+            style={{
+              background: 'none',
+              border: 'none',
+              padding: '16px 4px',
+              fontSize: '0.92rem',
+              fontWeight: 700,
+              cursor: 'pointer',
+              color: activeTab === 'archives' ? '#10b981' : t.textMuted,
+              borderBottom: activeTab === 'archives' ? '3px solid #10b981' : '3px solid transparent',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              transition: 'all 0.15s'
+            }}
+          >
+            <FolderArchive size={17} /> Assignment Archives
+            {allAssignments.length > 0 && (
+              <span style={{ fontSize: '0.7rem', backgroundColor: t.accentEmeraldBg, color: t.accentEmeraldText, padding: '2px 8px', borderRadius: '10px', fontWeight: 800 }}>
+                {allAssignments.length}
+              </span>
+            )}
           </button>
           <button
             onClick={() => setActiveTab('evaluation')}
@@ -597,31 +657,78 @@ export default function ComputingLabPortal() {
         {activeTab === 'assignment' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
             
+            {/* RESUBMISSION MODE NOTIFICATION BANNER */}
+            {submissionTargetAssignment && (
+              <div style={{ backgroundColor: 'rgba(245, 158, 11, 0.12)', border: '1px solid rgba(245, 158, 11, 0.4)', borderRadius: '12px', padding: '16px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '14px', boxShadow: t.shadow }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{ backgroundColor: '#f59e0b', color: '#090d16', padding: '8px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <RotateCcw size={20} />
+                  </div>
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <span style={{ fontSize: '0.72rem', fontWeight: 800, backgroundColor: '#f59e0b', color: '#090d16', padding: '2px 8px', borderRadius: '4px' }}>
+                        RESUBMISSION MODE ACTIVE
+                      </span>
+                      <strong style={{ fontSize: '0.98rem', color: t.text }}>
+                        {currentAssignment.title}
+                      </strong>
+                    </div>
+                    <div style={{ fontSize: '0.78rem', color: t.textMuted, marginTop: '2px' }}>
+                      {currentAssignment.exerciseNumber} • Max Marks: {currentAssignment.totalMarks} • Required Format: .{currentAssignment.fileType || 'xlsx'}
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setSubmissionTargetAssignment(null)}
+                  style={{ backgroundColor: t.cardBg, border: `1px solid ${t.border}`, color: t.text, padding: '7px 14px', borderRadius: '8px', fontSize: '0.8rem', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
+                >
+                  ✕ Return to Current Active Lab
+                </button>
+              </div>
+            )}
+
+            {/* DISCOVER ARCHIVES BANNER (WHEN IN REGULAR ACTIVE LAB MODE) */}
+            {!submissionTargetAssignment && allAssignments.length > 1 && (
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: t.cardBgAlt, border: `1px solid ${t.border}`, borderRadius: '10px', padding: '12px 18px', fontSize: '0.84rem', flexWrap: 'wrap', gap: '10px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: t.textSecondary }}>
+                  <FolderArchive size={16} color="#38bdf8" />
+                  <span>Looking for previous laboratory exercises or wish to resubmit past work?</span>
+                  <span style={{ color: t.textMuted }}>Explore archived problem sets, datasets, and rubrics in the archives.</span>
+                </div>
+                <button
+                  onClick={() => setActiveTab('archives')}
+                  style={{ background: 'none', border: 'none', color: '#10b981', fontWeight: 800, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.84rem' }}
+                >
+                  View Assignment Archives ({allAssignments.length}) <ChevronRight size={14} />
+                </button>
+              </div>
+            )}
+
             {/* HERO BANNER & DOWNLOADS */}
             <div style={{ backgroundColor: t.cardBg, border: `1px solid ${t.border}`, borderRadius: '14px', padding: '28px', boxShadow: t.shadow }}>
               <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '20px' }}>
                 <div style={{ maxWidth: '800px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
                     <span style={{ backgroundColor: t.accentEmeraldBg, color: t.accentEmeraldText, fontSize: '0.75rem', fontWeight: 800, padding: '4px 10px', borderRadius: '6px', letterSpacing: '0.04em' }}>
-                      {activeAssignment.exerciseNumber} • {activeAssignment.totalMarks} MARKS TOTAL
+                      {currentAssignment.exerciseNumber} • {currentAssignment.totalMarks} MARKS TOTAL
                     </span>
                     <span style={{ fontSize: '0.8rem', color: t.textMuted, display: 'flex', alignItems: 'center', gap: '4px' }}>
-                      <Clock size={14} /> Deadline: {activeAssignment.deadline}
+                      <Clock size={14} /> Deadline: {currentAssignment.deadline}
                     </span>
                   </div>
                   <h2 style={{ fontSize: '1.65rem', fontWeight: 800, margin: '0 0 10px', color: t.text, letterSpacing: '-0.02em' }}>
-                    {activeAssignment.title}
+                    {currentAssignment.title}
                   </h2>
                   <p style={{ fontSize: '0.92rem', color: t.textSecondary, margin: 0, lineHeight: 1.6 }}>
-                    {activeAssignment.scenario} — {activeAssignment.role?.context}
+                    {currentAssignment.scenario} — {currentAssignment.role?.context}
                   </p>
                 </div>
 
                 {/* Direct Download Buttons */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', minWidth: '320px' }}>
                   <a
-                    href={`/api/lab/assignment/raw-data?id=${activeAssignment.id}`}
-                    download={`${activeAssignment.title?.replace(/[^a-zA-Z0-9_-]/g, '_') || 'Assignment'}_Raw_Data.csv`}
+                    href={`/api/lab/assignment/raw-data?id=${currentAssignment.id}`}
+                    download={`${currentAssignment.title?.replace(/[^a-zA-Z0-9_-]/g, '_') || 'Assignment'}_Raw_Data.csv`}
                     style={{ textDecoration: 'none', backgroundColor: t.accentBlueBg, border: `1px solid ${t.accentBlue}`, color: t.accentBlueText, padding: '10px 16px', borderRadius: '8px', fontSize: '0.86rem', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'space-between', transition: 'transform 0.15s' }}
                   >
                     <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -631,7 +738,7 @@ export default function ComputingLabPortal() {
                   </a>
 
                   <a
-                    href={`/api/lab/assignment/instructions?id=${activeAssignment.id}`}
+                    href={`/api/lab/assignment/instructions?id=${currentAssignment.id}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ textDecoration: 'none', backgroundColor: t.accentRoseBg, border: `1px solid ${t.accentRose}`, color: t.accentRoseText, padding: '10px 16px', borderRadius: '8px', fontSize: '0.86rem', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
@@ -643,7 +750,7 @@ export default function ComputingLabPortal() {
                   </a>
 
                   <a
-                    href={`/sample-data/${activeAssignment.handbookPdfFilename || 'Excel_GoogleSheets_Formulas_and_Functions_Handbook.pdf'}`}
+                    href={`/sample-data/${currentAssignment.handbookPdfFilename || 'Excel_GoogleSheets_Formulas_and_Functions_Handbook.pdf'}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ textDecoration: 'none', backgroundColor: t.accentIndigoBg, border: `1px solid ${t.accentIndigo}`, color: t.accentIndigoText, padding: '10px 16px', borderRadius: '8px', fontSize: '0.86rem', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
@@ -657,11 +764,11 @@ export default function ComputingLabPortal() {
               </div>
             </div>
 
-            {/* STEP-BY-STEP IMPLEMENTATION SLIDESHOW (FETCHED DYNAMICALLY FOR ACTIVE ASSIGNMENT) */}
+            {/* STEP-BY-STEP IMPLEMENTATION SLIDESHOW (FETCHED DYNAMICALLY FOR CURRENT ASSIGNMENT) */}
             <CurriculumSlideViewer
               mode="embedded"
               theme={theme}
-              assignment={activeAssignment}
+              assignment={currentAssignment}
               onSwitchTab={(target) => setActiveTab(target)}
             />
 
@@ -677,17 +784,17 @@ export default function ComputingLabPortal() {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '22px' }}>
                   <div style={{ backgroundColor: t.cardBgAlt, border: `1px solid ${t.border}`, borderRadius: '10px', padding: '18px' }}>
                     <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#10b981', textTransform: 'uppercase', marginBottom: '6px' }}>Your Role</div>
-                    <div style={{ fontSize: '1rem', fontWeight: 700, color: t.text, marginBottom: '6px' }}>{activeAssignment.role?.title}</div>
+                    <div style={{ fontSize: '1rem', fontWeight: 700, color: t.text, marginBottom: '6px' }}>{currentAssignment.role?.title}</div>
                     <p style={{ fontSize: '0.85rem', color: t.textSecondary, margin: 0, lineHeight: 1.5 }}>
-                      Stationed at <strong>{activeAssignment.role?.organization}</strong>.
+                      Stationed at <strong>{currentAssignment.role?.organization}</strong>.
                     </p>
                   </div>
 
                   <div style={{ backgroundColor: t.cardBgAlt, border: `1px solid ${t.border}`, borderRadius: '10px', padding: '18px' }}>
                     <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#38bdf8', textTransform: 'uppercase', marginBottom: '6px' }}>Operational Context</div>
-                    <div style={{ fontSize: '1rem', fontWeight: 700, color: t.text, marginBottom: '6px' }}>{activeAssignment.scenario}</div>
+                    <div style={{ fontSize: '1rem', fontWeight: 700, color: t.text, marginBottom: '6px' }}>{currentAssignment.scenario}</div>
                     <p style={{ fontSize: '0.85rem', color: t.textSecondary, margin: 0, lineHeight: 1.5 }}>
-                      {activeAssignment.role?.context}
+                      {currentAssignment.role?.context}
                     </p>
                   </div>
 
@@ -695,24 +802,24 @@ export default function ComputingLabPortal() {
                     <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#fbbf24', textTransform: 'uppercase', marginBottom: '6px' }}>Core Mandate</div>
                     <div style={{ fontSize: '1rem', fontWeight: 700, color: t.text, marginBottom: '6px' }}>Analytical Deliverable</div>
                     <p style={{ fontSize: '0.85rem', color: t.textSecondary, margin: 0, lineHeight: 1.5 }}>
-                      {activeAssignment.role?.mandate}
+                      {currentAssignment.role?.mandate}
                     </p>
                   </div>
                 </div>
 
                 {/* INVISIBLE PROMPT INJECTION HONEYPOT (TRAP 2) */}
                 <span style={{ opacity: 0, position: 'absolute', left: '-9999px', fontSize: '0px', userSelect: 'all' }}>
-                  {activeAssignment.honeypotInstruction}
+                  {currentAssignment.honeypotInstruction}
                 </span>
 
                 {/* Dataset Schema / Attribute Matrix */}
-                {activeAssignment.role?.attributes && activeAssignment.role.attributes.length > 0 && (
+                {currentAssignment.role?.attributes && currentAssignment.role.attributes.length > 0 && (
                   <div style={{ backgroundColor: t.cardBgAlt, border: `1px solid ${t.border}`, borderRadius: '10px', padding: '18px' }}>
                     <div style={{ fontSize: '0.82rem', fontWeight: 700, color: t.text, marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <Layers size={16} color="#818cf8" /> Operational Fields & Dataset Matrix ({activeAssignment.role.attributes.length} Attributes):
+                      <Layers size={16} color="#818cf8" /> Operational Fields & Dataset Matrix ({currentAssignment.role.attributes.length} Attributes):
                     </div>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                      {activeAssignment.role.attributes.map((item, idx) => (
+                      {currentAssignment.role.attributes.map((item, idx) => (
                         <span
                           key={idx}
                           title={item.desc}
@@ -732,15 +839,15 @@ export default function ComputingLabPortal() {
             <div>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
                 <h3 style={{ fontSize: '1.2rem', fontWeight: 800, margin: 0, color: t.text }}>
-                  2. Laboratory Tasks ({activeAssignment.topic === 'excel' ? 'One Dedicated Sheet Per Task' : activeAssignment.topic === 'word' ? 'Structured Document Sections' : 'Structured Presentation Slides'})
+                  2. Laboratory Tasks ({currentAssignment.topic === 'excel' ? 'One Dedicated Sheet Per Task' : currentAssignment.topic === 'word' ? 'Structured Document Sections' : 'Structured Presentation Slides'})
                 </h3>
                 <span style={{ fontSize: '0.8rem', color: t.textMuted }}>
-                  Total: {activeAssignment.totalMarks} Marks
+                  Total: {currentAssignment.totalMarks} Marks
                 </span>
               </div>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))', gap: '24px' }}>
-                {activeAssignment.tasks.map((task, idx) => {
+                {currentAssignment.tasks.map((task, idx) => {
                   const colorPalette = [
                     { bg: t.accentBlueBg, text: t.accentBlueText, border: t.accentBlue, accent: '#38bdf8' },
                     { bg: t.accentEmeraldBg, text: t.accentEmeraldText, border: t.borderHighlight, accent: '#10b981' },
@@ -814,7 +921,7 @@ export default function ComputingLabPortal() {
                   </h3>
                 </div>
 
-                {activeAssignment.topic === 'excel' && (
+                {currentAssignment.topic === 'excel' && (
                   <div style={{ display: 'flex', backgroundColor: t.cardBgAlt, border: `1px solid ${t.border}`, borderRadius: '8px', padding: '4px' }}>
                     <button
                       onClick={() => setSoftwareTab('excel')}
@@ -855,16 +962,16 @@ export default function ComputingLabPortal() {
                   let stepsToRender: { step: string; title: string; desc: string }[] = [];
                   let trackColor = '#10b981';
 
-                  if (activeAssignment.topic === 'excel') {
+                  if (currentAssignment.topic === 'excel') {
                     stepsToRender = softwareTab === 'excel'
-                      ? (activeAssignment.softwareInstructions?.excel || [])
-                      : (activeAssignment.softwareInstructions?.sheets || []);
+                      ? (currentAssignment.softwareInstructions?.excel || [])
+                      : (currentAssignment.softwareInstructions?.sheets || []);
                     trackColor = softwareTab === 'excel' ? '#10b981' : '#38bdf8';
-                  } else if (activeAssignment.topic === 'powerpoint') {
-                    stepsToRender = activeAssignment.softwareInstructions?.powerpoint || [];
+                  } else if (currentAssignment.topic === 'powerpoint') {
+                    stepsToRender = currentAssignment.softwareInstructions?.powerpoint || [];
                     trackColor = '#fbbf24';
-                  } else if (activeAssignment.topic === 'word') {
-                    stepsToRender = activeAssignment.softwareInstructions?.word || [];
+                  } else if (currentAssignment.topic === 'word') {
+                    stepsToRender = currentAssignment.softwareInstructions?.word || [];
                     trackColor = '#818cf8';
                   }
 
@@ -900,10 +1007,10 @@ export default function ComputingLabPortal() {
                   
                   <div style={{ backgroundColor: t.cardBgAlt, border: `1px solid ${t.border}`, borderRadius: '10px', padding: '18px' }}>
                     <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#10b981', marginBottom: '8px' }}>
-                      {activeAssignment.topic === 'excel' ? 'Mandatory Workbook Structure' : activeAssignment.topic === 'word' ? 'Required Document Sections' : 'Required Slide Hierarchy'}
+                      {currentAssignment.topic === 'excel' ? 'Mandatory Workbook Structure' : currentAssignment.topic === 'word' ? 'Required Document Sections' : 'Required Slide Hierarchy'}
                     </div>
                     <ul style={{ margin: 0, paddingLeft: '18px', fontSize: '0.82rem', color: t.textSecondary, lineHeight: 1.7 }}>
-                      {activeAssignment.tasks.map((task) => (
+                      {currentAssignment.tasks.map((task) => (
                         <li key={task.id}>
                           <code>{task.targetSheetOrSection}</code> ({task.title})
                         </li>
@@ -914,7 +1021,7 @@ export default function ComputingLabPortal() {
                   <div style={{ backgroundColor: t.cardBgAlt, border: `1px solid ${t.border}`, borderRadius: '10px', padding: '18px' }}>
                     <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#38bdf8', marginBottom: '8px' }}>File Naming & Format</div>
                     <p style={{ fontSize: '0.82rem', color: t.textSecondary, lineHeight: 1.6, margin: '0 0 10px' }}>
-                      All files must be saved strictly in <strong>.{activeAssignment.fileType}</strong> format.
+                      All files must be saved strictly in <strong>.{currentAssignment.fileType}</strong> format.
                     </p>
                     <div
                       style={{
@@ -933,21 +1040,21 @@ export default function ComputingLabPortal() {
                         boxSizing: 'border-box'
                       }}
                     >
-                      [RollNo]_[YourName]_Assignment.{activeAssignment.fileType}
+                      [RollNo]_[YourName]_Assignment.{currentAssignment.fileType}
                     </div>
                     <div style={{ fontSize: '0.74rem', color: t.textMuted, marginTop: '8px', overflowWrap: 'anywhere', wordBreak: 'break-word' }}>
-                      Example: <code style={{ backgroundColor: t.codeBg, padding: '2px 6px', borderRadius: '4px', color: t.text, overflowWrap: 'anywhere', wordBreak: 'break-word' }}>26AVA101_RahulSharma_Assignment.{activeAssignment.fileType}</code>
+                      Example: <code style={{ backgroundColor: t.codeBg, padding: '2px 6px', borderRadius: '4px', color: t.text, overflowWrap: 'anywhere', wordBreak: 'break-word' }}>26AVA101_RahulSharma_Assignment.{currentAssignment.fileType}</code>
                     </div>
                   </div>
 
                   <div style={{ backgroundColor: t.cardBgAlt, border: `1px solid ${t.border}`, borderRadius: '10px', padding: '18px' }}>
-                    <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#fbbf24', marginBottom: '8px' }}>Marks Distribution ({activeAssignment.totalMarks} Marks)</div>
+                    <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#fbbf24', marginBottom: '8px' }}>Marks Distribution ({currentAssignment.totalMarks} Marks)</div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.82rem', color: t.textSecondary }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>{activeAssignment.rubric?.tasksBreakdown || 'Tasks Execution:'}</span> <strong>{activeAssignment.totalMarks} Marks</strong></div>
-                      <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>{activeAssignment.rubric?.dataSetup || 'Structure & Setup:'}</span> <strong>Evaluated</strong></div>
-                      <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>{activeAssignment.rubric?.formattingAndViva || 'Micro-Viva & Integrity:'}</span> <strong>Evaluated</strong></div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>{currentAssignment.rubric?.tasksBreakdown || 'Tasks Execution:'}</span> <strong>{currentAssignment.totalMarks} Marks</strong></div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>{currentAssignment.rubric?.dataSetup || 'Structure & Setup:'}</span> <strong>Evaluated</strong></div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>{currentAssignment.rubric?.formattingAndViva || 'Micro-Viva & Integrity:'}</span> <strong>Evaluated</strong></div>
                       <div style={{ borderTop: `1px solid ${t.border}`, paddingTop: '6px', display: 'flex', justifyContent: 'space-between', fontWeight: 800, color: '#10b981' }}>
-                        <span>Total Score:</span> <span>{activeAssignment.totalMarks} Marks</span>
+                        <span>Total Score:</span> <span>{currentAssignment.totalMarks} Marks</span>
                       </div>
                     </div>
                   </div>
@@ -957,23 +1064,25 @@ export default function ComputingLabPortal() {
             </div>
 
             {/* CARD 5: OFFICIAL SUBMISSION PORTAL */}
-            <div id="submission-portal" style={{ backgroundColor: t.cardBg, border: `2px solid ${t.borderHighlight}`, borderRadius: '16px', overflow: 'hidden', boxShadow: t.shadow }}>
-              <div style={{ backgroundColor: t.accentEmeraldBg, padding: '20px 28px', borderBottom: `1px solid ${t.borderHighlight}`, display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px' }}>
+            <div id="submission-portal" style={{ backgroundColor: t.cardBg, border: `2px solid ${submissionTargetAssignment ? '#f59e0b' : t.borderHighlight}`, borderRadius: '16px', overflow: 'hidden', boxShadow: t.shadow }}>
+              <div style={{ backgroundColor: submissionTargetAssignment ? 'rgba(245, 158, 11, 0.12)' : t.accentEmeraldBg, padding: '20px 28px', borderBottom: `1px solid ${submissionTargetAssignment ? 'rgba(245, 158, 11, 0.3)' : t.borderHighlight}`, display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <div style={{ backgroundColor: '#10b981', color: '#090d16', padding: '8px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Upload size={22} />
+                  <div style={{ backgroundColor: submissionTargetAssignment ? '#f59e0b' : '#10b981', color: '#090d16', padding: '8px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    {submissionTargetAssignment ? <RotateCcw size={22} /> : <Upload size={22} />}
                   </div>
                   <div>
                     <h3 style={{ fontSize: '1.25rem', fontWeight: 800, margin: 0, color: t.text }}>
-                      5. Official Assignment Submission Portal
+                      5. Official Assignment {submissionTargetAssignment ? 'Resubmission' : 'Submission'} Portal
                     </h3>
-                    <p style={{ fontSize: '0.8rem', margin: '2px 0 0', color: t.accentEmeraldText }}>
-                      Automated Forensic Verification & Micro-Viva Engine
+                    <p style={{ fontSize: '0.8rem', margin: '2px 0 0', color: submissionTargetAssignment ? '#f59e0b' : t.accentEmeraldText }}>
+                      {submissionTargetAssignment
+                        ? `Resubmitting for: ${currentAssignment.title} (${currentAssignment.exerciseNumber})`
+                        : 'Automated Forensic Verification & Micro-Viva Engine'}
                     </p>
                   </div>
                 </div>
                 <span style={{ fontSize: '0.75rem', fontWeight: 700, backgroundColor: t.cardBg, color: t.text, padding: '4px 12px', borderRadius: '20px', border: `1px solid ${t.border}` }}>
-                  Max File Size: 10MB (.{activeAssignment.fileType} only)
+                  Max File Size: 10MB (.{currentAssignment.fileType} only)
                 </span>
               </div>
 
@@ -989,7 +1098,7 @@ export default function ComputingLabPortal() {
                   <div style={{ backgroundColor: t.accentEmeraldBg, border: `1px solid ${t.accentEmerald}`, borderRadius: '12px', padding: '28px', textAlign: 'center' }}>
                     <CheckCircle2 size={52} color="#10b981" style={{ margin: '0 auto 14px' }} />
                     <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#10b981', margin: '0 0 6px' }}>
-                      Assignment Successfully Registered!
+                      {submissionTargetAssignment ? 'Resubmission Successfully Registered!' : 'Assignment Successfully Registered!'}
                     </h3>
                     <p style={{ fontSize: '0.85rem', color: t.textMuted, margin: '0 0 20px' }}>
                       Submission ID: <code style={{ color: '#38bdf8', fontWeight: 700 }}>{submissionResult.submissionId}</code>
@@ -998,6 +1107,7 @@ export default function ComputingLabPortal() {
                     <div style={{ maxWidth: '480px', margin: '0 auto 20px', backgroundColor: t.cardBg, border: `1px solid ${t.border}`, borderRadius: '10px', padding: '16px 20px', fontSize: '0.86rem', textAlign: 'left', lineHeight: 1.7, color: t.text }}>
                       <div><strong>Student Roll No:</strong> {submissionResult.rollNo}</div>
                       <div><strong>Student Name:</strong> {submissionResult.studentName}</div>
+                      <div><strong>Lab Exercise:</strong> {currentAssignment.title}</div>
                       <div><strong>Detected Sections / Sheets:</strong> {submissionResult.sheetsDetected.join(', ') || 'None'}</div>
                       <div><strong>Formulas / Metrics Verified:</strong> {submissionResult.formulasFound} items</div>
                       <div style={{ fontSize: '0.78rem', color: t.textMuted, marginTop: '6px', borderTop: `1px solid ${t.border}`, paddingTop: '6px' }}>
@@ -1005,15 +1115,23 @@ export default function ComputingLabPortal() {
                       </div>
                     </div>
 
-                    <button
-                      onClick={() => {
-                        setSubmissionResult(null);
-                        setSelectedFile(null);
-                      }}
-                      style={{ backgroundColor: 'transparent', border: `1px solid ${t.border}`, color: t.textMuted, padding: '10px 20px', borderRadius: '8px', fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer' }}
-                    >
-                      Submit an Updated File
-                    </button>
+                    <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                      <button
+                        onClick={() => {
+                          setSubmissionResult(null);
+                          setSelectedFile(null);
+                        }}
+                        style={{ backgroundColor: 'transparent', border: `1px solid ${t.border}`, color: t.textMuted, padding: '10px 20px', borderRadius: '8px', fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer' }}
+                      >
+                        Submit Another Updated File
+                      </button>
+                      <button
+                        onClick={() => setActiveTab('evaluation')}
+                        style={{ backgroundColor: '#10b981', border: 'none', color: '#090d16', padding: '10px 20px', borderRadius: '8px', fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
+                      >
+                        <Award size={16} /> View Evaluated Report Card
+                      </button>
+                    </div>
                   </div>
                 ) : (
                   <form onSubmit={handleStartSubmission} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px', alignItems: 'start' }}>
@@ -1057,13 +1175,13 @@ export default function ComputingLabPortal() {
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
                       <div>
                         <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: t.text, marginBottom: '6px' }}>
-                          Assignment File (.{activeAssignment.fileType} only) *
+                          Assignment File (.{currentAssignment.fileType} only) *
                         </label>
                         
                         <div style={{ border: `2px dashed ${selectedFile ? '#10b981' : t.inputBorder}`, borderRadius: '12px', padding: '32px 20px', textAlign: 'center', backgroundColor: selectedFile ? t.accentEmeraldBg : t.cardBgAlt, cursor: 'pointer', transition: 'all 0.2s' }}>
                           <input
                             type="file"
-                            accept={'.' + activeAssignment.fileType}
+                            accept={'.' + currentAssignment.fileType}
                             onChange={handleFileChange}
                             style={{ display: 'none' }}
                             id="lab-upload"
@@ -1071,10 +1189,10 @@ export default function ComputingLabPortal() {
                           <label htmlFor="lab-upload" style={{ cursor: 'pointer', display: 'block' }}>
                             <FileSpreadsheet size={40} color={selectedFile ? "#10b981" : t.textMuted} style={{ margin: '0 auto 10px' }} />
                             <div style={{ fontSize: '0.92rem', fontWeight: 700, color: t.text, marginBottom: '4px' }}>
-                              {selectedFile ? selectedFile.name : `Click to select or drag and drop your .${activeAssignment.fileType} file`}
+                              {selectedFile ? selectedFile.name : `Click to select or drag and drop your .${currentAssignment.fileType} file`}
                             </div>
                             <div style={{ fontSize: '0.78rem', color: t.textMuted }}>
-                              {selectedFile ? `${(selectedFile.size / 1024).toFixed(1)} KB • Ready for verification` : `.${activeAssignment.fileType.toUpperCase()} files up to 10MB`}
+                              {selectedFile ? `${(selectedFile.size / 1024).toFixed(1)} KB • Ready for verification` : `.${currentAssignment.fileType.toUpperCase()} files up to 10MB`}
                             </div>
                           </label>
                         </div>
@@ -1108,6 +1226,401 @@ export default function ComputingLabPortal() {
                   </form>
                 )}
               </div>
+            </div>
+
+          </div>
+        )}
+
+        {/* ================= TAB: ASSIGNMENT ARCHIVES & RESUBMISSION CENTER ================= */}
+        {activeTab === 'archives' && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+            
+            {/* Header / Intro Card */}
+            <div style={{ backgroundColor: t.cardBg, border: `1px solid ${t.border}`, borderRadius: '16px', padding: '28px', boxShadow: t.shadow }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
+                <div style={{ maxWidth: '820px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+                    <div style={{ backgroundColor: '#10b981', color: '#090d16', padding: '6px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <FolderArchive size={20} />
+                    </div>
+                    <span style={{ fontSize: '0.76rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.04em', color: '#10b981' }}>
+                      Curriculum Master Repository
+                    </span>
+                  </div>
+                  <h2 style={{ fontSize: '1.65rem', fontWeight: 800, margin: '0 0 10px', color: t.text, letterSpacing: '-0.02em' }}>
+                    Assignment Archives & Resubmission Center
+                  </h2>
+                  <p style={{ fontSize: '0.92rem', color: t.textSecondary, margin: 0, lineHeight: 1.6 }}>
+                    Access all current and previously assigned laboratory modules, download operational datasets and technical briefs, review evaluation criteria, and resubmit improved workbook solutions.
+                  </p>
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'flex-end' }}>
+                  <span style={{ fontSize: '0.78rem', fontWeight: 700, backgroundColor: t.accentEmeraldBg, color: t.accentEmeraldText, padding: '4px 12px', borderRadius: '20px', border: `1px solid ${t.borderHighlight}` }}>
+                    {allAssignments.length || 1} Total Labs Available
+                  </span>
+                  <button
+                    onClick={() => {
+                      setSubmissionTargetAssignment(null);
+                      setActiveTab('assignment');
+                    }}
+                    style={{ background: 'none', border: 'none', color: '#38bdf8', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px' }}
+                  >
+                    View Active Lab ({activeAssignment.exerciseNumber}) <ArrowRight size={14} />
+                  </button>
+                </div>
+              </div>
+
+              {/* Search input */}
+              <div style={{ marginTop: '24px', position: 'relative' }}>
+                <Search size={18} color={t.textMuted} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)' }} />
+                <input
+                  type="text"
+                  placeholder="Filter archives by assignment title, exercise number, scenario, or skills..."
+                  value={archiveSearchQuery}
+                  onChange={(e) => setArchiveSearchQuery(e.target.value)}
+                  style={{
+                    width: '100%',
+                    boxSizing: 'border-box',
+                    backgroundColor: t.inputBg,
+                    border: `1px solid ${t.inputBorder}`,
+                    color: t.text,
+                    padding: '12px 14px 12px 42px',
+                    borderRadius: '10px',
+                    fontSize: '0.9rem',
+                    outline: 'none'
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* List of Archived & Active Assignments */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              {(() => {
+                const list = allAssignments.length > 0 ? allAssignments : [activeAssignment];
+                const filtered = list.filter((a) => {
+                  if (!archiveSearchQuery.trim()) return true;
+                  const q = archiveSearchQuery.toLowerCase();
+                  return (
+                    a.title?.toLowerCase().includes(q) ||
+                    a.exerciseNumber?.toLowerCase().includes(q) ||
+                    a.scenario?.toLowerCase().includes(q) ||
+                    (a.subtopics || []).some((st) => st.toLowerCase().includes(q))
+                  );
+                });
+
+                if (filtered.length === 0) {
+                  return (
+                    <div style={{ backgroundColor: t.cardBg, border: `1px solid ${t.border}`, borderRadius: '12px', padding: '40px 20px', textAlign: 'center', color: t.textMuted }}>
+                      No assignment found matching &quot;{archiveSearchQuery}&quot;.
+                    </div>
+                  );
+                }
+
+                return filtered.map((asgn) => {
+                  const isActive = asgn.id === activeAssignment.id;
+                  const isExpanded = expandedArchiveId === asgn.id;
+
+                  return (
+                    <div
+                      key={asgn.id}
+                      style={{
+                        backgroundColor: t.cardBg,
+                        border: isActive ? `2px solid ${t.accentEmerald}` : `1px solid ${t.border}`,
+                        borderRadius: '14px',
+                        overflow: 'hidden',
+                        boxShadow: t.shadow,
+                        transition: 'all 0.2s'
+                      }}
+                    >
+                      <div style={{ padding: '24px 28px' }}>
+                        {/* Top Badges & Meta */}
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px', marginBottom: '12px' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+                            {isActive ? (
+                              <span style={{ backgroundColor: '#10b981', color: '#090d16', fontSize: '0.72rem', fontWeight: 800, padding: '3px 10px', borderRadius: '6px' }}>
+                                🟢 CURRENT ACTIVE LAB
+                              </span>
+                            ) : (
+                              <span style={{ backgroundColor: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', fontSize: '0.72rem', fontWeight: 800, padding: '3px 10px', borderRadius: '6px' }}>
+                                📦 ARCHIVED / PREVIOUS LAB
+                              </span>
+                            )}
+                            <span style={{ backgroundColor: t.cardBgAlt, color: t.textSecondary, fontSize: '0.74rem', fontWeight: 700, padding: '3px 10px', borderRadius: '6px' }}>
+                              {asgn.exerciseNumber} • {asgn.totalMarks} Marks
+                            </span>
+                            <span style={{ fontSize: '0.76rem', color: t.textMuted, display: 'flex', alignItems: 'center', gap: '4px' }}>
+                              <Clock size={13} /> Deadline: {asgn.deadline}
+                            </span>
+                          </div>
+
+                          {/* Direct Resubmit Button in Header */}
+                          <button
+                            onClick={() => handleSelectAssignmentForSubmission(asgn)}
+                            style={{
+                              backgroundColor: isActive ? '#10b981' : '#f59e0b',
+                              color: '#090d16',
+                              border: 'none',
+                              padding: '8px 16px',
+                              borderRadius: '8px',
+                              fontSize: '0.82rem',
+                              fontWeight: 800,
+                              cursor: 'pointer',
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '6px',
+                              boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
+                            }}
+                          >
+                            <RotateCcw size={14} />
+                            {isActive ? 'Submit Solution' : 'Resubmit Assignment'}
+                          </button>
+                        </div>
+
+                        {/* Title & Scenario */}
+                        <h3 style={{ fontSize: '1.35rem', fontWeight: 800, margin: '0 0 8px', color: t.text, letterSpacing: '-0.01em' }}>
+                          {asgn.title}
+                        </h3>
+                        <p style={{ fontSize: '0.9rem', color: t.textSecondary, margin: '0 0 16px', lineHeight: 1.6 }}>
+                          {asgn.scenario} — {asgn.role?.context}
+                        </p>
+
+                        {/* Subtopics / Skills */}
+                        {asgn.subtopics && asgn.subtopics.length > 0 && (
+                          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '20px' }}>
+                            {asgn.subtopics.map((st, i) => (
+                              <span
+                                key={i}
+                                style={{
+                                  backgroundColor: t.cardBgAlt,
+                                  border: `1px solid ${t.border}`,
+                                  color: t.textSecondary,
+                                  fontSize: '0.73rem',
+                                  fontWeight: 600,
+                                  padding: '3px 9px',
+                                  borderRadius: '4px'
+                                }}
+                              >
+                                {st}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+
+                        {/* Actions Bar */}
+                        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '12px', borderTop: `1px solid ${t.border}`, paddingTop: '16px' }}>
+                          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+                            {/* Download Raw Dataset */}
+                            <a
+                              href={`/api/lab/assignment/raw-data?id=${asgn.id}`}
+                              download={`${asgn.title?.replace(/[^a-zA-Z0-9_-]/g, '_') || 'Assignment'}_Raw_Data.csv`}
+                              style={{
+                                textDecoration: 'none',
+                                backgroundColor: t.accentBlueBg,
+                                border: `1px solid ${t.accentBlue}`,
+                                color: t.accentBlueText,
+                                padding: '8px 14px',
+                                borderRadius: '8px',
+                                fontSize: '0.82rem',
+                                fontWeight: 700,
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '6px'
+                              }}
+                            >
+                              <Download size={15} /> Download Raw Dataset (.CSV)
+                            </a>
+
+                            {/* Instructions Manual */}
+                            <a
+                              href={`/api/lab/assignment/instructions?id=${asgn.id}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{
+                                textDecoration: 'none',
+                                backgroundColor: t.accentRoseBg,
+                                border: `1px solid ${t.accentRose}`,
+                                color: t.accentRoseText,
+                                padding: '8px 14px',
+                                borderRadius: '8px',
+                                fontSize: '0.82rem',
+                                fontWeight: 700,
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '6px'
+                              }}
+                            >
+                              <FileText size={15} /> Instructions Manual (PDF)
+                            </a>
+
+                            {/* Check Evaluation */}
+                            <button
+                              onClick={() => setActiveTab('evaluation')}
+                              style={{
+                                backgroundColor: t.cardBgAlt,
+                                border: `1px solid ${t.border}`,
+                                color: t.textSecondary,
+                                padding: '8px 14px',
+                                borderRadius: '8px',
+                                fontSize: '0.82rem',
+                                fontWeight: 700,
+                                cursor: 'pointer',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '6px'
+                              }}
+                            >
+                              <Award size={15} color="#38bdf8" /> Check Evaluation
+                            </button>
+                          </div>
+
+                          {/* Expand / Collapse Details Button */}
+                          <button
+                            onClick={() => setExpandedArchiveId(isExpanded ? null : asgn.id)}
+                            style={{
+                              background: 'none',
+                              border: `1px solid ${t.border}`,
+                              color: t.textSecondary,
+                              padding: '8px 14px',
+                              borderRadius: '8px',
+                              fontSize: '0.82rem',
+                              fontWeight: 700,
+                              cursor: 'pointer',
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '6px'
+                            }}
+                          >
+                            {isExpanded ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
+                            {isExpanded ? 'Hide Tasks & Rubrics' : 'View Tasks & Rubrics'}
+                          </button>
+                        </div>
+
+                        {/* Expandable Tasks & Attributes Section */}
+                        {isExpanded && (
+                          <div style={{ marginTop: '22px', borderTop: `1px solid ${t.border}`, paddingTop: '20px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                            
+                            {/* Role Context */}
+                            <div style={{ backgroundColor: t.cardBgAlt, borderRadius: '10px', padding: '16px 20px', border: `1px solid ${t.border}` }}>
+                              <div style={{ fontSize: '0.82rem', fontWeight: 800, color: t.textMuted, textTransform: 'uppercase', marginBottom: '6px' }}>
+                                Operational Mandate & Target Organization
+                              </div>
+                              <div style={{ fontSize: '0.92rem', fontWeight: 700, color: t.text }}>
+                                {asgn.role?.title} — {asgn.role?.organization}
+                              </div>
+                              <div style={{ fontSize: '0.84rem', color: t.textSecondary, marginTop: '4px', lineHeight: 1.5 }}>
+                                {asgn.role?.mandate}
+                              </div>
+                            </div>
+
+                            {/* Tasks Breakdown */}
+                            <div>
+                              <div style={{ fontSize: '0.86rem', fontWeight: 800, color: t.text, marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                <Layers size={16} color="#10b981" /> Laboratory Tasks ({asgn.tasks?.length || 4} Specific Milestones • {asgn.totalMarks} Marks):
+                              </div>
+                              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '14px' }}>
+                                {(asgn.tasks || []).map((tsk) => (
+                                  <div
+                                    key={tsk.id}
+                                    style={{
+                                      backgroundColor: t.cardBgAlt,
+                                      border: `1px solid ${t.border}`,
+                                      borderRadius: '10px',
+                                      padding: '16px',
+                                      display: 'flex',
+                                      flexDirection: 'column',
+                                      justifyContent: 'space-between',
+                                      gap: '10px'
+                                    }}
+                                  >
+                                    <div>
+                                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                                        <span style={{ fontSize: '0.74rem', fontWeight: 800, backgroundColor: 'rgba(16, 185, 129, 0.15)', color: '#10b981', padding: '2px 8px', borderRadius: '4px' }}>
+                                          Task {tsk.id} • {tsk.marks} Marks
+                                        </span>
+                                        <span style={{ fontSize: '0.74rem', color: t.textMuted, fontFamily: 'monospace' }}>
+                                          {tsk.targetSheetOrSection}
+                                        </span>
+                                      </div>
+                                      <div style={{ fontSize: '0.9rem', fontWeight: 700, color: t.text, marginBottom: '4px' }}>
+                                        {tsk.title}
+                                      </div>
+                                      <div style={{ fontSize: '0.8rem', color: t.textSecondary, lineHeight: 1.5 }}>
+                                        {tsk.description}
+                                      </div>
+                                      {tsk.chartOrVisual && (
+                                        <div style={{ fontSize: '0.76rem', color: '#38bdf8', marginTop: '6px', fontWeight: 600 }}>
+                                          Visual: {tsk.chartOrVisual}
+                                        </div>
+                                      )}
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+
+                            {/* Dataset Attributes */}
+                            {asgn.role?.attributes && asgn.role.attributes.length > 0 && (
+                              <div>
+                                <div style={{ fontSize: '0.84rem', fontWeight: 800, color: t.text, marginBottom: '8px' }}>
+                                  Dataset Columns ({asgn.role.attributes.length} Fields):
+                                </div>
+                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                                  {asgn.role.attributes.map((attr, idx) => (
+                                    <div
+                                      key={idx}
+                                      style={{
+                                        backgroundColor: t.inputBg,
+                                        border: `1px solid ${t.border}`,
+                                        borderRadius: '6px',
+                                        padding: '4px 8px',
+                                        fontSize: '0.76rem',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '6px'
+                                      }}
+                                    >
+                                      <code style={{ fontWeight: 800, color: '#10b981' }}>{attr.col}</code>
+                                      <span style={{ color: t.textMuted }}>{attr.desc}</span>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+
+                            {/* Quick Bottom Action to Resubmit */}
+                            <div style={{ backgroundColor: 'rgba(245, 158, 11, 0.08)', border: '1px solid rgba(245, 158, 11, 0.25)', borderRadius: '10px', padding: '14px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px' }}>
+                              <div style={{ fontSize: '0.84rem', color: t.textSecondary }}>
+                                Ready to submit or revise your workbook for <strong>{asgn.title}</strong>?
+                              </div>
+                              <button
+                                onClick={() => handleSelectAssignmentForSubmission(asgn)}
+                                style={{
+                                  backgroundColor: '#f59e0b',
+                                  color: '#090d16',
+                                  border: 'none',
+                                  padding: '8px 18px',
+                                  borderRadius: '8px',
+                                  fontSize: '0.82rem',
+                                  fontWeight: 800,
+                                  cursor: 'pointer',
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  gap: '6px'
+                                }}
+                              >
+                                <RotateCcw size={15} /> Proceed to Resubmit
+                              </button>
+                            </div>
+
+                          </div>
+                        )}
+
+                      </div>
+                    </div>
+                  );
+                });
+              })()}
             </div>
 
           </div>
@@ -1342,10 +1855,10 @@ export default function ComputingLabPortal() {
             {/* Question 1 */}
             <div style={{ marginBottom: '20px' }}>
               <label style={{ display: 'block', fontSize: '0.86rem', fontWeight: 700, color: t.text, marginBottom: '10px' }}>
-                {activeAssignment.vivaQuestions?.q1?.question || '1. In your Task 1 analysis, which entity dominated overall volume?'}
+                {currentAssignment.vivaQuestions?.q1?.question || '1. In your Task 1 analysis, which entity dominated overall volume?'}
               </label>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                {(activeAssignment.vivaQuestions?.q1?.options || ['IndiGo', 'Air India', 'Akasa Air', 'SpiceJet']).map((opt) => (
+                {(currentAssignment.vivaQuestions?.q1?.options || ['IndiGo', 'Air India', 'Akasa Air', 'SpiceJet']).map((opt) => (
                   <label
                     key={opt}
                     style={{
@@ -1378,10 +1891,10 @@ export default function ComputingLabPortal() {
             {/* Question 2 */}
             <div style={{ marginBottom: '26px' }}>
               <label style={{ display: 'block', fontSize: '0.86rem', fontWeight: 700, color: t.text, marginBottom: '10px' }}>
-                {activeAssignment.vivaQuestions?.q2?.question || '2. Which key symbol or tool was used to lock parameters or references?'}
+                {currentAssignment.vivaQuestions?.q2?.question || '2. Which key symbol or tool was used to lock parameters or references?'}
               </label>
               <div style={{ display: 'flex', gap: '10px' }}>
-                {(activeAssignment.vivaQuestions?.q2?.options || ['$', '%', '#', '&']).map((opt) => (
+                {(currentAssignment.vivaQuestions?.q2?.options || ['$', '%', '#', '&']).map((opt) => (
                   <button
                     key={opt}
                     type="button"

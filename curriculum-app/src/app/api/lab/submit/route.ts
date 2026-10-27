@@ -8,10 +8,14 @@ export const dynamic = 'force-dynamic';
 const SUBMISSIONS_PATH = path.join(process.cwd(), 'src', 'data', 'lab-submissions.json');
 const ASSIGNMENTS_PATH = path.join(process.cwd(), 'src', 'data', 'lab-assignments.json');
 
-function getActiveAssignment() {
+function getTargetAssignment(id?: string | null) {
   try {
     if (fs.existsSync(ASSIGNMENTS_PATH)) {
       const data = JSON.parse(fs.readFileSync(ASSIGNMENTS_PATH, 'utf8'));
+      if (id) {
+        const found = (data.assignments || []).find((a: any) => a.id === id);
+        if (found) return found;
+      }
       const activeId = data.activeAssignmentId;
       return (data.assignments || []).find((a: any) => a.id === activeId) || data.assignments?.[0] || null;
     }
@@ -23,6 +27,8 @@ function getActiveAssignment() {
 
 interface SubmissionRecord {
   id: string;
+  assignmentId?: string;
+  assignmentTitle?: string;
   rollNo: string;
   studentName: string;
   submittedAt: string;
@@ -37,6 +43,9 @@ interface SubmissionRecord {
   forensics: ReturnType<typeof analyzeXlsxBuffer>;
   evaluation: {
     finalScore: number;
+    maxMarks?: number;
+    percentage?: number;
+    gradeBand?: string;
     instructorOverride: boolean;
     instructorRemarks: string;
     evaluatedAt: string | null;
@@ -82,8 +91,9 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const activeAssignment = getActiveAssignment();
-    const expectedFileType = activeAssignment?.fileType || 'xlsx';
+    const assignmentIdParam = (formData.get('assignmentId') as string || '').trim();
+    const targetAssignment = getTargetAssignment(assignmentIdParam);
+    const expectedFileType = targetAssignment?.fileType || 'xlsx';
 
     const validExtensions = [`.${expectedFileType}`];
     const fileNameLower = file.name.toLowerCase();
@@ -111,8 +121,8 @@ export async function POST(req: NextRequest) {
     }
 
     // Evaluate Micro-viva answers
-    const expectedQ1 = (activeAssignment?.vivaQuestions?.q1?.answer || 'IndiGo').toLowerCase();
-    const expectedQ2 = (activeAssignment?.vivaQuestions?.q2?.answer || '$').toLowerCase();
+    const expectedQ1 = (targetAssignment?.vivaQuestions?.q1?.answer || 'IndiGo').toLowerCase();
+    const expectedQ2 = (targetAssignment?.vivaQuestions?.q2?.answer || '$').toLowerCase();
 
     const q1Normalized = q1.toLowerCase();
     const q2Normalized = q2.toLowerCase();
@@ -131,9 +141,24 @@ export async function POST(req: NextRequest) {
       }
     }
 
+    // Scale autoGrade total to targetMaxMarks
+    const targetMaxMarks = targetAssignment?.totalMarks || 50;
+    const rawTotal50 = forensics.autoGradeEstimate.total;
+    const scaledScore = Number(((rawTotal50 / 50) * targetMaxMarks).toFixed(1));
+    const scorePercentage = Math.round((scaledScore / targetMaxMarks) * 100);
+
+    let gradeBand = 'O';
+    if (scorePercentage < 40) gradeBand = 'F';
+    else if (scorePercentage < 55) gradeBand = 'C';
+    else if (scorePercentage < 70) gradeBand = 'B';
+    else if (scorePercentage < 85) gradeBand = 'A';
+    else if (scorePercentage < 95) gradeBand = 'A+';
+
     const submissionId = `SUB-${rollNo}-${Date.now().toString().slice(-6)}`;
     const newRecord: SubmissionRecord = {
       id: submissionId,
+      assignmentId: targetAssignment?.id || 'blr-pivot-operations',
+      assignmentTitle: targetAssignment?.title || 'Flight Operations Analysis using Pivot Tables & Charts',
       rollNo,
       studentName,
       submittedAt: new Date().toISOString(),
@@ -147,22 +172,30 @@ export async function POST(req: NextRequest) {
       },
       forensics,
       evaluation: {
-        finalScore: forensics.autoGradeEstimate.total,
+        finalScore: scaledScore,
+        maxMarks: targetMaxMarks,
+        percentage: scorePercentage,
+        gradeBand,
         instructorOverride: false,
-        instructorRemarks: '',
-        evaluatedAt: null
+        instructorRemarks: forensics.summaryFindings.join('; '),
+        evaluatedAt: new Date().toISOString()
       }
     };
 
     const existingRecords = readSubmissions();
-    // Replace if same rollNo already submitted, otherwise append
-    const filtered = existingRecords.filter((r) => r.rollNo !== rollNo);
+    // Replace previous submission if same rollNo AND same assignmentId, otherwise append
+    const targetId = targetAssignment?.id || 'blr-pivot-operations';
+    const filtered = existingRecords.filter((r: any) => {
+      const isSameStudent = r.rollNo === rollNo;
+      const rAsgnId = r.assignmentId || 'blr-pivot-operations';
+      return !(isSameStudent && rAsgnId === targetId);
+    });
     filtered.push(newRecord);
     writeSubmissions(filtered);
 
     return NextResponse.json({
       success: true,
-      message: 'Assignment submitted and registered successfully.',
+      message: `Assignment successfully submitted and recorded for ${targetAssignment?.title || 'Course Lab'}.`,
       submissionId,
       summary: {
         rollNo,

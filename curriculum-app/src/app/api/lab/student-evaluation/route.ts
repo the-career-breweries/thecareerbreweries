@@ -74,8 +74,8 @@ export async function GET(req: NextRequest) {
     const roster = readRoster();
     const activeAssignment = getActiveAssignment();
 
-    // 1. Try finding in submissions
-    let matchSub = submissions.find(s => {
+    const targetAssignmentId = searchParams.get('assignmentId');
+    const studentSubs = submissions.filter(s => {
       if (!s.rollNo) return false;
       const subClean = s.rollNo.toUpperCase().replace(/[\/\\]/g, '-');
       const queryClean = queryRoll.toUpperCase().replace(/[\/\\]/g, '-');
@@ -88,6 +88,16 @@ export async function GET(req: NextRequest) {
       }
       return false;
     });
+
+    // 1. Try finding in submissions
+    let matchSub = null;
+    if (targetAssignmentId) {
+      matchSub = studentSubs.find(s => s.assignmentId === targetAssignmentId || (targetAssignmentId === 'blr-pivot-operations' && !s.assignmentId));
+    }
+    if (!matchSub && studentSubs.length > 0) {
+      // Default to active assignment if available, else latest submitted
+      matchSub = studentSubs.find(s => s.assignmentId === activeAssignment?.id) || studentSubs[studentSubs.length - 1];
+    }
 
     // 2. Try finding student in the master roster
     let rosterMatch = roster.find(r => {
@@ -164,6 +174,13 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({
       found: true,
       submitted: true,
+      submittedAssignments: studentSubs.map((s) => ({
+        id: s.assignmentId || 'blr-pivot-operations',
+        title: s.assignmentTitle || 'Flight Operations Analysis using Pivot Tables & Charts',
+        score: s.evaluation?.finalScore ?? 0,
+        maxMarks: s.evaluation?.maxMarks ?? 50,
+        submittedAt: s.submittedAt
+      })),
       submission: {
         id: matchSub.id,
         rollNo: matchSub.rollNo || rosterMatch?.rollNo,
