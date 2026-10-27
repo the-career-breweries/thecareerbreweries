@@ -22,6 +22,7 @@ import { supabase } from '@/lib/supabase/client';
 import { TRACK_A_MODULES } from '@/data/trackAModules';
 import { TRACK_B_MODULES } from '@/data/trackBModules';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const ICON_MAP = {
   MessageSquare,
@@ -35,20 +36,26 @@ const ICON_MAP = {
 };
 
 export default function DashboardScreen() {
+  const router = useRouter();
   const [userEmail, setUserEmail] = useState<string | null>(null);
-  const [hasProBundle, setHasProBundle] = useState(true);
-  const [hasStudentBundle, setHasStudentBundle] = useState(true);
+  const [hasProBundle, setHasProBundle] = useState(false);
+  const [hasStudentBundle, setHasStudentBundle] = useState(false);
   const [progressMap, setProgressMap] = useState<Record<string, number>>({});
+  const [checkingAccess, setCheckingAccess] = useState(true);
 
   useEffect(() => {
+    let unlocked = false;
+
     if (typeof window !== 'undefined') {
       const localBundle = localStorage.getItem('tcb_unlocked_bundle');
       if (localBundle === 'pro') {
         setHasProBundle(true);
         setHasStudentBundle(true);
+        unlocked = true;
       } else if (localBundle === 'student') {
         setHasStudentBundle(true);
         setHasProBundle(false);
+        unlocked = true;
       }
 
       const savedProgress = JSON.parse(localStorage.getItem('tcb_module_progress') || '{}');
@@ -60,12 +67,30 @@ export default function DashboardScreen() {
         if (data?.user) {
           setUserEmail(data.user.email || null);
           const meta = data.user.user_metadata || {};
-          if (meta.has_pro_bundle) setHasProBundle(true);
-          if (meta.has_student_bundle) setHasStudentBundle(true);
+          if (meta.has_pro_bundle) {
+            setHasProBundle(true);
+            setHasStudentBundle(true);
+            unlocked = true;
+          } else if (meta.has_student_bundle) {
+            setHasStudentBundle(true);
+            unlocked = true;
+          }
+        }
+
+        if (!unlocked) {
+          router.replace('/paywall');
+        } else {
+          setCheckingAccess(false);
         }
       });
+    } else {
+      if (!unlocked) {
+        router.replace('/paywall');
+      } else {
+        setCheckingAccess(false);
+      }
     }
-  }, []);
+  }, [router]);
 
   const completedCount = TRACK_A_MODULES.filter((m) => (progressMap[m.id] || 0) === 100).length;
   const overallTrackAPct = Math.round(
@@ -76,6 +101,17 @@ export default function DashboardScreen() {
   const overallTrackBPct = Math.round(
     TRACK_B_MODULES.reduce((acc, m) => acc + (progressMap[m.id] || 0), 0) / TRACK_B_MODULES.length
   );
+
+  if (checkingAccess) {
+    return (
+      <div className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center p-4 font-sans">
+        <div className="flex flex-col items-center gap-3">
+          <div className="h-10 w-10 border-3 border-primary border-t-transparent rounded-full animate-spin"></div>
+          <p className="text-xs font-mono text-on-surface-variant">Checking Workshop Access Pass...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center p-4 font-sans relative">
@@ -496,18 +532,6 @@ export default function DashboardScreen() {
           </div>
         </section>
       </main>
-
-      {/* Quick Preview Nav Bar */}
-      <nav className="my-6 flex items-center gap-2 text-xs bg-surface-container border border-outline-variant px-4 py-2 rounded-full shadow-sm">
-        <span className="text-on-surface-variant font-medium">Screens:</span>
-        <Link href="/" className="px-2.5 py-1 rounded-full hover:bg-surface-variant text-on-surface">1. Auth</Link>
-        <ArrowRight size={12} className="text-outline" />
-        <Link href="/diagnostic" className="px-2.5 py-1 rounded-full hover:bg-surface-variant text-on-surface">2. Diagnostic</Link>
-        <ArrowRight size={12} className="text-outline" />
-        <Link href="/paywall" className="px-2.5 py-1 rounded-full hover:bg-surface-variant text-on-surface">3. Paywall</Link>
-        <ArrowRight size={12} className="text-outline" />
-        <Link href="/dashboard" className="px-2.5 py-1 rounded-full bg-primary text-on-primary font-semibold">4. Dashboard</Link>
-      </nav>
     </div>
   );
 }

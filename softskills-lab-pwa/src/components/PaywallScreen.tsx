@@ -374,18 +374,6 @@ export default function PaywallScreen() {
           <span>•</span>
           <span>The Career Breweries &copy; 2026</span>
         </div>
-
-        {/* Quick Nav Bar */}
-        <nav className="flex items-center gap-2 text-xs bg-surface-container border border-outline-variant px-4 py-2 rounded-full shadow-sm">
-          <span className="text-on-surface-variant font-medium">Screens:</span>
-          <Link href="/" className="px-2.5 py-1 rounded-full hover:bg-surface-variant text-on-surface">1. Auth</Link>
-          <ArrowRight size={12} className="text-outline" />
-          <Link href="/diagnostic" className="px-2.5 py-1 rounded-full hover:bg-surface-variant text-on-surface">2. Diagnostic</Link>
-          <ArrowRight size={12} className="text-outline" />
-          <Link href="/paywall" className="px-2.5 py-1 rounded-full bg-primary text-on-primary font-semibold">3. Paywall</Link>
-          <ArrowRight size={12} className="text-outline" />
-          <Link href="/dashboard" className="px-2.5 py-1 rounded-full hover:bg-surface-variant text-on-surface">4. Dashboard</Link>
-        </nav>
       </main>
 
       {/* ================= PHONEPE UPI QR MODAL ================= */}
