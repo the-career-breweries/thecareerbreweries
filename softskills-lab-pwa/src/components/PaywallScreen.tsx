@@ -47,10 +47,13 @@ export default function PaywallScreen() {
   const [utrInput, setUtrInput] = useState('');
   const [utrError, setUtrError] = useState('');
   const [copiedUpi, setCopiedUpi] = useState(false);
+  const [copiedMobile, setCopiedMobile] = useState(false);
 
-  // PhonePe UPI ID configured via .env.local (defaults to 9743711584@ybl)
+  // PhonePe UPI ID and Verified Account Name
   const phonePeUpiId =
     process.env.NEXT_PUBLIC_PHONEPE_UPI_ID || '9743711584@ybl';
+  const phonePeMobile = '9743711584';
+  const verifiedPayeeName = 'SANDARSH S D';
   const razorpayKey = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || '';
 
   useEffect(() => {
@@ -119,10 +122,16 @@ export default function PaywallScreen() {
     setTimeout(() => setCopiedUpi(false), 2500);
   };
 
+  const copyMobileToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedMobile(true);
+    setTimeout(() => setCopiedMobile(false), 2500);
+  };
+
   // Generate dynamic UPI Deep-Link and QR code for PhonePe
   const activeAmount = phonePeModal.bundle === 'pro' ? 999 : 499;
   const activeBundleTitle = phonePeModal.bundle === 'pro' ? 'The Professional Bundle' : 'The Student Bundle';
-  const upiIntentString = `upi://pay?pa=${phonePeUpiId}&pn=TheCareerBreweries&am=${activeAmount}&cu=INR&tn=TCB%20${encodeURIComponent(activeBundleTitle)}`;
+  const upiIntentString = `upi://pay?pa=${phonePeUpiId}&pn=${encodeURIComponent(verifiedPayeeName)}&am=${activeAmount}&cu=INR&tn=TCB%20${encodeURIComponent(activeBundleTitle)}`;
   const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=${encodeURIComponent(upiIntentString)}&bgcolor=ffffff&color=5f259f`;
 
   return (
@@ -420,21 +429,40 @@ export default function PaywallScreen() {
               </p>
             </div>
 
-            {/* UPI ID + Mobile Deep-link */}
+            {/* Payment Methods: UPI ID, Mobile No, Direct App */}
             <div className="flex flex-col gap-2">
-              <div className="flex items-center justify-between p-2.5 rounded-lg bg-surface-variant border border-outline-variant text-xs">
-                <div>
-                  <span className="text-[10px] font-mono text-on-surface-variant block uppercase">TCB PhonePe UPI ID:</span>
-                  <span className="font-mono font-bold text-on-surface">{phonePeUpiId}</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {/* UPI ID */}
+                <div className="flex items-center justify-between p-2 rounded-lg bg-surface-variant border border-outline-variant text-xs">
+                  <div>
+                    <span className="text-[10px] font-mono text-on-surface-variant block uppercase">PhonePe UPI ID:</span>
+                    <span className="font-mono font-bold text-on-surface text-[11px]">{phonePeUpiId}</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => copyToClipboard(phonePeUpiId)}
+                    className="px-2 py-1 rounded bg-[#5F259F] text-white text-[10px] font-bold flex items-center gap-1 hover:opacity-90"
+                  >
+                    {copiedUpi ? <Check size={11} /> : <Copy size={11} />}
+                    {copiedUpi ? 'Copied' : 'Copy'}
+                  </button>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => copyToClipboard(phonePeUpiId)}
-                  className="px-2.5 py-1 rounded bg-[#5F259F] text-white text-[11px] font-bold flex items-center gap-1 hover:opacity-90"
-                >
-                  {copiedUpi ? <Check size={12} /> : <Copy size={12} />}
-                  {copiedUpi ? 'Copied!' : 'Copy UPI'}
-                </button>
+
+                {/* Mobile Number */}
+                <div className="flex items-center justify-between p-2 rounded-lg bg-surface-variant border border-outline-variant text-xs">
+                  <div>
+                    <span className="text-[10px] font-mono text-on-surface-variant block uppercase">PhonePe Mobile:</span>
+                    <span className="font-mono font-bold text-on-surface text-[11px]">{phonePeMobile}</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => copyMobileToClipboard(phonePeMobile)}
+                    className="px-2 py-1 rounded bg-[#5F259F] text-white text-[10px] font-bold flex items-center gap-1 hover:opacity-90"
+                  >
+                    {copiedMobile ? <Check size={11} /> : <Copy size={11} />}
+                    {copiedMobile ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
               </div>
 
               {/* Mobile "Open Directly in PhonePe" button */}
@@ -445,6 +473,10 @@ export default function PaywallScreen() {
                 <Smartphone size={14} />
                 Open Directly in PhonePe App (Mobile)
               </a>
+
+              <p className="text-[10.5px] text-on-surface-variant leading-tight bg-surface-variant/40 p-2 rounded-lg border border-outline-variant/50">
+                💡 <strong>Tip:</strong> If your banking app blocks external browser links, simply <strong>scan the QR code above</strong> or send to <strong>{phonePeMobile}</strong> in PhonePe (100% success rate).
+              </p>
             </div>
 
             {/* Step 3: Enter 12-Digit UTR Number */}
