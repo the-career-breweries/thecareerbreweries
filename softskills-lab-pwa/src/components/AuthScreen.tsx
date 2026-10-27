@@ -391,6 +391,14 @@ export default function AuthScreen() {
         </footer>
       </main>
 
+      <div className="mt-4 flex items-center gap-4 text-xs text-on-surface-variant font-mono">
+        <Link href="/privacy" className="hover:text-primary transition-colors hover:underline">
+          Privacy Policy
+        </Link>
+        <span>•</span>
+        <span>The Career Breweries &copy; 2026</span>
+      </div>
+
       {/* Quick Preview Nav Bar */}
       <nav className="mt-6 flex items-center gap-2 text-xs bg-surface-container border border-outline-variant px-4 py-2 rounded-full shadow-sm">
         <span className="text-on-surface-variant font-medium">Screens:</span>

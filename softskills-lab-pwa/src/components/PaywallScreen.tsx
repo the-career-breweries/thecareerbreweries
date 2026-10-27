@@ -357,6 +357,15 @@ export default function PaywallScreen() {
           </div>
         </section>
 
+        {/* Privacy & Footer */}
+        <div className="flex items-center gap-4 text-xs text-on-surface-variant font-mono">
+          <Link href="/privacy" className="hover:text-primary transition-colors hover:underline">
+            Privacy Policy
+          </Link>
+          <span>•</span>
+          <span>The Career Breweries &copy; 2026</span>
+        </div>
+
         {/* Quick Nav Bar */}
         <nav className="flex items-center gap-2 text-xs bg-surface-container border border-outline-variant px-4 py-2 rounded-full shadow-sm">
           <span className="text-on-surface-variant font-medium">Screens:</span>

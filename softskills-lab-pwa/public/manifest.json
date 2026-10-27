@@ -1,0 +1,24 @@
+{
+  "name": "TCB Softskills Lab",
+  "short_name": "Softskills Lab",
+  "description": "Elevate your career through high-impact communication with 3-Days Workshop interactive simulators.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1F1511",
+  "theme_color": "#885A3A",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/tcb-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/tcb-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
