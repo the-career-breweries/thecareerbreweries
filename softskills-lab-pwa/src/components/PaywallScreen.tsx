@@ -18,7 +18,8 @@ import {
   Smartphone,
   Copy,
   Check,
-  X
+  X,
+  Download
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase/client';
@@ -405,15 +406,33 @@ export default function PaywallScreen() {
               </div>
             </div>
 
-            {/* QR Code Card */}
-            <div className="flex flex-col items-center justify-center p-4 bg-white rounded-xl border border-outline-variant shadow-inner">
-              <img
-                src={qrCodeUrl}
-                alt="PhonePe UPI QR Code"
-                className="w-48 h-48 rounded-lg object-contain"
-              />
-              <p className="text-[11px] font-mono text-zinc-600 font-semibold mt-2 text-center">
-                Scan with PhonePe, Google Pay, Paytm, or BHIM
+            {/* Authentic PhonePe QR Code Card */}
+            <div className="flex flex-col items-center justify-center p-3 bg-zinc-950 rounded-xl border border-[#5F259F]/40 shadow-inner">
+              <div className="relative group max-w-[210px] w-full flex flex-col items-center">
+                <img
+                  src="/phonepe-qr.png"
+                  onError={(e) => {
+                    // Seamless fallback to dynamic QR if static image is still syncing
+                    (e.target as HTMLImageElement).src = qrCodeUrl;
+                  }}
+                  alt="Official PhonePe QR Code - SANDARSH S D"
+                  className="w-full rounded-lg object-contain border border-zinc-800 shadow-md"
+                />
+              </div>
+
+              <div className="flex items-center gap-2 mt-2.5">
+                <a
+                  href="/phonepe-qr.png"
+                  download="PhonePe-Sandarsh-SD-QR.png"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#5F259F]/20 hover:bg-[#5F259F]/30 text-[#A775E3] text-[11px] font-semibold border border-[#5F259F]/40 transition-colors"
+                >
+                  <Download size={13} />
+                  Save QR to Gallery (for PhonePe Scanner)
+                </a>
+              </div>
+
+              <p className="text-[10.5px] font-mono text-zinc-400 mt-2 text-center">
+                Payee: <strong className="text-zinc-200">SANDARSH S D</strong> • Amount: <strong className="text-emerald-400">₹{activeAmount}</strong>
               </p>
             </div>
 
@@ -462,8 +481,8 @@ export default function PaywallScreen() {
                 Open Directly in PhonePe App (Mobile)
               </a>
 
-              <p className="text-[10.5px] text-on-surface-variant leading-tight bg-surface-variant/40 p-2 rounded-lg border border-outline-variant/50">
-                💡 <strong>Tip:</strong> If your banking app blocks external browser links, simply <strong>scan the QR code above</strong> or send to <strong>{phonePeMobile}</strong> in PhonePe (100% success rate).
+              <p className="text-[10.5px] text-on-surface-variant leading-tight bg-surface-variant/40 p-2.5 rounded-lg border border-outline-variant/50">
+                💡 <strong>100% Success Guarantee:</strong> If your bank blocks browser links, tap <strong>Save QR to Gallery</strong> above, open PhonePe or Google Pay, tap the <strong>Scanner icon</strong>, and select the photo from your gallery. Or transfer directly to PhonePe Mobile <strong>{phonePeMobile}</strong>.
               </p>
             </div>
 
