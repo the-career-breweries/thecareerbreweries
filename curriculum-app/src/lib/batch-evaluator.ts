@@ -308,7 +308,7 @@ export function evaluateBatchSubmissions(
 
     let forensics: ForensicResult;
     try {
-      forensics = analyzeXlsxBuffer(file.buffer, file.name, honeypots);
+      forensics = analyzeXlsxBuffer(file.buffer, file.name, honeypots, assignment);
     } catch (err: any) {
       forensics = {
         filename: file.name,
@@ -336,9 +336,9 @@ export function evaluateBatchSubmissions(
         summaryFindings: [`Could not parse office file structure: ${err.message}`],
         autoGradeEstimate: {
           dataSetup: 0,
-          tasks: 10,
+          tasks: 0,
           analysis: 0,
-          total: 10
+          total: 0
         }
       };
     }
@@ -363,16 +363,16 @@ export function evaluateBatchSubmissions(
     const scorePercentage = Math.round((scaledScore / targetMaxMarks) * 100);
 
     let gradeBand = 'O';
-    if (scorePercentage < 40) gradeBand = 'F';
-    else if (scorePercentage < 55) gradeBand = 'C';
+    if (scorePercentage < 50) gradeBand = 'F';
+    else if (scorePercentage < 60) gradeBand = 'C';
     else if (scorePercentage < 70) gradeBand = 'B';
-    else if (scorePercentage < 85) gradeBand = 'A';
-    else if (scorePercentage < 95) gradeBand = 'A+';
+    else if (scorePercentage < 80) gradeBand = 'A';
+    else if (scorePercentage < 90) gradeBand = 'A+';
 
-    // Scale component breakdowns
-    const scaledDataSetup = Number(((forensics.autoGradeEstimate.dataSetup / 5) * (targetMaxMarks * 0.1)).toFixed(1));
-    const scaledTasks = Number(((forensics.autoGradeEstimate.tasks / 40) * (targetMaxMarks * 0.8)).toFixed(1));
-    const scaledAnalysis = Number(((forensics.autoGradeEstimate.analysis / 5) * (targetMaxMarks * 0.1)).toFixed(1));
+    // Scale component breakdowns (Data Setup: 20%, Tasks: 60%, Analysis: 20%)
+    const scaledDataSetup = Number(((forensics.autoGradeEstimate.dataSetup / 10) * (targetMaxMarks * 0.2)).toFixed(1));
+    const scaledTasks = Number(((forensics.autoGradeEstimate.tasks / 30) * (targetMaxMarks * 0.6)).toFixed(1));
+    const scaledAnalysis = Number(((forensics.autoGradeEstimate.analysis / 10) * (targetMaxMarks * 0.2)).toFixed(1));
 
     forensics.autoGradeEstimate = {
       dataSetup: scaledDataSetup,

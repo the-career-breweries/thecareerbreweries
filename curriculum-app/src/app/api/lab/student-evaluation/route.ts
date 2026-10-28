@@ -143,18 +143,18 @@ export async function GET(req: NextRequest) {
     const scorePercentage = matchSub.evaluation?.percentage || Math.round((finalScore / maxMarks) * 100);
 
     let gradeLetter = 'F';
-    if (scorePercentage >= 90) gradeLetter = 'A+';
-    else if (scorePercentage >= 80) gradeLetter = 'A';
-    else if (scorePercentage >= 70) gradeLetter = 'B+';
+    if (scorePercentage >= 90) gradeLetter = 'O';
+    else if (scorePercentage >= 80) gradeLetter = 'A+';
+    else if (scorePercentage >= 70) gradeLetter = 'A';
     else if (scorePercentage >= 60) gradeLetter = 'B';
     else if (scorePercentage >= 50) gradeLetter = 'C';
 
     const accuracy = matchSub.forensics?.resultAccuracy || {
       percentage: scorePercentage,
-      status: scorePercentage >= 90 ? 'High Precision' : scorePercentage >= 75 ? 'Satisfactory' : 'Discrepancies Flagged',
-      dataSetupAccuracy: 100,
-      computationalAccuracy: 90,
-      analysisAccuracy: 85
+      status: scorePercentage >= 90 ? 'High Precision' : scorePercentage >= 50 ? 'Satisfactory' : 'Discrepancies Flagged',
+      dataSetupAccuracy: scorePercentage < 50 ? 0 : 50,
+      computationalAccuracy: scorePercentage < 50 ? 0 : scorePercentage,
+      analysisAccuracy: scorePercentage < 50 ? 0 : 50
     };
 
     const isAi = Boolean(matchSub.forensics?.flags?.isAiGenerator || matchSub.forensics?.flags?.isHoneypotTriggered);

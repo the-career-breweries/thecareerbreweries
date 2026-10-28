@@ -205,8 +205,18 @@ export default function StudentEvaluationPortal({
 
       const formulaRows = [
         ['Formula Cells Detected', `${sub.forensics.totalFormulasFound} cells active in worksheet`],
-        ['Formula Functions Used', (sub.forensics.formulaTypes || []).join(', ') || 'SUM, AVERAGE, COUNT, PIVOT'],
-        ['Sample Formulas Extracted', (sub.forensics.sampleFormulas || []).slice(0, 3).join(' | ') || 'N/A']
+        [
+          'Formula Functions Used',
+          sub.forensics.formulaTypes && sub.forensics.formulaTypes.length > 0
+            ? sub.forensics.formulaTypes.join(', ')
+            : 'None detected (0 active formulas)'
+        ],
+        [
+          'Sample Formulas Extracted',
+          sub.forensics.sampleFormulas && sub.forensics.sampleFormulas.length > 0
+            ? sub.forensics.sampleFormulas.slice(0, 3).join(' | ')
+            : 'N/A (No active formulas)'
+        ]
       ];
 
       autoTable(doc, {
@@ -227,10 +237,26 @@ export default function StudentEvaluationPortal({
       doc.setTextColor(15, 23, 42);
       doc.text('2. Result Accuracy & Forensic Verification', 14, nextY);
 
+      const dataSetupPct = sub.resultAccuracy?.dataSetupAccuracy ?? (sub.scorePercentage < 50 ? 0 : 50);
+      const dataSetupDesc = dataSetupPct >= 70
+        ? 'Raw Data structure validated'
+        : dataSetupPct > 0
+        ? 'Partial data setup'
+        : 'Raw Data structure missing / Unrelated';
+
+      const analysisPct = sub.resultAccuracy?.analysisAccuracy ?? (sub.scorePercentage < 50 ? 0 : 50);
+      const analysisDesc = analysisPct >= 70
+        ? 'Pivot tables & visuals applied'
+        : analysisPct > 0
+        ? 'Partial analysis detected'
+        : 'No pivot tables or charts detected';
+
+      const accuracyStatusText = sub.resultAccuracy?.status || (sub.scorePercentage < 50 ? 'Discrepancies Flagged' : 'Satisfactory');
+
       const verificationRows = [
-        ['Overall Result Accuracy', `${sub.resultAccuracy?.percentage || sub.scorePercentage}% - ${sub.resultAccuracy?.status || 'Satisfactory'}`],
-        ['Data Setup Accuracy', `${sub.resultAccuracy?.dataSetupAccuracy || 100}% (Raw Data structure validated)`],
-        ['Analysis Accuracy', `${sub.resultAccuracy?.analysisAccuracy || 85}% (Pivot tables & filters applied)`],
+        ['Overall Result Accuracy', `${sub.resultAccuracy?.percentage ?? sub.scorePercentage}% - ${accuracyStatusText}`],
+        ['Data Setup Accuracy', `${dataSetupPct}% (${dataSetupDesc})`],
+        ['Analysis Accuracy', `${analysisPct}% (${analysisDesc})`],
         ['Software Signature', sub.forensics?.application || 'Microsoft Excel'],
         ['AI Tools Detected', sub.aiToolsUsed?.toolNames?.join(', ') || 'None Detected'],
         ['Active Editing Time', `${sub.forensics.totalTimeMinutes} minutes`]
@@ -681,7 +707,9 @@ export default function StudentEvaluationPortal({
               </div>
               <div style={{ fontSize: '0.78rem', color: t.textSecondary, lineHeight: 1.4 }}>
                 <strong>Functions Used:</strong>{' '}
-                {(result.submission.forensics.formulaTypes || []).join(', ') || 'SUM, AVERAGE, COUNT'}
+                {(result.submission.forensics.formulaTypes && result.submission.forensics.formulaTypes.length > 0)
+                  ? result.submission.forensics.formulaTypes.join(', ')
+                  : 'None detected (0 active formulas)'}
               </div>
               <div style={{ fontSize: '0.74rem', color: t.textMuted, marginTop: '6px' }}>
                 {result.submission.forensics.sheetNames.length} worksheets validated
@@ -897,7 +925,7 @@ export default function StudentEvaluationPortal({
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', color: '#334155' }}>
                     <div><strong>Formulas Extracted:</strong> {result.submission.forensics.totalFormulasFound} cells active</div>
-                    <div><strong>Functions Used:</strong> {(result.submission.forensics.formulaTypes || []).join(', ') || 'SUM, AVERAGE, COUNT'}</div>
+                    <div><strong>Functions Used:</strong> {(result.submission.forensics.formulaTypes && result.submission.forensics.formulaTypes.length > 0) ? result.submission.forensics.formulaTypes.join(', ') : 'None detected (0 active formulas)'}</div>
                     <div><strong>Accuracy Status:</strong> <span style={{ color: '#059669', fontWeight: 700 }}>{result.submission.resultAccuracy?.status} ({result.submission.resultAccuracy?.percentage}%)</span></div>
                     <div><strong>Data Setup:</strong> {result.submission.resultAccuracy?.dataSetupAccuracy}%</div>
                   </div>

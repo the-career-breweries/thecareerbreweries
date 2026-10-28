@@ -15,6 +15,10 @@ export interface ForensicResult {
   sampleFormulas: string[];
   allFormulas?: string[];
   formulaTypes?: string[];
+  hasPivotTables?: boolean;
+  hasCharts?: boolean;
+  isAssignmentRelevant?: boolean;
+  relevanceScore?: number;
   resultAccuracy?: {
     percentage: number;
     status: string;
@@ -117,8 +121,23 @@ export function extractXlsxFiles(buffer: Buffer): Record<string, Buffer> {
 export function analyzeXlsxBuffer(
   buffer: Buffer,
   originalFilename: string,
-  extraHoneypots?: string[]
+  extraHoneypotsOrAssignment?: string[] | any,
+  explicitAssignment?: any
 ): ForensicResult {
+  let extraHoneypots: string[] | undefined;
+  let assignment: any;
+
+  if (Array.isArray(extraHoneypotsOrAssignment)) {
+    extraHoneypots = extraHoneypotsOrAssignment;
+    assignment = explicitAssignment;
+  } else if (extraHoneypotsOrAssignment && typeof extraHoneypotsOrAssignment === 'object') {
+    assignment = extraHoneypotsOrAssignment;
+    if (assignment.honeypotInstruction) {
+      const matches = assignment.honeypotInstruction.match(/['"]([A-Za-z0-9_\-]+)['"]/g) || [];
+      extraHoneypots = matches.map((m: string) => m.replace(/['"]/g, ''));
+    }
+  }
+
   const files = extractXlsxFiles(buffer);
 
   let application = 'Unknown';
@@ -276,7 +295,26 @@ export function analyzeXlsxBuffer(
   const isWordOrPpt = !isExcel && (application.toLowerCase().includes('word') || application.toLowerCase().includes('powerpoint'));
   const hasZeroEditTime = isWordOrPpt && totalTimeMinutes === 0;
 
-  const requiredSheets = ['Raw_Data', 'Task1', 'Task2', 'Task3', 'Task4'];
+  // Pivot tables & charts detection from archive entries
+  const hasPivotTables = Object.keys(files).some(
+    (k) => k.toLowerCase().includes('pivottable') || k.toLowerCase().includes('pivotcache')
+  );
+  const hasCharts = Object.keys(files).some(
+    (k) => k.toLowerCase().includes('charts/') || k.toLowerCase().includes('drawings/')
+  );
+
+  // Expected sheets check
+  const expectedTaskSheets: string[] = [];
+  if (assignment?.tasks && Array.isArray(assignment.tasks)) {
+    assignment.tasks.forEach((t: any) => {
+      if (t.targetSheetOrSection) expectedTaskSheets.push(t.targetSheetOrSection.toLowerCase());
+    });
+  }
+  if (expectedTaskSheets.length === 0) {
+    expectedTaskSheets.push('task1', 'task2', 'task3', 'task4');
+  }
+
+  const requiredSheets = ['raw_data', ...expectedTaskSheets];
   const missingSheetsCount = isExcel ? requiredSheets.filter((req) =>
     !sheetNames.some((s) => s.toLowerCase().includes(req.toLowerCase()))
   ).length : 0;
@@ -284,6 +322,51 @@ export function analyzeXlsxBuffer(
 
   // Formula check (applicable to spreadsheets)
   const hasNoFormulas = isExcel && formulas.length === 0;
+
+  // Relevance Audit against Assignment Scenario & Dataset Schema
+  let isAssignmentRelevant = true;
+  let relevanceScore = 100;
+  let matchedAttributesCount = 0;
+
+  const expectedKeywords: string[] = [];
+  if (assignment) {
+    if (assignment.role?.attributes && Array.isArray(assignment.role.attributes)) {
+      assignment.role.attributes.forEach((attr: any) => {
+        if (attr.col) expectedKeywords.push(attr.col.toUpperCase());
+      });
+    }
+    const titleWords = `${assignment.title || ''} ${assignment.scenario || ''}`
+      .toUpperCase()
+      .split(/[^A-Z0-9]+/)
+      .filter((w: string) => w.length >= 4 && !['ANALYSIS', 'ANALYTICAL', 'MODELING', 'EXERCISE', 'USING', 'WITH', 'FROM', 'THAT', 'THIS', 'COURSE', 'UNIT'].includes(w));
+    expectedKeywords.push(...titleWords);
+  } else {
+    expectedKeywords.push(
+      'FLIGHT', 'AIRLINE', 'CARRIER', 'AIRPORT', 'TERMINAL', 'PASSENGER', 'PAX', 'DELAY',
+      'DUTY', 'CREW', 'REST', 'SCHEDULING', 'AIRCRAFT', 'BLR', 'INDIGO', 'AIR INDIA',
+      'RECORD_ID', 'VARIANCE', 'STATUS'
+    );
+  }
+
+  const uniqueExpectedKeywords = Array.from(new Set(expectedKeywords));
+  uniqueExpectedKeywords.forEach((kw) => {
+    if (combinedSearchText.includes(kw)) {
+      matchedAttributesCount++;
+    }
+  });
+
+  const hasRawDataSheet = sheetNames.some((s) => /raw/i.test(s));
+  const hasTaskSheet = sheetNames.some((s) => /task/i.test(s));
+
+  if (matchedAttributesCount === 0 && !hasRawDataSheet && !hasTaskSheet) {
+    isAssignmentRelevant = false;
+    relevanceScore = 0;
+  } else if (matchedAttributesCount === 0 && !hasRawDataSheet) {
+    isAssignmentRelevant = false;
+    relevanceScore = 10;
+  } else {
+    relevanceScore = Math.min(100, Math.round((matchedAttributesCount / Math.max(1, Math.min(6, uniqueExpectedKeywords.length))) * 100));
+  }
 
   // 6. Compute Findings & Integrity Level
   const summaryFindings: string[] = [];
@@ -315,7 +398,27 @@ export function analyzeXlsxBuffer(
     summaryFindings.push('Authentic authoring confirmed via Microsoft Excel / Office software (No AI or Python tools detected)');
   }
 
-  // Academic observations (reflected in autoGrade marks, but NOT counted as AI suspicion)
+  // Academic deficiencies & observations
+  if (!isAssignmentRelevant) {
+    summaryFindings.push(
+      'Critical Academic Observation: Uploaded spreadsheet does not match the assigned scenario schema or dataset attributes (Unrelated file detected)'
+    );
+  }
+
+  if (hasNoFormulas) {
+    summaryFindings.push(
+      'Academic Deficiency: 0 active computational formula cells detected. Laboratory objectives require dynamic spreadsheet functions (=SUM, =IF, =LOOKUP, etc.)'
+    );
+  }
+
+  if (!hasRawDataSheet) {
+    summaryFindings.push('Data Structure Deficiency: Raw Data worksheet is missing');
+  }
+
+  if (!hasPivotTables && !hasCharts) {
+    summaryFindings.push('Analytical Deficiency: No dynamic Pivot Tables or Charts detected');
+  }
+
   if (isTrapRecordFound) {
     summaryFindings.push('Academic Observation: Trap calibration record (FL-199) was left unfiltered in analysis');
   }
@@ -324,24 +427,67 @@ export function analyzeXlsxBuffer(
     summaryFindings.push('Document metadata registers 0 minutes active editing time');
   }
 
-  if (hasNoFormulas) {
-    summaryFindings.push('Academic Observation: Worksheet formatted with direct values / pivot tables (no active <f> formula tags detected)');
+  // 7. Rigorous Auto Grade Calculation (Total = 50 Marks)
+  // Component A: Data Setup & Schema Organization (out of 10 Marks)
+  let dataSetup = 0;
+  if (hasRawDataSheet) {
+    dataSetup += 6;
+    if (matchedAttributesCount >= 2) dataSetup += 2;
+  }
+  const taskSheetCount = sheetNames.filter((s) => /task/i.test(s)).length;
+  if (taskSheetCount >= 2) {
+    dataSetup += 2;
+  } else if (taskSheetCount === 1) {
+    dataSetup += 1;
+  }
+  if (!isAssignmentRelevant) {
+    dataSetup = 0;
   }
 
-  // 7. Auto Grade Calculation
-  let dataSetup = 5;
-  if (!sheetNames.some((s) => s.toLowerCase().includes('raw'))) dataSetup -= 2;
-  if (hasMissingSheets) dataSetup -= 1;
+  // Component B: Computational Implementation & Formulas (out of 30 Marks)
+  let tasks = 0;
+  if (formulas.length === 0) {
+    // 0 formulas detected = 0 marks for formulas
+    tasks = 0;
+  } else {
+    // Volume scoring (out of 22)
+    if (formulas.length >= 8) tasks += 22;
+    else if (formulas.length >= 5) tasks += 18;
+    else if (formulas.length >= 3) tasks += 12;
+    else if (formulas.length >= 1) tasks += 6;
 
-  let tasks = 36;
-  if (formulas.length >= 4) tasks = 40;
-  else if (formulas.length >= 2) tasks = 32;
-  else if (hasNoFormulas) tasks = 24;
+    // Diversity scoring (out of 8)
+    const formulaFamilies = new Set<string>();
+    formulas.forEach((f) => {
+      const upper = f.toUpperCase();
+      if (/SUM|AVERAGE|COUNT|COUNTA|ROUND|MAX|MIN/.test(upper)) formulaFamilies.add('stat');
+      if (/IF|IFS|AND|OR|IFERROR/.test(upper)) formulaFamilies.add('logic');
+      if (/VLOOKUP|HLOOKUP|XLOOKUP|INDEX|MATCH/.test(upper)) formulaFamilies.add('lookup');
+    });
 
-  let analysis = 5;
-  if (isTrapRecordFound) analysis -= 2;
+    if (formulaFamilies.size >= 3) tasks += 8;
+    else if (formulaFamilies.size === 2) tasks += 5;
+    else if (formulaFamilies.size === 1) tasks += 3;
+  }
+  if (!isAssignmentRelevant) {
+    tasks = 0;
+  }
 
-  const total = Math.max(0, Math.min(50, dataSetup + tasks + analysis));
+  // Component C: Analytical Modeling, Pivots & Visuals (out of 10 Marks)
+  let analysis = 0;
+  if (hasPivotTables) analysis += 4;
+  if (hasCharts) analysis += 4;
+  if (sheetNames.some((s) => /pivot|dashboard|chart|analysis/i.test(s))) analysis += 2;
+
+  if (isTrapRecordFound) {
+    analysis = Math.max(0, analysis - 3);
+  }
+  if (!isAssignmentRelevant) {
+    analysis = 0;
+  }
+
+  const rawTotal = Math.max(0, Math.min(50, dataSetup + tasks + analysis));
+  const total = isAssignmentRelevant ? rawTotal : 0;
 
   // Distinct formulas & formula types for student report card
   const uniqueFormulas = Array.from(new Set(formulas));
@@ -353,12 +499,19 @@ export function analyzeXlsxBuffer(
   const formulaTypes = Array.from(formulaTypesSet);
 
   // Result accuracy calculation
-  const dataSetupAccuracy = Math.round((dataSetup / 5) * 100);
-  const computationalAccuracy = Math.round((tasks / 40) * 100);
-  const analysisAccuracy = Math.round((analysis / 5) * 100);
-  const accuracyPercentage = Math.round(((dataSetup + tasks + analysis) / 50) * 100);
-  const accuracyStatus =
-    accuracyPercentage >= 90 ? 'High Precision' : accuracyPercentage >= 75 ? 'Satisfactory' : 'Discrepancies Flagged';
+  const dataSetupAccuracy = Math.round((dataSetup / 10) * 100);
+  const computationalAccuracy = Math.round((tasks / 30) * 100);
+  const analysisAccuracy = Math.round((analysis / 10) * 100);
+  const accuracyPercentage = isAssignmentRelevant ? Math.round((total / 50) * 100) : 0;
+  const accuracyStatus = !isAssignmentRelevant
+    ? 'Unrelated / Non-Compliant File'
+    : accuracyPercentage >= 90
+    ? 'High Precision'
+    : accuracyPercentage >= 75
+    ? 'Satisfactory'
+    : accuracyPercentage >= 50
+    ? 'Discrepancies Flagged'
+    : 'Critical Deficiencies';
 
   // AI Tools Used Detection
   const aiToolNames: string[] = [];
@@ -397,6 +550,10 @@ export function analyzeXlsxBuffer(
     sampleFormulas: formulas.slice(0, 5),
     allFormulas: uniqueFormulas.slice(0, 25),
     formulaTypes,
+    hasPivotTables,
+    hasCharts,
+    isAssignmentRelevant,
+    relevanceScore,
     resultAccuracy: {
       percentage: accuracyPercentage,
       status: accuracyStatus,
