@@ -1,0 +1,15 @@
+Flight No,Operating Airline,Destination,Aircraft Type,Certified Capacity,Booked Pax,Assigned Gate,Validation Status
+6E 2101,IndiGo,DEL,A321neo,222,216,G04,PASS
+AI 502,Air India,BOM,B777-300ER,342,328,G12,PASS
+QP 1354,Akasa Air,GOI,B737-MAX8,189,174,G06,PASS
+UK 832,Vistara,DEL,A320neo,164,158,G09,PASS
+SG 517,SpiceJet,IXB,B737-800,189,182,G02,PASS
+6E 543,IndiGo,HYD,A320neo,186,179,G05,PASS
+AI 804,Air India,DXB,B787-8,256,240,G16,PASS
+6E 718,IndiGo,MAA,ATR-72,78,74,G01,PASS
+
+[DATA VALIDATION INSTRUCTIONS]
+Rule 1: Operating Airline (Column B) -> Allow List: "IndiGo, Air India, Akasa Air, SpiceJet, Vistara"
+Rule 2: Booked Pax (Column F) -> Allow Whole Number between 1 and =E2 (Certified Capacity)
+Rule 3: Assigned Gate (Column G) -> Allow List: "G01, G02, G04, G05, G06, G09, G12, G16, G18"
+Rule 4: Stop Alert Style -> Title: "Invalid Entry", Error Message: "Value violates airport operational constraints."

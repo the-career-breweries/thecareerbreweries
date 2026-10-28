@@ -76,7 +76,7 @@ export default function ExcelCoreWorkshopPage() {
             color: '#94a3b8'
           }}>
             <BookOpen size={16} color="#eab308" />
-            <span>Unit 3: Spreadsheet Software · Post-Session 6 Fast-Track Lab (Sessions 1–6)</span>
+            <span>Unit 3: Spreadsheet Software · Comprehensive Workshop Laboratory (Sessions 1–9)</span>
           </div>
         </div>
       </div>
@@ -101,12 +101,13 @@ export default function ExcelCoreWorkshopPage() {
           <Sparkles size={14} /> 2–4 Hour Intensive Workshop Simulator
         </div>
         <h1 style={{ fontSize: '2.2rem', fontWeight: 800, margin: '0 0 0.5rem 0', color: '#ffffff' }}>
-          Spreadsheet Core Essentials Lab (Sessions 1–6)
+          Spreadsheet Core Essentials Lab (Sessions 1–9)
         </h1>
-        <p style={{ fontSize: '1rem', color: '#94a3b8', margin: 0, maxWidth: '780px', marginInline: 'auto', lineHeight: '1.6' }}>
-          Consolidates the foundation of MS Excel &amp; Google Sheets into 4 interactive aviation laboratories: 
+        <p style={{ fontSize: '1rem', color: '#94a3b8', margin: 0, maxWidth: '850px', marginInline: 'auto', lineHeight: '1.6' }}>
+          Consolidates the foundation of MS Excel &amp; Google Sheets into 7 interactive aviation laboratories: 
           <strong> Basic Math (PEMDAS)</strong>, <strong>Cell Referencing ($)</strong>, 
-          <strong> Statistical Functions</strong>, and <strong>Logical &amp; Text Functions</strong>.
+          <strong> Statistical Functions</strong>, <strong>Logical &amp; Text Functions</strong>, 
+          <strong> Data Validation</strong>, <strong>Conditional Formatting</strong>, and <strong>Sorting &amp; Filters</strong>.
         </p>
       </div>
 
@@ -129,7 +130,7 @@ export default function ExcelCoreWorkshopPage() {
       }}>
         <h3 style={{ margin: '0 0 0.75rem 0', color: '#f8fafc', fontSize: '1.05rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
           <Layers size={18} color="#38bdf8" />
-          Sessions 1–6 Fast-Track Master Checklist (Quick Revision):
+          Sessions 1–9 Fast-Track Master Checklist (Quick Revision):
         </h3>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px', marginTop: '1rem' }}>
           <div style={{ background: '#0f172a', padding: '12px 14px', borderRadius: '8px', border: '1px solid #334155' }}>
@@ -154,6 +155,24 @@ export default function ExcelCoreWorkshopPage() {
             <strong style={{ color: '#10b981' }}>4. Logical &amp; Text (Session 6):</strong>
             <p style={{ margin: '4px 0 0 0', fontSize: '0.82rem', color: '#94a3b8' }}>
               <code>=IF(test, true_val, false_val)</code> drives automated status flags. Pair with <code>PROPER</code>, <code>TRIM</code>, and <code>LEFT</code> to sanitize raw passenger manifests.
+            </p>
+          </div>
+          <div style={{ background: '#0f172a', padding: '12px 14px', borderRadius: '8px', border: '1px solid #334155' }}>
+            <strong style={{ color: '#ef4444' }}>5. Data Validation (Session 7):</strong>
+            <p style={{ margin: '4px 0 0 0', fontSize: '0.82rem', color: '#94a3b8' }}>
+              Enforce standard IATA airline dropdowns (<code>List: Indigo, Air India...</code>), whole number passenger capacity limits (<code>1..450</code>), and Stop Alerts.
+            </p>
+          </div>
+          <div style={{ background: '#0f172a', padding: '12px 14px', borderRadius: '8px', border: '1px solid #334155' }}>
+            <strong style={{ color: '#f59e0b' }}>6. Conditional Formatting (Session 8):</strong>
+            <p style={{ margin: '4px 0 0 0', fontSize: '0.82rem', color: '#94a3b8' }}>
+              Visually spot operational delays using Highlight Rules (<code>&gt; 15 mins</code>), 3-Color Gradient Heatmaps, in-cell Data Bars, and custom row formula <code>=$E3&gt;15</code>.
+            </p>
+          </div>
+          <div style={{ background: '#0f172a', padding: '12px 14px', borderRadius: '8px', border: '1px solid #334155' }}>
+            <strong style={{ color: '#06b6d4' }}>7. Sorting &amp; Filters (Session 9):</strong>
+            <p style={{ margin: '4px 0 0 0', fontSize: '0.82rem', color: '#94a3b8' }}>
+              Toggle AutoFilter with <code>Ctrl+Shift+L</code>. Drill down into specific terminals/status, and execute multi-tier sorting (Terminal A-Z, then Delay Descending).
             </p>
           </div>
         </div>

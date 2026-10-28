@@ -111,6 +111,8 @@ export async function GET(req: Request) {
     '03_Aviation_VLOOKUP_HLOOKUP_Tariffs.csv',
     '04_Aviation_XLOOKUP_Crew_Snag_Master.csv',
     '05_Aviation_BLR_Airport_Pivot_Master_Dataset.csv',
+    '06_Aviation_Data_Validation_Dataset.csv',
+    '07_Aviation_Conditional_Formatting_Filters_Dataset.csv',
     'README_Trainer_Demonstration_Instructions.txt',
     'Assignment_Pivot_Tables_and_Charts_BLR_Airport.md',
     'Assignment_Pivot_Tables_and_Charts_BLR_Airport.txt',

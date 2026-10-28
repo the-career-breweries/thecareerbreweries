@@ -1,21 +1,25 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { 
   Calculator, Lock, BarChart3, Binary, CheckCircle2, 
   ArrowRight, Sparkles, RefreshCw, Layers, ShieldCheck, 
   HelpCircle, Eye, AlertCircle, Laptop, Globe, Check, Award,
-  Copy, FileSpreadsheet
+  Copy, FileSpreadsheet, Filter, ArrowUpDown, XCircle, AlertTriangle, 
+  Info, ChevronDown, CheckSquare, SlidersHorizontal
 } from 'lucide-react';
 
 export default function ExcelCoreWorkshopSimulator() {
-  const [activeTab, setActiveTab] = useState<'math' | 'referencing' | 'stats' | 'logical_text'>('math');
+  const [activeTab, setActiveTab] = useState<'math' | 'referencing' | 'stats' | 'logical_text' | 'data_validation' | 'conditional_formatting' | 'sorting_filters'>('math');
   const [platform, setPlatform] = useState<'excel' | 'sheets'>('excel');
   const [completedTabs, setCompletedTabs] = useState<Record<string, boolean>>({
     math: false,
     referencing: false,
     stats: false,
     logical_text: false,
+    data_validation: false,
+    conditional_formatting: false,
+    sorting_filters: false,
   });
 
   // Clipboard copy state & notification
@@ -166,7 +170,126 @@ export default function ExcelCoreWorkshopSimulator() {
     ].join('\n');
   };
 
-  const allCompleted = Object.values(completedTabs).filter(Boolean).length === 4;
+  // -------------------------------------------------------------
+  // TAB 5: DATA VALIDATION & INPUT CONTROLS
+  // -------------------------------------------------------------
+  const [dvAirline, setDvAirline] = useState<string>('IndiGo');
+  const [dvCustomAirline, setDvCustomAirline] = useState<string>('Boeing Jet');
+  const [dvShowDropdown, setDvShowDropdown] = useState<boolean>(false);
+  const [dvShowErrorModal, setDvShowErrorModal] = useState<boolean>(false);
+  const [dvErrorAttemptVal, setDvErrorAttemptVal] = useState<string>('');
+  const [dvPaxInput, setDvPaxInput] = useState<number>(186);
+  const [dvPaxError, setDvPaxError] = useState<boolean>(false);
+  const [dvActiveSubTab, setDvActiveSubTab] = useState<'dropdown' | 'numeric' | 'error_styles'>('dropdown');
+  const [dvErrorStyle, setDvErrorStyle] = useState<'stop' | 'warning' | 'info'>('stop');
+
+  const approvedAirlines = ['IndiGo', 'Air India', 'Akasa Air', 'SpiceJet', 'Vistara'];
+
+  const handleTestCustomAirline = (val: string) => {
+    if (!approvedAirlines.includes(val.trim())) {
+      setDvErrorAttemptVal(val);
+      setDvShowErrorModal(true);
+    } else {
+      setDvAirline(val.trim());
+      setDvShowErrorModal(false);
+    }
+  };
+
+  const handlePaxChange = (num: number) => {
+    setDvPaxInput(num);
+    if (num < 1 || num > 222) {
+      setDvPaxError(true);
+    } else {
+      setDvPaxError(false);
+    }
+  };
+
+  const dvFormulaStr = 'Data -> Data Validation -> List: IndiGo, Air India, Akasa Air, SpiceJet, Vistara';
+  const getDataValidationTableTSV = () => {
+    return [
+      `Aviation Flight Dispatch Data Validation Matrix\t\t\t\t\t`,
+      `Flight No\tCarrier (Restricted List)\tAircraft Type\tMax Capacity\tPax Onboard (1 to 222)\tValidation Rule`,
+      `6E 521\t${dvAirline}\tA321neo\t222\t${dvPaxInput}\tVALIDATED: Fleet Dropdown Applied`,
+      `AI 804\tAir India\tB777-300ER\t342\t326\tVALIDATED: Fleet Dropdown Applied`,
+      `QP 1332\tAkasa Air\tB737-MAX8\t189\t184\tVALIDATED: Fleet Dropdown Applied`,
+      `SG 401\tSpiceJet\tB737-800\t189\t172\tVALIDATED: Fleet Dropdown Applied`
+    ].join('\n');
+  };
+
+  // -------------------------------------------------------------
+  // TAB 6: CONDITIONAL FORMATTING
+  // -------------------------------------------------------------
+  const [cfMode, setCfMode] = useState<'highlight' | 'heatmap' | 'databars' | 'icons' | 'custom_formula'>('highlight');
+  const [cfThreshold, setCfThreshold] = useState<number>(15);
+
+  const cfFlights = [
+    { flight: '6E 521', airline: 'IndiGo', sector: 'BLR-DEL', pax: 218, capacity: 222, delay: 0, status: 'On-Time' },
+    { flight: 'AI 804', airline: 'Air India', sector: 'BLR-BOM', pax: 326, capacity: 342, delay: 45, status: 'Delayed' },
+    { flight: 'QP 1332', airline: 'Akasa Air', sector: 'BLR-GOI', pax: 184, capacity: 189, delay: 8, status: 'On-Time' },
+    { flight: 'SG 401', airline: 'SpiceJet', sector: 'BLR-CCU', pax: 172, capacity: 189, delay: 75, status: 'Critical Delay' },
+    { flight: 'UK 815', airline: 'Vistara', sector: 'BLR-BOM', pax: 164, capacity: 164, delay: 18, status: 'Delayed' },
+    { flight: '6E 204', airline: 'IndiGo', sector: 'BLR-HYD', pax: 178, capacity: 186, delay: 0, status: 'On-Time' },
+  ];
+
+  const cfFormulaStr = `=$E3 > ${cfThreshold}`;
+  const getConditionalFormattingTableTSV = () => {
+    return [
+      `Aviation Conditional Formatting Delay Audit\t\t\t\t\t\t`,
+      `Flight No\tAirline\tSector\tCapacity (Pax)\tDelay (mins)\tStatus Flag\tAudit Visual Highlight`,
+      ...cfFlights.map(f => `${f.flight}\t${f.airline}\t${f.sector}\t${f.pax}/${f.capacity}\t${f.delay}\t${f.status}\t${f.delay > cfThreshold ? 'ALERT (DELAY > ' + cfThreshold + ' MINS)' : 'NORMAL COMPLIANT'}`)
+    ].join('\n');
+  };
+
+  // -------------------------------------------------------------
+  // TAB 7: SORTING & FILTERS
+  // -------------------------------------------------------------
+  const [sfAirlineFilter, setSfAirlineFilter] = useState<string>('All');
+  const [sfTerminalFilter, setSfTerminalFilter] = useState<string>('All');
+  const [sfStatusFilter, setSfStatusFilter] = useState<string>('All');
+  const [sfSortCol, setSfSortCol] = useState<'flight' | 'airline' | 'terminal' | 'delay' | 'pax'>('flight');
+  const [sfSortDir, setSfSortDir] = useState<'asc' | 'desc'>('asc');
+
+  const sfRawFlights = [
+    { flight: '6E 521', airline: 'IndiGo', terminal: 'T1', sector: 'BLR-DEL', pax: 218, delay: 0, status: 'On-Time' },
+    { flight: 'AI 804', airline: 'Air India', terminal: 'T2', sector: 'BLR-BOM', pax: 326, delay: 45, status: 'Delayed' },
+    { flight: 'QP 1332', airline: 'Akasa Air', terminal: 'T1', sector: 'BLR-GOI', pax: 184, delay: 8, status: 'On-Time' },
+    { flight: 'SG 401', airline: 'SpiceJet', terminal: 'T1', sector: 'BLR-CCU', pax: 172, delay: 75, status: 'Critical Delay' },
+    { flight: 'UK 815', airline: 'Vistara', terminal: 'T2', sector: 'BLR-BOM', pax: 164, delay: 18, status: 'Delayed' },
+    { flight: '6E 204', airline: 'IndiGo', terminal: 'T1', sector: 'BLR-HYD', pax: 178, delay: 0, status: 'On-Time' },
+    { flight: 'AI 506', airline: 'Air India', terminal: 'T2', sector: 'BLR-DEL', pax: 312, delay: 60, status: 'Critical Delay' },
+    { flight: 'QP 1405', airline: 'Akasa Air', terminal: 'T1', sector: 'BLR-DEL', pax: 182, delay: 12, status: 'On-Time' },
+  ];
+
+  const sfFilteredAndSorted = useMemo(() => {
+    let result = sfRawFlights.filter(f => {
+      if (sfAirlineFilter !== 'All' && f.airline !== sfAirlineFilter) return false;
+      if (sfTerminalFilter !== 'All' && f.terminal !== sfTerminalFilter) return false;
+      if (sfStatusFilter !== 'All' && f.status !== sfStatusFilter) return false;
+      return true;
+    });
+
+    result.sort((a, b) => {
+      let valA: any = a[sfSortCol];
+      let valB: any = b[sfSortCol];
+      if (typeof valA === 'string') {
+        const cmp = valA.localeCompare(valB);
+        return sfSortDir === 'asc' ? cmp : -cmp;
+      }
+      return sfSortDir === 'asc' ? valA - valB : valB - valA;
+    });
+
+    return result;
+  }, [sfAirlineFilter, sfTerminalFilter, sfStatusFilter, sfSortCol, sfSortDir]);
+
+  const getSortingFiltersTableTSV = () => {
+    return [
+      `Aviation Filtered Flight Operations Manifest\t\t\t\t\t\t`,
+      `Flight No\tAirline\tTerminal\tSector\tPax Onboard\tDelay (mins)\tStatus`,
+      ...sfFilteredAndSorted.map(f => `${f.flight}\t${f.airline}\t${f.terminal}\t${f.sector}\t${f.pax}\t${f.delay}\t${f.status}`)
+    ].join('\n');
+  };
+
+  const allCompleted = Object.values(completedTabs).filter(Boolean).length === 7;
 
   return (
     <div style={{
@@ -280,15 +403,15 @@ export default function ExcelCoreWorkshopSimulator() {
             color: allCompleted ? '#34d399' : '#38bdf8'
           }}>
             {allCompleted ? <Award size={16} /> : <Sparkles size={16} />}
-            <span>{Object.values(completedTabs).filter(Boolean).length}/4 Completed</span>
+            <span>{Object.values(completedTabs).filter(Boolean).length}/7 Completed</span>
           </div>
         </div>
       </div>
 
-      {/* 4 Interactive Navigation Tabs */}
+      {/* 7 Interactive Navigation Tabs */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
         background: '#090d16',
         borderBottom: '1px solid #1e293b'
       }}>
@@ -297,6 +420,9 @@ export default function ExcelCoreWorkshopSimulator() {
           { id: 'referencing', label: '2. Cell Referencing ($)', sub: 'Session 4 · Relative vs Absolute', icon: Lock, color: '#eab308' },
           { id: 'stats', label: '3. Statistical Functions', sub: 'Session 5 · SUM, AVG, MAX, MIN', icon: BarChart3, color: '#a855f7' },
           { id: 'logical_text', label: '4. Logical & Text Logic', sub: 'Session 6 · IF, PROPER, CONCAT', icon: Binary, color: '#10b981' },
+          { id: 'data_validation', label: '5. Data Validation', sub: 'Session 7 · In-Cell Dropdowns & Rules', icon: ShieldCheck, color: '#f59e0b' },
+          { id: 'conditional_formatting', label: '6. Conditional Formatting', sub: 'Session 8 · Delay Heatmaps & Alerts', icon: Sparkles, color: '#ec4899' },
+          { id: 'sorting_filters', label: '7. Sorting & Filters', sub: 'Session 9 · AutoFilter & Multi-Sort', icon: Filter, color: '#06b6d4' },
         ].map(t => {
           const Icon = t.icon;
           const isActive = activeTab === t.id;
@@ -1483,6 +1609,906 @@ export default function ExcelCoreWorkshopSimulator() {
           </div>
         )}
 
+        {/* ========================================================= */}
+        {/* TAB 5: DATA VALIDATION & INPUT CONTROLS                   */}
+        {/* ========================================================= */}
+        {activeTab === 'data_validation' && (
+          <div>
+            <div style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginBottom: '1.25rem',
+              gap: '12px'
+            }}>
+              <div>
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#f59e0b', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+                  Module 5 · Session 7 Focus
+                </span>
+                <h3 style={{ margin: '2px 0 0 0', fontSize: '1.2rem', color: '#f8fafc' }}>
+                  Data Validation, In-Cell Dropdowns &amp; Input Restriction Rules
+                </h3>
+              </div>
+
+              {/* Sub-Tabs: Dropdown vs Numeric vs Error Styles */}
+              <div style={{ display: 'flex', background: '#1e293b', borderRadius: '8px', padding: '3px', border: '1px solid #334155' }}>
+                <button
+                  onClick={() => setDvActiveSubTab('dropdown')}
+                  style={{
+                    padding: '6px 14px',
+                    borderRadius: '6px',
+                    border: 'none',
+                    fontSize: '0.78rem',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    background: dvActiveSubTab === 'dropdown' ? '#f59e0b' : 'transparent',
+                    color: dvActiveSubTab === 'dropdown' ? '#0f172a' : '#94a3b8'
+                  }}
+                >
+                  In-Cell Dropdown List
+                </button>
+                <button
+                  onClick={() => setDvActiveSubTab('numeric')}
+                  style={{
+                    padding: '6px 14px',
+                    borderRadius: '6px',
+                    border: 'none',
+                    fontSize: '0.78rem',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    background: dvActiveSubTab === 'numeric' ? '#f59e0b' : 'transparent',
+                    color: dvActiveSubTab === 'numeric' ? '#0f172a' : '#94a3b8'
+                  }}
+                >
+                  Numeric Capacity Bounds
+                </button>
+                <button
+                  onClick={() => setDvActiveSubTab('error_styles')}
+                  style={{
+                    padding: '6px 14px',
+                    borderRadius: '6px',
+                    border: 'none',
+                    fontSize: '0.78rem',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    background: dvActiveSubTab === 'error_styles' ? '#f59e0b' : 'transparent',
+                    color: dvActiveSubTab === 'error_styles' ? '#0f172a' : '#94a3b8'
+                  }}
+                >
+                  Error Alert Styles
+                </button>
+              </div>
+            </div>
+
+            {/* Formula / Path Bar */}
+            <div style={{
+              background: '#090d16',
+              border: '1px solid #334155',
+              borderRadius: '8px',
+              padding: '8px 14px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '12px',
+              marginBottom: '1rem',
+              fontFamily: 'Consolas, monospace',
+              fontSize: '0.88rem'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', overflowX: 'auto' }}>
+                <span style={{ color: '#94a3b8', fontStyle: 'italic', fontWeight: 700 }}>fx</span>
+                <span style={{ color: '#64748b' }}>|</span>
+                <span style={{ color: '#f59e0b', fontWeight: 700 }}>Data Tab ➔ Data Tools ➔ Data Validation</span>
+                <span style={{ color: '#64748b' }}>|</span>
+                <span style={{ color: '#cbd5e1' }}>Allow: List | Source: </span>
+                <span style={{ color: '#34d399' }}>&quot;IndiGo, Air India, Akasa Air, SpiceJet, Vistara&quot;</span>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+                <button
+                  onClick={() => copyToClipboard(dvFormulaStr, 'dv-rule', 'Data validation rule setting copied!')}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '5px',
+                    background: copiedKey === 'dv-rule' ? '#f59e0b' : '#1e293b',
+                    color: copiedKey === 'dv-rule' ? '#0f172a' : '#f59e0b',
+                    border: '1px solid ' + (copiedKey === 'dv-rule' ? '#f59e0b' : '#334155'),
+                    padding: '4px 10px',
+                    borderRadius: '6px',
+                    fontSize: '0.75rem',
+                    fontWeight: 700,
+                    cursor: 'pointer'
+                  }}
+                  title="Copy validation setting"
+                >
+                  {copiedKey === 'dv-rule' ? <Check size={13} /> : <Copy size={13} />}
+                  <span>{copiedKey === 'dv-rule' ? 'Copied Rule!' : 'Copy Rule'}</span>
+                </button>
+
+                <button
+                  onClick={() => copyToClipboard(getDataValidationTableTSV(), 'dv-table', 'Data validation flight table copied! Paste at cell A1 in Excel or Google Sheets.')}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    background: copiedKey === 'dv-table' ? '#10b981' : 'linear-gradient(135deg, #107c41 0%, #0f9d58 100%)',
+                    color: '#ffffff',
+                    border: 'none',
+                    padding: '5px 12px',
+                    borderRadius: '6px',
+                    fontSize: '0.76rem',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    boxShadow: '0 2px 6px rgba(16, 124, 65, 0.3)'
+                  }}
+                >
+                  {copiedKey === 'dv-table' ? <Check size={14} /> : <FileSpreadsheet size={14} />}
+                  <span>{copiedKey === 'dv-table' ? '✓ Copied Table!' : 'Copy Table for Excel/Sheets'}</span>
+                </button>
+              </div>
+            </div>
+
+            {dvActiveSubTab === 'dropdown' && (
+              <div>
+                {/* Interactive Cell Simulator Card */}
+                <div style={{ background: '#1e293b', padding: '1.25rem', borderRadius: '10px', border: '1px solid #334155', marginBottom: '1.25rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', marginBottom: '14px' }}>
+                    <div>
+                      <span style={{ fontSize: '0.74rem', fontWeight: 800, color: '#f59e0b', textTransform: 'uppercase' }}>
+                        Simulated Spreadsheet Cell B3 (Restricted List)
+                      </span>
+                      <div style={{ fontSize: '0.9rem', color: '#94a3b8', marginTop: '2px' }}>
+                        Click the in-cell drop arrow to select authorized fleet carriers.
+                      </div>
+                    </div>
+
+                    {/* In-Cell Dropdown Element */}
+                    <div style={{ position: 'relative', minWidth: '220px' }}>
+                      <div
+                        onClick={() => setDvShowDropdown(!dvShowDropdown)}
+                        style={{
+                          backgroundColor: '#090d16',
+                          border: '2px solid #38bdf8',
+                          borderRadius: '6px',
+                          padding: '8px 14px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          cursor: 'pointer',
+                          color: '#ffffff',
+                          fontWeight: 700,
+                          fontSize: '0.95rem'
+                        }}
+                      >
+                        <span>{dvAirline}</span>
+                        <ChevronDown size={18} color="#38bdf8" />
+                      </div>
+
+                      {dvShowDropdown && (
+                        <div style={{
+                          position: 'absolute',
+                          top: '100%',
+                          left: 0,
+                          right: 0,
+                          marginTop: '4px',
+                          backgroundColor: '#1e293b',
+                          border: '1px solid #475569',
+                          borderRadius: '6px',
+                          boxShadow: '0 10px 25px rgba(0,0,0,0.5)',
+                          zIndex: 50,
+                          overflow: 'hidden'
+                        }}>
+                          {approvedAirlines.map(airline => (
+                            <div
+                              key={airline}
+                              onClick={() => {
+                                setDvAirline(airline);
+                                setDvShowDropdown(false);
+                              }}
+                              style={{
+                                padding: '8px 14px',
+                                fontSize: '0.88rem',
+                                color: dvAirline === airline ? '#f59e0b' : '#cbd5e1',
+                                backgroundColor: dvAirline === airline ? 'rgba(245, 158, 11, 0.15)' : 'transparent',
+                                cursor: 'pointer',
+                                fontWeight: dvAirline === airline ? 700 : 500,
+                                borderBottom: '1px solid #334155'
+                              }}
+                            >
+                              {airline}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Test Unauthorized / Invalid Input */}
+                  <div style={{ borderTop: '1px solid #334155', paddingTop: '14px', display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+                    <div style={{ flex: 1, minWidth: '240px' }}>
+                      <label style={{ fontSize: '0.8rem', fontWeight: 700, color: '#cbd5e1', display: 'block', marginBottom: '4px' }}>
+                        Test User Typing Unauthorized Value (e.g. non-scheduled charter):
+                      </label>
+                      <input
+                        type="text"
+                        value={dvCustomAirline}
+                        onChange={(e) => setDvCustomAirline(e.target.value)}
+                        style={{
+                          width: '100%',
+                          background: '#090d16',
+                          border: '1px solid #475569',
+                          color: '#f8fafc',
+                          padding: '8px 12px',
+                          borderRadius: '6px',
+                          fontSize: '0.86rem',
+                          fontFamily: 'Consolas, monospace',
+                          boxSizing: 'border-box'
+                        }}
+                        placeholder="Type unauthorized carrier (e.g. Boeing Air, Emirates)"
+                      />
+                    </div>
+                    <button
+                      onClick={() => handleTestCustomAirline(dvCustomAirline)}
+                      style={{
+                        backgroundColor: '#ef4444',
+                        color: '#ffffff',
+                        border: 'none',
+                        padding: '9px 18px',
+                        borderRadius: '6px',
+                        fontSize: '0.82rem',
+                        fontWeight: 700,
+                        cursor: 'pointer',
+                        marginTop: '20px'
+                      }}
+                    >
+                      Attempt Cell Entry ➔
+                    </button>
+                  </div>
+                </div>
+
+                {/* Validation Benefits Grid */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '14px' }}>
+                  <div style={{ backgroundColor: '#0f172a', border: '1px solid #334155', borderRadius: '10px', padding: '16px' }}>
+                    <div style={{ fontSize: '0.84rem', fontWeight: 800, color: '#10b981', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <CheckCircle2 size={16} /> Eliminates Spelling Discrepancies
+                    </div>
+                    <p style={{ fontSize: '0.8rem', color: '#94a3b8', margin: 0, lineHeight: 1.5 }}>
+                      Typing &quot;Indigo&quot;, &quot;Indi Go&quot;, or &quot;6E&quot; corrupts Pivot Tables and breaks <code>=VLOOKUP()</code>. Dropdowns guarantee 100% relational integrity.
+                    </p>
+                  </div>
+
+                  <div style={{ backgroundColor: '#0f172a', border: '1px solid #334155', borderRadius: '10px', padding: '16px' }}>
+                    <div style={{ fontSize: '0.84rem', fontWeight: 800, color: '#38bdf8', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <ShieldCheck size={16} /> Centralized List Management
+                    </div>
+                    <p style={{ fontSize: '0.8rem', color: '#94a3b8', margin: 0, lineHeight: 1.5 }}>
+                      Store master lists on a separate tab (<code>=List!$A$2:$A$6</code>). When a new airline joins the terminal, adding one row instantly updates all 500 entry cells.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {dvActiveSubTab === 'numeric' && (
+              <div style={{ background: '#1e293b', padding: '1.25rem', borderRadius: '10px', border: '1px solid #334155' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', marginBottom: '14px' }}>
+                  <div>
+                    <span style={{ fontSize: '0.74rem', fontWeight: 800, color: '#f59e0b', textTransform: 'uppercase' }}>
+                      Whole Number Constraint: Seat Capacity (1 to 222)
+                    </span>
+                    <div style={{ fontSize: '0.9rem', color: '#94a3b8', marginTop: '2px' }}>
+                      Simulate aircraft boarding headcount entry for an Airbus A321neo.
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <label style={{ fontSize: '0.82rem', fontWeight: 700, color: '#cbd5e1' }}>Pax Entered:</label>
+                    <input
+                      type="number"
+                      value={dvPaxInput}
+                      onChange={(e) => handlePaxChange(Number(e.target.value))}
+                      style={{
+                        width: '90px',
+                        backgroundColor: '#090d16',
+                        border: `2px solid ${dvPaxError ? '#ef4444' : '#10b981'}`,
+                        color: dvPaxError ? '#f87171' : '#34d399',
+                        padding: '6px 10px',
+                        borderRadius: '6px',
+                        fontSize: '1rem',
+                        fontWeight: 800,
+                        textAlign: 'center'
+                      }}
+                    />
+                  </div>
+                </div>
+
+                <input
+                  type="range"
+                  min="0"
+                  max="260"
+                  value={dvPaxInput}
+                  onChange={(e) => handlePaxChange(Number(e.target.value))}
+                  style={{ width: '100%', accentColor: dvPaxError ? '#ef4444' : '#10b981', cursor: 'pointer' }}
+                />
+
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.74rem', color: '#64748b', marginTop: '6px' }}>
+                  <span>0 (Invalid Empty)</span>
+                  <span style={{ color: '#10b981', fontWeight: 700 }}>1 to 222 (Certified Passenger Range)</span>
+                  <span style={{ color: '#ef4444', fontWeight: 700 }}>223+ (Over-Capacity Breach)</span>
+                </div>
+
+                <div style={{
+                  marginTop: '16px',
+                  backgroundColor: dvPaxError ? 'rgba(239, 68, 68, 0.12)' : 'rgba(16, 185, 129, 0.12)',
+                  border: `1.5px solid ${dvPaxError ? '#ef4444' : '#10b981'}`,
+                  borderRadius: '8px',
+                  padding: '14px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px'
+                }}>
+                  {dvPaxError ? <XCircle size={24} color="#ef4444" /> : <CheckCircle2 size={24} color="#10b981" />}
+                  <div>
+                    <div style={{ fontWeight: 800, fontSize: '0.92rem', color: dvPaxError ? '#f87171' : '#34d399' }}>
+                      {dvPaxError ? 'Data Validation Violation: Entry Blocked' : 'Data Validation Pass: Valid Flight Load'}
+                    </div>
+                    <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginTop: '2px' }}>
+                      {dvPaxError
+                        ? `Entered headcount (${dvPaxInput}) breaches the maximum certified cabin capacity of 222 seats for aircraft type A321neo.`
+                        : `Headcount ${dvPaxInput} successfully verified against aircraft seating configuration (1 to 222).`}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {dvActiveSubTab === 'error_styles' && (
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '14px' }}>
+                <div style={{ backgroundColor: '#0f172a', border: '1.5px solid #ef4444', borderRadius: '10px', padding: '16px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#ef4444', fontWeight: 800, marginBottom: '6px' }}>
+                    <XCircle size={20} /> 1. Stop (Hard Rejection)
+                  </div>
+                  <p style={{ fontSize: '0.82rem', color: '#cbd5e1', lineHeight: 1.5, margin: 0 }}>
+                    <strong>Default &amp; Recommended.</strong> Completely blocks invalid data from being saved into the cell. Used for critical data like Airline Codes and Cabin Capacity.
+                  </p>
+                </div>
+
+                <div style={{ backgroundColor: '#0f172a', border: '1.5px solid #f59e0b', borderRadius: '10px', padding: '16px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#f59e0b', fontWeight: 800, marginBottom: '6px' }}>
+                    <AlertTriangle size={20} /> 2. Warning (Soft Override)
+                  </div>
+                  <p style={{ fontSize: '0.82rem', color: '#cbd5e1', lineHeight: 1.5, margin: 0 }}>
+                    Displays a prompt: <em>&quot;The value is unusual. Continue? [Yes / No]&quot;</em>. Allows dispatchers to enter VIP overrides or ferry flight exceptions.
+                  </p>
+                </div>
+
+                <div style={{ backgroundColor: '#0f172a', border: '1.5px solid #38bdf8', borderRadius: '10px', padding: '16px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#38bdf8', fontWeight: 800, marginBottom: '6px' }}>
+                    <Info size={20} /> 3. Information (Notification)
+                  </div>
+                  <p style={{ fontSize: '0.82rem', color: '#cbd5e1', lineHeight: 1.5, margin: 0 }}>
+                    Informs the user that the entry deviates from normal parameters, but accepts the value immediately upon clicking OK.
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* ========================================================= */}
+        {/* TAB 6: CONDITIONAL FORMATTING                             */}
+        {/* ========================================================= */}
+        {activeTab === 'conditional_formatting' && (
+          <div>
+            <div style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginBottom: '1.25rem',
+              gap: '12px'
+            }}>
+              <div>
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#ec4899', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+                  Module 6 · Session 8 Focus
+                </span>
+                <h3 style={{ margin: '2px 0 0 0', fontSize: '1.2rem', color: '#f8fafc' }}>
+                  Conditional Formatting, Delay Heatmaps &amp; Visual Management
+                </h3>
+              </div>
+
+              {/* Mode Switcher */}
+              <div style={{ display: 'flex', background: '#1e293b', borderRadius: '8px', padding: '3px', border: '1px solid #334155', flexWrap: 'wrap', gap: '2px' }}>
+                {[
+                  { id: 'highlight', label: 'Threshold Rules' },
+                  { id: 'heatmap', label: '3-Color Heatmap' },
+                  { id: 'databars', label: 'Data Bars' },
+                  { id: 'icons', label: 'Icon Sets' },
+                  { id: 'custom_formula', label: 'Custom Row Formula' },
+                ].map(m => (
+                  <button
+                    key={m.id}
+                    onClick={() => setCfMode(m.id as any)}
+                    style={{
+                      padding: '5px 12px',
+                      borderRadius: '6px',
+                      border: 'none',
+                      fontSize: '0.76rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                      background: cfMode === m.id ? '#ec4899' : 'transparent',
+                      color: cfMode === m.id ? '#ffffff' : '#94a3b8'
+                    }}
+                  >
+                    {m.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Formula / Path Bar */}
+            <div style={{
+              background: '#090d16',
+              border: '1px solid #334155',
+              borderRadius: '8px',
+              padding: '8px 14px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '12px',
+              marginBottom: '1rem',
+              fontFamily: 'Consolas, monospace',
+              fontSize: '0.88rem'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', overflowX: 'auto' }}>
+                <span style={{ color: '#94a3b8', fontStyle: 'italic', fontWeight: 700 }}>fx</span>
+                <span style={{ color: '#64748b' }}>|</span>
+                <span style={{ color: '#ec4899', fontWeight: 700 }}>Home Tab ➔ Conditional Formatting</span>
+                <span style={{ color: '#64748b' }}>|</span>
+                <span style={{ color: '#cbd5e1' }}>Rule: </span>
+                <span style={{ color: '#38bdf8', fontWeight: 700 }}>
+                  {cfMode === 'custom_formula' ? `=$E3 > ${cfThreshold} (Locks column E to format entire row)` : `Cell Value > ${cfThreshold} ➔ Light Red Fill with Dark Red Text`}
+                </span>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+                <button
+                  onClick={() => copyToClipboard(cfFormulaStr, 'cf-rule', 'Conditional formatting rule formula copied!')}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '5px',
+                    background: copiedKey === 'cf-rule' ? '#ec4899' : '#1e293b',
+                    color: copiedKey === 'cf-rule' ? '#ffffff' : '#ec4899',
+                    border: '1px solid ' + (copiedKey === 'cf-rule' ? '#ec4899' : '#334155'),
+                    padding: '4px 10px',
+                    borderRadius: '6px',
+                    fontSize: '0.75rem',
+                    fontWeight: 700,
+                    cursor: 'pointer'
+                  }}
+                  title="Copy rule"
+                >
+                  {copiedKey === 'cf-rule' ? <Check size={13} /> : <Copy size={13} />}
+                  <span>{copiedKey === 'cf-rule' ? 'Copied Rule!' : 'Copy Rule'}</span>
+                </button>
+
+                <button
+                  onClick={() => copyToClipboard(getConditionalFormattingTableTSV(), 'cf-table', 'Formatted flight audit table copied!')}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    background: copiedKey === 'cf-table' ? '#10b981' : 'linear-gradient(135deg, #107c41 0%, #0f9d58 100%)',
+                    color: '#ffffff',
+                    border: 'none',
+                    padding: '5px 12px',
+                    borderRadius: '6px',
+                    fontSize: '0.76rem',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    boxShadow: '0 2px 6px rgba(16, 124, 65, 0.3)'
+                  }}
+                >
+                  {copiedKey === 'cf-table' ? <Check size={14} /> : <FileSpreadsheet size={14} />}
+                  <span>{copiedKey === 'cf-table' ? '✓ Copied Table!' : 'Copy Table for Excel/Sheets'}</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Interactive Threshold Slider */}
+            <div style={{ background: '#1e293b', padding: '1rem 1.25rem', borderRadius: '10px', border: '1px solid #334155', marginBottom: '1.25rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                <label style={{ fontSize: '0.82rem', fontWeight: 700, color: '#cbd5e1' }}>
+                  AOCC Schedule Variance Alert Threshold (Minutes):
+                </label>
+                <span style={{ fontSize: '1.05rem', fontWeight: 800, color: '#ec4899' }}>
+                  {cfThreshold} minutes
+                </span>
+              </div>
+              <input
+                type="range"
+                min="5"
+                max="60"
+                step="5"
+                value={cfThreshold}
+                onChange={(e) => setCfThreshold(Number(e.target.value))}
+                style={{ width: '100%', accentColor: '#ec4899', cursor: 'pointer' }}
+              />
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.72rem', color: '#64748b', marginTop: '4px' }}>
+                <span>5 mins (Strict Tolerance)</span>
+                <span>15 mins (Standard DGCA Regulatory Threshold)</span>
+                <span>60 mins (Major Disruption)</span>
+              </div>
+            </div>
+
+            {/* Live Styled Table */}
+            <div style={{ overflowX: 'auto', borderRadius: '8px', border: '1px solid #334155', background: '#090d16' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.84rem', textAlign: 'left' }}>
+                <thead>
+                  <tr style={{ background: '#1e293b', color: '#94a3b8', borderBottom: '1px solid #334155' }}>
+                    <th style={{ padding: '10px 14px' }}>Flight No</th>
+                    <th style={{ padding: '10px 14px' }}>Airline</th>
+                    <th style={{ padding: '10px 14px' }}>Sector</th>
+                    <th style={{ padding: '10px 14px' }}>Capacity / Booked</th>
+                    <th style={{ padding: '10px 14px' }}>Delay (mins)</th>
+                    <th style={{ padding: '10px 14px' }}>Compliance Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {cfFlights.map((row) => {
+                    const isBreach = row.delay > cfThreshold;
+                    const paxPercent = Math.round((row.pax / row.capacity) * 100);
+
+                    // Row style for custom_formula mode
+                    let rowBg = 'transparent';
+                    if (cfMode === 'custom_formula' && isBreach) {
+                      rowBg = 'rgba(239, 68, 68, 0.16)';
+                    }
+
+                    return (
+                      <tr key={row.flight} style={{ borderBottom: '1px solid #1e293b', backgroundColor: rowBg }}>
+                        <td style={{ padding: '10px 14px', fontWeight: 700, color: '#f8fafc' }}>{row.flight}</td>
+                        <td style={{ padding: '10px 14px', color: '#cbd5e1' }}>{row.airline}</td>
+                        <td style={{ padding: '10px 14px', color: '#cbd5e1' }}>{row.sector}</td>
+                        
+                        {/* Capacity Cell with Data Bars Support */}
+                        <td style={{ padding: '10px 14px', position: 'relative' }}>
+                          {cfMode === 'databars' ? (
+                            <div style={{ position: 'relative', width: '100%', background: '#1e293b', borderRadius: '4px', overflow: 'hidden', height: '22px' }}>
+                              <div style={{
+                                width: `${paxPercent}%`,
+                                height: '100%',
+                                background: paxPercent >= 90 ? 'linear-gradient(90deg, #0284c7, #38bdf8)' : 'linear-gradient(90deg, #10b981, #34d399)',
+                                borderRadius: '4px'
+                              }} />
+                              <span style={{ position: 'absolute', top: '50%', left: '8px', transform: 'translateY(-50%)', fontSize: '0.74rem', fontWeight: 800, color: '#ffffff' }}>
+                                {row.pax}/{row.capacity} ({paxPercent}%)
+                              </span>
+                            </div>
+                          ) : (
+                            <span style={{ color: '#cbd5e1' }}>{row.pax} / {row.capacity}</span>
+                          )}
+                        </td>
+
+                        {/* Delay Cell with Highlight / Heatmap Support */}
+                        <td style={{
+                          padding: '10px 14px',
+                          fontWeight: 800,
+                          backgroundColor:
+                            cfMode === 'highlight'
+                              ? isBreach ? 'rgba(239, 68, 68, 0.25)' : 'rgba(16, 185, 129, 0.15)'
+                              : cfMode === 'heatmap'
+                              ? row.delay === 0 ? 'rgba(16, 185, 129, 0.35)' : row.delay <= 15 ? 'rgba(234, 179, 8, 0.3)' : 'rgba(239, 68, 68, 0.45)'
+                              : 'transparent',
+                          color:
+                            cfMode === 'highlight'
+                              ? isBreach ? '#f87171' : '#34d399'
+                              : cfMode === 'heatmap'
+                              ? row.delay === 0 ? '#34d399' : row.delay <= 15 ? '#facc15' : '#f87171'
+                              : '#ffffff'
+                        }}>
+                          {row.delay} mins
+                        </td>
+
+                        {/* Status Cell with Icon Sets Support */}
+                        <td style={{ padding: '10px 14px', fontWeight: 700 }}>
+                          {cfMode === 'icons' ? (
+                            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                              {row.delay === 0 ? '🟢 On-Time' : row.delay <= 15 ? '⚠️ Minor Delay' : '🔴 Severe Delay'}
+                            </span>
+                          ) : (
+                            <span style={{
+                              padding: '2px 8px',
+                              borderRadius: '4px',
+                              fontSize: '0.74rem',
+                              backgroundColor: isBreach ? 'rgba(239, 68, 68, 0.2)' : 'rgba(16, 185, 129, 0.2)',
+                              color: isBreach ? '#f87171' : '#34d399'
+                            }}>
+                              {row.status}
+                            </span>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Custom Formula Teaching Callout */}
+            {cfMode === 'custom_formula' && (
+              <div style={{ marginTop: '14px', backgroundColor: 'rgba(56, 189, 248, 0.1)', border: '1px solid rgba(56, 189, 248, 0.3)', borderRadius: '8px', padding: '12px 16px', fontSize: '0.82rem', color: '#93c5fd' }}>
+                💡 <strong>The Secret of Entire-Row Highlighting:</strong> Why use <code>=$E3 &gt; {cfThreshold}</code> instead of <code>=E3 &gt; {cfThreshold}</code>? The <strong>$ anchor locks column E</strong> so Excel inspects the delay value in column E for every cell across columns A, B, C, D, and F!
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* ========================================================= */}
+        {/* TAB 7: SORTING & FILTERS                                  */}
+        {/* ========================================================= */}
+        {activeTab === 'sorting_filters' && (
+          <div>
+            <div style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginBottom: '1.25rem',
+              gap: '12px'
+            }}>
+              <div>
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#06b6d4', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+                  Module 7 · Session 9 Focus
+                </span>
+                <h3 style={{ margin: '2px 0 0 0', fontSize: '1.2rem', color: '#f8fafc' }}>
+                  Data Management, AutoFilters &amp; Multi-Tier Custom Sorting
+                </h3>
+              </div>
+
+              {/* Quick Reset & Actions */}
+              <div style={{ display: 'flex', gap: '8px' }}>
+                <button
+                  onClick={() => {
+                    setSfAirlineFilter('All');
+                    setSfTerminalFilter('All');
+                    setSfStatusFilter('All');
+                    setSfSortCol('flight');
+                    setSfSortDir('asc');
+                  }}
+                  style={{
+                    backgroundColor: '#1e293b',
+                    color: '#94a3b8',
+                    border: '1px solid #334155',
+                    padding: '6px 12px',
+                    borderRadius: '6px',
+                    fontSize: '0.76rem',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '4px'
+                  }}
+                >
+                  <RefreshCw size={13} /> Reset Filters
+                </button>
+
+                <button
+                  onClick={() => copyToClipboard(getSortingFiltersTableTSV(), 'sf-table', 'Filtered flight manifest copied!')}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    background: copiedKey === 'sf-table' ? '#10b981' : 'linear-gradient(135deg, #107c41 0%, #0f9d58 100%)',
+                    color: '#ffffff',
+                    border: 'none',
+                    padding: '6px 14px',
+                    borderRadius: '6px',
+                    fontSize: '0.76rem',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    boxShadow: '0 2px 6px rgba(16, 124, 65, 0.3)'
+                  }}
+                >
+                  {copiedKey === 'sf-table' ? <Check size={14} /> : <FileSpreadsheet size={14} />}
+                  <span>{copiedKey === 'sf-table' ? '✓ Copied Manifest!' : 'Copy Filtered Manifest'}</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Filter Controls Bar */}
+            <div style={{ background: '#1e293b', padding: '14px 18px', borderRadius: '10px', border: '1px solid #334155', marginBottom: '1.25rem' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', alignItems: 'center', justifyContent: 'space-between' }}>
+                
+                {/* Filter 1: Terminal */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#94a3b8' }}>Terminal:</span>
+                  <div style={{ display: 'flex', gap: '4px' }}>
+                    {['All', 'T1', 'T2'].map(term => (
+                      <button
+                        key={term}
+                        onClick={() => setSfTerminalFilter(term)}
+                        style={{
+                          padding: '3px 10px',
+                          borderRadius: '4px',
+                          border: `1px solid ${sfTerminalFilter === term ? '#06b6d4' : '#475569'}`,
+                          backgroundColor: sfTerminalFilter === term ? 'rgba(6, 182, 212, 0.2)' : '#090d16',
+                          color: sfTerminalFilter === term ? '#06b6d4' : '#cbd5e1',
+                          fontSize: '0.76rem',
+                          fontWeight: 700,
+                          cursor: 'pointer'
+                        }}
+                      >
+                        {term}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Filter 2: Airline */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#94a3b8' }}>Carrier:</span>
+                  <select
+                    value={sfAirlineFilter}
+                    onChange={(e) => setSfAirlineFilter(e.target.value)}
+                    style={{
+                      backgroundColor: '#090d16',
+                      border: '1px solid #475569',
+                      color: '#38bdf8',
+                      padding: '4px 10px',
+                      borderRadius: '4px',
+                      fontSize: '0.78rem',
+                      fontWeight: 700,
+                      outline: 'none'
+                    }}
+                  >
+                    <option value="All">All Airlines</option>
+                    <option value="IndiGo">IndiGo</option>
+                    <option value="Air India">Air India</option>
+                    <option value="Akasa Air">Akasa Air</option>
+                    <option value="SpiceJet">SpiceJet</option>
+                    <option value="Vistara">Vistara</option>
+                  </select>
+                </div>
+
+                {/* Filter 3: Status */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#94a3b8' }}>Status:</span>
+                  <div style={{ display: 'flex', gap: '4px' }}>
+                    {['All', 'On-Time', 'Delayed', 'Critical Delay'].map(st => (
+                      <button
+                        key={st}
+                        onClick={() => setSfStatusFilter(st)}
+                        style={{
+                          padding: '3px 10px',
+                          borderRadius: '4px',
+                          border: `1px solid ${sfStatusFilter === st ? '#10b981' : '#475569'}`,
+                          backgroundColor: sfStatusFilter === st ? 'rgba(16, 185, 129, 0.2)' : '#090d16',
+                          color: sfStatusFilter === st ? '#10b981' : '#cbd5e1',
+                          fontSize: '0.76rem',
+                          fontWeight: 700,
+                          cursor: 'pointer'
+                        }}
+                      >
+                        {st}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Multi-Level Sort Shortcut Button */}
+                <button
+                  onClick={() => {
+                    setSfSortCol('delay');
+                    setSfSortDir('desc');
+                  }}
+                  style={{
+                    backgroundColor: 'rgba(6, 182, 212, 0.15)',
+                    border: '1px solid #06b6d4',
+                    color: '#06b6d4',
+                    padding: '5px 12px',
+                    borderRadius: '6px',
+                    fontSize: '0.78rem',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '5px'
+                  }}
+                >
+                  <ArrowUpDown size={14} /> Sort: Highest Delay First
+                </button>
+              </div>
+            </div>
+
+            {/* Filtered Table */}
+            <div style={{ overflowX: 'auto', borderRadius: '8px', border: '1px solid #334155', background: '#090d16' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.84rem', textAlign: 'left' }}>
+                <thead>
+                  <tr style={{ background: '#1e293b', color: '#94a3b8', borderBottom: '1px solid #334155' }}>
+                    {[
+                      { key: 'flight', label: 'Flight No' },
+                      { key: 'airline', label: 'Airline' },
+                      { key: 'terminal', label: 'Terminal' },
+                      { key: 'sector', label: 'Sector' },
+                      { key: 'pax', label: 'Pax' },
+                      { key: 'delay', label: 'Delay (mins)' },
+                      { key: 'status', label: 'Status' }
+                    ].map(col => (
+                      <th
+                        key={col.key}
+                        onClick={() => {
+                          if (sfSortCol === col.key) {
+                            setSfSortDir(sfSortDir === 'asc' ? 'desc' : 'asc');
+                          } else {
+                            setSfSortCol(col.key as any);
+                            setSfSortDir('asc');
+                          }
+                        }}
+                        style={{
+                          padding: '10px 14px',
+                          cursor: 'pointer',
+                          color: sfSortCol === col.key ? '#06b6d4' : '#94a3b8',
+                          userSelect: 'none'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <span>{col.label}</span>
+                          <span style={{ fontSize: '0.7rem' }}>
+                            {sfSortCol === col.key ? (sfSortDir === 'asc' ? '▲' : '▼') : '▼'}
+                          </span>
+                        </div>
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {sfFilteredAndSorted.length > 0 ? (
+                    sfFilteredAndSorted.map(row => (
+                      <tr key={row.flight} style={{ borderBottom: '1px solid #1e293b' }}>
+                        <td style={{ padding: '10px 14px', fontWeight: 700, color: '#f8fafc' }}>{row.flight}</td>
+                        <td style={{ padding: '10px 14px', color: '#cbd5e1' }}>{row.airline}</td>
+                        <td style={{ padding: '10px 14px', color: '#38bdf8', fontWeight: 700 }}>{row.terminal}</td>
+                        <td style={{ padding: '10px 14px', color: '#cbd5e1' }}>{row.sector}</td>
+                        <td style={{ padding: '10px 14px', color: '#cbd5e1' }}>{row.pax}</td>
+                        <td style={{ padding: '10px 14px', fontWeight: 800, color: row.delay > 15 ? '#f87171' : row.delay > 0 ? '#facc15' : '#34d399' }}>
+                          {row.delay} mins
+                        </td>
+                        <td style={{ padding: '10px 14px' }}>
+                          <span style={{
+                            padding: '2px 8px',
+                            borderRadius: '4px',
+                            fontSize: '0.74rem',
+                            fontWeight: 700,
+                            backgroundColor: row.status.includes('Critical') ? 'rgba(239, 68, 68, 0.2)' : row.status === 'Delayed' ? 'rgba(234, 179, 8, 0.2)' : 'rgba(16, 185, 129, 0.2)',
+                            color: row.status.includes('Critical') ? '#f87171' : row.status === 'Delayed' ? '#facc15' : '#34d399'
+                          }}>
+                            {row.status}
+                          </span>
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan={7} style={{ padding: '30px', textAlign: 'center', color: '#94a3b8' }}>
+                        No flights matched the selected filter criteria. Try resetting filters.
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Status Footer */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '10px', fontSize: '0.78rem', color: '#64748b' }}>
+              <span>Displaying <strong>{sfFilteredAndSorted.length}</strong> of 8 scheduled operations</span>
+              <span>Shortcut: Press <code>Ctrl + Shift + L</code> in Excel to toggle AutoFilter arrows</span>
+            </div>
+          </div>
+        )}
+
       </div>
 
       {/* Workshop Summary Footer Bar */}
@@ -1501,12 +2527,15 @@ export default function ExcelCoreWorkshopSimulator() {
         </div>
 
         <div style={{ display: 'flex', gap: '8px' }}>
-          {activeTab !== 'logical_text' ? (
+          {activeTab !== 'sorting_filters' ? (
             <button
               onClick={() => {
                 if (activeTab === 'math') { setActiveTab('referencing'); markComplete('referencing'); }
                 else if (activeTab === 'referencing') { setActiveTab('stats'); markComplete('stats'); }
                 else if (activeTab === 'stats') { setActiveTab('logical_text'); markComplete('logical_text'); }
+                else if (activeTab === 'logical_text') { setActiveTab('data_validation'); markComplete('data_validation'); }
+                else if (activeTab === 'data_validation') { setActiveTab('conditional_formatting'); markComplete('conditional_formatting'); }
+                else if (activeTab === 'conditional_formatting') { setActiveTab('sorting_filters'); markComplete('sorting_filters'); }
               }}
               style={{
                 display: 'flex',
@@ -1528,7 +2557,7 @@ export default function ExcelCoreWorkshopSimulator() {
             <button
               onClick={() => {
                 setActiveTab('math');
-                markComplete('logical_text');
+                markComplete('sorting_filters');
               }}
               style={{
                 display: 'flex',
@@ -1549,6 +2578,101 @@ export default function ExcelCoreWorkshopSimulator() {
           )}
         </div>
       </div>
+
+      {/* Microsoft Excel Data Validation Error Modal */}
+      {dvShowErrorModal && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0,0,0,0.75)',
+          zIndex: 999999,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '20px'
+        }}>
+          <div style={{
+            backgroundColor: '#ffffff',
+            color: '#0f172a',
+            borderRadius: '8px',
+            width: '100%',
+            maxWidth: '460px',
+            boxShadow: '0 20px 50px rgba(0,0,0,0.6)',
+            border: '2px solid #94a3b8',
+            overflow: 'hidden'
+          }}>
+            <div style={{
+              backgroundColor: '#f1f5f9',
+              padding: '8px 14px',
+              borderBottom: '1px solid #cbd5e1',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              fontSize: '0.82rem',
+              fontWeight: 700,
+              color: '#334155'
+            }}>
+              <span>Microsoft Excel</span>
+              <button
+                onClick={() => setDvShowErrorModal(false)}
+                style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '1rem', color: '#64748b' }}
+              >
+                ✕
+              </button>
+            </div>
+
+            <div style={{ padding: '20px', display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+              <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: '#ef4444', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#ffffff' }}>
+                <XCircle size={26} />
+              </div>
+              <div style={{ flex: 1, fontSize: '0.86rem', color: '#1e293b', lineHeight: 1.5 }}>
+                <div style={{ fontWeight: 800, marginBottom: '6px', color: '#0f172a' }}>
+                  The value &quot;{dvErrorAttemptVal}&quot; doesn&apos;t match the data validation restrictions defined for this cell.
+                </div>
+                <div style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '4px' }}>
+                  A user has restricted values that can be entered into this cell. Allowed: <strong>IndiGo, Air India, Akasa Air, SpiceJet, Vistara</strong>.
+                </div>
+              </div>
+            </div>
+
+            <div style={{ backgroundColor: '#f8fafc', padding: '12px 16px', borderTop: '1px solid #e2e8f0', display: 'flex', justifyContent: 'flex-end', gap: '10px' }}>
+              <button
+                onClick={() => setDvShowErrorModal(false)}
+                style={{
+                  backgroundColor: '#0284c7',
+                  color: '#ffffff',
+                  border: 'none',
+                  padding: '6px 18px',
+                  borderRadius: '4px',
+                  fontSize: '0.82rem',
+                  fontWeight: 700,
+                  cursor: 'pointer'
+                }}
+              >
+                Retry
+              </button>
+              <button
+                onClick={() => setDvShowErrorModal(false)}
+                style={{
+                  backgroundColor: '#ffffff',
+                  color: '#334155',
+                  border: '1px solid #cbd5e1',
+                  padding: '6px 14px',
+                  borderRadius: '4px',
+                  fontSize: '0.82rem',
+                  fontWeight: 600,
+                  cursor: 'pointer'
+                }}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Floating Clipboard Copy Confirmation Toast */}
       {copyToast && (

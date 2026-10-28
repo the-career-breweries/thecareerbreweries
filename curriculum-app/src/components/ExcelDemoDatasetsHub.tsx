@@ -414,6 +414,8 @@ export default function ExcelDemoDatasetsHub() {
                 {ds.category === 'vlookup_hlookup' && <span style={{ fontSize: '1rem' }}>🔍</span>}
                 {ds.category === 'xlookup_advanced' && <span style={{ fontSize: '1rem' }}>🚀</span>}
                 {ds.category === 'pivot_table_charts' && <span style={{ fontSize: '1rem' }}>📊</span>}
+                {ds.category === 'data_validation' && <span style={{ fontSize: '1rem' }}>🛡️</span>}
+                {ds.category === 'conditional_formatting_filters' && <span style={{ fontSize: '1rem' }}>✨</span>}
                 <span>{ds.title}</span>
               </button>
             );

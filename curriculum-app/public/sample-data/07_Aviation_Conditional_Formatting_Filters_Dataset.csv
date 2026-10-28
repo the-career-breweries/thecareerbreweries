@@ -1,0 +1,17 @@
+Flight No,Airline,Destination,Terminal,Delay Mins,Flight Status,Baggage kg,OTP Score %
+6E 521,IndiGo,DEL,T1,8,On-Time,3450,92%
+AI 804,Air India,BOM,T2,42,Delayed,5820,74%
+6E 204,IndiGo,HYD,T1,0,On-Time,2410,95%
+QP 1332,Akasa Air,GOI,T1,25,Delayed,2790,82%
+AI 506,Air India,DEL,T2,65,Delayed,5600,68%
+6E 718,IndiGo,MAA,T1,5,On-Time,890,96%
+UK 815,Vistara,BOM,T2,12,On-Time,2600,89%
+SG 401,SpiceJet,CCU,T1,55,Delayed,2550,61%
+6E 902,IndiGo,COK,T1,0,On-Time,920,97%
+QP 1405,Akasa Air,DEL,T1,18,Delayed,2840,84%
+
+[CONDITIONAL FORMATTING & FILTER INSTRUCTIONS]
+Rule 1 (Highlight Cells): Select E2:E11 -> Conditional Formatting > Greater Than 15 -> Light Red Fill with Dark Red Text
+Rule 2 (Color Scale Heatmap): Select G2:G11 -> Color Scales > Green-Yellow-Red
+Rule 3 (Entire Row Highlight): Select A2:H11 -> New Rule -> Formula: "=$E2>15" -> Soft Yellow Fill
+Rule 4 (AutoFilter & Sort): Select A1:H11 -> Press Ctrl+Shift+L -> Sort by Terminal (A to Z), then by Delay Mins (Largest to Smallest)

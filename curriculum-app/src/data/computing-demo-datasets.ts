@@ -37,7 +37,7 @@ export interface DemoDataset {
   title: string;
   subtitle: string;
   topic: string;
-  category: 'functions_math' | 'logical_if' | 'vlookup_hlookup' | 'xlookup_advanced' | 'pivot_table_charts';
+  category: 'functions_math' | 'logical_if' | 'vlookup_hlookup' | 'xlookup_advanced' | 'pivot_table_charts' | 'data_validation' | 'conditional_formatting_filters';
   filename: string;
   scenarioDescription: string;
   columns: DemoDatasetColumn[];
@@ -599,6 +599,157 @@ export const COMPUTING_DEMO_DATASETS: DemoDataset[] = [
         filters: [],
         chartType: 'Line Chart or Area Chart',
         keyInsights: 'Morning and Evening waves exhibit peak baggage handling requirements (over 2,500 pieces per bank).'
+      }
+    ]
+  },
+  // -------------------------------------------------------------------------
+  // DATASET 6: DATA VALIDATION & INPUT CONTROLS
+  // -------------------------------------------------------------------------
+  {
+    id: 'data-validation',
+    title: '6. Data Validation & Rules',
+    subtitle: 'BLR Terminal Gate Roster, Airline Selection Dropdowns & Seat Limits',
+    topic: 'In-Cell Dropdown Lists, Whole Number Limits, Date Bounds, Stop / Warning / Info Error Alerts',
+    category: 'data_validation',
+    filename: '06_Aviation_Data_Validation_Dataset.csv',
+    scenarioDescription: 'This dataset models an active Terminal Operations and Gate Allocation sheet at Kempegowda International Airport (BLR). Data Validation prevents ramp agents from entering invalid airline names, negative passenger numbers, seat counts exceeding aircraft type limits, or invalid flight dates.',
+    columns: [
+      { key: 'flight_no', header: 'Flight No', excelCol: 'A', type: 'text', description: 'Scheduled flight identifier' },
+      { key: 'airline', header: 'Operating Airline (Dropdown)', excelCol: 'B', type: 'text', description: 'Validated list: IndiGo, Air India, Akasa Air, SpiceJet, Vistara' },
+      { key: 'destination', header: 'Destination', excelCol: 'C', type: 'text', description: 'Arrival station IATA' },
+      { key: 'aircraft_type', header: 'Aircraft Type', excelCol: 'D', type: 'text', description: 'Operating equipment' },
+      { key: 'max_capacity', header: 'Certified Capacity', excelCol: 'E', type: 'number', description: 'Maximum manufacturer seating capacity' },
+      { key: 'booked_pax', header: 'Booked Pax (Whole Number)', excelCol: 'F', type: 'number', description: 'Validated whole number: 1 to max_capacity' },
+      { key: 'gate_assigned', header: 'Assigned Gate (List)', excelCol: 'G', type: 'text', description: 'Validated gate range: G01 to G18' },
+      { key: 'status', header: 'Validation Status', excelCol: 'H', type: 'text', description: 'PASS / ALERT' },
+    ],
+    rows: [
+      { flight_no: '6E 2101', airline: 'IndiGo', destination: 'DEL', aircraft_type: 'A321neo', max_capacity: 222, booked_pax: 216, gate_assigned: 'G04', status: 'PASS' },
+      { flight_no: 'AI 502', airline: 'Air India', destination: 'BOM', aircraft_type: 'B777-300ER', max_capacity: 342, booked_pax: 328, gate_assigned: 'G12', status: 'PASS' },
+      { flight_no: 'QP 1354', airline: 'Akasa Air', destination: 'GOI', aircraft_type: 'B737-MAX8', max_capacity: 189, booked_pax: 174, gate_assigned: 'G06', status: 'PASS' },
+      { flight_no: 'UK 832', airline: 'Vistara', destination: 'DEL', aircraft_type: 'A320neo', max_capacity: 164, booked_pax: 158, gate_assigned: 'G09', status: 'PASS' },
+      { flight_no: 'SG 517', airline: 'SpiceJet', destination: 'IXB', aircraft_type: 'B737-800', max_capacity: 189, booked_pax: 182, gate_assigned: 'G02', status: 'PASS' },
+      { flight_no: '6E 543', airline: 'IndiGo', destination: 'HYD', aircraft_type: 'A320neo', max_capacity: 186, booked_pax: 179, gate_assigned: 'G05', status: 'PASS' },
+      { flight_no: 'AI 804', airline: 'Air India', destination: 'DXB', aircraft_type: 'B787-8', max_capacity: 256, booked_pax: 240, gate_assigned: 'G16', status: 'PASS' },
+      { flight_no: '6E 718', airline: 'IndiGo', destination: 'MAA', aircraft_type: 'ATR-72', max_capacity: 78, booked_pax: 74, gate_assigned: 'G01', status: 'PASS' },
+    ],
+    lookupTables: [
+      {
+        title: 'Approved Airline Reference Roster',
+        description: 'Source range for Data Validation > List rule in Column B',
+        range: '$K$2:$K$6',
+        columns: [
+          { key: 'code', header: 'IATA Code', excelCol: 'K', type: 'text' },
+          { key: 'name', header: 'Approved Airline Name', excelCol: 'L', type: 'text' },
+        ],
+        rows: [
+          { code: '6E', name: 'IndiGo' },
+          { code: 'AI', name: 'Air India' },
+          { code: 'QP', name: 'Akasa Air' },
+          { code: 'SG', name: 'SpiceJet' },
+          { code: 'UK', name: 'Vistara' },
+        ]
+      }
+    ],
+    teacherGuides: [
+      {
+        title: 'Creating an In-Cell Dropdown List for Airlines',
+        targetCell: 'Data > Data Validation (B2:B9)',
+        formula: 'Allow: List | Source: =IndiGo, Air India, Akasa Air, SpiceJet, Vistara (or =$K$2:$K$6)',
+        plainEnglishExplanation: 'Restricts the cell so user can only pick from the pre-approved aviation carrier list, preventing typos like "Indi-go" or "Indigo Airlines".',
+        aviationContext: 'AOCC ground handling database ensuring consistent airline reporting across airline dispatchers.',
+        expectedResult: 'A drop-down arrow appears on cell click; only approved airlines can be entered.',
+        commonStudentMistake: 'Typing semicolons instead of commas in manual lists, or forgetting to lock reference range =$K$2:$K$6.'
+      },
+      {
+        title: 'Whole Number Passenger Bounds (1 to Max Capacity)',
+        targetCell: 'Data > Data Validation (F2:F9)',
+        formula: 'Allow: Whole number | Data: between | Minimum: 1 | Maximum: =E2',
+        plainEnglishExplanation: 'Ensures the number of booked passengers is a positive integer and does not exceed the certified aircraft capacity in column E.',
+        aviationContext: 'Flight dispatch safety compliance: an A320 with 186 seats cannot physically carry 190 passengers.',
+        expectedResult: 'Valid passenger numbers are accepted; entering numbers < 1 or > capacity triggers an error.',
+        commonStudentMistake: 'Selecting "Decimal" instead of "Whole number", allowing fractional passengers like 142.5.'
+      },
+      {
+        title: 'Configuring Stop Error Alert vs Warning Alert',
+        targetCell: 'Data Validation > Error Alert Tab',
+        formula: 'Style: Stop | Title: "Invalid Passenger Count" | Error message: "Exceeds certified aircraft capacity."',
+        plainEnglishExplanation: 'Stop alerts completely block invalid entry and force Retry/Cancel. Warning alerts show an alert dialog but permit override with Yes/No.',
+        aviationContext: 'Aviation regulatory safety boundaries (e.g. overcapacity is a strict Stop; minor baggage discrepancy is a Warning).',
+        expectedResult: 'Pop-up modal appears with Excel Stop icon and custom error explanation.',
+        commonStudentMistake: 'Leaving default generic error messages which do not explain to the user what rule was violated.'
+      }
+    ]
+  },
+  // -------------------------------------------------------------------------
+  // DATASET 7: CONDITIONAL FORMATTING & AUTOFILTERS
+  // -------------------------------------------------------------------------
+  {
+    id: 'conditional-formatting-filters',
+    title: '7. Conditional Formatting & AutoFilters',
+    subtitle: 'AOCC Flight Manifest: Delay Heatmaps, Threshold Alerts & Multi-Tier Slicing',
+    topic: 'Highlight Rules (>15 Mins), 3-Color Gradient Heatmaps, In-Cell Data Bars, AutoFilter & Multi-Tier Custom Sort',
+    category: 'conditional_formatting_filters',
+    filename: '07_Aviation_Conditional_Formatting_Filters_Dataset.csv',
+    scenarioDescription: 'Live flight operations manifest at Airport Operations Control Centre (AOCC). Demonstrates how to use Conditional Formatting to instantly spot operational anomalies (delays > 15 mins in red, on-time flights in green), gradient baggage heatmaps, and AutoFilter (Ctrl+Shift+L) with multi-tier sorting.',
+    columns: [
+      { key: 'flight_no', header: 'Flight No', excelCol: 'A', type: 'text', description: 'Flight identifier' },
+      { key: 'airline', header: 'Airline', excelCol: 'B', type: 'text', description: 'Operating carrier' },
+      { key: 'destination', header: 'Destination', excelCol: 'C', type: 'text', description: 'Arrival destination' },
+      { key: 'terminal', header: 'Terminal', excelCol: 'D', type: 'text', description: 'T1 (Domestic LCC) or T2 (FSC & Intl)' },
+      { key: 'delay_mins', header: 'Delay Mins (CF Target)', excelCol: 'E', type: 'number', description: 'Departure delay in minutes (>15 = Delayed)' },
+      { key: 'status', header: 'Flight Status', excelCol: 'F', type: 'text', description: 'On-Time, Delayed, or Cancelled' },
+      { key: 'baggage_kg', header: 'Baggage (kg) (Heatmap)', excelCol: 'G', type: 'number', description: 'Total hold baggage weight' },
+      { key: 'otp_score', header: 'Punctuality %', excelCol: 'H', type: 'percentage', description: 'Quarterly on-time performance reliability' },
+    ],
+    rows: [
+      { flight_no: '6E 521', airline: 'IndiGo', destination: 'DEL', terminal: 'T1', delay_mins: 8, status: 'On-Time', baggage_kg: 3450, otp_score: 92 },
+      { flight_no: 'AI 804', airline: 'Air India', destination: 'BOM', terminal: 'T2', delay_mins: 42, status: 'Delayed', baggage_kg: 5820, otp_score: 74 },
+      { flight_no: '6E 204', airline: 'IndiGo', destination: 'HYD', terminal: 'T1', delay_mins: 0, status: 'On-Time', baggage_kg: 2410, otp_score: 95 },
+      { flight_no: 'QP 1332', airline: 'Akasa Air', destination: 'GOI', terminal: 'T1', delay_mins: 25, status: 'Delayed', baggage_kg: 2790, otp_score: 82 },
+      { flight_no: 'AI 506', airline: 'Air India', destination: 'DEL', terminal: 'T2', delay_mins: 65, status: 'Delayed', baggage_kg: 5600, otp_score: 68 },
+      { flight_no: '6E 718', airline: 'IndiGo', destination: 'MAA', terminal: 'T1', delay_mins: 5, status: 'On-Time', baggage_kg: 890, otp_score: 96 },
+      { flight_no: 'UK 815', airline: 'Vistara', destination: 'BOM', terminal: 'T2', delay_mins: 12, status: 'On-Time', baggage_kg: 2600, otp_score: 89 },
+      { flight_no: 'SG 401', airline: 'SpiceJet', destination: 'CCU', terminal: 'T1', delay_mins: 55, status: 'Delayed', baggage_kg: 2550, otp_score: 61 },
+      { flight_no: '6E 902', airline: 'IndiGo', destination: 'COK', terminal: 'T1', delay_mins: 0, status: 'On-Time', baggage_kg: 920, otp_score: 97 },
+      { flight_no: 'QP 1405', airline: 'Akasa Air', destination: 'DEL', terminal: 'T1', delay_mins: 18, status: 'Delayed', baggage_kg: 2840, otp_score: 84 },
+    ],
+    teacherGuides: [
+      {
+        title: 'Highlight Cells Rule: Delays Exceeding 15 Mins',
+        targetCell: 'Conditional Formatting > Highlight Cells Rules > Greater Than',
+        formula: 'Format cells that are GREATER THAN: 15 with Light Red Fill and Dark Red Text',
+        plainEnglishExplanation: 'Automatically highlights any flight in Column E that exceeds DGCA standard on-time threshold (15 minutes).',
+        aviationContext: 'AOCC display boards dynamically spotlighting delayed flights needing immediate ground recovery action.',
+        expectedResult: 'Cells E3, E5, E6, E9, E11 immediately turn soft red; on-time flights remain clean.',
+        commonStudentMistake: 'Selecting "Greater Than or Equal To" and forgetting that 15 minutes is still considered technically on-time under DGCA standards.'
+      },
+      {
+        title: '3-Color Gradient Heatmap on Baggage Load',
+        targetCell: 'Conditional Formatting > Color Scales > Green-Yellow-Red',
+        formula: 'Minimum: Green (Lowest load) | 50th Percentile: Yellow | Maximum: Red (Heaviest load)',
+        plainEnglishExplanation: 'Calculates a continuous gradient reflecting baggage weight intensity across all flights.',
+        aviationContext: 'Baggage Makeup Area (BMA) supervisor balancing belt allocation and ramp handling manpower.',
+        expectedResult: 'B777 flight (5,820 kg) glows red, ATR flight (890 kg) glows green, A320s show shades of gold.',
+        commonStudentMistake: 'Applying color scale to both text and numbers, or picking inverted scale (red for lowest load).'
+      },
+      {
+        title: 'Whole Row Highlighting with Custom Formula',
+        targetCell: 'Conditional Formatting > New Rule > Use a formula to determine which cells to format',
+        formula: '=$E2>15 (Applies to =$A$2:$H$11)',
+        plainEnglishExplanation: 'By locking only the column letter ($E) and leaving the row number relative (2), the entire row highlights when column E delay exceeds 15 minutes.',
+        aviationContext: 'Flight dispatch operational priority view where delayed aircraft manifests need full-row visual distinction.',
+        expectedResult: 'Every cell in row 3, 5, 6, 9, 11 (from Flight No to OTP Score) highlights simultaneously.',
+        commonStudentMistake: 'Locking both column and row =$E$2>15, which tests only cell E2 and either highlights all rows or none.'
+      },
+      {
+        title: 'AutoFilter (Ctrl+Shift+L) & Multi-Tier Custom Sorting',
+        targetCell: 'Data > Filter (Ctrl+Shift+L) & Sort',
+        formula: 'AutoFilter shortcut: Ctrl+Shift+L | Sort Level 1: Terminal (A-Z) | Sort Level 2: Delay Mins (Largest to Smallest)',
+        plainEnglishExplanation: 'Enables quick dropdown filtering per column and establishes a hierarchy where flights are grouped by terminal first, then sorted by worst delay.',
+        aviationContext: 'Terminal Operations duty managers analyzing which flights within their specific terminal are in critical delay status.',
+        expectedResult: 'Filter arrows appear on row 1 headers; data arranges cleanly with worst delays at the top of each terminal group.',
+        commonStudentMistake: 'Sorting only a single selected column instead of the entire table range, which scrambles passenger/delay data across flights.'
       }
     ]
   }

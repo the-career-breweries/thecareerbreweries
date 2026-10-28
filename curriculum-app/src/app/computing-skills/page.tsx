@@ -1003,16 +1003,17 @@ export default function CommunicativeEnglishApp() {
                                     Unit 3 Milestone Lab
                                   </span>
                                   <span style={{ color: '#94a3b8', fontSize: '0.85rem' }}>
-                                    Post-Session 6 Intensive · 2–4 Hours Fast-Track
+                                    Sessions 1–9 Intensive · 2–4 Hours Fast-Track
                                   </span>
                                 </div>
                                 <h3 style={{ margin: '0 0 6px 0', fontSize: '1.35rem', fontWeight: 800, color: '#ffffff' }}>
-                                  Spreadsheet Core Essentials Workshop (Sessions 1–6)
+                                  Spreadsheet Core Essentials Workshop (Sessions 1–9)
                                 </h3>
                                 <p style={{ margin: '0 0 12px 0', color: '#cbd5e1', fontSize: '0.9rem', lineHeight: '1.5', maxWidth: '750px' }}>
-                                  Designed to consolidate the first 6 sessions in a single 2–4 hour interactive laboratory. 
+                                  Designed to consolidate the core spreadsheet curriculum in a single 2–4 hour interactive laboratory. 
                                   Practice <strong>Basic Mathematical Formulae</strong>, <strong>Cell Referencing ($)</strong>, 
-                                  <strong> Essential Statistical Functions</strong>, and <strong>Logical &amp; Text Functions</strong> with live aviation flight manifests.
+                                  <strong> Essential Statistical Functions</strong>, <strong>Logical &amp; Text Functions</strong>, 
+                                  <strong> Data Validation</strong>, <strong>Conditional Formatting</strong>, and <strong>Sorting &amp; Filters</strong> with live aviation flight manifests.
                                 </p>
                                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                                   <span style={{ background: 'rgba(56, 189, 248, 0.12)', border: '1px solid rgba(56, 189, 248, 0.3)', color: '#38bdf8', padding: '3px 10px', borderRadius: '6px', fontSize: '0.76rem', fontWeight: 600 }}>
@@ -1026,6 +1027,15 @@ export default function CommunicativeEnglishApp() {
                                   </span>
                                   <span style={{ background: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.3)', color: '#34d399', padding: '3px 10px', borderRadius: '6px', fontSize: '0.76rem', fontWeight: 600 }}>
                                     4. Logical &amp; Text (IF/PROPER)
+                                  </span>
+                                  <span style={{ background: 'rgba(239, 68, 68, 0.12)', border: '1px solid rgba(239, 68, 68, 0.3)', color: '#f87171', padding: '3px 10px', borderRadius: '6px', fontSize: '0.76rem', fontWeight: 600 }}>
+                                    5. Data Validation (Dropdowns &amp; Bounds)
+                                  </span>
+                                  <span style={{ background: 'rgba(245, 158, 11, 0.12)', border: '1px solid rgba(245, 158, 11, 0.3)', color: '#fbbf24', padding: '3px 10px', borderRadius: '6px', fontSize: '0.76rem', fontWeight: 600 }}>
+                                    6. Conditional Formatting (Heatmaps &amp; Bars)
+                                  </span>
+                                  <span style={{ background: 'rgba(6, 182, 212, 0.12)', border: '1px solid rgba(6, 182, 212, 0.3)', color: '#22d3ee', padding: '3px 10px', borderRadius: '6px', fontSize: '0.76rem', fontWeight: 600 }}>
+                                    7. Sorting &amp; Filters (AutoFilter &amp; Slicers)
                                   </span>
                                 </div>
                               </div>
@@ -1100,7 +1110,7 @@ export default function CommunicativeEnglishApp() {
                                   Spreadsheet Demonstration Datasets Hub (Excel &amp; Sheets)
                                 </h3>
                                 <p style={{ margin: '0 0 12px 0', color: '#cbd5e1', fontSize: '0.9rem', lineHeight: '1.5', maxWidth: '750px' }}>
-                                  5 live aviation datasets pre-formatted with column coordinates (A, B, C...) for live projection and student hands-on work. 
+                                  7 live aviation datasets pre-formatted with column coordinates (A, B, C...) for live projection and student hands-on work. 
                                   One-click TSV copying to paste directly into Microsoft Excel or Google Sheets, plus direct CSV file downloads.
                                 </p>
                                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
@@ -1118,6 +1128,12 @@ export default function CommunicativeEnglishApp() {
                                   </span>
                                   <span style={{ background: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.3)', color: '#34d399', padding: '3px 10px', borderRadius: '6px', fontSize: '0.76rem', fontWeight: 600 }}>
                                     📊 5. Pivot Tables &amp; Charts (50 Flights Manifest)
+                                  </span>
+                                  <span style={{ background: 'rgba(239, 68, 68, 0.12)', border: '1px solid rgba(239, 68, 68, 0.3)', color: '#f87171', padding: '3px 10px', borderRadius: '6px', fontSize: '0.76rem', fontWeight: 600 }}>
+                                    🛡️ 6. Data Validation (Fleet Dropdowns &amp; Seat Limits)
+                                  </span>
+                                  <span style={{ background: 'rgba(6, 182, 212, 0.12)', border: '1px solid rgba(6, 182, 212, 0.3)', color: '#22d3ee', padding: '3px 10px', borderRadius: '6px', fontSize: '0.76rem', fontWeight: 600 }}>
+                                    ✨ 7. Conditional Formatting &amp; AutoFilters (Heatmaps &amp; Slicers)
                                   </span>
                                 </div>
                               </div>
