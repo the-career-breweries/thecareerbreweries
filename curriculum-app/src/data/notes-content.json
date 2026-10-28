@@ -7040,48 +7040,6 @@
         ]
       }
     },
-    "Mid-Sem": {
-      "keyConcepts": [
-        {
-          "title": "Hardware & OS Revision",
-          "explanation": "Reviewing core components of a PC and Windows navigation."
-        },
-        {
-          "title": "Word Processing Mastery",
-          "explanation": "Ensuring competence in creating, formatting, and structuring Word documents."
-        }
-      ],
-      "definitions": [
-        {
-          "term": "Recap",
-          "definition": "To state again the main points of what has been taught."
-        },
-        {
-          "term": "Competence",
-          "definition": "The ability to do something successfully or efficiently."
-        }
-      ],
-      "mnemonic": {
-        "acronym": "R&R",
-        "points": [
-          "R - Review",
-          "R - Reinforce"
-        ]
-      },
-      "btlQuestions": {
-        "Remember": "Recall the steps to save a Word document as a PDF.",
-        "Understand": "Summarize the difference between hardware and software.",
-        "Apply": "Complete an interactive quiz on OS navigation.",
-        "Analyze": "Analyze your common errors when formatting tables.",
-        "Evaluate": "Assess your readiness for the practical examination.",
-        "Create": "Develop a quick-reference cheat sheet for Word shortcuts."
-      },
-      "referenceMaterial": {
-        "primary": "Session 1-6 Notes",
-        "further": "Practice Quizzes"
-      },
-      "courseCode": "Z7AVA 26209"
-    },
     "16": {
       "keyConcepts": [
         {
@@ -7362,62 +7320,72 @@
     "20": {
       "keyConcepts": [
         {
-          "title": "Print Areas",
-          "explanation": "Scaling sheets for paper"
+          "title": "Data Validation & Entry Restrictions",
+          "explanation": "Preventing human input errors at point of entry using dropdown lists, numeric bounds, and Stop Alert error dialogs."
         },
         {
-          "title": "Applied Print Areas",
-          "explanation": "Understanding how to leverage print areas in a modern aviation business environment."
+          "title": "Conditional Formatting & Dynamic Spotlights",
+          "explanation": "Automating visual intelligence with threshold highlight rules (>15 mins), 3-color baggage heatmaps, and full-row formulas (=>15)."
+        },
+        {
+          "title": "AutoFilters & Multi-Tier Custom Sorting",
+          "explanation": "Non-destructive manifest exploration using Ctrl+Shift+L, multi-level hierarchy (Terminal A-Z, Delay Descending), and SUBTOTAL formulas."
+        },
+        {
+          "title": "Forensic Spreadsheet Auditing",
+          "explanation": "Spotlighting rogue copied values with Data Validation Circle Invalid Data and managing rule conflicts."
         }
       ],
       "definitions": [
         {
-          "term": "Print Area",
-          "definition": "Explicitly selecting only the table cells you want printed, ignoring scratch notes.",
-          "everydayExample": "Printing only your study notes on the left of the page, ignoring rough math on the right",
-          "aviationExample": "Setting Print Area on the flight dispatch summary table, excluding raw data columns"
+          "term": "Data Validation",
+          "definition": "An Excel governance feature restricting cell input to allowed values, lists, ranges, or custom formulas.",
+          "everydayExample": "A smartphone app not allowing you to submit a form with an invalid phone number",
+          "aviationExample": "Restricting operating airline column strictly to approved IATA carriers (IndiGo, Air India, Akasa Air, SpiceJet, Vistara)"
         },
         {
-          "term": "Fit Sheet on One Page",
-          "definition": "Scales wide or tall spreadsheets proportionally so they don't print on 10 fragmented pages.",
-          "everydayExample": "Shrinking a wide budget sheet so it prints on a single A4 sheet",
-          "aviationExample": "Ensuring a 15-column daily turnaround log prints cleanly on a single landscape sheet"
+          "term": "Stop Alert",
+          "definition": "The strictest Data Validation error alert style that completely blocks invalid data entry until the user retries or cancels.",
+          "everydayExample": "An ATM card reader rejecting an invalid 3-digit PIN and blocking cash withdrawal",
+          "aviationExample": "Blocking a dispatcher from entering 250 passengers onto an Airbus A320 certified for only 186 seats"
         },
         {
-          "term": "Page Layout View",
-          "definition": "Displays margins, headers, and page breaks on screen exactly as they will look printed.",
-          "everydayExample": "Print preview in your browser before printing an event ticket",
-          "aviationExample": "Verifying column boundaries before printing flight releases for cockpit crew"
+          "term": "Conditional Formatting",
+          "definition": "Dynamic formatting that changes cell appearance (fill color, text color, borders, icons) automatically based on cell value or formula.",
+          "everydayExample": "A bank balance automatically turning bold red when dropping below minimum balance",
+          "aviationExample": "Highlighting departure delays exceeding 15 minutes in soft red with dark red text on the AOCC ramp dashboard"
+        },
+        {
+          "term": "3-Color Scale Heatmap",
+          "definition": "A gradient color fill calculating relative density across numeric ranges (lowest, 50th percentile, highest).",
+          "everydayExample": "A thermal imaging camera coloring cold areas green, warm yellow, and hot red",
+          "aviationExample": "Coloring baggage makeup area hold baggage weights from green (800 kg) to gold (2,500 kg) to dark red (5,800 kg)"
+        },
+        {
+          "term": "Mixed Referencing Row Formula (=>15)",
+          "definition": "A custom conditional formatting formula that locks column E () while allowing row 2 to evaluate relatively, highlighting entire table rows.",
+          "everydayExample": "Lighting up an entire row of stadium seating if any ticket in that row has VIP status",
+          "aviationExample": "Turning all 8 columns of a flight record amber when departure delay in column E exceeds 15 minutes"
+        },
+        {
+          "term": "AutoFilter (Ctrl+Shift+L)",
+          "definition": "A non-destructive data management tool that places dropdown filter arrows on table headers to isolate records by text, number, date, or color.",
+          "everydayExample": "Filtering an online shopping site to display only blue sneakers size 9 under 3000 rupees",
+          "aviationExample": "Isolating only Terminal 1 departures operating with delays exceeding 15 minutes in 2 clicks"
+        },
+        {
+          "term": "Multi-Tier Custom Sorting",
+          "definition": "Arranging data across multiple hierarchical levels (Primary Level 1, Secondary Level 2, Tertiary Level 3).",
+          "everydayExample": "Sorting students first by Grade (A to Z), then by Attendance percentage (Highest to Lowest)",
+          "aviationExample": "Sorting flight manifest by Terminal (A to Z), then by Status (Delayed first), then by Delay Minutes (Largest to Smallest)"
+        },
+        {
+          "term": "SUBTOTAL Function",
+          "definition": "An advanced aggregation formula (=SUBTOTAL(109, Range)) that calculates totals exclusively for currently visible filtered rows, ignoring hidden data.",
+          "everydayExample": "Calculating your shopping cart total only for items currently selected with checkmarks",
+          "aviationExample": "Recalculating total passenger load dynamically when filtering for Terminal 1 IndiGo departures"
         }
-      ],
-      "mnemonic": {
-        "acronym": "ACT",
-        "points": [
-          "A - Assess the task",
-          "C - Choose the right tool",
-          "T - Test the output"
-        ]
-      },
-      "btlQuestions": {
-        "Remember": "Define the core concepts of Printing and Excel Review.",
-        "Understand": "Explain the significance of Print Areas.",
-        "Apply": "Set up a large table for printing",
-        "Analyze": "Compare different methods of handling Page Break Preview.",
-        "Evaluate": "Assess the effectiveness of your approach to Printing and Excel Review.",
-        "Create": "Design a workflow utilizing Print Areas."
-      },
-      "referenceMaterial": {
-        "primary": "Fundamentals of Computers, PHI Learning",
-        "further": "Microsoft 365 Fundamentals"
-      },
-      "courseCode": "Z7AVA 26209",
-      "workedExample": {
-        "title": "Worked Example: Preparing a Dispatch Sheet for One-Page Printing",
-        "text": "A 12-column operations table overflows onto 2 pages horizontally.",
-        "everydayContext": "Fixing a wide assignment table that cuts off the last column when printed.",
-        "aviationContext": "Page Layout tab > Width: '1 page' > Height: 'Automatic' > Orientation: 'Landscape'.",
-        "verdict": "The dispatch release fits cleanly on a single clipboard page for flight crew review."
-      }
+      ]
     },
     "21": {
       "keyConcepts": [
@@ -8018,6 +7986,48 @@
         "aviationContext": "Connect to Wi-Fi → Launch Airline Corporate VPN → Verify padlock icon before opening scheduling portal.",
         "verdict": "VPN encryption guarantees passenger PII and flight data cannot be intercepted in transit."
       }
+    },
+    "Mid-Sem": {
+      "keyConcepts": [
+        {
+          "title": "Hardware & OS Revision",
+          "explanation": "Reviewing core components of a PC and Windows navigation."
+        },
+        {
+          "title": "Word Processing Mastery",
+          "explanation": "Ensuring competence in creating, formatting, and structuring Word documents."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Recap",
+          "definition": "To state again the main points of what has been taught."
+        },
+        {
+          "term": "Competence",
+          "definition": "The ability to do something successfully or efficiently."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "R&R",
+        "points": [
+          "R - Review",
+          "R - Reinforce"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Recall the steps to save a Word document as a PDF.",
+        "Understand": "Summarize the difference between hardware and software.",
+        "Apply": "Complete an interactive quiz on OS navigation.",
+        "Analyze": "Analyze your common errors when formatting tables.",
+        "Evaluate": "Assess your readiness for the practical examination.",
+        "Create": "Develop a quick-reference cheat sheet for Word shortcuts."
+      },
+      "referenceMaterial": {
+        "primary": "Session 1-6 Notes",
+        "further": "Practice Quizzes"
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "unit-1": {
       "courseCode": "Z7AVA 26209",
@@ -8790,18 +8800,18 @@
               "If bag weighed 13 kg: condition evaluates to FALSE → outputs ₹0 fee."
             ],
             "verdict": "Automates instant billing at check-in, preventing agent calculation errors."
-      },
-      "demoDataset": {
-        "title": "Dataset 2: Passenger Delay Manifest & DGCA Compensation (10 PNRs)",
-        "file": "/sample-data/02_Aviation_Logical_IF_Nested_IF_Dataset.csv",
-        "interactiveHubUrl": "/simulators/excel-demo-datasets",
-        "description": "Live demonstration of simple IF (Baggage Surcharge), Nested IF & modern IFS (Frequent Flyer Tiers), and compound AND/OR logic for DGCA Flight Delay Compensation.",
-        "keyFormulas": [
-          "=IF(C2>15, (C2-15)*500, 0) (Excess baggage fee above 15kg at ₹500/kg)",
-          "=IF(D2>=100000, \"Platinum\", IF(D2>=50000, \"Gold\", IF(D2>=25000, \"Silver\", \"Base\"))) (4-tier loyalty)",
-          "=IFS(D2>=100000, \"Platinum\", D2>=50000, \"Gold\", D2>=25000, \"Silver\", TRUE, \"Base\") (Modern IFS)",
-          "=IF(AND(E2>=360, F2=\"NO\"), \"Eligible - ₹10,000\", IF(AND(E2>=120, F2=\"NO\"), \"Eligible - Refreshments\", \"No Surcharge\")) (DGCA CAR Sec 3)"
-        ]
+          },
+          "demoDataset": {
+            "title": "Dataset 2: Passenger Delay Manifest & DGCA Compensation (10 PNRs)",
+            "file": "/sample-data/02_Aviation_Logical_IF_Nested_IF_Dataset.csv",
+            "interactiveHubUrl": "/simulators/excel-demo-datasets",
+            "description": "Live demonstration of simple IF (Baggage Surcharge), Nested IF & modern IFS (Frequent Flyer Tiers), and compound AND/OR logic for DGCA Flight Delay Compensation.",
+            "keyFormulas": [
+              "=IF(C2>15, (C2-15)*500, 0) (Excess baggage fee above 15kg at ₹500/kg)",
+              "=IF(D2>=100000, \"Platinum\", IF(D2>=50000, \"Gold\", IF(D2>=25000, \"Silver\", \"Base\"))) (4-tier loyalty)",
+              "=IFS(D2>=100000, \"Platinum\", D2>=50000, \"Gold\", D2>=25000, \"Silver\", TRUE, \"Base\") (Modern IFS)",
+              "=IF(AND(E2>=360, F2=\"NO\"), \"Eligible - ₹10,000\", IF(AND(E2>=120, F2=\"NO\"), \"Eligible - Refreshments\", \"No Surcharge\")) (DGCA CAR Sec 3)"
+            ]
           },
           "memoryTrick": "I-F-T-F: If (Condition) → Then (True action) → Fail (False action).",
           "examTip": "In chart questions: Recommend Column/Bar charts for comparing categories (e.g., airline market share), and Line charts for trends over time (e.g., hourly passenger arrivals)."
@@ -10336,48 +10346,6 @@
         ]
       }
     },
-    "Mid-Sem": {
-      "keyConcepts": [
-        {
-          "title": "Hardware & OS Revision",
-          "explanation": "Reviewing core components of a PC and Windows navigation."
-        },
-        {
-          "title": "Word Processing Mastery",
-          "explanation": "Ensuring competence in creating, formatting, and structuring Word documents."
-        }
-      ],
-      "definitions": [
-        {
-          "term": "Recap",
-          "definition": "To state again the main points of what has been taught."
-        },
-        {
-          "term": "Competence",
-          "definition": "The ability to do something successfully or efficiently."
-        }
-      ],
-      "mnemonic": {
-        "acronym": "R&R",
-        "points": [
-          "R - Review",
-          "R - Reinforce"
-        ]
-      },
-      "btlQuestions": {
-        "Remember": "Recall the steps to save a Word document as a PDF.",
-        "Understand": "Summarize the difference between hardware and software.",
-        "Apply": "Complete an interactive quiz on OS navigation.",
-        "Analyze": "Analyze your common errors when formatting tables.",
-        "Evaluate": "Assess your readiness for the practical examination.",
-        "Create": "Develop a quick-reference cheat sheet for Word shortcuts."
-      },
-      "referenceMaterial": {
-        "primary": "Session 1-6 Notes",
-        "further": "Practice Quizzes"
-      },
-      "courseCode": "Z7AVA 26209"
-    },
     "16": {
       "keyConcepts": [
         {
@@ -10658,62 +10626,72 @@
     "20": {
       "keyConcepts": [
         {
-          "title": "Print Areas",
-          "explanation": "Scaling sheets for paper"
+          "title": "Data Validation & Entry Restrictions",
+          "explanation": "Preventing human input errors at point of entry using dropdown lists, numeric bounds, and Stop Alert error dialogs."
         },
         {
-          "title": "Applied Print Areas",
-          "explanation": "Understanding how to leverage print areas in a modern aviation business environment."
+          "title": "Conditional Formatting & Dynamic Spotlights",
+          "explanation": "Automating visual intelligence with threshold highlight rules (>15 mins), 3-color baggage heatmaps, and full-row formulas (=>15)."
+        },
+        {
+          "title": "AutoFilters & Multi-Tier Custom Sorting",
+          "explanation": "Non-destructive manifest exploration using Ctrl+Shift+L, multi-level hierarchy (Terminal A-Z, Delay Descending), and SUBTOTAL formulas."
+        },
+        {
+          "title": "Forensic Spreadsheet Auditing",
+          "explanation": "Spotlighting rogue copied values with Data Validation Circle Invalid Data and managing rule conflicts."
         }
       ],
       "definitions": [
         {
-          "term": "Print Area",
-          "definition": "Explicitly selecting only the table cells you want printed, ignoring scratch notes.",
-          "everydayExample": "Printing only your study notes on the left of the page, ignoring rough math on the right",
-          "aviationExample": "Setting Print Area on the flight dispatch summary table, excluding raw data columns"
+          "term": "Data Validation",
+          "definition": "An Excel governance feature restricting cell input to allowed values, lists, ranges, or custom formulas.",
+          "everydayExample": "A smartphone app not allowing you to submit a form with an invalid phone number",
+          "aviationExample": "Restricting operating airline column strictly to approved IATA carriers (IndiGo, Air India, Akasa Air, SpiceJet, Vistara)"
         },
         {
-          "term": "Fit Sheet on One Page",
-          "definition": "Scales wide or tall spreadsheets proportionally so they don't print on 10 fragmented pages.",
-          "everydayExample": "Shrinking a wide budget sheet so it prints on a single A4 sheet",
-          "aviationExample": "Ensuring a 15-column daily turnaround log prints cleanly on a single landscape sheet"
+          "term": "Stop Alert",
+          "definition": "The strictest Data Validation error alert style that completely blocks invalid data entry until the user retries or cancels.",
+          "everydayExample": "An ATM card reader rejecting an invalid 3-digit PIN and blocking cash withdrawal",
+          "aviationExample": "Blocking a dispatcher from entering 250 passengers onto an Airbus A320 certified for only 186 seats"
         },
         {
-          "term": "Page Layout View",
-          "definition": "Displays margins, headers, and page breaks on screen exactly as they will look printed.",
-          "everydayExample": "Print preview in your browser before printing an event ticket",
-          "aviationExample": "Verifying column boundaries before printing flight releases for cockpit crew"
+          "term": "Conditional Formatting",
+          "definition": "Dynamic formatting that changes cell appearance (fill color, text color, borders, icons) automatically based on cell value or formula.",
+          "everydayExample": "A bank balance automatically turning bold red when dropping below minimum balance",
+          "aviationExample": "Highlighting departure delays exceeding 15 minutes in soft red with dark red text on the AOCC ramp dashboard"
+        },
+        {
+          "term": "3-Color Scale Heatmap",
+          "definition": "A gradient color fill calculating relative density across numeric ranges (lowest, 50th percentile, highest).",
+          "everydayExample": "A thermal imaging camera coloring cold areas green, warm yellow, and hot red",
+          "aviationExample": "Coloring baggage makeup area hold baggage weights from green (800 kg) to gold (2,500 kg) to dark red (5,800 kg)"
+        },
+        {
+          "term": "Mixed Referencing Row Formula (=>15)",
+          "definition": "A custom conditional formatting formula that locks column E () while allowing row 2 to evaluate relatively, highlighting entire table rows.",
+          "everydayExample": "Lighting up an entire row of stadium seating if any ticket in that row has VIP status",
+          "aviationExample": "Turning all 8 columns of a flight record amber when departure delay in column E exceeds 15 minutes"
+        },
+        {
+          "term": "AutoFilter (Ctrl+Shift+L)",
+          "definition": "A non-destructive data management tool that places dropdown filter arrows on table headers to isolate records by text, number, date, or color.",
+          "everydayExample": "Filtering an online shopping site to display only blue sneakers size 9 under 3000 rupees",
+          "aviationExample": "Isolating only Terminal 1 departures operating with delays exceeding 15 minutes in 2 clicks"
+        },
+        {
+          "term": "Multi-Tier Custom Sorting",
+          "definition": "Arranging data across multiple hierarchical levels (Primary Level 1, Secondary Level 2, Tertiary Level 3).",
+          "everydayExample": "Sorting students first by Grade (A to Z), then by Attendance percentage (Highest to Lowest)",
+          "aviationExample": "Sorting flight manifest by Terminal (A to Z), then by Status (Delayed first), then by Delay Minutes (Largest to Smallest)"
+        },
+        {
+          "term": "SUBTOTAL Function",
+          "definition": "An advanced aggregation formula (=SUBTOTAL(109, Range)) that calculates totals exclusively for currently visible filtered rows, ignoring hidden data.",
+          "everydayExample": "Calculating your shopping cart total only for items currently selected with checkmarks",
+          "aviationExample": "Recalculating total passenger load dynamically when filtering for Terminal 1 IndiGo departures"
         }
-      ],
-      "mnemonic": {
-        "acronym": "ACT",
-        "points": [
-          "A - Assess the task",
-          "C - Choose the right tool",
-          "T - Test the output"
-        ]
-      },
-      "btlQuestions": {
-        "Remember": "Define the core concepts of Printing and Excel Review.",
-        "Understand": "Explain the significance of Print Areas.",
-        "Apply": "Set up a large table for printing",
-        "Analyze": "Compare different methods of handling Page Break Preview.",
-        "Evaluate": "Assess the effectiveness of your approach to Printing and Excel Review.",
-        "Create": "Design a workflow utilizing Print Areas."
-      },
-      "referenceMaterial": {
-        "primary": "Fundamentals of Computers, PHI Learning",
-        "further": "Microsoft 365 Fundamentals"
-      },
-      "courseCode": "Z7AVA 26209",
-      "workedExample": {
-        "title": "Worked Example: Preparing a Dispatch Sheet for One-Page Printing",
-        "text": "A 12-column operations table overflows onto 2 pages horizontally.",
-        "everydayContext": "Fixing a wide assignment table that cuts off the last column when printed.",
-        "aviationContext": "Page Layout tab > Width: '1 page' > Height: 'Automatic' > Orientation: 'Landscape'.",
-        "verdict": "The dispatch release fits cleanly on a single clipboard page for flight crew review."
-      }
+      ]
     },
     "21": {
       "keyConcepts": [
@@ -11314,6 +11292,48 @@
         "aviationContext": "Connect to Wi-Fi → Launch Airline Corporate VPN → Verify padlock icon before opening scheduling portal.",
         "verdict": "VPN encryption guarantees passenger PII and flight data cannot be intercepted in transit."
       }
+    },
+    "Mid-Sem": {
+      "keyConcepts": [
+        {
+          "title": "Hardware & OS Revision",
+          "explanation": "Reviewing core components of a PC and Windows navigation."
+        },
+        {
+          "title": "Word Processing Mastery",
+          "explanation": "Ensuring competence in creating, formatting, and structuring Word documents."
+        }
+      ],
+      "definitions": [
+        {
+          "term": "Recap",
+          "definition": "To state again the main points of what has been taught."
+        },
+        {
+          "term": "Competence",
+          "definition": "The ability to do something successfully or efficiently."
+        }
+      ],
+      "mnemonic": {
+        "acronym": "R&R",
+        "points": [
+          "R - Review",
+          "R - Reinforce"
+        ]
+      },
+      "btlQuestions": {
+        "Remember": "Recall the steps to save a Word document as a PDF.",
+        "Understand": "Summarize the difference between hardware and software.",
+        "Apply": "Complete an interactive quiz on OS navigation.",
+        "Analyze": "Analyze your common errors when formatting tables.",
+        "Evaluate": "Assess your readiness for the practical examination.",
+        "Create": "Develop a quick-reference cheat sheet for Word shortcuts."
+      },
+      "referenceMaterial": {
+        "primary": "Session 1-6 Notes",
+        "further": "Practice Quizzes"
+      },
+      "courseCode": "Z7AVA 26209"
     },
     "unit-1": {
       "courseCode": "Z7AVA 26209",
@@ -12086,18 +12106,18 @@
               "If bag weighed 13 kg: condition evaluates to FALSE → outputs ₹0 fee."
             ],
             "verdict": "Automates instant billing at check-in, preventing agent calculation errors."
-      },
-      "demoDataset": {
-        "title": "Dataset 2: Passenger Delay Manifest & DGCA Compensation (10 PNRs)",
-        "file": "/sample-data/02_Aviation_Logical_IF_Nested_IF_Dataset.csv",
-        "interactiveHubUrl": "/simulators/excel-demo-datasets",
-        "description": "Live demonstration of simple IF (Baggage Surcharge), Nested IF & modern IFS (Frequent Flyer Tiers), and compound AND/OR logic for DGCA Flight Delay Compensation.",
-        "keyFormulas": [
-          "=IF(C2>15, (C2-15)*500, 0) (Excess baggage fee above 15kg at ₹500/kg)",
-          "=IF(D2>=100000, \"Platinum\", IF(D2>=50000, \"Gold\", IF(D2>=25000, \"Silver\", \"Base\"))) (4-tier loyalty)",
-          "=IFS(D2>=100000, \"Platinum\", D2>=50000, \"Gold\", D2>=25000, \"Silver\", TRUE, \"Base\") (Modern IFS)",
-          "=IF(AND(E2>=360, F2=\"NO\"), \"Eligible - ₹10,000\", IF(AND(E2>=120, F2=\"NO\"), \"Eligible - Refreshments\", \"No Surcharge\")) (DGCA CAR Sec 3)"
-        ]
+          },
+          "demoDataset": {
+            "title": "Dataset 2: Passenger Delay Manifest & DGCA Compensation (10 PNRs)",
+            "file": "/sample-data/02_Aviation_Logical_IF_Nested_IF_Dataset.csv",
+            "interactiveHubUrl": "/simulators/excel-demo-datasets",
+            "description": "Live demonstration of simple IF (Baggage Surcharge), Nested IF & modern IFS (Frequent Flyer Tiers), and compound AND/OR logic for DGCA Flight Delay Compensation.",
+            "keyFormulas": [
+              "=IF(C2>15, (C2-15)*500, 0) (Excess baggage fee above 15kg at ₹500/kg)",
+              "=IF(D2>=100000, \"Platinum\", IF(D2>=50000, \"Gold\", IF(D2>=25000, \"Silver\", \"Base\"))) (4-tier loyalty)",
+              "=IFS(D2>=100000, \"Platinum\", D2>=50000, \"Gold\", D2>=25000, \"Silver\", TRUE, \"Base\") (Modern IFS)",
+              "=IF(AND(E2>=360, F2=\"NO\"), \"Eligible - ₹10,000\", IF(AND(E2>=120, F2=\"NO\"), \"Eligible - Refreshments\", \"No Surcharge\")) (DGCA CAR Sec 3)"
+            ]
           },
           "memoryTrick": "I-F-T-F: If (Condition) → Then (True action) → Fail (False action).",
           "examTip": "In chart questions: Recommend Column/Bar charts for comparing categories (e.g., airline market share), and Line charts for trends over time (e.g., hourly passenger arrivals)."

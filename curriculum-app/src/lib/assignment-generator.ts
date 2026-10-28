@@ -145,7 +145,10 @@ export function generateAssignmentFromCriteria(params: {
         'excel-vlookup-mastery',
         'excel-xlookup-modern',
         'excel-pivot-tables',
-        'excel-dynamic-charts'
+        'excel-dynamic-charts',
+        'excel-data-validation',
+        'excel-conditional-formatting',
+        'excel-sorting-filtering'
       ],
       role: {
         title: 'Operations & Data Analyst',

@@ -405,6 +405,127 @@ export const CURRICULUM_SLIDES: CurriculumSlide[] = [
     proTip: 'Eliminate visual clutter! Remove heavy background gridlines and avoid 3D chart effects, which distort accurate visual comparison of bar heights.',
     exerciseApplication: 'Direct deliverable for Task 4 Visual Management: Creating the interactive Pivot Chart dashboard.'
   },
+  {
+    id: 'excel-data-validation',
+    unit: 3,
+    unitTitle: 'Unit 3: Microsoft Excel & Analytical Spreadsheets',
+    topic: 'excel',
+    subtopicId: 'data_validation_cf',
+    title: 'Data Validation: Dropdowns, Boundary Rules & Stop Alert Dialogs',
+    badge: 'DATA INTEGRITY & GOVERNANCE',
+    objective: '1. Problem: Unchecked typing errors corrupt formulas and manifests. 2. Need: Restrict inputs at entry. 3. Small Scale: In-cell airline dropdowns & seat bounds. 4. Large Scale: Master named ranges and dynamic formulas.',
+    conceptSummary: 'Data Validation prevents human typing errors at the point of entry. Uncontrolled inputs cause downstream #N/A lookups and dangerous overbooking calculations. Enforcing discrete Lists, Whole Number boundaries, and Stop Alerts guarantees that only compliant data enters the operational system.',
+    formulaSyntax: {
+      formula: 'Data Validation > Allow: List | Source: =Approved_Airlines (or =K2:K6)',
+      parts: [
+        { label: '=', desc: 'Formula trigger pointing to master reference range', color: '#10b981' },
+        { label: 'Approved_Airlines', desc: 'Named range or locked coordinates containing valid carriers', color: '#3b82f6' },
+        { label: 'Whole Number', desc: 'Bounds passengers between 1 and =E2 (Max Certified Capacity)', color: '#f59e0b' },
+        { label: 'Stop Alert', desc: 'Rejects unauthorized values and displays dialog with Retry/Cancel', color: '#ef4444' }
+      ]
+    },
+    spreadsheetPreview: {
+      formulaBar: 'Data Validation: List = $K$2:$K$6 | Whole Number: 1..222',
+      activeCell: 'B2',
+      headers: ['A: Flight_ID', 'B: Airline (Dropdown ▼)', 'C: Destination', 'D: Aircraft', 'E: Capacity', 'F: Booked Pax', 'G: Gate'],
+      rows: [
+        { values: ['6E-2101', 'IndiGo [▼]', 'DEL', 'A321neo', 222, 216, 'G04'], highlightCol: 1, highlightRow: true },
+        { values: ['AI-502', 'Air India', 'BOM', 'B777-300ER', 342, 328, 'G12'] },
+        { values: ['QP-1354', 'Akasa Air', 'GOI', 'B737-MAX8', 189, 174, 'G06'] },
+        { values: ['UK-832', 'Vistara', 'DEL', 'A320neo', 164, 158, 'G09'] }
+      ],
+      calloutText: 'Problem: Typos crash VLOOKUP. Solution: Cell B2 enforces dropdown list; Cell F2 enforces Whole Number <= E2 with a Stop Alert.'
+    },
+    stepByStep: [
+      { step: 1, action: 'Define the Problem & Operational Need', detail: 'Identify rogue entries (e.g., "Indi-go" vs "IndiGo" or 900 pax on an A320) that break automated billing and flight dispatch.' },
+      { step: 2, action: 'Implement Small-Scale List Validation', detail: 'Select B2:B10 -> Data Tab -> Data Validation -> Allow: List -> Source: "IndiGo, Air India, Akasa Air, SpiceJet, Vistara".' },
+      { step: 3, action: 'Implement Capacity Bounds & Stop Alert', detail: 'Select F2:F10 -> Allow: Whole number -> Minimum: 1, Maximum: =E2. On Error Alert tab, set Style: Stop, Title: "Capacity Exceeded".' },
+      { step: 4, action: 'Scale to Large Airport Operations', detail: 'Convert source to a Master Reference Sheet ($K$2:$K$20), use named ranges, and run "Circle Invalid Data" to audit vendor manifests.' }
+    ],
+    commonPitfall: 'Selecting "Decimal" instead of "Whole number" for passenger counts (allowing fractional passengers like 142.5), or leaving generic error messages that confuse coordinators.',
+    proTip: 'Always provide an Input Message (e.g. "Select approved IATA carrier from dropdown"). It displays a helpful tooltip the moment the cell receives focus, preventing mistakes before they occur.',
+    exerciseApplication: 'Core requirement for Module 5 and Dataset 6: Enforcing flight roster dropdowns and capacity limits.'
+  },
+  {
+    id: 'excel-conditional-formatting',
+    unit: 3,
+    unitTitle: 'Unit 3: Microsoft Excel & Analytical Spreadsheets',
+    topic: 'excel',
+    subtopicId: 'data_validation_cf',
+    title: 'Conditional Formatting: Delay Spotlights, Heatmaps & Row Formulas',
+    badge: 'VISUAL INTELLIGENCE',
+    objective: '1. Problem: Walls of numeric data hide operational delays. 2. Need: Automated visual alerts. 3. Small Scale: Highlight cells > 15 mins. 4. Large Scale: In-cell data bars, baggage heatmaps, and full-row formula =$E2>15.',
+    conceptSummary: 'Conditional Formatting dynamically restyles cells based on mathematical criteria. When an AOCC manifest contains hundreds of rows, controllers cannot scan individual numbers. Automated red highlights, 3-color baggage density heatmaps, and full-row highlighting spotlights critical delays instantly.',
+    formulaSyntax: {
+      formula: 'New Rule > Use a formula to determine which cells to format: =$E2>15',
+      parts: [
+        { label: '=$E', desc: 'Locks column E with absolute reference $ so every cell in the row checks Delay', color: '#10b981' },
+        { label: '2', desc: 'Relative row reference allowing Excel to evaluate row 2, row 3, row 4 independently', color: '#3b82f6' },
+        { label: '> 15', desc: 'Logical operator testing whether delay exceeds standard 15-minute tolerance', color: '#ef4444' }
+      ]
+    },
+    spreadsheetPreview: {
+      formulaBar: 'Rule: =$E2>15 -> Format: Light Red Fill with Dark Red Text',
+      activeCell: 'A3:H3',
+      headers: ['A: Flight_ID', 'B: Airline', 'C: Sector', 'D: Terminal', 'E: Delay_Mins', 'F: Status', 'G: Baggage_kg', 'H: OTP_%'],
+      rows: [
+        { values: ['6E-521', 'IndiGo', 'BLR-DEL', 'T1', 8, 'On-Time', 3450, '92%'] },
+        { values: ['AI-804', 'Air India', 'BLR-BOM', 'T2', 42, 'Delayed', 5820, '74%'], highlightCol: 4, highlightRow: true },
+        { values: ['6E-204', 'IndiGo', 'BLR-HYD', 'T1', 0, 'On-Time', 2410, '95%'] },
+        { values: ['QP-1332', 'Akasa Air', 'BLR-GOI', 'T1', 25, 'Delayed', 2790, '82%'], highlightCol: 4, highlightRow: true }
+      ],
+      calloutText: 'Problem: Scanning 500 rows takes minutes. Solution: Flights with delays > 15 mins instantly illuminate red across the entire row.'
+    },
+    stepByStep: [
+      { step: 1, action: 'Define the Problem & Visual Need', detail: 'A table of black-and-white numbers delays critical ATC decisions. Visual alerting leverages preattentive perception to spotlight delays in 0.2 seconds.' },
+      { step: 2, action: 'Small-Scale Highlight Rule', detail: 'Select Delay column E2:E10 -> Home -> Conditional Formatting -> Highlight Cells Rules -> Greater Than -> 15 -> Soft Red Fill.' },
+      { step: 3, action: 'Large-Scale Gradient Heatmaps & Data Bars', detail: 'Apply 3-Color Scale (Green-Yellow-Red) to hold baggage weights (G2:G50) to visualize makeup area congestion; apply In-Cell Data Bars to passenger load factor.' },
+      { step: 4, action: 'Master Technique: Full-Row Highlighting', detail: 'Select full data range A2:H50 -> New Rule -> Formula: "=$E2>15" -> Set fill. Notice column $E is locked while row 2 is relative.' }
+    ],
+    commonPitfall: 'Locking both column and row in custom formulas (e.g. =$E$2>15). This forces Excel to check only cell E2 for the entire table, causing all rows to turn red or none at all.',
+    proTip: 'Keep rule hierarchy clean in "Manage Rules". Check "Stop If True" on severe delay alerts so secondary rules (like zebra striping) do not overwrite critical emergency formatting.',
+    exerciseApplication: 'Essential for Module 6 and Dataset 7: Delay threshold monitoring and baggage load heatmaps.'
+  },
+  {
+    id: 'excel-sorting-filtering',
+    unit: 3,
+    unitTitle: 'Unit 3: Microsoft Excel & Analytical Spreadsheets',
+    topic: 'excel',
+    subtopicId: 'data_validation_cf',
+    title: 'AutoFilter (Ctrl+Shift+L) & Multi-Tier Custom Sorting',
+    badge: 'DATA EXPLORATION',
+    objective: '1. Problem: Vast chronological tables hide key records. 2. Need: Non-destructive filtering & multi-level sort. 3. Small Scale: AutoFilter Ctrl+Shift+L. 4. Large Scale: Multi-tier custom sort hierarchies and SUBTOTAL formulas.',
+    conceptSummary: 'AutoFilter and Multi-Tier Sorting provide non-destructive data exploration. Sorting a single column without the entire range severs relational links (orphan rows). AutoFilter isolates specific carriers, terminals, and delay thresholds in seconds without altering underlying data.',
+    formulaSyntax: {
+      formula: 'AutoFilter Shortcut: Ctrl+Shift+L | Dynamic Aggregate: =SUBTOTAL( 109 , E2:E500 )',
+      parts: [
+        { label: 'Ctrl+Shift+L', desc: 'Universal keyboard toggle to show or hide header filter arrows', color: '#10b981' },
+        { label: '=SUBTOTAL(', desc: 'Special calculation function that automatically ignores hidden filtered rows', color: '#3b82f6' },
+        { label: '109', desc: 'Function code for SUM (ignoring rows hidden by manual filter)', color: '#f59e0b' },
+        { label: 'E2:E500', desc: 'Range of operational numbers being dynamically summed', color: '#ec4899' }
+      ]
+    },
+    spreadsheetPreview: {
+      formulaBar: 'Filter: Terminal = "T1" AND Status = "Delayed" | Sort: Delay Mins (Desc)',
+      activeCell: 'A1:H5',
+      headers: ['A: Flight_ID ▼', 'B: Airline ▼', 'C: Sector ▼', 'D: Terminal ▼ [T1]', 'E: Delay_Mins ▼ [Z-A]', 'F: Status ▼ [Delayed]', 'G: Baggage_kg ▼'],
+      rows: [
+        { values: ['SG-401', 'SpiceJet', 'BLR-CCU', 'T1', 55, 'Delayed', 2550], highlightRow: true },
+        { values: ['QP-1332', 'Akasa Air', 'BLR-GOI', 'T1', 25, 'Delayed', 2790], highlightRow: true },
+        { values: ['QP-1405', 'Akasa Air', 'BLR-DEL', 'T1', 18, 'Delayed', 2840], highlightRow: true }
+      ],
+      calloutText: 'Problem: Scrolling through 1,000 mixed flights. Solution: AutoFilter narrows to 3 delayed T1 flights in 2 clicks; SUBTOTAL sums only visible load.'
+    },
+    stepByStep: [
+      { step: 1, action: 'Define the Problem & Exploration Need', detail: 'Chronological data makes finding specific terminal delays tedious. Sorting only one column corrupts data integrity.' },
+      { step: 2, action: 'Small-Scale AutoFilter Toggle', detail: 'Click inside table -> press Ctrl + Shift + L. Use Terminal dropdown to uncheck (Select All) and pick "T1". Use Number Filters -> Greater Than -> 15.' },
+      { step: 3, action: 'Large-Scale Multi-Tier Sort Hierarchy', detail: 'Go to Data -> Sort -> Add Level. Level 1: Terminal (A-Z). Level 2: Status (Custom List: Delayed, Cancelled, On-Time). Level 3: Delay Mins (Largest to Smallest).' },
+      { step: 4, action: 'Preserve Formulas with SUBTOTAL', detail: 'Never use standard =SUM() on filtered data (it counts hidden rows). Replace with =SUBTOTAL(109, Range) to calculate dynamic visible totals.' }
+    ],
+    commonPitfall: 'Highlighting only one column before sorting. Excel pops up "Sort Warning: Expand the Selection". If the operator clicks "Continue with current selection", flight IDs stay put while delay minutes shuffle randomly across passengers.',
+    proTip: 'Convert your raw data range into an official Excel Table with Ctrl + T. Tables automatically enable AutoFilters, banded rows, structured formula references, and dynamic Slicer controls.',
+    exerciseApplication: 'Core requirement for Module 7 and Dataset 7: Sorting and filtering multi-terminal AOCC manifests.'
+  },
 
   // ==========================================
   // UNIT 2: MICROSOFT WORD & TECHNICAL DOCUMENTATION

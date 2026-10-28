@@ -44,7 +44,7 @@ const computingSem1Weeks: WeekData[] = [
   { week: 17, semester: 1, theme: 'Data Management and Sorting', focus: 'Multi-level sorting, Basic & Advanced Filters', task: 'Filter flight manifest', rubric: 'Data Management' , label: 'Unit 3: Session 7' },
   { week: 18, semester: 1, theme: 'Visualizing Data with Charts', focus: 'Column, Bar, Pie, Line charts, Formatting', task: 'Visualize quarterly revenue', rubric: 'Visualization' , label: 'Unit 3: Session 8' },
   { week: 19, semester: 1, theme: 'Basic Data Analysis Tools', focus: 'Conditional Formatting, Remove Duplicates', task: 'Clean and validate crew records', rubric: 'Data Analysis' , label: 'Unit 3: Session 9' },
-  { week: 20, semester: 1, theme: 'Printing and Excel Review', focus: 'Page layout, Print areas, Headers', task: 'Data entry to chart creation (Assessment)', rubric: 'Overall Excel Mastery' , label: 'Unit 3: Session 10' },
+  { week: 20, semester: 1, theme: 'Data Validation, Conditional Formatting & Advanced Filters', focus: 'Input Restrictions, Dropdown Lists, Highlight Rules, Heatmaps, AutoFilter, Multi-tier Sorting', task: 'Clean, validate, conditionally format, and sort operational flight manifest', rubric: 'Data Governance & Visual Analytics' , label: 'Unit 3: Session 10' },
 
   // UNIT 4 - MS POWERPOINT
   { week: 21, semester: 1, theme: 'Introduction to PowerPoint', focus: 'Workspace, Slides, Layouts, Placeholders', task: 'Build 5-slide company intro', rubric: 'Slide Creation' , label: 'Unit 4: Session 1' },
