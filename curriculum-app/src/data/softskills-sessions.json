@@ -1,0 +1,119 @@
+[
+  {
+    "id": "sess-101",
+    "sessionNumber": 1,
+    "sessionDate": "2026-10-20",
+    "campus": "Alliance University",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "instructorName": "S D Sandarsh",
+    "durationMinutes": 40,
+    "topicId": "topic-1",
+    "topicSlug": "confidence-mindset",
+    "topicTitle": "Confidence, Mindset & First Impression",
+    "subtopicsCovered": [
+      "1.1 Facing your fears",
+      "1.2 The 30-second calm-down routine",
+      "1.3 Walking into the room"
+    ],
+    "activityTitle": "Three Words My Friends Use For Me",
+    "studentCount": 31,
+    "engagementLevel": "High",
+    "observedCefr": "A2",
+    "complementarySessionNeeded": false,
+    "evidenceLinks": [
+      "/images/hero_students_workshop.jpg"
+    ],
+    "materialsUsed": "Index cards, 30s timer, Whiteboard",
+    "notes": "Students opened up well during the three-words exercise. Several admitted hesitation regarding English grammar. Practiced entry posture three times.",
+    "loggedAt": "2026-10-20T16:30:00Z",
+    "isCompliant48h": true
+  },
+  {
+    "id": "sess-102",
+    "sessionNumber": 2,
+    "sessionDate": "2026-10-22",
+    "campus": "Alliance University",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "instructorName": "S D Sandarsh",
+    "durationMinutes": 40,
+    "topicId": "topic-1",
+    "topicSlug": "confidence-mindset",
+    "topicTitle": "Confidence, Mindset & First Impression",
+    "subtopicsCovered": [
+      "1.2 The 30-second calm-down routine",
+      "1.4 Greeting the interviewer"
+    ],
+    "activityTitle": "The 30-Second Somatic Calm-Down Drill",
+    "studentCount": 30,
+    "engagementLevel": "High",
+    "observedCefr": "B1",
+    "complementarySessionNeeded": false,
+    "evidenceLinks": [
+      "/images/better_self_awareness.jpg"
+    ],
+    "materialsUsed": "Stopwatch, Door entry simulation",
+    "notes": "Practiced handshake and seating protocol. Emphasized eye contact distribution when facing a two-person panel.",
+    "loggedAt": "2026-10-22T17:15:00Z",
+    "isCompliant48h": true
+  },
+  {
+    "id": "sess-103",
+    "sessionNumber": 3,
+    "sessionDate": "2026-10-27",
+    "campus": "Alliance University",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "instructorName": "S D Sandarsh",
+    "durationMinutes": 40,
+    "topicId": "topic-2",
+    "topicSlug": "tell-me-about-yourself",
+    "topicTitle": "Tell Me About Yourself & Personal Pitch",
+    "subtopicsCovered": [
+      "2.1 The Present-Past-Future rule",
+      "2.2 Backing up strengths with proof"
+    ],
+    "activityTitle": "Strength in a Story (The Anti-Clich\u00e9 Anchor)",
+    "studentCount": 29,
+    "engagementLevel": "High",
+    "observedCefr": "A2",
+    "complementarySessionNeeded": true,
+    "evidenceLinks": [
+      "/images/better_peer_feedback.jpg"
+    ],
+    "materialsUsed": "Worksheets, Stopwatch",
+    "notes": "Five students still recited generic buzzwords ('I am a hardworking multitasker'). Scheduled a 15-minute bridge clinic before Friday morning class.",
+    "loggedAt": "2026-10-27T18:00:00Z",
+    "isCompliant48h": true
+  },
+  {
+    "id": "sess-104",
+    "sessionNumber": 4,
+    "sessionDate": "2026-10-29",
+    "campus": "Alliance University",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "instructorName": "S D Sandarsh",
+    "durationMinutes": 40,
+    "topicId": "topic-5",
+    "topicSlug": "public-speaking-prep",
+    "topicTitle": "Public Speaking & 1-Minute Impromptu (PREP)",
+    "subtopicsCovered": [
+      "5.1 The 20-second plan",
+      "5.2 The PREP method"
+    ],
+    "activityTitle": "Absurd Art Interpretation & Storytelling",
+    "studentCount": 32,
+    "engagementLevel": "High",
+    "observedCefr": "B1",
+    "complementarySessionNeeded": false,
+    "evidenceLinks": [
+      "/images/hero_office_blue_gold.jpg"
+    ],
+    "materialsUsed": "Projector, Abstract Painting Slide, Random Topic Spinner",
+    "notes": "Tremendous engagement. Using abstract art removed fear of 'wrong answers' and got even the most hesitant students speaking for a full minute.",
+    "loggedAt": "2026-10-29T16:45:00Z",
+    "isCompliant48h": true
+  }
+]

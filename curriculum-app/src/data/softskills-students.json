@@ -1,0 +1,2370 @@
+[
+  {
+    "slNo": 1,
+    "rollNo": "PROV-ASAV-BSC-7-26-001",
+    "name": "Syed Rasul Huzaif",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Seeker",
+    "secondaryTendency": "Learner",
+    "englishScoreBaseline": {
+      "score": 220,
+      "cefr": "A2",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": false,
+      "profileUrl": "https://linkedin.com/in/syed-rasul-huzaif",
+      "photoInUniform": false,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PENDING",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 2,
+    "rollNo": "PROV-ASAV-BSC-7-26-002",
+    "name": "Pavan S",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Learner",
+    "secondaryTendency": "Leader",
+    "englishScoreBaseline": {
+      "score": 225,
+      "cefr": "A1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/pavan-s",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 3,
+    "rollNo": "PROV-ASAV-BSC-7-26-003",
+    "name": "E Keerthikha",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Leader",
+    "secondaryTendency": "Inquisitive",
+    "englishScoreBaseline": {
+      "score": 230,
+      "cefr": "B1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/e-keerthikha",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 4,
+    "rollNo": "PROV-ASAV-BSC-7-26-004",
+    "name": "Cheedella Sai Manvith",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Inquisitive",
+    "secondaryTendency": "Seeker",
+    "englishScoreBaseline": {
+      "score": 235,
+      "cefr": "A2",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/cheedella-sai-manvith",
+      "photoInUniform": false,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 5,
+    "rollNo": "PROV-ASAV-BSC-7-26-005",
+    "name": "Bandala Daiwik Vardhan",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Seeker",
+    "secondaryTendency": "Learner",
+    "englishScoreBaseline": {
+      "score": 240,
+      "cefr": "B1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": false,
+      "profileUrl": "https://linkedin.com/in/bandala-daiwik-vardhan",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 6,
+    "rollNo": "PROV-ASAV-BSC-7-26-006",
+    "name": "Eeri Bavaleena",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Learner",
+    "secondaryTendency": "Leader",
+    "englishScoreBaseline": {
+      "score": 245,
+      "cefr": "A1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/eeri-bavaleena",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PENDING",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 7,
+    "rollNo": "PROV-ASAV-BSC-7-26-007",
+    "name": "Harmain Sehar",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Leader",
+    "secondaryTendency": "Inquisitive",
+    "englishScoreBaseline": {
+      "score": 250,
+      "cefr": "A2",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/harmain-sehar",
+      "photoInUniform": false,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 8,
+    "rollNo": "PROV-ASAV-BSC-7-26-008",
+    "name": "Mahammad Saquib Kamagal",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Inquisitive",
+    "secondaryTendency": "Seeker",
+    "englishScoreBaseline": {
+      "score": 255,
+      "cefr": "A1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/mahammad-saquib-kamagal",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 9,
+    "rollNo": "PROV-ASAV-BSC-7-26-009",
+    "name": "Aarya Manish Kamerkar",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Seeker",
+    "secondaryTendency": "Learner",
+    "englishScoreBaseline": {
+      "score": 260,
+      "cefr": "B1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": false,
+      "profileUrl": "https://linkedin.com/in/aarya-manish-kamerkar",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 10,
+    "rollNo": "PROV-ASAV-BSC-7-26-010",
+    "name": "Dhyaana Vasudevan",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Learner",
+    "secondaryTendency": "Leader",
+    "englishScoreBaseline": {
+      "score": 265,
+      "cefr": "A2",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/dhyaana-vasudevan",
+      "photoInUniform": false,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 11,
+    "rollNo": "PROV-ASAV-BSC-7-26-011",
+    "name": "Siri Samhitha R",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Leader",
+    "secondaryTendency": "Inquisitive",
+    "englishScoreBaseline": {
+      "score": 270,
+      "cefr": "B1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/siri-samhitha-r",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PENDING",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 12,
+    "rollNo": "PROV-ASAV-BSC-7-26-012",
+    "name": "Dinesh S",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Inquisitive",
+    "secondaryTendency": "Seeker",
+    "englishScoreBaseline": {
+      "score": 275,
+      "cefr": "A1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/dinesh-s",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 13,
+    "rollNo": "PROV-ASAV-BSC-7-26-013",
+    "name": "Samantha James",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Seeker",
+    "secondaryTendency": "Learner",
+    "englishScoreBaseline": {
+      "score": 280,
+      "cefr": "A2",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": false,
+      "profileUrl": "https://linkedin.com/in/samantha-james",
+      "photoInUniform": false,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 14,
+    "rollNo": "PROV-ASAV-BSC-7-26-014",
+    "name": "Ratakonda Chintamanu Pavan Kumar",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Learner",
+    "secondaryTendency": "Leader",
+    "englishScoreBaseline": {
+      "score": 285,
+      "cefr": "A1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/ratakonda-chintamanu-pavan-kumar",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 15,
+    "rollNo": "PROV-ASAV-BSC-7-26-015",
+    "name": "Smruti Ranjan Rautaray",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Leader",
+    "secondaryTendency": "Inquisitive",
+    "englishScoreBaseline": {
+      "score": 290,
+      "cefr": "B1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/smruti-ranjan-rautaray",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 16,
+    "rollNo": "PROV-ASAV-BSC-7-26-016",
+    "name": "Nidhi K S",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Inquisitive",
+    "secondaryTendency": "Seeker",
+    "englishScoreBaseline": {
+      "score": 295,
+      "cefr": "A2",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/nidhi-k-s",
+      "photoInUniform": false,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PENDING",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 17,
+    "rollNo": "PROV-ASAV-BSC-7-26-017",
+    "name": "Vandana Rani",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Seeker",
+    "secondaryTendency": "Learner",
+    "englishScoreBaseline": {
+      "score": 300,
+      "cefr": "B1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": false,
+      "profileUrl": "https://linkedin.com/in/vandana-rani",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 18,
+    "rollNo": "PROV-ASAV-BSC-7-26-018",
+    "name": "Daniel Ntonja",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Learner",
+    "secondaryTendency": "Leader",
+    "englishScoreBaseline": {
+      "score": 305,
+      "cefr": "A1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/daniel-ntonja",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 19,
+    "rollNo": "PROV-ASAV-BSC-7-26-019",
+    "name": "Evlin Rose Shoji",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Leader",
+    "secondaryTendency": "Inquisitive",
+    "englishScoreBaseline": {
+      "score": 310,
+      "cefr": "A2",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/evlin-rose-shoji",
+      "photoInUniform": false,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 20,
+    "rollNo": "PROV-ASAV-BSC-7-26-020",
+    "name": "Abdul Azeez Wajid",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Inquisitive",
+    "secondaryTendency": "Seeker",
+    "englishScoreBaseline": {
+      "score": 315,
+      "cefr": "A1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/abdul-azeez-wajid",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 21,
+    "rollNo": "PROV-ASAV-BSC-7-26-021",
+    "name": "Sreeya S",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Seeker",
+    "secondaryTendency": "Learner",
+    "englishScoreBaseline": {
+      "score": 320,
+      "cefr": "B1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": false,
+      "profileUrl": "https://linkedin.com/in/sreeya-s",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PENDING",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 22,
+    "rollNo": "PROV-ASAV-BSC-7-26-022",
+    "name": "Abiga J",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Learner",
+    "secondaryTendency": "Leader",
+    "englishScoreBaseline": {
+      "score": 325,
+      "cefr": "A2",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/abiga-j",
+      "photoInUniform": false,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 23,
+    "rollNo": "PROV-ASAV-BSC-7-26-023",
+    "name": "Guru Balachandran C",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Leader",
+    "secondaryTendency": "Inquisitive",
+    "englishScoreBaseline": {
+      "score": 330,
+      "cefr": "B1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/guru-balachandran-c",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 24,
+    "rollNo": "PROV-ASAV-BSC-7-26-024",
+    "name": "Ishan Narula K",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Inquisitive",
+    "secondaryTendency": "Seeker",
+    "englishScoreBaseline": {
+      "score": 335,
+      "cefr": "A1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/ishan-narula-k",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 25,
+    "rollNo": "PROV-ASAV-BSC-7-26-025",
+    "name": "Mohammed Ayaan",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Seeker",
+    "secondaryTendency": "Learner",
+    "englishScoreBaseline": {
+      "score": 340,
+      "cefr": "A2",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": false,
+      "profileUrl": "https://linkedin.com/in/mohammed-ayaan",
+      "photoInUniform": false,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 26,
+    "rollNo": "PROV-ASAV-BSC-7-26-026",
+    "name": "Hannah Mariam Sony",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Learner",
+    "secondaryTendency": "Leader",
+    "englishScoreBaseline": {
+      "score": 345,
+      "cefr": "A1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/hannah-mariam-sony",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PENDING",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 27,
+    "rollNo": "PROV-ASAV-BSC-7-26-027",
+    "name": "Syed Samiya Azra",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Leader",
+    "secondaryTendency": "Inquisitive",
+    "englishScoreBaseline": {
+      "score": 350,
+      "cefr": "B1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/syed-samiya-azra",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 28,
+    "rollNo": "PROV-ASAV-BSC-7-26-028",
+    "name": "Shubhankar Bhowmick",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Inquisitive",
+    "secondaryTendency": "Seeker",
+    "englishScoreBaseline": {
+      "score": 355,
+      "cefr": "A2",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/shubhankar-bhowmick",
+      "photoInUniform": false,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 29,
+    "rollNo": "PROV-ASAV-BSC-7-26-029",
+    "name": "Adhil Mohammed M",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Seeker",
+    "secondaryTendency": "Learner",
+    "englishScoreBaseline": {
+      "score": 360,
+      "cefr": "B1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": false,
+      "profileUrl": "https://linkedin.com/in/adhil-mohammed-m",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 30,
+    "rollNo": "PROV-ASAV-BSC-7-26-030",
+    "name": "Srivarshini G K",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Learner",
+    "secondaryTendency": "Leader",
+    "englishScoreBaseline": {
+      "score": 365,
+      "cefr": "A1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/srivarshini-g-k",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 31,
+    "rollNo": "PROV-ASAV-BSC-7-26-031",
+    "name": "Deepika S",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Leader",
+    "secondaryTendency": "Inquisitive",
+    "englishScoreBaseline": {
+      "score": 370,
+      "cefr": "A2",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/deepika-s",
+      "photoInUniform": false,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PENDING",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 32,
+    "rollNo": "PROV-ASAV-BSC-7-26-032",
+    "name": "Avinash A",
+    "program": "B.Sc Aviation",
+    "section": "Section A",
+    "dominantTendency": "Inquisitive",
+    "secondaryTendency": "Seeker",
+    "englishScoreBaseline": {
+      "score": 375,
+      "cefr": "A1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/avinash-a",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 33,
+    "rollNo": "PROV-ASAV-BSC-7-26-033",
+    "name": "Rakshan R S",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Seeker",
+    "secondaryTendency": "Learner",
+    "englishScoreBaseline": {
+      "score": 380,
+      "cefr": "B1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": false,
+      "profileUrl": "https://linkedin.com/in/rakshan-r-s",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 34,
+    "rollNo": "PROV-ASAV-BSC-7-26-034",
+    "name": "Syed Hisham Hamza",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Learner",
+    "secondaryTendency": "Leader",
+    "englishScoreBaseline": {
+      "score": 385,
+      "cefr": "A2",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/syed-hisham-hamza",
+      "photoInUniform": false,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 35,
+    "rollNo": "PROV-ASAV-BSC-7-26-035",
+    "name": "Pranesh M Umashankar",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Leader",
+    "secondaryTendency": "Inquisitive",
+    "englishScoreBaseline": {
+      "score": 390,
+      "cefr": "B1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/pranesh-m-umashankar",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 36,
+    "rollNo": "PROV-ASAV-BSC-7-26-036",
+    "name": "Makara Bushan",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Inquisitive",
+    "secondaryTendency": "Seeker",
+    "englishScoreBaseline": {
+      "score": 395,
+      "cefr": "A1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/makara-bushan",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PENDING",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 37,
+    "rollNo": "PROV-ASAV-BSC-7-26-037",
+    "name": "Krishanu Sur",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Seeker",
+    "secondaryTendency": "Learner",
+    "englishScoreBaseline": {
+      "score": 400,
+      "cefr": "A2",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": false,
+      "profileUrl": "https://linkedin.com/in/krishanu-sur",
+      "photoInUniform": false,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 38,
+    "rollNo": "PROV-ASAV-BSC-7-26-038",
+    "name": "Bilal Abdul Majeeth",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Learner",
+    "secondaryTendency": "Leader",
+    "englishScoreBaseline": {
+      "score": 405,
+      "cefr": "A1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/bilal-abdul-majeeth",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 39,
+    "rollNo": "PROV-ASAV-BSC-7-26-039",
+    "name": "R Raffeal",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Leader",
+    "secondaryTendency": "Inquisitive",
+    "englishScoreBaseline": {
+      "score": 410,
+      "cefr": "B1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/r-raffeal",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 40,
+    "rollNo": "PROV-ASAV-BSC-7-26-040",
+    "name": "Kusuma H Reddy",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Inquisitive",
+    "secondaryTendency": "Seeker",
+    "englishScoreBaseline": {
+      "score": 415,
+      "cefr": "A2",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/kusuma-h-reddy",
+      "photoInUniform": false,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 41,
+    "rollNo": "PROV-ASAV-BSC-7-26-042",
+    "name": "Irene Anna Sabu",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Seeker",
+    "secondaryTendency": "Learner",
+    "englishScoreBaseline": {
+      "score": 420,
+      "cefr": "B1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": false,
+      "profileUrl": "https://linkedin.com/in/irene-anna-sabu",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PENDING",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 42,
+    "rollNo": "PROV-ASAV-BSC-7-26-043",
+    "name": "Sarveshwaran V",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Learner",
+    "secondaryTendency": "Leader",
+    "englishScoreBaseline": {
+      "score": 425,
+      "cefr": "A1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/sarveshwaran-v",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 43,
+    "rollNo": "PROV-ASAV-BSC-7-26-044",
+    "name": "Prathamesh Chavan",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Leader",
+    "secondaryTendency": "Inquisitive",
+    "englishScoreBaseline": {
+      "score": 430,
+      "cefr": "A2",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/prathamesh-chavan",
+      "photoInUniform": false,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 44,
+    "rollNo": "PROV-ASAV-BSC-7-26-045",
+    "name": "Pushkaran Adaikkan",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Inquisitive",
+    "secondaryTendency": "Seeker",
+    "englishScoreBaseline": {
+      "score": 435,
+      "cefr": "A1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/pushkaran-adaikkan",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 45,
+    "rollNo": "PROV-ASAV-BSC-7-26-046",
+    "name": "Daniel Jaison J",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Seeker",
+    "secondaryTendency": "Learner",
+    "englishScoreBaseline": {
+      "score": 440,
+      "cefr": "B1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": false,
+      "profileUrl": "https://linkedin.com/in/daniel-jaison-j",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 46,
+    "rollNo": "PROV-ASAV-BSC-7-26-047",
+    "name": "Sai Dakshitha V",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Learner",
+    "secondaryTendency": "Leader",
+    "englishScoreBaseline": {
+      "score": 445,
+      "cefr": "A2",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/sai-dakshitha-v",
+      "photoInUniform": false,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PENDING",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 47,
+    "rollNo": "PROV-ASAV-BSC-7-26-048",
+    "name": "Tanmay Kumar",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Leader",
+    "secondaryTendency": "Inquisitive",
+    "englishScoreBaseline": {
+      "score": 450,
+      "cefr": "B1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/tanmay-kumar",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 48,
+    "rollNo": "PROV-ASAV-BSC-7-26-049",
+    "name": "Pratham P Naik",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Inquisitive",
+    "secondaryTendency": "Seeker",
+    "englishScoreBaseline": {
+      "score": 455,
+      "cefr": "A1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/pratham-p-naik",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 49,
+    "rollNo": "PROV-ASAV-BSC-7-26-050",
+    "name": "Aryan Zinda R",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Seeker",
+    "secondaryTendency": "Learner",
+    "englishScoreBaseline": {
+      "score": 460,
+      "cefr": "A2",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": false,
+      "profileUrl": "https://linkedin.com/in/aryan-zinda-r",
+      "photoInUniform": false,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 50,
+    "rollNo": "PROV-ASAV-BSC-7-26-051",
+    "name": "V Sai Hemanth Achari",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Learner",
+    "secondaryTendency": "Leader",
+    "englishScoreBaseline": {
+      "score": 465,
+      "cefr": "A1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/v-sai-hemanth-achari",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 51,
+    "rollNo": "PROV-ASAV-BSC-7-26-052",
+    "name": "Bhumika I A",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Leader",
+    "secondaryTendency": "Inquisitive",
+    "englishScoreBaseline": {
+      "score": 470,
+      "cefr": "B1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/bhumika-i-a",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PENDING",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 52,
+    "rollNo": "PROV-ASAV-BSC-7-26-053",
+    "name": "Man Patel",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Inquisitive",
+    "secondaryTendency": "Seeker",
+    "englishScoreBaseline": {
+      "score": 475,
+      "cefr": "A2",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/man-patel",
+      "photoInUniform": false,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 53,
+    "rollNo": "PROV-ASAV-BSC-7-26-054",
+    "name": "Dudekule Baba Thanveer",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Seeker",
+    "secondaryTendency": "Learner",
+    "englishScoreBaseline": {
+      "score": 480,
+      "cefr": "B1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": false,
+      "profileUrl": "https://linkedin.com/in/dudekule-baba-thanveer",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 54,
+    "rollNo": "PROV-ASAV-BSC-7-26-055",
+    "name": "Rayapaneni Uday Kiran",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Learner",
+    "secondaryTendency": "Leader",
+    "englishScoreBaseline": {
+      "score": 485,
+      "cefr": "A1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/rayapaneni-uday-kiran",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 55,
+    "rollNo": "PROV-ASAV-BSC-7-26-057",
+    "name": "Sayyed Falak Naz Nasir",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Leader",
+    "secondaryTendency": "Inquisitive",
+    "englishScoreBaseline": {
+      "score": 490,
+      "cefr": "A2",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/sayyed-falak-naz-nasir",
+      "photoInUniform": false,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 56,
+    "rollNo": "PROV-ASAV-BSC-7-26-058",
+    "name": "Tanmay Jannapura Thejasvi",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Inquisitive",
+    "secondaryTendency": "Seeker",
+    "englishScoreBaseline": {
+      "score": 495,
+      "cefr": "A1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/tanmay-jannapura-thejasvi",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PENDING",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 57,
+    "rollNo": "PROV-ASAV-BSC-7-26-059",
+    "name": "Balla Dinesh Sai",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Seeker",
+    "secondaryTendency": "Learner",
+    "englishScoreBaseline": {
+      "score": 220,
+      "cefr": "B1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": false,
+      "profileUrl": "https://linkedin.com/in/balla-dinesh-sai",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 58,
+    "rollNo": "PROV-ASAV-BSC-7-26-060",
+    "name": "Devapathni Rashmika",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Learner",
+    "secondaryTendency": "Leader",
+    "englishScoreBaseline": {
+      "score": 225,
+      "cefr": "A2",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/devapathni-rashmika",
+      "photoInUniform": false,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 59,
+    "rollNo": "PROV-ASAV-BSC-7-26-061",
+    "name": "Vishwas Vekariya",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Leader",
+    "secondaryTendency": "Inquisitive",
+    "englishScoreBaseline": {
+      "score": 230,
+      "cefr": "B1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/vishwas-vekariya",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 60,
+    "rollNo": "PROV-ASAV-BSC-7-26-062",
+    "name": "Deepak Lakhani",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Inquisitive",
+    "secondaryTendency": "Seeker",
+    "englishScoreBaseline": {
+      "score": 235,
+      "cefr": "A1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/deepak-lakhani",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 61,
+    "rollNo": "PROV-ASAV-BSC-7-26-063",
+    "name": "Ayush Raj",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Seeker",
+    "secondaryTendency": "Learner",
+    "englishScoreBaseline": {
+      "score": 240,
+      "cefr": "A2",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": false,
+      "profileUrl": "https://linkedin.com/in/ayush-raj",
+      "photoInUniform": false,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PENDING",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 62,
+    "rollNo": "PROV-ASAV-BSC-7-26-064",
+    "name": "Madhav Gokul G",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Learner",
+    "secondaryTendency": "Leader",
+    "englishScoreBaseline": {
+      "score": 245,
+      "cefr": "A1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/madhav-gokul-g",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 63,
+    "rollNo": "PROV-ASAV-BSC-7-26-065",
+    "name": "Assoumani Salim",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Leader",
+    "secondaryTendency": "Inquisitive",
+    "englishScoreBaseline": {
+      "score": 250,
+      "cefr": "B1",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/assoumani-salim",
+      "photoInUniform": true,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  },
+  {
+    "slNo": 64,
+    "rollNo": "PROV-ASAV-BSC-7-26-066",
+    "name": "Felbin Antony Alappadan",
+    "program": "B.Sc Aviation",
+    "section": "Section B",
+    "dominantTendency": "Inquisitive",
+    "secondaryTendency": "Seeker",
+    "englishScoreBaseline": {
+      "score": 255,
+      "cefr": "A2",
+      "testDate": "2026-10-15",
+      "hasScreenshot": true
+    },
+    "englishScoreDecember": {
+      "score": null,
+      "cefr": null,
+      "testDate": null,
+      "hasScreenshot": false
+    },
+    "linkedIn": {
+      "hasProfile": true,
+      "profileUrl": "https://linkedin.com/in/felbin-antony-alappadan",
+      "photoInUniform": false,
+      "socialMediaCleaned": true
+    },
+    "groomingStatus": {
+      "week1Check": "PASS",
+      "week4Check": "PASS",
+      "notes": "Uniform compliant; neat hair."
+    },
+    "actionPlan": {
+      "nonVerbalFix": "Avoid shifting weight between feet while standing",
+      "pacingFix": "Introduce 2-second pause before answering instead of saying \"uh\"",
+      "contentFix": "Anchor strengths with one concrete team incident"
+    }
+  }
+]

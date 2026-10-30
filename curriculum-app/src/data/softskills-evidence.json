@@ -1,0 +1,50 @@
+[
+  {
+    "id": "ev-1",
+    "topicSlug": "confidence-mindset",
+    "section": "Section A",
+    "studentRollNo": "PROV-ASAV-BSC-7-26-001",
+    "studentName": "Syed Rasul Huzaif",
+    "mediaType": "photo",
+    "category": "activity",
+    "url": "/images/hero_students_workshop.jpg",
+    "caption": "Three Words My Friends Use For Me - Pair comparison and discussion drill in Section A.",
+    "uploadedAt": "2026-10-20T16:35:00Z"
+  },
+  {
+    "id": "ev-2",
+    "topicSlug": "confidence-mindset",
+    "section": "Section B",
+    "studentRollNo": "PROV-ASAV-BSC-7-26-033",
+    "studentName": "Rakshan R S",
+    "mediaType": "photo",
+    "category": "grooming",
+    "url": "/images/better_self_awareness.jpg",
+    "caption": "Grooming and posture spot-check: Proper uniform alignment and executive seating posture.",
+    "uploadedAt": "2026-10-22T17:20:00Z"
+  },
+  {
+    "id": "ev-3",
+    "topicSlug": "tell-me-about-yourself",
+    "section": "Section A",
+    "studentRollNo": "PROV-ASAV-BSC-7-26-010",
+    "studentName": "Dhyaana Vasudevan",
+    "mediaType": "video",
+    "category": "baseline_pitch",
+    "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "caption": "Week 2 Baseline Self-Introduction Video (48 seconds). Focus area: eliminate eye gaze drop at closing.",
+    "uploadedAt": "2026-10-27T18:05:00Z"
+  },
+  {
+    "id": "ev-4",
+    "topicSlug": "public-speaking-prep",
+    "section": "Section B",
+    "studentRollNo": "PROV-ASAV-BSC-7-26-049",
+    "studentName": "Pratham P Naik",
+    "mediaType": "photo",
+    "category": "activity",
+    "url": "/images/hero_office_blue_gold.jpg",
+    "caption": "Absurd Art Interpretation: Presenting an impromptu story on visual prompts in 60 seconds.",
+    "uploadedAt": "2026-10-29T16:50:00Z"
+  }
+]
