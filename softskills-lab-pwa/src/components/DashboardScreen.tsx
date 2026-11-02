@@ -85,8 +85,9 @@ export default function DashboardScreen() {
       setProgressMap(savedProgress);
     }
 
-    if (supabase) {
-      supabase.auth.getUser().then(async ({ data }) => {
+    const client = supabase;
+    if (client) {
+      client.auth.getUser().then(async ({ data }) => {
         if (data?.user) {
           setUserEmail(data.user.email || null);
           const meta = data.user.user_metadata || {};
@@ -102,8 +103,8 @@ export default function DashboardScreen() {
                   ? { has_pro_bundle: true, has_student_bundle: true }
                   : { has_student_bundle: true };
 
-              await supabase.auth.updateUser({ data: updates });
-              await supabase.from('profiles').upsert({
+              await client.auth.updateUser({ data: updates });
+              await client.from('profiles').upsert({
                 id: data.user.id,
                 email: data.user.email,
                 payment_id: rzpPaymentId,
