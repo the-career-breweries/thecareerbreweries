@@ -391,9 +391,17 @@ export default function AuthScreen() {
         </footer>
       </main>
 
-      <div className="mt-4 flex items-center gap-4 text-xs text-on-surface-variant font-mono">
+      <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-on-surface-variant font-mono text-center">
         <Link href="/privacy" className="hover:text-primary transition-colors hover:underline">
           Privacy Policy
+        </Link>
+        <span>•</span>
+        <Link href="/terms" className="hover:text-primary transition-colors hover:underline">
+          Terms &amp; Conditions
+        </Link>
+        <span>•</span>
+        <Link href="/refund" className="hover:text-primary transition-colors hover:underline">
+          Refund Policy
         </Link>
         <span>•</span>
         <span>The Career Breweries &copy; 2026</span>

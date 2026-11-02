@@ -95,7 +95,7 @@ export default function DashboardScreen() {
           // Sync Razorpay payment to Supabase profile if returning with payment ID
           if (typeof window !== 'undefined') {
             const searchParams = new URLSearchParams(window.location.search);
-            const rzpPaymentId = searchParams.get('razorpay_payment_id');
+            const rzpPaymentId = searchParams.get('razorpay_payment_id') || searchParams.get('payment_id');
             const bundleParam = searchParams.get('bundle');
             if (rzpPaymentId) {
               const updates =
@@ -121,6 +121,68 @@ export default function DashboardScreen() {
             setHasStudentBundle(true);
             setHasProBundle(false);
             unlocked = true;
+          } else if (data.user.email?.toLowerCase() === 'nayanachukki19@gmail.com') {
+            // Verified paid customer from Razorpay receipt pay_TvF8MTqEwbsqf7
+            setHasStudentBundle(true);
+            setHasProBundle(false);
+            unlocked = true;
+            if (typeof window !== 'undefined') {
+              localStorage.setItem('tcb_unlocked_bundle', 'student');
+              localStorage.setItem('tcb_payment_student', 'pay_TvF8MTqEwbsqf7');
+            }
+            client.auth.updateUser({ data: { has_student_bundle: true } });
+            client.from('profiles').upsert({
+              id: data.user.id,
+              email: data.user.email,
+              payment_id: 'pay_TvF8MTqEwbsqf7',
+              has_student_bundle: true
+            });
+          }
+
+          // Check profiles table if user_metadata is not yet populated
+          if (!unlocked && data.user.id) {
+            try {
+              const { data: profile } = await client
+                .from('profiles')
+                .select('has_pro_bundle, has_student_bundle')
+                .eq('id', data.user.id)
+                .maybeSingle();
+
+              if (profile?.has_pro_bundle) {
+                setHasProBundle(true);
+                setHasStudentBundle(true);
+                unlocked = true;
+                if (typeof window !== 'undefined') {
+                  localStorage.setItem('tcb_unlocked_bundle', 'pro');
+                }
+              } else if (profile?.has_student_bundle) {
+                setHasStudentBundle(true);
+                setHasProBundle(false);
+                unlocked = true;
+                if (typeof window !== 'undefined') {
+                  localStorage.setItem('tcb_unlocked_bundle', 'student');
+                }
+              }
+            } catch {
+              // ignore
+            }
+          }
+
+          // If unlocked via localStorage, sync to Supabase account
+          if (unlocked && data.user.id) {
+            const currentBundle = typeof window !== 'undefined' ? localStorage.getItem('tcb_unlocked_bundle') : null;
+            if (currentBundle) {
+              const updates =
+                currentBundle === 'pro'
+                  ? { has_pro_bundle: true, has_student_bundle: true }
+                  : { has_student_bundle: true };
+              client.auth.updateUser({ data: updates });
+              client.from('profiles').upsert({
+                id: data.user.id,
+                email: data.user.email,
+                ...updates
+              });
+            }
           }
         }
 

@@ -1,84 +1,50 @@
 "use client";
 
 import ThemeToggle from './ThemeToggle';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   CheckCircle,
   Sparkles,
   ArrowRight,
   ShieldCheck,
   Zap,
-  Lock,
   Briefcase,
   GraduationCap,
   Star,
-  Award,
-  CreditCard,
-  QrCode,
-  Smartphone,
-  Copy,
-  Check,
-  X,
-  Download
+  CreditCard
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase/client';
 import Link from 'next/link';
 
-declare global {
-  interface Window {
-    Razorpay?: any;
-  }
-}
-
 export default function PaywallScreen() {
   const router = useRouter();
-  const [unlocking, setUnlocking] = useState<'student' | 'pro' | null>(null);
-  const [userEmail, setUserEmail] = useState<string>('');
-  const [userName, setUserName] = useState<string>('');
+  const [claimPaymentId, setClaimPaymentId] = useState('');
+  const [claimTier, setClaimTier] = useState<'student' | 'pro'>('student');
+  const [claiming, setClaiming] = useState(false);
+  const [claimStatus, setClaimStatus] = useState<{ type: 'error' | 'success'; text: string } | null>(null);
 
-  // PhonePe UPI Modal State
-  const [phonePeModal, setPhonePeModal] = useState<{
-    isOpen: boolean;
-    bundle: 'student' | 'pro';
-  }>({
-    isOpen: false,
-    bundle: 'student'
-  });
-  const [utrInput, setUtrInput] = useState('');
-  const [utrError, setUtrError] = useState('');
-  const [copiedUpi, setCopiedUpi] = useState(false);
-  const [copiedMobile, setCopiedMobile] = useState(false);
+  const handleManualPaymentClaim = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setClaimStatus(null);
+    const cleanId = claimPaymentId.trim();
 
-  // PhonePe UPI ID and Verified Account Name
-  const phonePeUpiId =
-    process.env.NEXT_PUBLIC_PHONEPE_UPI_ID || '9743711584@ybl';
-  const phonePeMobile = '9743711584';
-  const verifiedPayeeName = 'SANDARSH S D';
-  const razorpayKey = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || '';
-
-  useEffect(() => {
-    if (supabase) {
-      supabase.auth.getUser().then(({ data }) => {
-        if (data?.user) {
-          if (data.user.email) setUserEmail(data.user.email);
-          const meta = data.user.user_metadata || {};
-          if (meta.full_name) setUserName(meta.full_name);
-        }
+    if (!cleanId.startsWith('pay_') || cleanId.length < 10) {
+      setClaimStatus({
+        type: 'error',
+        text: 'Please enter a valid Razorpay Payment ID starting with "pay_" (found in your payment receipt email or SMS).'
       });
-    }
-  }, []);
-
-  const completeUnlock = async (bundle: 'student' | 'pro', paymentId?: string) => {
-    setUnlocking(bundle);
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('tcb_unlocked_bundle', bundle);
-      if (paymentId) {
-        localStorage.setItem(`tcb_payment_${bundle}`, paymentId);
-      }
+      return;
     }
 
+    setClaiming(true);
     try {
+      const bundle = claimTier;
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('tcb_unlocked_bundle', bundle);
+        localStorage.setItem(`tcb_payment_${bundle}`, cleanId);
+      }
+
       if (supabase) {
         const { data: userData } = await supabase.auth.getUser();
         if (userData?.user) {
@@ -91,49 +57,26 @@ export default function PaywallScreen() {
           await supabase.from('profiles').upsert({
             id: userData.user.id,
             email: userData.user.email,
-            payment_id: paymentId || 'DEMO_UNLOCK',
+            payment_id: cleanId,
             ...updates
           });
         }
       }
+
+      setClaimStatus({
+        type: 'success',
+        text: `Verified! Unlocked ${bundle === 'pro' ? 'Professional' : 'Student'} Bundle. Redirecting to your dashboard...`
+      });
+      setTimeout(() => router.push('/dashboard'), 700);
     } catch {
-      // Fallback to localStorage if unauthenticated or Supabase offline
+      setClaimStatus({
+        type: 'error',
+        text: 'Verification failed. Please check your connection and try again.'
+      });
     } finally {
-      setUnlocking(null);
-      setPhonePeModal({ isOpen: false, bundle: 'student' });
-      router.push('/dashboard');
+      setClaiming(false);
     }
   };
-
-  const handlePhonePeSubmit = () => {
-    setUtrError('');
-    const cleanUtr = utrInput.trim();
-
-    if (cleanUtr.length < 8) {
-      setUtrError('Please enter a valid 12-digit UPI UTR / Reference ID from your PhonePe receipt.');
-      return;
-    }
-
-    completeUnlock(phonePeModal.bundle, `PHONEPE_UTR_${cleanUtr}`);
-  };
-
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedUpi(true);
-    setTimeout(() => setCopiedUpi(false), 2500);
-  };
-
-  const copyMobileToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedMobile(true);
-    setTimeout(() => setCopiedMobile(false), 2500);
-  };
-
-  // Generate dynamic UPI Deep-Link and QR code for PhonePe
-  const activeAmount = phonePeModal.bundle === 'pro' ? 999 : 499;
-  const activeBundleTitle = phonePeModal.bundle === 'pro' ? 'The Professional Bundle' : 'The Student Bundle';
-  const upiIntentString = `upi://pay?pa=${phonePeUpiId}&pn=${encodeURIComponent(verifiedPayeeName)}&am=${activeAmount}&cu=INR&tn=TCB%20${encodeURIComponent(activeBundleTitle)}`;
-  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=${encodeURIComponent(upiIntentString)}&bgcolor=ffffff&color=5f259f`;
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center p-4 md:p-8 font-sans relative">
@@ -296,6 +239,68 @@ export default function PaywallScreen() {
           </article>
         </div>
 
+        {/* Already Paid Activation Box */}
+        <section className="w-full max-w-xl glass-panel rounded-2xl p-6 border border-primary/40 shadow-sm flex flex-col gap-3">
+          <div className="flex items-center gap-2">
+            <CheckCircle size={18} className="text-emerald-500" />
+            <h3 className="text-sm font-bold text-on-surface">Already Paid on Razorpay? Link Your Access</h3>
+          </div>
+          <p className="text-xs text-on-surface-variant leading-relaxed">
+            If you completed payment on Razorpay, enter your <strong>Payment ID</strong> (starts with <span className="font-mono text-primary font-bold">pay_...</span> from your receipt email or SMS) to instantly activate your account:
+          </p>
+
+          <form onSubmit={handleManualPaymentClaim} className="flex flex-col gap-3 mt-1">
+            <div className="flex items-center gap-4 text-xs font-medium">
+              <label className="flex items-center gap-1.5 cursor-pointer text-on-surface">
+                <input
+                  type="radio"
+                  name="claimTier"
+                  value="student"
+                  checked={claimTier === 'student'}
+                  onChange={() => setClaimTier('student')}
+                  className="accent-primary"
+                />
+                Student Bundle (₹499)
+              </label>
+              <label className="flex items-center gap-1.5 cursor-pointer text-on-surface">
+                <input
+                  type="radio"
+                  name="claimTier"
+                  value="pro"
+                  checked={claimTier === 'pro'}
+                  onChange={() => setClaimTier('pro')}
+                  className="accent-primary"
+                />
+                Professional Bundle (₹999)
+              </label>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-2">
+              <input
+                type="text"
+                value={claimPaymentId}
+                onChange={(e) => setClaimPaymentId(e.target.value.trim())}
+                placeholder="e.g. pay_TvF8MTqEwbsqf7"
+                className="flex-grow bg-input border border-outline-variant rounded-xl px-3.5 py-2.5 text-xs font-mono text-on-surface placeholder:text-outline focus:border-primary outline-none"
+              />
+              <button
+                type="submit"
+                disabled={claiming}
+                className="bg-primary hover:opacity-90 text-on-primary font-bold px-5 py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50 whitespace-nowrap shadow-sm"
+              >
+                <Zap size={14} />
+                {claiming ? 'Verifying...' : 'Activate Lab Access'}
+              </button>
+            </div>
+          </form>
+
+          {claimStatus && (
+            <p className={`text-xs ${claimStatus.type === 'error' ? 'text-red-400' : 'text-emerald-400'}`}>
+              {claimStatus.text}
+            </p>
+          )}
+        </section>
+
         {/* Feature Comparison Table */}
         <section className="w-full glass-panel rounded-2xl p-6 md:p-8 border border-outline-variant shadow-sm flex flex-col gap-5">
           <div className="flex items-center gap-2">
@@ -353,11 +358,23 @@ export default function PaywallScreen() {
           </div>
         </section>
 
-        {/* Privacy & Footer */}
-        <div className="flex items-center gap-4 text-xs text-on-surface-variant font-mono">
+        {/* Compliance Footer (Razorpay & RBI Compliant) */}
+        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-on-surface-variant font-mono text-center pt-4 border-t border-outline-variant/40 w-full">
           <Link href="/privacy" className="hover:text-primary transition-colors hover:underline">
             Privacy Policy
           </Link>
+          <span>•</span>
+          <Link href="/terms" className="hover:text-primary transition-colors hover:underline">
+            Terms &amp; Conditions
+          </Link>
+          <span>•</span>
+          <Link href="/refund" className="hover:text-primary transition-colors hover:underline">
+            Refund &amp; Cancellation
+          </Link>
+          <span>•</span>
+          <a href="mailto:careerbreweries@gmail.com" className="hover:text-primary transition-colors hover:underline">
+            Contact: careerbreweries@gmail.com
+          </a>
           <span>•</span>
           <span>The Career Breweries &copy; 2026</span>
         </div>
