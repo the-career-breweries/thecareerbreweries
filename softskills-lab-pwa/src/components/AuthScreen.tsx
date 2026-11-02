@@ -52,6 +52,23 @@ export default function AuthScreen() {
     e.preventDefault();
     setStatusMsg(null);
 
+    const cleanEmail = email.toLowerCase().trim();
+
+    // Built-in verification test account for Razorpay Compliance / Auditors
+    if (
+      (cleanEmail === 'review@thecareerbreweries.com' || cleanEmail === 'test@thecareerbreweries.com') &&
+      password === 'TCBReview@2026'
+    ) {
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('tcb_learner_name', 'Razorpay Compliance Auditor');
+        localStorage.setItem('tcb_name_locked', 'true');
+        localStorage.removeItem('tcb_unlocked_bundle');
+      }
+      setStatusMsg({ type: 'success', text: 'Verified review account. Loading pricing & checkout...' });
+      setTimeout(() => router.push('/paywall'), 500);
+      return;
+    }
+
     if (!isLogin && !fullName.trim()) {
       setStatusMsg({
         type: 'error',
