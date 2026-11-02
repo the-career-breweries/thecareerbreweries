@@ -2,74 +2,57 @@ import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
   try {
-    const { bundle, email, name } = await req.json();
+    const { bundle } = await req.json();
 
-    const keyId = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
-    const keySecret = process.env.RAZORPAY_KEY_SECRET;
-
-    // Pricing in paise (INR)
-    // Student Bundle: ₹499 -> 49900 paise
-    // Professional Bundle: ₹999 -> 99900 paise
-    const amountInPaise = bundle === 'pro' ? 99900 : 49900;
-    const bundleLabel = bundle === 'pro' ? 'Professional Bundle' : 'Student Bundle';
-
-    // If keys not yet configured, return fallback signal for demo mode
-    if (!keyId || !keySecret) {
-      return NextResponse.json({
-        demo: true,
-        message: 'Razorpay keys not configured in .env.local. Operating in Instant Demo Mode.',
-        amount: amountInPaise,
-        currency: 'INR'
-      });
+    if (bundle !== 'student' && bundle !== 'pro') {
+      return NextResponse.json({ error: 'Invalid bundle selected' }, { status: 400 });
     }
 
-    // Generate unique receipt id
-    const receiptId = `rcpt_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
+    const amountInPaise = bundle === 'pro' ? 99900 : 49900;
+    const keyId =
+      process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID ||
+      process.env.RAZORPAY_KEY_ID ||
+      'rzp_live_TJN5b2o72kLRPP';
+    const keySecret =
+      process.env.RAZORPAY_KEY_SECRET ||
+      'xrwixrkauX7UGV3vVzG5rkXV';
 
-    // Call Razorpay Orders API directly via native fetch (Zero extra dependencies)
-    const authHeader = Buffer.from(`${keyId}:${keySecret}`).toString('base64');
+    const auth = Buffer.from(`${keyId}:${keySecret}`).toString('base64');
+
     const response = await fetch('https://api.razorpay.com/v1/orders', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Basic ${authHeader}`
+        Authorization: `Basic ${auth}`
       },
       body: JSON.stringify({
         amount: amountInPaise,
         currency: 'INR',
-        receipt: receiptId,
+        receipt: `tcb_${bundle}_${Date.now().toString().slice(-8)}`,
         notes: {
-          bundle,
-          bundleLabel,
-          customer_email: email || 'learner@tcb.edu',
-          customer_name: name || 'TCB Learner'
+          product: bundle === 'pro' ? 'The Professional Bundle' : 'The Student Bundle',
+          platform: 'TCB Softskills Lab'
         }
       })
     });
 
+    const data = await response.json();
+
     if (!response.ok) {
-      const errorData = await response.json();
-      console.error('Razorpay Order Creation Failed:', errorData);
       return NextResponse.json(
-        { error: errorData?.error?.description || 'Failed to create Razorpay order' },
+        { error: data.error?.description || 'Failed to initialize Razorpay order' },
         { status: 500 }
       );
     }
 
-    const orderData = await response.json();
-
     return NextResponse.json({
-      demo: false,
-      orderId: orderData.id,
-      amount: orderData.amount,
-      currency: orderData.currency,
+      orderId: data.id,
+      amount: data.amount,
+      currency: data.currency,
       keyId
     });
-  } catch (error: any) {
-    console.error('Create Order Error:', error);
-    return NextResponse.json(
-      { error: error?.message || 'Internal Server Error' },
-      { status: 500 }
-    );
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : 'Server error';
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

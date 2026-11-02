@@ -1,7 +1,7 @@
 "use client";
 
 import ThemeToggle from './ThemeToggle';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   CheckCircle,
   Sparkles,
@@ -11,18 +11,171 @@ import {
   Briefcase,
   GraduationCap,
   Star,
-  CreditCard
+  CreditCard,
+  Loader2
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase/client';
 import Link from 'next/link';
 
+declare global {
+  interface Window {
+    Razorpay?: any;
+  }
+}
+
+const loadRazorpayScript = (): Promise<boolean> => {
+  return new Promise((resolve) => {
+    if (typeof window === 'undefined') return resolve(false);
+    if (window.Razorpay) return resolve(true);
+    const existing = document.getElementById('razorpay-checkout-script');
+    if (existing) return resolve(true);
+
+    const script = document.createElement('script');
+    script.id = 'razorpay-checkout-script';
+    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+    script.async = true;
+    script.onload = () => resolve(true);
+    script.onerror = () => resolve(false);
+    document.body.appendChild(script);
+  });
+};
+
 export default function PaywallScreen() {
   const router = useRouter();
+  const [checkoutLoading, setCheckoutLoading] = useState<'student' | 'pro' | null>(null);
+  const [userEmail, setUserEmail] = useState('');
+  const [userName, setUserName] = useState('');
+
+  // Already Paid activation box state
   const [claimPaymentId, setClaimPaymentId] = useState('');
   const [claimTier, setClaimTier] = useState<'student' | 'pro'>('student');
   const [claiming, setClaiming] = useState(false);
   const [claimStatus, setClaimStatus] = useState<{ type: 'error' | 'success'; text: string } | null>(null);
+
+  useEffect(() => {
+    // Preload Razorpay checkout script in the background
+    loadRazorpayScript();
+
+    if (supabase) {
+      supabase.auth.getUser().then(({ data }) => {
+        if (data?.user) {
+          if (data.user.email) setUserEmail(data.user.email);
+          const meta = data.user.user_metadata || {};
+          if (meta.full_name) setUserName(meta.full_name);
+        }
+      });
+    }
+
+    if (typeof window !== 'undefined') {
+      const storedName = localStorage.getItem('tcb_learner_name');
+      if (storedName && !userName) setUserName(storedName);
+    }
+  }, [userName]);
+
+  const handleRazorpayCheckout = async (bundle: 'student' | 'pro') => {
+    setCheckoutLoading(bundle);
+    const scriptLoaded = await loadRazorpayScript();
+
+    try {
+      // 1. Create order on server
+      const res = await fetch('/api/razorpay/create-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ bundle })
+      });
+
+      const orderData = await res.json();
+
+      if (!res.ok || !orderData.orderId) {
+        throw new Error(orderData.error || 'Could not initialize order');
+      }
+
+      if (!scriptLoaded || typeof window === 'undefined' || !window.Razorpay) {
+        // Fallback to hosted payment page if script blocked by browser extension
+        window.location.href =
+          bundle === 'pro'
+            ? 'https://rzp.io/rzp/tcb-pro-bundle'
+            : 'https://rzp.io/rzp/tcb-student-bundle';
+        return;
+      }
+
+      const bundleTitle = bundle === 'pro' ? 'The Professional Bundle' : 'The Student Bundle';
+
+      const options = {
+        key: orderData.keyId || process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || 'rzp_live_TJN5b2o72kLRPP',
+        amount: orderData.amount,
+        currency: orderData.currency || 'INR',
+        name: 'The Career Breweries',
+        description: `TCB Softskills Lab - ${bundleTitle}`,
+        image: 'https://tcb-softskills-lab.vercel.app/tcb-logo.png',
+        order_id: orderData.orderId,
+        prefill: {
+          name: userName || 'TCB Learner',
+          email: userEmail || '',
+          contact: ''
+        },
+        notes: {
+          bundle,
+          platform: 'TCB Softskills Lab'
+        },
+        theme: {
+          color: '#0C2340'
+        },
+        modal: {
+          ondismiss: function () {
+            setCheckoutLoading(null);
+          }
+        },
+        handler: async function (response: {
+          razorpay_payment_id: string;
+          razorpay_order_id?: string;
+          razorpay_signature?: string;
+        }) {
+          const paymentId = response.razorpay_payment_id;
+          if (typeof window !== 'undefined') {
+            localStorage.setItem('tcb_unlocked_bundle', bundle);
+            localStorage.setItem(`tcb_payment_${bundle}`, paymentId);
+          }
+
+          if (supabase) {
+            try {
+              const { data: userData } = await supabase.auth.getUser();
+              if (userData?.user) {
+                const updates =
+                  bundle === 'pro'
+                    ? { has_pro_bundle: true, has_student_bundle: true }
+                    : { has_student_bundle: true };
+
+                await supabase.auth.updateUser({ data: updates });
+                await supabase.from('profiles').upsert({
+                  id: userData.user.id,
+                  email: userData.user.email,
+                  payment_id: paymentId,
+                  ...updates
+                });
+              }
+            } catch {
+              // LocalStorage ensures access even if background profile update delays
+            }
+          }
+
+          setCheckoutLoading(null);
+          router.push('/dashboard');
+        }
+      };
+
+      const rzpInstance = new window.Razorpay(options);
+      rzpInstance.open();
+    } catch (err) {
+      console.error('Razorpay Modal Error:', err);
+      // Fallback to hosted page if server call fails
+      window.location.href =
+        bundle === 'pro'
+          ? 'https://rzp.io/rzp/tcb-pro-bundle'
+          : 'https://rzp.io/rzp/tcb-student-bundle';
+    }
+  };
 
   const handleManualPaymentClaim = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,7 +185,7 @@ export default function PaywallScreen() {
     if (!cleanId.startsWith('pay_') || cleanId.length < 10) {
       setClaimStatus({
         type: 'error',
-        text: 'Please enter a valid Razorpay Payment ID starting with "pay_" (found in your payment receipt email or SMS).'
+        text: 'Please enter a valid Razorpay Payment ID starting with "pay_" (found in your receipt email or SMS).'
       });
       return;
     }
@@ -160,14 +313,25 @@ export default function PaywallScreen() {
             </div>
 
             <div className="flex flex-col gap-2.5">
-              <a
-                href="https://rzp.io/rzp/tcb-student-bundle"
-                className="w-full bg-[#0C2340] hover:bg-[#1A365D] text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-200 cursor-pointer shadow-md flex items-center justify-center gap-2 text-center"
+              <button
+                type="button"
+                disabled={checkoutLoading !== null}
+                onClick={() => handleRazorpayCheckout('student')}
+                className="w-full bg-[#0C2340] hover:bg-[#1A365D] text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-200 cursor-pointer shadow-md flex items-center justify-center gap-2 text-center disabled:opacity-60"
               >
-                <CreditCard size={18} />
-                Pay ₹499 via Razorpay / UPI / Cards
-                <ArrowRight size={16} />
-              </a>
+                {checkoutLoading === 'student' ? (
+                  <>
+                    <Loader2 size={18} className="animate-spin" />
+                    Opening Checkout Modal...
+                  </>
+                ) : (
+                  <>
+                    <CreditCard size={18} />
+                    Pay ₹499 via UPI QR / Cards
+                    <ArrowRight size={16} />
+                  </>
+                )}
+              </button>
             </div>
           </article>
 
@@ -227,14 +391,25 @@ export default function PaywallScreen() {
             </div>
 
             <div className="flex flex-col gap-2.5">
-              <a
-                href="https://rzp.io/rzp/tcb-pro-bundle"
-                className="w-full bg-primary hover:opacity-90 text-on-primary font-bold py-3.5 px-6 rounded-xl transition-all duration-200 cursor-pointer shadow-md flex items-center justify-center gap-2 text-center"
+              <button
+                type="button"
+                disabled={checkoutLoading !== null}
+                onClick={() => handleRazorpayCheckout('pro')}
+                className="w-full bg-primary hover:opacity-90 text-on-primary font-bold py-3.5 px-6 rounded-xl transition-all duration-200 cursor-pointer shadow-md flex items-center justify-center gap-2 text-center disabled:opacity-60"
               >
-                <CreditCard size={18} />
-                Pay ₹999 via Razorpay / UPI / Cards
-                <ArrowRight size={16} />
-              </a>
+                {checkoutLoading === 'pro' ? (
+                  <>
+                    <Loader2 size={18} className="animate-spin" />
+                    Opening Checkout Modal...
+                  </>
+                ) : (
+                  <>
+                    <CreditCard size={18} />
+                    Pay ₹999 via UPI QR / Cards
+                    <ArrowRight size={16} />
+                  </>
+                )}
+              </button>
             </div>
           </article>
         </div>
