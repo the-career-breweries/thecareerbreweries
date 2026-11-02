@@ -292,20 +292,21 @@ export default function PaywallScreen() {
             </div>
 
             <div className="flex flex-col gap-2.5">
+              <a
+                href="https://rzp.io/rzp/tcb-pro-bundle"
+                className="w-full bg-primary hover:opacity-90 text-on-primary font-bold py-3.5 px-6 rounded-xl transition-all duration-200 cursor-pointer shadow-md flex items-center justify-center gap-2 text-center"
+              >
+                <CreditCard size={18} />
+                Pay ₹999 via Razorpay / UPI / Cards
+                <ArrowRight size={16} />
+              </a>
               <button
                 onClick={() => setPhonePeModal({ isOpen: true, bundle: 'pro' })}
                 disabled={unlocking !== null}
-                className="w-full bg-[#5F259F] hover:bg-[#4D1E82] text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-200 cursor-pointer shadow-md flex items-center justify-center gap-2"
+                className="text-xs text-on-surface-variant hover:text-primary transition-colors text-center py-1 font-mono flex items-center justify-center gap-1 cursor-pointer"
               >
-                <Smartphone size={18} />
-                Pay ₹999 via PhonePe / UPI QR
-                <ArrowRight size={16} />
-              </button>
-              <button
-                onClick={() => completeUnlock('pro')}
-                className="text-xs text-on-surface-variant hover:text-primary transition-colors text-center py-1 font-mono"
-              >
-                Instant Workshop Demo Unlock →
+                <Smartphone size={13} />
+                Or Pay via Direct PhonePe / QR
               </button>
             </div>
           </article>
