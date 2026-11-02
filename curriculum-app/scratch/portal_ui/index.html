@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AUERP DSA Marks Entry Portal - Alliance University</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none; 
+      margin: 0; 
+    }
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans selection:bg-amber-500 selection:text-slate-900">
+
+  <!-- TOP NAVBAR -->
+  <header class="bg-slate-850 border-b border-slate-800 px-6 py-3.5 sticky top-0 z-40 backdrop-blur-md bg-opacity-95 shadow-md">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+      
+      <!-- Brand & Faculty -->
+      <div class="flex items-center gap-3.5">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-600 to-amber-400 flex items-center justify-center shadow-lg shadow-amber-500/20 text-slate-950 font-black text-xl">
+          AU
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-base font-bold text-slate-100 tracking-tight">Alliance University - Aviation</h1>
+            <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">DSA Portal</span>
+          </div>
+          <p class="text-xs text-slate-400 flex items-center gap-2">
+            <span>Faculty: <strong class="text-slate-200">MR. S. D. SANDARSH</strong></span>
+            <span>•</span>
+            <span>Academic Year: <strong class="text-slate-200">2026-2027</strong></span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="flex items-center gap-3">
+        <button id="btnSyncAUERP" onclick="openSyncModal()" class="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-semibold text-xs shadow-lg shadow-emerald-600/25 transition active:scale-95">
+          <i data-lucide="cloud-upload" class="w-4 h-4"></i>
+          <span>Sync to AUERP</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <main class="max-w-7xl mx-auto w-full px-6 py-6 flex-1 flex flex-col gap-6">
+
+    <!-- STEP 1: SELECT SUBJECT -->
+    <section class="bg-slate-850 p-4 rounded-3xl border border-slate-800 shadow-sm flex flex-col gap-3">
+      <div class="flex items-center justify-between text-xs font-semibold text-slate-400">
+        <span class="uppercase tracking-wider flex items-center gap-2 text-slate-300">
+          <i data-lucide="book-open" class="w-4 h-4 text-amber-400"></i>
+          <span>Step 1: Select Subject</span>
+        </span>
+        <span id="overallProgressText" class="text-amber-400 font-mono font-bold">0 / 146 Graded</span>
+      </div>
+
+      <!-- Two Big Primary Subject Cards -->
+      <div id="courseCardsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Optional Class Filter Pills -->
+      <div class="flex items-center justify-between flex-wrap gap-2 pt-2 border-t border-slate-800/80 text-xs">
+        <div class="flex items-center gap-2 text-slate-400">
+          <span>Filter Class:</span>
+          <div id="classFilterPills" class="flex items-center gap-1.5 flex-wrap">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+        <span class="text-[11px] text-slate-500">Search matches any student in this subject automatically</span>
+      </div>
+    </section>
+
+    <!-- STEP 2: SEARCH STUDENT -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
+      
+      <!-- Instant Search for Booklets -->
+      <div class="lg:col-span-8 relative">
+        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+          <i data-lucide="search" class="w-5 h-5 text-amber-400"></i>
+        </div>
+        <input 
+          type="text" 
+          id="searchInput" 
+          oninput="handleSearch(this.value)" 
+          onkeydown="handleSearchKeydown(event)"
+          placeholder="Step 2: Type student name or roll number (e.g. 'Hamza', 'Bilal', '034', '038')... [Press Enter to jump to Q1]" 
+          class="w-full bg-slate-850 hover:bg-slate-800 focus:bg-slate-800 text-slate-100 placeholder-slate-400 text-sm font-medium rounded-2xl pl-11 pr-24 py-3.5 border-2 border-slate-700/80 focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 outline-none transition shadow-sm"
+        >
+        <div class="absolute inset-y-0 right-0 pr-3 flex items-center gap-1.5 pointer-events-none">
+          <kbd class="px-2 py-0.5 text-[10px] font-mono bg-slate-750 text-slate-300 rounded border border-slate-600">Enter ↵</kbd>
+          <span class="text-xs text-slate-500">jump to Q1</span>
+        </div>
+      </div>
+
+      <!-- View Mode & Navigation -->
+      <div class="lg:col-span-4 flex items-center justify-between lg:justify-end gap-3">
+        <div class="inline-flex rounded-xl bg-slate-800/90 p-1 border border-slate-700">
+          <button id="btnViewCard" onclick="setViewMode('card')" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 bg-amber-500 text-slate-950 shadow">
+            <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+            <span>Grading Card</span>
+          </button>
+          <button id="btnViewTable" onclick="setViewMode('table')" class="px-3.5 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-1.5 text-slate-400 hover:text-slate-200">
+            <i data-lucide="table" class="w-3.5 h-3.5"></i>
+            <span>Roster Table</span>
+          </button>
+        </div>
+
+        <div class="flex items-center gap-1">
+          <button onclick="navigateStudent(-1)" title="Previous Student" class="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition active:scale-95">
+            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+          </button>
+          <button onclick="navigateStudent(1)" title="Next Student" class="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition active:scale-95">
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- STEP 3: ASSIGN MARKS (CARD VIEW) -->
+    <section id="cardViewContainer" class="flex flex-col gap-6">
+      
+      <!-- Current Student Card -->
+      <div class="bg-slate-850 border border-slate-800 rounded-3xl p-6 shadow-xl relative overflow-hidden">
+        
+        <!-- Header Info -->
+        <div class="flex flex-wrap items-start justify-between gap-4 pb-6 border-b border-slate-800/80">
+          <div class="flex items-center gap-4">
+            <div id="studentAvatar" class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-black text-xl shadow-inner">
+              SH
+            </div>
+            <div>
+              <div class="flex items-center gap-3">
+                <h2 id="studentName" class="text-xl font-black text-slate-100 tracking-tight">Student Name</h2>
+                <span id="studentClassBadge" class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                  Section B
+                </span>
+                <span id="studentStatusBadge" class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-400 border border-slate-700">
+                  Not Graded
+                </span>
+              </div>
+              <p class="text-xs text-slate-400 font-mono mt-1 flex items-center gap-2">
+                <span>Reg: <strong id="studentRegNo" class="text-slate-200">PROV/ASAV/...</strong></span>
+                <span>•</span>
+                <span>Roll No: <strong id="studentSlNo" class="text-slate-200">1</strong></span>
+                <span>•</span>
+                <span id="studentSubjectBadge" class="text-amber-400/90 font-sans">Communicative English</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Total Marks & Absent Button -->
+          <div class="flex items-center gap-4">
+            <div class="flex flex-col items-end">
+              <span class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">Total Scored</span>
+              <div class="flex items-baseline gap-1 mt-0.5">
+                <span id="displayTotalMarks" class="text-3xl font-black font-mono text-amber-400">0.0</span>
+                <span class="text-sm font-semibold text-slate-500">/ 50.0</span>
+              </div>
+            </div>
+            
+            <button id="btnAbsentToggle" onclick="toggleAbsent()" class="px-3.5 py-2 rounded-xl text-xs font-semibold border border-rose-500/30 text-rose-400 hover:bg-rose-500/10 transition active:scale-95 flex items-center gap-1.5">
+              <i data-lucide="user-x" class="w-3.5 h-3.5"></i>
+              <span>Mark Absent</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Questions Grid -->
+        <div class="mt-6">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
+              <i data-lucide="list-checks" class="w-4 h-4 text-amber-400"></i>
+              <span>Assign Question Marks (Use Tab / Enter to navigate):</span>
+            </h3>
+            <span class="text-xs text-slate-400" id="answeredCountBadge">0 of 12 Answered</span>
+          </div>
+
+          <div id="questionsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Bottom Actions -->
+        <div class="mt-8 pt-5 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-400">
+          <div class="flex items-center gap-4 flex-wrap">
+            <span class="flex items-center gap-1">
+              <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-700 font-mono text-[10px]">Tab</kbd> Next Question
+            </span>
+            <span class="flex items-center gap-1">
+              <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-700 font-mono text-[10px]">Enter</kbd> Save & Next Student
+            </span>
+            <span class="flex items-center gap-1">
+              <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-700 font-mono text-[10px]">Alt+A</kbd> Toggle Absent
+            </span>
+            <span class="flex items-center gap-1 text-emerald-400">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Autosaved locally on every keystroke
+            </span>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <button onclick="clearCurrentMarks()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-slate-200 transition">
+              Clear Marks
+            </button>
+            <button onclick="saveAndNextStudent()" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold shadow-md transition active:scale-95 flex items-center gap-1.5">
+              <span>Save & Next Student</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- TABLE VIEW (FULL ROSTER MODE) -->
+    <section id="tableViewContainer" class="hidden bg-slate-850 border border-slate-800 rounded-3xl overflow-hidden shadow-xl">
+      <div class="p-4 border-b border-slate-800 flex items-center justify-between flex-wrap gap-2">
+        <h3 class="text-sm font-bold text-slate-200" id="tableHeaderTitle">Full Subject Roster</h3>
+        <span id="tableCountBadge" class="text-xs text-slate-400">Showing 82 students</span>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="bg-slate-800/60 text-slate-400 border-b border-slate-800 uppercase tracking-wider font-semibold">
+              <th class="py-3 px-4 w-12 text-center">Sl</th>
+              <th class="py-3 px-4">Student Name</th>
+              <th class="py-3 px-4">Class</th>
+              <th class="py-3 px-4">Register No</th>
+              <th class="py-3 px-4 text-center">Status</th>
+              <th class="py-3 px-4 text-center">Total (50M)</th>
+              <th class="py-3 px-4 text-right">Action</th>
+            </tr>
+          </thead>
+          <tbody id="rosterTableBody" class="divide-y divide-slate-800/60 text-slate-200">
+            <!-- Rendered dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SYNC CONFIRMATION MODAL -->
+  <div id="syncModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-slate-850 border border-slate-700/80 rounded-3xl max-w-lg w-full p-6 shadow-2xl relative">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center">
+            <i data-lucide="cloud-upload" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-slate-100">Sync Marks to AUERP</h3>
+            <p id="syncModalSubtitle" class="text-xs text-slate-400">Subject Sync</p>
+          </div>
+        </div>
+        <button onclick="closeSyncModal()" class="text-slate-400 hover:text-slate-200 p-1 rounded-lg">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="py-5 flex flex-col gap-4 text-sm text-slate-300">
+        <p class="text-xs leading-relaxed text-slate-400">
+          This will inject marks into the official AUERP Excel templates and automate the portal upload in Draft mode.
+        </p>
+
+        <div class="space-y-2">
+          <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Select Cohort to Upload:</label>
+          <div id="syncCohortSelector" class="flex flex-col gap-2 text-xs">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Sync Progress Console -->
+        <div id="syncProgressContainer" class="hidden space-y-2">
+          <div class="flex items-center gap-2 text-xs text-amber-400 font-semibold">
+            <div class="w-3.5 h-3.5 border-2 border-amber-400 border-t-transparent rounded-full animate-spin"></div>
+            <span id="syncProgressText">Uploading to AUERP...</span>
+          </div>
+          <div id="syncLog" class="p-3 bg-slate-950 text-slate-300 font-mono text-[11px] rounded-xl max-h-32 overflow-y-auto border border-slate-800"></div>
+        </div>
+
+        <!-- Result Preview -->
+        <div id="syncScreenshotPreview" class="hidden">
+          <span class="text-[11px] text-emerald-400 font-semibold block mb-1">AUERP Confirmation Screenshot:</span>
+          <img id="syncResultImg" class="w-full rounded-xl border border-slate-700 shadow-md max-h-48 object-cover object-top" src="" alt="AUERP Result">
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-slate-800 flex items-center justify-end gap-3">
+        <button id="btnCancelSync" onclick="closeSyncModal()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition">
+          Close
+        </button>
+        <button id="btnExecuteSync" onclick="executeSync()" class="px-5 py-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-600/30 transition flex items-center gap-2 active:scale-95">
+          <i data-lucide="send" class="w-4 h-4"></i>
+          <span>Upload to AUERP</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT APPLICATION LOGIC -->
+  <script>
+    // State
+    let coursesData = [];
+    let rostersData = {};
+    let currentCourseId = "english"; // 'english' or 'computing'
+    let currentClassFilter = "All Classes";
+    let searchFilter = "";
+    let currentStudentIndex = 0;
+    let viewMode = 'card'; // 'card' or 'table'
+
+    // Initialize
+    async function init() {
+      lucide.createIcons();
+      await loadCourses();
+      setupKeyboardShortcuts();
+    }
+
+    async function loadCourses() {
+      try {
+        const res = await fetch('/api/courses');
+        const data = await res.json();
+        coursesData = data.courses;
+        rostersData = data.rosters;
+
+        renderCourseCards();
+        renderClassPills();
+        renderCurrentStudent();
+        renderTable();
+        updateOverallProgress();
+      } catch (e) {
+        console.error("Error loading courses:", e);
+      }
+    }
+
+    function renderCourseCards() {
+      const container = document.getElementById('courseCardsContainer');
+      container.innerHTML = coursesData.map(c => {
+        const isActive = c.id === currentCourseId;
+        const activeClass = isActive 
+          ? 'bg-amber-500 text-slate-950 shadow-lg shadow-amber-500/20 ring-2 ring-amber-400 font-bold' 
+          : 'bg-slate-800/80 hover:bg-slate-800 text-slate-300 border border-slate-700/70';
+
+        const iconName = c.id === 'english' ? 'book-open' : 'laptop';
+        
+        return `
+          <button onclick="selectCourse('${c.id}')" class="p-4 rounded-2xl transition text-left flex items-center justify-between gap-4 ${activeClass} active:scale-[0.99]">
+            <div class="flex items-center gap-3.5">
+              <div class="w-10 h-10 rounded-xl ${isActive ? 'bg-slate-950 text-amber-400' : 'bg-slate-700/60 text-slate-300'} flex items-center justify-center">
+                <i data-lucide="${iconName}" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="text-sm font-black tracking-tight">${c.name}</h3>
+                <p class="text-[11px] opacity-80 font-mono mt-0.5">${c.code} • ${c.questions_count} Questions</p>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="text-xs px-2.5 py-1 rounded-xl ${isActive ? 'bg-slate-950/20 text-slate-950' : 'bg-slate-700 text-slate-200'} font-mono font-black">
+                ${c.graded_count} / ${c.total_students} Graded
+              </span>
+            </div>
+          </button>
+        `;
+      }).join('');
+      lucide.createIcons();
+    }
+
+    function renderClassPills() {
+      const course = coursesData.find(c => c.id === currentCourseId);
+      if (!course) return;
+
+      const container = document.getElementById('classFilterPills');
+      container.innerHTML = course.classes.map(cl => {
+        const isActive = cl === currentClassFilter;
+        const activeClass = isActive 
+          ? 'bg-amber-400 text-slate-950 font-bold' 
+          : 'bg-slate-800 hover:bg-slate-750 text-slate-400 hover:text-slate-200 border border-slate-700/60';
+
+        return `
+          <button onclick="selectClassFilter('${cl}')" class="px-2.5 py-1 rounded-lg text-xs transition ${activeClass}">
+            ${cl}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function selectCourse(courseId) {
+      currentCourseId = courseId;
+      currentClassFilter = "All Classes";
+      currentStudentIndex = 0;
+      renderCourseCards();
+      renderClassPills();
+      renderCurrentStudent();
+      renderTable();
+    }
+
+    function selectClassFilter(cl) {
+      currentClassFilter = cl;
+      currentStudentIndex = 0;
+      renderClassPills();
+      renderCurrentStudent();
+      renderTable();
+    }
+
+    function updateOverallProgress() {
+      let total = 0;
+      let graded = 0;
+      coursesData.forEach(c => {
+        total += c.total_students;
+        graded += c.graded_count;
+      });
+      const pct = total > 0 ? Math.round((graded / total) * 100) : 0;
+      document.getElementById('overallProgressText').innerText = `${graded} / ${total} Graded (${pct}%)`;
+    }
+
+    // Filter Logic
+    function getFilteredStudents() {
+      const roster = rostersData[currentCourseId] || [];
+      if (!searchFilter) {
+        if (currentClassFilter === "All Classes") return roster;
+        return roster.filter(s => s.class_label === currentClassFilter);
+      }
+
+      // Search matches ANY student across the whole subject
+      return roster.filter(s => {
+        const nameMatch = s.name.toLowerCase().includes(searchFilter);
+        const regMatch = s.reg_no.toLowerCase().includes(searchFilter);
+        const rollMatch = s.reg_no.toLowerCase().endsWith(searchFilter) || String(s.sl_no) === searchFilter;
+        return nameMatch || regMatch || rollMatch;
+      });
+    }
+
+    function handleSearch(val) {
+      searchFilter = val.trim().toLowerCase();
+      currentStudentIndex = 0;
+      renderCurrentStudent();
+      renderTable();
+    }
+
+    function handleSearchKeydown(e) {
+      if (e.key === 'Enter' || e.key === 'ArrowDown') {
+        const filtered = getFilteredStudents();
+        if (filtered.length > 0) {
+          e.preventDefault();
+          setViewMode('card');
+          setTimeout(() => {
+            const first = document.querySelector(`[data-index="0"]`);
+            if (first) {
+              first.focus();
+              first.select();
+            }
+          }, 50);
+        }
+      }
+    }
+
+    function renderCurrentStudent() {
+      const course = coursesData.find(c => c.id === currentCourseId);
+      const filtered = getFilteredStudents();
+
+      if (filtered.length === 0) {
+        document.getElementById('studentName').innerText = "No student matches search";
+        document.getElementById('studentRegNo').innerText = "—";
+        document.getElementById('studentSlNo').innerText = "—";
+        document.getElementById('studentClassBadge').innerText = "—";
+        document.getElementById('studentAvatar').innerText = "—";
+        document.getElementById('questionsGrid').innerHTML = "<div class='col-span-full py-8 text-center text-slate-500 text-xs'>No student found. Try searching by first name, surname, or roll number.</div>";
+        document.getElementById('displayTotalMarks').innerText = "0.0";
+        return;
+      }
+
+      if (currentStudentIndex >= filtered.length) currentStudentIndex = 0;
+      if (currentStudentIndex < 0) currentStudentIndex = filtered.length - 1;
+
+      const s = filtered[currentStudentIndex];
+      const questions = course ? course.questions : [];
+
+      document.getElementById('studentName').innerText = s.name;
+      document.getElementById('studentRegNo').innerText = s.reg_no;
+      document.getElementById('studentSlNo').innerText = s.sl_no;
+      document.getElementById('studentClassBadge').innerText = s.class_label || "B.Sc";
+      document.getElementById('studentSubjectBadge').innerText = course ? course.name : "";
+
+      // Initials Avatar
+      const parts = s.name.split(' ');
+      const initials = parts.length > 1 ? (parts[0][0] + parts[parts.length-1][0]) : s.name.substring(0, 2);
+      document.getElementById('studentAvatar').innerText = initials.toUpperCase();
+
+      // Status Badge
+      const badge = document.getElementById('studentStatusBadge');
+      if (s.is_absent) {
+        badge.className = "text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/20";
+        badge.innerText = "Absent";
+      } else if (s.graded) {
+        badge.className = "text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20";
+        badge.innerText = "Graded";
+      } else {
+        badge.className = "text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-400 border border-slate-700";
+        badge.innerText = "Not Graded";
+      }
+
+      // Absent Button
+      const absBtn = document.getElementById('btnAbsentToggle');
+      if (s.is_absent) {
+        absBtn.innerHTML = `<i data-lucide="check" class="w-3.5 h-3.5"></i><span>Mark Present</span>`;
+        absBtn.className = "px-3.5 py-2 rounded-xl text-xs font-semibold border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10 transition active:scale-95 flex items-center gap-1.5";
+      } else {
+        absBtn.innerHTML = `<i data-lucide="user-x" class="w-3.5 h-3.5"></i><span>Mark Absent</span>`;
+        absBtn.className = "px-3.5 py-2 rounded-xl text-xs font-semibold border border-rose-500/30 text-rose-400 hover:bg-rose-500/10 transition active:scale-95 flex items-center gap-1.5";
+      }
+
+      updateRunningTotalDisplay(s);
+      renderQuestionsGrid(s, questions);
+      lucide.createIcons();
+    }
+
+    function renderQuestionsGrid(student, questions) {
+      const grid = document.getElementById('questionsGrid');
+      let answeredCount = 0;
+
+      grid.innerHTML = questions.map((q, idx) => {
+        const val = student.marks[q.q_no] ?? "";
+        if (val !== "" && val !== null) answeredCount++;
+
+        return `
+          <div class="bg-slate-800/60 p-3 rounded-2xl border border-slate-700/60 flex flex-col justify-between gap-1.5 hover:border-slate-600 transition focus-within:border-amber-500 focus-within:ring-2 focus-within:ring-amber-500/20">
+            <div class="flex items-center justify-between text-[11px] text-slate-400 font-semibold">
+              <span class="text-slate-200">Q${q.q_no}</span>
+              <span class="text-slate-500">Max: ${q.max_mark}</span>
+            </div>
+            <input 
+              type="number" 
+              step="0.5" 
+              min="0" 
+              max="${q.max_mark}" 
+              id="q_input_${q.q_no}" 
+              data-qno="${q.q_no}" 
+              data-max="${q.max_mark}" 
+              data-index="${idx}"
+              value="${val}" 
+              placeholder="—" 
+              oninput="onQuestionInput(this)" 
+              onkeydown="handleQuestionKeydown(event, ${idx})"
+              ${student.is_absent ? 'disabled' : ''}
+              class="w-full bg-slate-900 border border-slate-700 rounded-xl px-2.5 py-2 text-center text-base font-mono font-bold text-slate-100 focus:outline-none focus:border-amber-500 transition disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('answeredCountBadge').innerText = `${answeredCount} of ${questions.length} Answered`;
+    }
+
+    function onQuestionInput(input) {
+      const qNo = input.dataset.qno;
+      const maxM = parseFloat(input.dataset.max);
+      let val = input.value.trim();
+
+      if (val !== "") {
+        const num = parseFloat(val);
+        if (num > maxM) {
+          input.classList.add("border-rose-500", "text-rose-400", "bg-rose-500/10");
+          input.classList.remove("border-slate-700", "text-slate-100", "bg-slate-900");
+        } else {
+          input.classList.remove("border-rose-500", "text-rose-400", "bg-rose-500/10");
+          input.classList.add("border-emerald-500/60", "text-emerald-400");
+        }
+      } else {
+        input.classList.remove("border-rose-500", "text-rose-400", "bg-rose-500/10", "border-emerald-500/60", "text-emerald-400");
+        input.classList.add("border-slate-700", "text-slate-100", "bg-slate-900");
+      }
+
+      const filtered = getFilteredStudents();
+      const s = filtered[currentStudentIndex];
+      s.marks[qNo] = val;
+      s.is_absent = false;
+
+      // Calculate total
+      let sum = 0;
+      let hasAny = false;
+      for (const [k, v] of Object.entries(s.marks)) {
+        if (v !== "" && v !== null && !isNaN(parseFloat(v))) {
+          sum += parseFloat(v);
+          hasAny = true;
+        }
+      }
+      s.total = hasAny ? sum.toFixed(1) : "";
+      s.graded = hasAny;
+
+      updateRunningTotalDisplay(s);
+      debouncedSave(s);
+    }
+
+    function updateRunningTotalDisplay(s) {
+      const disp = document.getElementById('displayTotalMarks');
+      if (s.is_absent) {
+        disp.innerText = "AB";
+        disp.className = "text-3xl font-black font-mono text-rose-400";
+      } else if (s.total !== "") {
+        disp.innerText = s.total;
+        disp.className = "text-3xl font-black font-mono text-amber-400";
+      } else {
+        disp.innerText = "0.0";
+        disp.className = "text-3xl font-black font-mono text-slate-500";
+      }
+    }
+
+    function handleQuestionKeydown(e, idx) {
+      const course = coursesData.find(c => c.id === currentCourseId);
+      const totalQ = course ? course.questions.length : 12;
+
+      if (e.key === 'ArrowRight' || (e.key === 'Tab' && !e.shiftKey)) {
+        if (idx < totalQ - 1) {
+          e.preventDefault();
+          const next = document.querySelector(`[data-index="${idx + 1}"]`);
+          if (next) { next.focus(); next.select(); }
+        }
+      } else if (e.key === 'ArrowLeft' || (e.key === 'Tab' && e.shiftKey)) {
+        if (idx > 0) {
+          e.preventDefault();
+          const prev = document.querySelector(`[data-index="${idx - 1}"]`);
+          if (prev) { prev.focus(); prev.select(); }
+        }
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        saveAndNextStudent();
+      }
+    }
+
+    let saveTimeout = null;
+    function debouncedSave(student) {
+      clearTimeout(saveTimeout);
+      saveTimeout = setTimeout(() => {
+        saveStudentToServer(student);
+      }, 300);
+    }
+
+    async function saveStudentToServer(student) {
+      try {
+        await fetch('/api/save', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            subject: student.cohort_id,
+            student: student
+          })
+        });
+
+        // Update counts
+        const course = coursesData.find(c => c.id === currentCourseId);
+        if (course) {
+          const roster = rostersData[currentCourseId] || [];
+          course.graded_count = roster.filter(s => s.graded || s.is_absent).length;
+          renderCourseCards();
+          updateOverallProgress();
+        }
+        renderTable();
+      } catch (e) {
+        console.error("Save error:", e);
+      }
+    }
+
+    function toggleAbsent() {
+      const filtered = getFilteredStudents();
+      const s = filtered[currentStudentIndex];
+      s.is_absent = !s.is_absent;
+      if (s.is_absent) {
+        s.total = "AB";
+        s.graded = true;
+      } else {
+        s.total = "";
+        s.graded = false;
+      }
+      renderCurrentStudent();
+      debouncedSave(s);
+    }
+
+    function clearCurrentMarks() {
+      const filtered = getFilteredStudents();
+      const s = filtered[currentStudentIndex];
+      s.marks = {};
+      s.total = "";
+      s.graded = false;
+      s.is_absent = false;
+      renderCurrentStudent();
+      debouncedSave(s);
+    }
+
+    function saveAndNextStudent() {
+      const filtered = getFilteredStudents();
+      if (currentStudentIndex < filtered.length - 1) {
+        currentStudentIndex++;
+      } else {
+        currentStudentIndex = 0;
+      }
+      renderCurrentStudent();
+      setTimeout(() => {
+        const first = document.querySelector(`[data-index="0"]`);
+        if (first) { first.focus(); first.select(); }
+      }, 50);
+    }
+
+    function navigateStudent(delta) {
+      const filtered = getFilteredStudents();
+      currentStudentIndex += delta;
+      renderCurrentStudent();
+    }
+
+    function setViewMode(mode) {
+      viewMode = mode;
+      const cardContainer = document.getElementById('cardViewContainer');
+      const tableContainer = document.getElementById('tableViewContainer');
+      const btnCard = document.getElementById('btnViewCard');
+      const btnTable = document.getElementById('btnViewTable');
+
+      if (mode === 'card') {
+        cardContainer.classList.remove('hidden');
+        tableContainer.classList.add('hidden');
+        btnCard.className = "px-3.5 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 bg-amber-500 text-slate-950 shadow";
+        btnTable.className = "px-3.5 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-1.5 text-slate-400 hover:text-slate-200";
+      } else {
+        cardContainer.classList.add('hidden');
+        tableContainer.classList.remove('hidden');
+        btnTable.className = "px-3.5 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 bg-amber-500 text-slate-950 shadow";
+        btnCard.className = "px-3.5 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-1.5 text-slate-400 hover:text-slate-200";
+      }
+    }
+
+    function renderTable() {
+      const filtered = getFilteredStudents();
+      const course = coursesData.find(c => c.id === currentCourseId);
+      document.getElementById('tableHeaderTitle').innerText = `${course ? course.name : 'Subject'} Roster (${filtered.length} students)`;
+      document.getElementById('tableCountBadge').innerText = `Showing ${filtered.length} students`;
+      
+      const tbody = document.getElementById('rosterTableBody');
+      tbody.innerHTML = filtered.map((s) => {
+        let statusBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-slate-800 text-slate-400">Not Graded</span>`;
+        if (s.is_absent) {
+          statusBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-rose-500/10 text-rose-400 border border-rose-500/20">Absent</span>`;
+        } else if (s.graded) {
+          statusBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Graded</span>`;
+        }
+
+        return `
+          <tr class="hover:bg-slate-800/40 transition cursor-pointer" onclick="selectStudentFromTable('${s.reg_no}')">
+            <td class="py-3 px-4 text-center font-mono text-slate-400">${s.sl_no}</td>
+            <td class="py-3 px-4 font-semibold text-slate-100">${s.name}</td>
+            <td class="py-3 px-4 font-medium text-slate-400">${s.class_label || 'B.Sc'}</td>
+            <td class="py-3 px-4 font-mono text-slate-400">${s.reg_no}</td>
+            <td class="py-3 px-4 text-center">${statusBadge}</td>
+            <td class="py-3 px-4 text-center font-mono font-bold text-amber-400 text-sm">${s.total || '—'}</td>
+            <td class="py-3 px-4 text-right">
+              <button class="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition">
+                Open Card
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function selectStudentFromTable(regNo) {
+      const filtered = getFilteredStudents();
+      const idx = filtered.findIndex(s => s.reg_no === regNo);
+      if (idx !== -1) {
+        currentStudentIndex = idx;
+        setViewMode('card');
+        renderCurrentStudent();
+        setTimeout(() => {
+          const first = document.querySelector(`[data-index="0"]`);
+          if (first) { first.focus(); first.select(); }
+        }, 50);
+      }
+    }
+
+    function setupKeyboardShortcuts() {
+      window.addEventListener('keydown', (e) => {
+        if (e.key === '/' && document.activeElement !== document.getElementById('searchInput')) {
+          e.preventDefault();
+          document.getElementById('searchInput').focus();
+        } else if (e.altKey && (e.key === 'a' || e.key === 'A')) {
+          e.preventDefault();
+          toggleAbsent();
+        }
+      });
+    }
+
+    // AUERP Sync Modal
+    function openSyncModal() {
+      const course = coursesData.find(c => c.id === currentCourseId);
+      if (!course) return;
+
+      document.getElementById('syncModalSubtitle').innerText = `${course.name} (${course.code})`;
+      const selector = document.getElementById('syncCohortSelector');
+      selector.innerHTML = course.cohorts.map(cid => {
+        const title = cid.replace('_', ' • ');
+        return `
+          <label class="flex items-center justify-between p-3 rounded-xl border border-slate-700 bg-slate-800 cursor-pointer hover:border-emerald-500/60 transition">
+            <div class="flex items-center gap-2">
+              <input type="radio" name="syncCohort" value="${cid}" checked class="text-emerald-500 focus:ring-emerald-500">
+              <strong class="text-slate-200">${title}</strong>
+            </div>
+            <span class="text-[11px] text-slate-400 font-mono">Template: ${cid}.xlsx</span>
+          </label>
+        `;
+      }).join('');
+
+      document.getElementById('syncModal').classList.remove('hidden');
+    }
+
+    function closeSyncModal() {
+      document.getElementById('syncModal').classList.add('hidden');
+    }
+
+    async function executeSync() {
+      const selected = document.querySelector('input[name="syncCohort"]:checked');
+      if (!selected) return;
+
+      const cohortId = selected.value;
+      const progressContainer = document.getElementById('syncProgressContainer');
+      const progressText = document.getElementById('syncProgressText');
+      const syncLog = document.getElementById('syncLog');
+      const previewContainer = document.getElementById('syncScreenshotPreview');
+      const resultImg = document.getElementById('syncResultImg');
+      const btnExecute = document.getElementById('btnExecuteSync');
+
+      progressContainer.classList.remove('hidden');
+      previewContainer.classList.add('hidden');
+      btnExecute.disabled = true;
+      btnExecute.classList.add('opacity-50');
+
+      syncLog.innerHTML = `<div>[${new Date().toLocaleTimeString()}] Generating verified Excel for ${cohortId}...</div>`;
+
+      try {
+        const res = await fetch('/api/sync', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            subject: cohortId,
+            is_final: false
+          })
+        });
+
+        const data = await res.json();
+        if (data.success) {
+          syncLog.innerHTML += `<div class="text-emerald-400">[${new Date().toLocaleTimeString()}] Success: ${data.message}</div>`;
+          progressText.innerText = "Upload complete!";
+          if (data.screenshot) {
+            resultImg.src = `/screenshot?path=${encodeURIComponent(data.screenshot)}&t=${Date.now()}`;
+            previewContainer.classList.remove('hidden');
+          }
+        } else {
+          syncLog.innerHTML += `<div class="text-rose-400">[${new Date().toLocaleTimeString()}] Failed: ${data.message}</div>`;
+          progressText.innerText = "Sync encountered an error.";
+        }
+      } catch (e) {
+        syncLog.innerHTML += `<div class="text-rose-400">[${new Date().toLocaleTimeString()}] Network error: ${e}</div>`;
+      } finally {
+        btnExecute.disabled = false;
+        btnExecute.classList.remove('opacity-50');
+      }
+    }
+
+    window.onload = init;
+  </script>
+</body>
+</html>

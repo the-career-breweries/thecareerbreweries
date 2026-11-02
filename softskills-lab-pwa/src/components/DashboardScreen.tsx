@@ -47,15 +47,38 @@ export default function DashboardScreen() {
     let unlocked = false;
 
     if (typeof window !== 'undefined') {
-      const localBundle = localStorage.getItem('tcb_unlocked_bundle');
-      if (localBundle === 'pro') {
-        setHasProBundle(true);
-        setHasStudentBundle(true);
+      // 1. Check if returning from a successful Razorpay checkout
+      const searchParams = new URLSearchParams(window.location.search);
+      const rzpPaymentId = searchParams.get('razorpay_payment_id');
+      const rzpStatus = searchParams.get('razorpay_payment_link_status');
+      const bundleParam = searchParams.get('bundle');
+
+      if (rzpPaymentId && (rzpStatus === 'paid' || !rzpStatus)) {
+        const bundle = bundleParam === 'pro' ? 'pro' : 'student';
+        localStorage.setItem('tcb_unlocked_bundle', bundle);
+        localStorage.setItem(`tcb_payment_${bundle}`, rzpPaymentId);
+        if (bundle === 'pro') {
+          setHasProBundle(true);
+          setHasStudentBundle(true);
+        } else {
+          setHasStudentBundle(true);
+          setHasProBundle(false);
+        }
         unlocked = true;
-      } else if (localBundle === 'student') {
-        setHasStudentBundle(true);
-        setHasProBundle(false);
-        unlocked = true;
+
+        // Clean query parameters from URL bar for clean UX
+        window.history.replaceState({}, '', '/dashboard');
+      } else {
+        const localBundle = localStorage.getItem('tcb_unlocked_bundle');
+        if (localBundle === 'pro') {
+          setHasProBundle(true);
+          setHasStudentBundle(true);
+          unlocked = true;
+        } else if (localBundle === 'student') {
+          setHasStudentBundle(true);
+          setHasProBundle(false);
+          unlocked = true;
+        }
       }
 
       const savedProgress = JSON.parse(localStorage.getItem('tcb_module_progress') || '{}');
@@ -63,16 +86,39 @@ export default function DashboardScreen() {
     }
 
     if (supabase) {
-      supabase.auth.getUser().then(({ data }) => {
+      supabase.auth.getUser().then(async ({ data }) => {
         if (data?.user) {
           setUserEmail(data.user.email || null);
           const meta = data.user.user_metadata || {};
+
+          // Sync Razorpay payment to Supabase profile if returning with payment ID
+          if (typeof window !== 'undefined') {
+            const searchParams = new URLSearchParams(window.location.search);
+            const rzpPaymentId = searchParams.get('razorpay_payment_id');
+            const bundleParam = searchParams.get('bundle');
+            if (rzpPaymentId) {
+              const updates =
+                bundleParam === 'pro'
+                  ? { has_pro_bundle: true, has_student_bundle: true }
+                  : { has_student_bundle: true };
+
+              await supabase.auth.updateUser({ data: updates });
+              await supabase.from('profiles').upsert({
+                id: data.user.id,
+                email: data.user.email,
+                payment_id: rzpPaymentId,
+                ...updates
+              });
+            }
+          }
+
           if (meta.has_pro_bundle) {
             setHasProBundle(true);
             setHasStudentBundle(true);
             unlocked = true;
           } else if (meta.has_student_bundle) {
             setHasStudentBundle(true);
+            setHasProBundle(false);
             unlocked = true;
           }
         }
@@ -387,22 +433,49 @@ export default function DashboardScreen() {
                 Pro Track Active ({completedTrackBCount} of 3 Complete)
               </span>
             ) : (
-              <button
-                onClick={() => {
-                  setHasProBundle(true);
-                  if (typeof window !== 'undefined') {
-                    localStorage.setItem('tcb_unlocked_bundle', 'pro');
-                  }
-                }}
-                className="text-xs font-bold px-3.5 py-1.5 rounded-full bg-primary text-on-primary hover:opacity-90 flex items-center gap-1"
-              >
-                Unlock Pro Track Preview <ArrowRight size={12} />
-              </button>
+              <div className="flex items-center gap-2">
+                <span className="bg-amber-500/15 text-amber-500 dark:text-amber-400 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full border border-amber-500/30 flex items-center gap-1.5">
+                  <Lock size={12} />
+                  Pro Bundle Exclusive
+                </span>
+                <Link
+                  href="/paywall"
+                  className="text-xs font-bold px-3.5 py-1.5 rounded-full bg-primary text-on-primary hover:opacity-90 flex items-center gap-1 shadow-sm"
+                >
+                  Unlock Pro Track <ArrowRight size={12} />
+                </Link>
+              </div>
             )}
           </div>
 
           {/* TRACK B EXECUTIVE CRISIS & CASE PLAYBOOK BANNER */}
-          {overallTrackBPct === 100 ? (
+          {!hasProBundle ? (
+            <div className="w-full rounded-2xl p-5 bg-surface-container-high/60 border border-outline-variant/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 opacity-75">
+              <div className="flex items-center gap-3.5">
+                <div className="h-10 w-10 rounded-xl bg-surface-variant flex items-center justify-center text-on-surface-variant flex-shrink-0">
+                  <Lock size={18} />
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-on-surface flex items-center gap-2">
+                    The Professional Crisis &amp; Case Playbook Vault
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-500 dark:text-amber-400 border border-amber-500/30 uppercase font-semibold">
+                      Locked • Pro Only
+                    </span>
+                  </h3>
+                  <p className="text-xs text-on-surface-variant">
+                    Unlocks the 6 PM Friday ₹50Cr Crisis De-Escalator (Heart Rate BPM Meter) &amp; 5 Executive Case Simulators (including The Maggi Dilemma). Requires The Professional Bundle.
+                  </p>
+                </div>
+              </div>
+              <Link
+                href="/paywall"
+                className="text-xs font-bold px-3.5 py-2 rounded-xl bg-primary text-on-primary hover:opacity-90 flex items-center gap-1.5 flex-shrink-0"
+              >
+                <Lock size={13} />
+                Upgrade to Unlock
+              </Link>
+            </div>
+          ) : overallTrackBPct === 100 ? (
             <div className="w-full rounded-2xl p-6 glass-panel border-2 border-primary shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
               <div className="flex items-start gap-4">
                 <div className="h-12 w-12 rounded-xl bg-primary text-on-primary flex items-center justify-center flex-shrink-0">
@@ -463,11 +536,17 @@ export default function DashboardScreen() {
               return (
                 <article
                   key={mod.id}
-                  className="module-card glass-panel rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start md:items-center w-full relative overflow-hidden group hover:border-primary/50 transition-all"
+                  className={`module-card glass-panel rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start md:items-center w-full relative overflow-hidden transition-all ${
+                    !hasProBundle
+                      ? 'border-dashed border-outline-variant/70 opacity-80'
+                      : 'group hover:border-primary/50'
+                  }`}
                 >
                   <div
                     className={`absolute top-0 left-0 w-1.5 h-full ${
-                      isDone
+                      !hasProBundle
+                        ? 'bg-zinc-600'
+                        : isDone
                         ? 'bg-emerald-500'
                         : isStarted
                         ? 'bg-gradient-to-b from-secondary to-primary'
@@ -476,7 +555,11 @@ export default function DashboardScreen() {
                   ></div>
 
                   <div className="h-14 w-14 rounded-xl bg-surface-variant/60 flex items-center justify-center border border-outline-variant flex-shrink-0 group-hover:bg-primary/10 group-hover:border-primary/30 transition-colors">
-                    <IconComponent className="text-primary" size={26} />
+                    {!hasProBundle ? (
+                      <Lock className="text-on-surface-variant" size={24} />
+                    ) : (
+                      <IconComponent className="text-primary" size={26} />
+                    )}
                   </div>
 
                   <div className="flex-grow flex flex-col gap-1.5">
@@ -484,10 +567,16 @@ export default function DashboardScreen() {
                       <span className="text-xs font-bold text-primary uppercase tracking-widest">
                         Module {mod.number} • Pro Track
                       </span>
-                      <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-surface-variant text-on-surface-variant border border-outline-variant/60">
-                        <Sparkles size={10} className="inline mr-1 text-primary" />
-                        {mod.frameworkShort}
-                      </span>
+                      {!hasProBundle ? (
+                        <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-500 dark:text-amber-400 border border-amber-500/30 font-semibold flex items-center gap-1">
+                          <Lock size={10} /> Locked • Pro Only
+                        </span>
+                      ) : (
+                        <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-surface-variant text-on-surface-variant border border-outline-variant/60">
+                          <Sparkles size={10} className="inline mr-1 text-primary" />
+                          {mod.frameworkShort}
+                        </span>
+                      )}
                       <span className="text-[11px] text-on-surface-variant font-mono">
                         • {mod.duration}
                       </span>
@@ -498,34 +587,46 @@ export default function DashboardScreen() {
                       {mod.subtitle}
                     </p>
 
-                    <div className="mt-2 flex items-center gap-3">
-                      <div className="h-2 w-36 bg-surface-variant rounded-full overflow-hidden">
-                        <div
-                          className={`h-full rounded-full transition-all duration-300 ${
-                            isDone
-                              ? 'bg-emerald-500'
-                              : 'bg-gradient-to-r from-primary to-secondary'
+                    {hasProBundle && (
+                      <div className="mt-2 flex items-center gap-3">
+                        <div className="h-2 w-36 bg-surface-variant rounded-full overflow-hidden">
+                          <div
+                            className={`h-full rounded-full transition-all duration-300 ${
+                              isDone
+                                ? 'bg-emerald-500'
+                                : 'bg-gradient-to-r from-primary to-secondary'
+                            }`}
+                            style={{ width: `${pct}%` }}
+                          ></div>
+                        </div>
+                        <span
+                          className={`font-mono text-xs font-semibold ${
+                            isDone ? 'text-emerald-400' : isStarted ? 'text-secondary' : 'text-on-surface-variant'
                           }`}
-                          style={{ width: `${pct}%` }}
-                        ></div>
+                        >
+                          {pct}% Complete
+                        </span>
                       </div>
-                      <span
-                        className={`font-mono text-xs font-semibold ${
-                          isDone ? 'text-emerald-400' : isStarted ? 'text-secondary' : 'text-on-surface-variant'
-                        }`}
-                      >
-                        {pct}% Complete
-                      </span>
-                    </div>
+                    )}
                   </div>
 
-                  <Link
-                    href={`/dashboard/module/${mod.id}`}
-                    className="w-full md:w-auto text-center bg-primary text-on-primary font-bold py-3 px-6 rounded-xl hover:opacity-90 active:scale-95 transition-all duration-200 shadow-sm flex items-center justify-center gap-2 flex-shrink-0"
-                  >
-                    {isDone ? 'Review Lab' : isStarted ? 'Resume' : 'Start Module'}
-                    <ArrowRight size={16} />
-                  </Link>
+                  {!hasProBundle ? (
+                    <Link
+                      href="/paywall"
+                      className="w-full md:w-auto text-center bg-surface-variant/80 hover:bg-surface-variant border border-outline-variant text-on-surface-variant hover:text-on-surface font-semibold py-3 px-5 rounded-xl transition-all text-xs flex items-center justify-center gap-1.5 flex-shrink-0"
+                    >
+                      <Lock size={14} className="text-primary" />
+                      Locked • Upgrade
+                    </Link>
+                  ) : (
+                    <Link
+                      href={`/dashboard/module/${mod.id}`}
+                      className="w-full md:w-auto text-center bg-primary text-on-primary font-bold py-3 px-6 rounded-xl hover:opacity-90 active:scale-95 transition-all duration-200 shadow-sm flex items-center justify-center gap-2 flex-shrink-0"
+                    >
+                      {isDone ? 'Review Lab' : isStarted ? 'Resume' : 'Start Module'}
+                      <ArrowRight size={16} />
+                    </Link>
+                  )}
                 </article>
               );
             })}

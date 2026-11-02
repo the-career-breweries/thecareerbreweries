@@ -1,0 +1,708 @@
+{
+  "Assignment 1": {
+    "title": "AUERP | Faculty | Staff Login",
+    "headers": [
+      [
+        "Faculty Name",
+        "Academic Year",
+        "Class Name",
+        "Course Name",
+        "Course Type"
+      ],
+      [
+        "Component",
+        "Maximum Marks",
+        "Converted Marks",
+        "Absent Code",
+        "Group Name"
+      ],
+      [
+        "Sl.No",
+        "Photo",
+        "Student Name",
+        "Register No.",
+        "Student Total Max: 15.00",
+        "Question Wise Total",
+        "Q: 1 Max: 1.5",
+        "Q: 2 Max: 12",
+        "Q: 3 Max: 1.5"
+      ],
+      [
+        "Sl.No",
+        "Student Name",
+        "Register No.",
+        "Student Total (Max Mark: 15.00)",
+        "Question Wise Total"
+      ]
+    ],
+    "subHeaders": [
+      [],
+      [
+        [
+          "Faculty Name",
+          "MR. S. D. SANDARSH"
+        ],
+        [
+          "Academic Year",
+          "2026"
+        ],
+        [
+          "Class Name",
+          "I_ASAS_BSC_2026_SECA"
+        ],
+        [
+          "Course Name",
+          "Introduction to Computing Skills (Z7AVA 26209) (Theory)"
+        ],
+        [
+          "Course Type",
+          "Theory"
+        ]
+      ],
+      [
+        [
+          "Component",
+          "Assignment 1"
+        ],
+        [
+          "Maximum Marks",
+          "15.00"
+        ],
+        [
+          "Converted Marks",
+          "15.00"
+        ],
+        [
+          "Absent Code",
+          "AB,NE,MP,EX,NS,NR"
+        ],
+        [
+          "Group Name",
+          "- Select -"
+        ]
+      ],
+      [
+        [
+          "Sl.No",
+          "Photo",
+          "Student Name",
+          "Register No.",
+          "Student Total Max: 15.00",
+          "Question Wise Total",
+          "Q: 1 Max: 1.5",
+          "Q: 2 Max: 12",
+          "Q: 3 Max: 1.5"
+        ],
+        [
+          "1",
+          "",
+          "E KEERTHIKHA",
+          "PROV/ASAV/BSC/7/26/003",
+          "",
+          "0",
+          "",
+          "",
+          ""
+        ],
+        [
+          "2",
+          "",
+          "EERI BAVALEENA",
+          "PROV/ASAV/BSC/7/26/006",
+          "",
+          "0",
+          "",
+          "",
+          ""
+        ],
+        [
+          "3",
+          "",
+          "MAHAMMAD SAQUIB KAMAGAL",
+          "PROV/ASAV/BSC/7/26/008",
+          "",
+          "0",
+          "",
+          "",
+          ""
+        ],
+        [
+          "4",
+          "",
+          "RATAKONDA CHINTAMANU PAVAN KUMAR",
+          "PROV/ASAV/BSC/7/26/014",
+          "",
+          "0",
+          "",
+          "",
+          ""
+        ]
+      ],
+      [
+        [
+          "Sl.No",
+          "Student Name",
+          "Register No.",
+          "Student Total (Max Mark: 15.00)",
+          "Question Wise Total"
+        ]
+      ]
+    ],
+    "coMappings": [],
+    "tableSnippet": [],
+    "textLines": [
+      "Home  DSA Component Marks Entry",
+      "DSA Component Marks Entry",
+      "Course Name\tIntroduction to Computing Skills (Z7AVA 26209) (Theory)",
+      "Course Type\tTheory",
+      "Component\tAssignment 1",
+      "Converted Marks\t15.00",
+      "Absent Code\tAB,NE,MP,EX,NS,NR",
+      "Note:Question-wise total marks are for reference only. The actual marks scored by the student should be entered in the student total marks",
+      "Question Wise",
+      "Copyright \u00a9 2026 Alliance University. All rights reserved.",
+      "Toggle the left sidebar's state (open or collapse)",
+      "Toggle between slide over content and push content effects"
+    ]
+  },
+  "Assignments": {
+    "title": "AUERP | Faculty | Staff Login",
+    "headers": [
+      [
+        "Faculty Name",
+        "Academic Year",
+        "Class Name",
+        "Course Name",
+        "Course Type"
+      ],
+      [
+        "Component",
+        "Maximum Marks",
+        "Converted Marks",
+        "Absent Code",
+        "Group Name"
+      ],
+      [
+        "Sl.No",
+        "Photo",
+        "Student Name",
+        "Register No.",
+        "Student Total Max: 15.00",
+        "Question Wise Total",
+        "Q: 1 Max: 15"
+      ],
+      [
+        "Sl.No",
+        "Student Name",
+        "Register No.",
+        "Student Total (Max Mark: 15.00)",
+        "Question Wise Total"
+      ]
+    ],
+    "subHeaders": [
+      [],
+      [
+        [
+          "Faculty Name",
+          "MR. S. D. SANDARSH"
+        ],
+        [
+          "Academic Year",
+          "2026"
+        ],
+        [
+          "Class Name",
+          "I_ASAS_BSC_2026_SECA"
+        ],
+        [
+          "Course Name",
+          "Introduction to Computing Skills (Z7AVA 26209) (Theory)"
+        ],
+        [
+          "Course Type",
+          "Theory"
+        ]
+      ],
+      [
+        [
+          "Component",
+          "Assignments"
+        ],
+        [
+          "Maximum Marks",
+          "15.00"
+        ],
+        [
+          "Converted Marks",
+          "15.00"
+        ],
+        [
+          "Absent Code",
+          "AB,NE,MP,EX,NS,NR"
+        ],
+        [
+          "Group Name",
+          "- Select -"
+        ]
+      ],
+      [
+        [
+          "Sl.No",
+          "Photo",
+          "Student Name",
+          "Register No.",
+          "Student Total Max: 15.00",
+          "Question Wise Total",
+          "Q: 1 Max: 15"
+        ],
+        [
+          "1",
+          "",
+          "E KEERTHIKHA",
+          "PROV/ASAV/BSC/7/26/003",
+          "",
+          "0",
+          ""
+        ],
+        [
+          "2",
+          "",
+          "EERI BAVALEENA",
+          "PROV/ASAV/BSC/7/26/006",
+          "",
+          "0",
+          ""
+        ],
+        [
+          "3",
+          "",
+          "MAHAMMAD SAQUIB KAMAGAL",
+          "PROV/ASAV/BSC/7/26/008",
+          "",
+          "0",
+          ""
+        ],
+        [
+          "4",
+          "",
+          "RATAKONDA CHINTAMANU PAVAN KUMAR",
+          "PROV/ASAV/BSC/7/26/014",
+          "",
+          "0",
+          ""
+        ]
+      ],
+      [
+        [
+          "Sl.No",
+          "Student Name",
+          "Register No.",
+          "Student Total (Max Mark: 15.00)",
+          "Question Wise Total"
+        ]
+      ]
+    ],
+    "coMappings": [],
+    "tableSnippet": [],
+    "textLines": [
+      "Home  DSA Component Marks Entry",
+      "DSA Component Marks Entry",
+      "Course Name\tIntroduction to Computing Skills (Z7AVA 26209) (Theory)",
+      "Course Type\tTheory",
+      "Component\tAssignments",
+      "Converted Marks\t15.00",
+      "Absent Code\tAB,NE,MP,EX,NS,NR",
+      "Note:Question-wise total marks are for reference only. The actual marks scored by the student should be entered in the student total marks",
+      "Question Wise",
+      "Copyright \u00a9 2026 Alliance University. All rights reserved.",
+      "Toggle the left sidebar's state (open or collapse)",
+      "Toggle between slide over content and push content effects"
+    ]
+  },
+  "Class Participation": {
+    "title": "AUERP | Faculty | Staff Login",
+    "headers": [
+      [
+        "Faculty Name",
+        "Academic Year",
+        "Class Name",
+        "Course Name",
+        "Course Type"
+      ],
+      [
+        "Component",
+        "Maximum Marks",
+        "Converted Marks",
+        "Absent Code",
+        "Group Name"
+      ],
+      [
+        "Sl.No",
+        "Photo",
+        "Student Name",
+        "Register No.",
+        "Student Total Max: 10.00",
+        "Question Wise Total",
+        "Q: 1 Max: 10"
+      ],
+      [
+        "Sl.No",
+        "Student Name",
+        "Register No.",
+        "Student Total (Max Mark: 10.00)",
+        "Question Wise Total"
+      ]
+    ],
+    "subHeaders": [
+      [],
+      [
+        [
+          "Faculty Name",
+          "MR. S. D. SANDARSH"
+        ],
+        [
+          "Academic Year",
+          "2026"
+        ],
+        [
+          "Class Name",
+          "I_ASAS_BSC_2026_SECA"
+        ],
+        [
+          "Course Name",
+          "Introduction to Computing Skills (Z7AVA 26209) (Theory)"
+        ],
+        [
+          "Course Type",
+          "Theory"
+        ]
+      ],
+      [
+        [
+          "Component",
+          "Class Participation"
+        ],
+        [
+          "Maximum Marks",
+          "10.00"
+        ],
+        [
+          "Converted Marks",
+          "10.00"
+        ],
+        [
+          "Absent Code",
+          "AB,NE,MP,EX,NS,NR"
+        ],
+        [
+          "Group Name",
+          "- Select -"
+        ]
+      ],
+      [
+        [
+          "Sl.No",
+          "Photo",
+          "Student Name",
+          "Register No.",
+          "Student Total Max: 10.00",
+          "Question Wise Total",
+          "Q: 1 Max: 10"
+        ],
+        [
+          "1",
+          "",
+          "E KEERTHIKHA",
+          "PROV/ASAV/BSC/7/26/003",
+          "",
+          "0",
+          ""
+        ],
+        [
+          "2",
+          "",
+          "EERI BAVALEENA",
+          "PROV/ASAV/BSC/7/26/006",
+          "",
+          "0",
+          ""
+        ],
+        [
+          "3",
+          "",
+          "MAHAMMAD SAQUIB KAMAGAL",
+          "PROV/ASAV/BSC/7/26/008",
+          "",
+          "0",
+          ""
+        ],
+        [
+          "4",
+          "",
+          "RATAKONDA CHINTAMANU PAVAN KUMAR",
+          "PROV/ASAV/BSC/7/26/014",
+          "",
+          "0",
+          ""
+        ]
+      ],
+      [
+        [
+          "Sl.No",
+          "Student Name",
+          "Register No.",
+          "Student Total (Max Mark: 10.00)",
+          "Question Wise Total"
+        ]
+      ]
+    ],
+    "coMappings": [],
+    "tableSnippet": [],
+    "textLines": [
+      "Home  DSA Component Marks Entry",
+      "DSA Component Marks Entry",
+      "Course Name\tIntroduction to Computing Skills (Z7AVA 26209) (Theory)",
+      "Course Type\tTheory",
+      "Component\tClass Participation",
+      "Converted Marks\t10.00",
+      "Absent Code\tAB,NE,MP,EX,NS,NR",
+      "Note:Question-wise total marks are for reference only. The actual marks scored by the student should be entered in the student total marks",
+      "Question Wise",
+      "Copyright \u00a9 2026 Alliance University. All rights reserved.",
+      "Toggle the left sidebar's state (open or collapse)",
+      "Toggle between slide over content and push content effects"
+    ]
+  },
+  "MSE": {
+    "title": "AUERP | Faculty | Staff Login",
+    "headers": [
+      [
+        "Faculty Name",
+        "Academic Year",
+        "Class Name",
+        "Course Name",
+        "Course Type"
+      ],
+      [
+        "Component",
+        "Maximum Marks",
+        "Converted Marks",
+        "Absent Code",
+        "Group Name"
+      ],
+      [
+        "Sl.No",
+        "Photo",
+        "Student Name",
+        "Register No.",
+        "Student Total Max: 50.00",
+        "Question Wise Total",
+        "Q: 1 Max: 2",
+        "Q: 2 Max: 2",
+        "Q: 3 Max: 2",
+        "Q: 4 Max: 2",
+        "Q: 5 Max: 2",
+        "Q: 6 Max: 5",
+        "Q: 7 Max: 5",
+        "Q: 8 Max: 5",
+        "Q: 9 Max: 5",
+        "Q: 10 Max: 5",
+        "Q: 11 Max: 5",
+        "Q: 12 Max: 10",
+        "Q: 13 Max: 10",
+        "Q: 14 Max: 10"
+      ],
+      [
+        "Sl.No",
+        "Student Name",
+        "Register No.",
+        "Student Total (Max Mark: 50.00)",
+        "Question Wise Total"
+      ]
+    ],
+    "subHeaders": [
+      [],
+      [
+        [
+          "Faculty Name",
+          "MR. S. D. SANDARSH"
+        ],
+        [
+          "Academic Year",
+          "2026"
+        ],
+        [
+          "Class Name",
+          "I_ASAS_BSC_2026_SECA"
+        ],
+        [
+          "Course Name",
+          "Introduction to Computing Skills (Z7AVA 26209) (Theory)"
+        ],
+        [
+          "Course Type",
+          "Theory"
+        ]
+      ],
+      [
+        [
+          "Component",
+          "MSE"
+        ],
+        [
+          "Maximum Marks",
+          "50.00"
+        ],
+        [
+          "Converted Marks",
+          "20.00"
+        ],
+        [
+          "Absent Code",
+          "AB,NE,MP,EX,NS,NR"
+        ],
+        [
+          "Group Name",
+          "- Select -"
+        ]
+      ],
+      [
+        [
+          "Sl.No",
+          "Photo",
+          "Student Name",
+          "Register No.",
+          "Student Total Max: 50.00",
+          "Question Wise Total",
+          "Q: 1 Max: 2",
+          "Q: 2 Max: 2",
+          "Q: 3 Max: 2",
+          "Q: 4 Max: 2",
+          "Q: 5 Max: 2",
+          "Q: 6 Max: 5",
+          "Q: 7 Max: 5",
+          "Q: 8 Max: 5",
+          "Q: 9 Max: 5",
+          "Q: 10 Max: 5",
+          "Q: 11 Max: 5",
+          "Q: 12 Max: 10",
+          "Q: 13 Max: 10",
+          "Q: 14 Max: 10"
+        ],
+        [
+          "1",
+          "",
+          "E KEERTHIKHA",
+          "PROV/ASAV/BSC/7/26/003",
+          "",
+          "47",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "2",
+          "",
+          "EERI BAVALEENA",
+          "PROV/ASAV/BSC/7/26/006",
+          "",
+          "47.5",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "3",
+          "",
+          "MAHAMMAD SAQUIB KAMAGAL",
+          "PROV/ASAV/BSC/7/26/008",
+          "",
+          "50",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "4",
+          "",
+          "RATAKONDA CHINTAMANU PAVAN KUMAR",
+          "PROV/ASAV/BSC/7/26/014",
+          "",
+          "47",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      ],
+      [
+        [
+          "Sl.No",
+          "Student Name",
+          "Register No.",
+          "Student Total (Max Mark: 50.00)",
+          "Question Wise Total"
+        ]
+      ]
+    ],
+    "coMappings": [],
+    "tableSnippet": [],
+    "textLines": [
+      "Home  DSA Component Marks Entry",
+      "DSA Component Marks Entry",
+      "Course Name\tIntroduction to Computing Skills (Z7AVA 26209) (Theory)",
+      "Course Type\tTheory",
+      "Component\tMSE",
+      "Converted Marks\t20.00",
+      "Absent Code\tAB,NE,MP,EX,NS,NR",
+      "Note:Question-wise total marks are for reference only. The actual marks scored by the student should be entered in the student total marks",
+      "Question Wise",
+      "Copyright \u00a9 2026 Alliance University. All rights reserved.",
+      "Toggle the left sidebar's state (open or collapse)",
+      "Toggle between slide over content and push content effects"
+    ]
+  }
+}

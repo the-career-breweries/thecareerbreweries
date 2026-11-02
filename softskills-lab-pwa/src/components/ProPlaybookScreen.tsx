@@ -28,6 +28,7 @@ export default function ProPlaybookScreen() {
   const [learnerEmail, setLearnerEmail] = useState('licensed-pro@tcb.edu');
   const [credentialId, setCredentialId] = useState('TCB-PRO-VAULT');
   const [completedTrackBCount, setCompletedTrackBCount] = useState(0);
+  const [hasProBundle, setHasProBundle] = useState(false);
   const [trainerPreviewUnlock, setTrainerPreviewUnlock] = useState(false);
 
   // Anti-piracy state
@@ -48,6 +49,11 @@ export default function ProPlaybookScreen() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
+      const localBundle = localStorage.getItem('tcb_unlocked_bundle');
+      if (localBundle === 'pro') {
+        setHasProBundle(true);
+      }
+
       const savedProgress = JSON.parse(localStorage.getItem('tcb_module_progress') || '{}');
       const doneB = TRACK_B_MODULES.filter((m) => (savedProgress[m.id] || 0) === 100).length;
       setCompletedTrackBCount(doneB);
@@ -63,6 +69,9 @@ export default function ProPlaybookScreen() {
         if (data?.user) {
           if (data.user.email) setLearnerEmail(data.user.email);
           const meta = data.user.user_metadata || {};
+          if (meta.has_pro_bundle) {
+            setHasProBundle(true);
+          }
           if (meta.full_name) setLearnerName(meta.full_name);
           const uidClean = data.user.id.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
           setCredentialId(`TCB-PRO-${uidClean.slice(0, 4)}-${uidClean.slice(4, 8)}`);
@@ -186,7 +195,37 @@ export default function ProPlaybookScreen() {
           </div>
         )}
 
-        {!isUnlocked ? (
+        {!hasProBundle && !trainerPreviewUnlock ? (
+          <div className="w-full glass-panel rounded-2xl p-8 md:p-12 border-2 border-amber-500/40 flex flex-col items-center text-center gap-5 my-8">
+            <div className="h-16 w-16 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-500">
+              <Lock size={30} />
+            </div>
+            <span className="text-xs font-mono uppercase tracking-widest text-amber-500 font-bold">
+              Pro Bundle Exclusive • Executive Vault Locked
+            </span>
+            <h1 className="text-2xl md:text-3xl font-bold text-on-surface max-w-xl">
+              The Professional Crisis &amp; Case Playbook Requires The Professional Bundle
+            </h1>
+            <p className="text-sm text-on-surface-variant max-w-lg leading-relaxed">
+              Your account currently holds access to <strong>The Student Bundle (Track A)</strong>. The 6 PM Friday ₹50Cr Crisis De-Escalator (Heart-Rate BPM meter) and 5 Executive Case Simulators (including The Maggi Dilemma) are exclusive to <strong>The Professional Bundle</strong>.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-3 mt-2">
+              <Link
+                href="/paywall"
+                className="px-6 py-3 rounded-xl bg-primary text-on-primary font-bold text-sm hover:opacity-90 transition-all flex items-center gap-2 shadow-sm"
+              >
+                <Briefcase size={16} />
+                Upgrade to Professional Bundle (₹999)
+              </Link>
+              <Link
+                href="/dashboard"
+                className="px-5 py-3 rounded-xl border border-outline-variant text-xs font-mono text-on-surface-variant hover:border-primary hover:text-primary transition-all"
+              >
+                Back to Dashboard
+              </Link>
+            </div>
+          </div>
+        ) : !isUnlocked ? (
           <div className="w-full glass-panel rounded-2xl p-8 md:p-12 border-2 border-outline-variant flex flex-col items-center text-center gap-5 my-8">
             <div className="h-16 w-16 rounded-2xl bg-primary/15 border border-primary/30 flex items-center justify-center text-primary">
               <Lock size={30} />

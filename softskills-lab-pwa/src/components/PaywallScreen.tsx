@@ -217,20 +217,21 @@ export default function PaywallScreen() {
             </div>
 
             <div className="flex flex-col gap-2.5">
+              <a
+                href="https://rzp.io/rzp/tcb-student-bundle"
+                className="w-full bg-[#0C2340] hover:bg-[#1A365D] text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-200 cursor-pointer shadow-md flex items-center justify-center gap-2 text-center"
+              >
+                <CreditCard size={18} />
+                Pay ₹499 via Razorpay / UPI / Cards
+                <ArrowRight size={16} />
+              </a>
               <button
                 onClick={() => setPhonePeModal({ isOpen: true, bundle: 'student' })}
                 disabled={unlocking !== null}
-                className="w-full bg-[#5F259F] hover:bg-[#4D1E82] text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-200 cursor-pointer shadow-md flex items-center justify-center gap-2"
+                className="text-xs text-on-surface-variant hover:text-primary transition-colors text-center py-1 font-mono flex items-center justify-center gap-1 cursor-pointer"
               >
-                <Smartphone size={18} />
-                Pay ₹499 via PhonePe / UPI QR
-                <ArrowRight size={16} />
-              </button>
-              <button
-                onClick={() => completeUnlock('student')}
-                className="text-xs text-on-surface-variant hover:text-primary transition-colors text-center py-1 font-mono"
-              >
-                Instant Workshop Demo Unlock →
+                <Smartphone size={13} />
+                Or Pay via Direct PhonePe / QR
               </button>
             </div>
           </article>
@@ -395,95 +396,108 @@ export default function PaywallScreen() {
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
-                  <h3 className="text-base font-bold text-on-surface">PhonePe Direct UPI Checkout</h3>
+                  <h3 className="text-base font-bold text-on-surface">PhonePe Direct Payment</h3>
                   <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 font-bold">
                     0% Gateway Fee
                   </span>
                 </div>
                 <p className="text-xs text-on-surface-variant">
-                  {activeBundleTitle} • <strong className="text-on-surface">₹{activeAmount}</strong>
+                  {activeBundleTitle} • <strong className="text-emerald-400 text-sm">₹{activeAmount}</strong>
                 </p>
               </div>
             </div>
 
-            {/* Authentic PhonePe QR Code Card */}
-            <div className="flex flex-col items-center justify-center p-3 bg-zinc-950 rounded-xl border border-[#5F259F]/40 shadow-inner">
-              <div className="relative group max-w-[210px] w-full flex flex-col items-center">
-                <img
-                  src="/phonepe-qr.png"
-                  onError={(e) => {
-                    // Seamless fallback to dynamic QR if static image is still syncing
-                    (e.target as HTMLImageElement).src = qrCodeUrl;
-                  }}
-                  alt="Official PhonePe QR Code - SANDARSH S D"
-                  className="w-full rounded-lg object-contain border border-zinc-800 shadow-md"
-                />
-              </div>
-
-              <div className="flex items-center gap-2 mt-2.5">
-                <a
-                  href="/phonepe-qr.png"
-                  download="PhonePe-Sandarsh-SD-QR.png"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#5F259F]/20 hover:bg-[#5F259F]/30 text-[#A775E3] text-[11px] font-semibold border border-[#5F259F]/40 transition-colors"
-                >
-                  <Download size={13} />
-                  Save QR to Gallery (for PhonePe Scanner)
-                </a>
-              </div>
-
-              <p className="text-[10.5px] font-mono text-zinc-400 mt-2 text-center">
-                Payee: <strong className="text-zinc-200">SANDARSH S D</strong> • Amount: <strong className="text-emerald-400">₹{activeAmount}</strong>
-              </p>
+            {/* Crucial Security Notice */}
+            <div className="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-300 text-[11px] leading-relaxed">
+              ⚠️ <strong>Bank Security Notice:</strong> Banking apps decline payments triggered through browser links. To guarantee 100% success, please <strong>send to Mobile Number</strong> or <strong>Scan the QR code</strong> below.
             </div>
 
-            {/* Payment Methods: UPI ID, Mobile No, Direct App */}
-            <div className="flex flex-col gap-2">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {/* UPI ID */}
-                <div className="flex items-center justify-between p-2 rounded-lg bg-surface-variant border border-outline-variant text-xs">
-                  <div>
-                    <span className="text-[10px] font-mono text-on-surface-variant block uppercase">PhonePe UPI ID:</span>
-                    <span className="font-mono font-bold text-on-surface text-[11px]">{phonePeUpiId}</span>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => copyToClipboard(phonePeUpiId)}
-                    className="px-2 py-1 rounded bg-[#5F259F] text-white text-[10px] font-bold flex items-center gap-1 hover:opacity-90"
-                  >
-                    {copiedUpi ? <Check size={11} /> : <Copy size={11} />}
-                    {copiedUpi ? 'Copied' : 'Copy'}
-                  </button>
+            {/* METHOD 1: Direct to Mobile Number (Fastest for Mobile Users) */}
+            <div className="flex flex-col gap-2 p-3 rounded-xl bg-surface-variant border border-outline-variant">
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-bold text-on-surface flex items-center gap-1">
+                  <Smartphone size={13} className="text-[#5F259F] dark:text-[#A775E3]" />
+                  Method 1: Pay to PhonePe Mobile (Recommended)
+                </span>
+                <span className="text-[10px] font-mono text-emerald-400 font-bold">Fastest • 100% Success</span>
+              </div>
+              
+              <div className="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-high border border-outline-variant">
+                <div>
+                  <span className="text-[10px] font-mono text-on-surface-variant uppercase block">PhonePe Number:</span>
+                  <span className="font-mono font-extrabold text-on-surface text-sm">{phonePeMobile}</span>
+                  <span className="text-[10px] text-zinc-400 block">Verified Payee: <strong>{verifiedPayeeName}</strong></span>
                 </div>
-
-                {/* Mobile Number */}
-                <div className="flex items-center justify-between p-2 rounded-lg bg-surface-variant border border-outline-variant text-xs">
-                  <div>
-                    <span className="text-[10px] font-mono text-on-surface-variant block uppercase">PhonePe Mobile:</span>
-                    <span className="font-mono font-bold text-on-surface text-[11px]">{phonePeMobile}</span>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => copyMobileToClipboard(phonePeMobile)}
-                    className="px-2 py-1 rounded bg-[#5F259F] text-white text-[10px] font-bold flex items-center gap-1 hover:opacity-90"
-                  >
-                    {copiedMobile ? <Check size={11} /> : <Copy size={11} />}
-                    {copiedMobile ? 'Copied' : 'Copy'}
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  onClick={() => copyMobileToClipboard(phonePeMobile)}
+                  className="px-3 py-1.5 rounded-lg bg-[#5F259F] hover:bg-[#4D1E82] text-white text-xs font-bold flex items-center gap-1.5 shadow-sm cursor-pointer transition-all"
+                >
+                  {copiedMobile ? <Check size={13} /> : <Copy size={13} />}
+                  {copiedMobile ? 'Copied!' : 'Copy Number'}
+                </button>
               </div>
 
-              {/* Mobile "Open Directly in PhonePe" button */}
-              <a
-                href={upiIntentString}
-                className="w-full py-2.5 px-4 rounded-lg bg-[#5F259F]/15 text-[#5F259F] dark:text-[#A775E3] border border-[#5F259F]/30 text-xs font-bold flex items-center justify-center gap-1.5 hover:bg-[#5F259F]/25 text-center"
-              >
-                <Smartphone size={14} />
-                Open Directly in PhonePe App (Mobile)
-              </a>
+              <ol className="text-[10.5px] text-on-surface-variant list-decimal list-inside space-y-0.5 leading-snug">
+                <li>Tap <strong>Copy Number</strong> above.</li>
+                <li>Open <strong>PhonePe</strong> (or GPay/Paytm) → Tap <strong>To Mobile Number</strong>.</li>
+                <li>Paste <strong>{phonePeMobile}</strong> &amp; transfer <strong>₹{activeAmount}</strong> to {verifiedPayeeName}.</li>
+              </ol>
+            </div>
 
-              <p className="text-[10.5px] text-on-surface-variant leading-tight bg-surface-variant/40 p-2.5 rounded-lg border border-outline-variant/50">
-                💡 <strong>100% Success Guarantee:</strong> If your bank blocks browser links, tap <strong>Save QR to Gallery</strong> above, open PhonePe or Google Pay, tap the <strong>Scanner icon</strong>, and select the photo from your gallery. Or transfer directly to PhonePe Mobile <strong>{phonePeMobile}</strong>.
-              </p>
+            {/* METHOD 2: Official PhonePe QR Code (Desktop or Gallery Scan) */}
+            <div className="flex flex-col gap-2 p-3 rounded-xl bg-surface-variant border border-outline-variant">
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-bold text-on-surface flex items-center gap-1">
+                  <QrCode size={13} className="text-[#5F259F] dark:text-[#A775E3]" />
+                  Method 2: Scan Official PhonePe QR
+                </span>
+                <span className="text-[10px] font-mono text-on-surface-variant">Any UPI App</span>
+              </div>
+
+              <div className="flex flex-col items-center justify-center p-3 bg-zinc-950 rounded-xl border border-zinc-800">
+                <div className="max-w-[200px] w-full flex flex-col items-center">
+                  <img
+                    src="/phonepe-qr.png"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = qrCodeUrl;
+                    }}
+                    alt="Official PhonePe QR Code - SANDARSH S D"
+                    className="w-full rounded-lg object-contain shadow-md"
+                  />
+                </div>
+
+                <div className="flex items-center gap-2 mt-2.5">
+                  <a
+                    href="/phonepe-qr.png"
+                    download="PhonePe-Sandarsh-SD-QR.png"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#5F259F]/20 hover:bg-[#5F259F]/30 text-[#A775E3] text-[11px] font-semibold border border-[#5F259F]/40 transition-colors"
+                  >
+                    <Download size={13} />
+                    Save QR to Gallery (for PhonePe Scanner)
+                  </a>
+                </div>
+
+                <p className="text-[10px] font-mono text-zinc-400 mt-2 text-center">
+                  Desktop: Point phone camera at QR • Mobile: Save QR → Open PhonePe Scanner → Tap Gallery icon
+                </p>
+              </div>
+
+              {/* UPI ID Copy Fallback */}
+              <div className="flex items-center justify-between p-2 rounded-lg bg-surface-container-high border border-outline-variant text-xs">
+                <div>
+                  <span className="text-[10px] font-mono text-on-surface-variant block uppercase">Or Pay to UPI ID:</span>
+                  <span className="font-mono font-bold text-on-surface text-[11px]">{phonePeUpiId}</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => copyToClipboard(phonePeUpiId)}
+                  className="px-2.5 py-1 rounded bg-[#5F259F] text-white text-[10px] font-bold flex items-center gap-1 hover:opacity-90"
+                >
+                  {copiedUpi ? <Check size={11} /> : <Copy size={11} />}
+                  {copiedUpi ? 'Copied' : 'Copy UPI ID'}
+                </button>
+              </div>
             </div>
 
             {/* Step 3: Enter 12-Digit UTR Number */}
