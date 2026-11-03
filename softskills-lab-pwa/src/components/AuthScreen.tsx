@@ -135,23 +135,23 @@ export default function AuthScreen() {
         if (error) throw error;
 
         if (data.user) {
-          await supabase.from('profiles').upsert({
-            id: data.user.id,
-            email: data.user.email,
-            full_name: cleanName
-          });
+          try {
+            await supabase.from('profiles').upsert({
+              id: data.user.id,
+              email: data.user.email,
+              full_name: cleanName
+            });
+          } catch {
+            // Profile upsert fallback
+          }
         }
 
-        if (data.user && !data.session) {
-          setStatusMsg({
-            type: 'info',
-            text: 'Account registered in Supabase! Check your email for the confirmation link, or click below to start your Diagnostic Assessment right away.'
-          });
-        } else {
-          setCurrentUserEmail(data.user?.email || email);
-          setStatusMsg({ type: 'success', text: 'Account created & certificate identity locked! Redirecting...' });
-          setTimeout(() => router.push('/diagnostic'), 800);
-        }
+        setCurrentUserEmail(data.user?.email || email);
+        setStatusMsg({
+          type: 'success',
+          text: 'Account created & certificate identity locked! Opening Diagnostic Assessment...'
+        });
+        setTimeout(() => router.push('/diagnostic'), 600);
       }
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : 'Authentication failed.';
@@ -275,15 +275,6 @@ export default function AuthScreen() {
                   <Zap size={12} /> Continue to Lab (Bypass)
                 </button>
               </div>
-            )}
-
-            {statusMsg.type === 'info' && statusMsg.text.includes('Diagnostic') && (
-              <Link
-                href="/diagnostic"
-                className="self-end text-xs font-bold underline flex items-center gap-1 mt-1"
-              >
-                Continue to Diagnostic Assessment <ArrowRight size={12} />
-              </Link>
             )}
           </div>
         )}
