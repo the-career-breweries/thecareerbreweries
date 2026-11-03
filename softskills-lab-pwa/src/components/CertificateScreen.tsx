@@ -5,6 +5,7 @@ import ThemeToggle from './ThemeToggle';
 import { TRACK_A_MODULES } from '@/data/trackAModules';
 import { supabase } from '@/lib/supabase/client';
 import Link from 'next/link';
+import QRCode from 'qrcode';
 import {
   ArrowLeft,
   Lock,
@@ -27,6 +28,7 @@ export default function CertificateScreen() {
   const [issueDate, setIssueDate] = useState('');
   const [overallPct, setOverallPct] = useState(0);
   const [copiedLink, setCopiedLink] = useState(false);
+  const [qrDataUrl, setQrDataUrl] = useState<string>('');
 
   useEffect(() => {
     setMounted(true);
@@ -127,7 +129,7 @@ export default function CertificateScreen() {
   };
 
   const getVerifyUrl = () => {
-    const origin = typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000';
+    const origin = typeof window !== 'undefined' && window.location.origin ? window.location.origin : 'https://tcb-softskills-lab.vercel.app';
     return `${origin}/verify/${encodeURIComponent(credentialId)}?name=${encodeURIComponent(
       learnerName
     )}&track=Track+A+-+Campus+to+Corporate`;
@@ -156,6 +158,21 @@ export default function CertificateScreen() {
 
     window.open(linkedInUrl, '_blank', 'noopener,noreferrer');
   };
+
+  useEffect(() => {
+    if (!mounted || !credentialId) return;
+    const url = getVerifyUrl();
+    QRCode.toDataURL(url, {
+      width: 240,
+      margin: 1,
+      color: {
+        dark: '#4A3528',
+        light: '#FFFFFF'
+      }
+    })
+      .then((data: string) => setQrDataUrl(data))
+      .catch((err: unknown) => console.error('Failed to generate local QR:', err));
+  }, [mounted, credentialId, learnerName]);
 
   if (!mounted) return null;
 
@@ -255,9 +272,7 @@ export default function CertificateScreen() {
     );
   }
 
-  const qrSvgUrl = `https://api.qrserver.com/v1/create-qr-code/?size=140x140&color=4A3528&bgcolor=FCF5ED&data=${encodeURIComponent(
-    getVerifyUrl()
-  )}`;
+  const qrSvgUrl = qrDataUrl;
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col items-center p-4 md:p-8 font-sans relative">
@@ -443,12 +458,18 @@ export default function CertificateScreen() {
 
               {/* Center: Scannable QR Code Verification */}
               <div className="flex flex-col items-center justify-center">
-                <div className="p-2 rounded-xl bg-white border border-[#D9CDBF] shadow-sm">
-                  <img
-                    src={qrSvgUrl}
-                    alt="Credential Verification QR"
-                    className="w-24 h-24 object-contain"
-                  />
+                <div className="p-2 rounded-xl bg-white border border-[#D9CDBF] shadow-sm flex items-center justify-center w-24 h-24">
+                  {qrDataUrl ? (
+                    <img
+                      src={qrDataUrl}
+                      alt="Credential Verification QR"
+                      className="w-full h-full object-contain"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-[#FCF5ED] animate-pulse rounded flex items-center justify-center text-[10px] text-[#885A3A] font-mono">
+                      Loading...
+                    </div>
+                  )}
                 </div>
                 <span className="text-[10px] font-mono text-[#725D50] mt-1.5 uppercase tracking-wider">
                   Scan to Verify • 100% Score
