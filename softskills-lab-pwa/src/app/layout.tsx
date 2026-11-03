@@ -4,8 +4,8 @@ import "./globals.css";
 import type { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
-  title: "Softskills Lab | The Career Breweries",
-  description: "Elevate your career through high-impact communication with 3-Days Workshop interactive simulators.",
+  title: "TCB Softskills Lab | Interactive Career Simulation Software",
+  description: "Interactive software platform for automated ATS resume benchmarking, speech pitch simulators, and executive crisis decision drills.",
   manifest: "/manifest.json",
   icons: {
     icon: "/tcb-logo.png",

@@ -363,7 +363,7 @@ export default function StudentPlaybookScreen() {
                       Student Bundle Edition
                     </span>
                     <span className="text-xs font-mono text-secondary font-semibold">
-                      • 3-Days Workshop &amp; Lab Companion Vault
+                      • Interactive Lab Companion Software Vault
                     </span>
                   </div>
                   <h1 className="text-2xl md:text-3xl font-bold text-on-surface">

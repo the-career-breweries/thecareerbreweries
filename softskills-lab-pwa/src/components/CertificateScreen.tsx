@@ -141,7 +141,7 @@ export default function CertificateScreen() {
 
   const handleAddToLinkedIn = () => {
     const now = new Date();
-    const certName = 'Campus to Corporate Softskills Lab (3-Days Workshop & Certification)';
+    const certName = 'Campus to Corporate Softskills Lab (Interactive Simulation & Certification)';
     const orgName = 'The Career Breweries';
     const verifyUrl = getVerifyUrl();
 
@@ -175,7 +175,7 @@ export default function CertificateScreen() {
             Certificate Locked ({overallPct}% Complete)
           </h1>
           <p className="text-sm text-on-surface-variant leading-relaxed">
-            Official credentials from <strong>The Career Breweries</strong> are strictly issued only to learners who complete <strong>100% of the 3-Days Workshop &amp; Lab Modules</strong>.
+            Official credentials from <strong>The Career Breweries</strong> are strictly issued only to learners who complete <strong>100% of the Interactive Simulation &amp; Lab Modules</strong>.
           </p>
           <div className="w-full bg-surface-variant h-3 rounded-full overflow-hidden">
             <div
@@ -386,7 +386,7 @@ export default function CertificateScreen() {
               </h1>
               <div className="w-28 h-0.5 bg-[#885A3A] my-3" />
               <p className="text-xs md:text-sm uppercase tracking-widest text-[#725D50] font-semibold">
-                3-Days Workshop &amp; Campus-to-Corporate Executive Lab
+                Interactive Simulation &amp; Campus-to-Corporate Executive Lab
               </p>
             </div>
 

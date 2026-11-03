@@ -37,21 +37,21 @@ export default function TermsPage() {
           <div>
             <h2 className="text-base font-bold text-primary mb-1">1. Acceptance of Terms</h2>
             <p className="text-on-surface-variant">
-              By accessing or enrolling in The Career Breweries Softskills Lab, 3-Days Workshop curriculum, interactive simulators, or associated digital materials, you agree to be bound by these Terms and Conditions and our Privacy Policy.
+              By accessing or purchasing a software license for The Career Breweries Softskills Lab (an interactive SaaS placement simulation software platform), simulators, or associated digital learning tools, you agree to be bound by these Terms and Conditions and our Privacy Policy.
             </p>
           </div>
 
           <div>
-            <h2 className="text-base font-bold text-primary mb-1">2. Service Description &amp; Digital Access</h2>
+            <h2 className="text-base font-bold text-primary mb-1">2. Service Description &amp; Digital Software License</h2>
             <p className="text-on-surface-variant">
-              The Career Breweries offers online soft skills training courses, interactive speech/communication simulators, and verifiable completion certificates. Access to curriculum modules is granted upon successful payment and user registration.
+              The Career Breweries provides interactive simulation software for soft skills assessment, speech/pitch benchmarking, automated resume ATS analysis, and verifiable digital completion credentials. Access is provisioned as an individual digital software license immediately upon successful checkout.
             </p>
           </div>
 
           <div>
-            <h2 className="text-base font-bold text-primary mb-1">3. Instant Digital Delivery Policy</h2>
+            <h2 className="text-base font-bold text-primary mb-1">3. Instant Digital Software Delivery Policy</h2>
             <p className="text-on-surface-variant">
-              All courses, simulators, and digital training assets are delivered digitally and instantly. Upon successful payment verification via our payment gateway (Razorpay), your account receives immediate access to your purchased bundle (Student Bundle or Professional Bundle).
+              All software licenses, simulators, and digital training assets are delivered digitally and instantly via web application access. Upon successful payment verification via our payment gateway (Razorpay), your account receives immediate access to your chosen software license tier (Student License or Professional License).
             </p>
           </div>
 

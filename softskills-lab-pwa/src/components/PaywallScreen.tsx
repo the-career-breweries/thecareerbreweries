@@ -100,7 +100,10 @@ export default function PaywallScreen() {
         return;
       }
 
-      const bundleTitle = bundle === 'pro' ? 'The Professional Bundle' : 'The Student Bundle';
+      const bundleTitle =
+        bundle === 'pro'
+          ? 'The Professional Bundle (Executive Software License)'
+          : 'The Student Bundle (Standard Software License)';
 
       const options = {
         key: orderData.keyId || process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || 'rzp_live_TJN5b2o72kLRPP',
@@ -116,8 +119,8 @@ export default function PaywallScreen() {
           contact: ''
         },
         notes: {
-          bundle,
-          platform: 'TCB Softskills Lab'
+          license: bundle === 'pro' ? 'Executive Edition Software License' : 'Standard Edition Software License',
+          platform: 'TCB Softskills Lab Software'
         },
         theme: {
           color: '#0C2340'
@@ -242,19 +245,19 @@ export default function PaywallScreen() {
         <header className="text-center max-w-2xl flex flex-col items-center">
           <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-primary/15 text-primary border border-primary/30 mb-4">
             <Sparkles size={14} />
-            3-Days Workshop &amp; Interactive Lab Access
+            Interactive Simulation Software &amp; Placement Lab
           </span>
           <h1 className="text-3xl md:text-5xl font-extrabold text-on-surface tracking-tight mb-3">
             Brew Your Career Superpower
           </h1>
           <p className="text-sm md:text-base text-on-surface-variant max-w-xl leading-relaxed">
-            Choose the interactive lab curriculum tailored to your career milestone. Instant activation upon checkout.
+            Access our interactive career simulation software tailored to your placement and leadership milestones. Instant software license activation upon checkout.
           </p>
 
           <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
             <div className="px-3.5 py-1.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 text-xs font-mono inline-flex items-center gap-1.5 font-bold">
               <ShieldCheck size={13} />
-              Instant Activation • PhonePe, GPay, Paytm, UPI QR &amp; Cards
+              Instant Software License Activation • PhonePe, GPay, Paytm, UPI QR &amp; Cards
             </div>
           </div>
         </header>
@@ -267,46 +270,46 @@ export default function PaywallScreen() {
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs font-mono uppercase tracking-widest text-secondary font-bold flex items-center gap-1.5">
                   <GraduationCap size={15} />
-                  Campus to Corporate
+                  Standard Software License
                 </span>
                 <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-surface-variant text-on-surface-variant">
-                  Class XII • UG • PG
+                  Class XII • UG • PG Placement Prep
                 </span>
               </div>
 
               <h2 className="text-2xl font-bold text-on-surface mb-2">The Student Bundle</h2>
               <p className="text-xs text-on-surface-variant mb-6 leading-relaxed">
-                Crush campus placements, bypass ATS bots, and speak with executive confidence in GDs and interviews.
+                Single-user interactive software license for campus placements, automated ATS resume benchmarking, and speech pitch simulators.
               </p>
 
               <div className="flex items-baseline gap-1.5 mb-6 pb-6 border-b border-outline-variant/60">
                 <span className="text-4xl md:text-5xl font-extrabold text-on-surface">₹499</span>
-                <span className="text-xs text-on-surface-variant font-medium">/ lifetime access • one-time</span>
+                <span className="text-xs text-on-surface-variant font-medium">/ lifetime software access • one-time license</span>
               </div>
 
               <ul className="flex flex-col gap-3.5 mb-8 text-sm">
                 <li className="flex items-start gap-3">
                   <CheckCircle className="text-secondary mt-0.5 flex-shrink-0" size={18} />
                   <span className="text-on-surface">
-                    <strong>All 5 Track A Modules:</strong> Pitch, Resume, GD Dominance, Email Etiquette, STAR Stories.
+                    <strong>All 5 Track A Simulation Modules:</strong> Pitch Benchmarking, Resume Scoring, GD Dominance Drills, Professional Email Engine, STAR Stories.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="text-secondary mt-0.5 flex-shrink-0" size={18} />
                   <span className="text-on-surface">
-                    <strong>Amazon A-B-C Resume Rule:</strong> Pass careers page ATS without referrals.
+                    <strong>Amazon A-B-C Resume Rule:</strong> Pass automated careers page ATS filtering without referrals.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="text-secondary mt-0.5 flex-shrink-0" size={18} />
                   <span className="text-on-surface">
-                    <strong>Verified TCB Certificate:</strong> Permanent Legal Name Lock + Scannable QR ID.
+                    <strong>Verified TCB Skill Certification:</strong> Permanent Legal Name Lock + Scannable QR ID Verification Engine.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="text-secondary mt-0.5 flex-shrink-0" size={18} />
                   <span className="text-on-surface">
-                    <strong>Student Communication Playbook Vault:</strong> 1-Tap Trap Decoders, 3 Red Flags of Weakness script &amp; Audio Pronunciation Lab.
+                    <strong>Student Communication Software Vault:</strong> 1-Tap Trap Decoders, 3 Red Flags of Weakness script &amp; Audio Pronunciation Lab.
                   </span>
                 </li>
               </ul>
@@ -345,7 +348,7 @@ export default function PaywallScreen() {
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs font-mono uppercase tracking-widest text-primary font-bold flex items-center gap-1.5">
                   <Briefcase size={15} />
-                  Executive Precision
+                  Professional Software License
                 </span>
                 <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-primary/15 text-primary border border-primary/30">
                   Working Pros • Lateral Hires
@@ -354,31 +357,31 @@ export default function PaywallScreen() {
 
               <h2 className="text-2xl font-bold text-on-surface mb-2">The Professional Bundle</h2>
               <p className="text-xs text-on-surface-variant mb-6 leading-relaxed">
-                Negotiate lakhs in compensation, handle trap interview questions, and de-escalate high-stakes leadership crises.
+                Full-stack executive simulation suite for compensation negotiation, trap handling, and crisis de-escalation drills.
               </p>
 
               <div className="flex items-baseline gap-1.5 mb-6 pb-6 border-b border-outline-variant/60">
                 <span className="text-4xl md:text-5xl font-extrabold text-on-surface">₹999</span>
-                <span className="text-xs text-on-surface-variant font-medium">/ lifetime access • one-time</span>
+                <span className="text-xs text-on-surface-variant font-medium">/ lifetime software access • one-time license</span>
               </div>
 
               <ul className="flex flex-col gap-3.5 mb-8 text-sm">
                 <li className="flex items-start gap-3">
                   <CheckCircle className="text-primary mt-0.5 flex-shrink-0" size={18} />
                   <span className="text-on-surface">
-                    <strong>Everything in Student Bundle Included</strong> (Track A Modules 1–5 + Certificate).
+                    <strong>Everything in Student Software License Included</strong> (Track A Modules 1–5 + Verified Certification Engine).
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="text-primary mt-0.5 flex-shrink-0" size={18} />
                   <span className="text-on-surface">
-                    <strong>Modules 6–8 Executive Mastery:</strong> Hostile Q&amp;A (A.B.C.), High-Stakes Salary (F.A.R.E.), Managing Up (1-3-1 Rule).
+                    <strong>Modules 6–8 Executive Mastery Simulators:</strong> Hostile Q&amp;A (A.B.C.), High-Stakes Salary (F.A.R.E.), Managing Up (1-3-1 Rule).
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="text-primary mt-0.5 flex-shrink-0" size={18} />
                   <span className="text-on-surface">
-                    <strong>Friday 6 PM Crisis Simulator:</strong> Live Heart Rate BPM Meter (215 bpm down to 85 bpm).
+                    <strong>Friday 6 PM Crisis Simulator:</strong> Live Interactive BPM Heart Rate Meter (215 bpm down to 85 bpm).
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -464,7 +467,7 @@ export default function PaywallScreen() {
                 className="bg-primary hover:opacity-90 text-on-primary font-bold px-5 py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50 whitespace-nowrap shadow-sm"
               >
                 <Zap size={14} />
-                {claiming ? 'Verifying...' : 'Activate Lab Access'}
+                {claiming ? 'Verifying...' : 'Activate Software License'}
               </button>
             </div>
           </form>
@@ -480,16 +483,16 @@ export default function PaywallScreen() {
         <section className="w-full glass-panel rounded-2xl p-6 md:p-8 border border-outline-variant shadow-sm flex flex-col gap-5">
           <div className="flex items-center gap-2">
             <ShieldCheck size={20} className="text-primary" />
-            <h3 className="text-lg font-bold text-on-surface">Compare Curriculum &amp; Simulator Access</h3>
+            <h3 className="text-lg font-bold text-on-surface">Compare Simulation Software Licenses</h3>
           </div>
 
           <div className="overflow-x-auto w-full">
             <table className="w-full text-left text-xs md:text-sm border-collapse">
               <thead>
                 <tr className="border-b border-outline-variant text-on-surface-variant font-mono">
-                  <th className="py-3 px-4">Feature / Curriculum Asset</th>
-                  <th className="py-3 px-4 text-center">Student (₹499)</th>
-                  <th className="py-3 px-4 text-center font-bold text-primary">Professional (₹999)</th>
+                  <th className="py-3 px-4">Interactive Software Simulator &amp; Learning Asset</th>
+                  <th className="py-3 px-4 text-center">Student License (₹499)</th>
+                  <th className="py-3 px-4 text-center font-bold text-primary">Professional License (₹999)</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-outline-variant/60">

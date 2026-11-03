@@ -35,9 +35,9 @@ export default function RefundPolicyPage() {
 
         <section className="flex flex-col gap-4 text-xs md:text-sm text-on-surface leading-relaxed">
           <div>
-            <h2 className="text-base font-bold text-primary mb-1">1. Digital Product Delivery</h2>
+            <h2 className="text-base font-bold text-primary mb-1">1. Digital Software License Delivery</h2>
             <p className="text-on-surface-variant">
-              The Career Breweries delivers all courses, interactive communication simulators, assessment benchmarks, and verifiable certificates electronically. Access to your purchased bundle is granted immediately upon successful completion of payment via Razorpay.
+              The Career Breweries delivers all interactive communication software simulators, assessment engines, and digital credentials electronically as a web-based SaaS platform. Access to your purchased software license tier is provisioned immediately upon successful completion of payment via Razorpay.
             </p>
           </div>
 
@@ -51,14 +51,14 @@ export default function RefundPolicyPage() {
           <div>
             <h2 className="text-base font-bold text-primary mb-1">3. Refund Eligibility &amp; Review Window</h2>
             <p className="text-on-surface-variant">
-              We stand behind the quality and practical rigor of our training. If you experience technical defects, access delivery failures, or system errors that prevent you from utilizing the interactive lab, please notify our support team within <strong>48 hours</strong> of purchase at <span className="font-mono text-primary font-bold">careerbreweries@gmail.com</span> with your registered email and Razorpay Payment ID (<code className="text-primary font-mono font-bold">pay_...</code>). Our technical team will review and resolve the issue or process an approved refund.
+              We stand behind the quality and practical rigor of our training. If you experience technical defects, access delivery failures, or system errors that prevent you from utilizing the interactive lab software, please notify our support team within <strong>48 hours</strong> of purchase at <span className="font-mono text-primary font-bold">careerbreweries@gmail.com</span> with your registered email and Razorpay Payment ID (<code className="text-primary font-mono font-bold">pay_...</code>). Our technical team will review and resolve the issue or process an approved refund.
             </p>
           </div>
 
           <div>
             <h2 className="text-base font-bold text-primary mb-1">4. Non-Refundable Scenarios</h2>
             <p className="text-on-surface-variant">
-              Refunds cannot be issued after a student has completed more than 50% of curriculum modules, or once an official verifiable completion certificate has been generated under their permanent legal name.
+              Refunds cannot be issued once a user has utilized more than 50% of the interactive simulation modules, or once an official verified skill certificate has been permanently generated and recorded under their legal name.
             </p>
           </div>
 

@@ -1,7 +1,7 @@
 {
   "name": "TCB Softskills Lab",
   "short_name": "Softskills Lab",
-  "description": "Elevate your career through high-impact communication with 3-Days Workshop interactive simulators.",
+  "description": "Interactive career simulation software for automated ATS resume benchmarking, speech pitch simulators, and executive crisis decision drills.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#1F1511",

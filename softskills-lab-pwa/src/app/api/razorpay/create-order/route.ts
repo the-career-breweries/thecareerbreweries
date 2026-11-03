@@ -30,8 +30,11 @@ export async function POST(req: Request) {
         currency: 'INR',
         receipt: `tcb_${bundle}_${Date.now().toString().slice(-8)}`,
         notes: {
-          product: bundle === 'pro' ? 'The Professional Bundle' : 'The Student Bundle',
-          platform: 'TCB Softskills Lab'
+          product:
+            bundle === 'pro'
+              ? 'The Professional Bundle (Executive Software License)'
+              : 'The Student Bundle (Standard Software License)',
+          platform: 'TCB Softskills Lab Software (SaaS)'
         }
       })
     });

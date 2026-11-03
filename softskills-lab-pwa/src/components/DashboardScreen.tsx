@@ -236,7 +236,7 @@ export default function DashboardScreen() {
                   ? 'Student + Pro Bundles Active'
                   : hasStudentBundle
                   ? 'Student Bundle Active'
-                  : '3-Days Workshop & Lab'}
+                  : 'Interactive Simulation Software & Lab'}
               </span>
               {userEmail && (
                 <span className="text-xs text-on-surface-variant flex items-center gap-1">
@@ -320,7 +320,7 @@ export default function DashboardScreen() {
                     Official TCB Certificate &amp; LinkedIn Badge (Locked — {overallTrackAPct}% Complete)
                   </h3>
                   <p className="text-xs text-on-surface-variant">
-                    Complete 100% of all 5 Track A modules to unlock your verified QR credential and qualify for 3-Days Workshop completion emails.
+                    Complete 100% of all 5 Track A modules to unlock your verified QR credential and qualify for official certification records.
                   </p>
                 </div>
               </div>

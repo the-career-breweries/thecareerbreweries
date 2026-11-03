@@ -43,7 +43,7 @@ export default function VerifyCredentialPage({ params }: { params: Promise<{ id:
             {holderName}
           </h1>
           <p className="text-sm text-primary font-semibold mt-1">
-            {trackName} (3-Days Workshop &amp; Interactive Lab)
+            {trackName} (Interactive Simulation Software &amp; Lab)
           </p>
         </div>
 
