@@ -191,6 +191,7 @@ export default function AuthScreen() {
             src="/tcb-logo.png"
           />
           <h1 className="text-2xl font-bold text-on-surface mb-2">Softskills Lab</h1>
+          <Link href="/paywall" className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-primary hover:underline bg-primary/10 border border-primary/30 px-3 py-1 rounded-full my-2">View Software Plans &amp; Pricing &rarr;</Link>
           <p className="text-sm text-on-surface-variant text-center">
             Elevate your career through high-impact communication.
           </p>
@@ -375,7 +376,7 @@ export default function AuthScreen() {
               className="w-full bg-surface-variant/80 hover:bg-surface-variant border border-outline-variant text-on-surface text-xs font-bold py-2.5 px-4 rounded-xl flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
             >
               <Zap size={14} className="text-secondary" />
-              Instant Workshop / Demo Access (No Email Required)
+              Instant Demo / Software Preview (No Email Required)
             </button>
           </div>
         </form>
@@ -400,6 +401,8 @@ export default function AuthScreen() {
       </main>
 
       <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-on-surface-variant font-mono text-center">
+        <Link href="/paywall" className="text-primary font-bold hover:underline">Software Licenses &amp; Pricing</Link>
+        <span>•</span>
         <Link href="/privacy" className="hover:text-primary transition-colors hover:underline">
           Privacy Policy
         </Link>
