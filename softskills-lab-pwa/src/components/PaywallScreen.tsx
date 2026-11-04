@@ -12,7 +12,8 @@ import {
   GraduationCap,
   Star,
   CreditCard,
-  Loader2
+  Loader2,
+  FlaskConical
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase/client';
@@ -52,6 +53,7 @@ export default function PaywallScreen() {
   const [claimTier, setClaimTier] = useState<'student' | 'pro'>('student');
   const [claiming, setClaiming] = useState(false);
   const [claimStatus, setClaimStatus] = useState<{ type: 'error' | 'success'; text: string } | null>(null);
+  const [isTestMode, setIsTestMode] = useState(false);
 
   useEffect(() => {
     // Preload Razorpay checkout script in the background
@@ -70,6 +72,10 @@ export default function PaywallScreen() {
     if (typeof window !== 'undefined') {
       const storedName = localStorage.getItem('tcb_learner_name');
       if (storedName && !userName) setUserName(storedName);
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('test') === 'true' || params.get('sandbox') === 'true') {
+        setIsTestMode(true);
+      }
     }
   }, [userName]);
 
@@ -82,7 +88,7 @@ export default function PaywallScreen() {
       const res = await fetch('/api/razorpay/create-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ bundle })
+        body: JSON.stringify({ bundle, isTestPrice: isTestMode })
       });
 
       const orderData = await res.json();
@@ -110,7 +116,7 @@ export default function PaywallScreen() {
         amount: orderData.amount,
         currency: orderData.currency || 'INR',
         name: 'The Career Breweries',
-        description: `TCB Softskills Lab - ${bundleTitle}`,
+        description: isTestMode ? `TCB Softskills Lab - Live ₹${bundle === 'pro' ? '2' : '1'} Verification Test` : `TCB Softskills Lab - ${bundleTitle}`,
         image: 'https://tcb-softskills-lab.vercel.app/tcb-logo.png',
         order_id: orderData.orderId,
         prefill: {
@@ -260,6 +266,32 @@ export default function PaywallScreen() {
               Instant Software License Activation • PhonePe, GPay, Paytm, UPI QR &amp; Cards
             </div>
           </div>
+          {isTestMode ? (
+            <div className="mt-4 px-4 py-2.5 rounded-xl bg-amber-500/15 border border-amber-500/40 text-amber-500 dark:text-amber-300 text-xs font-mono flex flex-wrap items-center justify-between gap-3 max-w-xl w-full shadow-sm">
+              <span className="flex items-center gap-1.5 font-bold">
+                <FlaskConical size={15} />
+                Live UPI Test Mode: Student ₹1 • Professional ₹2 (Real GPay/PhonePe)
+              </span>
+              <button
+                type="button"
+                onClick={() => setIsTestMode(false)}
+                className="underline hover:text-white cursor-pointer whitespace-nowrap font-sans font-medium"
+              >
+                Disable Test
+              </button>
+            </div>
+          ) : (
+            <div className="mt-3">
+              <button
+                type="button"
+                onClick={() => setIsTestMode(true)}
+                className="text-[11px] font-mono text-on-surface-variant/70 hover:text-primary transition-colors cursor-pointer flex items-center gap-1"
+              >
+                <FlaskConical size={13} />
+                Admin / Testing: Enable Live ₹1 / ₹2 UPI Test Mode
+              </button>
+            </div>
+          )}
         </header>
 
         {/* Pricing Cards */}
@@ -283,7 +315,7 @@ export default function PaywallScreen() {
               </p>
 
               <div className="flex items-baseline gap-1.5 mb-6 pb-6 border-b border-outline-variant/60">
-                <span className="text-4xl md:text-5xl font-extrabold text-on-surface">₹499</span>
+                <span className="text-4xl md:text-5xl font-extrabold text-on-surface">₹{isTestMode ? '1' : '499'}</span>
                 <span className="text-xs text-on-surface-variant font-medium">/ lifetime software access • one-time license</span>
               </div>
 
@@ -330,7 +362,7 @@ export default function PaywallScreen() {
                 ) : (
                   <>
                     <CreditCard size={18} />
-                    Pay ₹499 via UPI QR / Cards
+                    Pay ₹{isTestMode ? '1' : '499'} via UPI QR / Cards
                     <ArrowRight size={16} />
                   </>
                 )}
@@ -361,7 +393,7 @@ export default function PaywallScreen() {
               </p>
 
               <div className="flex items-baseline gap-1.5 mb-6 pb-6 border-b border-outline-variant/60">
-                <span className="text-4xl md:text-5xl font-extrabold text-on-surface">₹999</span>
+                <span className="text-4xl md:text-5xl font-extrabold text-on-surface">₹{isTestMode ? '2' : '999'}</span>
                 <span className="text-xs text-on-surface-variant font-medium">/ lifetime software access • one-time license</span>
               </div>
 
@@ -408,7 +440,7 @@ export default function PaywallScreen() {
                 ) : (
                   <>
                     <CreditCard size={18} />
-                    Pay ₹999 via UPI QR / Cards
+                    Pay ₹{isTestMode ? '2' : '999'} via UPI QR / Cards
                     <ArrowRight size={16} />
                   </>
                 )}
