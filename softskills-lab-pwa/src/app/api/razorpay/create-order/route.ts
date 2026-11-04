@@ -2,17 +2,13 @@ import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
   try {
-    const { bundle, isTestPrice } = await req.json();
+    const { bundle } = await req.json();
 
     if (bundle !== 'student' && bundle !== 'pro') {
       return NextResponse.json({ error: 'Invalid bundle selected' }, { status: 400 });
     }
 
-    let amountInPaise = bundle === 'pro' ? 99900 : 49900;
-    if (isTestPrice) {
-      amountInPaise = bundle === 'pro' ? 200 : 100;
-    }
-
+    const amountInPaise = bundle === 'pro' ? 99900 : 49900;
     const keyId =
       process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID ||
       process.env.RAZORPAY_KEY_ID ||
@@ -32,14 +28,13 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         amount: amountInPaise,
         currency: 'INR',
-        receipt: `tcb_${bundle}_${isTestPrice ? 'tst_' : ''}${Date.now().toString().slice(-8)}`,
+        receipt: `tcb_${bundle}_${Date.now().toString().slice(-8)}`,
         notes: {
           product:
             bundle === 'pro'
-              ? (isTestPrice ? 'The Professional Bundle (Live ₹2 Verification Test)' : 'The Professional Bundle (Executive Software License)')
-              : (isTestPrice ? 'The Student Bundle (Live ₹1 Verification Test)' : 'The Student Bundle (Standard Software License)'),
-          platform: 'TCB Softskills Lab Software (SaaS)',
-          test_order: isTestPrice ? 'true' : 'false'
+              ? 'The Professional Bundle (Executive Software License)'
+              : 'The Student Bundle (Standard Software License)',
+          platform: 'TCB Softskills Lab Software (SaaS)'
         }
       })
     });
