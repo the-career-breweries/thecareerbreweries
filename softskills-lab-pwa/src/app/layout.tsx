@@ -1,5 +1,7 @@
 import { ThemeProvider } from "@/components/ThemeProvider";
 import InstallPwaPrompt from "@/components/InstallPwaPrompt";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
 
@@ -32,6 +34,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider>
           {children}
           <InstallPwaPrompt />
+          <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
