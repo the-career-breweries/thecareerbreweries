@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@/components/ThemeProvider";
 import InstallPwaPrompt from "@/components/InstallPwaPrompt";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
