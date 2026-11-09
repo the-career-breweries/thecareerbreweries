@@ -18,6 +18,18 @@ export default function AuthScreen() {
   const [statusMsg, setStatusMsg] = useState<{ type: 'success' | 'error' | 'info'; text: string } | null>(null);
 
   useEffect(() => {
+    // ── Mindler VIP Student Unlock ──
+    if (typeof window !== 'undefined') {
+      const isMindler = window.location.pathname.startsWith('/mindler-user-') || window.location.search.includes('mindler-user-');
+      if (isMindler) {
+        localStorage.setItem('tcb_learner_name', 'Mindler VIP Learner');
+        localStorage.setItem('tcb_name_locked', 'true');
+        localStorage.setItem('tcb_unlocked_bundle', 'pro');
+        router.push('/dashboard');
+        return;
+      }
+    }
+
     if (!supabase) return;
     supabase.auth.getUser().then(({ data }) => {
       if (data?.user?.email) {
