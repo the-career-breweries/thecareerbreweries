@@ -10,7 +10,7 @@ interface ThemeContextType {
 }
 
 const ThemeContext = createContext<ThemeContextType>({
-  theme: "dark",
+  theme: "light",
   setTheme: () => {},
 });
 
@@ -19,10 +19,10 @@ export function useTheme() {
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("dark");
+  const [theme, setThemeState] = useState<Theme>("light");
 
   useEffect(() => {
-    const saved = (localStorage.getItem("tcb-theme") as Theme) || "dark";
+    const saved = (localStorage.getItem("tcb-theme") as Theme) || "light";
     setThemeState(saved);
     document.documentElement.classList.toggle("dark", saved === "dark");
   }, []);
