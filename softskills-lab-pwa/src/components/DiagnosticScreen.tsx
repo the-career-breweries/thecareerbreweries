@@ -102,7 +102,7 @@ export default function DiagnosticScreen() {
       // Non-blocking if profile table is not yet initialized
     } finally {
       setSaving(false);
-      router.push('/paywall');
+      router.push('/dashboard?diagnostic_done=1');
     }
   };
 

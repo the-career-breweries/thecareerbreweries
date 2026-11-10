@@ -42,6 +42,7 @@ export default function DashboardScreen() {
   const [hasStudentBundle, setHasStudentBundle] = useState(false);
   const [progressMap, setProgressMap] = useState<Record<string, number>>({});
   const [checkingAccess, setCheckingAccess] = useState(true);
+  const [showDiagnosticBanner, setShowDiagnosticBanner] = useState(false);
 
   useEffect(() => {
     let unlocked = false;
@@ -52,6 +53,9 @@ export default function DashboardScreen() {
       const rzpPaymentId = searchParams.get('razorpay_payment_id');
       const rzpStatus = searchParams.get('razorpay_payment_link_status');
       const bundleParam = searchParams.get('bundle');
+      if (searchParams.get('diagnostic_done') === '1') {
+        setShowDiagnosticBanner(true);
+      }
 
       if (rzpPaymentId && (rzpStatus === 'paid' || !rzpStatus)) {
         const bundle = bundleParam === 'pro' ? 'pro' : 'student';
@@ -186,18 +190,10 @@ export default function DashboardScreen() {
           }
         }
 
-        if (!unlocked) {
-          router.replace('/paywall');
-        } else {
-          setCheckingAccess(false);
-        }
+        setCheckingAccess(false);
       });
     } else {
-      if (!unlocked) {
-        router.replace('/paywall');
-      } else {
-        setCheckingAccess(false);
-      }
+      setCheckingAccess(false);
     }
   }, [router]);
 
@@ -227,6 +223,34 @@ export default function DashboardScreen() {
       <div className="fixed top-4 right-4 z-50"><ThemeToggle /></div>
 
       <main className="flex-grow flex flex-col items-center px-4 md:px-6 w-full max-w-4xl mx-auto mt-8 md:mt-14 gap-10">
+        {/* Diagnostic Completion Welcome Toast */}
+        {showDiagnosticBanner && (
+          <div className="w-full rounded-2xl p-5 bg-gradient-to-r from-emerald-500/15 via-primary/15 to-emerald-500/10 border-2 border-emerald-500/40 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div className="flex items-start gap-3.5">
+              <div className="h-10 w-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center flex-shrink-0">
+                <Sparkles size={20} />
+              </div>
+              <div>
+                <span className="text-xs font-mono uppercase tracking-widest text-emerald-600 dark:text-emerald-400 font-bold">
+                  Diagnostic Assessment Complete
+                </span>
+                <h3 className="text-base font-bold text-on-surface mt-0.5">
+                  Welcome to Your Softskills Lab Trial!
+                </h3>
+                <p className="text-xs md:text-sm text-on-surface-variant">
+                  We have mapped your diagnostic results to your personalized career roadmap. <strong>Module 1: The 3-Sentence Intro (P-P-F Formula)</strong> is unlocked below with 3 free interactive pitch builders!
+                </p>
+              </div>
+            </div>
+            <Link
+              href="/dashboard/module/intro-pitch"
+              className="text-xs font-bold px-4 py-2.5 rounded-xl bg-emerald-600 text-white hover:bg-emerald-700 flex items-center gap-1.5 flex-shrink-0 shadow-sm"
+            >
+              Start Module 1 Now <ArrowRight size={14} />
+            </Link>
+          </div>
+        )}
+
         {/* Top Summary Banner */}
         <section className="w-full glass-panel rounded-2xl p-6 border border-outline-variant shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
@@ -236,7 +260,7 @@ export default function DashboardScreen() {
                   ? 'Student + Pro Bundles Active'
                   : hasStudentBundle
                   ? 'Student Bundle Active'
-                  : 'Interactive Simulation Software & Lab'}
+                  : 'Free Trial Active • Module 1 Unlocked'}
               </span>
               {userEmail && (
                 <span className="text-xs text-on-surface-variant flex items-center gap-1">
@@ -395,9 +419,24 @@ export default function DashboardScreen() {
                 The Student Bundle Curriculum (Modules 1–5)
               </h2>
             </div>
-            <span className="bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full border border-primary/20">
-              Unlocked &amp; Ready
-            </span>
+            {hasStudentBundle ? (
+              <span className="bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full border border-primary/20">
+                Unlocked &amp; Ready
+              </span>
+            ) : (
+              <div className="flex items-center gap-2">
+                <span className="bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full border border-emerald-500/30 flex items-center gap-1.5">
+                  <Sparkles size={12} />
+                  Module 1 Free Trial Active
+                </span>
+                <Link
+                  href="/paywall?bundle=student"
+                  className="text-xs font-bold px-3.5 py-1.5 rounded-full bg-primary text-on-primary hover:opacity-90 flex items-center gap-1 shadow-sm"
+                >
+                  Unlock All 5 (₹499) <ArrowRight size={12} />
+                </Link>
+              </div>
+            )}
           </div>
 
           <div className="flex flex-col gap-4 w-full">
@@ -406,11 +445,14 @@ export default function DashboardScreen() {
               const pct = progressMap[mod.id] || 0;
               const isDone = pct === 100;
               const isStarted = pct > 0 && pct < 100;
+              const isModuleUnlocked = hasStudentBundle || hasProBundle || mod.id === 'intro-pitch';
 
               return (
                 <article
                   key={mod.id}
-                  className="module-card glass-panel rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start md:items-center w-full relative overflow-hidden group hover:border-primary/50 transition-all"
+                  className={`module-card glass-panel rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start md:items-center w-full relative overflow-hidden group hover:border-primary/50 transition-all ${
+                    !isModuleUnlocked ? 'opacity-85' : ''
+                  }`}
                 >
                   <div
                     className={`absolute top-0 left-0 w-1.5 h-full ${
@@ -418,12 +460,18 @@ export default function DashboardScreen() {
                         ? 'bg-emerald-500'
                         : isStarted
                         ? 'bg-gradient-to-b from-secondary to-primary'
-                        : 'bg-gradient-to-b from-primary to-primary-container'
+                        : isModuleUnlocked
+                        ? 'bg-gradient-to-b from-primary to-primary-container'
+                        : 'bg-outline-variant'
                     }`}
                   ></div>
 
                   <div className="h-14 w-14 rounded-xl bg-surface-variant/60 flex items-center justify-center border border-outline-variant flex-shrink-0 group-hover:bg-primary/10 group-hover:border-primary/30 transition-colors">
-                    <IconComponent className="text-primary" size={26} />
+                    {isModuleUnlocked ? (
+                      <IconComponent className="text-primary" size={26} />
+                    ) : (
+                      <Lock className="text-amber-500" size={24} />
+                    )}
                   </div>
 
                   <div className="flex-grow flex flex-col gap-1.5">
@@ -435,6 +483,11 @@ export default function DashboardScreen() {
                         <Sparkles size={10} className="inline mr-1 text-primary" />
                         {mod.frameworkShort}
                       </span>
+                      {!isModuleUnlocked && (
+                        <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-500 dark:text-amber-400 border border-amber-500/30 font-semibold flex items-center gap-1">
+                          <Lock size={10} /> Locked • Student Bundle
+                        </span>
+                      )}
                       <span className="text-[11px] text-on-surface-variant font-mono">
                         • {mod.duration}
                       </span>
@@ -466,13 +519,24 @@ export default function DashboardScreen() {
                     </div>
                   </div>
 
-                  <Link
-                    href={`/dashboard/module/${mod.id}`}
-                    className="w-full md:w-auto text-center bg-primary text-on-primary font-bold py-3 px-6 rounded-xl hover:opacity-90 active:scale-95 transition-all duration-200 shadow-sm flex items-center justify-center gap-2 flex-shrink-0"
-                  >
-                    {isDone ? 'Review Lab' : isStarted ? 'Resume' : 'Start Module'}
-                    <ArrowRight size={16} />
-                  </Link>
+                  {isModuleUnlocked ? (
+                    <Link
+                      href={`/dashboard/module/${mod.id}`}
+                      className="w-full md:w-auto text-center bg-primary text-on-primary font-bold py-3 px-6 rounded-xl hover:opacity-90 active:scale-95 transition-all duration-200 shadow-sm flex items-center justify-center gap-2 flex-shrink-0"
+                    >
+                      {isDone ? 'Review Lab' : isStarted ? 'Resume' : 'Start Module'}
+                      <ArrowRight size={16} />
+                    </Link>
+                  ) : (
+                    <Link
+                      href="/paywall?bundle=student"
+                      className="w-full md:w-auto text-center bg-surface-variant hover:bg-surface-variant/80 text-on-surface font-bold py-3 px-6 rounded-xl border border-outline-variant hover:border-primary transition-all flex items-center justify-center gap-2 flex-shrink-0 shadow-sm"
+                    >
+                      <Lock size={15} className="text-amber-500" />
+                      Unlock Module (₹499)
+                      <ArrowRight size={15} />
+                    </Link>
+                  )}
                 </article>
               );
             })}

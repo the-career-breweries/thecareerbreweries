@@ -20,7 +20,8 @@ import {
   BookOpen,
   Zap,
   Wrench,
-  Trophy
+  Trophy,
+  Lock
 } from 'lucide-react';
 
 export default function ModulePlayer({ slug }: { slug: string }) {
@@ -33,6 +34,20 @@ export default function ModulePlayer({ slug }: { slug: string }) {
   const [brewInputs, setBrewInputs] = useState<Record<string, string>>({});
   const [copied, setCopied] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [isUnlocked, setIsUnlocked] = useState(false);
+  const [ppfTrialsUsed, setPpfTrialsUsed] = useState(0);
+
+  const LOCAL_PPF_QUOTA_KEY = 'tcb_ppf_trials_used';
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const bundle = localStorage.getItem('tcb_unlocked_bundle');
+      const unlocked = bundle === 'student' || bundle === 'pro';
+      setIsUnlocked(unlocked);
+      const used = parseInt(localStorage.getItem(LOCAL_PPF_QUOTA_KEY) || '0', 10);
+      setPpfTrialsUsed(used);
+    }
+  }, []);
 
   useEffect(() => {
     if (!mod) return;
@@ -60,6 +75,39 @@ export default function ModulePlayer({ slug }: { slug: string }) {
         <Link href="/dashboard" className="px-4 py-2 rounded-lg bg-primary text-on-primary font-semibold">
           Return to Dashboard
         </Link>
+      </div>
+    );
+  }
+
+  if (mod && !isUnlocked && mod.id !== 'intro-pitch') {
+    return (
+      <div className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center p-6 text-center">
+        <div className="max-w-md w-full glass-panel rounded-2xl p-8 border border-outline-variant shadow-lg flex flex-col items-center gap-4">
+          <div className="w-14 h-14 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-500">
+            <Lock size={28} />
+          </div>
+          <span className="text-xs font-mono uppercase tracking-widest text-amber-500 font-bold">
+            Student Bundle Required
+          </span>
+          <h1 className="text-xl md:text-2xl font-bold text-on-surface">
+            Module {mod.number}: {mod.title}
+          </h1>
+          <p className="text-sm text-on-surface-variant leading-relaxed">
+            This module is part of the 5-part Student Bundle (Class XII, UG, PG). Upgrade today to unlock interactive simulations, pressure drills, and your official verified certificate.
+          </p>
+          <Link
+            href="/paywall?bundle=student"
+            className="w-full bg-primary text-on-primary font-bold py-3.5 px-6 rounded-xl hover:opacity-90 flex items-center justify-center gap-2 mt-2 shadow-sm"
+          >
+            Unlock Student Bundle — ₹499 <ArrowRight size={16} />
+          </Link>
+          <Link
+            href="/dashboard"
+            className="text-xs font-mono text-on-surface-variant hover:text-primary transition-colors mt-1"
+          >
+            ← Return to Dashboard
+          </Link>
+        </div>
       </div>
     );
   }
@@ -105,6 +153,11 @@ export default function ModulePlayer({ slug }: { slug: string }) {
   const handleCopy = () => {
     navigator.clipboard.writeText(synthesizeBrewOutput());
     setCopied(true);
+    if (!isUnlocked) {
+      const next = ppfTrialsUsed + 1;
+      setPpfTrialsUsed(next);
+      try { localStorage.setItem(LOCAL_PPF_QUOTA_KEY, String(next)); } catch {}
+    }
     setTimeout(() => setCopied(false), 2000);
   };
 
@@ -428,6 +481,23 @@ export default function ModulePlayer({ slug }: { slug: string }) {
               ))}
             </div>
 
+            {!isUnlocked && (
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 rounded-xl bg-primary/10 border border-primary/20 text-xs font-mono text-on-surface gap-2">
+                <span className="flex items-center gap-1.5 font-bold text-primary">
+                  <Sparkles size={14} /> Free Trial: {Math.min(3, ppfTrialsUsed)} of 3 intro pitch generations used
+                </span>
+                {ppfTrialsUsed >= 3 ? (
+                  <Link href="/paywall?bundle=student" className="font-bold text-secondary underline">
+                    Unlock Unlimited Access (₹499) →
+                  </Link>
+                ) : (
+                  <span className="text-on-surface-variant">
+                    {Math.max(0, 3 - ppfTrialsUsed)} free pitch trial(s) remaining
+                  </span>
+                )}
+              </div>
+            )}
+
             {/* Live Synthesized Output Box */}
             <div className="p-5 rounded-xl bg-surface-container-high border-2 border-primary/40 flex flex-col gap-3">
               <div className="flex items-center justify-between">
@@ -447,6 +517,26 @@ export default function ModulePlayer({ slug }: { slug: string }) {
                 {synthesizeBrewOutput()}
               </pre>
             </div>
+
+            {!isUnlocked && ppfTrialsUsed >= 3 && (
+              <div className="p-5 rounded-xl bg-amber-500/10 border border-amber-500/30 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl">⭐</span>
+                  <div>
+                    <h4 className="text-sm font-bold text-on-surface">3 Trial Pitch Generations Completed!</h4>
+                    <p className="text-xs text-on-surface-variant mt-0.5">
+                      Ready to master the remaining 4 modules (ATS Resume X-Y-Z, GD Dominance, Email B.L.U.F.) and earn your verified certificate?
+                    </p>
+                  </div>
+                </div>
+                <Link
+                  href="/paywall?bundle=student"
+                  className="bg-primary text-on-primary font-bold py-2.5 px-5 rounded-xl text-xs hover:opacity-90 flex items-center gap-1.5 flex-shrink-0 shadow-sm"
+                >
+                  Unlock Student Bundle (₹499) <ArrowRight size={14} />
+                </Link>
+              </div>
+            )}
 
             <div className="flex justify-between items-center pt-2">
               <button
