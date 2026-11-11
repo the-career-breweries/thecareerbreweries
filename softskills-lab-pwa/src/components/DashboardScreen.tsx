@@ -408,6 +408,37 @@ export default function DashboardScreen() {
           )}
         </section>
 
+        {/* RECRUITER REACH OUTBOUND HUNTER SPOTLIGHT */}
+        <section className="w-full">
+          <div className="w-full rounded-2xl p-6 bg-gradient-to-r from-amber-500/15 via-primary/10 to-amber-500/5 border-2 border-primary/40 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div className="flex items-start gap-4">
+              <div className="h-12 w-12 rounded-xl bg-primary text-on-primary flex items-center justify-center flex-shrink-0 shadow-sm font-bold text-xl">
+                🎯
+              </div>
+              <div>
+                <span className="text-xs font-mono uppercase tracking-widest text-primary font-bold">
+                  New TCB Engine • Outbound Job Acquisition
+                </span>
+                <h2 className="text-lg md:text-xl font-bold text-on-surface mt-0.5">
+                  Recruiter Reach: Scout Hiring Teams &amp; Corporate Emails
+                </h2>
+                <p className="text-xs md:text-sm text-on-surface-variant mt-0.5">
+                  Stop clicking Easy Apply. Paste any target job link to discover hiring managers on LinkedIn, resolve corporate email protocols, and generate 300-char cold DMs with 3 free trials.
+                </p>
+              </div>
+            </div>
+            <a
+              href="https://tcb-recruiter-reach.vercel.app"
+              target="_blank"
+              rel="noreferrer"
+              className="w-full md:w-auto text-center bg-primary text-on-primary font-bold py-3.5 px-6 rounded-xl hover:opacity-90 transition-all flex items-center justify-center gap-2 flex-shrink-0 shadow-sm"
+            >
+              Launch Recruiter Reach ↗
+              <ArrowRight size={16} />
+            </a>
+          </div>
+        </section>
+
         {/* TRACK A: THE STUDENT BUNDLE (5 MODULES) */}
         <section className="w-full flex flex-col gap-5">
           <div className="flex items-center justify-between w-full">
