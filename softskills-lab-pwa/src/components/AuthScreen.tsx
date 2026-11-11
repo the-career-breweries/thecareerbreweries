@@ -20,6 +20,13 @@ export default function AuthScreen() {
   useEffect(() => {
     // ── Mindler VIP Student Unlock ──
     if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const accessCode = urlParams.get('code');
+      if (accessCode) {
+        window.location.href = `/portal?code=${accessCode}`;
+        return;
+      }
+
       const isMindler = window.location.pathname.startsWith('/mindler-user-') || window.location.search.includes('mindler-user-');
       if (isMindler) {
         localStorage.setItem('tcb_learner_name', 'Mindler VIP Learner');

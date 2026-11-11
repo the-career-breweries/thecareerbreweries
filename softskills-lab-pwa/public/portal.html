@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Candidate Career Portal — The Career Breweries</title>
+  <link rel="icon" type="image/png" href="/tcb-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* The Career Breweries Official Light Theme Palette */
+      --bg: #FAF3E8;
+      --card: #FFFFFF;
+      --card-subtle: #FDFBF7;
+      --card-inner: #F6EFE5;
+      --dark: #1C1410;
+      --ink: #2D2017;
+      --soft: #6E5D4F;
+      --soft-light: #8E7D6F;
+      --amber: #C97B2A;
+      --amber-hover: #B56B1E;
+      --amber-light: #F7E5CF;
+      --amber-subtle: rgba(201, 123, 42, 0.08);
+      --warm: #E8A44A;
+      --cream: #FAF3E8;
+      --border: #E8DFD1;
+      --border-accent: rgba(201, 123, 42, 0.35);
+      --border-subtle: #F0E8D9;
+      --success-bg: #DCFCE7;
+      --success-text: #15803D;
+      --success-border: #86EFAC;
+      --danger-bg: #FEE2E2;
+      --danger-text: #B91C1C;
+      --danger-border: #FCA5A5;
+      --shadow-sm: 0 2px 8px rgba(28, 20, 16, 0.04);
+      --shadow-md: 0 8px 24px rgba(28, 20, 16, 0.06);
+      --shadow-lg: 0 16px 40px rgba(28, 20, 16, 0.09);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--dark);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      padding-bottom: 60px;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* Top Navigation */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 243, 232, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 9px;
+      object-fit: contain;
+      background: #FFFFFF;
+      padding: 2px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+    .brand-text-col {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-family: 'Fraunces', serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+    }
+    .brand-tagline {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--amber);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .user-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #FFFFFF;
+      border: 1.5px solid var(--border);
+      border-radius: 30px;
+      padding: 6px 14px;
+      box-shadow: var(--shadow-sm);
+    }
+    .user-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .tier-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: var(--amber-light);
+      color: var(--amber);
+      padding: 3px 9px;
+      border-radius: 12px;
+      border: 1px solid var(--border-accent);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 28px 20px;
+    }
+
+    /* Hero / Welcome Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #FFFFFF 0%, #FDFBF7 100%);
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 36px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .hero-title {
+      font-family: 'Fraunces', serif;
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 8px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    .hero-subtitle {
+      font-size: 14.5px;
+      color: var(--soft);
+      max-width: 540px;
+      line-height: 1.6;
+    }
+    .metrics-strip {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .metric-pill {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 18px;
+      min-width: 124px;
+      text-align: left;
+      box-shadow: var(--shadow-sm);
+    }
+    .metric-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--amber);
+      margin-bottom: 2px;
+    }
+    .metric-lbl {
+      font-size: 11px;
+      color: var(--soft);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+    }
+
+    /* Roadmap Section */
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: -0.01em;
+    }
+    .roadmap-track {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border);
+      border-radius: 18px;
+      padding: 22px 26px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-md);
+    }
+    .progress-bar-wrap {
+      background: var(--card-inner);
+      height: 9px;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--amber) 0%, var(--warm) 100%);
+      border-radius: 5px;
+      transition: width 0.8s ease;
+    }
+    .phases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .phase-card {
+      background: var(--card-subtle);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      transition: transform 0.15s, border-color 0.15s;
+    }
+    .phase-card:hover {
+      border-color: var(--amber);
+      transform: translateY(-2px);
+    }
+    .phase-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--amber);
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .phase-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+    .phase-tools {
+      font-size: 12px;
+      color: var(--soft);
+      line-height: 1.4;
+    }
+
+    /* Tools Grid */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 22px;
+      margin-bottom: 36px;
+    }
+    .tool-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+    }
+    .tool-card.unlocked {
+      border-color: var(--border);
+    }
+    .tool-card.unlocked:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--amber);
+    }
+    .tool-card.locked {
+      background: var(--card-subtle);
+      border-color: #EADDCB;
+      opacity: 0.88;
+    }
+    .tool-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .tool-icon {
+      width: 46px;
+      height: 46px;
+      background: var(--amber-subtle);
+      border: 1px solid var(--border-accent);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+    .tool-status-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.04em;
+    }
+    .status-active {
+      background: var(--success-bg);
+      color: var(--success-text);
+      border: 1px solid var(--success-border);
+    }
+    .status-locked {
+      background: var(--danger-bg);
+      color: var(--danger-text);
+      border: 1px solid var(--danger-border);
+    }
+    .tool-title {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .tool-desc {
+      font-size: 13.5px;
+      color: var(--soft);
+      line-height: 1.6;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+    .tool-feature-list {
+      list-style: none;
+      margin-bottom: 22px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border);
+    }
+    .tool-feature-list li {
+      font-size: 12.5px;
+      color: var(--ink);
+      margin-bottom: 7px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-weight: 500;
+    }
+    .tool-feature-list li::before {
+      content: '✓';
+      color: var(--amber);
+      font-weight: 800;
+      font-size: 12px;
+    }
+    .btn-launch {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: var(--amber);
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 13px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(201, 123, 42, 0.32);
+      transition: background 0.15s, transform 0.1s;
+    }
+    .btn-launch:hover {
+      background: var(--amber-hover);
+      transform: translateY(-1px);
+    }
+    .btn-unlock {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: #FFFFFF;
+      color: var(--amber);
+      border: 1.5px solid var(--amber);
+      font-weight: 800;
+      font-size: 13.5px;
+      padding: 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .btn-unlock:hover {
+      background: var(--amber-subtle);
+    }
+
+    /* Support Banner */
+    .support-card {
+      background: linear-gradient(135deg, #FFF9F2 0%, #FAF3E8 100%);
+      border: 1.5px solid var(--border-accent);
+      border-radius: 18px;
+      padding: 26px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      box-shadow: var(--shadow-sm);
+    }
+    .support-text h4 {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+    .support-text p {
+      font-size: 13.5px;
+      color: var(--soft);
+    }
+    .btn-wa-coach {
+      background: #25D366;
+      color: white;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 13px 24px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+      flex-shrink: 0;
+      transition: transform 0.1s, opacity 0.15s;
+    }
+    .btn-wa-coach:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+
+    /* Modals */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(28, 20, 16, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-box {
+      background: #FFFFFF;
+      border: 2px solid var(--amber);
+      border-radius: 20px;
+      padding: 36px 32px;
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 24px 60px rgba(28, 20, 16, 0.25);
+    }
+    .modal-input {
+      width: 100%;
+      padding: 13px;
+      border-radius: 10px;
+      border: 2px solid var(--amber);
+      background: var(--card-subtle);
+      color: var(--dark);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 19px;
+      font-weight: 800;
+      text-align: center;
+      margin: 16px 0;
+      outline: none;
+      letter-spacing: 6px;
+    }
+    .spinner {
+      width: 42px;
+      height: 42px;
+      border: 3px solid var(--border);
+      border-top-color: var(--amber);
+      border-radius: 50%;
+      margin: 24px auto;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 768px) {
+      .hero-banner { padding: 22px; }
+      .hero-title { font-size: 24px; }
+      .metrics-strip { width: 100%; }
+      .metric-pill { flex: 1; min-width: 90px; padding: 10px 14px; }
+      .metric-val { font-size: 17px; }
+      .tools-grid { grid-template-columns: 1fr; }
+      .top-nav { padding: 10px 16px; }
+      .brand-name { font-size: 17px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <div class="brand-wrap">
+      <img src="/tcb-logo.png" alt="The Career Breweries" class="brand-logo" onerror="this.src='https://tcb-recruiter-reach.vercel.app/tcb-logo.png'">
+      <div class="brand-text-col">
+        <span class="brand-name">The Career Breweries</span>
+        <span class="brand-tagline">Career OS · Command Center</span>
+      </div>
+    </div>
+    <div id="nav-user-pill" class="user-pill" style="display: none;">
+      <span id="nav-user-name" class="user-name">Candidate</span>
+      <span id="nav-tier-badge" class="tier-badge">All-Access Pass</span>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container" id="portal-content" style="display: none;">
+
+    <!-- Hero / Welcome Banner -->
+    <section class="hero-banner">
+      <div>
+        <h1 class="hero-title" id="welcome-title">Welcome to Career OS</h1>
+        <p class="hero-subtitle">
+          Your unified command center for campus placement and job acquisition. Work through the 4-phase roadmap below to convert applications into offers.
+        </p>
+      </div>
+      <div class="metrics-strip">
+        <div class="metric-pill">
+          <div class="metric-val" id="timer-val">14 Days</div>
+          <div class="metric-lbl">Pass Validity</div>
+        </div>
+        <div class="metric-pill">
+          <div class="metric-val" id="deliverables-val">10 Left</div>
+          <div class="metric-lbl">Deliverables</div>
+        </div>
+        <div class="metric-pill">
+          <div class="metric-val" id="device-val">Primary</div>
+          <div class="metric-lbl">Active Machine</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4-Phase Roadmap -->
+    <section class="roadmap-track">
+      <div class="section-title">
+        <span>🗺️ Placement War Room Roadmap</span>
+        <span id="readiness-percent" style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--amber); margin-left:auto; font-weight:700;">Readiness: 45%</span>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="readiness-bar" style="width: 45%;"></div>
+      </div>
+      <div class="phases-grid">
+        <div class="phase-card">
+          <div class="phase-num">Phase 1 · Foundation</div>
+          <div class="phase-name">Resume Audit & X-Y-Z</div>
+          <div class="phase-tools">Audit Score ➔ Google X-Y-Z Rewrite</div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-num">Phase 2 · Inbound</div>
+          <div class="phase-name">LinkedIn Optimizer</div>
+          <div class="phase-tools">Headline, About & Recruiter Keywords</div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-num">Phase 3 · Outbound</div>
+          <div class="phase-name">Recruiter Reach</div>
+          <div class="phase-tools">Scout Hiring Managers & Work Emails</div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-num">Phase 4 · Conversion</div>
+          <div class="phase-name">Interview Simulator</div>
+          <div class="phase-tools">Voice Mocks & Soft Skills Mastery</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools Grid -->
+    <div class="section-title">
+      <span>⚡ Your Career Tools Suite</span>
+    </div>
+
+    <div class="tools-grid" id="tools-container">
+      <!-- Tool cards are rendered dynamically based on entitlements -->
+    </div>
+
+    <!-- Coach Support Card -->
+    <section class="support-card">
+      <div class="support-text">
+        <h4>Need Strategy Help or Have a Complex JD?</h4>
+        <p>Coach Sandarsh is available for 1-on-1 strategy clarification, offer evaluation, and interview troubleshooting.</p>
+      </div>
+      <a href="https://wa.me/919482055920?text=Hi%20Coach%20Sandarsh!%20👋%20I'm%20working%20in%20my%20Career%20Portal%20and%20had%20a%20question." target="_blank" class="btn-wa-coach">
+        💬 Message Coach Sandarsh on WhatsApp
+      </a>
+    </section>
+
+  </main>
+
+  <!-- Verification / Loading Gate Modal -->
+  <div id="gate-modal" class="modal-overlay">
+    <div class="modal-box">
+      <img src="/tcb-logo.png" alt="TCB" style="width: 52px; height: 52px; margin-bottom: 14px; object-fit: contain; border-radius: 10px; border: 1px solid var(--border);" onerror="this.src='https://tcb-recruiter-reach.vercel.app/tcb-logo.png'">
+      <h3 style="font-family:'Fraunces',serif; font-size: 22px; color: var(--dark); margin-bottom: 6px; font-weight: 600;" id="gate-title">
+        Authenticating VIP Access
+      </h3>
+      <p style="font-size: 13.5px; color: var(--soft); line-height: 1.6;" id="gate-desc">
+        Connecting to The Career Breweries Sentinel Engine to verify your hardware authorization...
+      </p>
+
+      <div class="spinner" id="gate-spinner"></div>
+
+      <!-- Code Entry Form (if opened without code) -->
+      <div id="code-entry-form" style="display: none; margin-top: 18px;">
+        <p style="font-size: 12.5px; color: var(--soft); font-weight: 600;">Enter your 4-digit candidate access code:</p>
+        <input type="text" id="manual-code-input" class="modal-input" maxlength="6" placeholder="e.g. 8287">
+        <button class="btn-launch" onclick="submitManualCode()">Open Career Portal →</button>
+      </div>
+
+      <!-- OTP Form for Device 2 -->
+      <div id="otp-form" style="display: none; margin-top: 18px;">
+        <p style="font-size: 13px; color: var(--amber); line-height: 1.5; font-weight: 600;">
+          You are logging in on a secondary device. Enter the 4-digit authorization code from Coach Sandarsh:
+        </p>
+        <input type="text" id="device2-otp" class="modal-input" maxlength="4" placeholder="••••">
+        <button class="btn-launch" onclick="submitDevice2Otp()">Authorize Secondary Machine →</button>
+      </div>
+
+      <!-- Blocked / Device 3 View -->
+      <div id="blocked-view" style="display: none; margin-top: 18px;">
+        <p style="font-size: 13.5px; color: var(--danger-text); line-height: 1.6; margin-bottom: 18px; font-weight: 500;">
+          This VIP access link has already been bound to its hard limit of 2 devices (1 Primary + 1 Secondary). Multi-device link sharing is locked.
+        </p>
+        <a href="https://wa.me/919482055920?text=Hi%20Coach%20Sandarsh!%20I'm%20hitting%20the%20device%20limit%20on%20my%20Career%20Portal." target="_blank" class="btn-launch" style="background:#25D366; color:white;">
+          💬 Message Coach Sandarsh on WhatsApp
+        </a>
+      </div>
+
+      <!-- Session Conflict View -->
+      <div id="session-conflict-view" style="display: none; margin-top: 18px;">
+        <p style="font-size: 13.5px; color: var(--soft); line-height: 1.6; margin-bottom: 18px;">
+          Your session is currently active on your other registered device. Click below to transfer active access to this machine:
+        </p>
+        <button class="btn-launch" onclick="verifySession(true)">⚡ Switch Session to This Machine</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const TOOLS_CATALOG = [
+      {
+        id: 'resume-audit',
+        name: 'Resume Audit & ATS Scanner',
+        icon: '📊',
+        phase: 'Phase 1 · Foundation',
+        desc: 'Deep algorithmic ATS scanner evaluating keyword density, formatting risks, metric quantization, and role alignment.',
+        features: ['ATS Compatibility Score (0-100)', 'Section-by-section breakdown', 'Quantification & metric gap detection'],
+        url: 'https://tcb-resume-audit.vercel.app',
+        price: '₹799'
+      },
+      {
+        id: 'resume-rewrite',
+        name: 'Resume Rewriter (Google X-Y-Z)',
+        icon: '✍️',
+        phase: 'Phase 1 · Foundation',
+        desc: 'Overhauls bullets section-by-section using Google X-Y-Z and STAR metrics based on interactive JD skill probing.',
+        features: ['JD Competency probing questions', 'Google X-Y-Z & STAR transformation', 'Single-page Word & PDF export'],
+        url: 'https://tcb-resume-rewrite.vercel.app',
+        price: '₹1,499'
+      },
+      {
+        id: 'resume-builder',
+        name: 'Resume Builder',
+        icon: '⚡',
+        phase: 'Phase 1 · Foundation',
+        desc: 'Voice-first, question-guided builder creating clean, single-page, ATS-compliant resumes with real-time PDF preview.',
+        features: ['Voice-guided questions', 'Executive single-page layout', 'Instant print-ready PDF'],
+        url: 'https://tcb-resume-builder.vercel.app',
+        price: '₹799'
+      },
+      {
+        id: 'linkedin-optimizer',
+        name: 'LinkedIn Profile Optimizer',
+        icon: '💼',
+        phase: 'Phase 2 · Inbound',
+        desc: 'Transforms your headline, About summary, and experience sections into a high-visibility recruiter magnet.',
+        features: ['Headline formula generator', 'First-person executive About narrative', 'Experience bullet restructuring'],
+        url: 'https://tcb-linkedin-optimizer.vercel.app',
+        price: '₹799'
+      },
+      {
+        id: 'recruiter-reach',
+        name: 'Recruiter Reach & Outbound',
+        icon: '🎯',
+        phase: 'Phase 3 · Outbound',
+        desc: 'Scouts Hiring Managers, HR leads, and peers on LinkedIn + verifies corporate emails + generates 3 outreach notes.',
+        features: ['1-Click Resume parsing', 'Hiring Manager & Recruiter LinkedIn links', 'Corporate email scout + 3 custom pitches'],
+        url: 'https://tcb-recruiter-reach.vercel.app',
+        price: '₹1,799'
+      },
+      {
+        id: 'interview-sim',
+        name: 'Interview Simulator & Scout',
+        icon: '🎙️',
+        phase: 'Phase 4 · Conversion',
+        desc: 'Voice-enabled mock interviews with custom AmbitionBox/Glassdoor question imports and per-answer feedback reports.',
+        features: ['Voice text-to-speech simulation', 'Paste scouted AmbitionBox/Glassdoor questions', 'Per-answer scoring (1-10) & model answers'],
+        url: 'https://tcb-interview-sim.vercel.app',
+        price: '₹1,349'
+      },
+      {
+        id: 'softskills-lab',
+        name: 'Soft Skills & GD Lab',
+        icon: '🗣️',
+        phase: 'Phase 4 · Conversion',
+        desc: 'Interactive drills for 7Cs of communication, Group Discussion dominance, the 1-3-1 crisis rule, and executive presence.',
+        features: ['6 Interactive learning modules', 'Digital GD chits & topic generator', 'Flashcards & behavioral rubrics'],
+        url: 'https://thecareerbreweries.vercel.app',
+        price: '₹499'
+      }
+    ];
+
+    function getFingerprint() {
+      try {
+        const s = `${window.screen.width}x${window.screen.height}x${window.screen.colorDepth}`;
+        const u = navigator.userAgent;
+        const l = navigator.language || '';
+        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          ctx.textBaseline = 'top';
+          ctx.font = '14px Arial';
+          ctx.fillText('TCB-PORTAL-HARDWARE-LOCK', 2, 2);
+        }
+        const cHash = canvas.toDataURL ? canvas.toDataURL().slice(-40) : '';
+        const raw = `${s}:::${u}:::${l}:::${tz}:::${cHash}`;
+        let hash = 0;
+        for (let i = 0; i < raw.length; i++) {
+          hash = ((hash << 5) - hash) + raw.charCodeAt(i);
+          hash |= 0;
+        }
+        return 'dev_' + Math.abs(hash).toString(36);
+      } catch {
+        return 'dev_' + Math.abs(Date.now()).toString(36);
+      }
+    }
+
+    function getDeviceName() {
+      const ua = navigator.userAgent;
+      if (/iPhone|iPad|iPod/.test(ua)) return 'Apple iOS Device';
+      if (/Android/.test(ua)) return 'Android Device';
+      if (/Macintosh/.test(ua)) return 'Apple Mac';
+      if (/Windows/.test(ua)) return 'Windows PC';
+      return 'Personal Device';
+    }
+
+    // Extract access code from query or path
+    const urlParams = new URLSearchParams(window.location.search);
+    const pathMatch = window.location.pathname.match(/portal-([a-zA-Z0-9_-]+)/);
+    let currentCode = urlParams.get('code') || (pathMatch ? pathMatch[1] : localStorage.getItem('tcb_portal_code'));
+
+    async function verifySession(takeSession = false) {
+      if (!currentCode) {
+        document.getElementById('gate-spinner').style.display = 'none';
+        document.getElementById('gate-title').innerText = 'Enter Your Access Code';
+        document.getElementById('gate-desc').innerText = 'Please enter your 4-digit candidate VIP passcode to open your Career Portal.';
+        document.getElementById('code-entry-form').style.display = 'block';
+        return;
+      }
+
+      document.getElementById('gate-spinner').style.display = 'block';
+      document.getElementById('code-entry-form').style.display = 'none';
+      document.getElementById('otp-form').style.display = 'none';
+      document.getElementById('blocked-view').style.display = 'none';
+      document.getElementById('session-conflict-view').style.display = 'none';
+
+      const devHash = getFingerprint();
+      const devName = getDeviceName();
+
+      try {
+        const res = await fetch('/api/verify-device', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            code: currentCode,
+            device_hash: devHash,
+            device_name: devName,
+            take_session: takeSession
+          })
+        });
+
+        const data = await res.json();
+
+        if (data.allowed) {
+          localStorage.setItem('tcb_portal_code', currentCode);
+          renderPortal(data);
+        } else if (data.status === 'OTP_REQUIRED') {
+          document.getElementById('gate-spinner').style.display = 'none';
+          document.getElementById('gate-title').innerText = 'Device 2 Authorization Required';
+          document.getElementById('gate-desc').innerText = 'New secondary machine detected. Enter the 4-digit approval code from Coach Sandarsh:';
+          document.getElementById('otp-form').style.display = 'block';
+        } else if (data.status === 'SESSION_CONFLICT') {
+          document.getElementById('gate-spinner').style.display = 'none';
+          document.getElementById('gate-title').innerText = 'Active on Another Machine';
+          document.getElementById('gate-desc').innerText = `Your pass is active on ${data.active_device_name || 'your other device'}. Only 1 machine can be active at a time.`;
+          document.getElementById('session-conflict-view').style.display = 'block';
+        } else if (data.status === 'BLOCKED') {
+          document.getElementById('gate-spinner').style.display = 'none';
+          document.getElementById('gate-title').innerText = 'Device Limit Reached (Max 2)';
+          document.getElementById('blocked-view').style.display = 'block';
+        } else {
+          document.getElementById('gate-spinner').style.display = 'none';
+          document.getElementById('gate-title').innerText = 'Invalid Access Code';
+          document.getElementById('gate-desc').innerText = data.message || 'Please check your code or message Coach Sandarsh.';
+          document.getElementById('code-entry-form').style.display = 'block';
+        }
+      } catch (err) {
+        document.getElementById('gate-spinner').style.display = 'none';
+        document.getElementById('gate-desc').innerText = 'Connection error. Please retry.';
+        document.getElementById('code-entry-form').style.display = 'block';
+      }
+    }
+
+    function submitManualCode() {
+      const code = document.getElementById('manual-code-input').value.trim();
+      if (!code) return;
+      currentCode = code;
+      verifySession(false);
+    }
+
+    async function submitDevice2Otp() {
+      const otp = document.getElementById('device2-otp').value.trim();
+      if (!otp || otp.length !== 4) {
+        alert('Please enter the 4-digit code from Coach Sandarsh.');
+        return;
+      }
+      const res = await fetch('/api/approve-device', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code: currentCode, otp })
+      });
+      const data = await res.json();
+      if (data.success) {
+        alert('✅ Secondary machine successfully authorized!');
+        verifySession(false);
+      } else {
+        alert('❌ ' + (data.message || 'Incorrect authorization code.'));
+      }
+    }
+
+    function renderPortal(data) {
+      // Hide modal
+      document.getElementById('gate-modal').style.display = 'none';
+      document.getElementById('portal-content').style.display = 'block';
+
+      // Update Nav
+      document.getElementById('nav-user-pill').style.display = 'flex';
+      document.getElementById('nav-user-name').innerText = data.name || 'Candidate';
+      document.getElementById('nav-tier-badge').innerText = data.tier === 'ALL_ACCESS' ? 'All-Access Pass' : (data.product || 'VIP Pass');
+
+      // Update Hero
+      document.getElementById('welcome-title').innerText = `Welcome, ${data.name || 'Candidate'}!`;
+      
+      // Calculate Days Left
+      const msLeft = data.expires_in_ms || (data.valid_until - Date.now());
+      const daysLeft = Math.max(0, Math.ceil(msLeft / (1000 * 60 * 60 * 24)));
+      document.getElementById('timer-val').innerText = `${daysLeft} Day${daysLeft === 1 ? '' : 's'}`;
+      document.getElementById('deliverables-val').innerText = `${data.credits_remaining !== undefined ? data.credits_remaining : 3} Left`;
+      document.getElementById('device-val').innerText = data.role === 'PRIMARY' ? 'Primary' : 'Secondary';
+
+      // Render Tools Grid
+      const container = document.getElementById('tools-container');
+      container.innerHTML = '';
+
+      const unlockedList = (data.unlocked_tools || []).map(t => t.toLowerCase());
+      const isAllAccess = data.tier === 'ALL_ACCESS' || unlockedList.includes('*');
+
+      TOOLS_CATALOG.forEach(tool => {
+        const isUnlocked = isAllAccess || unlockedList.some(u => tool.id.includes(u) || u.includes(tool.id));
+        const launchUrl = `${tool.url}/mindler-user-${currentCode}`;
+
+        const card = document.createElement('div');
+        card.className = `tool-card ${isUnlocked ? 'unlocked' : 'locked'}`;
+
+        card.innerHTML = `
+          <div>
+            <div class="tool-header">
+              <div class="tool-icon">${tool.icon}</div>
+              <span class="tool-status-pill ${isUnlocked ? 'status-active' : 'status-locked'}">
+                ${isUnlocked ? '✅ Unlocked' : '🔒 Locked'}
+              </span>
+            </div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--amber); text-transform:uppercase; font-weight:700; margin-bottom:4px; letter-spacing:0.04em;">
+              ${tool.phase}
+            </div>
+            <h3 class="tool-title">${tool.name}</h3>
+            <p class="tool-desc">${tool.desc}</p>
+            <ul class="tool-feature-list">
+              ${tool.features.map(f => `<li>${f}</li>`).join('')}
+            </ul>
+          </div>
+          <div>
+            ${isUnlocked ? `
+              <a href="${launchUrl}" target="_blank" class="btn-launch">
+                🚀 Launch ${tool.name.split(' ')[0]} →
+              </a>
+            ` : `
+              <a href="https://wa.me/919482055920?text=Hi%20Coach%20Sandarsh!%20👋%20I%20have%20Code%20%23${currentCode}.%20I%20would%20like%20to%20unlock%20${encodeURIComponent(tool.name)}%20(${tool.price})%20or%20upgrade%20to%20All-Access." target="_blank" class="btn-unlock">
+                ⚡ Unlock for ${tool.price} (WhatsApp) →
+              </a>
+            `}
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    // Run verification on page load
+    verifySession(false);
+  </script>
+</body>
+</html>

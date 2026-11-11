@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>The Career Bridge | Mobile Coach Dispatcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0B2545;
+      --navy-dark: #07182C;
+      --gold: #C88323;
+      --gold-light: #FEF3C7;
+      --gold-dark: #92400E;
+      --bg: #F8FAFC;
+      --card: #FFFFFF;
+      --border: #E2E8F0;
+      --text: #1E293B;
+      --muted: #64748B;
+      --success: #10B981;
+      --danger: #EF4444;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; -webkit-tap-highlight-color: transparent; }
+    body { background: var(--bg); color: var(--text); padding-bottom: 60px; min-height: 100vh; }
+    header { background: var(--navy); color: white; padding: 1.25rem 1rem; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 12px rgba(11,37,69,0.15); }
+    .header-content { max-width: 960px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .brand-title { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.3px; display: flex; align-items: center; gap: 8px; }
+    .brand-badge { background: var(--gold); color: var(--navy-dark); font-size: 0.7rem; font-weight: 800; padding: 3px 8px; border-radius: 99px; text-transform: uppercase; }
+    .container { max-width: 960px; margin: 1.25rem auto; padding: 0 1rem; }
+
+    /* Cards */
+    .card { background: var(--card); border-radius: 14px; border: 1.5px solid var(--border); padding: 1.25rem; margin-bottom: 1.25rem; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+    .card-title { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.25rem; display: flex; align-items: center; gap: 8px; }
+    .card-subtitle { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.25rem; }
+
+    /* Form */
+    .form-grid { display: grid; grid-template-columns: 1fr; gap: 0.9rem; }
+    @media (min-width: 640px) { .form-grid { grid-template-columns: 1fr 1fr; } }
+    .form-group label { display: block; font-size: 0.78rem; font-weight: 700; color: #475569; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 0.5px; }
+    .form-group input, .form-group select {
+      width: 100%; padding: 12px 14px; border: 1.5px solid #CBD5E1; border-radius: 10px; font-size: 1rem; background: white; outline: none; transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(200,131,35,0.15); }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 14px 20px; border-radius: 10px; font-weight: 700; font-size: 0.95rem; cursor: pointer; border: none; transition: all 0.2s; text-decoration: none; width: 100%; }
+    .btn-primary { background: var(--navy); color: white; }
+    .btn-primary:active { transform: scale(0.98); background: var(--navy-dark); }
+    .btn-gold { background: var(--gold); color: white; }
+    .btn-sm { padding: 8px 12px; font-size: 0.8rem; border-radius: 8px; width: auto; }
+    .btn-outline-danger { background: white; color: var(--danger); border: 1.5px solid var(--danger); }
+    .btn-outline-gold { background: white; color: var(--gold-dark); border: 1.5px solid var(--gold); }
+
+    /* Result Box */
+    .result-box { display: none; background: var(--gold-light); border: 1.5px solid #FCD34D; border-radius: 12px; padding: 1.2rem; margin-top: 1.25rem; }
+    .result-header { font-weight: 800; color: var(--gold-dark); font-size: 0.95rem; margin-bottom: 8px; }
+    .url-chip { background: white; border: 1px solid #CBD5E1; border-radius: 8px; padding: 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; font-weight: 700; color: #B45309; word-break: break-all; margin-bottom: 10px; }
+    .msg-preview { width: 100%; height: 110px; border-radius: 8px; border: 1px solid #CBD5E1; padding: 10px; font-size: 0.85rem; font-family: sans-serif; resize: none; background: white; }
+
+    /* Student List */
+    .roster-card { border: 1px solid var(--border); border-radius: 12px; padding: 1rem; margin-bottom: 0.9rem; background: white; transition: box-shadow 0.2s; }
+    .roster-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+    .student-name { font-weight: 800; font-size: 1.05rem; color: var(--navy); }
+    .code-badge { background: #E0F2FE; color: #0369A1; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 700; padding: 2px 8px; border-radius: 6px; }
+    .credits-tag { font-size: 0.8rem; font-weight: 700; padding: 3px 8px; border-radius: 6px; }
+    .credits-green { background: #D1FAE5; color: #065F46; }
+    .credits-yellow { background: #FEF3C7; color: #92400E; }
+    .credits-red { background: #FEE2E2; color: #991B1B; }
+
+    .expiry-tag { font-size: 0.76rem; font-weight: 700; padding: 2px 7px; border-radius: 5px; margin-left: 6px; }
+    .expiry-active { background: #E0F2FE; color: #0369A1; }
+    .expiry-expired { background: #FEE2E2; color: #B91C1C; }
+
+    .devices-box { font-size: 0.8rem; color: #475569; background: #F8FAFC; border-radius: 8px; padding: 8px 10px; margin: 8px 0; border: 1px solid #E2E8F0; }
+    .action-row { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+
+    /* 🛡️ High-Security Passkey Gate */
+    #auth-gate {
+      position: fixed; inset: 0; z-index: 10000;
+      background: radial-gradient(circle at top, #0B2545 0%, #07182C 100%);
+      display: flex; align-items: center; justify-content: center; padding: 20px;
+    }
+    .auth-card {
+      background: rgba(15, 45, 82, 0.95);
+      border: 2px solid var(--gold);
+      border-radius: 20px;
+      padding: 32px 24px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      color: white;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(12px);
+    }
+    .otp-input {
+      letter-spacing: 14px;
+      text-align: center;
+      font-size: 28px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 800;
+      padding: 14px;
+      border-radius: 12px;
+      border: 2px solid var(--gold);
+      background: rgba(255, 255, 255, 0.08);
+      color: white;
+      width: 100%;
+      outline: none;
+      margin: 16px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🛡️ PASSKEY SECURITY GATE (SHOWN UNTIL 4-DIGIT EMAIL CODE IS VERIFIED) -->
+  <div id="auth-gate">
+    <div class="auth-card">
+      <div style="font-size: 2.8rem; margin-bottom: 12px;">🛡️</div>
+      <h2 style="font-size: 1.4rem; font-weight: 800; color: #F8FAFC; margin-bottom: 6px;">Sentinel Admin Dispatcher</h2>
+      <p style="font-size: 0.85rem; color: #94A3B8; line-height: 1.5; margin-bottom: 20px;">
+        Restricted to Coach Sandarsh (<strong style="color: #F8FAFC;">careerbreweries@gmail.com</strong>). Verify your 4-digit email passkey to unlock:
+      </p>
+
+      <!-- Step 1: Request OTP -->
+      <div id="gate-step-req">
+        <button id="btn-request-otp" class="btn btn-gold" onclick="requestPasskey()">
+          ⚡ Send 4-Digit Passkey to Email
+        </button>
+        <p style="font-size: 0.75rem; color: #64748B; margin-top: 14px;">
+          Passkey expires in 10 minutes. Session stays authenticated for 8 hours on this browser.
+        </p>
+      </div>
+
+      <!-- Step 2: Enter & Verify OTP -->
+      <div id="gate-step-verify" style="display: none;">
+        <div style="background: rgba(200,131,35,0.12); border: 1px solid rgba(200,131,35,0.35); border-radius: 10px; padding: 10px 14px; font-size: 0.8rem; color: #FEF3C7; margin-bottom: 12px;">
+          📬 Passkey dispatched to <b>careerbreweries@gmail.com</b>! Enter the 4 digits below:
+        </div>
+        <input type="text" id="inp-otp" class="otp-input" maxlength="4" placeholder="••••" autocomplete="one-time-code" />
+        <button id="btn-verify-otp" class="btn btn-gold" onclick="verifyPasskey()">
+          Verify & Unlock Dispatcher →
+        </button>
+        <div style="margin-top: 14px;">
+          <button id="btn-resend-otp" onclick="requestPasskey()" style="background: none; border: none; color: #94A3B8; font-size: 0.8rem; text-decoration: underline; cursor: pointer;">
+            Resend Passkey
+          </button>
+        </div>
+      </div>
+      
+      <div id="gate-err" style="color: #F87171; font-size: 0.85rem; margin-top: 14px; font-weight: 600;"></div>
+    </div>
+  </div>
+
+  <!-- OPERATIONAL DASHBOARD (REVEALED AFTER AUTHENTICATION) -->
+  <div id="admin-dashboard" style="display: none;">
+    <header>
+      <div class="header-content">
+        <div class="brand-title">
+          <span>🛡️ The Career Bridge</span>
+          <span class="brand-badge">Coach Sentry</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="font-size:0.8rem; font-weight:600; opacity:0.85;">Coach Sandarsh</div>
+          <button onclick="logOutAdmin()" style="background: rgba(239, 68, 68, 0.2); border: 1px solid #EF4444; color: #FECACA; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; cursor: pointer;">
+            🔒 Log Out
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+
+      <!-- 1. Issue VIP Learner Access Link -->
+      <div class="card">
+        <div class="card-title">⚡ Issue VIP Access Link</div>
+        <div class="card-subtitle">Generates product-specific 4-digit hardware link (Hard Limit: 2 Devices | 1 Concurrent Session | 7-Day Pass)</div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Learner Name</label>
+            <input type="text" id="inp-name" placeholder="e.g. Rahul Sharma" required>
+          </div>
+
+          <div class="form-group">
+            <label>WhatsApp Number</label>
+            <input type="text" id="inp-phone" placeholder="e.g. +919876543210" required>
+          </div>
+
+          <div class="form-group">
+            <label>Candidate Email (Optional)</label>
+            <input type="email" id="inp-email" placeholder="e.g. rahul@example.com">
+          </div>
+
+          <div class="form-group">
+            <label>Pass Validity Duration</label>
+            <select id="inp-days">
+              <option value="7" selected>7 Days (Standard 1-Week Pass)</option>
+              <option value="3">3 Days (Top-Up Extension)</option>
+              <option value="14">14 Days (Extended Access)</option>
+              <option value="30">30 Days (VIP Full Month)</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label>Select Tool / Accelerator</label>
+            <select id="inp-product">
+              <option value="ecosystem" selected>🚀 Career Ecosystem Pass (All Tools Unlocked) — ₹1,750/wk</option>
+              <option value="recruiter-reach">🎯 Recruiter Reach — ₹999 (7-Day Pass) / ₹1,999</option>
+              <option value="resume-rewrite">✨ Resume Rewriter — ₹1,499</option>
+              <option value="resume-builder">📄 Resume Builder — ₹799 / ₹2,499</option>
+              <option value="resume-audit">🔍 Resume Audit — ₹199 / ₹299</option>
+              <option value="interview-sim">🎧 Interview Simulator — ₹999</option>
+              <option value="softskills-lab">🎙️ Softskills Lab — ₹499 / ₹999</option>
+              <option value="linkedin-optimizer">🌟 LinkedIn Optimizer — ₹2,999</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" style="margin-top: 1rem;" onclick="generateLicense()">⚡ Generate 4-Digit VIP Link</button>
+
+        <!-- Result Drawer -->
+        <div id="gen-result" class="result-box">
+          <div class="result-header">✅ VIP Link Ready for <span id="res-student-name"></span>!</div>
+          <div class="url-chip" id="res-url"></div>
+          <button class="btn btn-gold btn-sm" style="margin-bottom: 12px;" onclick="copyUrl()">🔗 Copy Link</button>
+          
+          <label style="font-size:0.75rem; font-weight:700; color:var(--gold-dark); text-transform:uppercase;">WhatsApp Template:</label>
+          <textarea id="res-wa" class="msg-preview" readonly></textarea>
+          <button class="btn btn-primary btn-sm" style="margin-top: 8px;" onclick="copyWhatsApp()">📋 1-Tap Copy WhatsApp Message</button>
+        </div>
+      </div>
+
+      <!-- 2. Active Licenses & Devices -->
+      <div class="card">
+        <div class="card-title">📋 Active VIP Learners (<span id="roster-count">0</span>)</div>
+        <div class="card-subtitle">Real-time hardware bindings, 7-day pass timers, concurrent sessions, and deliverable quotas</div>
+        <div id="roster-list">
+          <div style="text-align:center; padding: 2rem; color: var(--muted);">Loading active learners...</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    let activeUrl = '';
+    let activeWa = '';
+    let resendCountdown = 0;
+
+    // ── Authentication Engine ────────────────────────────────────────────────
+    function getAdminToken() {
+      return sessionStorage.getItem('tcb_sentinel_admin_token') || '';
+    }
+
+    function checkAuth() {
+      const token = getAdminToken();
+      const gate = document.getElementById('auth-gate');
+      const dash = document.getElementById('admin-dashboard');
+
+      if (token) {
+        gate.style.display = 'none';
+        dash.style.display = 'block';
+        loadRoster();
+      } else {
+        gate.style.display = 'flex';
+        dash.style.display = 'none';
+      }
+    }
+
+    async function authFetch(url, options = {}) {
+      const token = getAdminToken();
+      options.headers = {
+        ...options.headers,
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json'
+      };
+
+      const res = await fetch(url, options);
+      if (res.status === 401) {
+        sessionStorage.removeItem('tcb_sentinel_admin_token');
+        alert('Your admin session has expired. Please verify with a new email passkey.');
+        checkAuth();
+        throw new Error('Unauthorized');
+      }
+      return res;
+    }
+
+    async function requestPasskey() {
+      const btn = document.getElementById('btn-request-otp');
+      const err = document.getElementById('gate-err');
+      err.innerText = '';
+      btn.innerText = 'Dispatching passkey to email...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('/api/admin-otp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'request' })
+        });
+        const data = await res.json();
+        if (data.success) {
+          document.getElementById('gate-step-req').style.display = 'none';
+          document.getElementById('gate-step-verify').style.display = 'block';
+          document.getElementById('inp-otp').focus();
+          startResendCountdown(45);
+        } else {
+          err.innerText = data.message || 'Failed to dispatch passkey.';
+          btn.innerText = '⚡ Send 4-Digit Passkey to Email';
+          btn.disabled = false;
+        }
+      } catch (e) {
+        err.innerText = 'Network error connecting to Sentinel.';
+        btn.innerText = '⚡ Send 4-Digit Passkey to Email';
+        btn.disabled = false;
+      }
+    }
+
+    function startResendCountdown(seconds) {
+      resendCountdown = seconds;
+      const resendBtn = document.getElementById('btn-resend-otp');
+      resendBtn.disabled = true;
+
+      const timer = setInterval(() => {
+        resendCountdown--;
+        if (resendCountdown <= 0) {
+          clearInterval(timer);
+          resendBtn.innerText = 'Resend Passkey';
+          resendBtn.disabled = false;
+        } else {
+          resendBtn.innerText = `Resend Passkey (${resendCountdown}s)`;
+        }
+      }, 1000);
+    }
+
+    async function verifyPasskey() {
+      const otp = document.getElementById('inp-otp').value.trim();
+      const err = document.getElementById('gate-err');
+      const btn = document.getElementById('btn-verify-otp');
+      err.innerText = '';
+
+      if (!otp || otp.length !== 4) {
+        err.innerText = 'Please enter the 4-digit code sent to your email.';
+        return;
+      }
+
+      btn.innerText = 'Verifying...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('/api/admin-otp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'verify', otp })
+        });
+        const data = await res.json();
+        if (data.success && data.token) {
+          sessionStorage.setItem('tcb_sentinel_admin_token', data.token);
+          checkAuth();
+        } else {
+          err.innerText = data.message || 'Incorrect passkey.';
+        }
+      } catch (e) {
+        err.innerText = 'Verification failed. Please retry.';
+      } finally {
+        btn.innerText = 'Verify & Unlock Dispatcher →';
+        btn.disabled = false;
+      }
+    }
+
+    function logOutAdmin() {
+      sessionStorage.removeItem('tcb_sentinel_admin_token');
+      location.reload();
+    }
+
+    // ── Operational Dashboard Logic ──────────────────────────────────────────
+    async function loadRoster() {
+      try {
+        const res = await authFetch('/api/list-licenses');
+        const data = await res.json();
+        const rosterDiv = document.getElementById('roster-list');
+        const countSpan = document.getElementById('roster-count');
+        
+        countSpan.innerText = data.students?.length || 0;
+        
+        if (!data.students || data.students.length === 0) {
+          rosterDiv.innerHTML = '<div style="text-align:center; padding: 2rem; color: var(--muted);">No active VIP licenses issued yet. Use the generator above!</div>';
+          return;
+        }
+
+        let html = '';
+        const now = Date.now();
+
+        data.students.forEach(s => {
+          const rem = s.credits_remaining !== undefined ? s.credits_remaining : 3;
+          let creditClass = 'credits-green';
+          if (rem === 1) creditClass = 'credits-yellow';
+          if (rem <= 0) creditClass = 'credits-red';
+
+          const validUntil = s.valid_until || (s.created_at + (s.pass_days || 7) * 86400000);
+          const isExpired = now > validUntil;
+          const diffMs = validUntil - now;
+          let expiryText = '';
+          if (isExpired) {
+            expiryText = `<span class="expiry-tag expiry-expired">❌ Expired</span>`;
+          } else {
+            const daysLeft = Math.floor(diffMs / 86400000);
+            const hoursLeft = Math.floor((diffMs % 86400000) / 3600000);
+            expiryText = `<span class="expiry-tag expiry-active">⏳ ${daysLeft}d ${hoursLeft}h left</span>`;
+          }
+
+          const dev1 = s.devices?.primary ? `📱 <b>Primary:</b> ${s.devices.primary.name}` : `<i>Waiting for 1st device click</i>`;
+          const dev2 = s.devices?.secondary ? `📱 <b>Secondary:</b> ${s.devices.secondary.name}` : `<i>Secondary Slot Empty</i>`;
+
+          let sessionTag = '';
+          if (s.active_device_name && (now - (s.last_active_at || 0)) < 15 * 60 * 1000) {
+            sessionTag = `<div style="font-size:0.75rem; color:#065F46; font-weight:700; margin-top:3px;">⚡ Active Session: ${s.active_device_name} (in use)</div>`;
+          }
+
+          let otpAlert = '';
+          if (s.pending_approval) {
+            otpAlert = `
+              <div style="background:#FEE2E2; border:1px solid #F87171; border-radius:8px; padding:8px 10px; margin-top:8px; color:#991B1B; font-size:0.85rem;">
+                ⚠️ <b>Device 2 Request:</b> ${s.pending_approval.device_name}<br>
+                🔐 <b>4-Digit Approval Code:</b> <span style="font-size:1.15rem; font-weight:900; color:#B91C1C;">${s.pending_approval.otp}</span>
+                <button class="btn btn-primary btn-sm" style="margin-top:6px;" onclick="approveDevice('${s.code}')">Approve Device 2</button>
+              </div>
+            `;
+          }
+
+          html += `
+            <div class="roster-card">
+              <div class="roster-header">
+                <div>
+                  <div class="student-name">${s.name} ${expiryText}</div>
+                  <div style="font-size:0.82rem; color:var(--muted);">${s.phone} ${s.email ? '• ' + s.email : ''}</div>
+                </div>
+                <div style="text-align:right;">
+                  <span class="code-badge">#${s.code}</span><br>
+                  <span class="credits-tag ${creditClass}" style="margin-top:4px; display:inline-block;">${rem} / 3 Deliverables Left</span>
+                </div>
+              </div>
+
+              <div style="font-size:0.88rem; font-weight:600; color:var(--navy); margin-top:4px;">
+                ${s.product_icon || '🛠️'} ${s.product_name}
+              </div>
+
+              <div class="devices-box">
+                <div>${dev1}</div>
+                <div style="margin-top:4px;">${dev2}</div>
+                ${sessionTag}
+              </div>
+
+              ${otpAlert}
+
+              <div class="action-row">
+                <a href="${s.target_url}" target="_blank" class="btn btn-outline-gold btn-sm">Open Tool &rarr;</a>
+                <button onclick="topupPass('${s.code}')" class="btn btn-gold btn-sm">⏳ +3 Days Top-Up</button>
+                <button onclick="reactivateLearner('${s.code}')" class="btn btn-primary btn-sm">🔄 New Code (+3 Deliv)</button>
+                <button onclick="resetDevices('${s.code}')" class="btn btn-outline-danger btn-sm">Reset Devices</button>
+              </div>
+            </div>
+          `;
+        });
+
+        rosterDiv.innerHTML = html;
+      } catch (err) {
+        console.error('Failed to load roster:', err);
+      }
+    }
+
+    async function generateLicense() {
+      const name = document.getElementById('inp-name').value.trim();
+      const phone = document.getElementById('inp-phone').value.trim();
+      const email = document.getElementById('inp-email').value.trim();
+      const product_slug = document.getElementById('inp-product').value;
+      const valid_days = document.getElementById('inp-days').value;
+
+      if (!name || !phone) {
+        alert('Please fill out Learner Name and WhatsApp Number.');
+        return;
+      }
+
+      const res = await authFetch('/api/issue-license', {
+        method: 'POST',
+        body: JSON.stringify({ name, phone, email, product_slug, valid_days })
+      });
+      const data = await res.json();
+
+      activeUrl = data.target_url;
+      activeWa = data.whatsapp_msg;
+
+      document.getElementById('res-student-name').innerText = `${data.student.name} (#${data.code})`;
+      document.getElementById('res-url').innerText = data.target_url;
+      document.getElementById('res-wa').value = data.whatsapp_msg;
+      document.getElementById('gen-result').style.display = 'block';
+
+      loadRoster();
+    }
+
+    function copyUrl() {
+      navigator.clipboard.writeText(activeUrl);
+      alert('✅ Target VIP Link copied to clipboard!');
+    }
+
+    function copyWhatsApp() {
+      navigator.clipboard.writeText(activeWa);
+      alert('✅ WhatsApp Message copied! Ready to paste into chat.');
+    }
+
+    async function topupPass(code) {
+      if (confirm(`Extend 7-day Outbound pass for #${code} by +3 days (72 hours)?`)) {
+        const res = await authFetch('/api/topup-license', {
+          method: 'POST',
+          body: JSON.stringify({ code, days: 3 })
+        });
+        const data = await res.json();
+        alert(data.message || 'Pass topped up!');
+        loadRoster();
+      }
+    }
+
+    async function approveDevice(code) {
+      if (confirm(`Approve Device 2 for #${code}?`)) {
+        await authFetch('/api/approve-device', {
+          method: 'POST',
+          body: JSON.stringify({ code, admin_override: true })
+        });
+        loadRoster();
+      }
+    }
+
+    async function resetDevices(code) {
+      if (confirm(`Reset all bound devices for #${code}? The next machine to open the link will become Primary.`)) {
+        await authFetch('/api/reset-devices', {
+          method: 'POST',
+          body: JSON.stringify({ code })
+        });
+        loadRoster();
+      }
+    }
+
+    async function reactivateLearner(oldCode) {
+      if (confirm(`Learner paid for +3 fresh deliverables? This will issue a new 4-digit code and prefill their renewal message.`)) {
+        const res = await authFetch('/api/reactivate-license', {
+          method: 'POST',
+          body: JSON.stringify({ old_code: oldCode })
+        });
+        const d = await res.json();
+        activeUrl = d.target_url;
+        activeWa = d.whatsapp_msg;
+        document.getElementById('res-student-name').innerText = `Recharged (#${d.new_code})`;
+        document.getElementById('res-url').innerText = d.target_url;
+        document.getElementById('res-wa').value = d.whatsapp_msg;
+        document.getElementById('gen-result').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        loadRoster();
+      }
+    }
+
+    // Auto-check authentication on page load
+    checkAuth();
+  </script>
+</body>
+</html>
