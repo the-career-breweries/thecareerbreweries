@@ -43,6 +43,64 @@ export default function DashboardScreen() {
   const [progressMap, setProgressMap] = useState<Record<string, number>>({});
   const [checkingAccess, setCheckingAccess] = useState(true);
   const [showDiagnosticBanner, setShowDiagnosticBanner] = useState(false);
+  const [mindlerCode, setMindlerCode] = useState<string | null>(null);
+  const [validUntil, setValidUntil] = useState<number | null>(null);
+  const [nowTimer, setNowTimer] = useState(Date.now());
+  const [topUpModalOpen, setTopUpModalOpen] = useState(false);
+  const [topUpCodeInput, setTopUpCodeInput] = useState('');
+  const [isTopUpLoading, setIsTopUpLoading] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const code = localStorage.getItem('tcb_mindler_code');
+      const vu = localStorage.getItem('tcb_valid_until');
+      if (code) setMindlerCode(code);
+      if (vu) setValidUntil(parseInt(vu, 10));
+    }
+    const timer = setInterval(() => setNowTimer(Date.now()), 30000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const passRemaining = (() => {
+    if (!validUntil) return null;
+    const diff = validUntil - nowTimer;
+    if (diff <= 0) return { text: 'Pass Expired', color: '#EF4444', isExpired: true };
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    return {
+      text: days > 0 ? `${days}d ${hours}h left` : `${hours}h ${mins}m left`,
+      color: days < 1 ? '#EF4444' : '#10B981',
+      isExpired: false
+    };
+  })();
+
+  const handleTopUpSubmit = async (codeToUse: string) => {
+    if (!mindlerCode) return;
+    setIsTopUpLoading(true);
+    try {
+      const res = await fetch('https://tcb-sentinel.vercel.app/api/topup-license', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code: mindlerCode, passcode: codeToUse, days: 3 })
+      });
+      const data = await res.json();
+      if (data.success) {
+        alert('🎉 Pass successfully topped up by +3 Days (+72 Hours)!');
+        if (data.valid_until) {
+          localStorage.setItem('tcb_valid_until', String(data.valid_until));
+          setValidUntil(data.valid_until);
+        }
+        setTopUpModalOpen(false);
+      } else {
+        alert('❌ ' + (data.error || 'Failed to activate top up.'));
+      }
+    } catch {
+      alert('Network error communicating with Sentinel.');
+    } finally {
+      setIsTopUpLoading(false);
+    }
+  };
 
   useEffect(() => {
     let unlocked = false;
@@ -220,7 +278,27 @@ export default function DashboardScreen() {
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center p-4 font-sans relative">
-      <div className="fixed top-4 right-4 z-50"><ThemeToggle /></div>
+      <div className="fixed top-4 right-4 z-50 flex items-center gap-2">
+        {passRemaining && (
+          <div
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-mono font-bold shadow-sm backdrop-blur-md"
+            style={{
+              background: passRemaining.isExpired ? 'rgba(239,68,68,0.15)' : 'rgba(16,185,129,0.15)',
+              borderColor: passRemaining.color,
+              color: passRemaining.color
+            }}
+          >
+            <span>⏳ {passRemaining.text}</span>
+            <button
+              onClick={() => setTopUpModalOpen(true)}
+              className="bg-[#C88323] hover:bg-[#b0721c] text-white rounded px-2 py-0.5 text-[10px] font-bold ml-1 cursor-pointer"
+            >
+              + Top Up
+            </button>
+          </div>
+        )}
+        <ThemeToggle />
+      </div>
 
       <main className="flex-grow flex flex-col items-center px-4 md:px-6 w-full max-w-4xl mx-auto mt-8 md:mt-14 gap-10">
         {/* Diagnostic Completion Welcome Toast */}
@@ -791,6 +869,41 @@ export default function DashboardScreen() {
           </div>
         </section>
       </main>
+
+      {/* 💳 User Top-Up Modal */}
+      {topUpModalOpen && (
+        <div style={{ position: 'fixed', inset: 0, zIndex: 99999, background: 'rgba(7,24,44,0.92)', backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
+          <div style={{ background: '#0F2D52', border: '2px solid #C88323', borderRadius: '20px', padding: '30px', maxWidth: '440px', width: '100%', color: 'white', boxShadow: '0 24px 48px rgba(0,0,0,0.6)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+              <div style={{ fontSize: '26px' }}>⏳</div>
+              <div>
+                <h3 style={{ fontSize: '19px', color: '#F8FAFC', margin: 0, fontWeight: 700 }}>Top Up Pass (+3 Days)</h3>
+                <div style={{ fontSize: '11.5px', color: '#94A3B8' }}>Extends active access by +72 hours for ₹299</div>
+              </div>
+            </div>
+            <p style={{ fontSize: '13px', color: '#CBD5E1', lineHeight: 1.6, marginBottom: '20px' }}>
+              Recharge your access window for +3 days. Maintains your 2 registered devices with single active session protection.
+            </p>
+            <a href={`https://wa.me/919743711584?text=Hi%20Coach%20Sandarsh!%20👋%20I%20would%20like%20to%20top%20up%20my%20Softskills%20Lab%20pass%20for%20%2B3%20days%20(₹299)%20(Code%20%23${mindlerCode||'public'}).`} target="_blank" rel="noreferrer" style={{ display: 'block', width: '100%', background: '#16A34A', color: 'white', textAlign: 'center', textDecoration: 'none', borderRadius: '10px', padding: '12px', fontWeight: 800, fontSize: '14px', marginBottom: '16px', boxSizing: 'border-box' }}>
+              💬 Request +3 Days on WhatsApp (₹299)
+            </a>
+            <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '16px' }}>
+              <div style={{ fontSize: '11px', color: '#94A3B8', marginBottom: '6px', textTransform: 'uppercase', fontWeight: 700 }}>Have an Authorization Code?</div>
+              <div style={{ display: 'flex', gap: '8px' }}>
+                <input type="text" placeholder="Passcode (e.g. 7755)" value={topUpCodeInput} onChange={e => setTopUpCodeInput(e.target.value)} style={{ flex: 1, padding: '10px 12px', borderRadius: '8px', border: '1.5px solid rgba(200,131,35,0.4)', background: 'rgba(255,255,255,0.06)', color: 'white', fontSize: '13px', outline: 'none' }} />
+                <button onClick={() => handleTopUpSubmit(topUpCodeInput.trim())} disabled={!topUpCodeInput.trim() || isTopUpLoading} style={{ background: '#C88323', color: 'white', border: 'none', borderRadius: '8px', padding: '0 16px', fontWeight: 700, fontSize: '12px', cursor: 'pointer' }}>
+                  {isTopUpLoading ? '...' : 'Apply'}
+                </button>
+              </div>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '18px' }}>
+              <button onClick={() => setTopUpModalOpen(false)} style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.2)', color: '#94A3B8', borderRadius: '8px', padding: '8px 16px', fontSize: '12px', fontWeight: 600, cursor: 'pointer' }}>
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
