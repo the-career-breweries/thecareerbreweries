@@ -38,6 +38,45 @@
       --shadow-md: 0 8px 24px rgba(28, 20, 16, 0.06);
       --shadow-lg: 0 16px 40px rgba(28, 20, 16, 0.09);
     }
+    [data-theme="dark"] {
+      --bg: #140E0A;
+      --card: #1C1410;
+      --card-subtle: #241A14;
+      --card-inner: #201712;
+      --dark: #FAF3E8;
+      --ink: #F0E6D8;
+      --soft: #A8988A;
+      --soft-light: #C4B5A6;
+      --amber: #E8A44A;
+      --amber-hover: #D89238;
+      --amber-light: rgba(232, 164, 74, 0.15);
+      --amber-subtle: rgba(232, 164, 74, 0.08);
+      --cream: #1C1410;
+      --border: #3A2B22;
+      --border-accent: rgba(232, 164, 74, 0.4);
+      --border-subtle: #2D211A;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+      --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.6);
+    }
+    .theme-toggle-btn {
+      background: transparent;
+      border: 1px solid var(--border-accent);
+      border-radius: 8px;
+      color: var(--dark);
+      cursor: pointer;
+      width: 34px;
+      height: 34px;
+      font-size: 15px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .2s;
+    }
+    .theme-toggle-btn:hover {
+      border-color: var(--amber);
+      transform: scale(1.05);
+    }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       background: var(--bg);
@@ -519,9 +558,12 @@
         <span class="brand-tagline">Career OS · Command Center</span>
       </div>
     </div>
-    <div id="nav-user-pill" class="user-pill" style="display: none;">
-      <span id="nav-user-name" class="user-name">Candidate</span>
-      <span id="nav-tier-badge" class="tier-badge">All-Access Pass</span>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <button id="portal-tbtn" class="theme-toggle-btn" onclick="togglePortalTheme()" aria-label="Toggle theme">☀️</button>
+      <div id="nav-user-pill" class="user-pill" style="display: none;">
+        <span id="nav-user-name" class="user-name">Candidate</span>
+        <span id="nav-tier-badge" class="tier-badge">All-Access Pass</span>
+      </div>
     </div>
   </header>
 
@@ -607,6 +649,64 @@
 
   </main>
 
+  <!-- Resume Rewriter Prompt Pop-out Modal -->
+  <div id="rewrite-prompt-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-box" style="max-width: 520px; text-align: left; position: relative;">
+      <button onclick="closeRewritePrompt()" style="position: absolute; top: 16px; right: 18px; background: none; border: none; font-size: 22px; color: var(--soft); cursor: pointer; line-height: 1;" aria-label="Close modal">&times;</button>
+      
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+        <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(201, 123, 42, 0.12); border: 1.5px solid var(--amber); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0;">
+          🎯
+        </div>
+        <div>
+          <div style="display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: #15803D; background: #DCFCE7; border: 1px solid #86EFAC; padding: 2px 8px; border-radius: 12px; text-transform: uppercase;">
+            Step 1 Completed • ATS <span id="prompt-modal-score">--</span>/100
+          </div>
+          <h3 style="font-family: 'Fraunces', serif; font-size: 22px; color: var(--dark); font-weight: 600; line-height: 1.25; margin-top: 4px;">
+            Next Step: Rewrite Your Resume
+          </h3>
+        </div>
+      </div>
+
+      <p style="font-size: 14px; color: var(--soft); line-height: 1.6; margin-bottom: 18px;" id="prompt-modal-desc">
+        Your ATS Audit is complete! We found key keyword gaps and unquantified metrics in your resume. Let's fix them now using the Google X-Y-Z formula.
+      </p>
+
+      <div style="background: var(--card-subtle); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; margin-bottom: 22px;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 700; color: var(--amber); text-transform: uppercase; margin-bottom: 8px;">
+          ⚡ Preloaded in Resume Rewriter:
+        </div>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--ink);">
+          <li style="display: flex; align-items: center; gap: 8px;">
+            <span style="color: #15803D; font-weight: 800;">✓</span>
+            <span>Resume: <strong id="prompt-modal-resume">Uploaded Resume</strong></span>
+          </li>
+          <li style="display: flex; align-items: center; gap: 8px;">
+            <span style="color: #15803D; font-weight: 800;">✓</span>
+            <span>Target Role: <strong id="prompt-modal-role">Target JD</strong></span>
+          </li>
+          <li style="display: flex; align-items: center; gap: 8px;">
+            <span style="color: #15803D; font-weight: 800;">✓</span>
+            <span>Full ATS Findings & Keyword Gaps</span>
+          </li>
+          <li style="display: flex; align-items: center; gap: 8px;">
+            <span style="color: #15803D; font-weight: 800;">✓</span>
+            <span>Interactive Voice-Enabled Skill Questions</span>
+          </li>
+        </ul>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <a id="prompt-modal-launch-btn" href="#" target="_blank" class="btn-launch" style="padding: 14px; font-size: 15px; text-decoration: none;">
+          ✍️ Launch Resume Rewriter (Preloaded) →
+        </a>
+        <button onclick="closeRewritePrompt()" style="background: none; border: none; color: var(--soft); font-size: 13px; cursor: pointer; text-decoration: underline; text-align: center; padding: 6px;">
+          Close & Stay on Dashboard
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Verification / Loading Gate Modal -->
   <div id="gate-modal" class="modal-overlay">
     <div class="modal-box">
@@ -662,7 +762,7 @@
         id: 'resume-audit',
         name: 'Resume Audit & ATS Scanner',
         icon: '📊',
-        phase: 'Phase 1 · Foundation',
+        phase: 'Step 1 · Audit',
         desc: 'Deep algorithmic ATS scanner evaluating keyword density, formatting risks, metric quantization, and role alignment.',
         features: ['ATS Compatibility Score (0-100)', 'Section-by-section breakdown', 'Quantification & metric gap detection'],
         url: 'https://tcb-resume-audit.vercel.app',
@@ -672,61 +772,72 @@
         id: 'resume-rewrite',
         name: 'Resume Rewriter (Google X-Y-Z)',
         icon: '✍️',
-        phase: 'Phase 1 · Foundation',
-        desc: 'Overhauls bullets section-by-section using Google X-Y-Z and STAR metrics based on interactive JD skill probing.',
+        phase: 'Step 2 · Rewrite',
+        desc: 'Overhauls bullets section-by-section using Google X-Y-Z and STAR metrics based on voice-guided competency probing.',
         features: ['JD Competency probing questions', 'Google X-Y-Z & STAR transformation', 'Single-page Word & PDF export'],
         url: 'https://tcb-resume-rewrite.vercel.app',
         price: '₹1,499'
       },
       {
-        id: 'resume-builder',
-        name: 'Resume Builder',
-        icon: '⚡',
-        phase: 'Phase 1 · Foundation',
-        desc: 'Voice-first, question-guided builder creating clean, single-page, ATS-compliant resumes with real-time PDF preview.',
-        features: ['Voice-guided questions', 'Executive single-page layout', 'Instant print-ready PDF'],
-        url: 'https://tcb-resume-builder.vercel.app',
+        id: 'question-scouter',
+        name: 'Question Scouter (AmbitionBox & Glassdoor)',
+        icon: '🔍',
+        phase: 'Step 3 · Scout',
+        desc: 'Scouts real-world interview questions asked for your target role across AmbitionBox, Glassdoor, and campus archives.',
+        features: ['Role-specific authentic question database', 'Round breakdown (HR, Technical, Managerial)', 'Asking frequencies & evaluator focus'],
+        url: 'https://tcb-interview-sim.vercel.app',
+        query: '?mode=scout',
         price: '₹799'
+      },
+      {
+        id: 'interview-sim',
+        name: 'Interview Simulator (2-Phase)',
+        icon: '🎙️',
+        phase: 'Step 4 · Practice',
+        desc: 'Phase 1: Scouted AmbitionBox & Glassdoor questions. Phase 2: Scenario-based workplace dilemmas. Live voice transcription & feedback.',
+        features: ['Phase 1: Real scouted role questions', 'Phase 2: Scenario-based workplace dilemmas', 'Voice recording, verbatim transcription & scoring'],
+        url: 'https://tcb-interview-sim.vercel.app',
+        price: '₹1,349'
+      },
+      {
+        id: 'recruiter-reach',
+        name: 'Recruiter Reach & Outbound',
+        icon: '🎯',
+        phase: 'Step 5 · Outbound',
+        desc: 'Auto-populated with your resume and target JD from Audit. Scouts verified hiring managers, HR leads, and drafts 3 custom pitches.',
+        features: ['Preloaded resume & JD from Audit', 'Hiring Manager LinkedIn profiles', 'Corporate email scout + 3 tailored pitches'],
+        url: 'https://tcb-recruiter-reach.vercel.app',
+        price: '₹1,799'
       },
       {
         id: 'linkedin-optimizer',
         name: 'LinkedIn Profile Optimizer',
         icon: '💼',
-        phase: 'Phase 2 · Inbound',
+        phase: 'Step 6 · Inbound',
         desc: 'Transforms your headline, About summary, and experience sections into a high-visibility recruiter magnet.',
         features: ['Headline formula generator', 'First-person executive About narrative', 'Experience bullet restructuring'],
         url: 'https://tcb-linkedin-optimizer.vercel.app',
         price: '₹799'
       },
       {
-        id: 'recruiter-reach',
-        name: 'Recruiter Reach & Outbound',
-        icon: '🎯',
-        phase: 'Phase 3 · Outbound',
-        desc: 'Scouts Hiring Managers, HR leads, and peers on LinkedIn + verifies corporate emails + generates 3 outreach notes.',
-        features: ['1-Click Resume parsing', 'Hiring Manager & Recruiter LinkedIn links', 'Corporate email scout + 3 custom pitches'],
-        url: 'https://tcb-recruiter-reach.vercel.app',
-        price: '₹1,799'
-      },
-      {
-        id: 'interview-sim',
-        name: 'Interview Simulator & Scout',
-        icon: '🎙️',
-        phase: 'Phase 4 · Conversion',
-        desc: 'Voice-enabled mock interviews with custom AmbitionBox/Glassdoor question imports and per-answer feedback reports.',
-        features: ['Voice text-to-speech simulation', 'Paste scouted AmbitionBox/Glassdoor questions', 'Per-answer scoring (1-10) & model answers'],
-        url: 'https://tcb-interview-sim.vercel.app',
-        price: '₹1,349'
-      },
-      {
         id: 'softskills-lab',
         name: 'Soft Skills & GD Lab',
         icon: '🗣️',
-        phase: 'Phase 4 · Conversion',
+        phase: 'Step 7 · Conversion',
         desc: 'Interactive drills for 7Cs of communication, Group Discussion dominance, the 1-3-1 crisis rule, and executive presence.',
         features: ['6 Interactive learning modules', 'Digital GD chits & topic generator', 'Flashcards & behavioral rubrics'],
         url: 'https://thecareerbreweries.vercel.app',
         price: '₹499'
+      },
+      {
+        id: 'resume-builder',
+        name: 'Resume Builder',
+        icon: '⚡',
+        phase: 'Alternative',
+        desc: 'Voice-guided builder creating clean, single-page ATS resumes from scratch. (Superseded if Resume Rewriter is used).',
+        features: ['Voice-guided questions', 'Executive single-page layout', 'Instant print-ready PDF'],
+        url: 'https://tcb-resume-builder.vercel.app',
+        price: '₹799'
       }
     ];
 
@@ -767,8 +878,16 @@
 
     // Extract access code from query or path
     const urlParams = new URLSearchParams(window.location.search);
-    const pathMatch = window.location.pathname.match(/portal-([a-zA-Z0-9_-]+)/);
-    let currentCode = urlParams.get('code') || (pathMatch ? pathMatch[1] : localStorage.getItem('tcb_portal_code'));
+    const currentPath = window.location.pathname;
+    const matchNameDash = currentPath.match(/\/([a-zA-Z0-9_-]+)-([0-9]{4})\/dashboard/i);
+    const matchCodeDash = currentPath.match(/\/([0-9]{4})\/dashboard/i);
+    const matchPortal = currentPath.match(/portal-([a-zA-Z0-9_-]+)/i);
+
+    let currentCode = urlParams.get('code') ||
+      (matchNameDash ? matchNameDash[2] : null) ||
+      (matchCodeDash ? matchCodeDash[1] : null) ||
+      (matchPortal ? matchPortal[1] : null) ||
+      localStorage.getItem('tcb_portal_code');
 
     async function verifySession(takeSession = false) {
       if (!currentCode) {
@@ -859,6 +978,12 @@
       }
     }
 
+    function closeRewritePrompt() {
+      sessionStorage.setItem('tcb_rewrite_modal_dismissed', '1');
+      const modal = document.getElementById('rewrite-prompt-modal');
+      if (modal) modal.style.display = 'none';
+    }
+
     function renderPortal(data) {
       // Hide modal
       document.getElementById('gate-modal').style.display = 'none';
@@ -875,9 +1000,33 @@
       // Calculate Days Left
       const msLeft = data.expires_in_ms || (data.valid_until - Date.now());
       const daysLeft = Math.max(0, Math.ceil(msLeft / (1000 * 60 * 60 * 24)));
-      document.getElementById('timer-val').innerText = `${daysLeft} Day${daysLeft === 1 ? '' : 's'}`;
+      document.getElementById('timer-val').innerText = `${daysLeft} Days`;
       document.getElementById('deliverables-val').innerText = `${data.credits_remaining !== undefined ? data.credits_remaining : 3} Left`;
       document.getElementById('device-val').innerText = data.role === 'PRIMARY' ? 'Primary' : 'Secondary';
+
+      const completedList = (data.completed_tools || []).map(t => t.toLowerCase());
+      const isAuditDone = completedList.includes('resume-audit');
+      const isRewriteDone = completedList.includes('resume-rewrite');
+      const isScoutDone = completedList.includes('question-scouter') || completedList.includes('interview-sim');
+      const isSimDone = completedList.includes('interview-sim');
+      const isOutboundDone = completedList.includes('recruiter-reach');
+
+      // Update Roadmap track based on progress
+      const bar = document.getElementById('readiness-bar');
+      const pct = document.getElementById('readiness-percent');
+      if (isOutboundDone) {
+        if (bar) bar.style.width = '100%';
+        if (pct) pct.innerText = 'Readiness: 100%';
+      } else if (isSimDone) {
+        if (bar) bar.style.width = '85%';
+        if (pct) pct.innerText = 'Readiness: 85%';
+      } else if (isRewriteDone) {
+        if (bar) bar.style.width = '75%';
+        if (pct) pct.innerText = 'Readiness: 75%';
+      } else if (isAuditDone) {
+        if (bar) bar.style.width = '50%';
+        if (pct) pct.innerText = 'Readiness: 50%';
+      }
 
       // Render Tools Grid
       const container = document.getElementById('tools-container');
@@ -887,19 +1036,109 @@
       const isAllAccess = data.tier === 'ALL_ACCESS' || unlockedList.includes('*');
 
       TOOLS_CATALOG.forEach(tool => {
-        const isUnlocked = isAllAccess || unlockedList.some(u => tool.id.includes(u) || u.includes(tool.id));
-        const launchUrl = `${tool.url}/mindler-user-${currentCode}`;
+        // If resume-rewrite is done, Resume Builder is superseded and hidden
+        if (tool.id === 'resume-builder' && isRewriteDone) {
+          return;
+        }
+
+        const isUnlocked = isAllAccess || unlockedList.some(u => tool.id.includes(u) || u.includes(tool.id) || (tool.id === 'question-scouter' && u.includes('interview-sim')));
+        const isCompleted = completedList.includes(tool.id);
+        const queryStr = tool.query ? `${tool.query}&code=${currentCode}` : `?code=${currentCode}`;
+        const launchUrl = `${tool.url}/mindler-user-${currentCode}${queryStr}`;
+
+        let statusBadgeHtml = '';
+        let buttonHtml = '';
+
+        if (tool.id === 'resume-audit' && isCompleted) {
+          statusBadgeHtml = `
+            <span class="tool-status-pill status-active" style="background:#DCFCE7; color:#15803D; border:1px solid #86EFAC;">
+              ✅ Completed · ATS ${data.ats_score || 'Done'}/100
+            </span>
+          `;
+          buttonHtml = `
+            <a href="${tool.url}/mindler-user-${currentCode}?viewReport=1&code=${currentCode}" target="_blank" class="btn-launch" style="background:#15803D; box-shadow:0 4px 14px rgba(21,128,61,0.28);">
+              🔍 View Completed Audit Report →
+            </a>
+          `;
+        } else if (tool.id === 'resume-rewrite' && isCompleted) {
+          statusBadgeHtml = `
+            <span class="tool-status-pill status-active" style="background:#DCFCE7; color:#15803D; border:1px solid #86EFAC;">
+              ✅ Rewrite Complete (X-Y-Z)
+            </span>
+          `;
+          buttonHtml = `
+            <a href="${tool.url}/mindler-user-${currentCode}?viewRewrite=1&code=${currentCode}" target="_blank" class="btn-launch" style="background:#15803D;">
+              📄 View Rewritten Resume →
+            </a>
+          `;
+        } else if (tool.id === 'resume-rewrite' && isAuditDone && isUnlocked) {
+          statusBadgeHtml = `
+            <span class="tool-status-pill status-active">
+              ⚡ Next Step · Preloaded
+            </span>
+          `;
+          buttonHtml = `
+            <a href="${tool.url}/mindler-user-${currentCode}?fromAudit=1&code=${currentCode}" target="_blank" class="btn-launch" style="background:var(--amber); box-shadow:0 4px 16px rgba(201,123,42,0.4);">
+              ✍️ Launch Rewriter (Audit Preloaded) →
+            </a>
+          `;
+        } else if (tool.id === 'question-scouter' && isRewriteDone && isUnlocked && !isScoutDone) {
+          statusBadgeHtml = `
+            <span class="tool-status-pill status-active" style="background:var(--amber); color:#fff;">
+              ⚡ Next Step · Role Questions
+            </span>
+          `;
+          buttonHtml = `
+            <a href="${launchUrl}" target="_blank" class="btn-launch" style="background:var(--amber); box-shadow:0 4px 16px rgba(201,123,42,0.4);">
+              🔍 Scout Interview Questions →
+            </a>
+          `;
+        } else if (tool.id === 'recruiter-reach' && isSimDone && isUnlocked && !isOutboundDone) {
+          statusBadgeHtml = `
+            <span class="tool-status-pill status-active" style="background:var(--amber); color:#fff;">
+              ⚡ Next Step · Auto-Preloaded
+            </span>
+          `;
+          buttonHtml = `
+            <a href="${launchUrl}&fromSim=1" target="_blank" class="btn-launch" style="background:var(--amber); box-shadow:0 4px 16px rgba(201,123,42,0.4);">
+              🎯 Scout Hiring Managers & Pitch →
+            </a>
+          `;
+        } else if (isUnlocked) {
+          statusBadgeHtml = `
+            <span class="tool-status-pill status-active">
+              ${isCompleted ? '✅ Completed' : '✅ Unlocked'}
+            </span>
+          `;
+          buttonHtml = `
+            <a href="${launchUrl}" target="_blank" class="btn-launch">
+              🚀 Launch ${tool.name.split(' ')[0]} →
+            </a>
+          `;
+        } else {
+          statusBadgeHtml = `
+            <span class="tool-status-pill status-locked">
+              🔒 Locked
+            </span>
+          `;
+          buttonHtml = `
+            <a href="https://wa.me/919482055920?text=Hi%20Coach%20Sandarsh!%20👋%20I%20have%20Code%20%23${currentCode}.%20I%20would%20like%20to%20unlock%20${encodeURIComponent(tool.name)}%20(${tool.price})%20or%20upgrade%20to%20All-Access." target="_blank" class="btn-unlock">
+              ⚡ Unlock for ${tool.price} (WhatsApp) →
+            </a>
+          `;
+        }
 
         const card = document.createElement('div');
         card.className = `tool-card ${isUnlocked ? 'unlocked' : 'locked'}`;
+        if (isCompleted) {
+          card.style.borderColor = '#86EFAC';
+        }
 
         card.innerHTML = `
           <div>
             <div class="tool-header">
               <div class="tool-icon">${tool.icon}</div>
-              <span class="tool-status-pill ${isUnlocked ? 'status-active' : 'status-locked'}">
-                ${isUnlocked ? '✅ Unlocked' : '🔒 Locked'}
-              </span>
+              ${statusBadgeHtml}
             </div>
             <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--amber); text-transform:uppercase; font-weight:700; margin-bottom:4px; letter-spacing:0.04em;">
               ${tool.phase}
@@ -911,20 +1150,46 @@
             </ul>
           </div>
           <div>
-            ${isUnlocked ? `
-              <a href="${launchUrl}" target="_blank" class="btn-launch">
-                🚀 Launch ${tool.name.split(' ')[0]} →
-              </a>
-            ` : `
-              <a href="https://wa.me/919482055920?text=Hi%20Coach%20Sandarsh!%20👋%20I%20have%20Code%20%23${currentCode}.%20I%20would%20like%20to%20unlock%20${encodeURIComponent(tool.name)}%20(${tool.price})%20or%20upgrade%20to%20All-Access." target="_blank" class="btn-unlock">
-                ⚡ Unlock for ${tool.price} (WhatsApp) →
-              </a>
-            `}
+            ${buttonHtml}
           </div>
         `;
 
         container.appendChild(card);
       });
+
+      // Display pop-out window prompting user to use Resume Rewriter if Resume Audit is done and Rewriter not done
+      if (isAuditDone && !isRewriteDone && !sessionStorage.getItem('tcb_rewrite_modal_dismissed')) {
+        const modal = document.getElementById('rewrite-prompt-modal');
+        if (modal) {
+          const scoreEl = document.getElementById('prompt-modal-score');
+          const resumeEl = document.getElementById('prompt-modal-resume');
+          const roleEl = document.getElementById('prompt-modal-role');
+          const launchBtn = document.getElementById('prompt-modal-launch-btn');
+
+          if (scoreEl) scoreEl.innerText = data.ats_score || '85';
+          if (resumeEl) resumeEl.innerText = data.resume_name || 'Uploaded Resume';
+          if (roleEl) roleEl.innerText = data.target_role || 'Target Role & JD';
+          if (launchBtn) launchBtn.href = `https://tcb-resume-rewrite.vercel.app/mindler-user-${currentCode}?fromAudit=1&code=${currentCode}`;
+
+          setTimeout(() => {
+            modal.style.display = 'flex';
+          }, 600);
+        }
+      }
+    }
+
+    // Theme support
+    var portalTheme = localStorage.getItem('tcb_theme') || 'light';
+    applyPortalTheme(portalTheme);
+    function applyPortalTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      var btn = document.getElementById('portal-tbtn');
+      if (btn) btn.textContent = t === 'dark' ? '☀️' : '🌙';
+    }
+    function togglePortalTheme() {
+      portalTheme = portalTheme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('tcb_theme', portalTheme);
+      applyPortalTheme(portalTheme);
     }
 
     // Run verification on page load
