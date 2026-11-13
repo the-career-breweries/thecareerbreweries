@@ -580,13 +580,20 @@
           Your unified command center for campus placement and job acquisition. Work through the continuous 5-step roadmap below to convert applications into offers.
         </p>
 
-        <!-- Track Selection Pills -->
-        <div style="display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap;">
+        <!-- Track & Resume Status Selection Pills -->
+        <div style="display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; align-items: center;">
           <button type="button" id="track-campus-btn" class="aud-btn active" style="padding: 6px 14px; font-size: 12px; border-radius: 20px;" onclick="setPlacementTrack('campus')">
             🎓 College Placement Drive Mode
           </button>
           <button type="button" id="track-offcampus-btn" class="aud-btn" style="padding: 6px 14px; font-size: 12px; border-radius: 20px;" onclick="setPlacementTrack('offcampus')">
             🌐 Off-Campus Direct Hunt Mode
+          </button>
+          <span style="color: var(--border); margin: 0 4px;">|</span>
+          <button type="button" id="resume-yes-btn" class="aud-btn active" style="padding: 6px 14px; font-size: 12px; border-radius: 20px;" onclick="setHasResumeStatus(true)">
+            📄 Have Resume (Start at Audit)
+          </button>
+          <button type="button" id="resume-no-btn" class="aud-btn" style="padding: 6px 14px; font-size: 12px; border-radius: 20px;" onclick="setHasResumeStatus(false)">
+            ✨ No Resume Yet (Start at Builder)
           </button>
         </div>
       </div>
@@ -596,8 +603,8 @@
           <div class="metric-lbl">Pass Validity</div>
         </div>
         <div class="metric-pill">
-          <div class="metric-val" id="deliverables-val">10 Left</div>
-          <div class="metric-lbl">Deliverables</div>
+          <div class="metric-val" id="deliverables-val">2 Resumes · 4 Mocks</div>
+          <div class="metric-lbl">Pass Quotas</div>
         </div>
         <div class="metric-pill">
           <div class="metric-val" id="device-val">Primary</div>
@@ -617,9 +624,9 @@
       </div>
       <div class="phases-grid">
         <div class="phase-card">
-          <div class="phase-num">Step 1 & 2 · Foundation</div>
-          <div class="phase-name">Resume Audit ➔ Rewriter</div>
-          <div class="phase-tools">ATS Scan ➔ Auto-Carried to Google X-Y-Z</div>
+          <div class="phase-num" id="roadmap-step1-num">Step 1 & 2 · Foundation</div>
+          <div class="phase-name" id="roadmap-step1-name">Resume Audit ➔ Rewriter</div>
+          <div class="phase-tools" id="roadmap-step1-desc">ATS Scan ➔ Auto-Carried to Google X-Y-Z</div>
         </div>
         <div class="phase-card">
           <div class="phase-num">Step 3 · Intelligence</div>
@@ -718,20 +725,35 @@
         <button type="button" class="btn-unlock" style="padding: 4px 10px; font-size: 11px; margin: 0; background: transparent; border: 1px solid var(--border);" onclick="closeTourModal()">Skip Tour ✕</button>
       </div>
 
-      <!-- Tour Step 1 -->
+      <!-- Tour Step 1: First Question — Do You Have a Resume? -->
       <div id="tour-slide-1" class="tour-slide">
-        <div style="font-size: 36px; margin-bottom: 10px;">🚀</div>
-        <h3 style="font-family:'Fraunces',serif; font-size: 22px; color: var(--dark); margin-bottom: 8px;">
-          Welcome to Your Placement Command Center!
+        <div style="font-size: 34px; margin-bottom: 8px;">📄</div>
+        <h3 style="font-family:'Fraunces',serif; font-size: 22px; color: var(--dark); margin-bottom: 6px;">
+          Welcome! First, do you already have a resume?
         </h3>
-        <p style="font-size: 13.5px; color: var(--soft); line-height: 1.6; margin-bottom: 16px;">
-          This dashboard converts your campus drives and off-campus applications into confirmed job offers. Your entire toolkit is arranged in a continuous, zero-re-upload pipeline.
+        <p style="font-size: 13px; color: var(--soft); line-height: 1.55; margin-bottom: 14px;">
+          We configure your starting tool automatically based on whether you have an existing resume draft or are starting from zero:
         </p>
-        <div style="background: var(--subtle-bg); border: 1.5px solid var(--border); border-radius: 12px; padding: 14px 16px; margin-bottom: 20px;">
-          <div style="font-size: 12.5px; font-weight: 700; color: var(--dark); margin-bottom: 4px;">🛡️ Sentinel Hardware Lock Active</div>
-          <div style="font-size: 11.5px; color: var(--soft); line-height: 1.5;">Your pass allows exactly 2 registered devices (1 Primary PC + 1 Mobile). Sessions are strictly 1 active machine at a time.</div>
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px;">
+          <label style="display: flex; align-items: flex-start; gap: 12px; background: var(--subtle-bg); border: 1.5px solid var(--amber); border-radius: 12px; padding: 13px 14px; cursor: pointer;" id="lbl-tour-res-yes">
+            <input type="radio" name="tour-has-resume" value="yes" checked onchange="onTourResumeRadioChange()" style="margin-top: 3px; accent-color: var(--amber);">
+            <div>
+              <div style="font-size: 13.5px; font-weight: 700; color: var(--dark);">✅ Yes, I already have a resume</div>
+              <div style="font-size: 11.5px; color: var(--soft); margin-top: 2px;">Start directly with <strong>Resume Audit & ATS Scanner ➔ Resume Rewriter</strong>. (Resume Builder will be shown on your dashboard as disabled).</div>
+            </div>
+          </label>
+          <label style="display: flex; align-items: flex-start; gap: 12px; background: var(--subtle-bg); border: 1.5px solid var(--border); border-radius: 12px; padding: 13px 14px; cursor: pointer;" id="lbl-tour-res-no">
+            <input type="radio" name="tour-has-resume" value="no" onchange="onTourResumeRadioChange()" style="margin-top: 3px; accent-color: var(--amber);">
+            <div>
+              <div style="font-size: 13.5px; font-weight: 700; color: var(--dark);">✨ No, I need to build my resume first</div>
+              <div style="font-size: 11.5px; color: var(--soft); margin-top: 2px;"><strong>Resume Builder</strong> becomes the <strong>#1 tool</strong> you use! Build your ATS resume from scratch, then carry it to Rewriter, Scouter & Mocks.</div>
+            </div>
+          </label>
         </div>
-        <button type="button" class="btn-launch" onclick="nextTourStep(2)">Next: Continuous Asset Pipeline →</button>
+        <div style="background: var(--subtle-bg); border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; margin-bottom: 16px;">
+          <div style="font-size: 11.5px; color: var(--soft); line-height: 1.45;">🛡️ <strong>Sentinel 2-Device Lock:</strong> Bound to 1 Primary PC + 1 Secondary Mobile (1 active session at a time).</div>
+        </div>
+        <button type="button" class="btn-launch" onclick="saveTourResumeAndNext()">Continue: View Pipeline Workflow →</button>
       </div>
 
       <!-- Tour Step 2 -->
@@ -855,7 +877,20 @@
   </div>
 
   <script>
-    // ── STRICT 7-TOOL CATALOG IN EXACT ORDER ────────────────────────
+    // ── RESUME BUILDER & STRICT 7-TOOL CATALOG IN EXACT ORDER ───────
+    const RESUME_BUILDER_TOOL = {
+      id: 'resume-builder',
+      name: 'Resume Builder (From Scratch)',
+      icon: '📝',
+      phase: 'Step 1 · Build From Scratch',
+      desc: 'Voice-first, question-guided resume builder creating a clean, single-page, ATS-compliant resume when you do not have an existing resume.',
+      features: ['Voice-guided section builder', 'Executive single-page ATS layout', 'Auto-carries into Resume Rewriter & Audit'],
+      url: 'https://tcb-resume-builder.vercel.app',
+      price: 'Included',
+      priceNum: 0,
+      chargeableSeparately: false
+    };
+
     const TOOLS_CATALOG = [
       {
         id: 'resume-audit',
@@ -875,7 +910,7 @@
         icon: '✍️',
         phase: 'Tool 2 · Foundation',
         desc: 'Overhauls bullets section-by-section using Google X-Y-Z and STAR metrics based on interactive JD skill probing.',
-        features: ['Preloads Resume, JD & Audit Report', 'Google X-Y-Z & STAR transformation', 'Single-page Word & PDF export'],
+        features: ['Preloads Resume, JD & Audit Report', 'Google X-Y-Z & STAR transformation + Before/After proof', 'Single-page Word & PDF export'],
         url: 'https://tcb-resume-rewrite.vercel.app',
         price: '₹999',
         priceNum: 999,
@@ -943,6 +978,9 @@
       }
     ];
 
+    var lastPortalData = null;
+    var currentHasResume = true;
+
     function getFingerprint() {
       try {
         const s = `${window.screen.width}x${window.screen.height}x${window.screen.colorDepth}`;
@@ -991,7 +1029,7 @@
       (matchPortal ? matchPortal[1] : null) ||
       localStorage.getItem('tcb_portal_code');
 
-    async function verifySession(takeSession = false) {
+    async function verifySession(takeSession = false, setHasResumeOverride = undefined) {
       if (!currentCode) {
         document.getElementById('gate-spinner').style.display = 'none';
         document.getElementById('gate-title').innerText = 'Enter Your Access Code';
@@ -1009,16 +1047,21 @@
       const devHash = getFingerprint();
       const devName = getDeviceName();
 
+      const reqBody = {
+        code: currentCode,
+        device_hash: devHash,
+        device_name: devName,
+        take_session: takeSession
+      };
+      if (typeof setHasResumeOverride === 'boolean') {
+        reqBody.set_has_resume = setHasResumeOverride;
+      }
+
       try {
         const res = await fetch('/api/verify-device', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            code: currentCode,
-            device_hash: devHash,
-            device_name: devName,
-            take_session: takeSession
-          })
+          body: JSON.stringify(reqBody)
         });
 
         const data = await res.json();
@@ -1080,42 +1123,156 @@
       }
     }
 
+    function syncResumeToggleUI() {
+      var yesBtn = document.getElementById('resume-yes-btn');
+      var noBtn = document.getElementById('resume-no-btn');
+      if (yesBtn) yesBtn.classList.toggle('active', currentHasResume === true);
+      if (noBtn) noBtn.classList.toggle('active', currentHasResume === false);
+
+      var step1Name = document.getElementById('roadmap-step1-name');
+      var step1Desc = document.getElementById('roadmap-step1-desc');
+      if (step1Name && step1Desc) {
+        if (currentHasResume === false) {
+          step1Name.innerText = 'Resume Builder ➔ Rewriter';
+          step1Desc.innerText = 'Build from Scratch ➔ Audit & Google X-Y-Z';
+        } else {
+          step1Name.innerText = 'Resume Audit ➔ Rewriter';
+          step1Desc.innerText = 'ATS Scan ➔ Auto-Carried to Google X-Y-Z';
+        }
+      }
+    }
+
+    function setHasResumeStatus(hasRes) {
+      currentHasResume = Boolean(hasRes);
+      localStorage.setItem('tcb_has_resume_' + currentCode, currentHasResume ? 'yes' : 'no');
+      syncResumeToggleUI();
+      if (lastPortalData) {
+        lastPortalData.has_resume = currentHasResume;
+        renderToolsSuite(lastPortalData);
+      }
+      // Persist asynchronously to Sentinel
+      fetch('/api/verify-device', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          code: currentCode,
+          device_hash: getFingerprint(),
+          device_name: getDeviceName(),
+          set_has_resume: currentHasResume
+        })
+      }).catch(function(){});
+    }
+
     function renderPortal(data) {
-      // Hide modal
+      lastPortalData = data;
       document.getElementById('gate-modal').style.display = 'none';
       document.getElementById('portal-content').style.display = 'block';
 
-      // Update Nav
       document.getElementById('nav-user-pill').style.display = 'flex';
       document.getElementById('nav-user-name').innerText = data.name || 'Candidate';
       document.getElementById('nav-tier-badge').innerText = data.tier === 'ALL_ACCESS' ? 'All-Access Pass' : (data.product || 'VIP Pass');
 
-      // Update Hero
       document.getElementById('welcome-title').innerText = `Welcome, ${data.name || 'Candidate'}!`;
-      
-      // Calculate Days Left
+
       const msLeft = data.expires_in_ms || (data.valid_until - Date.now());
       const daysLeft = Math.max(0, Math.ceil(msLeft / (1000 * 60 * 60 * 24)));
       document.getElementById('timer-val').innerText = `${daysLeft} Days`;
-      document.getElementById('deliverables-val').innerText = `${data.credits_remaining !== undefined ? data.credits_remaining : 3} Left`;
+
+      const rRem = data.resume_quota_remaining !== undefined ? data.resume_quota_remaining : 2;
+      const mRem = data.mock_quota_remaining !== undefined ? data.mock_quota_remaining : 4;
+      document.getElementById('deliverables-val').innerText = `${rRem} Resumes · ${mRem} Mocks`;
       document.getElementById('device-val').innerText = data.role === 'PRIMARY' ? 'Primary' : 'Secondary';
 
-      // Render Tools Grid with Strict Entitlement Gating & Order
+      // Determine has_resume state
+      const savedLocal = localStorage.getItem('tcb_has_resume_' + currentCode);
+      if (typeof data.has_resume === 'boolean') {
+        currentHasResume = data.has_resume;
+        localStorage.setItem('tcb_has_resume_' + currentCode, currentHasResume ? 'yes' : 'no');
+      } else if (savedLocal === 'yes' || savedLocal === 'no') {
+        currentHasResume = (savedLocal === 'yes');
+      } else {
+        currentHasResume = true;
+      }
+
+      syncResumeToggleUI();
+      renderToolsSuite(data);
+
+      // Launch Guided Tour (with "Do you have a resume?" question) on first visit or if has_resume not answered yet
+      if (!localStorage.getItem('tcb_tour_completed_' + currentCode) || (data.has_resume === null && !savedLocal)) {
+        setTimeout(openTourModal, 350);
+      }
+    }
+
+    function renderToolsSuite(data) {
       const container = document.getElementById('tools-container');
       container.innerHTML = '';
 
       const unlockedList = (data.unlocked_tools || []).map(t => t.toLowerCase());
       const isAllAccess = data.tier === 'ALL_ACCESS' || unlockedList.includes('*');
 
-      TOOLS_CATALOG.forEach(tool => {
+      // Build ordered suite based on whether student has a resume:
+      // - If currentHasResume === false ("No, I don't have a resume"):
+      //   Resume Builder is Tool #1 (Active/Unlocked), followed by Audit, Rewriter, Scouter, Sim, Reach, LinkedIn, Softskills.
+      // - If currentHasResume === true ("Yes, I have a resume"):
+      //   Tools 1-7 in strict order, plus Resume Builder displayed on dashboard as DISABLED.
+      let suiteList = [];
+      if (currentHasResume === false) {
+        suiteList = [
+          { ...RESUME_BUILDER_TOOL, isDisabledBuilder: false, phase: 'Step 1 · Start Here (No Resume Yet)' },
+          ...TOOLS_CATALOG
+        ];
+      } else {
+        suiteList = [
+          ...TOOLS_CATALOG.slice(0, 2),
+          { ...RESUME_BUILDER_TOOL, isDisabledBuilder: true, phase: 'Foundation · Disabled (Resume Ready)' },
+          ...TOOLS_CATALOG.slice(2)
+        ];
+      }
+
+      suiteList.forEach(tool => {
+        if (tool.isDisabledBuilder) {
+          const card = document.createElement('div');
+          card.className = 'tool-card locked';
+          card.style.opacity = '0.62';
+          card.innerHTML = `
+            <div>
+              <div class="tool-header">
+                <div class="tool-icon">${tool.icon}</div>
+                <span class="tool-status-pill status-locked" style="background: rgba(122,102,82,0.14); color: var(--soft);">
+                  ✓ Resume Ready · Disabled
+                </span>
+              </div>
+              <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--soft); text-transform:uppercase; font-weight:700; margin-bottom:4px; letter-spacing:0.04em;">
+                ${tool.phase}
+              </div>
+              <h3 class="tool-title">${tool.name}</h3>
+              <p class="tool-desc">${tool.desc}</p>
+              <ul class="tool-feature-list">
+                ${tool.features.map(f => `<li>${f}</li>`).join('')}
+              </ul>
+            </div>
+            <div style="margin-top: 16px;">
+              <button type="button" class="btn-unlock" disabled style="cursor: not-allowed; opacity: 0.75; width: 100%;">
+                🚫 Disabled (You Already Have a Resume)
+              </button>
+              <div style="text-align: center; margin-top: 6px;">
+                <a href="javascript:void(0)" onclick="setHasResumeStatus(false)" style="font-size: 11px; color: var(--amber); text-decoration: underline;">
+                  Don't have a resume? Enable Resume Builder as Step 1
+                </a>
+              </div>
+            </div>
+          `;
+          container.appendChild(card);
+          return;
+        }
+
         let isUnlocked = false;
-        if (currentCode === '8287') {
-          isUnlocked = true; // Coach Master Pass
+        if (currentCode === '8287' || tool.id === 'resume-builder') {
+          isUnlocked = true;
         } else if (tool.chargeableSeparately) {
-          // Tool 6 (LinkedIn) and Tool 7 (Softskills) are chargeable separately
-          isUnlocked = unlockedList.some(u => tool.id.includes(u) || u.includes(tool.id));
+          isUnlocked = unlockedList.includes(tool.id);
         } else {
-          isUnlocked = isAllAccess || unlockedList.some(u => tool.id.includes(u) || u.includes(tool.id));
+          isUnlocked = isAllAccess || unlockedList.includes(tool.id);
         }
 
         const launchUrl = tool.id === 'question-scouter'
@@ -1157,11 +1314,6 @@
 
         container.appendChild(card);
       });
-
-      // Launch Guided Tour automatically on first visit
-      if (!localStorage.getItem('tcb_tour_completed_' + currentCode)) {
-        setTimeout(openTourModal, 400);
-      }
     }
 
     // ── PLACEMENT TRACK MODE TOGGLE ─────────────────────────────────
@@ -1176,17 +1328,36 @@
 
       var outboundCard = document.getElementById('roadmap-outbound-card');
       if (outboundCard) {
-        if (mode === 'campus') {
-          outboundCard.style.opacity = '0.65';
-        } else {
-          outboundCard.style.opacity = '1';
-        }
+        outboundCard.style.opacity = (mode === 'campus') ? '0.65' : '1';
       }
     }
 
     // ── GUIDED ONBOARDING TOUR MODAL LOGIC ─────────────────────────
+    function onTourResumeRadioChange() {
+      var sel = document.querySelector('input[name="tour-has-resume"]:checked');
+      var yesLbl = document.getElementById('lbl-tour-res-yes');
+      var noLbl = document.getElementById('lbl-tour-res-no');
+      if (yesLbl && noLbl && sel) {
+        yesLbl.style.borderColor = sel.value === 'yes' ? 'var(--amber)' : 'var(--border)';
+        noLbl.style.borderColor = sel.value === 'no' ? 'var(--amber)' : 'var(--border)';
+      }
+    }
+    function saveTourResumeAndNext() {
+      var sel = document.querySelector('input[name="tour-has-resume"]:checked');
+      if (sel) {
+        setHasResumeStatus(sel.value === 'yes');
+      }
+      nextTourStep(2);
+    }
     function openTourModal() {
       document.getElementById('tour-modal').style.display = 'flex';
+      var yesRadio = document.querySelector('input[name="tour-has-resume"][value="yes"]');
+      var noRadio = document.querySelector('input[name="tour-has-resume"][value="no"]');
+      if (yesRadio && noRadio) {
+        yesRadio.checked = (currentHasResume === true);
+        noRadio.checked = (currentHasResume === false);
+        onTourResumeRadioChange();
+      }
       nextTourStep(1);
     }
     function closeTourModal() {
@@ -1202,6 +1373,10 @@
       if (badge) badge.innerText = 'Step ' + step + ' of 3 · Onboarding Tour';
     }
     function finishTour() {
+      var resSel = document.querySelector('input[name="tour-has-resume"]:checked');
+      if (resSel) {
+        setHasResumeStatus(resSel.value === 'yes');
+      }
       var selected = document.querySelector('input[name="tour-track"]:checked');
       if (selected) {
         setPlacementTrack(selected.value);
@@ -1243,11 +1418,26 @@
     async function proceedToPayTool() {
       if (!activeUnlockTool) return;
       var btn = document.getElementById('btn-pay-tool');
-      btn.innerText = 'Connecting to Razorpay Secure Gateway...';
+      btn.innerText = 'Creating Secure Order...';
+
+      var orderData = null;
+      try {
+        var oRes = await fetch('/api/checkout-fulfill', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            action: 'create_order',
+            track: 'fresher',
+            duration: 'weekly',
+            selected_tools: [activeUnlockTool.id]
+          })
+        });
+        orderData = await oRes.json();
+      } catch {}
 
       var options = {
-        key: 'rzp_live_TJN5b2o72kLRPP',
-        amount: activeUnlockTool.priceNum * 100,
+        key: (orderData && orderData.key_id) ? orderData.key_id : 'rzp_live_TJN5b2o72kLRPP',
+        amount: (orderData && orderData.amount) ? orderData.amount : (activeUnlockTool.priceNum * 100),
         currency: 'INR',
         name: 'The Career Breweries',
         description: activeUnlockTool.name + ' (' + activeUnlockTool.price + ')',
@@ -1256,10 +1446,11 @@
         handler: async function (response) {
           btn.innerText = 'Unlocking Tool in Sentinel...';
           try {
-            await fetch('https://tcb-sentinel.vercel.app/api/checkout-fulfill', {
+            await fetch('/api/checkout-fulfill', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
+                existing_code: currentCode,
                 name: document.getElementById('nav-user-name')?.innerText || 'Candidate',
                 phone: '9886799741',
                 product_slug: activeUnlockTool.id,
@@ -1267,10 +1458,12 @@
                 price: activeUnlockTool.price,
                 valid_days: 7,
                 payment_id: response.razorpay_payment_id,
+                razorpay_order_id: response.razorpay_order_id || (orderData && orderData.order_id) || null,
+                razorpay_signature: response.razorpay_signature || null,
                 unlocked_tools: [activeUnlockTool.id]
               })
             });
-            alert('🎉 ' + activeUnlockTool.name + ' successfully unlocked!');
+            alert('🎉 ' + activeUnlockTool.name + ' successfully unlocked on your pass!');
             closeUnlockToolModal();
             verifySession(true);
           } catch {
@@ -1284,6 +1477,10 @@
           }
         }
       };
+
+      if (orderData && orderData.order_id) {
+        options.order_id = orderData.order_id;
+      }
 
       try {
         var rzp = new Razorpay(options);
