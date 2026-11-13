@@ -558,7 +558,9 @@
         <span class="brand-tagline">Career OS · Command Center</span>
       </div>
     </div>
-    <div style="display: flex; align-items: center; gap: 10px;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <button type="button" class="btn-unlock" style="padding: 7px 12px; font-size: 12px; margin: 0; background: rgba(201,123,42,0.1); border-color: var(--amber); color: var(--amber);" onclick="openTourModal()">❓ Tour</button>
+      <button type="button" class="btn-unlock" style="padding: 7px 12px; font-size: 12px; margin: 0; background: rgba(201,123,42,0.1); border-color: var(--amber); color: var(--amber);" onclick="openMobileQrModal()">📱 Mobile QR</button>
       <button id="portal-tbtn" class="theme-toggle-btn" onclick="togglePortalTheme()" aria-label="Toggle theme">☀️</button>
       <div id="nav-user-pill" class="user-pill" style="display: none;">
         <span id="nav-user-name" class="user-name">Candidate</span>
@@ -575,12 +577,22 @@
       <div>
         <h1 class="hero-title" id="welcome-title">Welcome to Career OS</h1>
         <p class="hero-subtitle">
-          Your unified command center for campus placement and job acquisition. Work through the 4-phase roadmap below to convert applications into offers.
+          Your unified command center for campus placement and job acquisition. Work through the continuous 5-step roadmap below to convert applications into offers.
         </p>
+
+        <!-- Track Selection Pills -->
+        <div style="display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap;">
+          <button type="button" id="track-campus-btn" class="aud-btn active" style="padding: 6px 14px; font-size: 12px; border-radius: 20px;" onclick="setPlacementTrack('campus')">
+            🎓 College Placement Drive Mode
+          </button>
+          <button type="button" id="track-offcampus-btn" class="aud-btn" style="padding: 6px 14px; font-size: 12px; border-radius: 20px;" onclick="setPlacementTrack('offcampus')">
+            🌐 Off-Campus Direct Hunt Mode
+          </button>
+        </div>
       </div>
       <div class="metrics-strip">
         <div class="metric-pill">
-          <div class="metric-val" id="timer-val">14 Days</div>
+          <div class="metric-val" id="timer-val">7 Days</div>
           <div class="metric-lbl">Pass Validity</div>
         </div>
         <div class="metric-pill">
@@ -594,35 +606,35 @@
       </div>
     </section>
 
-    <!-- 4-Phase Roadmap -->
+    <!-- Placement War Room Roadmap -->
     <section class="roadmap-track">
       <div class="section-title">
-        <span>🗺️ Placement War Room Roadmap</span>
-        <span id="readiness-percent" style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--amber); margin-left:auto; font-weight:700;">Readiness: 45%</span>
+        <span>🗺️ Continuous Placement Pipeline</span>
+        <span id="readiness-percent" style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--amber); margin-left:auto; font-weight:700;">Progress: 2 / 7 Ready</span>
       </div>
       <div class="progress-bar-wrap">
-        <div class="progress-bar-fill" id="readiness-bar" style="width: 45%;"></div>
+        <div class="progress-bar-fill" id="readiness-bar" style="width: 35%;"></div>
       </div>
       <div class="phases-grid">
         <div class="phase-card">
-          <div class="phase-num">Phase 1 · Foundation</div>
-          <div class="phase-name">Resume Audit & X-Y-Z</div>
-          <div class="phase-tools">Audit Score ➔ Google X-Y-Z Rewrite</div>
+          <div class="phase-num">Step 1 & 2 · Foundation</div>
+          <div class="phase-name">Resume Audit ➔ Rewriter</div>
+          <div class="phase-tools">ATS Scan ➔ Auto-Carried to Google X-Y-Z</div>
         </div>
         <div class="phase-card">
-          <div class="phase-num">Phase 2 · Inbound</div>
-          <div class="phase-name">LinkedIn Optimizer</div>
-          <div class="phase-tools">Headline, About & Recruiter Keywords</div>
+          <div class="phase-num">Step 3 · Intelligence</div>
+          <div class="phase-name">Question Scouter</div>
+          <div class="phase-tools">AmbitionBox & Glassdoor Company Archive</div>
         </div>
         <div class="phase-card">
-          <div class="phase-num">Phase 3 · Outbound</div>
-          <div class="phase-name">Recruiter Reach</div>
-          <div class="phase-tools">Scout Hiring Managers & Work Emails</div>
-        </div>
-        <div class="phase-card">
-          <div class="phase-num">Phase 4 · Conversion</div>
+          <div class="phase-num">Step 4 · Simulation</div>
           <div class="phase-name">Interview Simulator</div>
-          <div class="phase-tools">Voice Mocks & Soft Skills Mastery</div>
+          <div class="phase-tools">Voice Mocks: Scouted Questions ➔ Dilemmas</div>
+        </div>
+        <div class="phase-card" id="roadmap-outbound-card">
+          <div class="phase-num">Step 5 · Outbound</div>
+          <div class="phase-name">Recruiter Reach</div>
+          <div class="phase-tools">Hiring Managers & Corporate Pitches</div>
         </div>
       </div>
     </section>
@@ -648,64 +660,6 @@
     </section>
 
   </main>
-
-  <!-- Resume Rewriter Prompt Pop-out Modal -->
-  <div id="rewrite-prompt-modal" class="modal-overlay" style="display: none;">
-    <div class="modal-box" style="max-width: 520px; text-align: left; position: relative;">
-      <button onclick="closeRewritePrompt()" style="position: absolute; top: 16px; right: 18px; background: none; border: none; font-size: 22px; color: var(--soft); cursor: pointer; line-height: 1;" aria-label="Close modal">&times;</button>
-      
-      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-        <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(201, 123, 42, 0.12); border: 1.5px solid var(--amber); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0;">
-          🎯
-        </div>
-        <div>
-          <div style="display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: #15803D; background: #DCFCE7; border: 1px solid #86EFAC; padding: 2px 8px; border-radius: 12px; text-transform: uppercase;">
-            Step 1 Completed • ATS <span id="prompt-modal-score">--</span>/100
-          </div>
-          <h3 style="font-family: 'Fraunces', serif; font-size: 22px; color: var(--dark); font-weight: 600; line-height: 1.25; margin-top: 4px;">
-            Next Step: Rewrite Your Resume
-          </h3>
-        </div>
-      </div>
-
-      <p style="font-size: 14px; color: var(--soft); line-height: 1.6; margin-bottom: 18px;" id="prompt-modal-desc">
-        Your ATS Audit is complete! We found key keyword gaps and unquantified metrics in your resume. Let's fix them now using the Google X-Y-Z formula.
-      </p>
-
-      <div style="background: var(--card-subtle); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; margin-bottom: 22px;">
-        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 700; color: var(--amber); text-transform: uppercase; margin-bottom: 8px;">
-          ⚡ Preloaded in Resume Rewriter:
-        </div>
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--ink);">
-          <li style="display: flex; align-items: center; gap: 8px;">
-            <span style="color: #15803D; font-weight: 800;">✓</span>
-            <span>Resume: <strong id="prompt-modal-resume">Uploaded Resume</strong></span>
-          </li>
-          <li style="display: flex; align-items: center; gap: 8px;">
-            <span style="color: #15803D; font-weight: 800;">✓</span>
-            <span>Target Role: <strong id="prompt-modal-role">Target JD</strong></span>
-          </li>
-          <li style="display: flex; align-items: center; gap: 8px;">
-            <span style="color: #15803D; font-weight: 800;">✓</span>
-            <span>Full ATS Findings & Keyword Gaps</span>
-          </li>
-          <li style="display: flex; align-items: center; gap: 8px;">
-            <span style="color: #15803D; font-weight: 800;">✓</span>
-            <span>Interactive Voice-Enabled Skill Questions</span>
-          </li>
-        </ul>
-      </div>
-
-      <div style="display: flex; flex-direction: column; gap: 10px;">
-        <a id="prompt-modal-launch-btn" href="#" target="_blank" class="btn-launch" style="padding: 14px; font-size: 15px; text-decoration: none;">
-          ✍️ Launch Resume Rewriter (Preloaded) →
-        </a>
-        <button onclick="closeRewritePrompt()" style="background: none; border: none; color: var(--soft); font-size: 13px; cursor: pointer; text-decoration: underline; text-align: center; padding: 6px;">
-          Close & Stay on Dashboard
-        </button>
-      </div>
-    </div>
-  </div>
 
   <!-- Verification / Loading Gate Modal -->
   <div id="gate-modal" class="modal-overlay">
@@ -756,88 +710,236 @@
     </div>
   </div>
 
+  <!-- ── 3-STEP ONBOARDING TOUR MODAL ── -->
+  <div id="tour-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-box" style="max-width: 540px; text-align: left;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+        <span class="status-pill status-active" id="tour-step-badge" style="font-family:'JetBrains Mono',monospace; font-size:11px;">Step 1 of 3 · Onboarding Tour</span>
+        <button type="button" class="btn-unlock" style="padding: 4px 10px; font-size: 11px; margin: 0; background: transparent; border: 1px solid var(--border);" onclick="closeTourModal()">Skip Tour ✕</button>
+      </div>
+
+      <!-- Tour Step 1 -->
+      <div id="tour-slide-1" class="tour-slide">
+        <div style="font-size: 36px; margin-bottom: 10px;">🚀</div>
+        <h3 style="font-family:'Fraunces',serif; font-size: 22px; color: var(--dark); margin-bottom: 8px;">
+          Welcome to Your Placement Command Center!
+        </h3>
+        <p style="font-size: 13.5px; color: var(--soft); line-height: 1.6; margin-bottom: 16px;">
+          This dashboard converts your campus drives and off-campus applications into confirmed job offers. Your entire toolkit is arranged in a continuous, zero-re-upload pipeline.
+        </p>
+        <div style="background: var(--subtle-bg); border: 1.5px solid var(--border); border-radius: 12px; padding: 14px 16px; margin-bottom: 20px;">
+          <div style="font-size: 12.5px; font-weight: 700; color: var(--dark); margin-bottom: 4px;">🛡️ Sentinel Hardware Lock Active</div>
+          <div style="font-size: 11.5px; color: var(--soft); line-height: 1.5;">Your pass allows exactly 2 registered devices (1 Primary PC + 1 Mobile). Sessions are strictly 1 active machine at a time.</div>
+        </div>
+        <button type="button" class="btn-launch" onclick="nextTourStep(2)">Next: Continuous Asset Pipeline →</button>
+      </div>
+
+      <!-- Tour Step 2 -->
+      <div id="tour-slide-2" class="tour-slide" style="display: none;">
+        <div style="font-size: 36px; margin-bottom: 10px;">🔄</div>
+        <h3 style="font-family:'Fraunces',serif; font-size: 22px; color: var(--dark); margin-bottom: 8px;">
+          Upload Once. Carried Everywhere.
+        </h3>
+        <p style="font-size: 13.5px; color: var(--soft); line-height: 1.6; margin-bottom: 16px;">
+          Never re-upload your resume or job description again:
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12.5px; color: var(--dark); margin-bottom: 20px;">
+          <div style="background:var(--subtle-bg); padding:10px 12px; border-radius:8px; border:1px solid var(--border);">
+            <strong>1. Resume Audit</strong> ➔ Upload PDF + JD. Evaluates ATS compatibility (0-100).
+          </div>
+          <div style="background:var(--subtle-bg); padding:10px 12px; border-radius:8px; border:1px solid var(--border);">
+            <strong>2. Resume Rewriter</strong> ➔ Preloads your audit assets. Rewrites with Google X-Y-Z.
+          </div>
+          <div style="background:var(--subtle-bg); padding:10px 12px; border-radius:8px; border:1px solid var(--border);">
+            <strong>3. Question Scouter</strong> ➔ Indexes real AmbitionBox & Glassdoor questions for that role.
+          </div>
+          <div style="background:var(--subtle-bg); padding:10px 12px; border-radius:8px; border:1px solid var(--border);">
+            <strong>4. Interview Simulator</strong> ➔ Drills scouted questions with voice recording & scoring.
+          </div>
+          <div style="background:var(--subtle-bg); padding:10px 12px; border-radius:8px; border:1px solid var(--border);">
+            <strong>5. Recruiter Reach</strong> ➔ Scouts hiring managers and crafts 3 conversion pitches.
+          </div>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <button type="button" class="btn-launch" style="background: transparent; color: var(--soft); border: 1.5px solid var(--border);" onclick="nextTourStep(1)">← Back</button>
+          <button type="button" class="btn-launch" onclick="nextTourStep(3)">Next: Select Placement Track →</button>
+        </div>
+      </div>
+
+      <!-- Tour Step 3 -->
+      <div id="tour-slide-3" class="tour-slide" style="display: none;">
+        <div style="font-size: 36px; margin-bottom: 10px;">🎯</div>
+        <h3 style="font-family:'Fraunces',serif; font-size: 22px; color: var(--dark); margin-bottom: 8px;">
+          Select Your Placement Mode
+        </h3>
+        <p style="font-size: 13.5px; color: var(--soft); line-height: 1.6; margin-bottom: 16px;">
+          How are you applying right now?
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+          <label style="display: flex; align-items: flex-start; gap: 12px; background: var(--subtle-bg); border: 1.5px solid var(--amber); border-radius: 12px; padding: 14px; cursor: pointer;">
+            <input type="radio" name="tour-track" value="campus" checked style="margin-top: 3px; accent-color: var(--amber);">
+            <div>
+              <div style="font-size: 13.5px; font-weight: 700; color: var(--dark);">🎓 College Placement Drive Mode</div>
+              <div style="font-size: 11.5px; color: var(--soft); margin-top: 2px;">Optimized for campus drives. Prioritizes Resume Audit, Rewriter, Question Scouter & Interview Voice Mocks.</div>
+            </div>
+          </label>
+          <label style="display: flex; align-items: flex-start; gap: 12px; background: var(--subtle-bg); border: 1.5px solid var(--border); border-radius: 12px; padding: 14px; cursor: pointer;">
+            <input type="radio" name="tour-track" value="offcampus" style="margin-top: 3px; accent-color: var(--amber);">
+            <div>
+              <div style="font-size: 13.5px; font-weight: 700; color: var(--dark);">🌐 Off-Campus Direct Hunt Mode</div>
+              <div style="font-size: 11.5px; color: var(--soft); margin-top: 2px;">Full pipeline including Recruiter Reach cold pitches to find hiring managers on LinkedIn.</div>
+            </div>
+          </label>
+        </div>
+        <button type="button" class="btn-launch" onclick="finishTour()">Complete Tour & Open Command Center →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MOBILE QR CODE MODAL ── -->
+  <div id="mobile-qr-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-box" style="text-align: center; max-width: 440px;">
+      <div style="font-size: 32px; margin-bottom: 8px;">📱</div>
+      <h3 style="font-family:'Fraunces',serif; font-size: 22px; color: var(--dark); margin-bottom: 6px;">
+        Practice on Mobile with Earphones
+      </h3>
+      <p style="font-size: 13px; color: var(--soft); line-height: 1.5; margin-bottom: 18px;">
+        Scan this QR code with your phone camera to open your pre-authorized voice practice mock. Plug in your earphones for late-night drills.
+      </p>
+
+      <div style="display: flex; justify-content: center; margin-bottom: 16px;">
+        <img id="mobile-qr-img" src="" alt="Mobile QR" style="width: 200px; height: 200px; border: 2px solid var(--border); border-radius: 12px; padding: 8px; background: #fff;" />
+      </div>
+
+      <div style="background: var(--subtle-bg); border: 1px solid var(--border); border-radius: 8px; padding: 10px; margin-bottom: 18px; font-family:'JetBrains Mono',monospace; font-size: 11px; color: var(--soft); word-break: break-all;" id="mobile-link-txt">
+        <!-- link populated by js -->
+      </div>
+
+      <button type="button" class="btn-launch" onclick="closeMobileQrModal()">Close Window</button>
+    </div>
+  </div>
+
+  <!-- ── UNLOCK TOOL PAYWALL MODAL ── -->
+  <div id="unlock-tool-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-box" style="max-width: 480px; text-align: left;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+        <span class="status-pill status-locked">🔒 Tool Gated Behind Paywall</span>
+        <button type="button" class="btn-unlock" style="padding: 4px 10px; font-size: 11px; margin: 0; background: transparent; border: 1px solid var(--border);" onclick="closeUnlockToolModal()">✕</button>
+      </div>
+      <h3 style="font-family:'Fraunces',serif; font-size: 22px; color: var(--dark); margin-bottom: 6px;" id="unlock-tool-name">
+        Unlock Tool
+      </h3>
+      <p style="font-size: 13.5px; color: var(--soft); line-height: 1.6; margin-bottom: 16px;" id="unlock-tool-desc">
+        This tool is not included in your current pass. You can unlock it individually or upgrade your pass.
+      </p>
+
+      <div style="background: var(--subtle-bg); border: 1.5px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <div style="font-size: 13.5px; font-weight: 700; color: var(--dark);" id="unlock-tool-tier-name">Individual Tool Pass</div>
+          <div style="font-size: 11.5px; color: var(--soft);">Full Access • 7 Days Validity</div>
+        </div>
+        <div style="font-family:'Fraunces',serif; font-size: 24px; font-weight: 700; color: var(--amber);" id="unlock-tool-price">
+          ₹799
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <button type="button" class="btn-launch" id="btn-pay-tool" onclick="proceedToPayTool()">
+          ⚡ Pay & Unlock Tool Now →
+        </button>
+        <a id="btn-wa-unlock" href="https://wa.me/919482055920" target="_blank" class="btn-unlock" style="text-align: center; text-decoration: none;">
+          💬 Chat with Coach Sandarsh on WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
   <script>
+    // ── STRICT 7-TOOL CATALOG IN EXACT ORDER ────────────────────────
     const TOOLS_CATALOG = [
       {
         id: 'resume-audit',
         name: 'Resume Audit & ATS Scanner',
         icon: '📊',
-        phase: 'Step 1 · Audit',
+        phase: 'Tool 1 · Foundation',
         desc: 'Deep algorithmic ATS scanner evaluating keyword density, formatting risks, metric quantization, and role alignment.',
-        features: ['ATS Compatibility Score (0-100)', 'Section-by-section breakdown', 'Quantification & metric gap detection'],
+        features: ['ATS Compatibility Score (0-100)', 'Section-by-section breakdown', 'Upload once — carried forward to Rewriter'],
         url: 'https://tcb-resume-audit.vercel.app',
-        price: '₹799'
+        price: '₹499',
+        priceNum: 499,
+        chargeableSeparately: false
       },
       {
         id: 'resume-rewrite',
         name: 'Resume Rewriter (Google X-Y-Z)',
         icon: '✍️',
-        phase: 'Step 2 · Rewrite',
-        desc: 'Overhauls bullets section-by-section using Google X-Y-Z and STAR metrics based on voice-guided competency probing.',
-        features: ['JD Competency probing questions', 'Google X-Y-Z & STAR transformation', 'Single-page Word & PDF export'],
+        phase: 'Tool 2 · Foundation',
+        desc: 'Overhauls bullets section-by-section using Google X-Y-Z and STAR metrics based on interactive JD skill probing.',
+        features: ['Preloads Resume, JD & Audit Report', 'Google X-Y-Z & STAR transformation', 'Single-page Word & PDF export'],
         url: 'https://tcb-resume-rewrite.vercel.app',
-        price: '₹1,499'
+        price: '₹999',
+        priceNum: 999,
+        chargeableSeparately: false
       },
       {
         id: 'question-scouter',
-        name: 'Question Scouter (AmbitionBox & Glassdoor)',
+        name: 'Question Scouter (Glassdoor/AmbitionBox)',
         icon: '🔍',
-        phase: 'Step 3 · Scout',
-        desc: 'Scouts real-world interview questions asked for your target role across AmbitionBox, Glassdoor, and campus archives.',
-        features: ['Role-specific authentic question database', 'Round breakdown (HR, Technical, Managerial)', 'Asking frequencies & evaluator focus'],
-        url: 'https://tcb-interview-sim.vercel.app',
-        query: '?mode=scout',
-        price: '₹799'
+        phase: 'Tool 3 · Intelligence',
+        desc: 'Scouts real interview questions asked for your target company and role from Glassdoor, AmbitionBox & drive archives.',
+        features: ['AmbitionBox & Glassdoor verified questions', 'Round 1 (Tech/OA) & Round 2 (HR/Managerial)', '1-Click export directly into Interview Simulator'],
+        url: 'https://tcb-interview-sim.vercel.app?mode=scout',
+        price: '₹499',
+        priceNum: 499,
+        chargeableSeparately: false
       },
       {
         id: 'interview-sim',
-        name: 'Interview Simulator (2-Phase)',
+        name: 'Interview Simulator & Voice Mocks',
         icon: '🎙️',
-        phase: 'Step 4 · Practice',
-        desc: 'Phase 1: Scouted AmbitionBox & Glassdoor questions. Phase 2: Scenario-based workplace dilemmas. Live voice transcription & feedback.',
-        features: ['Phase 1: Real scouted role questions', 'Phase 2: Scenario-based workplace dilemmas', 'Voice recording, verbatim transcription & scoring'],
+        phase: 'Tool 4 · Conversion',
+        desc: 'Voice-enabled mock interviews. Phase 1 drills scouted company questions; Phase 2 tests situational dilemmas.',
+        features: ['Phase 1: Scouted Questions | Phase 2: Behavioral Dilemmas', 'Re-record buffer + live speech analysis', 'Per-answer score (1-10) & read-aloud model answers'],
         url: 'https://tcb-interview-sim.vercel.app',
-        price: '₹1,349'
+        price: '₹899',
+        priceNum: 899,
+        chargeableSeparately: false
       },
       {
         id: 'recruiter-reach',
         name: 'Recruiter Reach & Outbound',
         icon: '🎯',
-        phase: 'Step 5 · Outbound',
-        desc: 'Auto-populated with your resume and target JD from Audit. Scouts verified hiring managers, HR leads, and drafts 3 custom pitches.',
-        features: ['Preloaded resume & JD from Audit', 'Hiring Manager LinkedIn profiles', 'Corporate email scout + 3 tailored pitches'],
+        phase: 'Tool 5 · Outbound',
+        desc: 'Scouts Hiring Managers, HR leads, and founders + verifies corporate emails + generates 3 personalized cold pitches.',
+        features: ['Preloads your resume & target role', 'Finds verified hiring managers on LinkedIn', 'Corporate email scout + 3 custom conversion pitches'],
         url: 'https://tcb-recruiter-reach.vercel.app',
-        price: '₹1,799'
+        price: '₹999',
+        priceNum: 999,
+        chargeableSeparately: false
       },
       {
         id: 'linkedin-optimizer',
         name: 'LinkedIn Profile Optimizer',
         icon: '💼',
-        phase: 'Step 6 · Inbound',
+        phase: 'Tool 6 · Add-on (Separately Chargeable)',
         desc: 'Transforms your headline, About summary, and experience sections into a high-visibility recruiter magnet.',
-        features: ['Headline formula generator', 'First-person executive About narrative', 'Experience bullet restructuring'],
+        features: ['Headline formula generator', 'First-person executive About narrative', 'Recruiter search keyword SEO'],
         url: 'https://tcb-linkedin-optimizer.vercel.app',
-        price: '₹799'
+        price: '₹799',
+        priceNum: 799,
+        chargeableSeparately: true
       },
       {
         id: 'softskills-lab',
         name: 'Soft Skills & GD Lab',
         icon: '🗣️',
-        phase: 'Step 7 · Conversion',
+        phase: 'Tool 7 · Add-on (Separately Chargeable)',
         desc: 'Interactive drills for 7Cs of communication, Group Discussion dominance, the 1-3-1 crisis rule, and executive presence.',
-        features: ['6 Interactive learning modules', 'Digital GD chits & topic generator', 'Flashcards & behavioral rubrics'],
+        features: ['Digital GD chits & topic generator', '7Cs communication drills', 'Behavioral rubrics & confidence scoring'],
         url: 'https://thecareerbreweries.vercel.app',
-        price: '₹499'
-      },
-      {
-        id: 'resume-builder',
-        name: 'Resume Builder',
-        icon: '⚡',
-        phase: 'Alternative',
-        desc: 'Voice-guided builder creating clean, single-page ATS resumes from scratch. (Superseded if Resume Rewriter is used).',
-        features: ['Voice-guided questions', 'Executive single-page layout', 'Instant print-ready PDF'],
-        url: 'https://tcb-resume-builder.vercel.app',
-        price: '₹799'
+        price: '₹499',
+        priceNum: 499,
+        chargeableSeparately: true
       }
     ];
 
@@ -978,12 +1080,6 @@
       }
     }
 
-    function closeRewritePrompt() {
-      sessionStorage.setItem('tcb_rewrite_modal_dismissed', '1');
-      const modal = document.getElementById('rewrite-prompt-modal');
-      if (modal) modal.style.display = 'none';
-    }
-
     function renderPortal(data) {
       // Hide modal
       document.getElementById('gate-modal').style.display = 'none';
@@ -1004,31 +1100,7 @@
       document.getElementById('deliverables-val').innerText = `${data.credits_remaining !== undefined ? data.credits_remaining : 3} Left`;
       document.getElementById('device-val').innerText = data.role === 'PRIMARY' ? 'Primary' : 'Secondary';
 
-      const completedList = (data.completed_tools || []).map(t => t.toLowerCase());
-      const isAuditDone = completedList.includes('resume-audit');
-      const isRewriteDone = completedList.includes('resume-rewrite');
-      const isScoutDone = completedList.includes('question-scouter') || completedList.includes('interview-sim');
-      const isSimDone = completedList.includes('interview-sim');
-      const isOutboundDone = completedList.includes('recruiter-reach');
-
-      // Update Roadmap track based on progress
-      const bar = document.getElementById('readiness-bar');
-      const pct = document.getElementById('readiness-percent');
-      if (isOutboundDone) {
-        if (bar) bar.style.width = '100%';
-        if (pct) pct.innerText = 'Readiness: 100%';
-      } else if (isSimDone) {
-        if (bar) bar.style.width = '85%';
-        if (pct) pct.innerText = 'Readiness: 85%';
-      } else if (isRewriteDone) {
-        if (bar) bar.style.width = '75%';
-        if (pct) pct.innerText = 'Readiness: 75%';
-      } else if (isAuditDone) {
-        if (bar) bar.style.width = '50%';
-        if (pct) pct.innerText = 'Readiness: 50%';
-      }
-
-      // Render Tools Grid
+      // Render Tools Grid with Strict Entitlement Gating & Order
       const container = document.getElementById('tools-container');
       container.innerHTML = '';
 
@@ -1036,109 +1108,30 @@
       const isAllAccess = data.tier === 'ALL_ACCESS' || unlockedList.includes('*');
 
       TOOLS_CATALOG.forEach(tool => {
-        // If resume-rewrite is done, Resume Builder is superseded and hidden
-        if (tool.id === 'resume-builder' && isRewriteDone) {
-          return;
-        }
-
-        const isUnlocked = isAllAccess || unlockedList.some(u => tool.id.includes(u) || u.includes(tool.id) || (tool.id === 'question-scouter' && u.includes('interview-sim')));
-        const isCompleted = completedList.includes(tool.id);
-        const queryStr = tool.query ? `${tool.query}&code=${currentCode}` : `?code=${currentCode}`;
-        const launchUrl = `${tool.url}/mindler-user-${currentCode}${queryStr}`;
-
-        let statusBadgeHtml = '';
-        let buttonHtml = '';
-
-        if (tool.id === 'resume-audit' && isCompleted) {
-          statusBadgeHtml = `
-            <span class="tool-status-pill status-active" style="background:#DCFCE7; color:#15803D; border:1px solid #86EFAC;">
-              ✅ Completed · ATS ${data.ats_score || 'Done'}/100
-            </span>
-          `;
-          buttonHtml = `
-            <a href="${tool.url}/mindler-user-${currentCode}?viewReport=1&code=${currentCode}" target="_blank" class="btn-launch" style="background:#15803D; box-shadow:0 4px 14px rgba(21,128,61,0.28);">
-              🔍 View Completed Audit Report →
-            </a>
-          `;
-        } else if (tool.id === 'resume-rewrite' && isCompleted) {
-          statusBadgeHtml = `
-            <span class="tool-status-pill status-active" style="background:#DCFCE7; color:#15803D; border:1px solid #86EFAC;">
-              ✅ Rewrite Complete (X-Y-Z)
-            </span>
-          `;
-          buttonHtml = `
-            <a href="${tool.url}/mindler-user-${currentCode}?viewRewrite=1&code=${currentCode}" target="_blank" class="btn-launch" style="background:#15803D;">
-              📄 View Rewritten Resume →
-            </a>
-          `;
-        } else if (tool.id === 'resume-rewrite' && isAuditDone && isUnlocked) {
-          statusBadgeHtml = `
-            <span class="tool-status-pill status-active">
-              ⚡ Next Step · Preloaded
-            </span>
-          `;
-          buttonHtml = `
-            <a href="${tool.url}/mindler-user-${currentCode}?fromAudit=1&code=${currentCode}" target="_blank" class="btn-launch" style="background:var(--amber); box-shadow:0 4px 16px rgba(201,123,42,0.4);">
-              ✍️ Launch Rewriter (Audit Preloaded) →
-            </a>
-          `;
-        } else if (tool.id === 'question-scouter' && isRewriteDone && isUnlocked && !isScoutDone) {
-          statusBadgeHtml = `
-            <span class="tool-status-pill status-active" style="background:var(--amber); color:#fff;">
-              ⚡ Next Step · Role Questions
-            </span>
-          `;
-          buttonHtml = `
-            <a href="${launchUrl}" target="_blank" class="btn-launch" style="background:var(--amber); box-shadow:0 4px 16px rgba(201,123,42,0.4);">
-              🔍 Scout Interview Questions →
-            </a>
-          `;
-        } else if (tool.id === 'recruiter-reach' && isSimDone && isUnlocked && !isOutboundDone) {
-          statusBadgeHtml = `
-            <span class="tool-status-pill status-active" style="background:var(--amber); color:#fff;">
-              ⚡ Next Step · Auto-Preloaded
-            </span>
-          `;
-          buttonHtml = `
-            <a href="${launchUrl}&fromSim=1" target="_blank" class="btn-launch" style="background:var(--amber); box-shadow:0 4px 16px rgba(201,123,42,0.4);">
-              🎯 Scout Hiring Managers & Pitch →
-            </a>
-          `;
-        } else if (isUnlocked) {
-          statusBadgeHtml = `
-            <span class="tool-status-pill status-active">
-              ${isCompleted ? '✅ Completed' : '✅ Unlocked'}
-            </span>
-          `;
-          buttonHtml = `
-            <a href="${launchUrl}" target="_blank" class="btn-launch">
-              🚀 Launch ${tool.name.split(' ')[0]} →
-            </a>
-          `;
+        let isUnlocked = false;
+        if (currentCode === '8287') {
+          isUnlocked = true; // Coach Master Pass
+        } else if (tool.chargeableSeparately) {
+          // Tool 6 (LinkedIn) and Tool 7 (Softskills) are chargeable separately
+          isUnlocked = unlockedList.some(u => tool.id.includes(u) || u.includes(tool.id));
         } else {
-          statusBadgeHtml = `
-            <span class="tool-status-pill status-locked">
-              🔒 Locked
-            </span>
-          `;
-          buttonHtml = `
-            <a href="https://wa.me/919482055920?text=Hi%20Coach%20Sandarsh!%20👋%20I%20have%20Code%20%23${currentCode}.%20I%20would%20like%20to%20unlock%20${encodeURIComponent(tool.name)}%20(${tool.price})%20or%20upgrade%20to%20All-Access." target="_blank" class="btn-unlock">
-              ⚡ Unlock for ${tool.price} (WhatsApp) →
-            </a>
-          `;
+          isUnlocked = isAllAccess || unlockedList.some(u => tool.id.includes(u) || u.includes(tool.id));
         }
+
+        const launchUrl = tool.id === 'question-scouter'
+          ? `https://tcb-interview-sim.vercel.app/mindler-user-${currentCode}?mode=scout`
+          : `${tool.url}/mindler-user-${currentCode}`;
 
         const card = document.createElement('div');
         card.className = `tool-card ${isUnlocked ? 'unlocked' : 'locked'}`;
-        if (isCompleted) {
-          card.style.borderColor = '#86EFAC';
-        }
 
         card.innerHTML = `
           <div>
             <div class="tool-header">
               <div class="tool-icon">${tool.icon}</div>
-              ${statusBadgeHtml}
+              <span class="tool-status-pill ${isUnlocked ? 'status-active' : 'status-locked'}">
+                ${isUnlocked ? '✅ Unlocked' : (tool.chargeableSeparately ? '🔒 Add-on Only' : '🔒 Locked')}
+              </span>
             </div>
             <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--amber); text-transform:uppercase; font-weight:700; margin-bottom:4px; letter-spacing:0.04em;">
               ${tool.phase}
@@ -1149,32 +1142,155 @@
               ${tool.features.map(f => `<li>${f}</li>`).join('')}
             </ul>
           </div>
-          <div>
-            ${buttonHtml}
+          <div style="margin-top: 16px;">
+            ${isUnlocked ? `
+              <a href="${launchUrl}" target="_blank" class="btn-launch">
+                🚀 Launch ${tool.name.split(' ')[0]} →
+              </a>
+            ` : `
+              <button type="button" class="btn-unlock" onclick="openUnlockToolModal('${tool.id}')">
+                🔒 Unlock ${tool.name.split(' ')[0]} (${tool.price}) →
+              </button>
+            `}
           </div>
         `;
 
         container.appendChild(card);
       });
 
-      // Display pop-out window prompting user to use Resume Rewriter if Resume Audit is done and Rewriter not done
-      if (isAuditDone && !isRewriteDone && !sessionStorage.getItem('tcb_rewrite_modal_dismissed')) {
-        const modal = document.getElementById('rewrite-prompt-modal');
-        if (modal) {
-          const scoreEl = document.getElementById('prompt-modal-score');
-          const resumeEl = document.getElementById('prompt-modal-resume');
-          const roleEl = document.getElementById('prompt-modal-role');
-          const launchBtn = document.getElementById('prompt-modal-launch-btn');
+      // Launch Guided Tour automatically on first visit
+      if (!localStorage.getItem('tcb_tour_completed_' + currentCode)) {
+        setTimeout(openTourModal, 400);
+      }
+    }
 
-          if (scoreEl) scoreEl.innerText = data.ats_score || '85';
-          if (resumeEl) resumeEl.innerText = data.resume_name || 'Uploaded Resume';
-          if (roleEl) roleEl.innerText = data.target_role || 'Target Role & JD';
-          if (launchBtn) launchBtn.href = `https://tcb-resume-rewrite.vercel.app/mindler-user-${currentCode}?fromAudit=1&code=${currentCode}`;
+    // ── PLACEMENT TRACK MODE TOGGLE ─────────────────────────────────
+    var currentPlacementTrack = localStorage.getItem('tcb_track_mode') || 'campus';
+    function setPlacementTrack(mode) {
+      currentPlacementTrack = mode;
+      localStorage.setItem('tcb_track_mode', mode);
+      var cBtn = document.getElementById('track-campus-btn');
+      var oBtn = document.getElementById('track-offcampus-btn');
+      if (cBtn) cBtn.classList.toggle('active', mode === 'campus');
+      if (oBtn) oBtn.classList.toggle('active', mode === 'offcampus');
 
-          setTimeout(() => {
-            modal.style.display = 'flex';
-          }, 600);
+      var outboundCard = document.getElementById('roadmap-outbound-card');
+      if (outboundCard) {
+        if (mode === 'campus') {
+          outboundCard.style.opacity = '0.65';
+        } else {
+          outboundCard.style.opacity = '1';
         }
+      }
+    }
+
+    // ── GUIDED ONBOARDING TOUR MODAL LOGIC ─────────────────────────
+    function openTourModal() {
+      document.getElementById('tour-modal').style.display = 'flex';
+      nextTourStep(1);
+    }
+    function closeTourModal() {
+      document.getElementById('tour-modal').style.display = 'none';
+      localStorage.setItem('tcb_tour_completed_' + currentCode, '1');
+    }
+    function nextTourStep(step) {
+      for (var s = 1; s <= 3; s++) {
+        var el = document.getElementById('tour-slide-' + s);
+        if (el) el.style.display = (s === step) ? 'block' : 'none';
+      }
+      var badge = document.getElementById('tour-step-badge');
+      if (badge) badge.innerText = 'Step ' + step + ' of 3 · Onboarding Tour';
+    }
+    function finishTour() {
+      var selected = document.querySelector('input[name="tour-track"]:checked');
+      if (selected) {
+        setPlacementTrack(selected.value);
+      }
+      closeTourModal();
+    }
+
+    // ── MOBILE PRACTICE QR MODAL LOGIC ──────────────────────────────
+    function openMobileQrModal() {
+      var mobileUrl = 'https://thecareerbreweries.vercel.app/portal?code=' + currentCode + '&device=mobile&autoLaunch=interview-sim';
+      var qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(mobileUrl);
+      var qrImg = document.getElementById('mobile-qr-img');
+      var linkTxt = document.getElementById('mobile-link-txt');
+      if (qrImg) qrImg.src = qrUrl;
+      if (linkTxt) linkTxt.innerText = mobileUrl;
+      document.getElementById('mobile-qr-modal').style.display = 'flex';
+    }
+    function closeMobileQrModal() {
+      document.getElementById('mobile-qr-modal').style.display = 'none';
+    }
+
+    // ── UNLOCK TOOL PAYWALL MODAL LOGIC ─────────────────────────────
+    var activeUnlockTool = null;
+    function openUnlockToolModal(toolId) {
+      var tool = TOOLS_CATALOG.find(t => t.id === toolId);
+      if (!tool) return;
+      activeUnlockTool = tool;
+
+      document.getElementById('unlock-tool-name').innerText = 'Unlock ' + tool.name;
+      document.getElementById('unlock-tool-desc').innerText = tool.desc;
+      document.getElementById('unlock-tool-price').innerText = tool.price;
+      document.getElementById('unlock-tool-tier-name').innerText = tool.name + ' Access Pass';
+      document.getElementById('btn-wa-unlock').href = 'https://wa.me/919482055920?text=Hi%20Coach%20Sandarsh!%20👋%20I%20have%20Code%20%23' + currentCode + '.%20I%20want%20to%20unlock%20' + encodeURIComponent(tool.name) + '%20(' + tool.price + ').';
+      document.getElementById('unlock-tool-modal').style.display = 'flex';
+    }
+    function closeUnlockToolModal() {
+      document.getElementById('unlock-tool-modal').style.display = 'none';
+    }
+    async function proceedToPayTool() {
+      if (!activeUnlockTool) return;
+      var btn = document.getElementById('btn-pay-tool');
+      btn.innerText = 'Connecting to Razorpay Secure Gateway...';
+
+      var options = {
+        key: 'rzp_live_TJN5b2o72kLRPP',
+        amount: activeUnlockTool.priceNum * 100,
+        currency: 'INR',
+        name: 'The Career Breweries',
+        description: activeUnlockTool.name + ' (' + activeUnlockTool.price + ')',
+        image: '/favicon-dark.png',
+        theme: { color: '#C97B2A' },
+        handler: async function (response) {
+          btn.innerText = 'Unlocking Tool in Sentinel...';
+          try {
+            await fetch('https://tcb-sentinel.vercel.app/api/checkout-fulfill', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                name: document.getElementById('nav-user-name')?.innerText || 'Candidate',
+                phone: '9886799741',
+                product_slug: activeUnlockTool.id,
+                tier: 'SINGLE_TOOL',
+                price: activeUnlockTool.price,
+                valid_days: 7,
+                payment_id: response.razorpay_payment_id,
+                unlocked_tools: [activeUnlockTool.id]
+              })
+            });
+            alert('🎉 ' + activeUnlockTool.name + ' successfully unlocked!');
+            closeUnlockToolModal();
+            verifySession(true);
+          } catch {
+            alert('Payment recorded! Refreshing portal...');
+            window.location.reload();
+          }
+        },
+        modal: {
+          ondismiss: function() {
+            btn.innerText = '⚡ Pay & Unlock Tool Now →';
+          }
+        }
+      };
+
+      try {
+        var rzp = new Razorpay(options);
+        rzp.open();
+      } catch {
+        alert('Opening WhatsApp for instant activation...');
+        window.open('https://wa.me/919482055920?text=Hi%20Coach%20Sandarsh!%20I%20want%20to%20unlock%20' + encodeURIComponent(activeUnlockTool.name) + '.', '_blank');
       }
     }
 
