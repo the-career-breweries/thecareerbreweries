@@ -172,7 +172,7 @@
       <!-- 1. Issue VIP Learner Access Link -->
       <div class="card">
         <div class="card-title">⚡ Issue VIP Access Link</div>
-        <div class="card-subtitle">Generates product-specific 4-digit hardware link (Hard Limit: 2 Devices | 1 Concurrent Session | 7-Day Pass)</div>
+        <div class="card-subtitle">Generates 4-digit Candidate Portal Pass (Hard Limit: 2 Devices | 1 Concurrent Session | 2 Resumes + 4 Voice Mocks on 7-Day Sprint)</div>
 
         <div class="form-grid">
           <div class="form-group">
@@ -191,27 +191,47 @@
           </div>
 
           <div class="form-group">
-            <label>Pass Validity Duration</label>
+            <label>Pass Validity & Quota Preset</label>
             <select id="inp-days">
-              <option value="7" selected>7 Days (Standard 1-Week Pass)</option>
-              <option value="3">3 Days (Top-Up Extension)</option>
-              <option value="14">14 Days (Extended Access)</option>
-              <option value="30">30 Days (VIP Full Month)</option>
+              <option value="7" selected>7 Days Sprint (2 Resumes + 4 Voice Mocks)</option>
+              <option value="30">30 Days Full Pass (8 Resumes + 16 Voice Mocks)</option>
+              <option value="14">14 Days Extended (2 Resumes + 4 Voice Mocks)</option>
+              <option value="3">3 Days Top-Up Extension</option>
             </select>
           </div>
 
-          <div class="form-group" style="grid-column: 1 / -1;">
-            <label>Select Tool / Accelerator</label>
+          <div class="form-group">
+            <label>Select Pass / Tool</label>
             <select id="inp-product">
-              <option value="ecosystem" selected>🚀 Career Ecosystem Pass (All Tools Unlocked) — ₹1,750/wk</option>
-              <option value="recruiter-reach">🎯 Recruiter Reach — ₹999 (7-Day Pass) / ₹1,999</option>
-              <option value="resume-rewrite">✨ Resume Rewriter — ₹1,499</option>
-              <option value="resume-builder">📄 Resume Builder — ₹799 / ₹2,499</option>
-              <option value="resume-audit">🔍 Resume Audit — ₹199 / ₹299</option>
-              <option value="interview-sim">🎧 Interview Simulator — ₹999</option>
-              <option value="softskills-lab">🎙️ Softskills Lab — ₹499 / ₹999</option>
-              <option value="linkedin-optimizer">🌟 LinkedIn Optimizer — ₹2,999</option>
+              <option value="ecosystem:fresher" selected>🚀 Fresher Placement Sprint (All Core Tools) — ₹2,000 (7d) / ₹6,000 (30d)</option>
+              <option value="ecosystem:professional">💼 Working Pro Sprint (All Core Tools) — ₹2,499 (7d) / ₹8,499 (30d)</option>
+              <option value="recruiter-reach:fresher">🎯 Recruiter Reach — ₹499 / ₹999</option>
+              <option value="resume-rewrite:fresher">✨ Resume Rewriter — ₹799 / ₹1,499</option>
+              <option value="resume-builder:fresher">📄 Resume Builder — Included / ₹799</option>
+              <option value="resume-audit:fresher">🔍 Resume Audit — ₹199 / ₹299</option>
+              <option value="interview-sim:fresher">🎧 Interview Simulator — ₹599 / ₹999</option>
+              <option value="linkedin-optimizer:fresher">🌟 LinkedIn Optimizer — +₹299 Add-On / ₹2,999</option>
+              <option value="soft-skills:fresher">🎙️ Soft Skills Lab — +₹499 Add-On / ₹999</option>
             </select>
+          </div>
+
+          <div class="form-group">
+            <label>Resume Builder First-Login Mode</label>
+            <select id="inp-has-resume">
+              <option value="null" selected>❓ Ask Student on First Login (Default)</option>
+              <option value="false">✨ No Resume Yet (Unlock Resume Builder #1)</option>
+              <option value="true">✅ Already Has Resume (Start at Audit · Disable Builder)</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="grid-column: 1 / -1; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 10px 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px;">
+            <span style="font-size: 0.78rem; font-weight: 700; color: #475569; text-transform: uppercase;">Optional Add-Ons:</span>
+            <label style="display: inline-flex; align-items: center; gap: 6px; margin: 0; font-size: 0.85rem; text-transform: none; cursor: pointer; color: #1E293B;">
+              <input type="checkbox" id="chk-addon-linkedin" style="width: 16px; height: 16px;"> 🌟 Include LinkedIn Optimizer (+₹299)
+            </label>
+            <label style="display: inline-flex; align-items: center; gap: 6px; margin: 0; font-size: 0.85rem; text-transform: none; cursor: pointer; color: #1E293B;">
+              <input type="checkbox" id="chk-addon-softskills" style="width: 16px; height: 16px;"> 🎙️ Include Soft Skills Lab (+₹499)
+            </label>
           </div>
         </div>
 
@@ -245,6 +265,7 @@
     let activeUrl = '';
     let activeWa = '';
     let resendCountdown = 0;
+    const SENTINEL_API = window.location.hostname.includes('tcb-sentinel') ? '' : 'https://tcb-sentinel.vercel.app';
 
     // ── Authentication Engine ────────────────────────────────────────────────
     function getAdminToken() {
@@ -274,7 +295,8 @@
         'Content-Type': 'application/json'
       };
 
-      const res = await fetch(url, options);
+      const fullUrl = url.startsWith('http') ? url : (SENTINEL_API + url);
+      const res = await fetch(fullUrl, options);
       if (res.status === 401) {
         sessionStorage.removeItem('tcb_sentinel_admin_token');
         alert('Your admin session has expired. Please verify with a new email passkey.');
@@ -292,7 +314,7 @@
       btn.disabled = true;
 
       try {
-        const res = await fetch('/api/admin-otp', {
+        const res = await fetch(SENTINEL_API + '/api/admin-otp', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ action: 'request' })
@@ -347,7 +369,7 @@
       btn.disabled = true;
 
       try {
-        const res = await fetch('/api/admin-otp', {
+        const res = await fetch(SENTINEL_API + '/api/admin-otp', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ action: 'verify', otp })
@@ -391,10 +413,13 @@
         const now = Date.now();
 
         data.students.forEach(s => {
-          const rem = s.credits_remaining !== undefined ? s.credits_remaining : 3;
-          let creditClass = 'credits-green';
-          if (rem === 1) creditClass = 'credits-yellow';
-          if (rem <= 0) creditClass = 'credits-red';
+          const rTot = s.resume_quota_total || ((s.pass_days || 7) >= 30 ? 8 : 2);
+          const rRem = s.resume_quota_remaining !== undefined ? s.resume_quota_remaining : Math.min(rTot, s.credits_remaining !== undefined ? s.credits_remaining : 2);
+          const mTot = s.mock_quota_total || ((s.pass_days || 7) >= 30 ? 16 : 4);
+          const mRem = s.mock_quota_remaining !== undefined ? s.mock_quota_remaining : Math.min(mTot, s.credits_remaining !== undefined ? s.credits_remaining : 4);
+
+          const rClass = rRem <= 0 ? 'credits-red' : (rRem === 1 ? 'credits-yellow' : 'credits-green');
+          const mClass = mRem <= 0 ? 'credits-red' : (mRem === 1 ? 'credits-yellow' : 'credits-green');
 
           const validUntil = s.valid_until || (s.created_at + (s.pass_days || 7) * 86400000);
           const isExpired = now > validUntil;
@@ -407,6 +432,17 @@
             const hoursLeft = Math.floor((diffMs % 86400000) / 3600000);
             expiryText = `<span class="expiry-tag expiry-active">⏳ ${daysLeft}d ${hoursLeft}h left</span>`;
           }
+
+          let resumeModeBadge = `<span style="font-size:0.74rem; background:#F1F5F9; color:#475569; padding:2px 8px; border-radius:6px; font-weight:700;">❓ Resume Question: Pending 1st Login</span>`;
+          if (s.has_resume === true) {
+            resumeModeBadge = `<span style="font-size:0.74rem; background:#ECFDF5; color:#065F46; padding:2px 8px; border-radius:6px; font-weight:700;">✅ Has Resume (Starts at Audit · Builder Disabled)</span>`;
+          } else if (s.has_resume === false) {
+            resumeModeBadge = `<span style="font-size:0.74rem; background:#FEF3C7; color:#92400E; padding:2px 8px; border-radius:6px; font-weight:700;">✨ No Resume Yet (Resume Builder #1 Active)</span>`;
+          }
+
+          const toolsList = Array.isArray(s.unlocked_tools) && s.unlocked_tools.length > 0
+            ? s.unlocked_tools.map(t => `<span style="font-size:0.7rem; background:#EFF6FF; color:#1D4ED8; border:1px solid #BFDBFE; padding:2px 6px; border-radius:5px; font-family:'JetBrains Mono',monospace;">${t}</span>`).join(' ')
+            : `<span style="font-size:0.7rem; color:#64748B;">${s.product_slug || 'ecosystem'}</span>`;
 
           const dev1 = s.devices?.primary ? `📱 <b>Primary:</b> ${s.devices.primary.name}` : `<i>Waiting for 1st device click</i>`;
           const dev2 = s.devices?.secondary ? `📱 <b>Secondary:</b> ${s.devices.secondary.name}` : `<i>Secondary Slot Empty</i>`;
@@ -427,21 +463,34 @@
             `;
           }
 
+          const portalUrl = `https://thecareerbreweries.vercel.app/portal?code=${s.code}`;
+          const nextHasResume = s.has_resume === false ? true : false;
+
           html += `
             <div class="roster-card">
               <div class="roster-header">
                 <div>
                   <div class="student-name">${s.name} ${expiryText}</div>
-                  <div style="font-size:0.82rem; color:var(--muted);">${s.phone} ${s.email ? '• ' + s.email : ''}</div>
+                  <div style="font-size:0.82rem; color:var(--muted);">${s.phone} ${s.email ? '• ' + s.email : ''} ${s.amount_paid ? '• Paid ₹' + s.amount_paid : ''}</div>
                 </div>
-                <div style="text-align:right;">
-                  <span class="code-badge">#${s.code}</span><br>
-                  <span class="credits-tag ${creditClass}" style="margin-top:4px; display:inline-block;">${rem} / 3 Deliverables Left</span>
+                <div style="text-align:right; display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                  <span class="code-badge">#${s.code}</span>
+                  <div style="display:flex; gap:4px; flex-wrap:wrap; justify-content:flex-end;">
+                    <span class="credits-tag ${rClass}">📄 ${rRem}/${rTot} Resumes</span>
+                    <span class="credits-tag ${mClass}">🎙️ ${mRem}/${mTot} Mocks</span>
+                  </div>
                 </div>
               </div>
 
-              <div style="font-size:0.88rem; font-weight:600; color:var(--navy); margin-top:4px;">
-                ${s.product_icon || '🛠️'} ${s.product_name}
+              <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px; margin-top:6px;">
+                <div style="font-size:0.88rem; font-weight:600; color:var(--navy);">
+                  ${s.product_icon || '🚀'} ${s.product_name || 'TCB Placement Pass'}
+                </div>
+                ${resumeModeBadge}
+              </div>
+
+              <div style="margin-top:6px; display:flex; flex-wrap:wrap; gap:4px;">
+                ${toolsList}
               </div>
 
               <div class="devices-box">
@@ -453,9 +502,13 @@
               ${otpAlert}
 
               <div class="action-row">
-                <a href="${s.target_url}" target="_blank" class="btn btn-outline-gold btn-sm">Open Tool &rarr;</a>
-                <button onclick="topupPass('${s.code}')" class="btn btn-gold btn-sm">⏳ +3 Days Top-Up</button>
-                <button onclick="reactivateLearner('${s.code}')" class="btn btn-primary btn-sm">🔄 New Code (+3 Deliv)</button>
+                <a href="${portalUrl}" target="_blank" class="btn btn-outline-gold btn-sm">Open Portal &rarr;</a>
+                <button onclick="quickUpdateStudent('${s.code}', { add_resumes: 1 })" class="btn btn-gold btn-sm">📄 +1 Resume</button>
+                <button onclick="quickUpdateStudent('${s.code}', { add_mocks: 2 })" class="btn btn-gold btn-sm">🎙️ +2 Mocks</button>
+                <button onclick="quickUpdateStudent('${s.code}', { has_resume: ${nextHasResume} })" class="btn btn-outline-gold btn-sm">🔄 ${s.has_resume === false ? 'Disable Builder (Has Resume)' : 'Enable Builder #1 (No Resume)'}</button>
+                <button onclick="quickUpdateStudent('${s.code}', { include_addons: ['linkedin-optimizer', 'soft-skills'] })" class="btn btn-outline-gold btn-sm">🌟 +Unlock Add-Ons</button>
+                <button onclick="topupPass('${s.code}')" class="btn btn-primary btn-sm">⏳ +3 Days</button>
+                <button onclick="reactivateLearner('${s.code}')" class="btn btn-primary btn-sm">🔄 New Code</button>
                 <button onclick="resetDevices('${s.code}')" class="btn btn-outline-danger btn-sm">Reset Devices</button>
               </div>
             </div>
@@ -472,8 +525,14 @@
       const name = document.getElementById('inp-name').value.trim();
       const phone = document.getElementById('inp-phone').value.trim();
       const email = document.getElementById('inp-email').value.trim();
-      const product_slug = document.getElementById('inp-product').value;
+      const prodRaw = document.getElementById('inp-product').value;
+      const [product_slug, persona] = prodRaw.includes(':') ? prodRaw.split(':') : [prodRaw, 'fresher'];
       const valid_days = document.getElementById('inp-days').value;
+      const hasResumeRaw = document.getElementById('inp-has-resume').value;
+      const has_resume = hasResumeRaw === 'true' ? true : (hasResumeRaw === 'false' ? false : null);
+      const include_addons = [];
+      if (document.getElementById('chk-addon-linkedin')?.checked) include_addons.push('linkedin-optimizer');
+      if (document.getElementById('chk-addon-softskills')?.checked) include_addons.push('soft-skills');
 
       if (!name || !phone) {
         alert('Please fill out Learner Name and WhatsApp Number.');
@@ -482,7 +541,7 @@
 
       const res = await authFetch('/api/issue-license', {
         method: 'POST',
-        body: JSON.stringify({ name, phone, email, product_slug, valid_days })
+        body: JSON.stringify({ name, phone, email, product_slug, persona, valid_days, has_resume, include_addons })
       });
       const data = await res.json();
 
@@ -495,6 +554,23 @@
       document.getElementById('gen-result').style.display = 'block';
 
       loadRoster();
+    }
+
+    async function quickUpdateStudent(code, updates) {
+      try {
+        const res = await authFetch('/api/issue-license', {
+          method: 'POST',
+          body: JSON.stringify({ action: 'update_student', code, ...updates })
+        });
+        const data = await res.json();
+        if (data.success) {
+          loadRoster();
+        } else {
+          alert(data.error || 'Failed to update student.');
+        }
+      } catch (e) {
+        alert('Network error updating student.');
+      }
     }
 
     function copyUrl() {
